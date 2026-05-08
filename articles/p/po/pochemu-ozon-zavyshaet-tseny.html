@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Почему Озон завышает цены: анализ алгоритмов ценообразования — Об Озоне</title>
+    <meta name="description" content="Разбираемся, почему на Озоне цены выше, чем в магазине. Влияние комиссий, логистики FBO/FBS, динамического ценообразования и скрытых расходов продавца.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/p/po/pochemu-ozon-zavyshaet-tseny.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Почему Озон завышает цены: анализ алгоритмов ценообразования">
+    <meta property="og:description" content="Разбираемся, почему на Озоне цены выше, чем в магазине. Влияние комиссий, логистики FBO/FBS, динамического ценообразования и скрытых расходов продавца.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/" class="pb-nav-active">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pokupki-i-oplata/">Покупки и Оплата</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Почему Озон завышает цены: анализ алгоритмов ценообразования</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#структура-комиссий-и-их-влияние-на-конечную-стоимость">Структура комиссий и их влияние на конечную стоимость</a></li><li><a href="#логистические-расходы-fbo-против-fbs">Логистические расходы: FBO против FBS</a></li><li><a href="#рекламные-инструменты-и-продвижение-товаров">Рекламные инструменты и продвижение товаров</a></li><li><a href="#динамическое-ценообразование-и-алгоритмы-ранжирования">Динамическое ценообразование и алгоритмы ранжирования</a></li><li><a href="#скрытые-расходы-возвраты-брак-и-хранение">Скрытые расходы: возвраты, брак и хранение</a></li><li><a href="#сезонность-и-спрос-как-они-меняют-цену">Сезонность и спрос: как они меняют цену</a></li><li><a href="#сравнение-стоимости-владения-озон-против-своего-магазина">Сравнение стоимости владения: Озон против своего магазина</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-popolnit-stim-s-ozon-banka.html">Как пополнить Steam с Ozon Банка: актуальная инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-na-ozone-bonusami-yumani.html">Как оплатить на Озоне бонусами ЮМани: пошаговая инструкция 2026</a></li><li><a href="/articles/t/ta/tarif-po-nk-i-ozon-chto-eto.html">Тариф НК и Озон: что это, как работает и сколько стоит в 2026 году</a></li><li><a href="/articles/y/ym/ym-ozon-gorod-moskva-rus-chto-eto.html">ym ozon gorod moskva rus: расшифровка кодов в чеках</a></li><li><a href="/articles/k/ka/kak-na-ozone-sdelat-kartu-osnovnoj.html">Как сделать карту основной на Озоне: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Почему Озон завышает цены: экономический анализ для продавца</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#структура-комиссий-и-их-влияние-на-конечную-стоимость">Структура комиссий и их влияние на конечную стоимость</a></li><li><a href="#логистические-расходы-fbo-против-fbs">Логистические расходы: FBO против FBS</a></li><li><a href="#рекламные-инструменты-и-продвижение-товаров">Рекламные инструменты и продвижение товаров</a></li><li><a href="#динамическое-ценообразование-и-алгоритмы-ранжирования">Динамическое ценообразование и алгоритмы ранжирования</a></li><li><a href="#скрытые-расходы-возвраты-брак-и-хранение">Скрытые расходы: возвраты, брак и хранение</a></li><li><a href="#сезонность-и-спрос-как-они-меняют-цену">Сезонность и спрос: как они меняют цену</a></li><li><a href="#сравнение-стоимости-владения-озон-против-своего-магазина">Сравнение стоимости владения: Озон против своего магазина</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Столкнувшись с ситуацией, когда итоговая стоимость товара на маркетплейсе превышает ценник в розничной точке или на собственном сайте продавца, многие покупатели испытывают недоумение. Однако для селлеров это не просто случайность, а результат сложной математической модели, в которую заложены десятки переменных. <strong>Финальная цена</strong> для потребителя формируется не по прихоти продавца, а под давлением жестких условий платформы, которые диктуют необходимость покрывать операционные расходы.</p>
+
+<p>В основе ценообразования лежит баланс между желанием остаться конкурентоспособным и обязанностью выплатить комиссии. Если вы видите, что на площадке стоимость товара искусственно раздута, это часто свидетельствует о том, что продавец включил в нее все возможные риски. <em>Динамическое ценообразование</em> и алгоритмы ранжирования вынуждают участников рынка постоянно пересчитывать маржинальность, что напрямую влияет на то, сколько в итоге заплатит клиент.</p>
+
+<p>Понимание механики этих процессов позволяет не только объяснить феномен «дорогого Озона», но и прогнозировать поведение рынка. В этой статье мы детально разберем, из чего складывается наценка и какие скрытые факторы заставляют стоимость товаров расти.</p>
+
+<h2 id="структура-комиссий-и-их-влияние-на-конечную-стоимость">Структура комиссий и их влияние на конечную стоимость</h2>
+
+<p>Первым и самым очевидным фактором, формирующим высокую цену, является комиссия категории. Маркетплейс берет процент с каждой продажи, и этот процент варьируется в зависимости от типа товара. Для электроники он может быть одним, а для одежды или товаров для дома — совершенно другим, достигая в некоторых нишах <strong>15-20%</strong> от стоимости единицы.</p>
+
+<p>Продавцы вынуждены закладывать этот расход в стоимость товара еще на этапе планирования. Если не сделать «накрутку», торговля станет убыточной. Кроме того, существует комиссия за эквайринг, которая оплачивается отдельно и также включается в финальный ценник для покупателя.</p>
+
+<ul>
+<li>📉 Комиссия за категорию — основной расход, зависящий от типа товара.</li>
+<li>💳 Эквайринг — плата за обработку платежей, которая растет вместе с оборотом.</li>
+<li>📦 Логистика до клиента — стоимость доставки, которую часто берет на себя продавец.</li>
+<li>🔄 Обработка возвратов — плата за проверку и возврат товара, если он не понравился покупателю.</li>
+</ul>
+
+<p>Важно учитывать, что комиссии могут меняться. Платформа периодически обновляет тарифную сетку, и продавец должен оперативно реагировать на изменения, чтобы не уйти в минус. Часто именно внезапное повышение комиссионных процентов становится причиной резкого скачка цен на полке.</p>
+
+<div class="pb-poll" id="poll-afb315f2"><div class="pb-poll-question">📊 Что чаще всего влияет на вашу решение о покупке на маркетплейсе?</div><div class="pb-poll-option" data-poll="afb315f2" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Низкая цена товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="afb315f2" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Бесплатная доставка</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="afb315f2" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Отзывы покупателей</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="afb315f2" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Скорость доставки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="логистические-расходы-fbo-против-fbs">Логистические расходы: FBO против FBS</h2>
+
+<p>Выбор схемы работы напрямую диктует ценовую политику. При работе по модели <em>FBO (Fulfillment by Ozon)</em> продавец отгружает товар на склад маркетплейса, оплачивая хранение и логистику. Эти расходы, включая приемку и размещение, неизбежно ложатся в себестоимость. Чем дольше товар лежит на складе, тем дороже он обходится, и тем выше цена для конечного потребителя.</p>
+
+<p>С другой стороны, схема <em>FBS (Fulfillment by Seller)</em> предполагает хранение на складе продавца. Здесь основные расходы приходятся на упаковку и доставку до сортировочного центра. Однако даже в этом случае тарифы на логистику внутри платформы высоки. <strong>Логистический плечо</strong> — расстояние от склада до покупателя — является критическим параметром в формуле цены.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Хранение товаров на складах маркетплейса в периоды низкого спроса (например, сезонные товары вне сезона) может стоить дороже, чем сам товар. Это заставляет продавцов резко повышать цены, чтобы окупить простой.</p>
+</blockquote>
+
+<p>Также стоит отметить стоимость упаковки. Маркетплейс требует соблюдения строгих габаритов и стандартов упаковки. Специализированные пакеты, короба и паллетирование — это дополнительные расходы, которые включаются в цену товара. Если товар габаритный, логистические расходы могут составлять до 30% от его стоимости.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте калькулятор маржинальности перед запуском товара. Заложите в цену не только текущие, но и потенциальные расходы на логистику при изменении тарифов.</p></aside>
+
+<h2 id="рекламные-инструменты-и-продвижение-товаров">Рекламные инструменты и продвижение товаров</h2>
+
+<p>Без рекламы на переполненном маркетплейсе товар просто не найдут. Продавцы вынуждены использовать внутренние инструменты продвижения, такие как «Трафареты» или реклама в поиске. Бюджеты на маркетинг закладываются в цену каждой единицы товара. Если продавец хочет быть в топе выдачи, он платит за каждый клик или заказ.</p>
+
+<p>Стоимость привлечения клиента (CAC) постоянно растет из-за высокой конкуренции. Чтобы остаться в плюсе, продавец увеличивает наценку. <strong>Рекламная ставка</strong> становится неотъемлемой частью себности. Без участия в акциях и рекламных кампаниях товар теряет видимость, а с ними — продажи.</p>
+
+<p>Часто продавцы попадают в замкнутый круг: чтобы продавать, нужно рекламироваться, но реклама съедает маржу, поэтому приходится повышать цену. Покупатель, в свою очередь, видит inflated price и уходит к конкурентам, которые, возможно, уже включили эти расходы в свою стратегию.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Инструмент</th>
+<th>Механика оплаты</th>
+<th>Влияние на цену</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Трафареты</td>
+<td>Оплата за показы/клики</td>
+<td>Высокое (до 15% от цены)</td>
+</tr>
+<tr>
+<td>Акции</td>
+<td>Скидка от цены до акции</td>
+<td>Среднее (снижение маржи)</td>
+</tr>
+<tr>
+<td>Баллы за отзывы</td>
+<td>Оплата за оставленный отзыв</td>
+<td>Низкое/Среднее</td>
+</tr>
+<tr>
+<td>Ozon Карта</td>
+<td>Комиссия за продажу по карте</td>
+<td>Среднее (закладывается в цену)</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="динамическое-ценообразование-и-алгоритмы-ранжирования">Динамическое ценообразование и алгоритмы ранжирования</h2>
+
+<p>Одной из главных причин, почему цены кажутся завышенными или постоянно меняющимися, является алгоритмическое ценообразование. Система автоматически анализирует цены конкурентов и может предлагать (или требовать) снижение цены для сохранения позиции в выдаче. Однако, чтобы компенсировать эти снижения в другие моменты, продавцы держат базовую цену высокой.</p>
+
+<p>Алгоритмы ранжирования отдают предпочтение товарам с высокой оборачиваемостью и конкурентной ценой. Если цена продавца становится выше, чем у других на площадке, карточка товара может быть скрыта на нижние страницы выдачи. Чтобы избежать этого «тенгового бана», селлеры используют сложные стратегии ценообразования, которые часто приводят к искусственному раздуванию стоимости перед скидкой.</p>
+
+<details class="pb-accordion"><summary>Как работает индекс локального спроса?</summary><div class="pb-accordion-body"><p>Индекс локального спроса — это показатель, который помогает понять, насколько товар популярен в конкретном регионе. Если спрос высок, алгоритм может рекомендовать поднять цену, так как покупатели готовы платить больше за быструю доставку из местного склада.>
+
+<p><strong>Индекс цены</strong> — еще один важный параметр. Если он становится красным (цена выше, чем у конкурентов), продажи падают. Продавцы вынуждены балансировать на грани, иногда устанавливая цену выше рыночной, рассчитывая на лояльность бренда или уникальность товара, но чаще просто следуя за лидером категории.</p>
+
+<h2 id="скрытые-расходы-возвраты-брак-и-хранение">Скрытые расходы: возвраты, брак и хранение</h2>
+
+<p>Не все проданные товары остаются проданными. Процент возвратов на маркетплейсах может достигать 10-30% в некоторых категориях, например, в одежде. Расходы на обработку возврата, его проверку и утилизацию (если товар неликвиден) ложатся на плечи продавца. Эти издержки распределяются на все проданные единицы, повышая их стоимость.</p>
+
+<p>Брак и потеря товарного вида при доставке — еще одна статья расходов. Если покупатель возвращает товар, а он теряет потребительские свойства, продавец несет убытки. Чтобы компенсировать эти риски, в цену изначально закладывается <strong>страховой коэффициент</strong>.</p>
+
+<ul>
+<li>📦 Утилизация неликвида — платная услуга, стоимость которой включается в цену ходовых товаров.</li>
+<li>🔍 Проверка возвратов — операционные расходы на контроль качества возвращенных позиций.</li>
+<li>📉 Штрафы за нарушения — санкции за неправильную упаковку или маркировку также влияют на общую финансовую модель.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Частые возвраты одного и того же товара могут привести к блокировке карточки или повышению комиссии за логистику. Это вынуждает продавца либо снимать товар с продажи, либо значительно повышать цену, чтобы покрыть риски.</p>
+</blockquote>
+
+<h2 id="сезонность-и-спрос-как-они-меняют-цену">Сезонность и спрос: как они меняют цену</h2>
+
+<p>Спрос диктует цену. В периоды высокого спроса, такие как <em>Black Friday</em>, ноябрьские распродажи или предновогодний ажиотаж, цены могут вести себя парадоксально. Формально объявляя скидки, продавцы часто сначала повышают базовую цену, чтобы скидка выглядела весомее, а маржа осталась прежней.</p>
+
+<p>В низкий сезон цены могут расти из-за необходимости окупать хранение. Если товар сезонный (например, зимняя обувь), его хранение летом стоит денег. Эти расходы «размазываются» на весь годовой объем продаж, что делает цену выше, чем если бы товар продавался только зимой.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Факторы сезонного ценообразования</h4><label class="check-item"><input type="checkbox"><span>Анализ спроса в прошлом году</span></label><label class="check-item"><input type="checkbox"><span>Расчет стоимости хранения</span></label><label class="check-item"><input type="checkbox"><span>Планирование акций</span></label><label class="check-item"><input type="checkbox"><span>Мониторинг цен конкурентов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Кроме того, в периоды дефицита определенных товаров на рынке (из-за проблем с поставками или курса валют), продавцы вынуждены закупать товар дороже. Это немедленно отражается на полке. <strong>Волатильность курса</strong> — один из главных драйверов роста цен на импортные товары.</p>
+
+<h2 id="сравнение-стоимости-владения-озон-против-своего-магазина">Сравнение стоимости владения: Озон против своего магазина</h2>
+
+<p>Когда мы сравниваем цену на маркетплейсе и в собственном интернет-магазине продавца, разница может быть существенной. В собственном магазине продавец не платит комиссию за продажу, не платит за логистику до клиента (если это не включено) и имеет более гибкие условия по возвратам. На Озоне же он покупает доступ к огромной аудитории, и эта аудитория стоит дорого.</p>
+
+<p>Покупатель платит не только за товар, но и за комфорт, быструю доставку, возможность примерки и легкий возврат. Все эти сервисы, которые предоставляет платформа, имеют свою цену. <em>Экосистема Ozon</em> предлагает уровень сервиса, который малому бизнесу сложно обеспечить самостоятельно, и за этот комфорт приходится доплачивать.</p>
+
+
+
+<p>Таким образом, «завышенная» цена — это часто объективная реальность, обусловленная стоимостью ведения бизнеса в рамках экосистемы. Продавец не может игнорировать эти расходы, иначе его бизнес-модель перестанет работать.</p>
+
+<details>
+<summary>Почему цена на Озоне может быть выше, чем на сайте производителя?</summary>
+<p>На сайте производителя товар часто продается напрямую, без посредников. На Озоне товар может продавать дистрибьютор или партнер, который уже заложил свою маржу, плюс добавил комиссии платформы, логистику и рекламу. Кроме того, на собственном сайте бренд контролирует все расходы и может позволить себе меньшую маржу ради имиджа.</p>
+</details>
+
+<details>
+<summary>Может ли продавец сам установить любую цену?</summary>
+<p>Формально продавец устанавливает цену самостоятельно. Однако алгоритмы площадки могут ограничивать видимость товара, если цена значительно выше среднерыночной. Также существуют минимальные цены, ниже которых нельзя опускаться во время акций, что косвенно регулирует ценообразование.</p>
+</details>
+
+<details>
+<summary>Как часто меняются цены на маркетплейсе?</summary>
+<p>Цены могут меняться в реальном времени. Это зависит от действий конкурентов, изменения спроса, остатков на складах и работы алгоритмов динамического ценообразования. Продавцы часто используют автоматизированные системы, которые корректируют цены каждые несколько минут.</p>
+</details>
+
+<details>
+<summary>Влияет ли рейтинг продавца на цену товара?</summary>
+<p>Прямого влияния на цену рейтинг не оказывает, но он влияет на конверсию. Продавец с высоким рейтингом может позволить себе держать цену чуть выше, так как покупатели больше доверяют ему. Низкий рейтинг вынуждает демпинговать, чтобы хоть как-то привлекать внимание.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-popolnit-stim-s-ozon-banka.html" class="pb-related-card">
+                <span class="pb-related-title">Как пополнить Steam с Ozon Банка: актуальная инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд, как оплатить Steam через Ozon Банк. Рабочие способы, комиссии и решение проблем при </span>
+            </a><a href="/articles/k/ka/kak-oplatit-na-ozone-bonusami-yumani.html" class="pb-related-card">
+                <span class="pb-related-title">Как оплатить на Озоне бонусами ЮМани: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Разбираемся, можно ли расплатиться бонусами ЮМани на Ozon, как привязать кошелёк и какие ограничения</span>
+            </a><a href="/articles/t/ta/tarif-po-nk-i-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Тариф НК и Озон: что это, как работает и сколько стоит в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое тариф НК (налог на добавленную стоимость) на Озон, кто его платит, как рассчи</span>
+            </a><a href="/articles/y/ym/ym-ozon-gorod-moskva-rus-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">ym ozon gorod moskva rus: расшифровка кодов в чеках</span>
+                <span class="pb-related-desc">Что значит ym ozon gorod moskva rus в выписке банка? Разбираем коды платежей, способы возврата и иде</span>
+            </a><a href="/articles/k/ka/kak-na-ozone-sdelat-kartu-osnovnoj.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать карту основной на Озоне: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как назначить основную карту на Ozon для автоматического списания средств. Решение проблем </span>
+            </a><a href="/articles/k/ku/kuda-vvodit-bally-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Куда вводить баллы Озон: инструкция по применению</span>
+                <span class="pb-related-desc">Узнайте, куда вводить баллы Озон при оплате. Полная инструкция по использованию бонусов Ozon Карточк</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

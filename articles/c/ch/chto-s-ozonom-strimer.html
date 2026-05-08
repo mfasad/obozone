@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Что с Озоном стример: проблемы интеграции и решения — Об Озоне</title>
+    <meta name="description" content="Анализируем сбои Ozon Streamer: почему не работает виджет, как настроить вещание и какие ошибки API мешают продажам.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-s-ozonom-strimer.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Что с Озоном стример: проблемы интеграции и решения">
+    <meta property="og:description" content="Анализируем сбои Ozon Streamer: почему не работает виджет, как настроить вещание и какие ошибки API мешают продажам.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/podderzhka-i-shtrafy/">Поддержка и Штрафы</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Что с Озоном стример: проблемы интеграции и решения</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#технические-причины-сбоев-в-работе-ozon-streamer">Технические причины сбоев в работе Ozon Streamer</a></li><li><a href="#настройка-окружения-и-требования-к-оборудованию">Настройка окружения и требования к оборудованию</a></li><li><a href="#инструкция-по-интеграции-через-api">Инструкция по интеграции через API</a></li><li><a href="#работа-с-виджетом-товаров-во-время-трансляции">Работа с виджетом товаров во время трансляции</a></li><li><a href="#анализ-ошибок-и-логирование-событий">Анализ ошибок и логирование событий</a></li><li><a href="#альтернативные-решения-и-обходные-пути">Альтернативные решения и обходные пути</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nakazat-ozon.html">Как наказать Озон за нарушения: 7 законных способов защиты прав</a></li><li><a href="/articles/c/ch/chto-budet-esli-otmenit-zakaz-na-ozon-seller.html">Что будет, если отменить заказ на Ozon Селлер: последствия и штрафы</a></li><li><a href="/articles/p/pr/prodavets-ne-predostavil-dokumenty-na-brend-v-ukazannye-sroki-kakie-dejstviya-predprimet-ploshchadka-ozon.html">Продавец не предоставил документы на бренд: действия Ozon</a></li><li><a href="/articles/o/oz/ozon-tekhpodderzhka-kak-svyazatsya.html">Ozon техподдержка: как связаться быстро и эффективно в 2026</a></li><li><a href="/articles/k/ka/kak-ubrat-uvedomleniya-v-prilozhenii-ozon.html">Как отключить уведомления в приложении Озон: пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Что с Озоном стример: разбор проблем и настройка</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#технические-причины-сбоев-в-работе-ozon-streamer">Технические причины сбоев в работе Ozon Streamer</a></li><li><a href="#настройка-окружения-и-требования-к-оборудованию">Настройка окружения и требования к оборудованию</a></li><li><a href="#инструкция-по-интеграции-через-api">Инструкция по интеграции через API</a></li><li><a href="#работа-с-виджетом-товаров-во-время-трансляции">Работа с виджетом товаров во время трансляции</a></li><li><a href="#анализ-ошибок-и-логирование-событий">Анализ ошибок и логирование событий</a></li><li><a href="#альтернативные-решения-и-обходные-пути">Альтернативные решения и обходные пути</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>В последнее время сообщество селлеров и разработчиков обсуждает нестабильную работу инструмента, известного как <strong>Ozon Streamer</strong>. Это программное решение предназначено для организации прямых трансляций с витриной товаров, позволяя зрителям покупать представленные продукты без отрыва от просмотра. Однако участившиеся жалобы на невозможность запустить эфир или отобразить товары в виджете заставляют искать причины сбоев.</p>
+<p>Ситуация усугубляется тем, что техническая поддержка часто дает шаблонные ответы, не помогающие решить проблему на уровне кода или конфигурации сервера. Пользователи сталкиваются с ошибками авторизации, разрывами соединения и некорректным отображением цен в реальном времени. <mark>Критической проблемой является рассинхронизация остатков товаров во время стрима, что приводит к заказам unavailable позиций.</mark></p>
+<p>В данной статье мы детально разберем, что происходит с сервисом, какие существуют технические ограничения и как правильно настроить окружение для стабильной работы. Мы рассмотрим как стандартные методы интеграции через API, так и обходные пути, которые используют опытные разработчики для минимизации рисков простоя.</p>
+
+<h2 id="технические-причины-сбоев-в-работе-ozon-streamer">Технические причины сбоев в работе Ozon Streamer</h2>
+<p>Первопричиной большинства проблем с <em>Ozon Streamer</em> являются изменения в протоколах безопасности на стороне маркетплейса. Платформа регулярно обновляет алгоритмы проверки подлинности запросов, что приводит к внезапному прекращению работы ранее исправных скриптов. Если ваш виджет перестал грузить товары или показывать актуальную цену, скорее всего, истек срок действия токена доступа или изменился формат подписи запроса.</p>
+<p>Другим фактором нестабильности выступает высокая нагрузка на серверы во время крупных распродаж. В такие периоды <strong>API лимиты</strong> становятся жестче, и частые запросы на обновление данных о товаре могут блокироваться фаерволом. Это вызывает эффект "мертвого стрима", когда видео идет, но интерактивные элементы не реагируют на действия пользователя.</p>
+<p>Также стоит учитывать проблемы на стороне интернет-провайдеров и CDN-серверов, через которые транслируется видеопоток. Нестабильный канал связи приводит к буферизации, что критично для live-коммерции. Для обеспечения бесперебойной работы необходимо использовать выделенные каналы связи и резервирование интернет-соединения.</p>
+<blockquote>
+<p>⚠️ Внимание: При частых ошибках 429 (Too Many Requests) немедленно снижайте частоту опроса API, иначе ваш аккаунт разработчика может быть временно заблокирован за подозрительную активность.</p>
+</blockquote>
+<p>Важно понимать, что <em>Ozon Streamer</em> — это не статичный виджет, а динамическое приложение, требующее постоянного обмена данными. Любая задержка в передаче пакетов может нарушить логику работы корзины или кнопки покупки. Поэтому мониторинг состояния соединения должен вестись в реальном времени.</p>
+
+<div class="pb-poll" id="poll-080ec12f"><div class="pb-poll-question">📊 С какой проблемой при стриме вы сталкивались чаще?</div><div class="pb-poll-option" data-poll="080ec12f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Виджет не грузится</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="080ec12f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Товары не добавляются в корзину</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="080ec12f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Видео зависает</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="080ec12f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ошибка авторизации API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="настройка-окружения-и-требования-к-оборудованию">Настройка окружения и требования к оборудованию</h2>
+<p>Для корректной работы стримера необходимо правильно сконфигурировать программное обеспечение. Чаще всего используется связка OBS Studio и браузера для отображения виджета, либо специализированные плагины. Важно убедиться, что версия браузера, используемого для захвата окна, поддерживает все современные стандарты JavaScript и WebGL.</p>
+<p>Аппаратные требования также играют не последнюю роль. Кодирование видеопотока в высоком разрешении (1080p или 4K) ложится тяжелым грузом на процессор. Если вы используете программное кодирование <code>x264</code>, убедитесь, что у вас зарезервировано достаточное количество ядер CPU, иначе рендеринг страницы с товарами будет происходить с задержкой.</p>
+<p>Ниже приведена таблица рекомендуемых параметров для различных сценариев вещания:</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Минимальные требования</th>
+<th>Рекомендуемые</th>
+<th>Оптимальные</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Процессор</td>
+<td>Intel Core i5 (8 gen)</td>
+<td>Intel Core i7 (10 gen)</td>
+<td>Intel Core i9 / Ryzen 9</td>
+</tr>
+<tr>
+<td>Оперативная память</td>
+<td>8 ГБ</td>
+<td>16 ГБ</td>
+<td>32 ГБ DDR4</td>
+</tr>
+<tr>
+<td>Видеокарта</td>
+<td>NVIDIA GTX 1060</td>
+<td>NVIDIA RTX 2060</td>
+<td>NVIDIA RTX 3070+</td>
+</tr>
+<tr>
+<td>Скорость интернета</td>
+<td>20 Мбит/с</td>
+<td>50 Мбит/с</td>
+<td>100 Мбит/с+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Особое внимание следует уделить настройкам браузера. Отключите аппаратное ускорение в самом браузере, если захватываете окно через OBS, чтобы избежать конфликтов драйверов. В противном случае, если используется захват вкладки, аппаратное ускорение, наоборот, необходимо включить для плавности анимаций интерфейса Ozon.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте отдельный профиль браузера только для стрима, очистив его от лишних расширений и кэша, чтобы избежать конфликтов скриптов и ускорить загрузку виджета.</p></aside>
+
+<h2 id="инструкция-по-интеграции-через-api">Инструкция по интеграции через API</h2>
+<p>Настройка взаимодействия с маркетплейсом начинается с получения ключей доступа. Вам необходимо перейти в личный кабинет селлера, найти раздел для разработчиков и создать новое приложение. Полученные <code>Client ID</code> и <code>API Key</code> нужно будет использовать для авторизации запросов.</p>
+<p>Процесс авторизации требует формирования специального заголовка. Ниже приведен пример команды для получения токена доступа через curl, который можно адаптировать для вашего скрипта:</p>
+<pre><code>curl -X POST "https://api-seller.ozon.ru/v1/auth/token" \
+<p>-H "Client-Id: YOUR_CLIENT_ID" \</p>
+<p>-H "Api-Key: YOUR_API_KEY" \</p>
+<p>-H "Content-Type: application/json"</code></pre></p>
+<p>После получения токена необходимо настроить регулярный опрос эндпоинтов для получения актуальной информации о товарах. Важно кэшировать данные, чтобы не превышать лимиты запросов. Логика работы должна предусматривать повторные попытки соединения при возникновении ошибок сети.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист интеграции API</h4><label class="check-item"><input type="checkbox"><span>Получить Client ID и API Key</span></label><label class="check-item"><input type="checkbox"><span>Сгенерировать токен авторизации</span></label><label class="check-item"><input type="checkbox"><span>Настроить кэширование ответов</span></label><label class="check-item"><input type="checkbox"><span>Реализовать обработку ошибок 429 и 500</span></label><label class="check-item"><input type="checkbox"><span>Протестировать вывод товаров в виджете</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+<p>Не забывайте, что токены имеют ограниченный срок жизни. Ваша система должна уметь обновлять их автоматически или сигнализировать оператору о необходимости ручной перезагрузки конфигурации. Игнорирование этого требования приведет к остановке стрима в самый неподходящий момент.</p>
+
+<h2 id="работа-с-виджетом-товаров-во-время-трансляции">Работа с виджетом товаров во время трансляции</h2>
+<p>Ключевым элементом стрима является интерактивный виджет, который отображается поверх видео. Он должен быть легким, быстрым и адаптивным. При разработке или настройке шаблона виджета учитывайте, что он будет накладываться на видеоряд, поэтому фон должен быть полупрозрачным или контрастным.</p>
+<p>Частая ошибка — попытка загрузить в виджет слишком много товаров одновременно. Это приводит к "лагам" интерфейса и долгой отрисовке. <strong>Оптимизируйте список</em>, показывая только 5-10 актуальных позиций, которые обсуждаются в данный момент эфир.</p>
+<p>Для управления карточками товаров используется WebSocket соединение или Long Polling. Это позволяет обновлять цену и наличие без перезагрузки страницы. Если вы видите, что кнопка "Купить" неактивна, проверьте логи консоли браузера на наличие ошибок CORS или блокировщиков рекламы.</p>
+<blockquote>
+<p>⚠️ Внимание: Никогда не храните API-ключи в открытом виде в коде фронтенда (JavaScript). Используйте прокси-сервер для безопасного общения с API Ozon, иначе ваши ключи будут украдены и использованы злоумышленниками.</p>
+</blockquote>
+<p>Визуальная часть также важна. Убедитесь, что шрифты читаемы, а кнопки имеют достаточный размер для клика, если стрим ведется с мобильных устройств. Тестирование на разных разрешениях экрана — обязательный этап перед выходом в эфир.</p>
+
+<details class="pb-accordion"><summary>Секрет стабильности виджета</summary><div class="pb-accordion-body"><p>Используйте статические изображения товаров, предварительно сжатые в формат WebP, вместо динамической подгрузки тяжелых JPEG. Это ускорит отрисовку на 40-60%.</p></div></details>
+
+<h2 id="анализ-ошибок-и-логирование-событий">Анализ ошибок и логирование событий</h2>
+<p>Без качественного логирования найти причину сбоя практически невозможно. Настройте запись всех событий: от момента запуска стрима до каждой попытки взаимодействия с API. Логи должны содержать временные метки, коды ответов сервера и описание произошедшего действия.</p>
+<p>Анализируя логи, можно выявить паттерны ошибок. Например, если ошибки 500 сыпятся каждые 5 минут, возможно, вы попадаете на плановое обслуживание серверов Ozon. Если же ошибки 403 появляются хаотично, проблема может быть в вашем IP-адресе или неверном формате запроса.</p>
+<p>Для удобства анализа можно использовать системы мониторинга, которые визуализируют потоки данных. Это помогает быстро понять, где происходит обрыв цепи: на стороне вашего компьютера, в канале передачи данных или на серверах маркетплейса.</p>
+<p>Сохраняйте логи минимум 24 часа. Это позволит ретроспективно разобрать инциденты, произошедшие во время эфира, и подготовить отчет для технической поддержки, если проблема окажется на их стороне.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Грамотное логирование — это единственный способ доказать техническую ошибку не на вашей стороне и получить помощь от поддержки быстрее.</p></aside>
+
+<h2 id="альтернативные-решения-и-обходные-пути">Альтернативные решения и обходные пути</h2>
+<p>Если штатный <em>Ozon Streamer</em> работает нестабильно, можно рассмотреть альтернативные варианты организации продаж во время эфира. Один из них — использование сторонних сервисов-агрегаторов, которые берут на себя работу с API и предоставляют готовый, более стабильный виджет.</p>
+<p>Другой вариант — упрощенная схема работы. Вместо сложного виджета с корзиной можно выводить QR-коды на конкретные товары или использовать закрепленные ссылки в чате. Это менее интерактивно, но значительно надежнее и не зависит от работы JavaScript-скриптов в реальном времени.</p>
+<p>Также можно использовать сценарий "отложенного старта", когда товары добавляются в подборку заранее, а во время стрима происходит лишь переключение между готовыми слайдами. Это снижает нагрузку на сеть и минимизирует риски технических сбоев.</p>
+<p>В любом случае, всегда имейте "план Б". Заранее подготовьте статичную картинку с промокодом или ссылкой, которую можно быстро вывести в эфир, если интерактив полностью откажет. Это спасет вашу репутацию и не даст зрителям скучать.</p>
+
+<details>
+<summary>Почему виджет Ozon Streamer не отображает актуальную цену?</summary>
+<p>Чаще всего это связано с кэшированием данных на стороне браузера или задержкой в обновлении данных через API. Попробуйте очистить кэш или уменьшить интервал опроса сервера в настройках вашего скрипта. Также проверьте, не изменилась ли структура ответа API.</p>
+</details>
+
+<details>
+<summary>Можно ли вести стрим на Ozon с мобильного телефона?</summary>
+<p>Технически запустить трансляцию можно, но функционал Streamer и виджетов товаров ориентирован на десктопные версии браузеров и ПО для стриминга (OBS, vMix). На мобильных устройствах работа виджетов может быть ограничена или некорректна.</p>
+</details>
+
+<details>
+<summary>Как часто нужно обновлять API ключи для стримера?</summary>
+<p>Ключи доступа (Api-Key) являются постоянными, но токены авторизации (Token) имеют ограниченное время жизни (обычно несколько часов или дней). Ваша система должна уметь обновлять токены автоматически, используя постоянные ключи, чтобы не прерывать вещание.</p>
+</details>
+
+<details>
+<summary>Что делать, если стрим прервался посередине эфира?</summary>
+<p>Не паникуйте. Включите заранее подготовленную статичную заставку с извинениями и информацией о технических работах. Проверьте логи, интернет-соединение и попробуйте перезапустить поток. Если проблема на стороне Ozon, дождитесь восстановления сервисов.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-nakazat-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как наказать Озон за нарушения: 7 законных способов защиты прав</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как наказать маркетплейс Озон за обман, штрафы, блокировки или невыплаты. Юрид</span>
+            </a><a href="/articles/c/ch/chto-budet-esli-otmenit-zakaz-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Что будет, если отменить заказ на Ozon Селлер: последствия и штрафы</span>
+                <span class="pb-related-desc">Разбираемся, какие санкции ждут продавца при отмене заказа на Ozon: штрафы, влияние на рейтинг, блок</span>
+            </a><a href="/articles/p/pr/prodavets-ne-predostavil-dokumenty-na-brend-v-ukazannye-sroki-kakie-dejstviya-predprimet-ploshchadka-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Продавец не предоставил документы на бренд: действия Ozon</span>
+                <span class="pb-related-desc">Что будет, если продавец не предоставил документы на бренд в указанные сроки на Ozon? Разбор блокиро</span>
+            </a><a href="/articles/o/oz/ozon-tekhpodderzhka-kak-svyazatsya.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon техподдержка: как связаться быстро и эффективно в 2026</span>
+                <span class="pb-related-desc">Все способы связи с техподдержкой Ozon: чат, телефон, почта, соцсети. Пошаговые инструкции для покуп</span>
+            </a><a href="/articles/k/ka/kak-ubrat-uvedomleniya-v-prilozhenii-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отключить уведомления в приложении Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по отключению push-уведомлений, email-рассылок и SMS от Озон в мобильном прило</span>
+            </a><a href="/articles/k/ku/kuda-napisat-zhalobu-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Куда пожаловаться на Озон: официальные каналы и инструкции 2026</span>
+                <span class="pb-related-desc">Где и как правильно подать жалобу на Озон: служба поддержки, Роспотребнадзор, прокуратура и соцсети.</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

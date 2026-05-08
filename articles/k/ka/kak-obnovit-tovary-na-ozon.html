@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как обновить товары на Озон: цены, остатки, карточки — Об Озоне</title>
+    <meta name="description" content="Полная инструкция: как быстро обновить товары на Озон. Массовое изменение цен, остатков и описаний через личный кабинет, Excel и API.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-obnovit-tovary-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как обновить товары на Озон: цены, остатки, карточки">
+    <meta property="og:description" content="Полная инструкция: как быстро обновить товары на Озон. Массовое изменение цен, остатков и описаний через личный кабинет, Excel и API.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как обновить товары на Озон: цены, остатки, карточки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#ручное-редактирование-карточки-товара">Ручное редактирование карточки товара</a></li><li><a href="#массовое-обновление-через-excel-xls">Массовое обновление через Excel (XLS)</a></li><li><a href="#автоматизация-через-api-и-интеграции">Автоматизация через API и интеграции</a></li><li><a href="#обновление-характеристик-и-описаний">Обновление характеристик и описаний</a></li><li><a href="#управление-архивом-и-скрытие-товаров">Управление архивом и скрытие товаров</a></li><li><a href="#типичные-ошибки-при-обновлении">Типичные ошибки при обновлении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-na-ozone-zaprosit-sertifikat-na-tovar.html">Как запросить сертификат на товар на Ozon: инструкция 2026</a></li><li><a href="/articles/k/ka/kak-sozdavat-kartochku-tovara-na-ozone.html">Как создать карточку товара на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kakoj-tovar-podlezhit-sertifikatsii-dlya-ozon.html">Какой товар подлежит сертификации для Ozon: полный гид селлера</a></li><li><a href="/articles/k/ka/kak-sdelat-etiketku-i-shtrikh-kod-dlya-ozona.html">Как сделать этикетку и штрихкод для Ozon: инструкция</a></li><li><a href="/articles/k/ka/kak-skachat-fajl-eksel-s-tovarami-ozon-dlya-zayavki-na-postavku.html">Как скачать Excel с товарами Ozon для поставки: инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как обновить товары на Озон: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#ручное-редактирование-карточки-товара">Ручное редактирование карточки товара</a></li><li><a href="#массовое-обновление-через-excel-xls">Массовое обновление через Excel (XLS)</a></li><li><a href="#автоматизация-через-api-и-интеграции">Автоматизация через API и интеграции</a></li><li><a href="#обновление-характеристик-и-описаний">Обновление характеристик и описаний</a></li><li><a href="#управление-архивом-и-скрытие-товаров">Управление архивом и скрытие товаров</a></li><li><a href="#типичные-ошибки-при-обновлении">Типичные ошибки при обновлении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Работа с маркетплейсом требует постоянного внимания к актуальности информации в каталоге. Покупатели часто отказываются от заказа, если видят некорректную цену или статус «нет в наличии», даже если товар лежит на складе. Именно поэтому вопрос, как обновить товары на Озон, является одним из самых критичных для селлеров любого масштаба.</p>
+
+<p>Система платформы предлагает несколько инструментов для редактирования карточек: от ручного изменения одной позиции до массовой загрузки через XLS-файлы или использования API для автоматизации процессов. Выбор метода зависит от количества ваших SKU и частоты изменений в ассортименте. В этой статье мы разберем все способы актуализации данных, чтобы вы могли выбрать наиболее эффективный для вашего бизнеса.</p>
+
+<p>Своевременное внесение правок помогает избежать штрафов за отмены заказов и поддерживает карточки в топе поисковой выдачи. Алгоритмы ранжирования отдают предпочтение продавцам с высокой доступностью товара и точными данными. Давайте подробно рассмотрим, какие инструменты доступны в личном кабинете продавца.</p>
+
+<h2 id="ручное-редактирование-карточки-товара">Ручное редактирование карточки товара</h2>
+<p>Для селлеров с небольшим ассортиментом или при необходимости внести точечные правки идеально подходит <strong>ручное редактирование</strong>. Этот метод не требует подготовки файлов и позволяет мгновенно увидеть результат. Чтобы изменить данные, необходимо перейти в раздел «Товары и цены» в личном кабинете.</p>
+
+<p>Найдите нужную позицию через поиск или фильтры по артикулу. После клика на карточку откроется подробная форма, где можно изменить название, описание, характеристики и медиафайлы. </p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При ручном изменении цены убедитесь, что вы не указали стоимость ниже себестоимости из-за опечатки, так как система может не успеть заблокировать продажу по ошибочному тарифу.</blockquote>
+
+<p>Для обновления остатков используйте поле «Количество» в разделе складской учета. Изменения вступают в силу практически мгновенно, но на отображение в приложении для покупателей может потребоваться несколько минут. Это базовый способ, который должен знать каждый новичок.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте кнопку «Копировать» в карточке товара, чтобы быстро создать вариативность (например, другой размер или цвет), не заполняя все поля заново.</p></aside>
+
+<h2 id="массовое-обновление-через-excel-xls">Массовое обновление через Excel (XLS)</h2>
+<p>Если вам необходимо изменить цены или остатки сразу для десятков или сотен позиций, ручная работа станет неэффективной. В этом случае на помощь приходит <strong>массовое обновление</strong> через табличный редактор. Озон позволяет выгружать текущий прайс-лист, вносить в него правки и загружать обратно.</p>
+
+<p>Для начала работы перейдите в раздел «Товары и цены» и выберите опцию «Скачать шаблон» или «Выгрузить товары». Система сформирует файл, в котором будут содержаться все ваши текущие предложения. В этом файле ключевыми столбцами являются «offer_id» (ваш артикул) и «price» (цена) или «quantity» (остаток).</p>
+
+<ul>
+<li>📊 Скачайте актуальный шаблон из личного кабинета, чтобы получить свежую структуру полей.</li>
+<li>✏️ Внесите изменения в ячейки с ценой или количеством, не удаляя столбец с артикулом.</li>
+<li>💾 Сохраните файл в формате XLSX или CSV, убедившись, что кодировка текста корректна.</li>
+<li>📤 Загрузите обновленный файл через кнопку «Загрузить прайс-лист» в соответствующем разделе.</li>
+</ul>
+
+<p>После загрузки файл пройдет валидацию. Если в данных будут найдены ошибки (например, отрицательная цена или неверный формат числа), система сообщит об этом в отчете. Исправьте ошибки и повторите загрузку. Этот метод идеален для ежедневного обновления остатков поставщиками, работающими без интеграции.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед загрузкой Excel</h4><label class="check-item"><input type="checkbox"><span>Проверены ли артикулы на уникальность</span></label><label class="check-item"><input type="checkbox"><span>Нет ли пустых строк в файле</span></label><label class="check-item"><input type="checkbox"><span>Цена указана в рублях без символов валюты</span></label><label class="check-item"><input type="checkbox"><span>Формат файла соответствует требованиям Озон</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="автоматизация-через-api-и-интеграции">Автоматизация через API и интеграции</h2>
+<p>Для крупного бизнеса и магазинов с высокой оборачиваемостью ручное управление или работа с Excel становятся узким горлышком. Решением является <strong>API (Application Programming Interface)</strong>, которое позволяет синхронизировать данные между вашей учетной системой (CRM, 1C, МойСклад) и площадкой Озон в реальном времени.</p>
+
+<p>Использование API требует технической настройки. Вам потребуется сгенерировать ключи доступа в разделе «Настройки → API ключи» и передать их вашему разработчику или настроить через готовый модуль интеграции. Это позволяет автоматически списывать остатки при заказе и менять цену в зависимости от курса валют или остатков на складе.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ручное обновление</th>
+<th>Excel файл</th>
+<th>API интеграция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скорость</td>
+<td>Низкая</td>
+<td>Средняя</td>
+<td>Мгновенная</td>
+</tr>
+<tr>
+<td>Риск ошибок</td>
+<td>Высокий</td>
+<td>Средний</td>
+<td>Минимальный</td>
+</tr>
+<tr>
+<td>Затраты времени</td>
+<td>Много</td>
+<td>Умеренно</td>
+<td>Минимум</td>
+</tr>
+<tr>
+<td>Для кого</td>
+<td>Новички</td>
+<td>Средний бизнес</td>
+<td>Крупный бизнес</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>При настройке интеграции важно правильноить (сопоставить) поля. Например, поле «Количество» в вашей базе должно соответствовать полю «quantity» в API Озон. Ошибка в маппинге может привести к тому, что на сайте будет отображаться неверный остаток, что чревато отменами.</p>
+
+<details class="pb-accordion"><summary>Что такое webhook в контексте Озон?</summary><div class="pb-accordion-body"><p>Webhook — это способ для Озон мгновенно уведомить вашу систему о событии (например, о новом заказе), чтобы вы могли сразу же обновить остатки, не ожидая опроса API.</p></div></details>
+
+<h2 id="обновление-характеристик-и-описаний">Обновление характеристик и описаний</h2>
+<p>Контент карточки — это главный инструмент продаж. Периодическое <strong>обновление описаний</strong> и характеристик помогает улучшить SEO-показатели и конверсию. Покупатели часто ищут товары по конкретным параметрам, которые могут быть не указаны в карточке изначально.</p>
+
+<p>Чтобы добавить новые характеристики, перейдите в редактирование карточки и найдите блок «Характеристики». Здесь можно добавить недостающие атрибуты, такие как «Страна производства», «Материал» или «Комплектация». Чем подробнее заполнена эта секция, тем выше шанс попасть в фильтры поиска покупателя.</p>
+
+<p>Особое внимание стоит уделить описанию. Текст должен быть структурированным, содержать <strong>ключевые слова</strong> и преимущества товара. Не стоит просто копировать текст с упаковки производителя — лучше адаптировать его под боли и потребности целевой аудитории. Используйте маркированные списки для перечисления выгод.</p>
+
+<ul>
+<li>📝 Добавьте информацию о материалах и уходе за товаром, если её нет.</li>
+<li>📏 Уточните габариты и вес в упаковке, это снизит количество вопросов от клиентов.</li>
+<li>🎨 Обновите инфографику на главных фото, если появились новые акценты в маркетинге.</li>
+</ul>
+
+<p>Регулярный аудит контента позволяет поддерживать карточки в актуальном состоянии. Если вы продаете электронику, важно указывать совместимые модели. Если одежду — точную размерную сетку. Эти детали напрямую влияют на процент возвратов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Качественное описание и полные характеристики повышают конверсию в покупку до 30% и снижают нагрузку на службу поддержки.</p></aside>
+
+<h2 id="управление-архивом-и-скрытие-товаров">Управление архивом и скрытие товаров</h2>
+<p>В процессе работы некоторые позиции могут стать неактуальными: товар закончился у поставщика, модель снята с производства или сезон закончился. В таких случаях важно правильно управлять статусом предложения, чтобы не терять позиции в рейтинге магазина.</p>
+
+<p>Если товар временно отсутствует, но вы планируете его завоз, лучше не удалять карточку, а установить остаток в ноль или использовать функцию «Скрыть». Однако, если товар больше не будет продаваться, его необходимо переместить в <strong>архив</strong>. Это делается через действия с товаром в списке.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Архивация товара не удаляет его из истории полностью, но скрывает из витрины для покупателей. Удаление карточки навсегда может привести к потере накопленных отзывов и рейтинга.</blockquote>
+
+<p>Для массового скрытия товаров можно использовать фильтр «Нет в наличии» в списке товаров и применить групповое действие. Это очистит вашу витрину от «мертвого груза» и позволит покупателям видеть только актуальные предложения. Чистота витрины — признак профессионального продавца.</p>
+
+<div class="pb-poll" id="poll-b12bc131"><div class="pb-poll-question">📊 Как часто вы обновляете цены на товары?</div><div class="pb-poll-option" data-poll="b12bc131" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b12bc131" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b12bc131" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b12bc131" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только при изменении курса валют</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="типичные-ошибки-при-обновлении">Типичные ошибки при обновлении</h2>
+<p>Даже опытные селлеры иногда допускают ошибки, которые могут стоить денег или репутации. Одна из самых распространенных проблем — <strong>несоответствие остатков</strong>. Если в системе Озон указано 10 штук, а физически на складе 5, это приведет к отмене заказов и штрафу за отмену.</p>
+
+<p>Другая частая ошибка — изменение цены без учета комиссии маркетплейса и логистики. Новая цена может оказаться убыточной. Всегда перепроверяйте финальную стоимость после внесения правок, особенно при работе с большим количеством SKU через Excel.</p>
+
+<p>Также стоит избегать частого и резкого изменения основных характеристик товара (например, цвета или бренда) в уже продающейся карточке. Это может запутать алгоритмы ранжирования и вызвать негативную реакцию покупателей, которые получат товар не с теми свойствами, что видели при заказе.</p>
+
+<ul>
+<li>❌ Не меняйте категорию товара в активной карточке без консультации с поддержкой.</li>
+<li>❌ Избегайте установки цены 0 или 1 рубль, если товар не бесплатен.</li>
+<li>❌ Не игнорируйте отчеты об ошибках загрузки прайс-листов.</li>
+</ul>
+
+<p>Системный подход к обновлению товаров минимизирует риски. Используйте чек-листы перед запуском массовых изменений и всегда делайте резервные копии файлов перед загрузкой. Это поможет быстро откатить изменения в случае критической ошибки.</p>
+
+<details class="pb-accordion"><summary>Что будет, если цена станет отрицательной?</summary><div class="pb-accordion-body"><p>Система Озон не примет файл с отрицательной ценой на этапе валидации. Однако, если ошибка пройдет (например, через API с багом), товар может стать бесплатным, что приведет к массовому заказу и финансовым потерям.</p></div></details>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Как часто можно менять цену на Озон?</summary>
+<p>Технических ограничений на количество изменений цены в сутки нет, но слишком частые колебания (например, каждую минуту) могут быть расценены алгоритмами как спам или манипуляция. Рекомендуется обновлять цены по мере необходимости, но с разумной периодичностью.</p>
+</details>
+
+<details>
+<summary>Почему после загрузки Excel цена не изменилась?</summary>
+<p>Проверьте отчет о загрузке файла. Возможные причины: неверный формат артикула (offer_id), товар находится на модерации, или на товар наложены ограничения со стороны модерации категории. Также убедитесь, что вы загрузили файл в правильный тип прайс-листа (основной или специальный).</p>
+</details>
+
+<details>
+<summary>Можно ли обновить только фото товара через Excel?</summary>
+<p>Нет, через Excel (XLS) можно обновлять только текстовые и числовые данные: цену, остатки, артикулы, названия. Для обновления фотографий (медиафайлов) необходимо использовать ручной режим в личном кабинете или API.</p>
+</details>
+
+<details>
+<summary>Сколько времени занимает обновление остатков?</summary>
+<p>При ручном изменении или загрузке файла остатки обновляются в течение нескольких минут. При использовании API синхронизация происходит практически мгновенно, но кэширование на стороне пользователя может занимать до 15 минут.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-na-ozone-zaprosit-sertifikat-na-tovar.html" class="pb-related-card">
+                <span class="pb-related-title">Как запросить сертификат на товар на Ozon: инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как получить сертификат соответствия на Ozon. Разбор видов документов, сроки п</span>
+            </a><a href="/articles/k/ka/kak-sozdavat-kartochku-tovara-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать карточку товара на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по созданию карточки товара на Ozon для продавцов: от загрузки фото до SEO-опт</span>
+            </a><a href="/articles/k/ka/kakoj-tovar-podlezhit-sertifikatsii-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какой товар подлежит сертификации для Ozon: полный гид селлера</span>
+                <span class="pb-related-desc">Узнайте, какой товар подлежит сертификации для Ozon в 2026 году. Полный список документов, коды ТН В</span>
+            </a><a href="/articles/k/ka/kak-sdelat-etiketku-i-shtrikh-kod-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать этикетку и штрихкод для Ozon: инструкция</span>
+                <span class="pb-related-desc">Полное руководство по созданию этикеток и штрихкодов для Ozon. Требования, размеры, генерация и печа</span>
+            </a><a href="/articles/k/ka/kak-skachat-fajl-eksel-s-tovarami-ozon-dlya-zayavki-na-postavku.html" class="pb-related-card">
+                <span class="pb-related-title">Как скачать Excel с товарами Ozon для поставки: инструкция</span>
+                <span class="pb-related-desc">Пошаговый алгоритм выгрузки реестра товаров в Excel для создания заявки на поставку в Ozon Seller. Р</span>
+            </a><a href="/articles/k/ka/kak-delat-kartochki-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оформить карточку товара на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по созданию эффективных карточек товаров на Озон: от технических требований до SE</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Продажа через Ozon в 1С: пошаговая инструкция настройки — Об Озоне</title>
+    <meta name="description" content="Как настроить и проводить продажи через Ozon в 1С. Интеграция, выгрузка товаров, обработка заказов и автоматизация обмена данными.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-provodit-v-1s-prodazhu-cherez-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Продажа через Ozon в 1С: пошаговая инструкция настройки">
+    <meta property="og:description" content="Как настроить и проводить продажи через Ozon в 1С. Интеграция, выгрузка товаров, обработка заказов и автоматизация обмена данными.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Продажа через Ozon в 1С: пошаговая инструкция настройки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-учетной-системы-и-выбор-метода-интеграции">Подготовка учетной системы и выбор метода интеграции</a></li><li><a href="#настройка-подключения-и-авторизация-в-модуле">Настройка подключения и авторизация в модуле</a></li><li><a href="#выгрузка-товаров-и-управление-остатками">Выгрузка товаров и управление остатками</a></li><li><a href="#обработка-заказов-от-получения-до-отгрузки">Обработка заказов: от получения до отгрузки</a></li><li><a href="#финансовая-отчетность-и-сверка-взаиморасчетов">Финансовая отчетность и сверка взаиморасчетов</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-chto-takoe-meteorit.html">Озон Метеорит: что это такое и как работает система</a></li><li><a href="/articles/k/ka/kak-dobavit-fbs-na-ozon.html">Как подключить FBS на Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-dobavit-tovar-na-svoj-sklad-ozon-fbs.html">Как добавить товар на склад Озон FBS: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-pravilno-upakovat-tovar-dlya-ozon-so-svoego-sklada.html">Упаковка для Озон: как правильно подготовить товар со склада FBS</a></li><li><a href="/articles/k/ka/kak-s-fbo-perejti-na-fbs-ozon.html">Как перейти с FBO на FBS на Ozon: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как проводить продажу через Ozon в 1С: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-учетной-системы-и-выбор-метода-интеграции">Подготовка учетной системы и выбор метода интеграции</a></li><li><a href="#настройка-подключения-и-авторизация-в-модуле">Настройка подключения и авторизация в модуле</a></li><li><a href="#выгрузка-товаров-и-управление-остатками">Выгрузка товаров и управление остатками</a></li><li><a href="#обработка-заказов-от-получения-до-отгрузки">Обработка заказов: от получения до отгрузки</a></li><li><a href="#финансовая-отчетность-и-сверка-взаиморасчетов">Финансовая отчетность и сверка взаиморасчетов</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Интеграция торгового маркетплейса Ozon с популярной системой управления предприятием 1С открывает перед бизнесом колоссальные возможности для автоматизации. Вместо ручного переноса данных и постоянной сверки остатков, предприниматель получает единую информационную среду. Это позволяет минимизировать человеческий фактор, исключить пересорт и значительно ускорить обработку входящих заказов.</p>
+<p>Для эффективной работы необходимо понимать, что <strong>обмен данными</strong> между площадкой и учетной системой происходит в обе стороны: вы отправляете актуальные остатки и цены, а получаете информацию о новых заказах и изменениях их статусов. Настройка этого процесса требует внимательности к деталям, особенно при выборе схемы работы (FBO или FBS) и метода интеграции.</p>
+<p>В данной статье мы подробно разберем технические аспекты подключения, рассмотрим нюансы работы с модулями интеграции и дадим практические советы по оптимизации процессов. Правильная конфигурация системы на старте спасет вас от множества ошибок в будущем.</p>
+
+<h2 id="подготовка-учетной-системы-и-выбор-метода-интеграции">Подготовка учетной системы и выбор метода интеграции</h2>
+<p>Прежде чем приступать к технической настройке, необходимо убедиться, что ваша версия программного обеспечения совместима с современными протоколами обмена. Чаще всего используется конфигурация <em>1С:Управление торговлей</em> или <em>1С:Розница</em>, где функционал работы с маркетплейсами реализован наиболее полно. Если у вас установлена устаревшая версия платформы, возможно, потребуется обновление или установка специализированных расширений.</p>
+<p>Существует несколько способов наладить взаимодействие с торговой площадкой. Самый простой, но наименее автоматизированный вариант — это ручной обмен через CSV-файлы. Вы выгружаете прайс-лист, загружаете его на сайт, затем вручную скачиваете отчет по продажам и вносите его в базу. Этот метод подходит только для микробизнеса с минимальным количеством позиций.</p>
+<p>Более продвинутый и рекомендуемый способ — использование <strong>API-протокола</strong> или специализированных модулей интеграции. Они позволяют настроить двусторонний обмен в реальном времени или по расписанию. Это означает, что как только клиент сделает заказ на сайте Ozon, он практически мгновенно отобразится в вашей 1С как документ «Заказ клиента».</p>
+<blockquote>⚠️ Внимание: При выборе метода интеграции учитывайте нагрузку на сервер. Частый опрос API (каждую минуту) при большом ассортименте может замедлить работу базы данных, поэтому оптимальным считается интервал в 5-10 минут.</blockquote>
+<p>Для подключения вам потребуется получить ключи доступа в личном кабинете продавца. Эти данные вводятся в настройки модуля интеграции и служат цифровым пропуском для обмена информацией. Без корректно настроенных прав доступа автоматизация невозможна.</p>
+<div class="pb-poll" id="poll-ad97f0a4"><div class="pb-poll-question">📊 Какой метод интеграции вы планируете использовать?</div><div class="pb-poll-option" data-poll="ad97f0a4" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручная загрузка CSV</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ad97f0a4" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Стандартный модуль 1С</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ad97f0a4" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонний сервис-коннектор</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ad97f0a4" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Разработка собственного решения</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="настройка-подключения-и-авторизация-в-модуле">Настройка подключения и авторизация в модуле</h2>
+<p>Процесс авторизации начинается с получения уникальных идентификаторов в личном кабинете Ozon. Вам понадобятся Client ID и API Key, которые генерируются в разделе настроек профиля. Эти строки символов необходимо скопировать без ошибок и вставить в соответствующие поля настроек подключения в вашей учетной системе.</p>
+<p>В интерфейсе 1С навигация обычно выглядит следующим образом: перейдите в раздел <code>НС и Администрирование → Интеграция с сервисами и службами → Маркетплейсы</code>. Здесь создается новая запись подключения, где выбирается тип площадки (Ozon) и вводятся полученные ключи. Система автоматически проверит соединение с сервером.</p>
+<p>Важно правильно указать склад, с которого будет вестись отгрузка товаров. Если вы работаете по схеме FBS (продажа со склада продавца), то в 1С должен быть создан соответствующий <strong>склад</strong>, остатки по которому будут синхронизироваться с виртуальным складом на маркетплейсе. Ошибка в выборе склада приведет к тому, что система будет показывать нулевые остатки или, наоборот, зарезервирует товар, которого нет в наличии.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка настроек подключения</h4><label class="check-item"><input type="checkbox"><span>Получены Client ID и API Key</span></label><label class="check-item"><input type="checkbox"><span>Создан склад в 1С</span></label><label class="check-item"><input type="checkbox"><span>Настроено соединение с интернетом</span></label><label class="check-item"><input type="checkbox"><span>Проведен тестовый обмен данными</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>После успешного тестирования соединения модуль предложит выполнить первоначальную выгрузку товаров. На этом этапе происходит маппинг (сопоставление) категорий и характеристик. Это критически важный момент, так как неверно указанные атрибуты могут привести к блокировке карточек товаров модераторами площадки.</p>
+
+<h2 id="выгрузка-товаров-и-управление-остатками">Выгрузка товаров и управление остатками</h2>
+<p>Основная задача интеграции — обеспечить актуальность информации о наличии товара. Клиент не должен видеть на сайте позицию, которую вы уже продали в оффлайне или другому покупателю. Механизм работы строится на регулярном обновлении количества доступных единиц.</p>
+<p>В настройках выгрузки можно задать правила резервирования. Например, если на складе лежит 10 единиц товара, системе можноить передавать на маркетплейс только 8, оставив запас для розничного магазина. Это предотвратит ситуации овербукинга, когда продано больше, чем есть физически.</p>
+<p>Обновление остатков может происходить по событию (при проведении документа продажи в 1С) или по расписанию. Первый вариант предпочтительнее для активных продаж, так как гарантирует мгновенную реакцию системы. Однако он требует стабального интернет-соединения в момент проведения документов.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ручное обновление</th>
+<th>Автоматическое (API)</th>
+<th>Через посредника</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скорость</td>
+<td>Низкая</td>
+<td>Высокая</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>Риск ошибок</td>
+<td>Высокий</td>
+<td>Минимальный</td>
+<td>Низкий</td>
+</tr>
+<tr>
+<td>Трудозатраты</td>
+<td>Большие</td>
+<td>Минимальные</td>
+<td>Средние</td>
+</tr>
+<tr>
+<td>Стоимость</td>
+<td>0 руб.</td>
+<td>Входит в 1С/API</td>
+<td>Ежемесячная плата</td>
+</tr>
+</tbody>
+</table></div>
+<p>При работе с большим ассортиментом (тысячи SKU) полная выгрузка всех товаров может занимать длительное время. Эксперты рекомендуют использовать дельта-обновление, когда передаются только изменения с момента последней синхронизации. Это существенно снижает нагрузку на каналы связи.</p>
+
+
+<h2 id="обработка-заказов-от-получения-до-отгрузки">Обработка заказов: от получения до отгрузки</h2>
+<p>Когда клиент оформляет покупку, в 1С создается документ заказа. Менеджеру не нужно вручную перебивать данные — они приходят автоматически, включая состав заказа, адрес доставки и контактные данные покупателя. Ваша задача — проверить наличие товара и подтвердить готовность к отгрузке.</p>
+<p>Процесс обработки выглядит следующим образом: система получает заказ, резервирует товар на складе, печатает необходимые документы (счет-фактура, накладная, чек). Для схем FBS критически важно вовремя сформировать и распечатать <strong>штрихкод</strong> поставки, который наклеивается на упаковку.</p>
+<p>Если товар отправляется на склад Ozon (FBO), то в 1С формируется документ «Передача товаров», который создает задание на отгрузку. Система сама подскажет, какие ячейки склада нужно посетить сборщику и сколько коробок подготовить. После физической отгрузки статус в 1С меняется, и эта информация уходит на маркетплейс.</p>
+<blockquote>⚠️ Внимание: Несвоевременная передача товара в доставку или на склад Ozon ведет к штрафным санкциям. Настройте в 1С автоматические напоминания о дедлайнах отгрузки для каждого заказа.</blockquote>
+<p>Особое внимание стоит уделить работе с возвратами. Если клиент отказался от товара, информация об этом также придет в вашу базу. Необходимо корректно оприходовать возвращенный товар на склад, чтобы он снова стал доступен для продажи, и провести необходимые бухгалтерские корректировки.</p>
+
+
+<h2 id="финансовая-отчетность-и-сверка-взаиморасчетов">Финансовая отчетность и сверка взаиморасчетов</h2>
+<p>Продажи на маркетплейсах имеют свою специфику в плане финансов. Ozon выплачивает деньги не за каждый проданный товар отдельно, а агрегированными суммами по итогам отчетного периода, вычетая свои комиссии, логистику и хранение. В 1С необходимо четко разделять выручку и расходы.</p>
+<p>Для правильного учета рекомендуется использовать механизм «Агентских договоров» или специализированные обработки для маркетплейсов. Загрузка отчетов о реализациях позволяет автоматически создавать документы, отражающие выручку и комиссию площадки. Это избавляет бухгалтера от ручных расчетов.</p>
+<p>Регулярная сверка взаиморасчетов — обязательная процедура. Система позволяет сравнить данные 1С с отчетами Ozon и выявить расхождения. Чаще всего они возникают из-за корректировок стоимости логистики или возвратов, которые произошли после отгрузки.</p>
+<p>Аналитика продаж, встроенная в современные версии 1С, помогает понять реальную маржинальность каждого товара с учетом всех затрат на комиссию и рекламу. Без автоматизации этот процесс превратился бы вhours of manual calculation in Excel.</p>
+
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+<p>В процессе настройки и эксплуатации системы пользователи часто сталкиваются с рядом типовых проблем. Понимание их природы помогает быстрее найти решение. Чаще всего ошибки связаны с неверными настройками справочников или сетевыми сбоями.</p>
+<p>Одна из частых проблем — «зависание» обмена. Это может происходить, если в карточке товара в 1С не заполнены обязательные для Ozon поля (например, вес, габариты или страна происхождения). Модуль интеграции пытается отправить неполные данные, получает ошибку и прерывает выгрузку всего пакета.</p>
+<p>Другая распространенная ситуация — рассинхронизация статусов. Товар в 1С помечен как «Отгружен», а на сайте висит как «Собирается». Лечится это ручной перепроводкой статуса или повторной отправкой команды обновления через интерфейс модуля.</p>
+<ul>
+<li>🔴 Ошибка авторизации: проверьте, не сменился ли IP-адрес вашего сервера, если вы используете белый список в настройках Ozon.</li>
+<li>🔴 Дублирование товаров: возникает, если один и тот же артикул заведен в разных базах или разделах с разными внешними кодами.</li>
+<li>🔴 Неправильный расчет остатков: часто вызван тем, что в расчет берутся ячейки брака или резерва, которые не должны участвовать в свободной продаже.</li>
+</ul>
+<p>Для диагностики проблем всегда используйте журналы регистрации событий в 1С. Там фиксируется каждый шаг обмена данными, что позволяет точно определить, на каком этапе произошел сбой и какой именно ответ пришел от сервера маркетплейса.</p>
+
+<details>
+<summary>Нужно ли покупать дополнительную лицензию 1С для работы с Ozon?</summary>
+<p>В стандартных конфигурациях 1С (УТ 11, Розница 2, КА 2) базовый функционал выгрузки товаров часто уже присутствует. Однако для полноценной двусторонней синхронизации заказов и остатков в реальном времени может потребоваться установка платного расширения или использование сторонних коннекторов, так как базовый функционал может быть ограничен.</p>
+</details>
+
+<details>
+<summary>Что делать, если изменились правила API у Ozon?</summary>
+<p>Маркетплейсы часто обновляют свои API. Если вы используете стандартный модуль от фирмы-разработчика 1С, обновления обычно приходят автоматически с выходом новых версий конфигурации. Если вы используете стороннее решение или самописный скрипт, вам придется самостоятельно отслеживать изменения в документации Ozon и вносить правки в код.</p>
+</details>
+
+<details>
+<summary>Можно ли работать с Ozon через 1С по схеме FBO?</summary>
+<p>Да, схема FBO (продажа со склада Ozon) полностью поддерживается. В этом случае 1С используется для формирования заданий на отгрузку партии товаров на склад маркетплейса и учета остатков, находящихся там. Выгрузка товаров происходит заранее, до продажи конечному клиенту.</p>
+</details>
+
+<details>
+<summary>Как часто происходит синхронизация цен и остатков?</summary>
+<p>Частота синхронизации зависит от настроек вашего модуля и тарифных ограничений API. Оптимальным считается интервал от 1 до 5 минут для остатков, чтобы избежать овербукинга. Цены можно обновлять реже, например, раз в 15-30 минут, если у вас нет динамического ценообразования, реагирующего на действия конкурентов каждую секунду.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-chto-takoe-meteorit.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Метеорит: что это такое и как работает система</span>
+                <span class="pb-related-desc">Подробный разбор системы Ozon Метеорит: условия, тарифы, плюсы и минусы для продавцов FBS. Стоит ли </span>
+            </a><a href="/articles/k/ka/kak-dobavit-fbs-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как подключить FBS на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по добавлению модели FBS на Озон для продавцов: от регистрации до первых заказов.</span>
+            </a><a href="/articles/k/ka/kak-dobavit-tovar-na-svoj-sklad-ozon-fbs.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить товар на склад Озон FBS: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство для продавцов: как правильно отправить товар на склад FBS Озон, избежать ошибо</span>
+            </a><a href="/articles/k/ka/kak-pravilno-upakovat-tovar-dlya-ozon-so-svoego-sklada.html" class="pb-related-card">
+                <span class="pb-related-title">Упаковка для Озон: как правильно подготовить товар со склада FBS</span>
+                <span class="pb-related-desc">Пошаговая инструкция по упаковке товаров для Озон с собственного склада: требования 2026, материалы,</span>
+            </a><a href="/articles/k/ka/kak-s-fbo-perejti-na-fbs-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как перейти с FBO на FBS на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как с fbo перейти на fbs ozon без ошибок. Пошаговая инструкция, сравнение схем, нюансы логи</span>
+            </a><a href="/articles/o/oz/ozon-kak-dostavit-negabaritnyj-gruz.html" class="pb-related-card">
+                <span class="pb-related-title">Озон: как доставить негабаритный груз — правила и тарифы</span>
+                <span class="pb-related-desc">Подробная инструкция по доставке крупногабаритных грузов через Ozon. Правила упаковки, выбор схемы F</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

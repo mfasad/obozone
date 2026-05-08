@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Ozon проверяет Честный знак: алгоритмы и ошибки — Об Озоне</title>
+    <meta name="description" content="Подробный разбор проверки кодов Data Matrix на Ozon. Почему отклоняют товары, как работает маркировка и как избежать блокировок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ozon-proveryaet-chestnyj-znak.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Ozon проверяет Честный знак: алгоритмы и ошибки">
+    <meta property="og:description" content="Подробный разбор проверки кодов Data Matrix на Ozon. Почему отклоняют товары, как работает маркировка и как избежать блокировок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Ozon проверяет Честный знак: алгоритмы и ошибки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#механизм-сверки-кодов-data-matrix-с-базой-гис-мт">Механизм сверки кодов Data Matrix с базой ГИС МТ</a></li><li><a href="#алгоритм-проверки-при-приемке-товара-на-складе">Алгоритм проверки при приемке товара на складе</a></li><li><a href="#типичные-ошибки-при-загрузке-кодов-маркировки">Типичные ошибки при загрузке кодов маркировки</a></li><li><a href="#статусы-кодов-и-их-расшифровка-в-личном-кабинете">Статусы кодов и их расшифровка в личном кабинете</a></li><li><a href="#нюансы-работы-с-разными-схемами-поставки-fbo-и-fbs">Нюансы работы с разными схемами поставки (FBO и FBS)</a></li><li><a href="#решение-проблем-что-делать-при-расхождениях">Решение проблем: что делать при расхождениях</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakaya-informatsiya-dolzhna-byt-na-etiketke-tovara-ozon.html">Этикетка товара на Озон: обязательная информация для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-upakovat-knigi-dlya-ozona.html">Как упаковать книги для Ozon: требования 2026, упаковка</a></li><li><a href="/articles/s/sk/skolko-kartochek-mozhno-perenesti-s-ozona-na-vb-cherez-kabinet-sellera.html">Лимиты переноса карточек с Ozon на Wildberries: сколько можно</a></li><li><a href="/articles/k/ka/kak-dobavit-klyuchevye-slova-na-ozon.html">Как добавить ключевые слова на Озон: полное руководство 2026</a></li><li><a href="/articles/k/ka/kak-sdelat-artikul-na-tovar-na-ozon.html">Как сделать артикул на Ozon: генерация и настройка</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как Ozon проверяет Честный знак: алгоритмы и типичные ошибки</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#механизм-сверки-кодов-data-matrix-с-базой-гис-мт">Механизм сверки кодов Data Matrix с базой ГИС МТ</a></li><li><a href="#алгоритм-проверки-при-приемке-товара-на-складе">Алгоритм проверки при приемке товара на складе</a></li><li><a href="#типичные-ошибки-при-загрузке-кодов-маркировки">Типичные ошибки при загрузке кодов маркировки</a></li><li><a href="#статусы-кодов-и-их-расшифровка-в-личном-кабинете">Статусы кодов и их расшифровка в личном кабинете</a></li><li><a href="#нюансы-работы-с-разными-схемами-поставки-fbo-и-fbs">Нюансы работы с разными схемами поставки (FBO и FBS)</a></li><li><a href="#решение-проблем-что-делать-при-расхождениях">Решение проблем: что делать при расхождениях</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Интеграция системы <strong>«Честный ЗНАК»</strong> с платформой Ozon стала обязательным этапом для тысяч селлеров, торгующих маркируемыми товарами. Процесс этот не просто бюрократическая формальность, а сложная техническая цепочка, в которой данные проходят многоступенчатую верификацию. Ошибки на любом этапе могут привести к тому, что товар будет заблокирован, а продавец получит штраф или отклонение поставки.</p>
+
+<p>Маркетплейс не просто принимает коды, которые вы вводите в личном кабинете. <strong>Система Ozon</strong> отправляет запросы в государственную базу ГИС МТ (Государственная информационная система мониторинга товаров), сверяет статусы, проверяет соответствие характеристик и только после этого разрешает продажу. Понимание того, как именно происходит эта сверка, поможет вам избежать распространенных ошибок при загрузке товаров.</p>
+
+<p>В этой статье мы детально разберем механику взаимодействия платформы и государственной системы маркировки. Вы узнаете, какие именно параметры проверяет алгоритм, почему коды могут «улетать» в ошибку и как правильно подготовить карточки, чтобы товар беспрепятственно попал на склад или был принят на реализации.</p>
+
+<h2 id="механизм-сверки-кодов-data-matrix-с-базой-гис-мт">Механизм сверки кодов Data Matrix с базой ГИС МТ</h2>
+
+<p>Основной принцип работы Ozon с маркировкой строится на прямой интеграции с <strong>ЦРПТ</strong> (Центр развития перспективных технологий). Когда вы загружаете коды Data Matrix, система маркетплейса выступает в роли агрегатора, который передает эти данные в государственную систему для первичной проверки. Важно понимать, что Ozon не генерирует эти коды и не имеет права их изменять.</p>
+
+<p>Процесс начинается с того, что вы выгружаете коды из «Честного ЗНАКа» или получаете их через API. После загрузки в личном кабинете Ozon запускается автоматическая валидация. Алгоритм проверяет не только наличие кода в базе, но и его <strong>статус</strong>. Если код уже был использован для продажи другому покупателю или выведен из оборота, система Ozon немедленно отреагирует на это.</p>
+
+<p>Особое внимание уделяется форматам данных. Код маркировки должен быть считан и передан в строго определенном формате. Любые лишние символы, пробелы или ошибки в структуре строки Data Matrix приведут к автоматическому отклонению. Система не пытается «угадать» правильный код, если формат нарушен.</p>
+
+<p>Для успешной передачи данных необходимо, чтобы в вашей учетной записи <em>Cabinet Честный ЗНАК</em> был корректно настроен обмен данными с оператором ЭДО и самим маркетплейсом. Часто проблемы возникают именно на этапе «рукопожатия» между системами, когда токены доступа истекают или права доступа ограничены.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы видите статус «Ошибка проверки в ГИС МТ», это означает, что проблема находится на стороне государственной системы или в правах доступа, а не в логистике Ozon. Проверьте актуальность сертификатов ЭЦП.</p>
+</blockquote>
+
+<p>Скорость прохождения проверки зависит от нагрузки на серверы ЦРПТ. В периоды пиковых нагрузок (например, перед крупными распродажами) ответ от государственной системы может идти дольше обычного. Ozon в таких случаях устанавливает увеличенные тайм-ауты, но лучше не загружать огромные массивы кодов в последний момент.</p>
+
+<h2 id="алгоритм-проверки-при-приемке-товара-на-складе">Алгоритм проверки при приемке товара на складе</h2>
+
+<p>Когда товар физически прибывает на склад Ozon, процесс проверки переходит из цифровой плоскости в физическую. Сотрудники склада используют специальные терминалы сбора данных (ТСД), которые считывают <strong>Data Matrix</strong> коды с каждой единицы товара. Это критический момент, где цифровая информация встречается с реальностью.</p>
+
+<p>Алгоритм приемки работает следующим образом: сканер считывает код, и система склада в реальном времени сверяет его с теми кодами, которые вы предварительно загрузили в карточку товара. Если отсканированный код совпадает с загруженным и имеет статус «В обороте», товар принимается. Если совпадений нет — начинается процесс оформления расхождений.</p>
+
+<p>Особое внимание уделяется целостности упаковки. Если код маркировки поврежден, не читается сканером или заклеен, товар будет отбракован. Система не принимает коды, которые невозможно считать автоматически. Это одна из самых частых причин возвратов или утилизации товара за счет продавца.</p>
+
+<div class="pb-poll" id="poll-32a8ea10"><div class="pb-poll-question">📊 Сталкивались ли вы с проблемами при приемке маркированного товара?</div><div class="pb-poll-option" data-poll="32a8ea10" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Да, коды не читались</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="32a8ea10" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Да, были расхождения в количестве</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="32a8ea10" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Нет, все прошло гладко</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="32a8ea10" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только планирую поставки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Также проверяется соответствие количества. Если в поставке заявлено 100 единиц товара с кодами, а при приемке считано только 98 уникальных кодов, система зафиксирует недостачу. Дублирование кодов (когда один и тот же код встречается на разных упаковках) также является критической ошибкой, ведущей к блокировке всей поставки.</p>
+
+<p>Важно отметить, что проверка происходит для каждой единицы товара (SKU). Если вы поставляете товар разных размеров или цветов, каждый из них должен иметь свой уникальный набор кодов, привязанный к соответствующей карточке в системе.</p>
+
+<h2 id="типичные-ошибки-при-загрузке-кодов-маркировки">Типичные ошибки при загрузке кодов маркировки</h2>
+
+<p>Ошибки при работе с маркировкой можно разделить на технические и логические. Технические чаще всего связаны с форматом файлов. Система Ozon принимает коды в определенных форматах (обычно CSV или TXT), и нарушение структуры файла приводит к тому, что ни один код не будет загружен. Часто продавцы забывают про кодировку UTF-8, что приводит к появлению «кракозябр».</p>
+
+<p>Логические ошибки встречаются чаще. Самая распространенная из них — загрузка кодов в неправильную карточку товара. Например, коды для футболки размера M загружены в карточку размера L. При приемке система увидит несоответствие: физически лежит размер M, а в системе числится L. Это приведет к <strong>расхождению</strong> и сложностям с продажей.</p>
+
+<p>Другая частая ошибка — попытка загрузить коды, которые уже были использованы в другой поставке. Система «Честный ЗНАК» помечает код как проданный или находящийся в пути к потребителю. Повторное использование такого кода невозможно и будет расценено как нарушение правил оборота.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип ошибки</th>
+<th>Причина возникновения</th>
+<th>Последствие</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Неверный формат файла</td>
+<td>Отсутствие заголовков столбцов или неверная кодировка</td>
+<td>Полный отказ в загрузке файла</td>
+</tr>
+<tr>
+<td>Дублирование кодов</td>
+<td>Один код загружен дважды или используется в разных поставках</td>
+<td>Блокировка поставки, риск штрафа</td>
+</tr>
+<tr>
+<td>Несоответствие статуса</td>
+<td>Код имеет статус «Выбыл» или «Произведен», но не «В обороте»</td>
+<td>Отклонение кода при приемке</td>
+</tr>
+<tr>
+<td>Ошибка атрибутов</td>
+<td>Неверно указан состав или бренд в карточке Ozon</td>
+<td>Несостыковка с данными ГИС МТ</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Также стоит упомянуть ошибку атрибутов. В карточке товара на Ozon должны быть указаны точные характеристики (состав, бренд, модель), которые совпадают с теми, что зафиксированы в системе «Честный ЗНАК» при регистрации кода. Расхождение даже в одной букве названия бренда может вызвать проблемы при автоматической сверке.</p>
+
+<h2 id="статусы-кодов-и-их-расшифровка-в-личном-кабинете">Статусы кодов и их расшифровка в личном кабинете</h2>
+
+<p>Работа с маркированными товарами требует постоянного мониторинга статусов. В личном кабинете продавца Ozon отображается текущее состояние каждого загруженного кода. Понимание этих статусов позволяет быстро реагировать на проблемы.</p>
+
+<p>Статус <strong>«Загружен»</strong> означает, что файл с кодами успешно принят системой Ozon, но проверка в ГИС МТ еще не завершена или находится в процессе. На этом этапе товар еще нельзя продавать, он находится в буфере.</p>
+
+<p>Статус «<strong>Проверен</strong>» (или «В обороте») — это зеленый свет для продаж. Код успешно прошел сверку с государственной базой, подтверждена его подлинность и актуальность. Товар готов к приемке на склад или, если он уже там, к отгрузке покупателю.</p>
+
+<p>Если вы видите статус «<strong>Ошибка</strong>» или «<strong>Отклонен</strong>», необходимо немедленно переходить к деталям. Система обычно указывает причину: «Код не найден», «Код выбыл», «Неверный формат». Игнорирование таких статусов приведет к тому, что товар будет числиться на балансе, но продать его будет невозможно.</p>
+
+
+<p>Если код имеет статус «Выбыл» в момент загрузки, это значит, что он уже был продан конечному потребителю или списан. Продать такой товар через Ozon легально нельзя. Вам необходимо связаться с поставщиком для замены товара или утилизировать его, если вы производитель. Попытка продать такой товар приведет к юридическим последствиям.--></p>
+
+<p>Существует также промежуточный статус «Проверка». Он может висеть длительное время, если в ГИС МТ проводятся технические работы. В таких случаях не стоит удалять коды и загружать их заново — это создаст дубли в очереди и только усугубит ситуацию. Лучше дождаться обновления статусов.</p>
+
+<h2 id="нюансы-работы-с-разными-схемами-поставки-fbo-и-fbs">Нюансы работы с разными схемами поставки (FBO и FBS)</h2>
+
+<p>Схема работы влияет на то, когда и как происходит проверка кодов. При работе по модели <strong>FBO</strong> (Fulfillment by Ozon), когда вы отгружаете товар на склад маркетплейса, проверка кодов происходит централизованно сотрудниками склада. Вы должны передать товар и файл с кодами заранее. Ошибки, обнаруженные при приемке, решаются через создание актов расхождений.</p>
+
+<p>В модели <strong>FBS</strong> (Fulfillment by Seller) ситуация иная. Товар находится у вас, но информация о кодах должна быть в системе. При сборке заказа вы обязаны считать код с товара и передать его в систему Ozon для вывода из оборота. Если вы не передадите код или передадите неверный, (заказ) не уедет к клиенту, а вы получите штраф за нарушение правил маркировки.</p>
+
+<p>Для FBS критически важна скорость реакции. Система дает ограниченное время на передачу кода после сборки заказа. Задержки в передаче данных в <em>Честный ЗНАК</em> через интерфейс Ozon могут привести к блокировке вашего магазина или снижению рейтинга.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При схеме FBS никогда не передавайте код маркировки до фактической сборки и упаковки товара. Передача кода приравнивается к продаже. Если товар повредится при упаковке после передачи кода, вывести его из оборота как «брак» будет сложнее.</p>
+</blockquote>
+
+<p>Также существует схема DBS (Delivery by Seller), где логистика полностью на вас, но требования к маркировке остаются теми же. Вы обязаны обеспечить легальность оборота и передачу данных в государственную систему.</p>
+
+<h2 id="решение-проблем-что-делать-при-расхождениях">Решение проблем: что делать при расхождениях</h2>
+
+<p>Если вы столкнулись с расхождениями или ошибками, первым шагом всегда является детальный анализ отчета. Ozon предоставляет файлы с подробным описанием причин отклонения каждого кода. Не пытайтесь угадать причину — используйте данные из отчета.</p>
+
+<p>Часто проблема решается простой коррекцией данных в карточке товара. Проверьте, совпадает ли <strong>баркод</strong> (штрихкод) в карточке Ozon с баркодом на упаковке товара. Для маркируемых товаров эти данные должны быть синхронизированы идеально.</p>
+
+<p>В сложных случаях, когда коды «зависли» или статусы не обновляются, может потребоваться обращение в поддержку. Однако, перед этим убедитесь, что вы проверили статус кодов непосредственно в личном кабинете «Честного ЗНАКа». Если там все чисто, а Ozon показывает ошибку — это повод для тикета.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист перед отправкой маркированного товара</h4><label class="check-item"><input type="checkbox"><span>Проверка статусов кодов в ГИС МТ</span></label><label class="check-item"><input type="checkbox"><span>Сверка баркодов в карточке и на упаковке</span></label><label class="check-item"><input type="checkbox"><span>Тестовая печать этикеток</span></label><label class="check-item"><input type="checkbox"><span>Проверка целостности упаковки</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Если товар был поврежден или утерян, необходимо правильно оформить акт списания. Для маркированных товаров это делается через создание специального события в системе, чтобы код был выведен из оборота с правильной причиной (например, «Утрата» или «Порча»). Это защитит вас от претензий регулятора.</p>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли продавать товар без кода маркировки, если он уже на складе Ozon?</summary>
+<p>Нет, если товар относится к категории обязательной маркировки, продажа без кода невозможна. Ozon заблокирует такие позиции. Вам необходимо либо предоставить коды, либо оформить возврат товара.</p>
+</details>
+
+<details>
+<summary>Что будет, если я перепутаю коды для разных размеров одежды?</summary>
+<p>Это приведет к расхождению при приемке. Товар не примут, так как физический атрибут (размер) не будет соответствовать коду. Вам придется создавать новую поставку с правильными кодами или корректировать данные, если система позволяет.</p>
+</details>
+
+<details>
+<summary>Как долго хранятся коды в системе Ozon?</summary>
+<p>Коды хранятся привязанными к конкретной карточке товара до момента их продажи или вывода из оборота. При удалении карточки товара привязанные коды могут быть утеряны, поэтому будьте осторожны при удалении товаров с остатками.</p>
+</details>
+
+<details>
+<summary>Нужно ли маркировать товар, если я произвел его сам (собственное производство)?</summary>
+<p>Да, если товар входит в перечень маркируемых групп, производитель обязан зарегистрироваться в системе «Честный ЗНАК», получить коды и нанести их на товар перед продажей, в том числе на Ozon.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakaya-informatsiya-dolzhna-byt-na-etiketke-tovara-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Этикетка товара на Озон: обязательная информация для продавцов 2026</span>
+                <span class="pb-related-desc">Какие данные должны быть на этикетке товара для Озон: требования 2026, штрихкоды, маркировка, штрафы</span>
+            </a><a href="/articles/k/ka/kak-upakovat-knigi-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать книги для Ozon: требования 2026, упаковка</span>
+                <span class="pb-related-desc">Полная инструкция: как упаковать книги для Ozon по новым правилам. Защита углов, выбор картона, марк</span>
+            </a><a href="/articles/s/sk/skolko-kartochek-mozhno-perenesti-s-ozona-na-vb-cherez-kabinet-sellera.html" class="pb-related-card">
+                <span class="pb-related-title">Лимиты переноса карточек с Ozon на Wildberries: сколько можно</span>
+                <span class="pb-related-desc">Узнайте, сколько карточек можно перенести с Ozon на Wildberries через API. Лимиты, технические огран</span>
+            </a><a href="/articles/k/ka/kak-dobavit-klyuchevye-slova-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить ключевые слова на Озон: полное руководство 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по оптимизации карточки товара на Ozon с ключевыми словами. Узнайте, где и как </span>
+            </a><a href="/articles/k/ka/kak-sdelat-artikul-na-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать артикул на Ozon: генерация и настройка</span>
+                <span class="pb-related-desc">Полная инструкция: как создать артикул на Озон, настроить штрихкод, избежать блокировок и правильно </span>
+            </a><a href="/articles/g/gd/gde-vzyat-kartochku-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять карточку Ozon: создание, поиск и редактирование</span>
+                <span class="pb-related-desc">Узнайте, где взять карточку товара на Озоне. Пошаговая инструкция для селлеров по созданию, поиску п</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>На чём написан Ozon.ru: технологии и архитектура маркетплейса — Об Озоне</title>
+    <meta name="description" content="Разбираем стек технологий Ozon: бэкенд, фронтенд, базы данных и инфраструктуру. Как устроена платформа изнутри и почему это важно для продавцов и разработчиков.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/n/na/na-chem-napisan-ozon-ru.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="На чём написан Ozon.ru: технологии и архитектура маркетплейса">
+    <meta property="og:description" content="Разбираем стек технологий Ozon: бэкенд, фронтенд, базы данных и инфраструктуру. Как устроена платформа изнутри и почему это важно для продавцов и разработчиков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">На чём написан Ozon.ru: технологии и архитектура маркетплейса</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-бэкенд-ozon-языки-фреймворки-и-микросервисы">1. Бэкенд Ozon: языки, фреймворки и микросервисы</a></li><li><a href="#2-фронтенд-как-устроена-веб-версия-и-мобильные-приложения">2. Фронтенд: как устроена веб-версия и мобильные приложения</a></li><li><a href="#3-базы-данных-и-системы-хранения-как-ozon-управляет-петбайтами-данных">3. Базы данных и системы хранения: как Ozon управляет петбайтами данных</a></li><li><a href="#4-инфраструктура-и-облачные-технологии">4. Инфраструктура и облачные технологии</a></li><li><a href="#5-api-и-интеграции-как-внешние-системы-взаимодействуют-с-ozon">5. API и интеграции: как внешние системы взаимодействуют с Ozon</a></li><li><a href="#6-безопасность-как-ozon-защищает-данные-пользователей-и-продавцов">6. Безопасность: как Ozon защищает данные пользователей и продавцов</a></li><li><a href="#7-машинное-обучение-и-big-data-как-ozon-персонализирует-опыт-покупателей">7. Машинное обучение и Big Data: как Ozon персонализирует опыт покупателей</a></li><li><a href="#8-будущее-технологической-платформы-ozon-что-ждёт-маркетплейс">8. Будущее технологической платформы Ozon: что ждёт маркетплейс?</a></li><li><a href="#faq-частые-вопросы-о-технологиях-ozon">FAQ: Частые вопросы о технологиях Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/b/be/betagistin-ozon-ili-verteks-chto-luchshe.html">Бетагистин Озон или Вертекс: сравнение препаратов</a></li><li><a href="/articles/k/ka/kak-vyjti-iz-aktsii-na-ozon-seller.html">Как выйти из акции на Ozon Seller: инструкция</a></li><li><a href="/articles/k/kt/kto-rukovodit-ozon.html">Кто руководит Озон: структура управления и владельцы 2026</a></li><li><a href="/articles/c/ch/chem-polezen-ozon-dlya-cheloveka-organizma.html">Чем полезен озон для организма человека: свойства, риски и лечение</a></li><li><a href="/articles/k/kt/kto-osnoval-ozon.html">Кто основал Ozon: история создания маркетплейса и его создатели</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Техническая платформа Ozon.ru: на чём работает крупнейший маркетплейс России</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-бэкенд-ozon-языки-фреймворки-и-микросервисы">1. Бэкенд Ozon: языки, фреймворки и микросервисы</a></li><li><a href="#2-фронтенд-как-устроена-веб-версия-и-мобильные-приложения">2. Фронтенд: как устроена веб-версия и мобильные приложения</a></li><li><a href="#3-базы-данных-и-системы-хранения-как-ozon-управляет-петбайтами-данных">3. Базы данных и системы хранения: как Ozon управляет петбайтами данных</a></li><li><a href="#4-инфраструктура-и-облачные-технологии">4. Инфраструктура и облачные технологии</a></li><li><a href="#5-api-и-интеграции-как-внешние-системы-взаимодействуют-с-ozon">5. API и интеграции: как внешние системы взаимодействуют с Ozon</a></li><li><a href="#6-безопасность-как-ozon-защищает-данные-пользователей-и-продавцов">6. Безопасность: как Ozon защищает данные пользователей и продавцов</a></li><li><a href="#7-машинное-обучение-и-big-data-как-ozon-персонализирует-опыт-покупателей">7. Машинное обучение и Big Data: как Ozon персонализирует опыт покупателей</a></li><li><a href="#8-будущее-технологической-платформы-ozon-что-ждёт-маркетплейс">8. Будущее технологической платформы Ozon: что ждёт маркетплейс?</a></li><li><a href="#faq-частые-вопросы-о-технологиях-ozon">FAQ: Частые вопросы о технологиях Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Когда вы открываете <em>Ozon.ru</em> — будь то с телефона, компьютера или через мобильное приложение — вы взаимодействуете с одной из самых сложных IT-инфраструктур в российском интернете. За простым интерфейсом магазина скрываются тысячи серверов, десятки микросервисов и петбайты данных, обрабатываемых в реальном времени. Но на чём именно написан этот гигант? Какой стек технологий позволяет <strong>Ozon</strong> обрабатывать миллионы заказов в день, поддерживать пиковые нагрузки во время распродаж и обеспечивать стабильную работу для 40+ миллионов активных пользователей?</p>
+
+<p>В этой статье мы детально разберём:</p>
+<ul>
+  <li>🔹 <strong>Языки программирования</strong> и фреймворки, которые лежат в основе бэкенда и фронтенда <em>Ozon</em>;</li>
+  <li>🔹 <strong>Базы данных</strong> и системы хранения, управляющие каталогом из 300+ миллионов товаров;</li>
+  <li>🔹 <strong>Архитектурные решения</strong>, позволяющие масштабировать платформу без простоя;</li>
+  <li>🔹 <strong>Инфраструктуру</strong> и облачные технологии, обеспечивающие высокую доступность;</li>
+  <li>🔹 <strong>Особенности мобильных приложений</strong> и почему они работают быстрее веб-версии.</li>
+</ul>
+
+<p>Эта информация будет полезна не только разработчикам, но и продавцам на <em>Ozon</em>, которые хотят понимать, как технические нюансы платформы влияют на отображение товаров, скорость обработки заказов и даже на ранжирование в поиске. А для IT-специалистов статья станет гайдом по современным подходам к построению высоконагруженных систем.</p>
+
+<h2 id="1-бэкенд-ozon-языки-фреймворки-и-микросервисы">1. Бэкенд Ozon: языки, фреймворки и микросервисы</h2>
+
+<p>Сердце <em>Ozon.ru</em> — это распределённая система из сотен микросервисов, каждый из которых отвечает за свою часть функционала: от обработки заказов до рекомендательных алгоритмов. Основной язык бэкенда — <strong>Java</strong> (версии 11 и 17), который используется в ~70% сервисов. Почему именно он?</p>
+
+<ul>
+  <li>⚡ <strong>Производительность</strong>: Java-приложения на <em>JVM</em> показывают высокую скорость работы даже под большой нагрузкой;</li>
+  <li>🛡️ <strong>Надёжность</strong>: строгая типизация и зрелые фреймворки минимизируют ошибки;</li>
+  <li>🔄 <strong>Масштабируемость</strong>: горизонтальное масштабирование с помощью <em>Kubernetes</em> и <em>Docker</em>;</li>
+  <li>👥 <strong>Экосистема</strong>: огромное количество библиотек для работы с <code>Big Data</code>, очередями (<em>Kafka</em>) и кэшированием (<em>Redis</em>).</li>
+</ul>
+
+<p>Второй по популярности язык — <strong>Go (Golang)</strong>, который <em>Ozon</em> активно внедряет для высоконагруженных сервисов, требующих низкой латентности (например, обработка платежей или работа с <em>API</em> партнёров). <strong>Python</strong> используется для задач <code>Data Science</code> (рекомендательные системы, аналитика), а также в некоторых вспомогательных сервисах.</p>
+
+<p>Среди ключевых фреймворков:</p>
+<ul>
+  <li>🖥️ <em>Spring Boot</em> (Java) — для большинства микросервисов;</li>
+  <li>🚀 <em>gRPC</em> — для внутренней коммуникации между сервисами;</li>
+  <li>📊 <em>Apache Kafka</em> — для обработки потоков данных (например, логов пользовательской активности).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы разрабатываете интеграцию с <em>Ozon API</em>, учитывайте, что некоторые эндпоинты могут использовать <code>gRPC</code> вместо традиционного <code>REST</code>. Это требует специфической настройки клиента.</blockquote>
+
+<p>Архитектура построена по принципу <strong>Domain-Driven Design (DDD)</strong>, где каждый микросервис отвечает за свою бизнес-область (например, <code>Catalog Service</code>, <code>Order Service</code>, <code>Payment Service</code>). Это позволяет командам разработчиков работать независимо и быстро внедрять изменения.</p>
+
+<div class="pb-poll" id="poll-08ac28d9"><div class="pb-poll-question">📊 Какой язык программирования, по вашему мнению, доминирует в бэкенде Ozon?</div><div class="pb-poll-option" data-poll="08ac28d9" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Java</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="08ac28d9" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Go (Golang)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="08ac28d9" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Python</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="08ac28d9" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">C++</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="08ac28d9" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Не знаю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-фронтенд-как-устроена-веб-версия-и-мобильные-приложения">2. Фронтенд: как устроена веб-версия и мобильные приложения</h2>
+
+<p>Интерфейс <em>Ozon.ru</em>, который видят пользователи, написан с использованием современных фронтенд-технологий. Основной стек:</p>
+
+<ul>
+  <li>🌐 <strong>React.js</strong> (версии 18+) — для веб-версии сайта;</li>
+  <li>📱 <strong>React Native</strong> — для мобильных приложений (iOS и Android);</li>
+  <li>🎨 <strong>TypeScript</strong> — для типизации кода и уменьшения ошибок;</li>
+  <li>🖌️ <strong>CSS-in-JS</strong> (в основном <em>styled-components</em>) — для стилизации.</li>
+</ul>
+
+<p>Особенность фронтенда <em>Ozon</em> — <strong>модульная архитектура</strong>. Каждый раздел сайта (каталог, карточка товара, корзина, личный кабинет) представляет собой отдельный модуль, который можно обновлять независимо. Это позволяет, например, тестировать новые дизайны корзины на части пользователей, не затрагивая остальные элементы.</p>
+
+<p>Для ускорения загрузки страниц используются:</p>
+<ul>
+  <li>🚀 <strong>Server-Side Rendering (SSR)</strong> — часть контента рендерится на сервере;</li>
+  <li>🔄 <strong>Lazy Loading</strong> — подгрузка изображений и модулей по мере прокрутки;</li>
+  <li>🗃️ <strong>CDN</strong> — распределённая сеть доставки контента (изображения, скрипты, стили).</li>
+</ul>
+
+<p>Мобильные приложения <em>Ozon</em> (особенно на <em>Android</em>) часто работают быстрее веб-версии благодаря:</p>
+<ul>
+  <li>📲 <strong>Офлайн-кэшу</strong> — часть данных (например, история заказов) сохраняется локально;</li>
+  <li>🔗 <strong>Deep Linking</strong> — прямые переходы между экранами без загрузки лишних данных;</li>
+  <li>🤖 <strong>Нативным модулям</strong> — критичные операции (например, сканирование штрихкодов) выполняются через нативный код.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы заметили, что ваш товар отображается в мобильном приложении иначе, чем на сайте, это может быть связано с <code>A/B-тестированием</code> новых версий интерфейса. <em>Ozon</em> часто тестирует разные варианты дизайна на разных группах пользователей.</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Чтобы проверить, как ваш товар выглядит в мобильном приложении, используйте эмуляторы Android/iOS или тестовые аккаунты с разными настройками отображения.</p></aside>
+
+<h2 id="3-базы-данных-и-системы-хранения-как-ozon-управляет-петбайтами-данных">3. Базы данных и системы хранения: как Ozon управляет петбайтами данных</h2>
+
+<p>Каталог <em>Ozon</em> содержит более <strong>300 миллионов товарных позиций</strong>, а база пользователей превышает <strong>50 миллионов записей</strong>. Для хранения и обработки таких объёмов данных используются:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип данных</th>
+      <th>Технология</th>
+      <th>Пример использования</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Товарный каталог</td>
+      <td><em>PostgreSQL</em> + <em>Elasticsearch</em></td>
+      <td>Хранение атрибутов товаров и быстрый поиск</td>
+    </tr>
+    <tr>
+      <td>Заказы и транзакции</td>
+      <td><em>ScyllaDB</em> (совместима с <em>Cassandra</em>)</td>
+      <td>Обработка миллионов заказов в час во время распродаж</td>
+    </tr>
+    <tr>
+      <td>Логи и аналитика</td>
+      <td><em>ClickHouse</em> + <em>Apache Kafka</em></td>
+      <td>Агрегация данных о поведении пользователей</td>
+    </tr>
+    <tr>
+      <td>Кэш</td>
+      <td><em>Redis</em> + <em>Memcached</em></td>
+      <td>Ускорение доступа к часто запрашиваемым данным (например, корзина)</td>
+    </tr>
+    <tr>
+      <td>Файлы (изображения, видео)</td>
+      <td><em>MinIO</em> (S3-совместимое хранилище)</td>
+      <td>Хранение медиафайлов товаров и пользовательского контента</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><mark>Ключевая особенность: Ozon использует ScyllaDB вместо классической Cassandra для обработки заказов — это позволяет снизить латентность в 10 раз при пиковых нагрузках (например, во время "Чёрной пятницы").</mark></p>
+
+<p>Для поиска товаров применяется <em>Elasticsearch</em> с кастомизированными алгоритмами ранжирования. Например, при поиске по запросу "айфон 15" система учитывает:</p>
+<ul>
+  <li>🔍 <strong>Релевантность названия</strong> (точные вхождения в заголовке);</li>
+  <li>⭐ <strong>Рейтинг продавца</strong> и отзывы;</li>
+  <li>💰 <strong>Цену</strong> и наличие скидок;</li>
+  <li>📦 <strong>Скорость доставки</strong> (приоритет у товаров с доставкой сегодня/завтра).</li>
+</ul>
+
+<p>Система аналитики построена на <em>ClickHouse</em>, который обрабатывает <strong>триллионы событий в месяц</strong> (просмотры, клики, добавления в корзину). Эти данные используются для:</p>
+<ul>
+  <li>📈 Персонализированных рекомендаций;</li>
+  <li>🎯 Таргетированной рекламы;</li>
+  <li>🔄 Оптимизации логистики (прогнозирование спроса).</li>
+</ul>
+
+<details class="pb-accordion"><summary>Как Ozon обрабатывает пиковые нагрузки?</summary><div class="pb-accordion-body"><p>Во время распродаж (например, 11.11 или "Чёрная пятница") трафик может вырасти в 5-7 раз. Для этого используется:
+<p>- Автоматическое масштабирование Kubernetes-подов;</p>
+<p>- Кэширование наиболее популярных товаров в Redis;</p>
+<p>- Очереди Kafka для сглаживания пиковых нагрузок на базы данных.</p>
+<p>Даже если какой-то сервис временно недоступен, система переключается на резервные узлы без потери данных.</p></div></details></p>
+
+<h2 id="4-инфраструктура-и-облачные-технологии">4. Инфраструктура и облачные технологии</h2>
+
+<p><em>Ozon</em> — это не только код, но и одна из крупнейших IT-инфраструктур в России. Основные компоненты:</p>
+
+<ul>
+  <li>🖥️ <strong>Собственные дата-центры</strong> в Москве и Подмосковье (более 10 000 серверов);</li>
+  <li>☁️ <strong>Гибридное облако</strong> — часть сервисов работает в <em>Yandex Cloud</em> и <em>AWS</em>;</li>
+  <li>🌍 <strong>CDN</strong> от <em>Cloudflare</em> и <em>Akamai</em> для ускорения доставки контента;</li>
+  <li>🔒 <strong>DDoS-защита</strong> на базе <em>Cloudflare</em> и собственных решений.</li>
+</ul>
+
+<p>Для оркестрации контейнеров используется <em>Kubernetes</em> (управляет ~50 000 подов), а для мониторинга — <em>Prometheus</em> + <em>Grafana</em>. Интересный факт: <em>Ozon</em> разработал собственную систему мониторинга <em>Ozon Monitoring</em>, которая интегрирована с <em>Slack</em> и отправляет алерты в реальном времени при сбоях.</p>
+
+<p>Логистическая инфраструктура (склады, сортировочные центры) также цифровизирована:</p>
+<ul>
+  <li>🤖 <strong>Роботы-сортировщики</strong> на складах (разработаны совместно с <em>Yandex</em>);</li>
+  <li>🚛 <strong>Система трекинга грузов</strong> в реальном времени;</li>
+  <li>📡 <strong>IoT-датчики</strong> для мониторинга температуры и влажности (важно для продуктов питания).</li>
+</ul>
+
+<p>Для обеспечения высокой доступности (<strong>99.99% uptime</strong>) используется:</p>
+<ul>
+  <li>🔄 <strong>Мультирегиональная репликация</strong> — данные дублируются в нескольких дата-центрах;</li>
+  <li>🛡️ <strong>Автоматическое переключение</strong> на резервные серверы при сбое;</li>
+  <li>🔧 <strong>Chaos Engineering</strong> — тестирование отказоустойчивости путём искусственного создания сбоев.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш товар внезапно исчез из поиска, это может быть связано с техническими работами на стороне <em>Ozon</em>. Проверьте статус сервисов на странице <a href="https://status.ozon.ru" target="_blank">status.ozon.ru</a>.</blockquote>
+
+<h2 id="5-api-и-интеграции-как-внешние-системы-взаимодействуют-с-ozon">5. API и интеграции: как внешние системы взаимодействуют с Ozon</h2>
+
+<p><em>Ozon</em> предоставляет несколько типов <em>API</em> для интеграции:</p>
+
+<ul>
+  <li>🛒 <strong>Seller API</strong> — для продавцов (управление товарами, заказами, отчётами);</li>
+  <li>📦 <strong>Logistics API</strong> — для работы с доставкой;</li>
+  <li>💳 <strong>Payments API</strong> — для обработки платежей;</li>
+  <li>🔍 <strong>Search API</strong> — для партнёров (например, сравнение цен).</li>
+</ul>
+
+<p>Большинство эндпоинтов используют <code>REST</code>, но некоторые критичные сервисы (например, обновление статусов заказов) работают через <code>gRPC</code> для снижения латентности. Для аутентификации применяется <code>OAuth 2.0</code>.</p>
+
+<p>Пример запроса к <em>Seller API</em> для получения списка заказов:</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/posting/fbs/unfulfilled
+<p>Headers:</p>
+<p>- Client-Id: {ваш_client_id}</p>
+<p>- Api-Key: {ваш_api_key}</p>
+<p>- Host: api-seller.ozon.ru</code></pre></p>
+
+<p>Ограничения <em>API</em>:</p>
+<ul>
+  <li>⏱️ <strong>Rate Limiting</strong> — обычно 100 запросов в минуту (зависит от типа аккаунта);</li>
+  <li>🔒 <strong>IP-фильтрация</strong> — доступ только с предварительно одобренных IP;</li>
+  <li>📜 <strong>Логирование</strong> — все запросы сохраняются для аудита.</li>
+</ul>
+
+<p>Для продавцов, которые хотят автоматизировать работу с <em>Ozon</em>, есть несколько вариантов:</p>
+<ul>
+  <li>🤖 <strong>Готовые коннекторы</strong> (например, для <em>1C</em>, <em>MoySklad</em>);</li>
+  <li>🔧 <strong>Собственные скрипты</strong> на <em>Python</em>/<em>PHP</em>;</li>
+  <li>☁️ <strong>Облачные сервисы</strong> вроде <em>AltoBI</em> или <em>Sellerboard</em>.</li>
+</ul>
+
+
+<p>Получить Client-Id и Api-Key в личном кабинете|Настроить белый список IP-адресов|Изучить документацию по нужному API (Seller/Logistics/Payments)|Протестировать запросы в пессочнице (sandbox)|Настроить обработку ошибок и повторные запросы--></p>
+
+<h2 id="6-безопасность-как-ozon-защищает-данные-пользователей-и-продавцов">6. Безопасность: как Ozon защищает данные пользователей и продавцов</h2>
+
+<p>Безопасность в <em>Ozon</em> построена по принципу <strong>"Zero Trust"</strong> — ни один запрос не считается доверенным по умолчанию. Основные меры защиты:</p>
+
+<ul>
+  <li>🔐 <strong>Шифрование</strong>:
+    <ul>
+      <li>🔒 <em>TLS 1.2/1.3</em> для всех внешних соединений;</li>
+      <li>🗝️ <em>AES-256</em> для хранения чувствительных данных (например, платежная информация).</li>
+    </ul>
+  </li>
+  <li>🛡️ <strong>Защита от атак</strong>:
+    <ul>
+      <li>🤖 <em>CAPTCHA</em> и поведенческий анализ для предотвращения ботов;</li>
+      <li>🛑 <em>WAF</em> (Web Application Firewall) для блокировки SQL-инъекций и XSS;</li>
+      <li>🔍 Регулярные <em>penetration testing</em> (тесты на проникновение).</li>
+    </ul>
+  </li>
+  <li>👤 <strong>Аутентификация</strong>:
+    <ul>
+      <li>📱 Двухфакторная аутентификация (2FA) для продавцов;</li>
+      <li>🔑 <em>OAuth 2.0</em> для API;</li>
+      <li>🆔 Биометрия (Face ID/Touch ID) в мобильных приложениях.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Для продавцов особенно важны:</p>
+<ul>
+  <li>🔑 <strong>Безопасное хранение API-ключей</strong> (не передавайте их третьим лицам!);</li>
+  <li>📡 <strong>Мониторинг подозрительной активности</strong> (например, неожиданные изменения в товарах);</li>
+  <li>📜 <strong>Логирование действий</strong> в личном кабинете (кто и когда вносил изменения).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы заметили несанкционированный доступ к вашему аккаунту продавца, немедленно заблокируйте сессию через <code>Настройки → Безопасность</code> и свяжитесь с поддержкой. <em>Ozon</em> может временно приостановить работу аккаунта для расследования.</blockquote>
+
+<p>Для защиты от мошенничества (например, поддельных возвратов) используется система <em>Ozon Protect</em>, которая анализирует:</p>
+<ul>
+  <li>📦 Историю заказов пользователя;</li>
+  <li>📍 Геолокацию и IP-адрес;</li>
+  <li>🕒 Время между заказом и запросом на возврат.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте уникальные API-ключи для каждого сервиса (например, отдельный ключ для 1C и для скрипта обновления цен). Это поможет быстро отозвать доступ в случае компрометации одного из ключей.</p></aside>
+
+<h2 id="7-машинное-обучение-и-big-data-как-ozon-персонализирует-опыт-покупателей">7. Машинное обучение и Big Data: как Ozon персонализирует опыт покупателей</h2>
+
+<p><em>Ozon</em> активно использует <strong>машинное обучение (ML)</strong> для улучшения пользовательского опыта. Основные направления:</p>
+
+<ul>
+  <li>🎯 <strong>Рекомендательные системы</strong>:
+    <ul>
+      <li>Алгоритм <em>"Смотрите также"</em> анализирует поведение похожих пользователей;</li>
+      <li>Персональные подборки на главной странице формируются на основе истории просмотров.</li>
+    </ul>
+  </li>
+  <li>🔍 <strong>Поиск и ранжирование</strong>:
+    <ul>
+      <li>Модель <em>BERT</em> для понимания естественного языка в поисковых запросах;</li>
+      <li>Учёт контекста (например, геолокация, время суток).</li>
+    </ul>
+  </li>
+  <li>📦 <strong>Логистика и прогнозирование</strong>:
+    <ul>
+      <li>Предсказание спроса на товары для оптимизации запасов;</li>
+      <li>Маршрутизация заказов с учётом загруженности складов.</li>
+    </ul>
+  </li>
+  <li>🛡️ <strong>Обнаружение мошенничества</strong>:
+    <ul>
+      <li>Анализ паттернов поведения для выявления ботов и фродовых схем.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Для обучения моделей используется:</p>
+<ul>
+  <li>📊 <strong>Данные</strong>: история заказов, просмотры, клики, отзывы;</li>
+  <li>🖥️ <strong>Инфраструктура</strong>: кластеры <em>Apache Spark</em> и <em>TensorFlow</em>;</li>
+  <li>🔄 <strong>Обновление</strong>: модели переобучаются ежедневно (для рекомендаций) или еженедельно (для логистики).</li>
+</ul>
+
+<p>Пример работы рекомендательной системы:</p>
+<ol>
+  <li>Пользователь просматривает смартфоны <em>Xiaomi</em>;</li>
+  <li>Система фиксирует это событие и анализирует поведение похожих пользователей;</li>
+  <li>На главной странице появляется блок "Рекомендуем для вас" с аксессуарами для <em>Xiaomi</em>;</li>
+  <li>Если пользователь добавляет товар в корзину, алгоритм увеличивает вес подобных рекомендаций.</li>
+</ol>
+
+<p>Для продавцов <em>ML</em>-алгоритмы влияют на:</p>
+<ul>
+  <li>📈 <strong>Видимость товаров</strong> в поиске и рекомендациях;</li>
+  <li>⭐ <strong>Рейтинг</strong> (учитываются отзывы, скорость обработки заказов);</li>
+  <li>💰 <strong>Участие в акциях</strong> (алгоритм выбирает товары для распродаж на основе спроса).</li>
+</ul>
+
+<h2 id="8-будущее-технологической-платформы-ozon-что-ждёт-маркетплейс">8. Будущее технологической платформы Ozon: что ждёт маркетплейс?</h2>
+
+<p><em>Ozon</em> активно инвестирует в развитие своей IT-инфраструктуры. среди ключевых направлений на 2026–2026 годы:</p>
+
+<ul>
+  <li>🤖 <strong>Искусственный интеллект</strong>:
+    <ul>
+      <li>Генеративный ИИ для создания описаний товаров;</li>
+      <li>Чат-боты на базе <em>LLM</em> для поддержки пользователей.</li>
+    </ul>
+  </li>
+  <li>☁️ <strong>Облачные технологии</strong>:
+    <ul>
+      <li>Миграция части сервисов в <em>Yandex Cloud</em>;</li>
+      <li>Использование <em>serverless</em>-архитектуры для некоторых микросервисов.</li>
+    </ul>
+  </li>
+  <li>🌍 <strong>Глобальная экспансия</strong>:
+    <ul>
+      <li>Развёртывание дата-центров в странах СНГ;</li>
+      <li>Адаптация платформы под местные рынки (языки, платежные системы).</li>
+    </ul>
+  </li>
+  <li>📦 <strong>Логистика</strong>:
+    <ul>
+      <li>Расширение сети роботизированных складов;</li>
+      <li>Внедрение дронов для доставки в отдалённые регионы.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Для продавцов это означает:</p>
+<ul>
+  <li>📈 Больше инструментов для автоматизации (например, ИИ для генерации карточек товаров);</li>
+  <li>🌐 Возможность выхода на новые рынки через <em>Ozon</em>;</li>
+  <li>🤖 Улучшенные аналитические дашборды с прогнозами спроса.</li>
+</ul>
+
+<p>Однако есть и вызовы:</p>
+<ul>
+  <li>🔒 Ужесточение требований к безопасности (например, обязательная 2FA для всех продавцов);</li>
+  <li>📊 Больше зависимости от алгоритмов (например, ранжирование будет ещё сильнее зависеть от поведенческих факторов);</li>
+  <li>🔄 Необходимость адаптации под новые форматы (например, видео-контент для товаров).</li>
+</ul>
+
+<p>В долгосрочной перспективе <em>Ozon</em> стремится стать не просто маркетплейсом, а <strong>супер-приложением</strong> (like <em>WeChat</em>), объединяющим покупки, финансовые услуги, развлечения и социальные функции. Это потребует дальнейшего развития технологической платформы, включая:</p>
+<ul>
+  <li>🔗 Унификацию <em>API</em> для сторонних разработчиков;</li>
+  <li>🛡️ Усиление защиты данных (в том числе для соответствия международным стандартам);</li>
+  <li>🚀 Оптимизацию для новых устройств (например, <em>AR/VR</em>-шопинг).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Следите за анонсами новых функций в блоге Ozon для разработчиков (<a href="https://tech.ozon.ru" target="_blank">tech.ozon.ru</a>). Раннее внедрение новых инструментов (например, ИИ для карточек товаров) может дать конкурентное преимущество.</p></aside>
+
+<h2 id="faq-частые-вопросы-о-технологиях-ozon">FAQ: Частые вопросы о технологиях Ozon</h2>
+
+<details>
+  <summary>🔹 На каком языке написан бэкенд Ozon?</summary>
+  <p>Основной язык — <strong>Java</strong> (около 70% сервисов), также активно используется <strong>Go (Golang)</strong> для высоконагруженных компонентов и <strong>Python</strong> для задач <code>Data Science</code>.</p>
+</details>
+
+<details>
+  <summary>🔹 Почему мобильное приложение Ozon работает быстрее сайта?</summary>
+  <p>Причины:</p>
+  <ol>
+    <li>Офлайн-кэш (часть данных хранится локально);</li>
+    <li>Оптимизированные запросы к <em>API</em> (только необходимые данные);</li>
+    <li>Нативные модули для критичных операций (например, сканирование штрихкодов).</li>
+  </ol>
+</details>
+
+<details>
+  <summary>🔹 Какие базы данных использует Ozon?</summary>
+  <p>Основные:</p>
+  <ul>
+    <li><em>PostgreSQL</em> + <em>Elasticsearch</em> — для каталога;</li>
+    <li><em>ScyllaDB</em> — для обработки заказов;</li>
+    <li><em>ClickHouse</em> — для аналитики;</li>
+    <li><em>Redis</em> — для кэширования.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>🔹 Можно ли интегрировать свой сервис с Ozon API?</summary>
+  <p>Да, <em>Ozon</em> предоставляет несколько типов <em>API</em>:</p>
+  <ul>
+    <li><strong>Seller API</strong> — для управления товарами и заказами;</li>
+    <li><strong>Logistics API</strong> — для работы с доставкой;</li>
+    <li><strong>Payments API</strong> — для обработки платежей.</li>
+  </ul>
+  <p>Для доступа нужно получить <code>Client-Id</code> и <code>Api-Key</code> в личном кабинете продавца.</p>
+</details>
+
+<details>
+  <summary>🔹 Как Ozon обеспечивает высокую доступность (99.99% uptime)?</summary>
+  <p>За счёт:</p>
+  <ul>
+    <li>Мультирегиональной репликации данных;</li>
+    <li>Автоматического масштабирования в <em>Kubernetes</em>;</li>
+    <li>Резервных дата-центров и систем <em>Chaos Engineering</em>.</li>
+  </ul>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/b/be/betagistin-ozon-ili-verteks-chto-luchshe.html" class="pb-related-card">
+                <span class="pb-related-title">Бетагистин Озон или Вертекс: сравнение препаратов</span>
+                <span class="pb-related-desc">Сравнительный анализ препаратов бетагистина от производителей Озон и Вертекс. Что лучше купить, в че</span>
+            </a><a href="/articles/k/ka/kak-vyjti-iz-aktsii-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как выйти из акции на Ozon Seller: инструкция</span>
+                <span class="pb-related-desc">Узнайте, как отключить участие в акциях на Ozon Seller. Пошаговая инструкция по выходу из распродаж </span>
+            </a><a href="/articles/k/kt/kto-rukovodit-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Кто руководит Озон: структура управления и владельцы 2026</span>
+                <span class="pb-related-desc">Узнайте, кто сейчас руководит Озон. Актуальная информация о гендиректоре, владельцах бизнеса и струк</span>
+            </a><a href="/articles/c/ch/chem-polezen-ozon-dlya-cheloveka-organizma.html" class="pb-related-card">
+                <span class="pb-related-title">Чем полезен озон для организма человека: свойства, риски и лечение</span>
+                <span class="pb-related-desc">Узнайте, чем полезен озон для организма человека при правильном применении. Разбор лечебных свойств,</span>
+            </a><a href="/articles/k/kt/kto-osnoval-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Кто основал Ozon: история создания маркетплейса и его создатели</span>
+                <span class="pb-related-desc">Узнайте, кто стоит за созданием Ozon — крупнейшего российского маркетплейса. История основателей, кл</span>
+            </a><a href="/articles/z/za/za-chto-shtrafuyut-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">За что штрафуют на Озоне: полный список санкций 2026</span>
+                <span class="pb-related-desc">Разбор всех причин штрафов для продавцов Ozon. Как избежать блокировок, аннулирования и удержаний. А</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

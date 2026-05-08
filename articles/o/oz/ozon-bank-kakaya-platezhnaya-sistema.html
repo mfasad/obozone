@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Ozon Банк: какая платежная система лежит в основе? — Об Озоне</title>
+    <meta name="description" content="Узнайте, какой процессинг использует Ozon Банк. Разбор эквайринга, безопасность платежей, работа Ozon Pay и интеграция с картами.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-bank-kakaya-platezhnaya-sistema.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ozon Банк: какая платежная система лежит в основе?">
+    <meta property="og:description" content="Узнайте, какой процессинг использует Ozon Банк. Разбор эквайринга, безопасность платежей, работа Ozon Pay и интеграция с картами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/ozon-bank/">Ozon Банк</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Ozon Банк: какая платежная система лежит в основе?</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#архитектура-финансового-контура-маркетплейса">Архитектура финансового контура маркетплейса</a></li><li><a href="#роль-ozon-pay-и-внутренние-расчеты">Роль Ozon Pay и внутренние расчеты</a></li><li><a href="#интеграция-с-внешними-платежными-системами">Интеграция с внешними платежными системами</a></li><li><a href="#сравнение-методов-оплаты-таблица-характеристик">Сравнение методов оплаты: таблица характеристик</a></li><li><a href="#безопасность-и-защита-транзакций">Безопасность и защита транзакций</a></li><li><a href="#технические-аспекты-для-разработчиков-и-селлеров">Технические аспекты для разработчиков и селлеров</a></li><li><a href="#перспективы-развития-платежной-инфраструктуры">Перспективы развития платежной инфраструктуры</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-perevesti-s-ozona-scheta-na-bankovskuyu-kartu.html">Как вывести деньги с Ozon на карту: полная инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-nomer-karty-ozon-kart.html">Как узнать номер карты Озон Карт: все способы</a></li><li><a href="/articles/o/oz/ozon-kak-poluchit-kartu-virtualnuyu.html">Как получить виртуальную карту Ozon: пошаговая инструкция</a></li><li><a href="/articles/p/po/pod-kakoj-protsent-daet-kredit-ozon-bank.html">Проценты по кредитам Озон Банка в 2026: условия и скрытые нюансы</a></li><li><a href="/articles/p/po/pochemu-ne-popolnyaetsya-ozon-karta.html">Озон Карта не пополняется: 10 причин и как исправить в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Озон Банк: какая платежная система обрабатывает транзакции</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#архитектура-финансового-контура-маркетплейса">Архитектура финансового контура маркетплейса</a></li><li><a href="#роль-ozon-pay-и-внутренние-расчеты">Роль Ozon Pay и внутренние расчеты</a></li><li><a href="#интеграция-с-внешними-платежными-системами">Интеграция с внешними платежными системами</a></li><li><a href="#сравнение-методов-оплаты-таблица-характеристик">Сравнение методов оплаты: таблица характеристик</a></li><li><a href="#безопасность-и-защита-транзакций">Безопасность и защита транзакций</a></li><li><a href="#технические-аспекты-для-разработчиков-и-селлеров">Технические аспекты для разработчиков и селлеров</a></li><li><a href="#перспективы-развития-платежной-инфраструктуры">Перспективы развития платежной инфраструктуры</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Многие покупатели и продавцы маркетплейса, сталкиваясь с быстрыми переводами и оплаты внутри приложения, задумываются о технической стороне процесса. Вопрос «Озон Банк: какая платежная система используется?» возникает не случайно, ведь от этого зависит скорость проведения средств и безопасность данных. На самом деле, экосистема не полагается на одного внешнего провайдера, а выстроила собственную сложную инфраструктуру.</p>
+
+<p>В основе финансовых операций лежит <strong>собственный процессинговый центр</strong>, разработанный специально для обработки огромного потока микротранзакций. Это позволяет системе работать автономно от сторонних шлюзов при внутренних переводах между пользователями Ozon. Однако для взаимодействия с внешним миром — картами других банков и международными системами — применяются стандартные протоколы обмена данными.</p>
+
+<p>Понимание того, как именно работает <em>Ozon Pay</em> и через какие каналы проходят деньги, важно для предпринимателей, оценивающих риски блокировок, и для покупателей, заботящихся о конфиденциальности. Далее мы детально разберем архитектуру платежей, используемые технологии шифрования и нюансы работы с картами различных платежных систем в текущих условиях.</p>
+
+<h2 id="архитектура-финансового-контура-маркетплейса">Архитектура финансового контура маркетплейса</h2>
+
+<p>Финансовый «движок» маркетплейса представляет собой гибридную систему. С одной стороны, это классический <strong>банковский процессинг</strong>, соответствующий требованиям ЦБ РФ и стандартам PCI DSS. С другой — уникальные API-шлюзы, связывающие банковские счета с личными кабинетами селлеров и покупателей. Именно эта связка позволяет моментально отображать баланс на Ozon Wallet.</p>
+
+<p>Когда вы привязываете карту любого российского банка, данные передаются через защищенный канал в процессинговый центр. Здесь происходит токенизация: реальный номер карты заменяется на уникальный цифровой код. Это означает, что сам маркетплейс и даже его банковское подразделение не хранят полные данные вашего пластика в открытом виде, что существенно снижает риск утечек.</p>
+
+<p>Для внешних платежей, например, при оплате товаров на сторонних ресурсах через Ozon Pay, система выступает в роли эмитента виртуальных карт или использует механизмы быстрых платежей (СБП). <em>Технологический стек</em> позволяет обрабатывать тысячи транзакций в секунду, что критически важно во время крупных распродаж, когда нагрузка на серверы возрастает многократно.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Несмотря на высокую степень защиты, никогда не передавайте коды из СМС сотрудникам поддержки. Система безопасности Ozon Банка никогда не запрашивает эти данные для разблокировки счета.</p>
+</blockquote>
+
+<h2 id="роль-ozon-pay-и-внутренние-расчеты">Роль Ozon Pay и внутренние расчеты</h2>
+
+<p>Ключевым элементом экосистемы является сервис <strong>Ozon Pay</strong>. Фактически, это аналог Apple Pay или Google Pay, но работающий внутри приложения маркетплейса и на партнерских ресурсах. Для пользователя это выглядит как бесшовная оплата в один клик, но «под капотом» происходит сложная маршрутизация платежа.</p>
+
+<p>При оплате через Ozon Pay транзакция часто проходит как внутренний перевод между счетами внутри банка-партнера или самого Ozon Банка, если средства находятся на балансе. Это позволяет обходить комиссии, которые традиционно взимают международные платежные системы за эквайринг. Для продавца это означает меньшую стоимость приема денег, а для покупателя — отсутствие необходимости каждый раз вводить данные карты.</p>
+
+<p>Важно отметить, что Ozon Pay поддерживает работу с картами «Мир», Visa и Mastercard, выпущенными российскими банками. Однако функционал может отличаться в зависимости от того, какой банк выпустил пластик. <strong>Национальная платежная система «Мир»</strong> интегрирована наиболее глубоко, обеспечивая работу всех функций, включая кэшбэк баллами.</p>
+
+<div class="pb-poll" id="poll-1085cebe"><div class="pb-poll-question">📊 Какой способ оплаты на Ozon вы используете чаще всего?</div><div class="pb-poll-option" data-poll="1085cebe" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Картой при получении:Ozon Pay / СБП:Картой онлайн на сайте:С баланса Ozon Банка</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="интеграция-с-внешними-платежными-системами">Интеграция с внешними платежными системами</h2>
+
+<p>Хотя Ozon Банк стремится к автономии, полностью отрезать себя от внешнего мира невозможно. Для пополнения счета Ozon Wallet или оплаты товаров продавцами используются шлюзы, совместимые с ведущими мировыми и отечественными стандартами. Основными партнерами выступают процессинговые центры крупных российских банков, таких как Сбербанк, Тинькофф (Т-Банк) и ВТБ.</p>
+
+<p>С точки зрения пользователя, взаимодействие с внешними системами выглядит просто: вы выбираете «Оплатить картой», вводите данные, и деньги списываются. Но технически запрос проходит через несколько узлов проверки. Сначала шлюз проверяет валидность карты (BIN-код), затем отправляет запрос в процессинг банка-эмитента, получает подтверждение и проводит транзакцию через <em>НСПК (Национальную систему платежных карт)</em>.</p>
+
+<p>Особое внимание стоит уделить международным транзакциям. На данный момент прямая оплата картами иностранных банков (Visa/Mastercard, выпущенными за пределами РФ) на Ozon невозможна из-за санкционных ограничений. Система автоматически блокирует такие попытки, перенаправляя пользователя на альтернативные методы, например, оплату через посредников или крипто-сервисы (если такая опция будет внедрена в будущем).</p>
+
+<details class="pb-accordion"><summary>Почему иногда платеж не проходит с первого раза?</summary><div class="pb-accordion-body"><p>Частой причиной является 3D-Secure проверка. Банк-эмитент может блокировать транзакцию, если заподозрит мошенничество, или если на стороне процессинга произошел тайм-аут соединения. В таких случаях система Ozon Банк автоматически помечает заказ как «Ожидает оплаты», давая пользователю время на повторную попытку без потери цены товара.</p></div></details>
+
+<h2 id="сравнение-методов-оплаты-таблица-характеристик">Сравнение методов оплаты: таблица характеристик</h2>
+
+<p>Чтобы лучше понять, какая платежная система или метод выгоднее именно в вашем случае, стоит сравнить их основные параметры. Различия касаются не только скорости, но и лимитов, а также возможности использования средств Ozon Банка.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Метод оплаты</th>
+<th>Скорость зачисления</th>
+<th>Лимиты</th>
+<th>Кэшбэк / Баллы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ozon Карта</td>
+<td>Мгновенно</td>
+<td>До 600 000 ₽/мес</td>
+<td>До 30% баллами</td>
+</tr>
+<tr>
+<td>Ozon Pay (СБП)</td>
+<td>Мгновенно</td>
+<td>До 1 000 000 ₽/мес</td>
+<td>До 5% баллами</td>
+</tr>
+<tr>
+<td>Банковская карта</td>
+<td>1-3 секунды</td>
+<td>По лимиту банка</td>
+<td>Зависит от банка</td>
+</tr>
+<tr>
+<td>Сплит (Долями)</td>
+<td>Мгновенно</td>
+<td>Индивидуально</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, <strong>Ozon Карта</strong> является наиболее интегрированным инструментом, предоставляя максимальный возврат средств. Однако для разовых покупок без открытия счета удобнее использовать стандартные банковские карты через шлюз эквайринга. Система СБП (Система быстрых платежей) занимает промежуточное положение, предлагая высокую скорость и умеренный кэшбэк.</p>
+
+<p>Для селлеров выбор платежной системы также важен. При подключении Ozon Банка как расчетного счета, зачисление выручки происходит быстрее, чем при работе со сторонними банками. Это связано с тем, что проводки идут внутри одной юридической структуры, минуя межбанковские клиринги, что занимает дополнительное время.</p>
+
+<h2 id="безопасность-и-защита-транзакций">Безопасность и защита транзакций</h2>
+
+<p>Вопрос безопасности стоит на первом месте при обсуждении любой финансовой системы. Ozon Банк использует многоуровневую защиту. Основой является протокол шифрования <em>TLS 1.3</em>, который гарантирует, что данные между вашим устройством и сервером банка не могут быть перехвачены третьими лицами.</p>
+
+<p>Кроме того, внедрена система фрод-мониторинга на базе искусственного интеллекта. Она анализирует поведение пользователя в реальном времени: если попытка входа или оплата совершаются с необычного устройства, IP-адреса или в нестандартное время, транзакция может быть временно заморожена для верификации. Это стандартная практика для современных <strong>финтех-решений</strong>.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы получили сообщение о блокировке счета Ozon Банка, не переходите по ссылкам в SMS. Зайдите в официальное приложение через браузер или магазин приложений, чтобы проверить статус.</p>
+</blockquote>
+
+<p>Пользователям также рекомендуется активировать двухфакторную аутентификацию (2FA). Даже если злоумышленники каким-то образом получат доступ к вашему логину и паролю, без одноразового кода из приложения они не смогут распоряжаться средствами. Это критически важный элемент защиты, который нельзя игнорировать.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Установите отдельный ПИН-код на вход в приложение Ozon. Это добавит еще один уровень защиты, даже если ваш телефон разблокирован.</p></aside>
+
+<h2 id="технические-аспекты-для-разработчиков-и-селлеров">Технические аспекты для разработчиков и селлеров</h2>
+
+<p>Для тех, кто интегрирует оплату Ozon на своем сайте или использует API для автоматизации финансов, важно понимать структуру запросов. Платежный шлюз поддерживает работу с токенами. Это позволяет сохранять карту клиента для повторных платежей (рекуррентные платежи) без повторного ввода данных CVC-кода.</p>
+
+<p>При работе с API необходимо учитывать ограничения частоты запросов (Rate Limiting). Стандартные значения составляют около 100 запросов в секунду на один ключ API. Превышение этого лимита может привести к временной блокировке доступа. Для высоконагруженных магазинов рекомендуется использовать асинхронную обработку статусов платежей через Webhooks.</p>
+
+<pre><code>// Пример проверки статуса платежа (псевдокод)
+<p>GET https://api-seller.ozon.ru/v1/finance/transaction/list</p>
+<p>Header: Client-Id: {your_id}</p>
+<p>Header: Api-Key: {your_key}</p>
+<p>Content-Type: application/json</code></pre></p>
+
+<p>В документации также указано, что все запросы должны подписываться цифровой подписью. Это гарантирует целостность данных и подтверждает, что запрос отправлен именно владельцем аккаунта. Игнорирование правил подписи запросов — самая частая ошибка при первой настройке интеграции.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка безопасности платежей</h4><label class="check-item"><input type="checkbox"><span>Включена двухфакторная аутентификация:Настроен лимит на онлайн-платежи:Проверены уведомления о входах:Актуален номер телефона в профиле</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<h2 id="перспективы-развития-платежной-инфраструктуры">Перспективы развития платежной инфраструктуры</h2>
+
+<p>Ozon Банк продолжает развивать собственную инфраструктуру, стремясь минимизировать зависимость от внешних процессоров. В планах — расширение функционала Ozon Pay, внедрение биометрической оплаты иокое внедрение в экосистему умного дома. Это позволит оплачивать покупки голосом или взглядом, используя технологии <strong>компьютерного зрения</strong>.</p>
+
+<p>Также рассматривается возможность интеграции с цифровым рублем. Это откроет новые возможности для программируемых платежей и автоматических расчетов между контрагентами в рамках B2B сегмента. Для селлеров это может означать снижение издержек на банковское обслуживание и ускорение оборачиваемости средств.</p>
+
+<p>В заключение, отвечая на вопрос «Озон Банк: какая платежная система?», можно сказать, что это мощный гибридный агрегатор. Он объединяет возможности национального процессинга, собственные разработки и партнерские сети, предоставляя пользователю единый, безопасный и быстрый финансовый интерфейс.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Ozon Банк использует собственный процессинг для внутренних операций и шлюзы НСПК для внешних, обеспечивая максимальную скорость и независимость от зарубежных систем.</p></aside>
+
+<details>
+<summary>Можно ли привязать карту иностранного банка к Ozon?</summary>
+<p>На данный момент прямая привязка карт иностранных банков (выпущенных за пределами РФ) невозможна из-за ограничений платежных систем Visa и Mastercard. Оплата возможна только через посредников или с использованием карт российских банков.</p>
+</details>
+
+<details>
+<summary>Какая комиссия за перевод с Ozon Банка на другую карту?</summary>
+<p>Переводы по номеру телефона через СБП на карты любых банков России обычно бесплатны. Переводы по номеру карты могут облагаться комиссией согласно тарифам банка, если сумма превышает месячный лимит бесплатных операций.</p>
+</details>
+
+<details>
+<summary>Что делать, если платежная система Ozon не принимает карту?</summary>
+<p>Проверьте остаток на счете, лимиты на онлайн-покупки в приложении вашего банка и правильность введенных данных (CVC, срок действия). Также попробуйте очистить кэш приложения Ozon или использовать другой браузер.</p>
+</details>
+
+<details>
+<summary>Является ли Ozon Банк полноценным банком?</summary>
+<p>Да, ООО «Озон Банк» имеет универсальную лицензию Центрального Банка РФ № 3542. Это означает, что он имеет право проводить все виды банковских операций, включая выдачу кредитов, открытие вкладов и эмиссию карт.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-perevesti-s-ozona-scheta-na-bankovskuyu-kartu.html" class="pb-related-card">
+                <span class="pb-related-title">Как вывести деньги с Ozon на карту: полная инструкция</span>
+                <span class="pb-related-desc">Подробный гид по выводу средств с Ozon счета на банковскую карту. Лимиты, комиссии, сроки зачисления</span>
+            </a><a href="/articles/k/ka/kak-uznat-nomer-karty-ozon-kart.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать номер карты Озон Карт: все способы</span>
+                <span class="pb-related-desc">Узнайте, как посмотреть номер карты Озон Карт в приложении и на сайте. Подробная инструкция по поиск</span>
+            </a><a href="/articles/o/oz/ozon-kak-poluchit-kartu-virtualnuyu.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить виртуальную карту Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробное руководство, как оформить и активировать виртуальную карту Ozon Карт. Инструкция по создан</span>
+            </a><a href="/articles/p/po/pod-kakoj-protsent-daet-kredit-ozon-bank.html" class="pb-related-card">
+                <span class="pb-related-title">Проценты по кредитам Озон Банка в 2026: условия и скрытые нюансы</span>
+                <span class="pb-related-desc">Актуальные ставки по кредитам Озон Банка для покупателей и продавцов: потребительские, товарные, кар</span>
+            </a><a href="/articles/p/po/pochemu-ne-popolnyaetsya-ozon-karta.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Карта не пополняется: 10 причин и как исправить в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, почему не проходит пополнение Озон Карты: от блокировки банка до технических сбоев. Пош</span>
+            </a><a href="/articles/k/ka/kak-pomenyat-bankovskuyu-kartu-v-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как поменять банковскую карту в Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по замене карты в личном кабинете Ozon: через сайт, приложение или поддержку. </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как создать цены на Ozon: инструкция по созданию карточек — Об Озоне</title>
+    <meta name="description" content="Узнайте, как создать цены на Ozon для товаров. Подробная инструкция по добавлению карточек, настройке стоимости и работе с CSV-файлами для продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sozdat-tseny-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как создать цены на Ozon: инструкция по созданию карточек">
+    <meta property="og:description" content="Узнайте, как создать цены на Ozon для товаров. Подробная инструкция по добавлению карточек, настройке стоимости и работе с CSV-файлами для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как создать цены на Ozon: инструкция по созданию карточек</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-к-созданию-карточки-товара">Подготовка к созданию карточки товара</a></li><li><a href="#ручное-создание-карточки-и-установка-цены">Ручное создание карточки и установка цены</a></li><li><a href="#массовая-загрузка-товаров-через-csv-файл">Массовая загрузка товаров через CSV-файл</a></li><li><a href="#настройка-цен-для-разных-схем-логистики">Настройка цен для разных схем логистики</a></li><li><a href="#работа-со-скидками-и-акциями">Работа со скидками и акциями</a></li><li><a href="#частые-ошибки-при-заполнении-стоимости">Частые ошибки при заполнении стоимости</a></li><li><a href="#автоматизация-ценообразования">Автоматизация ценообразования</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-chto-takoe-oem-nomer.html">OEM-номер на Ozon: что это и как его использовать в 2026 году</a></li><li><a href="/articles/e/ed/edinits-v-odnom-tovare-ozon-chto-eto-znachit.html">Единицы в одном товаре на Ozon: что это значит и как правильно заполнить?</a></li><li><a href="/articles/k/ka/kak-postavit-ostatki-na-ozon.html">Как выставить остатки на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-skopirovat-kartochku-na-ozon-svoyu.html">Как скопировать карточку на Озон: инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-podnyat-tovar-v-poiske-na-ozon.html">Как поднять товар в поиске Ozon: 12 работающих способов 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как создать цены на Ozon: пошаговое руководство для селлеров</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-созданию-карточки-товара">Подготовка к созданию карточки товара</a></li><li><a href="#ручное-создание-карточки-и-установка-цены">Ручное создание карточки и установка цены</a></li><li><a href="#массовая-загрузка-товаров-через-csv-файл">Массовая загрузка товаров через CSV-файл</a></li><li><a href="#настройка-цен-для-разных-схем-логистики">Настройка цен для разных схем логистики</a></li><li><a href="#работа-со-скидками-и-акциями">Работа со скидками и акциями</a></li><li><a href="#частые-ошибки-при-заполнении-стоимости">Частые ошибки при заполнении стоимости</a></li><li><a href="#автоматизация-ценообразования">Автоматизация ценообразования</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Запуск продаж на крупнейшем маркетплейсе страны начинается с грамотного формирования ассортимента. Многие новички ошибочно полагают, что достаточно просто загрузить фотографии, но ключевым элементом успеха является корректная настройка <strong>ценообразования</strong>. Именно от того, насколько точно и привлекательно вы укажете стоимость, зависит видимость вашего предложения в поисковой выдаче и готовность покупателя совершить сделку.</p>
+
+<p>Процесс того, как создать цены на Ozon, требует внимательного отношения к деталям интерфейса seller-центра. Система предлагает гибкие инструменты для управления стоимостью, позволяя устанавливать разные значения для различных схем логистики. <em>Динамическое ценообразование</em> и ручное редактирование — это лишь часть возможностей, доступных предпринимателю для конкуренции в своей нише.</p>
+
+<p>В этой статье мы разберем все нюансы заполнения карточек товаров. Вы узнаете, где найти необходимые поля, как избежать распространенных ошибок при вводе числовых значений и какие стратегии помогут сделать ваш товар более конкурентоспособным. Правильная подготовка данных перед загрузкой сэкономит вам часы работы и предотвратит блокировку карточек модерацией.</p>
+
+<div class="pb-poll" id="poll-6dc42211"><div class="pb-poll-question">📊 Как вы планируете загружать товары?</div><div class="pb-poll-option" data-poll="6dc42211" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через сайт</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6dc42211" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">CSV-файлом</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6dc42211" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6dc42211" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">С помощью сервиса-посредника</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="подготовка-к-созданию-карточки-товара">Подготовка к созданию карточки товара</h2>
+<p>Перед тем как приступать к непосредственному вводу данных, необходимо собрать всю информацию о продукте. Вам потребуются точные габариты упаковки, вес, артикул производителя и, конечно же, закупочная стоимость. Без этих данных невозможно рассчитать <strong>маржинальность</strong> и конечную цену с учетом комиссии площадки и логистических расходов.</p>
+
+<p>Особое внимание следует уделить штрихкодам. Для большинства категорий товаров на Ozon требуется наличие <em>GTIN</em> (штрихкода EAN-13 или UPC). Если вы производите товар самостоятельно или он не имеет заводского кода, система предложит сгенерировать внутренний штрихкод Ozon. Наличие этого кода критически важно для приемки товара на склад.</p>
+
+<blockquote>⚠️ Внимание: Указание неверного штрихкода может привести к тому, что товар затеряется на складе маркетплейса или будет отправлен покупателю ошибочно. Всегда перепроверяйте соответствие кода на упаковке и в карточке товара.</blockquote>
+
+<p>Также важно определить схему работы: <strong>FBO</strong> (продажа со склада Ozon) или <strong>FBS</strong> (продажа со склада продавца). От этого выбора зависит структура затрат, которую вы должны заложить в цену. Логистика FBO обычно дешевле для конечного клиента, что может повысить спрос, но требует предварительной отгрузки партии.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сфотографируйте упаковку товара со всех сторон и штрихкодом перед отправкой на склад. Это поможет быстро решить спорные ситуации, если товар повредится при приемке.</p></aside>
+
+<h2 id="ручное-создание-карточки-и-установка-цены">Ручное создание карточки и установка цены</h2>
+<p>Самый распространенный способ добавления единичных позиций — использование интерфейса личного кабинета. Чтобы начать, перейдите в раздел <code>Товы и цены</code> и выберите опцию <code>Создать карточку товара</code>. Система предложит выбрать категорию, к которой относится ваш продукт. Точность выбора категории напрямую влияет на то, какие атрибуты вам нужно будет заполнить.</p>
+
+<p>После выбора категории откроется форма заполнения. Здесь вы увидите поле <strong>Цена</strong>. В него вносится сумма, которую вы хотите получить за единицу товара. Важно понимать разницу между ценой до скидки и ценой продажи. Ozon активно продвигает товары с желтыми ценниками, поэтому стратегия завышения с последующим применением скидки работает очень эффективно.</p>
+
+<p>При заполнении полей используйте только латиницу для артикулов, если они не являются частью названия бренда. Название товара должно быть информативным и содержать ключевые слова, но без лишнего спама. Например, модель <em>Smart Watch X5</em> лучше описать как"Умные часы Smart Watch X5 с AMOLED экраном", чем просто"Часы".</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед публикацией</h4><label class="check-item"><input type="checkbox"><span>Заполнены все обязательные поля</span></label><label class="check-item"><input type="checkbox"><span>Указан корректный штрихкод</span></label><label class="check-item"><input type="checkbox"><span>Цена установлена с учетом комиссии</span></label><label class="check-item"><input type="checkbox"><span>Фотографии соответствуют качеству стандартов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="массовая-загрузка-товаров-через-csv-файл">Массовая загрузка товаров через CSV-файл</h2>
+<p>Если ваш ассортимент насчитывает десятки или сотни позиций, ручное создание карточек займет слишком много времени. В этом случае оптимальным решением является использование <strong>CSV-файлов</strong> или XLS-таблиц. Скачать шаблон для вашей категории можно в личном кабинете в разделе <code>Товы и цены → Загрузить по файлу</code>.</p>
+
+<p>В шаблоне необходимо заполнить столбцы, соответствующие характеристикам товара. Особое внимание уделите колонке <code>price</code> (цена) и <code>old_price</code> (старая цена). Ошибки в формате чисел (например, использование запятой вместо точки или лишних пробелов) приведут к тому, что файл не пройдет валидацию. Система четко регламентирует формат данных.</p>
+
+<p>После заполнения файла загрузите его через интерфейс. Процесс обработки может занять от нескольких минут до часа, в зависимости от объема данных. В отчете об обработке вы увидите статусы:"Создано","Обновлено" или"Ошибка". Если возникли ошибки, система укажет конкретную строку и причину, что позволит быстро исправить недочеты.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Пример значения</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer_id</td>
+<td>Внутренний артикул продавца</td>
+<td>SKU-12345</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Актуальная цена товара</td>
+<td>1500.00</td>
+</tr>
+<tr>
+<td>old_price</td>
+<td>Зачеркнутая цена (для скидки)</td>
+<td>2500.00</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Остаток на складе</td>
+<td>50</td>
+</tr>
+</tbody>
+</table></div>
+
+<details class="pb-accordion"><summary>Что делать, если файл не загружается?</summary><div class="pb-accordion-body"><p>Проверьте кодировку файла. Она должна быть UTF-8. Также убедитесь, что разделителем в CSV является запятая или точка с запятой, в зависимости от настроек вашего Excel, и что все кавычки закрыты корректно.</p></div></details>
+
+<h2 id="настройка-цен-для-разных-схем-логистики">Настройка цен для разных схем логистики</h2>
+<p>Уникальной особенностью платформы является возможность устанавливать разные цены для разных схем доставки. Вы можете создать одну карточку товара, но указать, что при доставке со склада продавца (<strong>FBS</strong>) цена будет одной, а со склада Ozon (<strong>FBO</strong>) — другой. Это позволяет гибко управлять спросом и маржинальностью.</p>
+
+<p>Для настройки перейдите в карточку товара и выберите вкладку <code>Цены и остатки</code>. Там вы увидите переключатель схем. Установите галочку на нужной схеме и введите соответствующее значение. Это особенно полезно, когда логистика FBO дешевле, и вы хотите разделить эту экономию с покупателем, сделав предложение более привлекательным.</p>
+
+<p>Кроме того, существует понятие <em>региональных цен</em>. Вы можете установить повышенную стоимость для отдаленных регионов, где логистические плечи длиннее и дороже. Однако стоит помнить, что высокая цена может снизить конверсию в этих регионах, поэтому подход должен быть взвешенным.</p>
+
+<blockquote>⚠️ Внимание: При изменении цены для одной схемы логистики, обязательно проверьте, не сбросилась ли цена для другой. Интерфейс иногда требует повторного сохранения настроек для всех активных схем.</blockquote>
+
+<h2 id="работа-со-скидками-и-акциями">Работа со скидками и акциями</h2>
+<p>Создание цены — это не просто ввод цифры, это управление восприятием ценности. Механизм скидок на Ozon позволяет создавать видимость выгодного предложения. Вы устанавливаете <strong>базовую цену</strong> (которая отображается зачеркнутой) и цену продажи. Разница между ними формирует процент скидки.</p>
+
+<p>Участие в акциях маркетплейса часто требует снижения цены до определенного уровня. Ozon автоматически анализирует цены на других площадках и внутри своей экосистемы. Если ваша цена не будет конкурентной, товар может потерять отметку"Лучшая цена" или вообще выпасть из промо-активности.</p>
+
+<p>Используйте инструмент"Ценообразование" в личном кабинете для анализа рынка. Он показывает среднюю цену по категории и цены ближайших конкурентов. На основе этих данных можно принять решение: демпинговать, уходя в ноль ради объема, или держать премиальную цену, делая ставку на бренд и качество описания.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярное обновление цен и участие в акциях — ключевой фактор попадания в топ выдачи. Статичные цены без скидок работают хуже в долгосрочной перспективе.</p></aside>
+
+<h2 id="частые-ошибки-при-заполнении-стоимости">Частые ошибки при заполнении стоимости</h2>
+<p>Одной из самых распространенных ошибок является неучет всех комиссий при расчете цены. Селлеры часто забывают добавить к закупочной стоимости НДС, комиссию категории, стоимость логистики до клиента и расходы на упаковку. В итоге товар продается, но прибыль отсутствует или даже фиксируется убыток.</p>
+
+<p>Еще одна проблема — использование"круглых" чисел без анализа психологии ценообразования. Цена <em>990 рублей</em> продается лучше, чем <em>1000 рублей</em>, хотя разница минимальна. Также важно следить за знаками после запятой: система может округлять значения, что приведет к несоответствию итоговой суммы.</p>
+
+<p>Не забывайте про ограничение на минимальную цену. Ozon не позволит выставить товар по цене ниже минимально возможной с учетом всех налогов и сборов, чтобы избежать технических ошибок при проведении платежей. Если система пишет ошибку при сохранении, попробуйте увеличить сумму на 1 рубль.</p>
+
+<details class="pb-accordion"><summary>Почему цена на витрине отличается от той, что в кабинете?</summary><div class="pb-accordion-body"><p>Это может быть связано с действием персональной скидки для конкретного пользователя, накоплением баллов Ozon Карта или участием товара в акции, которая еще не обновила статус в реальном времени.</p></div></details>
+
+<h2 id="автоматизация-ценообразования">Автоматизация ценообразования</h2>
+<p>Для крупных магазинов ручное управление ценами становится невозможным. В таких случаях подключают сервисы автоматизации или используют API Ozon. Специализированный софт может менять цены в реальном времени в зависимости от остатков на складе, времени суток или действий конкурентов.</p>
+
+<p>Настройка правил автоценообразования позволяет задать стратегию: например,"всегда быть на 5 рублей дешевле, чем у конкурента Х, но не ниже 500 рублей". Это освобождает время предпринимателя и позволяет реагировать на изменения рынка мгновенно, что критически важно в периоды высокого спроса.</p>
+
+<p>Однако полностью полагаться на роботов не стоит. Периодически проверяйте отчеты о продажах и маржинальности. Алгоритм может увлечься гонкой за лидерством в цене и опустить стоимость ниже себестоимости, если не установлены жесткие ограничители (floor price).</p>
+
+<details>
+<summary>Как часто можно менять цену на Ozon?</summary>
+<p>Технических ограничений на количество изменений цены в сутки нет. Вы можете менять стоимость хоть каждую минуту. Однако слишком частые резкие скачки цены могут негативно сказаться на поведенческих факторах и доверии покупателей, которые отслеживают динамику через сервисы аналитики.</p>
+</details>
+
+<details>
+<summary>Что будет, если указать цену 0 рублей?</summary>
+<p>Система не позволит сохранить карточку с нулевой или отрицательной ценой. Минимально допустимое значение зависит от валюты и настроек платформы, но обычно составляет 1 рубль или 1 тенге/белорусский рубль. Товары-подарки оформляются через отдельные механики промокодов.</p>
+</details>
+
+<details>
+<summary>Можно ли создать цену в валюте другой страны?</summary>
+<p>Для продаж внутри России цены указываются строго в рублях. Для международных продаж (Ozon Global или кросс-бордер) валюта может конвертироваться автоматически, но базовой валютой селлера в личном кабинете РФ остается рубль. Все расчеты с платформой также производятся в рублях.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-chto-takoe-oem-nomer.html" class="pb-related-card">
+                <span class="pb-related-title">OEM-номер на Ozon: что это и как его использовать в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое OEM-номер на Ozon, как его найти, чем отличается от оригинального артикула и </span>
+            </a><a href="/articles/e/ed/edinits-v-odnom-tovare-ozon-chto-eto-znachit.html" class="pb-related-card">
+                <span class="pb-related-title">Единицы в одном товаре на Ozon: что это значит и как правильно заполнить?</span>
+                <span class="pb-related-desc">Разбираемся, что такое «единиц в одном товаре» на Озон, как это влияет на продажи и как избежать оши</span>
+            </a><a href="/articles/k/ka/kak-postavit-ostatki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выставить остатки на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство для продавцов: как правильно загрузить и обновить остатки на Озон через личный</span>
+            </a><a href="/articles/k/ka/kak-skopirovat-kartochku-na-ozon-svoyu.html" class="pb-related-card">
+                <span class="pb-related-title">Как скопировать карточку на Озон: инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как скопировать свою карточку товара на Озон. Пошаговая инструкция по дублированию, работе </span>
+            </a><a href="/articles/k/ka/kak-podnyat-tovar-v-poiske-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как поднять товар в поиске Ozon: 12 работающих способов 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство по продвижению карточки товара на Озоне: от оптимизации названия до работы с о</span>
+            </a><a href="/articles/k/ka/kak-opublikovat-svoj-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как опубликовать товар на Ozon: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство: как создать карточку, выбрать схему работы FBO/FBS и запустить продажи на Ozo</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

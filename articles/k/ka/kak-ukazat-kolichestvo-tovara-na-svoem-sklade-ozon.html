@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как указать количество товара на Ozon: инструкция для FBS и FBO — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по настройке остатков на складе Ozon. Узнайте, как правильно указать количество товара для FBS, FBO и транзитных поставок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ukazat-kolichestvo-tovara-na-svoem-sklade-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как указать количество товара на Ozon: инструкция для FBS и FBO">
+    <meta property="og:description" content="Пошаговое руководство по настройке остатков на складе Ozon. Узнайте, как правильно указать количество товара для FBS, FBO и транзитных поставок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как указать количество товара на Ozon: инструкция для FBS и FBO</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#определение-схемы-работы-и-её-влияние-на-остатки">Определение схемы работы и её влияние на остатки</a></li><li><a href="#настройка-остатков-для-схемы-fbs">Настройка остатков для схемы FBS</a></li><li><a href="#управление-поставками-в-модели-fbo">Управление поставками в модели FBO</a></li><li><a href="#автоматизация-через-api-и-сторонние-сервисы">Автоматизация через API и сторонние сервисы</a></li><li><a href="#работа-с-резервами-и-доступным-остатком">Работа с резервами и доступным остатком</a></li><li><a href="#типичные-ошибки-при-управлении-складом">Типичные ошибки при управлении складом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-shrift-na-etiketkakh-ozon.html">Шрифт на этикетках Ozon: требования к маркировке FBO и FBS</a></li><li><a href="/articles/k/ku/kuda-vvodit-artikul-na-ozon.html">Где вводить артикул на Озон: пошаговая инструкция для продавцов</a></li><li><a href="/articles/k/kh/khajlajt-ozon-chto-eto.html">Хайлайт на Ozon: что это и как использовать для продаж в 2026</a></li><li><a href="/articles/k/kl/klyuchevye-slova-ozon-kak-nastroit.html">Ключевые слова Ozon: как настроить для продаж в 2026 году</a></li><li><a href="/articles/k/ka/kak-upakovyvat-mebel-dlya-ozon.html">Как упаковать мебель для Ozon: требования 2026 и инструкции</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как указать количество товара на своем складе Ozon: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#определение-схемы-работы-и-её-влияние-на-остатки">Определение схемы работы и её влияние на остатки</a></li><li><a href="#настройка-остатков-для-схемы-fbs">Настройка остатков для схемы FBS</a></li><li><a href="#управление-поставками-в-модели-fbo">Управление поставками в модели FBO</a></li><li><a href="#автоматизация-через-api-и-сторонние-сервисы">Автоматизация через API и сторонние сервисы</a></li><li><a href="#работа-с-резервами-и-доступным-остатком">Работа с резервами и доступным остатком</a></li><li><a href="#типичные-ошибки-при-управлении-складом">Типичные ошибки при управлении складом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Управление товарными остатками — это фундамент успешной торговли на маркетплейсах, и для продавца критически важно точно знать, как указать количество товара на своем складе Ozon. Ошибки в этом процессе могут привести к отмене заказов, штрафам за недовоз или блокировке карточки, поэтому настройка системы учета должна быть приоритетной задачей при старте продаж.</p>
+<p>В зависимости от выбранной схемы работы, будь то <strong>FBS</strong> (продажа со своего склада) или <strong>FBO</strong> (хранение на складах Ozon), процедура передачи данных об остатках будет кардинально отличаться. Понимание этих различий и правильный выбор инструмента для загрузки — ключевые факторы стабильности вашего бизнеса на платформе.</p>
+
+<h2 id="определение-схемы-работы-и-её-влияние-на-остатки">Определение схемы работы и её влияние на остатки</h2>
+<p>Прежде чем приступать к вводу цифр, необходимо четко определить, по какой логистической схеме вы планируете работать, так как это диктует источник данных об остатках. Для модели <em>FBO</em> (Fulfillment by Ozon) количество доступного для покупки товара равно физическому наличию на складах маркетплейса, куда вы предварительно отгрузили партию. В этом случае вы не управляете остатками в реальном времени через личный кабинет ежедневно, вы лишь контролируете создание поставок.</p>
+<p>Ситуация кардинально меняется, если вы работаете по схеме <em>FBS</em> (Fulfillment by Seller). Здесь именно продавец обязан ежедневно, а иногда и ежечасно, актуализировать информацию о наличии единиц продукции на собственном складе. <strong>Система Ozon</strong> полностью полагается на данные, которые вы предоставили, и если вы укажете 10 штук, а физически их 5, при поступлении шестого заказа вы получите штраф.</p>
+<blockquote>
+<p>⚠️ Внимание: Продажа товара, которого нет в наличии (overselling), является грубым нарушением правил площадки. Система автоматически отслеживает процент отмен, и при превышении порога в 1% ваш рейтинг продавца может быть снижен, а аккаунт — заблокирован.</p>
+</blockquote>
+<p>Существует также гибридная схема или работа с транзитными складами, где логика смешивается, но базовый принцип остается прежним: покупатель видит только то количество, которое подтверждено системой в данный момент времени.</p>
+
+<h2 id="настройка-остатков-для-схемы-fbs">Настройка остатков для схемы FBS</h2>
+<p>Для продавцов, работающих со своего склада, существует несколько способов актуализации данных, и выбор зависит от объема вашего ассортимента. Если вы торгуете небольшим количеством позиций, ручное обновление через личный кабинет будет наиболее простым и быстрым решением. Вам необходимо перейти в раздел <code>Товры и цены → Список товаров</code>, найти нужную карточку и в столбце "Остатки" ввести актуальное число.</p>
+<p>Однако для магазинов с широким ассортиментом ручной ввод неэффективен и чреват человеческим фактором. В таких случаях рекомендуется использовать <strong>XLS-шаблоны</strong> или интеграцию по <em>API</em>. Загрузка через Excel-файл позволяет обновить тысячи позиций за один раз, что особенно актуально перед выходными или праздниками, когда спрос может резко вырасти.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед обновлением FBS</h4><label class="check-item"><input type="checkbox"><span>Сверить физический остаток на полке</span></label><label class="check-item"><input type="checkbox"><span>Проверить зарезервированные товары</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в отсутствии дефектных единиц</span></label><label class="check-item"><input type="checkbox"><span>Подготовить файл с актуальными данными</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p> Если в файле не будет какой-то позиции, её остаток не изменится, но лучше перепроверять выгрузку, чтобы избежать рассинхронизации.</p>
+
+<h2 id="управление-поставками-в-модели-fbo">Управление поставками в модели FBO</h2>
+<p>В модели <em>FBO</em> понятие "указать количество" трансформируется в процесс создания и отгрузки поставки. Вы не пишете цифру "100" в поле остатка, вы создаете поставку на 100 единиц, упаковываете их и передаете логистам Ozon. Только после приемки товара на складе маркетплейса эти единицы станут доступны для продажи.</p>
+<p>Процесс начинается с создания поставки в разделе <code>Поставки → Создать поставку</code>. Здесь вы указываете тип поставки (стандартная, кросс-докинг, транзит) и заполняете список товаров. На этом этапе система позволяет указать планируемое количество, но финальным считается именно то, которое подтвердят приемщики на складе.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип приемки</th>
+<th>Срок приемки</th>
+<th>Стоимость обработки</th>
+<th>Требования к упаковке</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стандартная</td>
+<td>До 7 дней</td>
+<td>Базовая</td>
+<td>Стандартная</td>
+</tr>
+<tr>
+<td>Экспресс</td>
+<td>1-2 дня</td>
+<td>Повышенная</td>
+<td>Строгая</td>
+</tr>
+<tr>
+<td>Супер-экспресс</td>
+<td>В день приезда</td>
+<td>Высокая</td>
+<td>Идеальная</td>
+</tr>
+<tr>
+<td>Кросс-докинг</td>
+<td>Без приемки</td>
+<td>Зависит от категории</td>
+<td>Специфическая</td>
+</tr>
+</tbody>
+</table></div>
+<p>Если при приемке обнаружится пересорт или бой, фактический остаток на балансе будет отличаться от указанного вами при создании поставки. Поэтому мониторинг статусов поставок в разделе <code>Финансы → Отчеты</code> является обязательной процедурой для контроля реальных остатков.</p>
+<details class="pb-accordion"><summary>Что делать при расхождении остатков FBO?</summary><div class="pb-accordion-body"><p>Если после приемки вы обнаружили, что на балансе Ozon числится меньше товара, чем вы отгрузили, необходимо подать заявку на пересчет в течение 3 дней. Для этого используйте раздел "Поставки", найдите нужную поставку и нажмите "Сообщить о проблеме". Приложите фото коробок и весовые чеки.>
+
+<h2 id="автоматизация-через-api-и-сторонние-сервисы">Автоматизация через API и сторонние сервисы</h2>
+<p>Для профессиональных селлеров, торгующих на нескольких площадках или имеющих большой склад, единственным верным решением является автоматизация. <strong>API Ozon</strong> позволяет настроить двусторонний обмен данными между вашей учетной системой (например, 1С, МойСклад) и витриной маркетплейса.</p>
+<p>При использовании API, изменение остатка в вашей внутренней системе автоматически отправляет запрос на сервер Ozon с командой обновить количество. Это исключает ситуацию, когда менеджер забыл изменить цифру в личном кабинете после продажи товара через другой канал.</p>
+<blockquote>
+<p>⚠️ Внимание: При настройке API-интеграции обязательно установите "буферный остаток". Например, если физически на складе 10 штук, на Ozon передавайте 8. Это защитит от ситуаций, когда два покупателя одновременно оформляют заказ на разных площадках.</p>
+</blockquote>
+<p>Существует множество сервисов-агрегаторов, которые берут на себя техническую часть настройки API, предоставляя удобный интерфейс для управления остатками сразу на Ozon, Wildberries и Яндекс.Маркете. Это требует ежемесячной оплаты, но экономит сотни часов работы склада.</p>
+
+
+
+<h2 id="работа-с-резервами-и-доступным-остатком">Работа с резервами и доступным остатком</h2>
+<p>Одной из самых сложных тем для новичков является разница между физическим наличием и <strong>доступным остатком</strong>. Доступный остаток — это количество товара, которое видит покупатель. Он рассчитывается по формуле: "Физический остаток минус Товар в резерве".</p>
+<p>Товар попадает в резерв в момент, когда покупатель оформил заказ, но еще не забрал его (для FBS) или пока товар едет на склад Ozon (для FBO). В этот момент количество на витрине уменьшается, но физически товар все еще лежит у вас на полке. Важно не перепутать эти понятия при проведении инвентаризации.</p>
+<p>Если вы решите вручную изменить остаток, пока товар находится в резерве, система может повести себя непредсказуемо. Например, если у вас зарезервировано 5 штук, а вы поставите общий остаток 3, система автоматически отменит часть заказов, так как посчитает, что товара не хватает.</p>
+
+
+<h2 id="типичные-ошибки-при-управлении-складом">Типичные ошибки при управлении складом</h2>
+<p>Даже опытные селлеры допускают ошибки, которые стоят денег. Самая распространенная из них — несвоевременное обновление информации после брака. Если при сборке заказа выяснилось, что товар поврежден, его необходимо сразу же исключить из оборота, иначе он "уедет" в следующий заказ.</p>
+<p>Вторая ошибка — игнирование сезонности. В периоды распродаж (Black Friday, 11.11) трафик растет кратно, и если вы не проверите остатки заранее, риск продать несуществующее возрастает многократно. Третья ошибка — путаница с единицами измерения, когда в системе указано количество упаковок, а не штук.</p>
+<p>Чтобы минимизировать риски, внедрите процедуру двойной проверки перед отправкой крупных партий или перед праздниками. Также полезно вести внутренний журнал расхождений, чтобы понимать, на каком этапе чаще всего возникают ошибки в учете.</p>
+
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Как быстро обновляются остатки после загрузки файла?</summary>
+<p>Обычно обновление происходит в течение 5-15 минут, но в периоды высокой нагрузки на серверы маркетплейса задержка может составлять до 1 часа. Рекомендуется не делать повторную загрузку файла раньше, чем через 20 минут после первой.</p>
+</details>
+<details>
+<summary>Можно ли установить остаток "бесконечность" для цифровых товаров?</summary>
+<p>Для цифровых товаров и сертификатов существует отдельный тип карточек, где остаток не лимитируется классическим способом. Однако для физических товаров указывать завышенные цифры (например, 9999 при наличии 10) опасно, так как это может привести к техническим ограничениям на продажу.</p>
+</details>
+<details>
+<summary>Что будет, если остаток станет отрицательным?</summary>
+<p>Система Ozon не позволяет уйти в глубокий минус. Если вы продали товар, которого нет, вам придется либо срочно закупить его у поставщика, либо отменить заказ с штрафом. Отрицательный баланс по поставке FBO также потребует объяснений и может повлечь финансовые санкции.</p>
+</details>
+<details>
+<summary>Как исправить ошибку в количестве после отгрузки FBO?</summary>
+<p>После того как поставка уехала на склад, изменить количество в ней нельзя. Корректировка возможна только после приемки через механизм пересчета или в будущих поставках. До момента приемки можно лишь отменить поставку полностью, если она еще не принята в работу.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-shrift-na-etiketkakh-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Шрифт на этикетках Ozon: требования к маркировке FBO и FBS</span>
+                <span class="pb-related-desc">Узнайте, какой шрифт использовать для этикеток Ozon. Технические требования к маркировке FBO и FBS: </span>
+            </a><a href="/articles/k/ku/kuda-vvodit-artikul-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где вводить артикул на Озон: пошаговая инструкция для продавцов</span>
+                <span class="pb-related-desc">Подробное руководство, как найти поле для артикула в личном кабинете Озон, где его указывать при заг</span>
+            </a><a href="/articles/k/kh/khajlajt-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Хайлайт на Ozon: что это и как использовать для продаж в 2026</span>
+                <span class="pb-related-desc">Разбираемся, что такое хайлайт на Озон, как он влияет на видимость товаров и почему его нужно настра</span>
+            </a><a href="/articles/k/kl/klyuchevye-slova-ozon-kak-nastroit.html" class="pb-related-card">
+                <span class="pb-related-title">Ключевые слова Ozon: как настроить для продаж в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по подбору и настройке ключевых слов на Ozon для увеличения видимости товаров. </span>
+            </a><a href="/articles/k/ka/kak-upakovyvat-mebel-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать мебель для Ozon: требования 2026 и инструкции</span>
+                <span class="pb-related-desc">Подробная инструкция по упаковке мебели для Ozon: стандарты, материалы, ошибки и советы. Узнайте, ка</span>
+            </a><a href="/articles/o/oz/ozon-kak-poluchit-shtrikhkod-tovara.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить штрихкод для товара на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Разбираем все способы получения штрихкодов для Озон: от генерации в личном кабинете до покупки в GS1</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

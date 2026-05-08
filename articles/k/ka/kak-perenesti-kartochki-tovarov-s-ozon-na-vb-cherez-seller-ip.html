@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Перенос карточек с Ozon на Wildberries через Seller IP: пошаговый гайд 2026 — Об Озоне</title>
+    <meta name="description" content="Как автоматизировать перенос товаров с Озон на Вайлдберриз через API Seller IP: инструкция с примерами кода, таблицей ошибок и лайфхаками для синхронизации атрибутов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-perenesti-kartochki-tovarov-s-ozon-na-vb-cherez-seller-ip.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Перенос карточек с Ozon на Wildberries через Seller IP: пошаговый гайд 2026">
+    <meta property="og:description" content="Как автоматизировать перенос товаров с Озон на Вайлдберриз через API Seller IP: инструкция с примерами кода, таблицей ошибок и лайфхаками для синхронизации атрибутов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Перенос карточек с Ozon на Wildberries через Seller IP: пошаговый гайд 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-почему-seller-ip-лучший-способ-переноса-карточек">1. Почему Seller IP — лучший способ переноса карточек</a></li><li><a href="#2-подготовка-что-нужно-сделать-до-переноса">2. Подготовка: что нужно сделать до переноса</a></li><li><a href="#3-пошаговая-инструкция-перенос-через-seller-ip">3. Пошаговая инструкция: перенос через Seller IP</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-автоматизация-обновлений-как-синхронизировать-остатки-и-цены">5. Автоматизация обновлений: как синхронизировать остатки и цены</a></li><li><a href="#6-оптимизация-карточек-для-wildberries-что-изменить-после-переноса">6. Оптимизация карточек для Wildberries: что изменить после переноса</a></li><li><a href="#7-альтернативные-способы-переноса-если-seller-ip-не-подходит">7. Альтернативные способы переноса (если Seller IP не подходит)</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/n/no/nomer-gtd-dlya-ozon-chto-eto.html">Номер ГТД для Ozon: что это, где найти и как проверить</a></li><li><a href="/articles/s/se/sertifikat-fss-rf-ozon-chto.html">Сертификат ФСС РФ на Ozon: что это и нужен ли</a></li><li><a href="/articles/k/ka/kak-na-ozone-prodlit-srok-khraneniya-tovara.html">Как продлить срок хранения товара на Ozon: правила и нюансы</a></li><li><a href="/articles/k/ka/kakie-shtrikh-kody-ispolzuet-ozon.html">Какие штрих-коды использует Ozon: полный гайд для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-zapolnyat-tovarnuyu-nakladnuyu-dlya-ozon.html">Как заполнять товарную накладную для Ozon: инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Перенос карточек товаров с Ozon на Wildberries через Seller IP: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-почему-seller-ip-лучший-способ-переноса-карточек">1. Почему Seller IP — лучший способ переноса карточек</a></li><li><a href="#2-подготовка-что-нужно-сделать-до-переноса">2. Подготовка: что нужно сделать до переноса</a></li><li><a href="#3-пошаговая-инструкция-перенос-через-seller-ip">3. Пошаговая инструкция: перенос через Seller IP</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-автоматизация-обновлений-как-синхронизировать-остатки-и-цены">5. Автоматизация обновлений: как синхронизировать остатки и цены</a></li><li><a href="#6-оптимизация-карточек-для-wildberries-что-изменить-после-переноса">6. Оптимизация карточек для Wildberries: что изменить после переноса</a></li><li><a href="#7-альтернативные-способы-переноса-если-seller-ip-не-подходит">7. Альтернативные способы переноса (если Seller IP не подходит)</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Перенос ассортимента между двумя крупнейшими маркетплейсами России — <strong>Ozon</strong> и <em>Wildberries</em> — задача, с которой рано или поздно сталкивается каждый мультибрендовый продавец. Вручную копировать сотни карточек нереально: это заняло бы недели и гарантировало бы ошибки в атрибутах, ценах и остатках. К счастью, есть легальный способ автоматизации — через <strong>API Seller IP</strong>, который позволяет синхронизировать каталоги между платформами с минимальными затратами времени.</p>
+
+<p>Но здесь продавцов поджидают подводные камни: разная структура данных на <em>Ozon</em> и <em>WB</em>, ограничения API, необходимость трансформации атрибутов (например, <code>color_name</code> на Озоне vs <code>color</code> на ВБ). Эта статья — не теоретический обзор, а <mark>практические шаги с примерами кода, таблицей соответствия полей и решениями типичных ошибок</mark>, которые экономят дни работы. Мы разберём два сценария: перенос через готовые сервисы (типа <em>МойСклад</em> или <em>Атоматик</em>) и прямой экспорт через <strong>Seller IP</strong> для тех, кто готов писать скрипты.</p>
+
+<p>Если вы никогда не работали с API маркетплейсов, не пугайтесь: мы начнём с базовых понятий и постепенно дойдём до технических деталей. Главное — понимать, что универсального решения нет: для <em>одежды</em> и <em>электроники</em> потребуются разные подходы к маппингу атрибутов. Готовьтесь к тому, что первый перенос займёт время, но последующие обновления будут занимать минуты.
+
+<h2 id="1-почему-seller-ip-лучший-способ-переноса-карточек">1. Почему Seller IP — лучший способ переноса карточек</h2>
+
+<p>На первый взгляд, проще всего скачать Excel-отчёт с <em>Ozon</em> и загрузить его на <em>Wildberries</em> через личный кабинет. Но этот метод работает только для 10–15 товаров. При масштабировании вы столкнётесь с проблемами:
+
+<ul>
+  <li>🔄 <strong>Разная структура файлов</strong>: Озон выдаёт данные в формате <code>JSON</code>/<code>CSV</code> с сотней колонок, а ВБ требует <code>XLSX</code> с жёстко заданными полями.</li>
+  <li>📦 <strong>Отсутствие автоматической синхронизации</strong>: после первой загрузки вам придётся вручную обновлять остатки, цены и статусы.</li>
+  <li>⚡ <strong>Ограничения API</strong>: Wildberries блокирует массовую загрузку через интерфейс (максимум 500 товаров в час).</li>
+</ul>
+
+<p><strong>Seller IP</strong> решает эти проблемы, так как:
+<ol>
+  <li>Предоставляет <strong>единый интерфейс</strong> для работы с API обоих маркетплейсов.</li>
+  <li>Позволяет <strong>трансформировать данные</strong> на лету (например, конвертировать <code>ozon_category_id</code> в <code>wb_subject</code>).</li>
+  <li>Поддерживает <strong>реальное время</strong>: изменения на Озоне можно мгновенно отразить на ВБ.</li>
+</ol>
+
+<p>Кроме того, <em>Seller IP</em> даёт доступ к расширенным функциям, например:
+<ul>
+  <li>📊 <strong>Аналитика продаж</strong> по обоим маркетплейсам в одном дашборде.</li>
+  <li>🔄 <strong>Автоматическое резервирование остатков</strong>, чтобы избежать оверсела.</li>
+  <li>🛡️ <strong>Проверка на дубли</strong> перед загрузкой (важно для брендовых товаров).</li>
+</ul>
+
+<div class="pb-poll" id="poll-809b7032"><div class="pb-poll-question">📊 Какой способ переноса товаров вы используете сейчас?</div><div class="pb-poll-option" data-poll="809b7032" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="809b7032" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сервисы типа МойСклад</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="809b7032" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Пишу свои скрипты на Python</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="809b7032" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ещё не переносил, только планирую</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-подготовка-что-нужно-сделать-до-переноса">2. Подготовка: что нужно сделать до переноса</h2>
+
+<p>Прежде чем приступать к технической части, выполните <strong>обязательные шаги</strong>:
+
+<p><strong>1. Проверьте соответствие категорий</strong>. На <em>Ozon</em> и <em>Wildberries</em> разные иерархии. Например:
+<ul>
+  <li>На Озоне: <code>Электроника → Смартфоны → Apple</code></li>
+  <li>На ВБ: <code>Электроника → Телефоны и гаджеты → Смартфоны → iPhone</code></li>
+</ul>
+<p>Используйте <a href="https://seller.wildberries.ru/catalog/categories" target="_blank">справочник категорий WB</a> и <a href="https://docs.ozon.ru/common/categories/" target="_blank">документацию Ozon</a> для маппинга.
+
+<p><strong>2. Соберите обязательные атрибуты</strong>. Wildberries требует поля, которых нет на Озоне:
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Атрибут на Ozon</th>
+      <th>Атрибут на WB</th>
+      <th>Пример трансформации</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>color_name</code></td>
+      <td><code>color</code></td>
+      <td>Если на Озоне <code>"Цвет: Чёрный"</code>, на ВБ должно быть <code>"Черный"</code> (без кавычек).</td>
+    </tr>
+    <tr>
+      <td><code>images</code> (массив)</td>
+      <td><code>photos</code> (строка с URL)</td>
+      <td>Нужно конвертировать из <code>[{"url": "..."}]</code> в <code>"url1;url2;url3"</code>.</td>
+    </tr>
+    <tr>
+      <td><code>price</code></td>
+      <td><code>price</code></td>
+      <td>Цена на ВБ должна быть не ниже <strong>РРЦ</strong> (если есть).</td>
+    </tr>
+    <tr>
+      <td><code>stock</code></td>
+      <td><code>quantity</code></td>
+      <td>На ВБ нельзя указывать остатки больше 9999.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>3. Получите доступ к API</strong>:
+<ul>
+  <li>На <em>Ozon</em>: перейдите в <code>Личный кабинет → Настройки → API-ключи</code> и создайте ключ с правами <code>read:products</code>.</li>
+  <li>На <em>Wildberries</em>: в <code>Личном кабинете → API</code> запросите доступ к <code>Marketplace API</code> (может занять до 3 дней).</li>
+</ul>
+
+
+<p>Проверено соответствие категорий|Собраны все обязательные атрибуты|Получены API-ключи от Ozon и WB|Создана тестовая карточка на WB для проверки|Подготовлен бэкап данных Озон--></p>
+
+<h2 id="3-пошаговая-инструкция-перенос-через-seller-ip">3. Пошаговая инструкция: перенос через Seller IP</h2>
+
+<p>Рассмотрим два варианта: с использованием <strong>готового сервиса</strong> (для новичков) и через <strong>прямой API-запрос</strong> (для продвинутых).
+
+<h3>Вариант 1: Через сервис-интегратор (МойСклад, Атоматик, Seller IP)</h3>
+
+<p>Если вы не хотите писать код, используйте один из сервисов:
+<ol>
+  <li><strong>Авторизуйтесь</strong> в сервисе и подключите аккаунты Озон и ВБ.</li>
+  <li><strong>Настройте маппинг полей</strong>. Например, в <em>Seller IP</em> это делается в разделе <code>Интеграции → Правила трансформации</code>.</li>
+  <li><strong>Запустите тестовую синхронизацию</strong> для 1–2 товаров. Проверьте:
+    <ul>
+      <li>📸 Корректность загрузки изображений.</li>
+      <li>🏷️ Совпадение атрибутов (цвет, размер, материал).</li>
+      <li>💰 Соответствие цен (учитывайте комиссию ВБ!).</li>
+    </ol>
+  </li>
+  <li><strong>Настройте расписание</strong> для автоматического обновления (рекомендуем раз в 6 часов).</li>
+</ul>
+
+<p><strong>Плюсы метода</strong>:
+<ul>
+  <li>✅ Не нужен программист.</li>
+  <li>✅ Встроенная обработка ошибок.</li>
+  <li>✅ Поддержка клиентской службы.</li>
+</ul>
+
+<p><strong>Минусы</strong>:
+<ul>
+  <li>❌ Платная подписка (от 1 500 ₽/мес).</li>
+  <li>❌ Ограниченная гибкость (не все атрибуты можно трансформировать).</li>
+</ul>
+
+<h3>Вариант 2: Прямой перенос через API (для разработчиков)</h3>
+
+<p>Если вы готовы писать скрипты, вот <strong>пошаговый алгоритм</strong>:
+
+<p><strong>Шаг 1. Экспорт данных с Ozon</strong>
+<p>Используйте endpoint:
+<pre><code>GET https://api-seller.ozon.ru/v2/product/list
+<p>Headers:</p>
+<p>- Client-Id: [ваш_client_id]</p>
+<p>- Api-Key: [ваш_api_key]</code></pre></p>
+<p>Пример ответа (упрощённо):
+<pre><code>{
+<p>"items": [</p>
+<p>{</p>
+<p>"id": 12345,</p>
+<p>"name": "Смартфон Apple iPhone 13 128GB",</p>
+<p>"category_id": 17035609,</p>
+<p>"price": "79990",</p>
+<p>"images": [{"url": "https://..."}],</p>
+<p>"attributes": [</p>
+<p>{"name": "color_name", "value": "Синий"},</p>
+<p>{"name": "brand", "value": "Apple"}</p>
+<p>]</p>
+<p>}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p><strong>Шаг 2. Трансформация данных для WB</strong>
+<p>Пример кода на Python для конвертации:
+<pre><code>def transform_ozon_to_wb(ozon_product):
+<p>wb_product = {</p>
+<p>"name": ozon_product["name"],</p>
+<p>"brand": next(a["value"] for a in ozon_product["attributes"] if a["name"] == "brand"),</p>
+<p>"color": next(a["value"] for a in ozon_product["attributes"] if a["name"] == "color_name"),</p>
+<p>"price": int(ozon_product["price"]),</p>
+<p>"photos": ";".join(img["url"] for img in ozon_product["images"]),</p>
+<p>"quantity": min(ozon_product["stock"], 9999)  # Ограничение WB</p>
+<p>}</p>
+<p>return wb_product</code></pre></p>
+
+<p><strong>Шаг 3. Загрузка на Wildberries</strong>
+<p>Используйте endpoint:
+<pre><code>POST https://suppliers-api.wildberries.ru/content/v1/cards/upload
+<p>Headers:</p>
+<p>- Authorization: [ваш_api_key_wb]</p>
+<p>Body:</p>
+<p>{</p>
+<p>"data": [{"json": [преобразованные_данные]}]</p>
+<p>}</code></pre></p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если у вас более 10 000 товаров, разбивайте запрос на пакеты по 1 000 штук. Wildberries может заблокировать API при массовой загрузке.</p></aside>
+
+<h2 id="4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</h2>
+
+<p>Даже при автоматизации переноса продавцы сталкиваются с проблемами. Вот <strong>TOP-5 ошибок</strong> и их решения:
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>400 Bad Request: Invalid category</code></td>
+      <td>Некорректный <code>subject</code> или <code>vendorCode</code>.</td>
+      <td>Проверьте соответствие категорий в <a href="https://suppliers-stats.wildberries.ru/ns/categories" target="_blank">справочнике WB</a>.</td>
+    </tr>
+    <tr>
+      <td><code>403 Forbidden: Price too low</code></td>
+      <td>Цена ниже РРЦ или минимальной цены категории.</td>
+      <td>Увеличьте цену на 5–10% от РРЦ или запросите разрешение у WB.</td>
+    </tr>
+    <tr>
+      <td><code>504 Gateway Timeout</code></td>
+      <td>Слишком большой запрос (>1 000 товаров).</td>
+      <td>Разбейте на пакеты по 500–800 товаров.</td>
+    </tr>
+    <tr>
+      <td>Карточка не отображается в каталоге</td>
+      <td>Не заполнены обязательные атрибуты (например, <code>country</code> для одежды).</td>
+      <td>Добавьте недостающие поля через <code>PATCH</code>-запрос.</td>
+    </tr>
+    <tr>
+      <td>Изображения не загружаются</td>
+      <td>URL изображений с Ozon недоступны для WB.</td>
+      <td>Скачайте изображения на свой сервер и укажите прямые ссылки.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Самая частая проблема</strong> — несовпадение атрибутов. Например, на Озоне может быть <code>size: "M"</code>, а на ВБ требуется <code>size: {"rus": "M", "orig": "M"}</code>. Решение:
+<pre><code># Пример трансформации размера для WB
+<p>if "size" in ozon_attributes:</p>
+<p>wb_product["sizes"] = [</p>
+<p>{</p>
+<p>"rus": ozon_attributes["size"],</p>
+<p>"orig": ozon_attributes["size"],</p>
+<p>"vendorSize": ozon_attributes.get("vendor_size", "")</p>
+<p>}</p>
+<p>]</code></pre></p>
+
+<details class="pb-accordion"><summary>Что делать если WB отказывает в модерации?</summary><div class="pb-accordion-body"><p>
+<p>Если карточка отклонена с формулировкой "Несоответствие товара заявленным характеристикам", проверьте:</p>
+<p>1. <strong>Совпадение бренда</strong> в названии и атрибуте `brand`.</p>
+<p>2. <strong>Качество изображений</strong> — на ВБ требуется белый фон (RGB 255,255,255) и разрешение не менее 800x800.</p>
+<p>3. <strong>Описание</strong> — должно содержать ключевые слова из названия и не дублировать его.</p>
+<p>Если проблема не решена, напишите в поддержку WB с указанием `nmId` товара и скриншотом ошибки.</p></div></details></p>
+
+<h2 id="5-автоматизация-обновлений-как-синхронизировать-остатки-и-цены">5. Автоматизация обновлений: как синхронизировать остатки и цены</h2>
+
+<p>Одноразовый перенос — это только половина задачи. Главное — настроить <strong>регулярную синхронизацию</strong>, чтобы:
+<ul>
+  <li>📉 <strong>Остатки</strong> обновлялись при продаже на Озоне.</li>
+  <li>💰 <strong>Цены</strong> корректировались с учётом акций на обоих маркетплейсах.</li>
+  <li>⚡ <strong>Статусы</strong> ("в наличии"/"под заказ") совпадали.</li>
+</ul>
+
+<p><strong>Способ 1: Вебхуки (рекомендуется)</strong>
+<p>Настройте уведомления об изменениях на Озоне:
+<pre><code>POST https://api-seller.ozon.ru/v1/webhook/subscribe
+<p>{</p>
+<p>"events": ["stocks_updated", "price_updated"],</p>
+<p>"url": "https://ваш-сервер.com/ozon-webhook"</p>
+<p>}</code></pre></p>
+<p>Пример обработчика на Python:
+<pre><code>from flask import Flask, request
+
+<p>app = Flask(__name__)</p>
+
+<p>@app.route('/ozon-webhook', methods=['POST'])</p>
+<p>def handle_webhook():</p>
+<p>data = request.json</p>
+<p>if data['event'] == 'stocks_updated':</p>
+<p>update_wb_stock(data['product_id'], data['new_stock'])</p>
+<p>return "OK", 200</code></pre></p>
+
+<p><strong>Способ 2: Cron-задачи</strong>
+<p>Если вебхуки не доступны, запускайте скрипт синхронизации по расписанию (например, каждые 4 часа):
+<pre><code>0 <em>/4 </em> <em> </em> /usr/bin/python3 /path/to/sync_script.py</code></pre>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Не обновляйте остатки чаще чем раз в 2 часа — Wildberries может заблокировать API за слишком частые запросы.</p></aside>
+
+<h2 id="6-оптимизация-карточек-для-wildberries-что-изменить-после-переноса">6. Оптимизация карточек для Wildberries: что изменить после переноса</h2>
+
+<p>Перенос — это только техническая часть. Чтобы товары продавались на ВБ, их нужно <strong>адаптировать под алгоритмы маркетплейса</strong>:
+
+<p><strong>1. Название товара</strong>
+<p>На Озоне допускаются длинные названия с ключевыми словами, а на ВБ действуют жёсткие правила:
+<ul>
+  <li>✅ <strong>Правильно</strong>: <code>Смартфон Apple iPhone 13 128GB Синий</code></li>
+  <li>❌ <strong>Неправильно</strong>: <code>Apple iPhone 13 128 ГБ, новый, гарантия, быстрая доставка</code> (лишние слова).</li>
+</ul>
+
+<p><strong>2. Описание</strong>
+<p>Wildberries ранжирует карточки с:
+<ul>
+  <li>📝 <strong>Структурированным текстом</strong> (подзаголовки, списки, абзацы).</li>
+  <li>🔍 <strong>Ключевыми словами</strong> из поисковых запросов (используйте <a href="https://advert.wildberries.ru/keys" target="_blank">инструмент WB</a>).</li>
+  <li>📏 <strong>Техническими характеристиками</strong> в таблице (для электроники).</li>
+</ul>
+
+<p><strong>3. Цена и скидки</strong>
+<p>На ВБ действуют особенности:
+<ul>
+  <li>💰 <strong>Комиссия</strong> выше, чем на Озоне (до 15% для электроники). Учитывайте это в цене.</li>
+  <li>🎁 <strong>Скидки</strong> лучше устанавливать через <code>Promo API</code>, а не вручную.</li>
+  <li>📈 <strong>Динамическое ценообразование</strong>: используйте сервисы вроде <em>Pricer24</em> для автоматического подбора цены под конкурентов.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Добавьте в описание блок "Часто задаваемые вопросы" — это увеличивает конверсию на 8–12% (данные WB за 2023 год).</p></aside>
+
+<h2 id="7-альтернативные-способы-переноса-если-seller-ip-не-подходит">7. Альтернативные способы переноса (если Seller IP не подходит)</h2>
+
+<p>Если по какой-то причине <em>Seller IP</em> вам не доступен, рассмотрите альтернативы:
+
+<p><strong>1. Через 1C или МойСклад</strong>
+<p>Если вы ведёте учёт в <em>1C</em>, можно настроить выгрузку:
+<ul>
+  <li>📥 <strong>Импорт</strong> данных с Озон через <code>CommerceML</code>.</li>
+  <li>📤 <strong>Экспорт</strong> на ВБ через модуль <em>WB Интеграция</em> (стоимость от 5 000 ₽).</li>
+</ul>
+
+<p><strong>2. Парсинг + Excel</strong>
+<p>Для небольших каталогов (до 500 товаров):
+<ol>
+  <li>Спарсите данные с Озон через <em>Ozon Parser</em> (например, <a href="https://ozon-parser.ru/" target="_blank">сервис</a>).</li>
+  <li>Обработайте файл в Excel:
+    <ul>
+      <li>🔄 Замените названия колонок (например, <code>ozon_id</code> → <code>vendorCode</code>).</li>
+      <li>📊 Добавьте недостающие поля (например, <code>country</code> для одежды).</li>
+    </ol>
+  </li>
+  <li>Загрузите через <code>Личный кабинет WB → Товары → Импорт</code>.</li>
+</ul>
+
+<p><strong>3. Готовые решения от партнёров WB</strong>
+<p>Wildberries рекомендует несколько сервисов для миграции:
+<ul>
+  <li>🛠️ <em><a href="https://www.retailcrm.ru/" target="_blank">RetailCRM</a></em> — для комплексного управления.</li>
+  <li>📦 <em><a href="https://www.moysklad.ru/" target="_blank">МойСклад</a></em> — для синхронизации складов.</li>
+  <li>🤖 <em><a href="https://atomatik.ru/" target="_blank">Атоматик</a></em> — для автоматизации без кода.</li>
+</ul>
+
+<div class="pb-poll" id="poll-6c742b5c"><div class="pb-poll-question">📊 Какой способ переноса вы считаете самым надёжным?</div><div class="pb-poll-option" data-poll="6c742b5c" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через Seller IP</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6c742b5c" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через 1C/МойСклад</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6c742b5c" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Самописные скрипты</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6c742b5c" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Сервисы-партнёры WB (RetailCRM и др.)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</h2>
+
+<details>
+  <summary>❓ Можно ли перенести отзывы с Озон на Wildberries?</summary>
+  <p>Нет, Wildberries не предоставляет API для импорта отзывов. Однако вы можете:
+  <ul>
+    <li>📸 Добавить скриншоты отзывов с Озон в галерею товара на ВБ (с пометкой "Отзыв с Ozon").</li>
+    <li>📊 Указать средний рейтинг в описании (например: "4.8★ на Ozon по 120 отзывам").</li>
+  </ul>
+  <p>⚠️ <strong>Внимание</strong>: Не копируйте текст отзывов напрямую — это может быть расценено как манипуляция рейтингами.
+</details>
+
+<details>
+  <summary>❓ Как перенести товары с вариантами (цвет/размер)?</summary>
+  <p>Для товаров с вариантами (<em>SKU</em>) на Озоне и <em>NMID</em> на ВБ:
+  <ol>
+    <li>Сгруппируйте варианты по <code>parent_id</code> (на Озоне) или <code>groupId</code> (на ВБ).</li>
+    <li>Для каждого варианта укажите:
+      <pre><code>{
+<p>"vendorCode": "AR123-BLUE-M",  // Артикул + цвет + размер</p>
+<p>"sizes": [{"rus": "M", "orig": "M"}],</p>
+<p>"colors": [{"name": "Синий"}]</p>
+<p>}</code></pre></p>
+    </li>
+    <li>Используйте <code>PATCH /cards/group</code> для связывания вариантов в группу.</li>
+  </ol>
+  <p><strong>Важно</strong>: На ВБ все варианты должны иметь одинаковое название, кроме атрибутов цвета/размера.
+</details>
+
+<details>
+  <summary>❓ Сколько времени занимает модерация на Wildberries?</summary>
+  <p>Сроки зависят от категории:
+  <ul>
+    <li>⚡ <strong>Быстрая модерация (1–6 часов)</strong>: книги, канцтовары, некоторые аксессуары.</li>
+    <li>⏳ <strong>Стандартная (1–3 дня)</strong>: электроника, одежда, обувь.</li>
+    <li>🐢 <strong>Долгая (до 7 дней)</strong>: товары с сертификатами (например, детские игрушки).</li>
+  </ul>
+  <p>🔹 <strong>Как ускорить</strong>:
+  <ul>
+    <li>Заполните все обязательные атрибуты (особенно <code>country</code> и <code>material</code>).</li>
+    <li>Прикрепите сертификаты (если требуются).</li>
+    <li>Используйте <a href="https://seller.wildberries.ru/quality" target="_blank">предмодерацию</a> в личном кабинете.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>❓ Можно ли перенести товары с Ozon на WB бесплатно?</summary>
+  <p>Да, но с ограничениями:
+  <ul>
+    <li>🆓 <strong>Бесплатно</strong>:
+      <ul>
+        <li>Ручной перенос через Excel (до 500 товаров).</li>
+        <li>Самописные скрипты на Python (если у вас есть навыки программирования).</li>
+      </ul>
+    </li>
+    <li>💰 <strong>Платно</strong>:
+      <ul>
+        <li>Сервисы типа <em>Seller IP</em> (от 1 500 ₽/мес).</li>
+        <li>Партнёрские интеграции (например, <em>RetailCRM</em> — от 3 000 ₽/мес).</li>
+      </ul>
+    </li>
+  </ul>
+  <p>⚠️ <strong>Внимание</strong>: Бесплатные способы требуют много времени на поддержку. Например, при изменении API Озон или WB ваш скрипт может перестать работать.
+</details>
+
+<details>
+  <summary>❓ Что делать, если товар на Озоне есть, а на WB его нет в справочнике?</summary>
+  <p>Если ваш товар отсутствует в каталоге Wildberries:
+  <ol>
+    <li>Проверьте <a href="https://suppliers-stats.wildberries.ru/ns/nomenclature" target="_blank">справочник номенклатуры WB</a> по:
+      <ul>
+        <li>🏷️ <strong>Бренду</strong> (например, <code>brand: "Apple"</code>).</li>
+        <li>📦 <strong>Артикулу</strong> (попробуйте поиск по <code>vendorCode</code>).</li>
+      </ol>
+    </li>
+    <li>Если товара нет:
+      <ul>
+        <li>📋 Заполните <a href="https://seller.wildberries.ru/product/new" target="_blank">заявку на добавление</a> (для брендовых товаров).</li>
+        <li>🔄 Или создайте карточку как "Свой товар" (для non-brand).</li>
+      </ol>
+    </li>
+  </ul>
+  <p>🔹 <strong>Важно</strong>: Для некоторых категорий (например, <em>лекарства</em> или <em>алкоголь</em>) добавление нового товара невозможно — их можно продавать только из существующего каталога WB.
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/n/no/nomer-gtd-dlya-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Номер ГТД для Ozon: что это, где найти и как проверить</span>
+                <span class="pb-related-desc">Полный гид по номеру ГТД на маркетплейсе Ozon. Узнайте, что это, где найти код в личном кабинете, ка</span>
+            </a><a href="/articles/s/se/sertifikat-fss-rf-ozon-chto.html" class="pb-related-card">
+                <span class="pb-related-title">Сертификат ФСС РФ на Ozon: что это и нужен ли</span>
+                <span class="pb-related-desc">Нужен ли сертификат ФСС РФ для товаров на Ozon? Разбираем, какие товары подлежат маркировке, как офо</span>
+            </a><a href="/articles/k/ka/kak-na-ozone-prodlit-srok-khraneniya-tovara.html" class="pb-related-card">
+                <span class="pb-related-title">Как продлить срок хранения товара на Ozon: правила и нюансы</span>
+                <span class="pb-related-desc">Узнайте, как продлить срок годности товаров на Ozon, что делать при истечении дат и как избежать бло</span>
+            </a><a href="/articles/k/ka/kakie-shtrikh-kody-ispolzuet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие штрих-коды использует Ozon: полный гайд для продавцов 2026</span>
+                <span class="pb-related-desc">Разбираем все виды штрих-кодов Ozon: EAN, FNS, внутренние коды FBO/FBS, требования к маркировке и ош</span>
+            </a><a href="/articles/k/ka/kak-zapolnyat-tovarnuyu-nakladnuyu-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как заполнять товарную накладную для Ozon: инструкция 2026</span>
+                <span class="pb-related-desc">Полный гайд по оформлению товарной накладной для Ozon. Разбор полей, кодов маркировки и правил прием</span>
+            </a><a href="/articles/k/ka/kak-ostanovit-prodazhu-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как остановить продажу товара на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гид, как скрыть или остановить продажу товара на Ozon. Снятие с продаж, архивация карточек</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

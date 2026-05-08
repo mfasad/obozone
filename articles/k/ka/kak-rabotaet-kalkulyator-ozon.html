@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает калькулятор Озон: расчет дохода и комиссий для продавцов — Об Озоне</title>
+    <meta name="description" content="Подробный разбор работы калькулятора Озон: как считать прибыль, учитывать комиссии, логистику и налоги. Пошаговые инструкции + примеры расчетов для FBO и FBS.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rabotaet-kalkulyator-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает калькулятор Озон: расчет дохода и комиссий для продавцов">
+    <meta property="og:description" content="Подробный разбор работы калькулятора Озон: как считать прибыль, учитывать комиссии, логистику и налоги. Пошаговые инструкции + примеры расчетов для FBO и FBS.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работает калькулятор Озон: расчет дохода и комиссий для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-калькулятор-озон-и-зачем-он-нужен">Что такое калькулятор Озон и зачем он нужен</a></li><li><a href="#как-пользоваться-калькулятором-пошаговая-инструкция">Как пользоваться калькулятором: пошаговая инструкция</a></li><li><a href="#какие-комиссии-учитывает-калькулятор-озон">Какие комиссии учитывает калькулятор Озон</a></li><li><a href="#почему-итоговые-выплаты-отличаются-от-расчётов-калькулятора">Почему итоговые выплаты отличаются от расчётов калькулятора</a></li><li><a href="#fbs-vs-fbo-что-выгоднее-по-калькулятору">FBS vs FBO: что выгоднее по калькулятору</a></li><li><a href="#скрытые-комиссии-о-которых-не-говорит-калькулятор">Скрытые комиссии, о которых не говорит калькулятор</a></li><li><a href="#частые-ошибки-при-работе-с-калькулятором">Частые ошибки при работе с калькулятором</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-калькуляторе-озон">FAQ: Ответы на частые вопросы о калькуляторе Озон</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-kuda-vezti-tovar-postavshchiku.html">Куда везти товар на Озон поставщику: адреса и схема FBO</a></li><li><a href="/articles/k/ka/kak-rasschitat-dostavku-ozon-seller.html">Как рассчитать доставку на Ozon для продавца: формулы и калькуляторы 2026</a></li><li><a href="/articles/k/ka/kak-rabotaet-fulfilment-ozon.html">Как работает фулфилмент Озон: схемы, цены, инструкция 2026</a></li><li><a href="/articles/k/ka/kakie-dokumenty-peredavat-ozonu-po-sisteme-realfbs.html">Документы для Ozon RealFBS: полный список и требования 2026</a></li><li><a href="/articles/s/st/statforma-ozon-chto-eto-takoe.html">Статформа Озон: что это такое и как работает FBS</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как работает калькулятор Озон: полный гайд по расчету дохода для продавцов в 2026 году</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-калькулятор-озон-и-зачем-он-нужен">Что такое калькулятор Озон и зачем он нужен</a></li><li><a href="#как-пользоваться-калькулятором-пошаговая-инструкция">Как пользоваться калькулятором: пошаговая инструкция</a></li><li><a href="#какие-комиссии-учитывает-калькулятор-озон">Какие комиссии учитывает калькулятор Озон</a></li><li><a href="#почему-итоговые-выплаты-отличаются-от-расчётов-калькулятора">Почему итоговые выплаты отличаются от расчётов калькулятора</a></li><li><a href="#fbs-vs-fbo-что-выгоднее-по-калькулятору">FBS vs FBO: что выгоднее по калькулятору</a></li><li><a href="#скрытые-комиссии-о-которых-не-говорит-калькулятор">Скрытые комиссии, о которых не говорит калькулятор</a></li><li><a href="#частые-ошибки-при-работе-с-калькулятором">Частые ошибки при работе с калькулятором</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-калькуляторе-озон">FAQ: Ответы на частые вопросы о калькуляторе Озон</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Продажи на маркетплейсах давно перестали быть хаотичным процессом — сегодня каждый шаг можно просчитать заранее, минимизируя риски и максимизируя прибыль. <strong>Калькулятор Озон</strong> стал одним из ключевых инструментов для продавцов, позволяющим оценить реальную рентабельность товара ещё до его загрузки в каталог. Но как именно он работает? Почему цифры в нём иногда отличаются от итоговых выплат? И какие нюансы нужно учитывать, чтобы не оказаться в минусе после продажи?</p>
+
+<p>Многие новички совершают одну и ту же ошибку: ориентируются только на <strong>цену продажи</strong>, забывая о комиссиях, логистике и налогах. В результате реальная прибыль оказывается в 2–3 раза ниже ожидаемой. Эта статья поможет разобраться, как <strong>калькулятор Озон</strong> формирует итоговые цифры, какие параметры на него влияют, и как использовать его данные для принятия взвешенных решений. Мы разберём не только базовые принципы, но и скрытые «подводные камни», о которых молчат даже опытные продавцы.</p>
+
+<p>Сразу отметим: калькулятор на платформе — это не просто арифметический инструмент, а динамическая система, учитывающая десятки переменных: от веса товара до региона хранения. Его алгоритмы обновляются ежемесячно, поэтому даже если вы пользовались им год назад, сегодня принципы расчётов могли измениться. В этой статье — актуальная информация на <strong>2026 год</strong>, подтверждённая данными из официальной документации <em>Ozon</em> и опытом топовых продавцов.
+
+<h2 id="что-такое-калькулятор-озон-и-зачем-он-нужен">Что такое калькулятор Озон и зачем он нужен</h2>
+
+<p><strong>Калькулятор Озон</strong> — это встроенный инструмент в личном кабинете продавца, который автоматически рассчитывает потенциальную прибыль от продажи товара с учётом всех комиссий платформы. Он доступен как в веб-версии, так и в мобильном приложении <em>Ozon Seller</em>. Основная задача инструмента — показать продавцу <mark>реальную чистую прибыль после вычета всех обязательных платежей</mark>, включая логистику, хранение и налоги.
+
+<p>Без этого инструмента продавцам пришлось бы вручную высчитывать десятки параметров:
+<ul>
+  <li>📦 <strong>Комиссия маркетплейса</strong> (от 5% до 25% в зависимости от категории)</li>
+  <li>🚚 <strong>Стоимость доставки</strong> (FBS или FBO, вес и габариты товара)</li>
+  <li>📉 <strong>Скидки и акции</strong> (участие в промо-мероприятиях платформы)</li>
+  <li>💰 <strong>Налоги</strong> (НДС, налог на прибыль или самозанятых)</li>
+  <li>📦 <strong>Упаковка и маркировка</strong> (дополнительные услуги <em>Ozon</em>)</li>
+</ul>
+
+<p>Например, если вы продаёте смартфон за <code>25 000 ₽</code>, то «на руки» можете получить всего <code>18 000–20 000 ₽</code> — разница в <code>5 000–7 000 ₽</code> «съедается» комиссиями и логистикой. Калькулятор помогает избежать неприятных сюрпризов, когда после продажи выясняется, что товар оказался убыточным.
+
+<p>Важно понимать, что инструмент даёт <em>прогнозные</em> данные. Финальные цифры могут отличаться из-за:
+<ul>
+  <li>🔄 Изменения тарифов <em>Ozon</em> (обновляются раз в 1–3 месяца)</li>
+  <li>📈 Колебаний курса валют (если товар закупается за рубежом)</li>
+  <li>🚨 Форс-мажоров (потеря товара на складе, возвраты от покупателей)</li>
+</ul>
+
+<div class="pb-poll" id="poll-212efc41"><div class="pb-poll-question">📊 Как часто вы пользуетесь калькулятором Озон?</div><div class="pb-poll-option" data-poll="212efc41" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Перед каждой загрузкой товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212efc41" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только для новых позиций</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212efc41" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Рядом не пользовался</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212efc41" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не знаю, где он находится</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="как-пользоваться-калькулятором-пошаговая-инструкция">Как пользоваться калькулятором: пошаговая инструкция</h2>
+
+<p>Чтобы получить точный расчёт, нужно правильно заполнить все поля калькулятора. Рассмотрим процесс на примере веб-версии личного кабинета.
+
+<p><strong>Шаг 1. Перейдите в раздел «Калькулятор»</strong>
+<p>В боковом меню личного кабинета выберите пункт <code>Инструменты → Калькулятор доходности</code>. Альтернативный путь — через карточку товара (кнопка <code>Рассчитать доходность</code> в правом верхнем углу).
+
+<p><strong>Шаг 2. Укажите базовые параметры товара</strong>
+<p>Заполните обязательные поля:
+<ul>
+  <li>🏷️ <strong>Категория товара</strong> (от неё зависит размер комиссии)</li>
+  <li>💰 <strong>Цена продажи</strong> (указывайте с учётом скидок, если планируете участие в акциях)</li>
+  <li>📦 <strong>Вес и габариты</strong> (влияют на стоимость доставки и хранения)</li>
+  <li>📍 <strong>Регион хранения</strong> (например, <em>Москва</em> или <em>Новосибирск</em>)</li>
+</ul>
+
+<p><strong>Шаг 3. Выберите схему работы (FBS или FBO)</strong>
+<p>От этого зависит, кто будет заниматься логистикой:
+<ul>
+  <li>🚛 <strong>FBS</strong> (<em>Fulfillment by Ozon</em>) — товар хранится на складах <em>Ozon</em>, платформа сама упаковывает и отправляет заказы.</li>
+  <li>🏠 <strong>FBO</strong> (<em>Fulfillment by Operator</em>) — вы сами храните товар и отправляете его покупателям.</li>
+</ul>
+
+<p><strong>Шаг 4. Добавьте дополнительные услуги (если нужны)</strong>
+<p>Например:
+<ul>
+  <li>📦 <strong>Упаковка от Ozon</strong> (если не хотите заниматься этим самостоятельно)</li>
+  <li>🔖 <strong>Маркировка</strong> (обязательна для некоторых категорий, например, одежды)</li>
+  <li>🔄 <strong>Обратная логистика</strong> (если планируете принимать возвраты через <em>Ozon</em>)</li>
+</ul>
+
+<p><strong>Шаг 5. Нажмите «Рассчитать» и проанализируйте результаты</strong>
+<p>Система выдаст детализированный отчёт с разбивкой по статьям расходов. Обратите внимание на строку <code>Чистая прибыль</code> — это та сумма, которую вы получите на счёт после всех вычетов.
+
+
+<p>Указать точный вес товара с упаковкой</p>
+<p>Выбрать правильную категорию</p>
+<p>Учесть участие в акциях (если планируется)</p>
+<p>Проверить тарифы на хранение для вашего региона</p>
+<p>Сравнить FBS и FBO по стоимости--></p>
+
+<h2 id="какие-комиссии-учитывает-калькулятор-озон">Какие комиссии учитывает калькулятор Озон</h2>
+
+<p>Один из самых важных блоков в расчётах — комиссии маркетплейса. Они делятся на несколько типов, и каждый влияет на итоговую прибыль.
+
+<p><strong>1. Комиссия за продажу (процент от цены товара)</strong>
+<p>Это основной «кусок» платежей <em>Ozon</em>. Размер зависит от категории:
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Категория товара</th>
+      <th>Размер комиссии</th>
+      <th>Пример (товар за 5 000 ₽)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Электроника</td>
+      <td>10–15%</td>
+      <td>500–750 ₽</td>
+    </tr>
+    <tr>
+      <td>Одежда и обувь</td>
+      <td>15–20%</td>
+      <td>750–1 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Книги</td>
+      <td>5–10%</td>
+      <td>250–500 ₽</td>
+    </tr>
+    <tr>
+      <td>Красота и здоровье</td>
+      <td>12–18%</td>
+      <td>600–900 ₽</td>
+    </tr>
+    <tr>
+      <td>Продукты питания</td>
+      <td>8–12%</td>
+      <td>400–600 ₽</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание</strong>: Если товар участвует в акции (например, <em>«Чёрная пятница»</em> или <em>«Киберпонедельник»</em>), комиссия может увеличиваться на <code>2–5%</code>. Это не всегда отображается в калькуляторе автоматически — уточняйте актуальные тарифы в разделе <code>Тарифы и комиссии</code> в личном кабинете.
+
+<p><strong>2. Логистические комиссии (доставка и хранение)</strong>
+<p>Здесь всё зависит от выбранной схемы:
+<ul>
+  <li>📦 <strong>FBS</strong>:
+    <ul>
+      <li>🚚 <strong>Доставка на склад <em>Ozon</strong></strong> — от <code>50 ₽</code> за кг (зависит от региона)</li>
+      <li>📦 <strong>Хранение</strong> — от <code>1 ₽/день</code> за место (тарифы различаются по категориям)</li>
+      <li>🔄 <strong>Обратная логистика</strong> — <code>100–300 ₽</code> за возврат</li>
+    </ul>
+  </li>
+  <li>🏠 <strong>FBO</em>:
+    <ul>
+      <li>🚚 <strong>Доставка покупателю</em> — тарифы <em>СДЭК</em>, <em>Boxberry</em> или <em>Почты России</strong> (от <code>200 ₽</code> за заказ)</li>
+      <li>📦 <strong>Упаковка</em> — если заказываете у <em>Ozon</em>, то <code>10–50 ₽</code> за заказ</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>3. Дополнительные услуги</strong>
+<p>К ним относятся:
+<ul>
+  <li>📸 <strong>Фотография товара</strong> — <code>300–1 000 ₽</code> за сессию</li>
+  <li>📝 <strong>Описание товара</strong> — <code>500–2 000 ₽</code> (если заказываете у копирайтеров <em>Ozon</em>)</li>
+  <li>🔖 <strong>Маркировка</strong> — <code>1–5 ₽</code> за штуку (обязательно для одежды и обуви)</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если продаёте товар весом более 10 кг, уточните тарифы на доставку отдельно — в калькуляторе могут быть указаны усреднённые значения, не учитывающие габаритные грузы.</p></aside>
+
+<h2 id="почему-итоговые-выплаты-отличаются-от-расчётов-калькулятора">Почему итоговые выплаты отличаются от расчётов калькулятора</h2>
+
+<p>Многие продавцы сталкиваются с ситуацией, когда после продажи на счёт приходит сумма меньше, чем показывал калькулятор. Разберёмся, почему так происходит.
+
+<p><strong>1. Изменение тарифов <em>Ozon</strong></strong>
+<p>Платформа имеет право корректировать комиссии без предварительного уведомления. Например, в <strong>январе 2026 года</em> была повышена комиссия за хранение товаров на складах FBS на <code>15–20%</code>. Если вы рассчитали доходность в декабре, а продали товар в феврале, цифры будут другими.
+
+<p><strong>2. Дополнительные скидки для покупателей</em>
+<p><em>Ozon</strong> иногда автоматически применяет промокоды или кэшбэк для покупателей, что снижает итоговую цену товара. Например, если вы указали цену <code>3 000 ₽</code>, а покупатель оплатил с учётом скидки <code>2 700 ₽</code>, комиссия будет рассчитываться от меньшей суммы.
+
+<p><strong>3. Ошибки в весе или габаритах товара</em>
+<p>Если при загрузке товара вы указали неверный вес (например, <code>500 г</code> вместо <code>800 г</code>), логистические расходы будут выше. <em>Ozon</em> пересчитает стоимость доставки постфактум и удержит разницу из ваших выплат.
+
+<p><strong>4. Возвраты и отмены заказов</strong>
+<p>Калькулятор не учитывает, что часть заказов может быть отменена или возвращена. В этом случае:
+<ul>
+  <li>🔄 Выплаты за товар не поступают.</li>
+  <li>🚚 Вам могут начислить комиссию за <strong>обратную логистику</strong> (если товар возвращается на склад).</li>
+  <li>📦 Если товар испорчен, <em>Ozon</em> удерживает стоимость утилизации (<code>100–500 ₽</code>).</li>
+</ul>
+
+<p><strong>5. Налоги и сборы</strong>
+<p>Калькулятор показывает прибыль <strong>до вычета налогов</strong>. Если вы работаете как ИП или ООО, дополнительно уплатите:
+<ul>
+  <li>📄 <strong>НДС</strong> — <code>20%</code> (если не на упрощёнке)</li>
+  <li>💰 <strong>Налог на прибыль</strong> — <code>13–20%</code> (в зависимости от системы налогообложения)</li>
+  <li>👤 <strong>Взносы за работников</strong> — если у вас есть штат</li>
+</ul>
+
+<details class="pb-accordion"><summary>Пример реального расчёта с учётом всех скрытых платежей</summary><div class="pb-accordion-body"><p>
+<p>Допустим, вы продаёте наушники за 6 000 ₽ (категория "Электроника", комиссия 15%).</p>
+<p>- Комиссия Ozon: 6 000 × 15% = 900 ₽</p>
+<p>- Доставка FBS: 300 ₽ (товар весит 300 г)</p>
+<p>- Хранение: 50 ₽ (5 дней × 10 ₽/день)</p>
+<p>- Маркировка: 30 ₽</p>
+<p>- Итого расходов: 900 + 300 + 50 + 30 = 1 280 ₽</p>
+<p>- Чистая прибыль до налогов: 6 000 – 1 280 = 4 720 ₽</p>
+<p>- После налогов (13% для самозанятых): 4 720 – 614 = 4 106 ₽</p>
+<p>Реальная прибыль составила 4 106 ₽ вместо ожидаемых 5 100 ₽ (если не учитывать налоги и скрытые комиссии).</p></div></details></p>
+
+<h2 id="fbs-vs-fbo-что-выгоднее-по-калькулятору">FBS vs FBO: что выгоднее по калькулятору</h2>
+
+<p>Один из самых частых вопросов продавцов — какую схему работы выбрать: <strong>FBS</strong> (склад <em>Ozon</em>) или <strong>FBO</strong> (самостоятельная логистика). Калькулятор помогает сравнить оба варианта, но окончательное решение зависит от специфики вашего бизнеса.
+
+<p><strong>Преимущества FBS:</strong>
+<ul>
+  <li>✅ <strong>Быстрая доставка</strong> — товар отправляется покупателю в день заказа.</li>
+  <li>✅ <strong>Высокий рейтинг</strong> — <em>Ozon</em> приоритезирует товары со своих складов в выдаче.</li>
+  <li>✅ <strong>Меньше хлопот</strong> — не нужно упаковывать и отправлять заказы самостоятельно.</li>
+</ul>
+
+<p><strong>Недостатки FBS:</strong>
+<ul>
+  <li>❌ <strong>Высокие комиссии</strong> — хранение и логистика могут съедать до <code>30%</code> прибыли.</li>
+  <li>❌ <strong>Риск потерь</strong> — товар может испортиться или потеряться на складе.</li>
+  <li>❌ <strong>Ограничения по ассортименту</strong> — не все категории принимаются на FBS.</li>
+</ul>
+
+<p><strong>Преимущества FBO:</strong>
+<ul>
+  <li>✅ <strong>Ниже расходы</strong> — нет комиссий за хранение и упаковку.</li>
+  <li>✅ <strong>Гибкость</strong> — можно работать с любыми товарами, даже теми, что не принимают на FBS.</li>
+  <li>✅ <strong>Контроль качества</strong> — вы сами проверяете товар перед отправкой.</li>
+</ul>
+
+<p><strong>Недостатки FBO:</strong>
+<ul>
+  <li>❌ <strong>Дольше доставка</strong> — заказы могут идти до покупателя 5–7 дней.</li>
+  <li>❌ <strong>Ниже позиции в выдаче</strong> — <em>Ozon</em> отдаёт приоритет товарам со своих складов.</li>
+  <li>❌ <strong>Больше работы</strong> — нужно самостоятельно упаковывать и отправлять заказы.</li>
+</ul>
+
+<p><strong>Как выбрать оптимальный вариант?</strong>
+<p>Используйте калькулятор для сравнения:
+<ol>
+  <li>Введите данные товара и выберите <strong>FBS</strong> — запишите итоговую прибыль.</li>
+  <li>Повторите расчёт для <strong>FBO</strong>, указав тарифы вашей транспортной компании.</li>
+  <li>Сравните чистую прибыль и выберите схему с лучшими показателями.</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для лёгких и компактных товаров (вес до 1 кг) FBO часто выгоднее, чем FBS. Для тяжёлых или хрупких товаров (электроника, мебель) лучше использовать FBS, despite более высоких комиссий.</p></aside>
+
+<h2 id="скрытые-комиссии-о-которых-не-говорит-калькулятор">Скрытые комиссии, о которых не говорит калькулятор</h2>
+
+<p>Даже самый точный инструмент не учитывает все нюансы. Вот расходы, которые редко отображаются в расчётах, но могут серьёзно повлиять на прибыль:
+
+<p><strong>1. Комиссия за возврат денег покупателю</strong>
+<p>Если клиент запросил возврат, <em>Ozon</em> удерживает <code>3–5%</code> от суммы заказа за обработку платежа. Например, при возврате товара за <code>10 000 ₽</code> вы потеряете дополнительные <code>300–500 ₽</code>.
+
+<p><strong>2. Штрафы за нарушение правил</strong>
+<p>Калькулятор не предупреждает о возможных штрафах:
+<ul>
+  <li>📦 <strong>Неправильная упаковка</strong> — <code>500–2 000 ₽</code></li>
+  <li>🏷️ <strong>Отсутствие маркировки</strong> — <code>1 000–5 000 ₽</code> (для одежды и обуви)</li>
+  <li>⏱️ <strong>Задержка отправки</strong> (для FBO) — <code>300–1 000 ₽</code> за день</li>
+</ul>
+
+<p><strong>3. Курсовые разницы (для импортных товаров)</strong>
+<p>Если вы закупаете товар в долларах или юанях, а продаёте в рублях, разница курсов может съесть до <code>10%</code> прибыли. Калькулятор оперирует только рублёвыми суммами и не учитывает валютные риски.
+
+<p><strong>4. Рекламные расходы</strong>
+<p>Если вы продвигаете товар через <em>Ozon Рекламу</em>, бюджет на клики (<code>CPC</code>) или показы (<code>CPM</code>) не включается в базовые расчёты. Средний <code>CPC</code> в 2026 году:
+<ul>
+  <li>📱 Электроника — <code>30–100 ₽</code> за клик</li>
+  <li>👕 Одежда — <code>15–50 ₽</code> за клик</li>
+  <li>🧴 Красота — <code>20–70 ₽</code> за клик</li>
+</ul>
+
+<p><strong>5. Утилизация бракованных товаров</strong>
+<p>Если товар пришёл в негодность на складе <em>Ozon</em>, его утилизируют за ваш счёт. Стоимость утилизации:
+<ul>
+  <li>📦 Лёгкие товары (до 1 кг) — <code>100–300 ₽</code></li>
+  <li>📦 Тяжёлые товары (от 10 кг) — <code>500–2 000 ₽</code></li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Чтобы минимизировать скрытые расходы, ежемесячно сверяйте фактические выплаты с данными калькулятора. Разница более 10% — повод разобраться, где «утекают» деньги.</p></aside>
+
+<h2 id="частые-ошибки-при-работе-с-калькулятором">Частые ошибки при работе с калькулятором</h2>
+
+<p>Даже опытные продавцы иногда допускают ошибки, которые искажают расчёты. Вот самые распространённые из них:
+
+<p><strong>1. Не учитывают вес упаковки</strong>
+<p>Многие указывают в калькуляторе только вес самого товара, забывая про коробку, пупырку или брендированную упаковку. Например, если товар весит <code>800 г</code>, а с упаковкой — <code>1,2 кг</code>, стоимость доставки вырастет на <code>30–50%</code>.
+
+<p><strong>2. Игнорируют региональные тарифы</strong>
+<p>Стоимость хранения и логистики различается в зависимости от склада. Например, хранение в <em>Москве</em> обходится дешевле, чем в <em>Владивостоке</em>. Если вы указали неверный регион, расчёты будут неточными.
+
+<p><strong>3. Забывают про НДС</strong>
+<p>Калькулятор показывает прибыль до налогов. Если вы платите НДС (<code>20%</code>), итоговая сумма уменьшится на четверть. Например, при чистой прибыли <code>10 000 ₽</code> после уплаты НДС останется <code>8 000 ₽</code>.
+
+<p><strong>4. Не обновляют данные</strong>
+<p>Тарифы <em>Ozon</em> меняются раз в квартал. Если вы последний раз пользовались калькулятором полгода назад, цифры уже устарели. Всегда проверяйте актуальность тарифов в разделе <code>Документы → Тарифы</code>.
+
+<p><strong>5. Не учитывают сезонность</strong>
+<p>В пиковые периоды (Новый год, <em>Чёрная пятница</em>) комиссии за логистику могут временно повышаться на <code>10–20%</code>. Калькулятор не всегда отображает эти изменения заранее.
+
+<details class="pb-accordion"><summary>Как проверить актуальность тарифов</summary><div class="pb-accordion-body"><p>
+<p>1. Зайдите в личный кабинет <em>Ozon Seller</em>.</p>
+<p>2. Перейдите в раздел <code>Тарифы и комиссии</code> (внизу страницы).</p>
+<p>3. Сравните дату последнего обновления с текущей.</p>
+<p>Если тарифы не обновлялись более 2 месяцев, уточните информацию у поддержки.</p></div></details></p>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-калькуляторе-озон">FAQ: Ответы на частые вопросы о калькуляторе Озон</h2>
+
+<details>
+  <summary>🔍 Почему калькулятор показывает одну сумму, а на счёт приходит другая?</summary>
+  <p>Это происходит из-за:
+  <ul>
+    <li>📅 <strong>Изменения тарифов</strong> после вашего расчёта.</li>
+    <li>🎁 <strong>Автоматических скидок</strong> для покупателя (кэшбэк, промокоды).</li>
+    <li>🔄 <strong>Возврат или отмену заказа</strong> (комиссия за обратную логистику).</li>
+    <li>💰 <strong>Удержание налогов</strong> (если вы ИП или ООО).</li>
+  </ul>
+  <p>Чтобы избежать расхождений, сверяйте актуальные тарифы перед каждой загрузкой товара.
+</details>
+
+<details>
+  <summary>📦 Как калькулятор учитывает вес товара?</summary>
+  <p>Вес влияет на:
+  <ul>
+    <li>🚚 <strong>Стоимость доставки</strong> (тарифы за кг).</li>
+    <li>📦 <strong>Комиссию за хранение</strong> (чем тяжелее товар, тем дороже место на складе).</li>
+    <li>🔄 <strong>Обратную логистику</strong> (возвраты тяжелых товаров обходятся дороже).</li>
+  </ul>
+  <p>⚠️ <strong>Внимание</strong>: Указывайте <strong>вес с упаковкой</strong>, иначе реальные расходы будут выше.
+</details>
+
+<details>
+  <summary>💸 Можно ли уменьшить комиссии Озон?</summary>
+  <p>Да, есть несколько способов:
+  <ul>
+    <li>🎯 <strong>Участвуйте в акциях</strong> — иногда <em>Ozon</em> снижает комиссии для промо-товаров.</li>
+    <li>📈 <strong>Повышайте рейтинг</strong> — продавцы с высоким <em>OSI</em> (индекс удовлетворённости) получают бонусы.</li>
+    <li>📦 <strong>Оптимизируйте упаковку</strong> — лёгкие и компактные товары обходятся дешевле в логистике.</li>
+    <li>🤝 <strong>Договаривайтесь с менеджером</strong> — при больших объёмах продаж можно согласовать индивидуальные тарифы.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>🔄 Что делать, если товар потерялся на складе FBS?</summary>
+  <p><em>Ozon</em> компенсирует стоимость потерянного товара, но:
+  <ul>
+    <li>📄 Нужно предоставить <strong>документы</strong> о закупке (чеки, накладные).</li>
+    <li>⏱️ Компенсация поступает в течение <code>30–60 дней</code>.</li>
+    <li>💰 Сумма компенсации может быть ниже закупочной цены (учитывается износ товара).</li>
+  </ul>
+  <p>Чтобы минимизировать риски, страхуйте дорогие товары (от <code>1 000 ₽</code> за позицию).
+</details>
+
+<details>
+  <summary>📊 Как экспортировать данные из калькулятора для анализа?</summary>
+  <p>К сожалению, в личном кабинете нет функции экспорта. Но можно:
+  <ul>
+    <li>📸 <strong>Сделать скриншот</strong> экрана с расчётами.</li>
+    <li>📝 <strong>Вручную занести данные</strong> в <em>Excel</em> или <em>Google Sheets</em>.</li>
+    <li>🤖 <strong>Использовать API <em>Ozon</em></em> (для опытных продавцов с программистами в команде).</li>
+  </ul>
+  <p>Для удобства создайте шаблон таблицы с формулами, чтобы быстро сравнивать прибыльность разных товаров.
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-kuda-vezti-tovar-postavshchiku.html" class="pb-related-card">
+                <span class="pb-related-title">Куда везти товар на Озон поставщику: адреса и схема FBO</span>
+                <span class="pb-related-desc">Полный гид по приемке товаров на складах Озон. Узнайте, куда везти груз поставщику, как выбрать скла</span>
+            </a><a href="/articles/k/ka/kak-rasschitat-dostavku-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать доставку на Ozon для продавца: формулы и калькуляторы 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по расчёту стоимости доставки для Ozon-селлеров: FBS, FBO, тарифы, весовые кате</span>
+            </a><a href="/articles/k/ka/kak-rabotaet-fulfilment-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает фулфилмент Озон: схемы, цены, инструкция 2026</span>
+                <span class="pb-related-desc">Полный разбор фулфилмента Озон для селлеров. Схемы FBO и FBS, пошаговая инструкция отгрузки, тарифы </span>
+            </a><a href="/articles/k/ka/kakie-dokumenty-peredavat-ozonu-po-sisteme-realfbs.html" class="pb-related-card">
+                <span class="pb-related-title">Документы для Ozon RealFBS: полный список и требования 2026</span>
+                <span class="pb-related-desc">Какие документы передавать Ozon по системе RealFBS. Требования к сертификатам, маркировке и таможенн</span>
+            </a><a href="/articles/s/st/statforma-ozon-chto-eto-takoe.html" class="pb-related-card">
+                <span class="pb-related-title">Статформа Озон: что это такое и как работает FBS</span>
+                <span class="pb-related-desc">Подробный разбор термина Статформа на Озон. Узнайте, что это за схема работы, чем отличается от FBO </span>
+            </a><a href="/articles/k/ka/kak-vyglyadit-rabota-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает Озон: структура, процессы и внутренние механизмы 2026</span>
+                <span class="pb-related-desc">Разбираемся, как устроена работа Озон изнутри: от логистики до взаимодействия с продавцами. Актуальн</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

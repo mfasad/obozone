@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Анализ аналитики Ozon: как читать отчеты и графики — Об Озоне</title>
+    <meta name="description" content="Полный разбор интерфейса аналитики Озон. Как читать воронки продаж, ABC-анализ и отчеты по маркетингу для роста прибыли.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-provodit-analiz-analitiki-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Анализ аналитики Ozon: как читать отчеты и графики">
+    <meta property="og:description" content="Полный разбор интерфейса аналитики Озон. Как читать воронки продаж, ABC-анализ и отчеты по маркетингу для роста прибыли.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Анализ аналитики Ozon: как читать отчеты и графики</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#интерфейс-и-основные-метрики-дашборда">Интерфейс и основные метрики дашборда</a></li><li><a href="#воронка-продаж-от-показа-до-покупки">Воронка продаж: от показа до покупки</a></li><li><a href="#abc-анализ-ассортимента-и-управление-запасами">ABC-анализ ассортимента и управление запасами</a></li><li><a href="#аналитика-маркетинга-и-рекламных-кампаний">Аналитика маркетинга и рекламных кампаний</a></li><li><a href="#финансовая-отчетность-и-юнит-экономика">Финансовая отчетность и юнит-экономика</a></li><li><a href="#работа-с-отчетами-и-выгрузка-данных">Работа с отчетами и выгрузка данных</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prodavat-edu-na-ozon.html">Как продавать еду на Ozon: пошаговое руководство 2026</a></li><li><a href="/articles/k/ka/kak-otkryt-ozon-i-valberis.html">Как открыть Ozon и Wildberries: пошаговая инструкция для продавцов 2026</a></li><li><a href="/articles/c/ch/chto-vvesti-na-ozone.html">Что ввести на Озоне: идеи, спрос и ниши 2026</a></li><li><a href="/articles/c/ch/chto-luchshe-prodavat-na-ozone-novichku.html">Что лучше продавать на Озоне новичку в 2026 году: топ ниш</a></li><li><a href="/articles/k/ka/kak-rabotat-na-ozon-nachat.html">Как начать работать на Ozon: пошаговая инструкция для новичка 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как проводить глубокий анализ аналитики Ozon</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#интерфейс-и-основные-метрики-дашборда">Интерфейс и основные метрики дашборда</a></li><li><a href="#воронка-продаж-от-показа-до-покупки">Воронка продаж: от показа до покупки</a></li><li><a href="#abc-анализ-ассортимента-и-управление-запасами">ABC-анализ ассортимента и управление запасами</a></li><li><a href="#аналитика-маркетинга-и-рекламных-кампаний">Аналитика маркетинга и рекламных кампаний</a></li><li><a href="#финансовая-отчетность-и-юнит-экономика">Финансовая отчетность и юнит-экономика</a></li><li><a href="#работа-с-отчетами-и-выгрузка-данных">Работа с отчетами и выгрузка данных</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Работа с маркетплейсом невозможна без регулярного мониторинга цифр. Многие новички совершают ошибку, полагаясь исключительно на интуицию или просто отслеживая общий объем выручки. Однако <strong>анализ аналитики Ozon</strong> — это сложный процесс, требующий понимания множества метрик, от воронки продаж до юнит-экономики. Без детального погружения в данные вы рискуете торговать в ноль или даже в убыток, не замечая утечек бюджета.</p>
+<p>Система отчетности площадки предоставляет огромные массивы данных, которые часто пугают селлеров своей детализацией. Чтобы превратить сухие цифры в работающую стратегию, необходимо научиться правильно фильтровать информацию и выделять ключевые показатели эффективности. В этой статье мы разберем основные инструменты внутренней аналитики, научимся интерпретировать графики и строить эффективную стратегию развития магазина.</p>
+
+<h2 id="интерфейс-и-основные-метрики-дашборда">Интерфейс и основные метрики дашборда</h2>
+<p>Первое, с чем сталкивается продавец после входа в личный кабинет, — это главный экран аналитики. Здесь агрегированы ключевые показатели за выбранный период. Важно не просто смотреть на суммы, а понимать, как они формируются. Центральное место занимает <strong>GMV</strong> (валовый объем продаж), который показывает общую сумму заказов до вычета возвратов и отмен. Именно этот показатель часто используют для оценки общего масштаба бизнеса.</p>
+<p>Однако для понимания реальной эффективности нужно смотреть глубже. Обратите внимание на метрику <strong>Real GMV</strong>, которая учитывает только оплаченные и доставленные товары. Разница между обычным GMV и Real GMV может быть существенной, особенно в периоды высокого процента возвратов. Также критически важным параметром является количество заказов и количество единиц товара в них.</p>
+<ul>
+<li>📊 <strong>Выручка:</strong> сумма всех заказов, включая те, что еще не оплачены.</li>
+<li>📦 <strong>Заказы:</strong> общее количество оформленных корзинок покупателями.</li>
+<li>💰 <strong>Средний чек:</strong> отношение выручки к количеству заказов, показывающее покупательскую способность аудитории.</li>
+</ul>
+<p>В верхней части экрана всегда доступен фильтр по периодам. Вы можете сравнивать данные за сегодня, неделю, месяц или выбрать произвольный диапазон. <em>Сравнение периодов</em> — мощный инструмент, позволяющий увидеть динамику роста или падения показателей относительно прошлого месяца или аналогичного периода предыдущего года. Это помогает отделить сезонные колебания от реальных проблем в магазине.</p>
+
+<h2 id="воронка-продаж-от-показа-до-покупки">Воронка продаж: от показа до покупки</h2>
+<p>Одним из самых полезных инструментов для диагностики проблем с карточками товаров является воронка продаж. Она визуализирует путь покупателя и показывает, на каком этапе происходит наибольшая потеря потенциальных клиентов. Понимание конверсии на каждом шаге позволяет точечно улучшать карточки и рекламные кампании.</p>
+<p>Воронка состоит из нескольких последовательных этапов. Первый этап — это показы. Если их мало, значит, у товара низкий рейтинг, плохая SEO-оптимизация или недостаточный рекламный бюджет. Далее следуют переходы в карточку. Низкая конверсия из показов в переходы обычно указывает на непривлекательное главное фото или высокую цену относительно конкурентов.</p>
+<div class="pb-poll" id="poll-22e85024"><div class="pb-poll-question">📊 Какой этап воронки продаж вызывает у вас больше всего вопросов?</div><div class="pb-poll-option" data-poll="22e85024" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Показы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="22e85024" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Переходы в карточку</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="22e85024" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Добавления в корзину</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="22e85024" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Покупки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+<p>Следующие этапы — добавление в корзину и оформление заказа. Здесь вступают в силу факторы логистики, стоимости доставки для клиента и наличие акций. Если товар часто добавляют в корзину, но не покупают, возможно, клиента отпугивает долгий срок доставки или отсутствие бонусов Ozon.</p>
+<blockquote>⚠️ Внимание: Резкий падение конверсии на этапе "Добавление в корзину" часто связано с изменением цены или окончанием действия промокода, который был заявлен в описании.</blockquote>
+<p>Для расчета эффективности используйте формулу конверсии, которую предоставляет система. Она показывает процентное соотношение между этапами. Например, конверсия в покупку — это отношение количества заказов к количеству переходов в карточку. Нормальные значения зависят от ниши, но в среднем по рынку конверсия в покупку составляет 3-10%.</p>
+
+<h2 id="abc-анализ-ассортимента-и-управление-запасами">ABC-анализ ассортимента и управление запасами</h2>
+<p>Управление широким ассортиментом требует четкого разделения товаров по их вкладу в прибыль. Для этого предназначен <strong>ABC-анализ</strong>, который автоматически распределяет ваши товары на группы в зависимости от их продаж. Это позволяет не распылять ресурсы на неликвид и фокусироваться на лидерах.</p>
+<p>Группа А — это товары-локомотивы, которые приносят основную часть выручки. Обычно это 20% ассортимента, дающие 80% дохода. Группа B — товары со средними показателями, а группа C — аутсайдеры с минимальными продажами. Регулярный пересмотр этих групп необходим для принятия решений о закупках и выводах из ассортимента.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Группа</th>
+<th>Доля в выручке</th>
+<th>Доля в ассортименте</th>
+<th>Стратегия</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>~80%</td>
+<td>~20%</td>
+<td>Поддерживать остатки, не допускать out-of-stock</td>
+</tr>
+<tr>
+<td>B</td>
+<td>~15%</td>
+<td>~30%</td>
+<td>Анализировать потенциал роста, тестировать рекламу</td>
+</tr>
+<tr>
+<td>C</td>
+<td>~5%</td>
+<td>~50%</td>
+<td>Распродавать, выводить из ассортимента или обновлять</td>
+</tr>
+</tbody>
+</table></div>
+<p>Важно не просто смотреть на текущий статус, а отслеживать динамику перехода товаров между группами. Товар из группы B может стать лидером (группа A) после грамотной рекламной кампании или сезонного всплеска. И наоборот, лидер может потерять позиции из- появления нового конкурента или негативных отзывов.</p>
+
+<p>Используйте данные ABC-анализа для планирования поставок на склады FBO. Товары группы А должны всегда иметь страховой запас, тогда как для группы C можно использовать схему FBS или дропшиппинг, чтобы не замораживать деньги в запасах.</p>
+
+<h2 id="аналитика-маркетинга-и-рекламных-кампаний">Аналитика маркетинга и рекламных кампаний</h2>
+<p>Реклама на маркетплейсе — это отдельная вселенная данных. В разделе маркетинга можно отследить эффективность каждого вложенного рубля. Ключевым показателем здесь является <strong>ДРР</strong> (Доля Рекламных Расходов), который показывает, какой процент от выручки составил бюджет на рекламу.</p>
+<p>Система позволяет детально анализировать разные типы продвижения: авторекламу, поиск, акции и внешнюю рекламу. Для каждого инструмента доступны свои метрики. Например, для авторекламы важны CTR (кликабельность) и CPC (цена клика), а для акций — объем привлеченной выручки и количество проданных единиц со скидкой.</p>
+<ul>
+<li>🎯 <strong>CTR:</strong> показывает, насколько привлекательно ваше предложение в выдаче.</li>
+<li>💸 <strong>CPC:</strong> стоимость одного перехода, которая варьируется в зависимости от конкуренции.</li>
+<li>📈 <strong>ROAS:</strong> возврат инвестиций в рекламу, показывающий, сколько рублей выручки принес 1 рубль затрат.</li>
+</ul>
+<p>При анализе рекламных кампаний важно учитывать лаг между показом рекламы и покупкой. Клиент может увидеть товар сегодня, а купить через несколько дней. Поэтому оценивать эффективность кампании сразу после ее остановки некорректно — нужно дать время на "дозревание" заказов.</p>
+<blockquote>⚠️ Внимание: Высокий ДРР не всегда является плохим показателем. Для новых товаров или при захвате доли рынка допустим ДРР выше 20-30%, если это стратегически обосновано.</blockquote>
+
+
+<h2 id="финансовая-отчетность-и-юнит-экономика">Финансовая отчетность и юнит-экономика</h2>
+<p>Выручка — это не прибыль. Чтобы понимать реальный заработок, необходимо глубоко анализировать финансовые отчеты. В разделе "Финансы" доступна детализация по каждой операции: комиссия marketplace, логистика, хранение, эквайринг и налоги. Без этого невозможно построить корректную <strong>юнит-экономику</strong>.</p>
+<p>Юнит-экономика показывает прибыль с одной проданной единицы товара. Для ее расчета нужно вычесть из цены продажи все переменные издержки: закупку, комиссию, логистику, упаковку и налоги. Если юнит-экономика отрицательная, то с ростом продаж вы будете только увеличивать убытки.</p>
+<p>Особое внимание стоит уделить отчету по логистике. Он показывает стоимость доставки до клиента, стоимость возвратов и хранения на складах. Часто селлеры забывают включать стоимость возвратов в расчеты, хотя она может составлять значительную часть расходов, особенно в категориях одежды и обуви.</p>
+
+<p>Используйте данные финансовой отчетности для принятия решений о ценообразовании. Если маржинальность падает, возможно, стоит пересмотреть закупочные цены у поставщика, оптимизировать упаковку для снижения веса или поднять розничную цену.</p>
+
+<h2 id="работа-с-отчетами-и-выгрузка-данных">Работа с отчетами и выгрузка данных</h2>
+<p>Встроенные графики удобны для быстрой оценки ситуации, но для глубокого анализа часто требуется выгрузка данных в Excel или Google Таблицы. Ozon позволяет экспортировать отчеты по продажам, финансам, логистике и маркетингу в форматах CSV или XLSX. Это дает возможность строить собственные сводные таблицы и дашборды.</p>
+<p>При выгрузке больших объемов данных система может формировать файл некоторое время. Рекомендуется выбирать конкретные периоды и фильтры, чтобы не перегружать отчет лишней информацией. Например, если вам нужна статистика по конкретному бренду, отфильтруйте данные перед экспортом.</p>
+<pre><code>Путь к отчетам: Аналитика → Отчеты → Выбрать тип отчета → Настроить фильтры → Скачать</code></pre>
+<p>Автоматизация сбора данных — следующий уровень работы с аналитикой. Для крупных магазинов имеет смысл использовать API Ozon для автоматической выгрузки данных в BI-системы (Business Intelligence). Это позволяет видеть реальную картину в режиме реального времени без ручного сбора отчетов.</p>
+
+<p>Не забывайте проверять отчеты на наличие ошибок или дубликатов, особенно после корректировок со стороны маркетплейса. Иногда система может начислять комиссии повторно или некорректно рассчитывать вес товара, что влияет на итоговую прибыль.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Где посмотреть незасвеченные продажи (скрытая аналитика)?</summary>
+<p>В стандартном интерфейсе Ozon все продажи отображаются. Термин "скрытая аналитика" часто относится к данным о том, кто именно купил товар, но эта информация скрыта в целях конфиденциальности покупателей. Однако вы можете видеть регион покупки и другие обезличенные данные в карточке заказа.</p>
+</details>
+<details>
+<summary>Почему данные в аналитике и в финансах могут отличаться?</summary>
+<p>Различия возникают из-за разных методик учета. В аналитике продажи считаются по дате оформления заказа, а в финансах — по дате фактического закрытия акта (обычно после доставки). Также влияют возвраты и отмены, которые по-разному отражаются в разных отчетах.</p>
+</details>
+<details>
+<summary>Как часто обновляются данные в аналитике Ozon?</summary>
+<p>Основные метрики обновляются в режиме реального времени или с задержкой в 15-30 минут. Финансовые отчеты и данные по логистике могут формироваться с задержкой до 24 часов, так как требуют подтверждения операций со стороны логистических партнеров.</p>
+</details>
+<details>
+<summary>Можно ли скачать аналитику конкурентов?</summary>
+<p>Внутренними средствами Ozon увидеть аналитику конкурентов нельзя. Для этого используются сторонние сервисы аналитики (MPStats, Moneyplace и др.), которые собирают данные путем парсинга выдачи и косвенных признаков, но их данные являются оценочными.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-prodavat-edu-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать еду на Ozon: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Полный гайд по продаже продуктов питания на Ozon: требования, оформление карточки, логистика и продв</span>
+            </a><a href="/articles/k/ka/kak-otkryt-ozon-i-valberis.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть Ozon и Wildberries: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Подробное руководство по регистрации на Ozon и Wildberries: требования, документы, шаги верификации </span>
+            </a><a href="/articles/c/ch/chto-vvesti-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Что ввести на Озоне: идеи, спрос и ниши 2026</span>
+                <span class="pb-related-desc">Ищете, что ввести на Озоне в 2026 году? Полный разбор трендовых ниш, анализ спроса, работа с Wildcar</span>
+            </a><a href="/articles/c/ch/chto-luchshe-prodavat-na-ozone-novichku.html" class="pb-related-card">
+                <span class="pb-related-title">Что лучше продавать на Озоне новичку в 2026 году: топ ниш</span>
+                <span class="pb-related-desc">Анализ актуальных ниш для старта на маркетплейсе. Что выгодно продавать новичку в 2026 году, чтобы н</span>
+            </a><a href="/articles/k/ka/kak-rabotat-na-ozon-nachat.html" class="pb-related-card">
+                <span class="pb-related-title">Как начать работать на Ozon: пошаговая инструкция для новичка 2026</span>
+                <span class="pb-related-desc">Узнайте, как начать работать на Ozon с нуля: регистрация ИП, выбор схемы FBO/FBS, поиск поставщиков </span>
+            </a><a href="/articles/k/ka/kak-rasschitat-nalog-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать налог на Озон: полное руководство для самозанятых и ИП</span>
+                <span class="pb-related-desc">Узнайте, как правильно рассчитать налог на Озон. Разбор ставок для самозанятых и ИП, особенности уче</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как выгрузить товары с Ozon: пошаговые инструкции и форматы — Об Озоне</title>
+    <meta name="description" content="Узнайте, как выгрузить товары с Озон в Excel, CSV или XML. Полное руководство по выгрузке каталога через личный кабинет для продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-vygruzit-tovary-s-ozona.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выгрузить товары с Ozon: пошаговые инструкции и форматы">
+    <meta property="og:description" content="Узнайте, как выгрузить товары с Озон в Excel, CSV или XML. Полное руководство по выгрузке каталога через личный кабинет для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как выгрузить товары с Ozon: пошаговые инструкции и форматы</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#основные-форматы-файлов-для-выгрузки">Основные форматы файлов для выгрузки</a></li><li><a href="#выгрузка-через-разделтовары-и-цены">Выгрузка через раздел"Товары и цены"</a></li><li><a href="#использование-разделаотчеты-для-детального-анализа">Использование раздела"Отчеты" для детального анализа</a></li><li><a href="#работа-с-xml-файлами-и-массовое-редактирование">Работа с XML-файлами и массовое редактирование</a></li><li><a href="#настройка-фильтров-перед-экспортом-данных">Настройка фильтров перед экспортом данных</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#автоматизация-выгрузки-через-api">Автоматизация выгрузки через API</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-upakovat-kartinu-na-ozon.html">Как упаковать картину на Ozon: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-perenesti-nekotorye-kartochki-s-va-na-ozon.html">Как перенести карточки с WB на Ozon: инструкция 2026</a></li><li><a href="/articles/k/ka/kakoj-dolzhen-byt-razmer-kartochki-dlya-ozon.html">Размер карточки товара на Ozon в 2026: требования и рекомендации</a></li><li><a href="/articles/k/ka/kak-sozdat-kartochku-tovara-na-ozon-poshagovaya-instruktsiya.html">Как создать карточку товара на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-sdelat-v-skladskoj-programme-peremeshchenie-tovarov-s-vb-na-ozon.html">Перемещение товаров с Wildberries на Ozon: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как выгрузить товары с Ozon: полное руководство для селлеров</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#основные-форматы-файлов-для-выгрузки">Основные форматы файлов для выгрузки</a></li><li><a href="#выгрузка-через-разделтовары-и-цены">Выгрузка через раздел"Товары и цены"</a></li><li><a href="#использование-разделаотчеты-для-детального-анализа">Использование раздела"Отчеты" для детального анализа</a></li><li><a href="#работа-с-xml-файлами-и-массовое-редактирование">Работа с XML-файлами и массовое редактирование</a></li><li><a href="#настройка-фильтров-перед-экспортом-данных">Настройка фильтров перед экспортом данных</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#автоматизация-выгрузки-через-api">Автоматизация выгрузки через API</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Управление ассортиментом на маркетплейсе требует постоянного мониторинга и резервного копирования данных. <strong>Выгрузка товаров с Озон</strong> — это стандартная процедура, необходимая для создания бэкапов, проведения внешнего анализа продаж или переноса данных в другие системы учета. Многие продавцы сталкиваются с необходимостью получить актуальный список позиций, когда нужно проверить остатки или обновить описание вне платформы.</p>
+
+<p>Процесс экспорта каталога может быть реализован несколькими способами в зависимости от ваших целей. Вы можете скачать простой список артикулов, полный отчет со всеми характеристиками или специфический файл для бухгалтерии. В этой статье мы подробно разберем, <em>как выгрузить товары с Озон</em> различными методами, чтобы вы могли выбрать наиболее подходящий инструмент для своей операционной деятельности.</p>
+
+<p>Понимание механизмов работы с файлами каталога позволяет избежать множества ошибок при массовом редактировании. <strong>Экспорт данных</strong> — это первый шаг к профессиональному управлению складом и ценообразованием. Давайте рассмотрим основные инструменты, доступные в личном кабинете продавца.</p>
+
+<h2 id="основные-форматы-файлов-для-выгрузки">Основные форматы файлов для выгрузки</h2>
+
+<p>Перед тем как приступать к процедуре, важно определиться с типом файла. Платформа поддерживает несколько форматов, каждый из которых заточен под конкретные задачи. Наиболее распространенным является <strong>XLSX</strong>, который удобен для ручного редактирования в Excel. Однако для автоматизированных систем часто требуются CSV или XML.</p>
+
+<p>Формат <em>CSV</em> (Comma Separated Values) представляет собой текстовый файл, где данные разделены запятыми или точками с запятой. Он весит значительно меньше, чем Excel, и быстрее обрабатывается скриптами. Если вы планируете массовое обновление цен через внешние сервисы, именно этот формат будет наиболее предпочтителен для интеграции.</p>
+
+<p>Существуют также специализированные форматы для определенных категорий товаров. Например, для электроники или одежды могут требоваться расширенные наборы атрибутов. При выборе формата выгрузки убедитесь, что ваша программа-редактор корректно распознает кодировку <code>UTF-8</code>, чтобы избежать проблем с русификацией названий.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте формат CSV для передачи данных между разными программами, так как он является универсальным стандартом и не требует наличия Microsoft Excel.</p></aside>
+
+<h2 id="выгрузка-через-разделтовары-и-цены">Выгрузка через раздел"Товары и цены"</h2>
+
+<p>Самый простой способ получить актуальный список ваших позиций — воспользоваться стандартным интерфейсом личного кабинета. Этот метод идеален для быстрой проверки наличия или скачивания списка артикулов. Для начала необходимо перейти в раздел <code>Товары → Список товаров</code> в меню продавца.</p>
+
+<p>На странице со списком товаров расположена кнопка экспорта. Обычно она находится в правом верхнем углу или под фильтром поиска. Нажав на нее, вы увидите выпадающее меню с опциями. Здесь можно выбрать, что именно нужно выгрузить: все товары, только активные или те, что находятся в определенном статусе.</p>
+
+<ul>
+<li>📄 <strong>Все товары</strong> — полная выгрузка всего каталога, включая архивные и скрытые позиции.</li>
+<li>🟢 <strong>Только активные</strong> — список позиций, которые прямо сейчас доступны для покупки покупателями.</li>
+<li>🔴 <strong>Неактивные</strong> — товары, которые скрыты, закончились или имеют ошибки в карточке.</li>
+<li>📦 <strong>По фильтру</strong> — выгрузка только тех позиций, которые отобраны через поисковую строку или фильтры на экране.</li>
+</ul>
+
+<p>Важно отметить, что при выгрузке через этот раздел вы получаете базовый набор данных. В файле будут указаны артикулы, названия, цены и остатки. Однако сложные характеристики, такие как размеры упаковки или глубина, могут отсутствовать в упрощенном отчете.</p>
+
+<div class="pb-poll" id="poll-463f5eb0"><div class="pb-poll-question">📊 Какой формат выгрузки вы используете чаще всего?</div><div class="pb-poll-option" data-poll="463f5eb0" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">XLSX (Excel)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="463f5eb0" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">CSV (Текстовый)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="463f5eb0" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">XML</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="463f5eb0" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">API интеграция</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="использование-разделаотчеты-для-детального-анализа">Использование раздела"Отчеты" для детального анализа</h2>
+
+<p>Для более глубокой работы с данными, включая финансовую аналитику и детализацию по складам, лучше использовать раздел отчетов. Здесь доступна <strong>детальная выгрузка</strong>, которая содержит гораздо больше полей, чем простой список товаров. Перейдите в меню <code>Аналитика → Отчеты → По товарам</code>.</p>
+
+<p>В этом разделе вы можете сформировать отчет за любой интересующий вас период. Система позволяет гибко настраивать параметры: выбрать конкретный склад, категорию или бренд. После настройки фильтров нажмите кнопку"Сформировать отчет", и система подготовит файл для скачивания.</p>
+
+<p>Преимущество этого метода в том, что вы получаете не просто статичный список, а срез данных с привязкой к продажам и остаткам на конкретную дату. Это незаменимый инструмент для сверки с бухгалтерией. Файл формируется в формате XLSX и открывается в любой таблице.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Формирование детального отчета за длительный период (более 3 месяцев) может занять до 15-20 минут. Не закрывайте вкладку браузера до завершения процесса генерации файла.</blockquote>
+
+<p>В отчете будут присутствовать такие важные метрики, как количество заказов, проданные единицы, сумма продаж и текущий остаток. Эти данные критически важны для расчета оборачиваемости и планирования закупок.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Раздел"Отчеты" дает доступ к историческим данным и финансовой статистике, в то время как раздел"Товары" показывает только текущее состояние карточек.</p></aside>
+
+<h2 id="работа-с-xml-файлами-и-массовое-редактирование">Работа с XML-файлами и массовое редактирование</h2>
+
+<p>Для профессиональных селлеров, работающих с тысячами позиций, ручное редактирование Excel-файлов становится неэффективным. В таких случаях используется выгрузка в формате XML. Этот формат позволяет передавать структурированные данные, включая вложенные характеристики, между вашей учетной системой и маркетплейсом.</p>
+
+<p>Чтобы выгрузить XML, необходимо перейти в раздел <code>Товары → Загрузка по XLS/XLSX/XML</code>. Здесь находится ссылка на шаблон или возможность выгрузки текущего состояния в XML. Этот файл содержит техническую информацию, необходимую для API-интеграций или работы с внешними ERP-системами.</p>
+
+<p>При работе с XML важно соблюдать strict-синтаксис. Любая ошибка в теге может привести к тому, что файл не будет принят системой при обратной загрузке. Для просмотра и редактирования таких файлов лучше использовать специализированные редакторы кода, такие как <em>Notepad++</em> или <em>Visual Studio Code</em>, а не стандартные текстовые редакторы.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Где используется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer_id</td>
+<td>Уникальный идентификатор товара</td>
+<td>Во всех форматах выгрузки</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Цена товара в рублях</td>
+<td>XLSX, CSV, XML</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Остаток на складе</td>
+<td>XLSX, CSV, XML</td>
+</tr>
+<tr>
+<td>type_id</td>
+<td>Идентификатор типа товара</td>
+<td>Только в XML/JSON</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Использование XML-структуры позволяет автоматизировать процесс обновления цен и остатков в реальном времени. Это особенно актуально для магазинов с динамическим ценообразованием, где цены меняются несколько раз в день в зависимости от курса валют или цен конкурентов.</p>
+
+<h2 id="настройка-фильтров-перед-экспортом-данных">Настройка фильтров перед экспортом данных</h2>
+
+<p>Часто нет необходимости выгружать весь каталог целиком. Умное использование фильтров позволяет сократить время обработки файла и упростить работу с данными. Перед нажатием кнопки"Экспорт" воспользуйтесь панелью фильтров в верхней части списка товаров.</p>
+
+<p>Вы можете отфильтровать товары по наличию ошибок. Это особенно полезно, если нужно быстро найти карточки, которые заблокированы модерацией или требуют заполнения обязательных полей. Отдельный фильтр позволяет выбрать товары только с определенным статусом, например,"Доставляется Ozon" или"Доставляется продавцом".</p>
+
+<ul>
+<li>🔍 <strong>Поиск по артикулу</strong> — введите конкретный SKU, чтобы выгрузить данные только по одной позиции.</li>
+<li>🏷️ <strong>По категории</strong> — выберите конкретную ветку каталога, например,"Электроника", чтобы получить выгрузку только по этому направлению.</li>
+<li>📉 <strong>По остаткам</strong> — отфильтруйте товары, остаток которых меньше определенного числа, для оперативного пополнения.</li>
+</ul>
+
+<p>После применения фильтров система покажет количество найденных товаров. Убедитесь, что соответствует вашим ожиданиям, прежде чем запускать процесс выгрузки. Это поможет избежать ситуации, когда вы случайно редактируете не тот сегмент ассортимента.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед выгрузкой</h4><label class="check-item"><input type="checkbox"><span>Применить необходимые фильтры:Проверить количество отобранных товаров:Выбрать нужный формат файла:Убедиться в стабильности интернет-соединения</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<h2 id="типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</h2>
+
+<p>При работе с большими массивами данных пользователи часто сталкиваются с техническими проблемами. Одна из самых распространенных — обрезание длинных текстовых полей в Excel. Если описание товара содержит более 32 000 символов или множество спецсимволов, табличный редактор может отображать его некорректно.</p>
+
+<p>Еще одна частая проблема связана с кодировкой. При открытии CSV-файла в Excel текст может превратиться в набор непонятных символов. Чтобы исправить это, используйте функцию"Импорт данных" в Excel, выбирая кодировку <code>65001: Unicode (UTF-8)</code> при открытии файла. Это гарантирует правильное отображение кириллицы.</p>
+
+<p>Также стоит учитывать ограничения самого браузера. Если вы пытаетесь выгрузить каталог из 50 000+ товаров за один раз, браузер может зависнуть. В таких случаях рекомендуется разбивать выгрузку на части, используя фильтры по категориям или алфавиту.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Никогда не открывайте файл выгрузки напрямую из архива или временной папки. Сначала скопируйте его на рабочий стол или в отдельную папку, чтобы избежать потери данных при закрытии программы.</blockquote>
+
+<p>Если выгрузка прервалась на половине процесса, не пытайтесь сразу запустить её повторно. Дайте серверам маркетплейса время на восстановление, обычно 5-10 минут. Частые запросы могут быть расценены системой как DDoS-атака, и ваш IP-адрес может быть временно заблокирован.</p>
+
+<details class="pb-accordion"><summary>Что делать, если файл не открывается?</summary><div class="pb-accordion-body"><p>Если файл поврежден или не открывается, попробуйте открыть его через Google Таблицы или LibreOffice Calc. Эти программы часто лучше справляются с битыми заголовками или нестандартным форматированием, чем Microsoft Excel. Также проверьте размер файла: если он 0 Кб, значит выгрузка не произошла.</p></div></details>
+
+<h2 id="автоматизация-выгрузки-через-api">Автоматизация выгрузки через API</h2>
+
+<p>Для крупных игроков рынка ручная выгрузка становится узким горлышком. API (Application Programming Interface) Ozon позволяет настраивать автоматический обмен данными. Вы можете написать скрипт или использовать готовое решение, которое будет самостоятельно забирать актуальные остатки и цены.</p>
+
+<p>Использование API требует технических знаний или привлечения разработчика. Вам понадобятся Client ID и API Key, которые находятся в настройках профиля в разделе <code>Настройки → API ключи</code>. Эти ключи дают доступ к методам <code>/v2/product/list</code> и другим endpoints для получения информации о товарах.</p>
+
+<p>Автоматизация позволяет выгружать данные в реальном времени, что критически важно для синхронизации стоков между разными площадками. Например, если товар продан на другом маркетплейсе, ваш скрипт мгновенно обновит остаток на Ozon, предотвращая overselling.</p>
+
+<ul>
+<li>⚡ <strong>Скорость</strong> — данные обновляются мгновенно по запросу, без ожидания генерации файлов.</li>
+<li>🤖 <strong>Автоматизация</strong> — исключение человеческого фактора и необходимость ручного скачивания.</li>
+<li>🔗 <strong>Интеграция</strong> — прямая связь с 1С, МойСклад или другими ERP-системами.</li>
+</ul>
+
+<p>Внедрение API-интеграции — это шаг на уровень выше в управлении бизнесом на маркетплейсах. Это требует первоначальных затрат времени на настройку, но в долгосрочной перспективе экономит сотни часов работы менеджеров.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>API-интеграция — единственный способ обеспечить реальную синхронизацию остатков для магазинов с высокой оборачиваемостью и большим ассортиментом.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли выгрузить товары с Озон на телефон?</summary>
+<p>Технически скачать файл можно, открыв личный кабинет с мобильного браузера. Однако работать с тяжелыми таблицами на смартфоне крайне неудобно. Для полноценной работы с выгрузкой, особенно если нужно редактировать данные, рекомендуется использовать компьютер или планшет с подключенной клавиатурой.</p>
+</details>
+
+<details>
+<summary>Как часто можно делать выгрузку товаров?</summary>
+<p>Ограничений на количество выгрузок в сутки нет, но существует лимит на частоту запросов. Если делать выгрузку каждые 5 секунд, система может временно ограничить доступ. Оптимальная частота для ручного обновления — не чаще одного раза в 5-10 минут. Для более частых обновлений используйте API.</p>
+</details>
+
+<details>
+<summary>Где найти выгруженные файлы?</summary>
+<p>Файлы сохраняются в папку"Загрузки" (Downloads) вашего браузера по умолчанию. В самом личном кабинете Озон история предыдущих выгрузок не хранится долго, поэтому рекомендуется сразу переименовывать файлы, добавляя дату, и сохранять их в облачное хранилище или на жесткий диск.</p>
+</details>
+
+<details>
+<summary>Почему в выгрузке не видно некоторых характеристик товара?</summary>
+<p>Стандартная выгрузка через раздел"Товары" содержит только основные поля. Специфические атрибуты (например,"Материал подошвы" для обуви или"Диагональ" для ТВ) могут не отображаться в базовом отчете. Для получения полных данных используйте выгрузку через API или формируйте отчеты в разделе"Аналитика" с расширенными параметрами.</p>
+</details>
+
+<details>
+<summary>Безопасно ли передавать файл выгрузки сторонним сервисам?</summary>
+<p>Файл выгрузки содержит коммерческую информацию: ваши цены, остатки и артикулы. Передавать его стоит только проверенным сервисам аналитики (например, MPStats, Moneyplace) или бухгалтерским программам. Никогда не публикуйте полные файлы выгрузки в открытом доступе, так как конкуренты могут использовать эти данные для демпинга.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-upakovat-kartinu-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать картину на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как правильно упаковать картину для продажи на Ozon. Защита от повреждений, выбор материало</span>
+            </a><a href="/articles/k/ka/kak-perenesti-nekotorye-kartochki-s-va-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как перенести карточки с WB на Ozon: инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд по выгрузке товаров с Wildberries на Ozon через CSV. Решение ошибок категорий, фото и</span>
+            </a><a href="/articles/k/ka/kakoj-dolzhen-byt-razmer-kartochki-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Размер карточки товара на Ozon в 2026: требования и рекомендации</span>
+                <span class="pb-related-desc">Какие размеры изображений для карточки товара на Озон актуальны в 2026 году? Требования к фото, прим</span>
+            </a><a href="/articles/k/ka/kak-sozdat-kartochku-tovara-na-ozon-poshagovaya-instruktsiya.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать карточку товара на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как создать карточку товара на Озон без ошибок. Полная инструкция по заполнению, SEO-оптими</span>
+            </a><a href="/articles/k/ka/kak-sdelat-v-skladskoj-programme-peremeshchenie-tovarov-s-vb-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Перемещение товаров с Wildberries на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Как правильно перенести остатки и карточки товаров из WB в Ozon через складскую программу: настройки</span>
+            </a><a href="/articles/c/ch/chto-oznachaet-zheltyj-shtrikh-kod-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что означает желтый штрихкод на Ozon: расшифровка для селлеров</span>
+                <span class="pb-related-desc">Разбираем значение желтого штрихкода на Ozon. Узнайте, почему он появляется, как влияет на приемку F</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

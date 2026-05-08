@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Ежедневный отчет Ozon: как скачать и анализировать продажи — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по формированию ежедневного отчета Ozon для селлеров. Разбор Excel-таблиц, аналитики продаж, логистики и финансов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-delat-ezhednevnyj-otchet-po-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ежедневный отчет Ozon: как скачать и анализировать продажи">
+    <meta property="og:description" content="Пошаговая инструкция по формированию ежедневного отчета Ozon для селлеров. Разбор Excel-таблиц, аналитики продаж, логистики и финансов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Ежедневный отчет Ozon: как скачать и анализировать продажи</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#зачем-нужен-ежедневный-мониторинг-показателей">Зачем нужен ежедневный мониторинг показателей</a></li><li><a href="#где-найти-данные-для-отчета-в-личном-кабинете">Где найти данные для отчета в личном кабинете</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</a></li><li><a href="#работа-с-excel-сведение-и-анализ-таблиц">Работа с Excel: сведение и анализ таблиц</a></li><li><a href="#ключевые-метрики-для-ежедневного-отслеживания">Ключевые метрики для ежедневного отслеживания</a></li><li><a href="#типичные-ошибки-при-ведении-отчетности">Типичные ошибки при ведении отчетности</a></li><li><a href="#автоматизация-сбора-статистики">Автоматизация сбора статистики</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-khorosho-pokupayut-na-ozon.html">Что хорошо покупают на Озон: ТОП товаров для перепродажи и спроса</a></li><li><a href="/articles/k/ka/kak-posmotret-svoj-ozon-id.html">Как узнать свой Ozon ID: инструкция для продавца</a></li><li><a href="/articles/k/ko/kolichestvo-ksu-ozon-chto-eto.html">Количество KSU Ozon: что это значит в отчете продавца</a></li><li><a href="/articles/k/ka/kak-zaregistrirovatsya-na-ozon-v-kachestve-prodavtsa-kak-samozanyatyj.html">Регистрация на Озон как самозанятый: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-proverit-brend-na-ozon.html">Как проверить бренд на Ozon: 7 способов для продавцов и покупателей</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как делать ежедневный отчет по Ozon: инструкция для селлера</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужен-ежедневный-мониторинг-показателей">Зачем нужен ежедневный мониторинг показателей</a></li><li><a href="#где-найти-данные-для-отчета-в-личном-кабинете">Где найти данные для отчета в личном кабинете</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</a></li><li><a href="#работа-с-excel-сведение-и-анализ-таблиц">Работа с Excel: сведение и анализ таблиц</a></li><li><a href="#ключевые-метрики-для-ежедневного-отслеживания">Ключевые метрики для ежедневного отслеживания</a></li><li><a href="#типичные-ошибки-при-ведении-отчетности">Типичные ошибки при ведении отчетности</a></li><li><a href="#автоматизация-сбора-статистики">Автоматизация сбора статистики</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа на маркетплейсе требует постоянного контроля цифр, так как без точных данных невозможно построить эффективную стратегию продаж. Ежедневный отчет по Ozon — это не просто формальность, а ключевой инструмент для понимания реального положения дел в вашем бизнесе. Многие новички теряются в огромном массиве информации, который предоставляет платформа, и часто упускают важные детали, влияющие на прибыль.</p>
+
+<p>Аналитика продаж на Ozon позволяет отслеживать динамику спроса, выявлять проблемные позиции и корректировать цены в режиме реального времени. Правильно составленная таблица учета дает возможность увидеть полную картину: от количества заказов до расходов на логистику и хранение. Без систематизации этих данных вы рискуете работать в убыток, даже если валовые продажи кажутся высокими.</p>
+
+<p>В этой статье мы подробно разберем процесс создания и анализа ежедневной отчетности, чтобы вы могли управлять своим магазином профессионально. Вы научитесь использовать встроенные инструменты Ozon Seller, выгружать данные в Excel и интерпретировать сложные метрики. <strong>Регулярный мониторинг</strong> показателей станет фундаментом для масштабирования вашего бизнеса.</p>
+
+<h2 id="зачем-нужен-ежедневный-мониторинг-показателей">Зачем нужен ежедневный мониторинг показателей</h2>
+
+<p>Ежедневный контроль метрик позволяет оперативно реагировать на изменения рыночной ситуации. Если вы заметите резкое падение конверсии или рост процента отмен, то сможете быстро устранить причину, не дожидаясь конца месяца. <strong>Оперативность</strong> в принятии решений часто становится решающим фактором между успехом и стагнацией.</p>
+
+<p>Кроме того, ежедневная работа с цифрами помогает формировать дисциплину и глубокое понимание экономики вашего магазина. Вы начинаете чувствовать, как изменение цены на 5% или поднятие товара в топ влияет на количество заказов. Это знание невозможно получить из общих статей, только практика и <strong>детальный анализ</strong> дают такой опыт.</p>
+
+<ul>
+<li>📊 Возможность быстро скорректировать рекламную кампанию при низких показателях.</li>
+<li>💰 Контроль кассовых разрывов и планирование закупок товара.</li>
+<li>📉 Выявление товаров-аутсайдеров, которые тянут рейтинг магазина вниз.</li>
+<li>🚀 Понимание реальной рентабельности каждой проданной единицы.</li>
+</ul>
+
+<p>Важно понимать, что Ozon меняет алгоритмы ранжирования и условия сотрудничества достаточно часто. <em>Ежедневная аналитика</em> помогает вовремя заметить изменения в поведении покупателей или работе площадки. Игнорирование этих сигналов может привести к потере позиций в выдаче.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Отсутствие ежедневного контроля может привести к незаметному накоплению штрафов за хранение или логистику, которые съедят всю маржу. Проверяйте отчеты каждый рабочий день!</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-83b53bad"><div class="pb-poll-question">📊 Как часто вы проверяете отчеты Ozon?</div><div class="pb-poll-option" data-poll="83b53bad" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Каждый день</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="83b53bad" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="83b53bad" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только в конце месяца</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="83b53bad" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Вообще не проверяю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="где-найти-данные-для-отчета-в-личном-кабинете">Где найти данные для отчета в личном кабинете</h2>
+
+<p>Все необходимые данные для формирования отчетности находятся в личном кабинете селлера Ozon. Основной раздел, который вас интересует, называется <code>Аналитика</code>. Именно здесь агрегируется информация о продажах, финансах и логистике. Навигация по интерфейсу может показаться сложной только в первые дни, но быстро становится привычной.</p>
+
+<p>Для создания сводного отчета вам потребуются данные из нескольких подразделов. В первую очередь это <strong>Отчет по продажам</strong>, где отражаются заказы в разрезе дней. Также важно заглядывать в раздел <strong>Финансы</strong>, чтобы видеть начисления и удержания комиссии. Эти данные часто расходятся во времени, поэтому их нужно сводить вручную.</p>
+
+<details class="pb-accordion"><summary>Скрытые метрики в аналитике</summary><div class="pb-accordion-body"><p>В разделе аналитики есть скрытые показатели, такие как воронка продаж и индекс локализации. Они не всегда видны в стандартных отчетах, но критически важны для понимания поведения покупателя. Используйте расширенные фильтры для их просмотра.</p></div></details>
+
+<p>Не забывайте про раздел логистики, где отображаются отчеты по отгрузкам и возвратам. <strong>Обработка возвратов</strong> — это отдельная статья расходов, которую нельзя игнорировать. Данные здесь обновляются с задержкой, поэтому сверка с фактическими движениями товаров обязательна.</p>
+
+<ul>
+<li>📂 Раздел "Аналитика" → "Отчеты" для выгрузки общих данных.</li>
+<li>💸 Раздел "Финансы" → "Отчетность" для сверки денежных потоков.</li>
+<li>🚚 Раздел "Логистика" → "Отчеты" для контроля движения товаров.</li>
+<li>📉 Раздел "Продажи" для детального анализа по артикулам.</li>
+</ul>
+
+<p>Интерфейс личного кабинета постоянно обновляется, и расположение некоторых пунктов меню может меняться. Если вы не можете найти нужный отчет, воспользуйтесь поиском по меню или обратитесь к справке Ozon. <em>Актуальность информации</em> в интерфейсе — залог корректной работы.</p>
+
+<h2 id="пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</h2>
+
+<p>Процесс выгрузки данных является первым шагом к созданию качественного отчета. Вам необходимо перейти в раздел <code>Аналитика</code> и выбрать подраздел <code>Отчеты</code>. Здесь доступен генератор отчетов, который позволяет настроить параметры выгрузки под ваши нужды. Правильная настройка фильтров сэкономит время на обработку данных в Excel.</p>
+
+<p>Для ежедневного отчета выберите период "Вчера" или конкретную дату, которую вы планируете анализировать. В формате выгрузки лучше выбирать <strong>CSV</strong> или <strong>XLSX</strong>, так как они удобны для дальнейшей работы в табличных редакторах. Формат PDF подойдет только для быстрого просмотра, но не для расчетов.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист выгрузки отчета</h4><label class="check-item"><input type="checkbox"><span>Перейти в раздел Аналитика</span></label><label class="check-item"><input type="checkbox"><span>Выбрать период (вчера)</span></label><label class="check-item"><input type="checkbox"><span>Выбрать тип отчета (Продажи)</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку Скачать</span></label><label class="check-item"><input type="checkbox"><span>Проверить файл на наличие ошибок</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>После формирования файла система предложит скачать его на компьютер. Убедитесь, что файл не поврежден и содержит данные за весь выбранный период. Если файл пустой или содержит ошибку, попробуйте изменить параметры фильтра или повторить запрос через несколько минут. <strong>Технические сбои</strong> на стороне маркетплейса случаются редко, но возможны.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип отчета</th>
+<th>Раздел в ЛК</th>
+<th>Периодичность</th>
+<th>Формат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Продажи</td>
+<td>Аналитика</td>
+<td>Ежедневно</td>
+<td>XLSX/CSV</td>
+</tr>
+<tr>
+<td>Финансы</td>
+<td>Финансы</td>
+<td>Ежемесячно/Ежедневно</td>
+<td>XLSX</td>
+</tr>
+<tr>
+<td>Логистика</td>
+<td>Логистика</td>
+<td>По факту</td>
+<td>XLSX</td>
+</tr>
+<tr>
+<td>Возвраты</td>
+<td>Продажи/Логистика</td>
+<td>Ежедневно</td>
+<td>XLSX</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Выгруженные файлы лучше сразу переименовывать по дате, например <code>sales_2023_10_25.xlsx</code>. Это поможет избежать путаницы при накоплении архива отчетов за год. <em>Систематизация файлов</em> на компьютере — признак профессионального подхода к делу.</p>
+
+<h2 id="работа-с-excel-сведение-и-анализ-таблиц">Работа с Excel: сведение и анализ таблиц</h2>
+
+<p>После выгрузки сырых данных из личного кабинета начинается самая важная часть работы — сведение их в единую таблицу. Excel или Google Таблицы являются стандартными инструментами для этой задачи. Вам необходимо создать мастер-файл, куда будут стекаться данные из разных отчетов для комплексного анализа.</p>
+
+<p>Используйте формулы для автоматического расчета ключевых показателей. Например, маржинальность можно рассчитать по формуле: <code>(Цена продажи - Закупка - Комиссия - Логистика) / Цена продажи</code>. Автоматизация расчетов снижает риск человеческой ошибки и ускоряет процесс. <strong>Формулы</em> позволяют мгновенно видеть результат изменений в исходных данных.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При копировании данных из разных источников следите за форматами ячеек. Числа могут определиться как текст, что приведет к ошибкам в суммировании. Используйте функцию "Текст по столбцам" для исправления.</p>
+</blockquote>
+
+<p>Для визуализации данных создавайте сводные таблицы. Они позволяют быстро группировать информацию по категориям, брендам или дням недели. <em>Сводные таблицы</strong> — мощнейший инструмент аналитика, который превращает хаос цифр в понятную структуру. Освоение этого инструмента значительно повысит вашу эффективность.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте условное форматирование в Excel, чтобы подсвечивать отрицательные значения красным цветом. Это поможет мгновенно замечать убыточные позиции или дни с плохими продажами.</p></aside>
+
+<p>Регулярно сохраняйте резервные копии вашей таблицы аналитики. Потеря данных из-за сбоя программы или ошибки пользователя может отбросить вас назад. Облачные хранилища или автосохранение в Google Таблицах решат эту проблему. <strong>Безопасность данных</strong> должна быть приоритетом.</p>
+
+<h2 id="ключевые-метрики-для-ежедневного-отслеживания">Ключевые метрики для ежедневного отслеживания</h2>
+
+<p>В океане цифр важно выделять главное. Ежедневный отчет должен содержать набор ключевых показателей эффективности (KPI), которые отражают здоровье вашего бизнеса. Не стоит перегружать таблицу второстепенными данными, которые только отвлекают внимание.</p>
+
+<p>Первой и главной метрикой является <strong>GMV (Gross Merchandise Value)</strong> — общий объем заказов. Однако, GMV не равен выручке, так как не учитывает возвраты и отмены. Поэтому обязательно отслеживайте количество реально оплаченных и отгруженных заказов. Именно эти деньги вы получите на счет.</p>
+
+<ul>
+<li>📦 Количество заказов и единиц товара в штуках.</li>
+<li>💵 Выручка (Revenue) после вычета всех комиссий.</li>
+<li>📉 Процент отмен и возвратов (Cancellation Rate).</li>
+<li>⭐ Рейтинг товара и магазина (Score).</li>
+</ul>
+
+<p>Также критически важно следить за <strong>Unit-экономикой</em> каждой сделки. Вы должны знать, сколько прибыли приносит один проданный товар после всех расходов. Если маржинальность падает ниже acceptable уровня, нужно срочно пересматривать цену или условия работы с поставщиком. <em>Юнит-экономика</em> — фундамент profitability.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главная метрика для ежедневного контроля — это не просто сумма продаж, а чистая прибыль с учетом всех переменных расходов на логистику и хранение.</p></aside>
+
+<p>Обращайте внимание на динамику изменения показателей. Резкий скачок процента отмен может сигнализировать о проблемах с качеством товара или работой склада. <strong>Тренды</strong> важнее единичных значений, поэтому всегда сравнивайте данные с предыдущим периодом.</p>
+
+<h2 id="типичные-ошибки-при-ведении-отчетности">Типичные ошибки при ведении отчетности</h2>
+
+<p>Многие селлеры наступают на одни и те же грабли при ведении учета. Одна из самых распространенных ошибок — игнорирование расходов на хранение. Товар может лежать на складе месяцами, и комиссия за хранение постепенно съедает всю потенциальную прибыль. <strong>Складские расходы</strong> нужно учитывать ежедневно.</p>
+
+<p>Другая ошибка — путаница между заказами и фактическими продажами. Заказ может быть отменен покупателем или возвращен, но в отчете он уже числится. Необходимо вести учет именно <strong>реализованного товара</strong>. Иначе вы рискуете заплатить налоги и комиссию с денег, которые никогда не поступят на счет.</p>
+
+<pre><code>Формула расчета чистой прибыли:
+<p>Прибыль = Выручка - (Себестоимость + Комиссия Ozon + Логистика + Хранение + Реклама + Налоги)</code></pre></p>
+
+<p>Часто селлеры забывают учитывать расходы на рекламу в ежедневном отчете. Реклама — это инвестиция, которая должна окупаться. Если вы тратите на продвижение больше, чем зарабатываете, бизнес работает в убыток. <em>ROAS (Return on Ad Spend)</em> должен быть в плюсе.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не смешивайте личные финансы и деньги бизнеса. Все расходы на закупку товара и рекламу должны быть четко зафиксированы в отчете, даже если они оплачены с личной карты.</p>
+</blockquote>
+
+<p>Отсутствие регулярности — еще одна проблема. Если вы делаете отчеты раз в месяц, вы теряете возможность маневра. Рынок меняется быстро, и месячный цикл слишком длинный для оперативного управления. <strong>Дисциплина</strong> — ключ к успеху.</p>
+
+<h2 id="автоматизация-сбора-статистики">Автоматизация сбора статистики</h2>
+
+<p>Ручной сбор данных отнимает много времени, поэтому стоит задуматься об автоматизации. Существуют сервисы аналитики (MPStats, Moneyplace и другие), которые умеют собирать данные с Ozon по API. Они позволяют видеть сводную картину по всем маркетплейсам в одном окне.</p>
+
+<p>Использование API Ozon позволяет выгружать данные напрямую в вашу CRM или Google Таблицы без участия человека. Это исключает человеческий фактор и ошибки при копировании. <strong>Автоматизация</strong> процессов освобождает время для стратегии и развития.</p>
+
+<p>Однако, автоматические сервисы стоят денег. На старте пути вполне можно обойтись стандартными инструментами Excel и ручной выгрузкой. Главное — начать вести учет, а инструменты оптимизировать по мере роста оборотов. <em>Масштабируемость</em> процессов важна, но не стоит усложнять там, где можно сделать просто.</p>
+
+<ul>
+<li>🤖 Использование API для прямой интеграции с таблицами.</li>
+<li>📊 Подключение сторонних сервисов аналитики.</li>
+<li>📝 Написание макросов в Excel для автоматической обработки.</li>
+<li>⏰ Настройка расписания автоматической выгрузки отчетов.</li>
+</ul>
+
+<p>Выбирайте инструмент, который подходит именно вашему объему данных. Для небольшого магазина с 10-20 SKU вполне хватит ручного ведения в Excel. Для крупных игроков с тысячами позиций без <strong>автоматизированных систем</strong> не обойтись.</p>
+
+<details>
+<summary>Как часто нужно обновлять данные в отчете?</summary>
+<p>Идеальный вариант — ежедневно в одно и то же время, например, утром перед началом работы. Это позволяет планировать день, опираясь на свежие цифры. Если ежедневная работа невозможна, делайте это хотя бы 3-4 раза в неделю, но не реже.</p>
+</details>
+
+<details>
+<summary>Нужно ли учитывать НДС в отчете?</summary>
+<p>Да, если вы работаете с НДС. В отчете должны быть колонки с суммой "с НДС" и "без НДС", чтобы вы понимали реальную налоговую нагрузку. Это особенно важно при расчете чистой прибыли.</p>
+</details>
+
+<details>
+<summary>Что делать, если данные в отчете Ozon расходятся с моими?</summary>
+<p>Проверьте период выгрузки и часовые пояса. Также убедитесь, что вы учитываете статусы заказов (например, "Доставлен" vs "В пути"). Если расхождения сохраняются, обратитесь в поддержку селлера с конкретными номерами заказов.</p>
+</details>
+
+<details>
+<summary>Можно ли доверять данным в разделе "Прогнозы"?</summary>
+<p>Данные в разделе прогнозов носят рекомендательный характер и основаны на алгоритмах Ozon. Они полезны для ориентира, но не должны быть единственным источником для принятия решений о закупке товара.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-khorosho-pokupayut-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что хорошо покупают на Озон: ТОП товаров для перепродажи и спроса</span>
+                <span class="pb-related-desc">Аналитика спроса: что хорошо покупают на Озон в текущем году. Категории лидеров продаж, маржинальные</span>
+            </a><a href="/articles/k/ka/kak-posmotret-svoj-ozon-id.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать свой Ozon ID: инструкция для продавца</span>
+                <span class="pb-related-desc">Подробное руководство, как посмотреть свой Ozon ID в Seller Center. Инструкция по поиску уникального</span>
+            </a><a href="/articles/k/ko/kolichestvo-ksu-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Количество KSU Ozon: что это значит в отчете продавца</span>
+                <span class="pb-related-desc">Разбираем термин KSU в Ozon Seller. Как количество KSU влияет на рейтинг продавца, логистику и поиск</span>
+            </a><a href="/articles/k/ka/kak-zaregistrirovatsya-na-ozon-v-kachestve-prodavtsa-kak-samozanyatyj.html" class="pb-related-card">
+                <span class="pb-related-title">Регистрация на Озон как самозанятый: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как самозанятому зарегистрироваться на Ozon в качестве продавца: требования, документы, пошаговый пр</span>
+            </a><a href="/articles/k/ka/kak-proverit-brend-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить бренд на Ozon: 7 способов для продавцов и покупателей</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как проверить оригинальность бренда на Озон: от поиска по каталогу до анализа </span>
+            </a><a href="/articles/o/ot/otchet-o-perevystavlenii-uslug-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Отчет о перевыставлении услуг Ozon: что это и как читать</span>
+                <span class="pb-related-desc">Полный разбор отчета о перевыставлении услуг на Ozon. Узнайте, что это такое, как проверить данные в</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

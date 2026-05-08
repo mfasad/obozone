@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как перенести товары с Ozon на Яндекс Маркет: инструкция — Об Озоне</title>
+    <meta name="description" content="Полный гайд по экспорту и импорту карточек с Ozon на Yandex Market. Разбор XML-фидов, Excel и API для автоматизации выгрузки.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-perenesti-tovary-s-ozon-na-yandeks-market.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как перенести товары с Ozon на Яндекс Маркет: инструкция">
+    <meta property="og:description" content="Полный гайд по экспорту и импорту карточек с Ozon на Yandex Market. Разбор XML-фидов, Excel и API для автоматизации выгрузки.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как перенести товары с Ozon на Яндекс Маркет: инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-данных-и-анализ-структуры-карточек">Подготовка данных и анализ структуры карточек</a></li><li><a href="#экспорт-данных-из-личного-кабинета-ozon">Экспорт данных из личного кабинета Ozon</a></li><li><a href="#адаптация-файла-для-импорта-на-яндекс-маркет">Адаптация файла для импорта на Яндекс Маркет</a></li><li><a href="#использование-xml-фидов-для-автоматизации">Использование XML-фидов для автоматизации</a></li><li><a href="#загрузка-через-api-и-сторонние-сервисы">Загрузка через API и сторонние сервисы</a></li><li><a href="#модерация-и-решение-типичных-ошибок">Модерация и решение типичных ошибок</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-format-fotografij-ispolzuyut-dlya-infografiki-na-ozon.html">Формат фотографий для инфографики на Озон: требования 2026</a></li><li><a href="/articles/k/ka/kak-sdelat-rich-kontent-ozon-samostoyatelno.html">Как сделать Rich-контент Ozon: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-sozdat-kartochku-tovara-na-ozon.html">Как создать карточку товара на Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-skopirovat-kartochki-vajldberriz-na-ozon.html">Как скопировать карточки Wildberries на Ozon: полная инструкция</a></li><li><a href="/articles/i/in/infografika-dlya-ozon-kak-sdelat-samostoyatelno.html">Инфографика для Озон: как сделать самостоятельно за 5 шагов</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как перенести товары с Ozon на Яндекс Маркет</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-данных-и-анализ-структуры-карточек">Подготовка данных и анализ структуры карточек</a></li><li><a href="#экспорт-данных-из-личного-кабинета-ozon">Экспорт данных из личного кабинета Ozon</a></li><li><a href="#адаптация-файла-для-импорта-на-яндекс-маркет">Адаптация файла для импорта на Яндекс Маркет</a></li><li><a href="#использование-xml-фидов-для-автоматизации">Использование XML-фидов для автоматизации</a></li><li><a href="#загрузка-через-api-и-сторонние-сервисы">Загрузка через API и сторонние сервисы</a></li><li><a href="#модерация-и-решение-типичных-ошибок">Модерация и решение типичных ошибок</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Масштабирование бизнеса на маркетплейсах редко ограничивается одной площадкой. Успешные селлеры быстро понимают, что для получения максимальной прибыли необходимо присутствовать там, где находится их целевая аудитория, и часто это означает одновременную работу с <strong>Ozon</strong> и <em>Yandex Market</strong>. Однако ручной ввод тысяч позиций — это колоссальная трата времени и высокий риск допустить ошибки в описаниях или характеристиках.</p>
+
+<p>Процесс миграции каталога требует четкого понимания структуры данных и технических возможностей обеих платформ. В этой статье мы детально разберем, как грамотно <strong>перенести товары</em>, сохранив все медиафайлы и атрибуты, а также рассмотрим инструменты, которые позволяют автоматизировать этот процесс.</p>
+
+<p>Вам не нужно быть программистом, чтобы выполнить эту задачу, но потребуется внимательность при работе с файлами. Мы рассмотрим как стандартные методы через <code>Excel</code>, так и более продвинутые способы через <strong>XML-фиды</em> и специализированные сервисы интеграции.</p>
+
+<div class="pb-poll" id="poll-ccf8503b"><div class="pb-poll-question">📊 Какой способ выгрузки товаров вы планируете использовать?</div><div class="pb-poll-option" data-poll="ccf8503b" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel/CSV</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ccf8503b" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">XML-фид</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ccf8503b" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">API-интеграция</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ccf8503b" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние сервисы (SaaS)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ccf8503b" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="подготовка-данных-и-анализ-структуры-карточек">Подготовка данных и анализ структуры карточек</h2>
+<p>Перед началом любых технических действий необходимо провести аудит имеющегося ассортимента. Структура категорий и требуемые атрибуты на <em>Ozon</em> и <em>Yandex Market</strong> могут существенно отличаться. Например, для электроники на Яндексе часто требуются более детализированные технические характеристики, которые на Озоне могут быть необязательными или скрываться в общих полях.</p>
+
+<p>В первую очередь следует собрать все необходимые <strong>артикулы</strong> (SKU), штрихкоды и изображения в одном месте. Если вы торгуете через FBS или FBO, убедитесь, что остатки синхронизированы, чтобы избежать оверселлинга после переноса. Особое внимание уделите полям, которые являются ключевыми для поисковых алгоритмов: название, бренд и тип товара.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</em> Убедитесь, что ваши изображения соответствуют требованиям <em>Yandex Market</em>. Они часто требуют белый фон и определенное разрешение, отличное от стандартов <strong>Ozon</strong>. Несоответствие может привести к модерационному отказу.</p>
+</blockquote>
+
+<p>Важным этапом является проверка <strong>GTIN</strong> (штрихкодов). Без корректных кодов EAN-13 или UPC система Яндекса может не позволить создать карточку товара или принудительно объединить её с чужой, что приведет к путанице в остатках. Проверьте в личном кабинете Ozon, заполнены ли эти поля, и выгрузите их для дальнейшего использования.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте уникальные артикулы (SKU) в своей системе учета. Не полагайтесь на автоматическую генерацию маркетплейсов, так как при переносе это создаст дубли и сложности в управлении складом.</p></aside>
+
+<h2 id="экспорт-данных-из-личного-кабинета-ozon">Экспорт данных из личного кабинета Ozon</h2>
+<p>Для начала работы вам необходимо получить актуальную выгрузку вашего каталога с площадки Ozon. Это можно сделать через личный кабинет селлера. Перейдите в раздел <code>Товары → Список товаров</code> и найдите кнопку экспорта. Обычно система предлагает выгрузку в формате <code>XLSX</code> или <code>CSV</code>.</p>
+
+<p>При выборе параметров экспорта убедитесь, что отмечены все необходимые столбцы. Вам критически важны: <strong>Название</strong>, <strong>Описание</strong>, <strong>Цена</strong>, <strong>Артикул</strong>, <strong>Штрихкод</strong> и ссылки на изображения. Если вы используете rich-контент, имейте в виду, что при простом экспорте в Excel он может не сохраниться в читаемом виде, и его придется адаптировать.</p>
+
+<ul>
+<li>📂 Зайдите в раздел управления товарами и выберите «Экспорт».</li>
+<li>📝 Убедитесь, что выбраны все необходимые поля, включая габариты и вес.</li>
+<li>💾 Сохраните файл в формате, совместимом с Excel или Google Таблицами.</li>
+<li>🔍 Проверьте файл на наличие битых ссылок на фотографии.</li>
+</ul>
+
+<p>После получения файла рекомендуется открыть его и провести выборочную проверку. Часто бывает, что в описаниях остаются HTML-теги или специфические символы кодировки, которые нужно будет очистить перед загрузкой на новую площадку. Это сэкономит время на этапе модерации.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка экспортного файла</h4><label class="check-item"><input type="checkbox"><span>Проверены все столбцы с характеристиками</span></label><label class="check-item"><input type="checkbox"><span>Ссылки на фото открываются</span></label><label class="check-item"><input type="checkbox"><span>Артикулы уникальны</span></label><label class="check-item"><input type="checkbox"><span>Цены актуальны</span></label><label class="check-item"><input type="checkbox"><span>Отсутствуют скрытые символы</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="адаптация-файла-для-импорта-на-яндекс-маркет">Адаптация файла для импорта на Яндекс Маркет</h2>
+<p>Самый трудоемкий этап — это приведение выгруженного файла к требованиям принимающей стороны. Яндекс Маркет имеет строгую модель категорий. Вам придется вручную или с помощью формул <em>VLOOKUP</em> (ВПР) сопоставить категории Ozon с категориями Яндекса. Ошибка на этом этапе может привести к тому, что товар попадет в неправильную ветку и потеряется для покупателей.</p>
+
+<p>Особое внимание уделите переименованию колонок. Заголовки столбцов в вашем файле должны строго соответствовать требованиям Яндекс Маркета. Например, поле «Название» может требовать заголовка <code>name</code>, а цена — <code>price</code>. Используйте функции текстового редактора для массовой замены значений, чтобы ускорить процесс.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ozon (Пример)</th>
+<th>Yandex Market (Требование)</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Название</td>
+<td>product_name</td>
+<td>name</td>
+<td>Требуется замена</td>
+</tr>
+<tr>
+<td>Цена</td>
+<td>price_value</td>
+<td>price</td>
+<td>Требуется замена</td>
+</tr>
+<tr>
+<td>Артикул</td>
+<td>sku</td>
+<td>sku</td>
+<td>Совпадает</td>
+</tr>
+<tr>
+<td>Описание</td>
+<td>description</td>
+<td>description</td>
+<td>Требуется очистка HTML</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Если вы работаете с большим объемом данных, имеет смысл использовать макросы или специализированные плагины для Excel. Они позволяют автоматически форматировать текст, удалять лишние пробелы и приводить числа к нужному виду (например, разделять дробную часть точкой, а не запятой, что часто требуется для <strong>CSV</strong> файлов).</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не используйте сложные формулы внутри ячеек при финальной выгрузке. Сохраняйте файл только со значениями (<code>Paste Values</code>), иначе при импорте на Яндекс Маркет могут возникнуть ошибки парсинга данных.</p>
+</blockquote>
+
+<details class="pb-accordion"><summary>Как работать с HTML в описаниях?</summary><div class="pb-accordion-body"><p>Описания с Ozon часто содержат теги <br>, <p>, <b>. Для Яндекса их лучше очистить до чистого текста или конвертировать в допустимый формат. Используйте функцию «Найти и заменить» в Excel или онлайн-инструменты для stripping HTML тегов.</p></div></details>
+
+<h2 id="использование-xml-фидов-для-автоматизации">Использование XML-фидов для автоматизации</h2>
+<p>Для профессиональной работы с каталогами лучше всего подходит использование <strong>XML-фидов</strong>. Это автоматизированный способ передачи данных, который позволяет обновлять цены и остатки в реальном времени, а также загружать новые товары без ручного вмешательства. Яндекс Маркет поддерживает загрузку по протоколам <em>YML</em> и универсальным <strong>XML</strong>.</p>
+
+<p>Чтобы настроить этот процесс, вам потребуется ссылка на фид. Если у вас нет собственной ERP-системы или CRM, которая генерирует фиды, вы можете использовать сторонние сервисы-агрегаторы или даже настроить генерацию через Google Таблицы с помощью скриптов. Ссылка на фид вставляется в личном кабинете продавца в разделе настройки импорта.</p>
+
+<p>Преимущество XML перед Excel заключается в возможности динамического обновления. Как только вы меняете цену на складе или в учетной системе, она автоматически меняется на маркетплейсе. Это критически важно для поддержания конкурентоспособности и избегания штрафов за несоответствие цены.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>XML-фид — это «золотой стандарт» для селлеров с ассортиментом более 50 позиций. Он исключает человеческий фактор и экономит часы ручной работы ежедневно.</p></aside>
+
+<p>При настройке маппинга (сопоставления) полей в XML-фиде убедитесь, что поля <code>offer id</code> (ваш артикул) совпадают с теми, что вы планируете использовать для управления остатками. Также проверьте, что ссылки на изображения в фиде ведут напрямую на файлы (jpg, png), а не на страницы товаров.</p>
+
+<h2 id="загрузка-через-api-и-сторонние-сервисы">Загрузка через API и сторонние сервисы</h2>
+<p>Если объемы вашей торговли исчисляются тысячами позиций в день, ручная работа с файлами становится узким горлышком. В этом случае на помощь приходит <strong>API</strong> (Application Programming Interface). Ozon и Яндекс Маркет предоставляют документацию для разработчиков, позволяющую наладить прямой обмен данными между площадками.</p>
+
+<p>Существует два пути реализации: разработка собственного решения силами программистов или подключение готовых SaaS-сервисов (например, Omnifeller, Mplify, Frontpad). Последние берут на себя всю техническую часть: они сами знают, как преобразовать данные из формата Ozon в формат Yandex и наоборот.</p>
+
+<ul>
+<li>🚀 <strong>Скорость:</strong> Обновление происходит за секунды.</li>
+<li>⚙️ <strong>Автоматизация:</strong> Не нужно скачивать и загружать файлы.</li>
+<li>🔄 <strong>Двусторонняя связь:</strong> Остатки синхронизируются в обе стороны.</li>
+<li>💰 <strong>Стоимость:</strong> Требуется оплата подписки на сервис или работы разработчика.</li>
+</ul>
+
+<p>При выборе сервиса-интегратора обязательно уточните, поддерживают ли они специфические схемы работы, такие как <strong>FBS</strong> или <strong>FBO</strong>, и как именно происходит обработка заказов. Важно, чтобы при поступлении заказа на Яндексе он автоматически отрабатывался в вашей учетной системе и резервировал товар на Ozon, если они торгуются с общего стока.</p>
+
+<details class="pb-accordion"><summary>Что такое Webhook в контексте интеграции?</summary><div class="pb-accordion-body"><p>Webhook — это метод, позволяющий одной системе мгновенно уведомить другую о событии. Например, когда на Ozon меняется статус заказа, webhook отправляет сигнал в вашу CRM, которая тут же обновляет статус на Яндекс Маркете.</p></div></details>
+
+<h2 id="модерация-и-решение-типичных-ошибок">Модерация и решение типичных ошибок</h2>
+<p>После загрузки товаров на Яндекс Маркет они отправляются на модерацию. Это процесс проверки соответствия карточек правилам площадки. Обычно он занимает от нескольких часов до двух суток. В этот период статус товара будет «На модерации» или «Требует внимания».</p>
+
+<p>Наиболее частые причины отклонения: неверно указанная категория, отсутствие обязательных характеристик (например, цвета или размера), некачественные фото или описание, содержащее контактные данные. Система Яндекса очень строго следит за тем, чтобы продавец не уводил клиента за пределы площадки.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не пишите в описании или названии слова «Озон», «Wildberries» или другие бренды конкурентов, а также не оставляйте ссылки на другие магазины. Это гарантированный бан карточки или всего аккаунта.</p>
+</blockquote>
+
+<p>Если карточка была отклонена, внимательно изучите комментарий модератора. Часто проблема решается простой правкой одного символа или заменой фотографии. После внесения исправлений товар снова уходит на проверку. Не игнорируйте ошибки, так как товары с статусом «Отклонено» не участвуют в поисковой выдаче.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Создайте шаблон ответа для частых ошибок модерации. Это ускорит процесс исправления, если вы работаете в команде с менеджерами.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли перенести отзывы с Ozon на Яндекс Маркет?</summary>
+<p>Автоматически перенести отзывы технически невозможно и запрещено правилами обеих площадок. Отзывы привязаны к конкретным заказам и подтвержденным покупкам. Однако, если у товара есть глобальный <strong>GTIN</strong> (штрихкод производителя), Яндекс Маркет может автоматически подтянуть отзывы с других источников или создать общую карточку, где уже есть отзывы других продавцов.</p>
+</details>
+
+<details>
+<summary>Что делать, если товары объединились с чужими?</summary>
+<p>Это происходит, если вы использовали стандартный штрихкод производителя, а на Яндексе уже существует карточка с таким же кодом. Чтобы разъединить их, нужно создать новую карточку с уникальным внутренним артикулом или доказать модерации, что ваш товар отличается (например, комплектацией или страной происхождения), предоставив фото упаковки.</p>
+</details>
+
+<details>
+<summary>Как часто нужно обновлять файл импорта?</summary>
+<p>Если вы используете ручной метод через Excel, обновлять файл нужно по мере изменения цен или остатков, но не реже раза в сутки, чтобы не получить штраф за отсутствие товара. При использовании <strong>XML-фида</strong> или <strong>API</strong> обновление происходит автоматически и практически мгновенно.</p>
+</details>
+
+<details>
+<summary>Нужно ли заново проходить модерацию при изменении цены?</summary>
+<p>Нет, изменение цены и количества товара обычно не требует повторной модерации контента (фото и описания). Эти данные обновляются в фоновом режиме. Однако, если вы меняете название или главные характеристики, карточка снова уйдет на проверку.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-format-fotografij-ispolzuyut-dlya-infografiki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Формат фотографий для инфографики на Озон: требования 2026</span>
+                <span class="pb-related-desc">Какие форматы изображений подходят для инфографики на Озон? Разбираем требования маркетплейса, оптим</span>
+            </a><a href="/articles/k/ka/kak-sdelat-rich-kontent-ozon-samostoyatelno.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать Rich-контент Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как сделать rich контент на Ozon самостоятельно. Подробный гид по созданию карточек товаров</span>
+            </a><a href="/articles/k/ka/kak-sozdat-kartochku-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать карточку товара на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полный гайд по созданию карточки товара на Ozon. Разбор полей, требования к фото, SEO-оптимизация и </span>
+            </a><a href="/articles/k/ka/kak-skopirovat-kartochki-vajldberriz-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как скопировать карточки Wildberries на Ozon: полная инструкция</span>
+                <span class="pb-related-desc">Пошаговый гид по переносу товаров с Wildberries на Ozon. Инструменты, сервисы и ручные методы импорт</span>
+            </a><a href="/articles/i/in/infografika-dlya-ozon-kak-sdelat-samostoyatelno.html" class="pb-related-card">
+                <span class="pb-related-title">Инфографика для Озон: как сделать самостоятельно за 5 шагов</span>
+                <span class="pb-related-desc">Подробный гайд, как создать продающую инфографику для карточки товара на Ozon своими руками. Разбор </span>
+            </a><a href="/articles/k/ku/kuda-kleit-shtrikh-kody-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Куда клеить штрих-коды для Озон: правила 2026 и ошибки продавцов</span>
+                <span class="pb-related-desc">Где размещать штрих-коды на товарах для Озон: официальные требования 2026, схемы для FBS/FBO, типичн</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

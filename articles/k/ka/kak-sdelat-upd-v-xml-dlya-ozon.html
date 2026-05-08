@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как сделать УПД в XML для Ozon: полная инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по созданию XML для УПД на Ozon. Настройка шаблонов, исправление ошибок валидации и выгрузка документов через API.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sdelat-upd-v-xml-dlya-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как сделать УПД в XML для Ozon: полная инструкция 2026">
+    <meta property="og:description" content="Пошаговое руководство по созданию XML для УПД на Ozon. Настройка шаблонов, исправление ошибок валидации и выгрузка документов через API.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как сделать УПД в XML для Ozon: полная инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#требования-ozon-к-структуре-xml-упд">Требования Ozon к структуре XML УПД</a></li><li><a href="#заполнение-реквизитов-продавца-и-покупателя">Заполнение реквизитов продавца и покупателя</a></li><li><a href="#формирование-табличной-части-и-номенклатуры">Формирование табличной части и номенклатуры</a></li><li><a href="#работа-с-подписями-и-шифрованием">Работа с подписями и шифрованием</a></li><li><a href="#интеграция-через-api-и-автоматическая-выгрузка">Интеграция через API и автоматическая выгрузка</a></li><li><a href="#частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/p/pr/prodazha-na-ozon-chto-dlya-etogo-nuzhno.html">Продажа на Ozon: пошаговое руководство для начинающих в 2026</a></li><li><a href="/articles/k/ka/kak-vzyat-zakaz-iz-ozona.html">Как взять заказ с Ozon: пошаговая инструкция для продавцов 2026</a></li><li><a href="/articles/o/oz/ozon-ili-vb-chto-luchshe-dlya-prodavtsov.html">Озон или ВБ: что лучше для продавцов в 2026-2026?</a></li><li><a href="/articles/k/ka/kak-uznat-statistiku-prodazh-ozon.html">Как узнать статистику продаж на Ozon: 7 проверенных способов</a></li><li><a href="/articles/k/ka/kak-prodavat-na-ozone-fizicheskomu-litsu-svoj-tovar-bez-ip.html">Продажи на Ozon без ИП: как физическому лицу выйти на маркетплейс в 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как сделать УПД в XML для Ozon: техническое руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#требования-ozon-к-структуре-xml-упд">Требования Ozon к структуре XML УПД</a></li><li><a href="#заполнение-реквизитов-продавца-и-покупателя">Заполнение реквизитов продавца и покупателя</a></li><li><a href="#формирование-табличной-части-и-номенклатуры">Формирование табличной части и номенклатуры</a></li><li><a href="#работа-с-подписями-и-шифрованием">Работа с подписями и шифрованием</a></li><li><a href="#интеграция-через-api-и-автоматическая-выгрузка">Интеграция через API и автоматическая выгрузка</a></li><li><a href="#частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с маркетплейсом Ozon требует от продавца не только умения продавать товары, но и глубокого понимания документооборота. Одним из критически важных этапов является передача первичных учетных документов, в частности <strong>Универсального передаточного документа (УПД)</strong>, в электронном виде. Для интеграции с системами электронного документооборота (ЭДО) или для прямой загрузки через личный кабинет часто требуется формирование файла в формате <em>XML</em>. Это обеспечивает автоматическую обработку данных и исключает человеческий фактор при сверке.</p>
+
+<p>Многие селлеры сталкиваются с трудностями при создании корректной структуры файла, так как Ozon предъявляет строгие требования к тегам и атрибутам. Ошибки в разметке приводят к отказу в принятии документа и могут вызвать задержки в бухгалтерском учете. В этой статье мы подробно разберем, как правильно сформировать XML-файл УПД, какие поля обязательны к заполнению и как избежать распространенных ошибок при валидации. <strong>Автоматизация</strong> этого процесса сэкономит вам десятки часов работы.</p>
+
+<p>Стоит отметить, что ручное создание XML возможно, но в промышленных масштабах это нецелесообразно. Однако понимание структуры необходимо для настройки выгрузок из 1С, MySklad или других ERP-систем. Если вы планируете наладить прямой обмен данными с маркетплейсом, знание технических нюансов станет вашим конкурентным преимуществом. Давайте перейдем к деталям формирования структуры.</p>
+
+<h2 id="требования-ozon-к-структуре-xml-упд">Требования Ozon к структуре XML УПД</h2>
+
+<p>Прежде чем приступать к генерации кода, необходимо изучить спецификацию, предоставляемую площадкой. Ozon, как правило, ориентируется на стандартные форматы ФНС России, но может иметь собственные расширения или требования к конкретным полям. Основная структура базируется на формате <em>Приказа ФНС России</em>, что гарантирует юридическую значимость документа. Ключевым элементом является корневой тег, который должен содержать все необходимые атрибуты версии и схемы.</p>
+
+<p>Внутри корневой структуры располагаются блоки информации о продавце, покупателе, перечне товаров и итоговых суммах. Каждый элемент должен быть строго типизирован: числовые значения не должны содержать пробелов или валютных символов, а даты обязаны соответствовать формату <code>ГГГГ-ММ-ДД</code>. Нарушение этого правила приведет к мгновенному отклонению файла парсером системы. <strong>Валидация</strong> происходит автоматически при загрузке.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Использование кириллицы в названиях тегов или атрибутов категорически запрещено. Все имена элементов должны быть на латинице, согласно спецификации XSD-схемы.</p>
+</blockquote>
+
+<p>Особое внимание следует уделить кодировке файла. Стандартным требованием является <em>UTF-8</em>. Если ваша система выгружает данные в другой кодировке (например, Windows-1251), при открытии или обработке файла могут возникнуть артефакты в виде "кракозябр", что сделает документ нечитаемым для роботов Ozon. Всегда проверяйте заголовок XML-декларации.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте текстовые редакторы с поддержкой подсветки синтаксиса XML, такие как Notepad++, VS Code или специальные валидаторы, чтобы визуально отслеживать структуру тегов перед загрузкой.</p></aside>
+
+<h2 id="заполнение-реквизитов-продавца-и-покупателя">Заполнение реквизитов продавца и покупателя</h2>
+
+<p>Первый информационный блок в XML-файле УПД посвящен идентификации участников сделки. Для Ozon, выступающего агентом или комиссионером (в зависимости от схемы работы), или для конечного покупателя, данные должны быть указаны с максимальной точностью. Ошибки в ИНН или КПП приведут к невозможности принять документ к вычету НДС. Поле <strong>Идентификатор</strong> должно содержать только цифровые значения без лишних символов.</p>
+
+<p>В разделе продавца (<em>Seller</em>) указываются полные реквизиты вашего юридического лица или ИП. Это включает наименование организации, адрес регистрации и контактные данные. Важно, чтобы данные в XML-файле на 100% совпадали с теми, что указаны в вашем договоре с маркетплейсом и в учетной системе. Любое расхождение, даже в одной букве названия улицы, может стать причиной спора.</p>
+
+<p>Блок покупателя (<em>Buyer</em>) заполняется на основе данных, полученных от Ozon в отчете о реализации. Часто здесь требуется указать конкретный склад или подразделение, на которое отгружается товар. В некоторых случаях, при работе через API, эти данные подтягиваются автоматически, но при ручной выгрузке их нужно вносить внимательно.</p>
+
+<ul>
+<li>📌 ИНН и КПП должны быть указаны без пробелов и тире.</li>
+<li>📌 Наименование организации пишется полностью, как в уставных документах.</li>
+<li>📌 Адрес должен соответствовать ФИАС/ГАР (автоматизированная система адресов).</li>
+<li>📌 Контактный телефон указывается в международном формате.</li>
+</ul>
+
+<p>Для автоматического заполнения этих полей часто используются справочники контрагентов. Убедитесь, что в вашей базе данных хранятся актуальные сведения. <strong>Регулярная сверка</strong> реквизитов с данными в личном кабинете Ozon поможет избежать технических ошибок при генерации XML.</p>
+
+<div class="pb-poll" id="poll-e6470f86"><div class="pb-poll-question">📊 Как вы формируете XML для Ozon?</div><div class="pb-poll-option" data-poll="e6470f86" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную в блокноте</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e6470f86" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Выгрузка из 1С</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e6470f86" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Сервисы ЭДО (Диадок, СБИС)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e6470f86" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние интеграторы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="формирование-табличной-части-и-номенклатуры">Формирование табличной части и номенклатуры</h2>
+
+<p>Самая объемная часть УПД — это перечень передаваемых товаров. В XML-структуре этому соответствует повторяющийся набор тегов, описывающих каждую позицию. Для каждой строки необходимо указать наименование, количество, цену за единицу, сумму без НДС, ставку налога и итоговую сумму с учетом налога. Точность вычислений здесь критична: сумма всех строк должна сходиться с итогом документа до копейки.</p>
+
+<p>Особое внимание уделите полю <code>UnitCode</code> (код единицы измерения). Ozon требует использования кодов из Общероссийского классификатора единиц измерения (ОКЕИ). Например, для штук используется код <em>796</em>, для килограммов — <em>166</em>. Использование произвольных обозначений ("шт", "кг") в числовых полях недопустимо и вызовет ошибку парсинга.</p>
+
+<p>Если товар имеет маркировку (Честный Знак), в структуру XML необходимо добавить соответствующие теги с кодами DataMatrix. Отсутствие маркировки в документе при ее фактическом наличии на товаре является нарушением законодательства РФ и правил маркетплейса. Система Ozon может автоматически сверять эти данные.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Поле XML</th>
+<th>Описание</th>
+<th>Пример значения</th>
+<th>Тип данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ProductName</td>
+<td>Наименование товара</td>
+<td>Смартфон X</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>Количество</td>
+<td>10</td>
+<td>Decimal</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>Цена за единицу</td>
+<td>15000.00</td>
+<td>Decimal</td>
+</tr>
+<tr>
+<td>VatRate</td>
+<td>Ставка НДС</td>
+<td>20</td>
+<td>Integer</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>При формировании списка товаров важно соблюдать порядок следования тегов, определенный схемой. Нарушение иерархии (например, закрытие родительского тега перед дочерним) приведет к тому, что файл будет признан невалидным. <strong>Логическая структура</strong> должна быть безупречной.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка табличной части</h4><label class="check-item"><input type="checkbox"><span>Все коды ОКЕИ верны</span></label><label class="check-item"><input type="checkbox"><span>Суммы строк сходятся с итогом</span></label><label class="check-item"><input type="checkbox"><span>НДС рассчитан корректно</span></label><label class="check-item"><input type="checkbox"><span>Маркировка указана где нужно</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="работа-с-подписями-и-шифрованием">Работа с подписями и шифрованием</h2>
+
+<p>Просто создать текстовый XML-файл недостаточно для юридической значимости. УПД должен быть подписан электронной подписью (<strong>ЭП</strong>). В контексте XML это часто реализуется через стандарт <em>XAdES</em> или <em>PAdES</em>, когда к исходному файлу добавляется блок подписи, содержащий хэш-сумму документа и сертификат ключа проверки подписи.</p>
+
+<p>Процесс подписания происходит на стороне отправителя (селлера) с использованием криптопровайдера (например, КриптоПро CSP). Файл может быть подписан отдельно (формат .sig) или подпись может быть внедрена внутрь самого XML (enveloped signature). Ozon принимает оба варианта, но предпочтительнее формат, где подпись вложена в документ, что обеспечивает целостность данных при передаче.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Срок действия сертификата электронной подписи должен быть актуален на момент подписания документа. Просроченный сертификат сделает УПД юридически ничтожным.</p>
+</blockquote>
+
+<p>После подписания файл часто рекомендуется архивировать или кодировать в Base64, если передача идет через определенные API-методы, хотя прямой XML также поддерживается. Главное — убедиться, при проверке подписи не нарушена целостность содержимого. Любое изменение байта в файле после подписания invalidates signature.</p>
+
+<p>Для проверки корректности подписи можно использовать бесплатные утилиты от производителей криптографии или онлайн-сервисы проверки ЭП. Это позволит убедиться, что документ будет принят не только системой Ozon, но и пройдет проверку в ФНС при необходимости.</p>
+
+<h2 id="интеграция-через-api-и-автоматическая-выгрузка">Интеграция через API и автоматическая выгрузка</h2>
+
+<p>Для селлеров с большим оборотом ручное создание XML невозможно. В этом случае используется API Ozon. Методы API позволяют передавать данные об отгрузках и получать в ответ идентификаторы документов или готовые файлы УПД, если генерация происходит на стороне площадки. Однако, если вы генерируете УПД сами, API используется для загрузки готовых файлов.</p>
+
+<p>Процесс интеграции выглядит следующим образом: ваша ERP-система формирует пакет документов, подписывает их и отправляет POST-запросом на эндпоинт Ozon. В теле запроса передается сам XML или ссылка на него. Важно соблюдать лимиты на количество запросов (Rate Limit), чтобы не получить блокировку IP-адреса.</p>
+
+<pre><code>POST /api/v1/documents/upload
+<p>Content-Type: application/xml</p>
+<p>Authorization: Bearer YOUR_API_KEY</p>
+
+<p>&lt;UploadRequest&gt;</p>
+<p>&lt;DocumentType&gt;UPD&lt;/DocumentType&gt;</p>
+<p>&lt;FileContent&gt;BASE64_ENCODED_XML&lt;/FileContent&gt;</p>
+<p>&lt;/UploadRequest&gt;</code></pre></p>
+
+<p>При использовании API необходимо предусмотреть механизм обработки ответов. Система вернет статус: "Принято", "Ошибка валидации" или "Ошибка подписи". На основе этих кодов ваша система должна либо считать документ проведенным, либо сформировать alert для оператора. <strong>Логирование</strong> всех обменов данными обязательно для разбора спорных ситуаций.</p>
+
+<details class="pb-accordion"><summary>Что делать при ошибке 429 Too Many Requests?</summary><div class="pb-accordion-body"><p>Если вы получили этот код ответа, значит вы превысили лимит запросов к API. Необходимо реализовать механизм экспоненциальной отсрочки (exponential backoff) в вашем скрипте-интеграторе. Не пытайтесь отправить запрос повторно мгновенно — это усугубит ситуацию.</p></div></details>
+
+<h2 id="частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</h2>
+
+<p>Даже опытные разработчики сталкиваются с проблемами при работе с XML для Ozon. Самая распространенная ошибка — несоответствие форматов дат и чисел. Например, использование запятой вместо точки в дробных числах (<em>10,5</em> вместо <em>10.5</em>) приводит к сбою парсера. Также часто встречается ошибка в кодировке символов, особенно в наименованиях товаров с буквой "ё" или спецсимволами.</p>
+
+<p>Другая группа ошибок связана с бизнес-логикой: неверный расчет НДС, отсутствие обязательных атрибутов для маркированных товаров или несоответствие суммы документа сумме в отчете о реализации. Система Ozon проводит перекрестную проверку, и такие расхождения блокируют документ.</p>
+
+<ul>
+<li>❌ Отсутствие тега <code>Signature</code> или его некорректное формирование.</li>
+<li>❌ Использование зарезервированных символов XML (<, >, &) в тексте без экранирования.</li>
+<li>❌ Превышение допустимой длины поля (например, слишком длинное наименование товара).</li>
+<li>❌ Несоответствие схемы XSD текущей версии требований Ozon.</li>
+</ul>
+
+<p>Для устранения ошибок используйте валидаторы XSD. Загрузите схему, предоставленную Ozon, в редактор кода и проверьте свой XML-файл против нее. Это отсечет 90% технических ошибок перед отправкой. <strong>Предварительная проверка</strong> экономит время на отладке интеграции.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Использование XSD-схемы для валидации XML-файла перед отправкой — единственный надежный способ избежать технических ошибок формата.</p></aside>
+
+<h2 id="вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</h2>
+
+<details>
+<summary>Можно ли сформировать УПД в XML без использования платных сервисов ЭДО?</summary>
+<p>Да, технически возможно. Вы можете использовать бесплатные библиотеки для работы с XML в языках программирования (Python, PHP, C#) или настроить выгрузку в 1С, если ваша конфигурация это позволяет. Однако для юридической значимости вам все равно понадобится действующий сертификат электронной подписи и средство криптографической защиты информации (СКЗИ), которые могут быть платными.</p>
+</details>
+
+<details>
+<summary>Какой формат даты требует Ozon в XML-файле УПД?</summary>
+<p>Стандартным и наиболее безопасным форматом является ISO 8601: <code>ГГГГ-ММ-ДД</code> (например, 2026-05-20). В некоторых старых форматах ФНС может встречаться формат <code>ДД.ММ.ГГГГ</code>, но для API и современных интеграций Ozon предпочитает международный стандарт или формат, строго указанный в актуальной XSD-схеме.</p>
+</details>
+
+<details>
+<summary>Что делать, если сумма в XML отличается от суммы в отчете на 1 копейку?</summary>
+<p>Такие расхождения возникают из-за округления. В XML суммы должны рассчитываться с высокой точностью, а округление производиться только в итоговом значении, либо следовать правилам математического округления, принятым в ФНС. Если разница уже возникла, необходимо перегенерировать документ с корректными настройками округления в вашей учетной системе.</p>
+</details>
+
+<details>
+<summary>Нужно ли отправлять XML УПД для каждой поставки отдельно?</summary>
+<p>Обычно УПД формируется на каждую отгрузку (поставку), которая отражена в акте приема-передачи. Если поставка разбита на несколько коробов, но документально это одна поставка, то и УПД должен быть один. Однако, если Ozon требует разбивки по складам или типам товаров, следуйте инструкции в разделе "Документы" личного кабинета.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/p/pr/prodazha-na-ozon-chto-dlya-etogo-nuzhno.html" class="pb-related-card">
+                <span class="pb-related-title">Продажа на Ozon: пошаговое руководство для начинающих в 2026</span>
+                <span class="pb-related-desc">Что нужно для старта продаж на Ozon: регистрация, документы, товары и логистика. Полный чек-лист для</span>
+            </a><a href="/articles/k/ka/kak-vzyat-zakaz-iz-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как взять заказ с Ozon: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно брать заказы на Ozon: от настройки профиля до работы с FBS/FBO. Советы по уве</span>
+            </a><a href="/articles/o/oz/ozon-ili-vb-chto-luchshe-dlya-prodavtsov.html" class="pb-related-card">
+                <span class="pb-related-title">Озон или ВБ: что лучше для продавцов в 2026-2026?</span>
+                <span class="pb-related-desc">Сравнение Ozon и Wildberries для селлеров. Комиссии, логистика, штрафы и условия старта. Узнайте, ка</span>
+            </a><a href="/articles/k/ka/kak-uznat-statistiku-prodazh-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать статистику продаж на Ozon: 7 проверенных способов</span>
+                <span class="pb-related-desc">Где искать данные о продажах на Озоне: от личного кабинета до аналитики конкурентов. Пошаговые инстр</span>
+            </a><a href="/articles/k/ka/kak-prodavat-na-ozone-fizicheskomu-litsu-svoj-tovar-bez-ip.html" class="pb-related-card">
+                <span class="pb-related-title">Продажи на Ozon без ИП: как физическому лицу выйти на маркетплейс в 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция для физлиц: как продавать на Ozon без регистрации ИП, какие товары разрешены, с</span>
+            </a><a href="/articles/g/gd/gde-vzyat-sertifikat-na-tovar-dlya-ozona-dlya-prodazhi.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять сертификат на товар для Озона в 2026 году: пошаговая инструкция</span>
+                <span class="pb-related-desc">Как получить сертификат соответствия для продажи на Озон: официальные способы, стоимость, сроки и ню</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Среднее время доставки Ozon: как рассчитывается и от чего зависит — Об Озоне</title>
+    <meta name="description" content="Подробный разбор алгоритмов расчета сроков доставки на Ozon. Узнайте, как склад, логистика и схема работы влияют на скорость получения вашего заказа.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rasschityvaetsya-srednee-vremya-dostavki-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Среднее время доставки Ozon: как рассчитывается и от чего зависит">
+    <meta property="og:description" content="Подробный разбор алгоритмов расчета сроков доставки на Ozon. Узнайте, как склад, логистика и схема работы влияют на скорость получения вашего заказа.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Среднее время доставки Ozon: как рассчитывается и от чего зависит</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#факторы-влияющие-на-скорость-обработки-заказа">Факторы, влияющие на скорость обработки заказа</a></li><li><a href="#влияние-схемы-работы-продавца-на-сроки">Влияние схемы работы продавца на сроки</a></li><li><a href="#география-и-логистическая-инфраструктура">География и логистическая инфраструктура</a></li><li><a href="#алгоритмы-расчета-и-прогнозирование">Алгоритмы расчета и прогнозирование</a></li><li><a href="#роль-сортировочных-центров-и-магистралей">Роль сортировочных центров и магистралей</a></li><li><a href="#как-продавцу-и-покупателю-ускорить-процесс">Как продавцу и покупателю ускорить процесс</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-izmenit-dostavku-na-ozone.html">Как изменить доставку на Озоне: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-otslezhivanie-posylok-po-trek-nomeru-ozon.html">Как отследить посылку Озон по трек-номеру — 5 способов 2026</a></li><li><a href="/articles/k/ka/kak-poluchit-dostavku-ozon-bez-koda.html">Как получить доставку Ozon без кода: полные инструкции</a></li><li><a href="/articles/s/sk/skolko-khranitsya-tovar-na-ozon.html">Сколько хранится товар на Озон: сроки и правила для покупателей и продавцов</a></li><li><a href="/articles/s/sk/sklad-ozon-do-chto-eto.html">Склад Ozon до: что это, где находится и как отслеживать</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Среднее время доставки Ozon: как рассчитывается и от чего зависит</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#факторы-влияющие-на-скорость-обработки-заказа">Факторы, влияющие на скорость обработки заказа</a></li><li><a href="#влияние-схемы-работы-продавца-на-сроки">Влияние схемы работы продавца на сроки</a></li><li><a href="#география-и-логистическая-инфраструктура">География и логистическая инфраструктура</a></li><li><a href="#алгоритмы-расчета-и-прогнозирование">Алгоритмы расчета и прогнозирование</a></li><li><a href="#роль-сортировочных-центров-и-магистралей">Роль сортировочных центров и магистралей</a></li><li><a href="#как-продавцу-и-покупателю-ускорить-процесс">Как продавцу и покупателю ускорить процесс</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Скорость получения заказа — один из ключевых факторов, влияющих на решение покупателя совершить покупку на маркетплейсе. Когда вы видите обещанную дату доставки, за ней стоит сложная система алгоритмов, анализирующая сотни переменных в реальном времени. <strong>Среднее время доставки</strong> — это не просто среднее арифметическое всех отправлений, а динамический показатель, который меняется в зависимости от множества факторов.</p>
+
+<p>Понимание того, как именно маркетплейс формирует эти сроки, позволяет не только правильно оценивать ожидания, но и эффективно управлять логистикой, если вы являетесь продавцом. В этой статье мы детально разберем механику работы логистической системы, влияние типа склада и схемы работы на итоговую скорость.</p>
+
+<p>Время доставки зависит от того, где физически находится товар в момент заказа. Если вещь лежит на складе <em>Ozon</em>, она будет доставлена быстрее, чем если она хранится на складе продавца. Алгоритмы учитывают расстояние между точкой отправления и адресом получателя, пропускную способность сортировочных центров и текущую загрузку курьерских служб.</p>
+
+<h2 id="факторы-влияющие-на-скорость-обработки-заказа">Факторы, влияющие на скорость обработки заказа</h2>
+
+<p>Первым этапом пути товара к покупателю является обработка заказа на складе. Именно здесь закладывается фундамент для выполнения обещанных сроков. <strong>Время сборки</strong> товара может варьироваться от нескольких часов до нескольких суток в зависимости от загруженности логистического центра и схемы работы продавца.</p>
+
+<p>Если товар находится на складе маркетплейса по схеме FBO, он уже упакован, промаркирован и готов к отправке. В этом случае <em>Ozon</em> берет на себя всю ответственность за скорость. При работе по схеме FBS или RealFBS продавец должен самостоятельно упаковать товар и передать его в логистический центр или курьеру в строго отведенное время.</p>
+
+<ul>
+<li>🚀 Тип схемы работы: FBO обычно быстрее, так как товар уже на складе маркетплейса.</li>
+<li>📦 Наличие товара: Отсутствие товара на ближайшем складе требует время на его подвоз или заказ у поставщика.</li>
+<li>⏰ Время оформления заказа: Заказы, оформленные до определенного часа (часто до 10:00 или 12:00), могут быть отправлены в тот же день.</li>
+<li>📍 Региональная удаленность: Расстояние от склада до адреса доставки напрямую влияет на транспортное плечо.</li>
+</ul>
+
+<p>Важно учитывать сезонность. В периоды распродаж, таких как «Черная пятница» или ноябрьские акции, нагрузка на логистические центры возрастает в разы. <strong>Пропускная способность</strong> сортировочных центров может быть ограничена, что автоматически увеличивает расчетное время доставки для всех заказов, проходящих через эти хабы.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> В период пиковых нагрузок (ноябрь-декабрь) алгоритмы могут искусственно увеличивать сроки доставки на 1-3 дня, чтобы гарантировать выполнение обязательств перед клиентом даже при форс-мажорах.</p>
+</blockquote>
+
+<p>Также на скорость влияет правильность оформления документов. Если в накладной или маркировке допущена ошибка, товар может быть задержан на этапе приемки. Система автоматически ставит такой заказ на паузу до устранения несоответствий, что сдвигает итоговую дату получения.</p>
+
+<div class="pb-poll" id="poll-b3148c44"><div class="pb-poll-question">📊 Как часто вы заказываете на Ozon?</div><div class="pb-poll-option" data-poll="b3148c44" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Каждый день</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b3148c44" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Несколько раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b3148c44" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b3148c44" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только во время распродаж</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="влияние-схемы-работы-продавца-на-сроки">Влияние схемы работы продавца на сроки</h2>
+
+<p>Схема работы — это фундамент, определяющий логистическую цепочку. Для покупателя разница между схемами может быть неочевидна, но именно она диктует, сколько времени пройдет от клика «Купить» до звонка курьера. Разберем основные модели и их влияние на <strong>скорость доставки</strong>.</p>
+
+<p>При работе по схеме <em>FBO</em> (Fulfilled by Ozon) товар заранее отгружен продавцом на склад маркетплейса. Менеджеры склада самостоятельно собирают, упаковывают и передают товар в доставку. Это самый быстрый путь, так как исключается этап передачи товара от продавца к маркетплейсу после поступления заказа.</p>
+
+<p>Схема <em>FBS</em> (Fulfilled by Seller) предполагает, что товар хранится у продавца. После получения заказа у продавца есть строго ограниченное время (обычно 24 часа), чтобы собрать заказ и передать его в пункт приема <em>Ozon</em>. Здесь критически важна дисциплина продавца: если он опоздает со сдачей, срок доставки для клиента автоматически увеличится.</p>
+
+<details class="pb-accordion"><summary>Что такое RealFBS?</summary><div class="pb-accordion-body"><p>RealFBS — это схема, при которой продавец сам выбирает службу доставки для транспортировки товара до покупателя, но продает через витрину Ozon. Сроки здесь полностью зависят от выбранной продавцом логистической компании и могут варьироваться сильнее, чем при стандартной доставке Ozon.</p></div></details>
+
+<p>Существует также схема доставки силами продавца, где <em>Ozon</em> выступает только витриной. В этом случае алгоритм расчета времени доставки базируется на настройках, которые задает сам продавец в личном кабинете. Покупатель видит срок, который продавецует выполнить самостоятельно.</p>
+
+<p>Алгоритмы ранжирования товаров часто отдают предпочтение карточкам с более быстрой доставкой. Поэтому продавцы, использующие FBO или имеющие высокие рейтинги скорости отгрузки по FBS, получают больше заказов. <strong>Среднее время</strong> обработки для таких продавцов является ключевым метрическим показат</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Оптимизация скорости для продавца</h4><label class="check-item"><input type="checkbox"><span>Выбрать схему FBO для ходовых товаров</span></label><label class="check-item"><input type="checkbox"><span>Настроить автопринятие заказов</span></label><label class="check-item"><input type="checkbox"><span>Контролировать остатки на складе</span></label><label class="check-item"><input type="checkbox"><span>Использовать прогнозирование спроса</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="география-и-логистическая-инфраструктура">География и логистическая инфраструктура</h2>
+
+<p>Географический фактор играет решающую роль в расчете времени доставки. Россия — огромная страна, и логистика здесь требует сложного планирования. Алгоритмы <em>Ozon</em> делят территорию на зоны, для каждой из которых рассчитывается свой норматив времени.</p>
+
+<p>Ключевым элементом является расположение складов. Если товар находится на складе в Подмосковье (Хоругвино, Электросталь, Ожерелье), доставка в Москву и область займет 1 день. Доставка того же товара в Новосибирск может занять от 3 до 7 дней, так как требуется авиа- или ж/д транспортировка.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Направление</th>
+<th>Тип доставки</th>
+<th>Средний срок (дни)</th>
+<th>Факторы влияния</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Москва — МО</td>
+<td>Курьер / ПВЗ</td>
+<td>1-2</td>
+<td>Высокая плотность пунктов, свои курьеры</td>
+</tr>
+<tr>
+<td>ЦФО — СПб</td>
+<td>Магистраль</td>
+<td>2-3</td>
+<td>Отлаженное авто-сообщение</td>
+</tr>
+<tr>
+<td>Европа — Сибирь</td>
+<td>Авиа / ЖД</td>
+<td>4-7</td>
+<td>Расстояние, погодные условия</td>
+</tr>
+<tr>
+<td>Центр — Дальний Восток</td>
+<td>Авиа / Мультимодальная</td>
+<td>5-10</td>
+<td>Сложная логистика, таможенные процедуры (для транзита)</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Особое внимание уделяется труднодоступным регионам. В некоторые населенные пункты доставка может осуществляться только определенными видами транспорта или в определенные дни недели. В таких случаях <strong>расчетное время</strong> всегда будет больше стандартного.</p>
+
+<p>Инфраструктура «последней мили» также важна. Если в вашем районе мало пунктов выдачи заказов (ПВЗ) или постаматов, курьерская служба может быть перегружена. Это создает очередь на выдачу, что формально увеличивает время ожидания для клиента, даже если товар уже в городе.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>При заказе в удаленные регионы обращайте внимание на статус «Доставка в сортировочный центр». Пока товар не попал в магистраль, срок доставки являетсяочным и может меняться.</p></aside>
+
+<h2 id="алгоритмы-расчета-и-прогнозирование">Алгоритмы расчета и прогнозирование</h2>
+
+<p>За кулисами интерфейса пользователя работает мощная аналитическая система. Она не просто прибавляет дни к текущей дате, а проводит симуляцию всего пути товара. <strong>Машинное обучение</strong> позволяет системе учитывать исторические данные о задержках на конкретных маршрутах.</p>
+
+<p>Система анализирует поведение конкретного продавца. Если продавец часто опаздывает со сдачей товаров по схеме FBS, алгоритм автоматически заложит дополнительный временной буфер при расчете срока доставки для его заказов. Это защищает репутацию маркетплейса в глазах покупателя.</p>
+
+<p>Также учитываются внешние факторы:</p>
+<ul>
+<li>🌧️ Погодные условия: штормовые предупреждения могут блокировать авиасообщение.</li>
+<li>🚛 Дорожная ситуация: ремонт трасс или пробки в крупных городах.</li>
+<li>📅 Праздничные дни: работа логистических центров в выходные и праздники может быть ограничена.</li>
+<li>🔥 Форс-мажоры: технические сбои или ЧС.</li>
+</ul>
+
+<p>Динамическое ценообразование и сроки часто связаны. Покупатель может выбрать более дорогую, но быструю доставку, или более дешевую и долгую. Алгоритм предлагает эти опции, базируясь на свободных мощностях логистических партнеров в данный момент.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Срок доставки, указанный в карточке товара, является прогнозом. Он может измениться в процессе обработки заказа, если возникнут непредвиденные обстоятельства, о чем система уведомит покупателя.</p>
+</blockquote>
+
+<p>Важным элементом является <em>SLA</em> (Service Level Agreement) — соглашение об уровне сервиса. Для разных категорий товаров и регионов установлены свои нормативы. Превышение этих нормативов влечет за собой штрафы для логистических партнеров или внутренних подразделений.</p>
+
+<h2 id="роль-сортировочных-центров-и-магистралей">Роль сортировочных центров и магистралей</h2>
+
+<p>Путь товара редко бывает прямым «от склада до двери». Чаще всего это цепочка: Склад продавца/маркетплейса → Сортировочный центр (СЦ) региона → Магистральный СЦ → СЦ города назначения → ПВЗ/Курьер. Каждый узел этой цепи вносит свой вклад в общее время.</p>
+
+<p><strong>Сортировочные центры</strong> работают в режиме 24/7, но их пропускная способность не безгранична. Если на СЦ поступает аномально большое количество посылок, возникает «затор». Товар может пролежать на складе ожидания несколько часов или даже суток, прежде чем будет отсортирован и отправлен дальше.</p>
+
+<p>Магистральные перевозки — это связующее звено между регионами. <em>Ozon</em> использует собственные грузовики, авиаперевозчиков и железнодорожные контейнеры. График движения магистралей фиксированный. Если товар не успел на «рейс» сегодня, он уедет только завтра, что добавляет +1 день к сроку.</p>
+
+<p>Автоматизация процессов сортировки позволяет минимизировать время нахождения товара в центре. Роботизированные линии считывают штрихкоды и направляют посылки в нужные отсеки. Однако человеческий фактор и ошибки сканирования все еще встречаются, требуя ручной обработки и времени.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Скорость прохождения магистрального плеча — самый труднопрогнозируемый этап, зависящий от расписания транспорта, а не от скорости работы склада.</p></aside>
+
+<h2 id="как-продавцу-и-покупателю-ускорить-процесс">Как продавцу и покупателю ускорить процесс</h2>
+
+<p>Хотя основная часть процесса контролируется алгоритмами, участники рынка могут повлиять на скорость. Для покупателей главное правило — отслеживать статусы и выбирать товары с пометкой «Доставка Ozon» или «Экспресс», если время критично.</p>
+
+<p>Продавцам же необходимо постоянно мониторить свои показатели. Низкий рейтинг скорости отгрузки может привести к понижению позиции товара в поисковой выдаче. <strong>Оптимизация</strong> процессов упаковки и своевременная передача товара — в интересах самого продавца.</p>
+
+<p>Использование аналитических инструментов позволяет прогнозировать спрос и заранее отгружать популярные товары на склады <em>FBO</em> в нужные регионы. Это сокращает плечо доставки до конечного клиента и повышает конверсию в покупку.</p>
+
+<p>Коммуникация также важна. Если продавец видит, что не успевает отгрузить заказ вовремя, лучше заранее предупредить поддержку или принять меры, чем получить негативный отзыв и штраф за срыв сроков.</p>
+
+<details>
+<summary>Почему срок доставки постоянно меняется в приложении?</summary>
+<p>Срок может меняться динамически до момента фактической передачи заказа в доставку. Это происходит из-за пересчета алгоритмами оптимального маршрута, изменения загруженности курьерских служб или поступления информации о задержках на транспорте. Как только статус меняется на «Передано в доставку», срок фиксируется.</p>
+</details>
+
+<details>
+<summary>Можно ли ускорить доставку после оформления заказа?</summary>
+<p>Самостоятельно изменить срок доставки после оформления заказа через стандартный интерфейс нельзя. Однако можно связаться с поддержкой. В редких случаях, если товар еще не начали собирать, они могут попытаться изменить приоритет, но чаще всего придется ждать указанного времени или оформлять новый заказ.</p>
+</details>
+
+<details>
+<summary>Что делать, если срок доставки истек, а товара нет?</summary>
+<p>Если срок доставки истек, а товар не доставлен, автоматически начисляются баллы за ожидание (обычно 100 баллов за каждый день просрочки, но не более 30% от стоимости товара). Товар продолжит идти к вам, и вы получите компенсацию на бонусный счет.</p>
+</details>
+
+<details>
+<summary>Влияет ли вес товара на скорость доставки?</summary>
+<p>Вес товара влияет на выбор способа транспортировки. Крупногабаритные грузы (например, мебель или бытовая техника) часто доставляются отдельной логистической службой и могут идти дольше, чем мелкие товары, из-за специфики их обработки и нехватки свободного транспорта.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-izmenit-dostavku-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить доставку на Озоне: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как изменить адрес или пункт выдачи на Ozon до получения заказа. Подробный гид по смене спо</span>
+            </a><a href="/articles/k/ka/kak-otslezhivanie-posylok-po-trek-nomeru-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отследить посылку Озон по трек-номеру — 5 способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по отслеживанию заказов на Ozon через трек-номер: официальный сайт, мобильное п</span>
+            </a><a href="/articles/k/ka/kak-poluchit-dostavku-ozon-bez-koda.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить доставку Ozon без кода: полные инструкции</span>
+                <span class="pb-related-desc">Узнайте, как забрать заказ на Ozon без кода. Рабочие способы, инструкции для курьера и ПВЗ, альтерна</span>
+            </a><a href="/articles/s/sk/skolko-khranitsya-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько хранится товар на Озон: сроки и правила для покупателей и продавцов</span>
+                <span class="pb-related-desc">Узнайте, сколько дней товар хранится на складе Озон перед отправкой, как продлить срок хранения и чт</span>
+            </a><a href="/articles/s/sk/sklad-ozon-do-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Склад Ozon до: что это, где находится и как отслеживать</span>
+                <span class="pb-related-desc">Полный разбор статуса&#x27;Склад Ozon до&#x27;: где он находится, что делать, если статус долго не меняется, и</span>
+            </a><a href="/articles/k/ka/kak-pomenyat-adres-v-ozone-izmenit-dostavki.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить адрес доставки на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как поменять адрес доставки на Озоне до и после оформления заказа. Инструкция для покупател</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

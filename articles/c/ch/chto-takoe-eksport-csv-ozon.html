@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Экспорт CSV на Ozon: как выгрузить данные для продавцов — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по экспорту CSV на Ozon: форматы файлов, настройки выгрузки, ошибки и решения для продавцов маркетплейса.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-takoe-eksport-csv-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Экспорт CSV на Ozon: как выгрузить данные для продавцов">
+    <meta property="og:description" content="Пошаговое руководство по экспорту CSV на Ozon: форматы файлов, настройки выгрузки, ошибки и решения для продавцов маркетплейса.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Экспорт CSV на Ozon: как выгрузить данные для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-экспорт-csv-на-ozon-и-зачем-он-нужен">Что такое экспорт CSV на Ozon и зачем он нужен</a></li><li><a href="#типы-csv-файлов-на-ozon-какой-выбрать-для-вашей-задачи">Типы CSV-файлов на Ozon: какой выбрать для вашей задачи</a></li><li><a href="#пошаговая-инструкция-как-экспортировать-csv-из-ozon-seller">Пошаговая инструкция: как экспортировать CSV из Ozon Seller</a></li><li><a href="#структура-csv-файла-обязательные-и-опциональные-поля">Структура CSV-файла: обязательные и опциональные поля</a></li><li><a href="#распространённые-ошибки-при-экспорте-csv-и-как-их-избежать">Распространённые ошибки при экспорте CSV и как их избежать</a></li><li><a href="#автоматизация-экспорта-csv-api-и-сторонние-сервисы">Автоматизация экспорта CSV: API и сторонние сервисы</a></li><li><a href="#как-проверить-и-отладить-csv-перед-загрузкой-на-ozon">Как проверить и отладить CSV перед загрузкой на Ozon</a></li><li><a href="#faq-ответы-на-частые-вопросы-об-экспорте-csv-на-ozon">FAQ: Ответы на частые вопросы об экспорте CSV на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/t/tr/trafarety-ozon-seller-kak-nastroit.html">Трафареты Ozon Seller: как настроить и использовать в 2026 году</a></li><li><a href="/articles/z/za/zayavka-otklonena-ozon-chto-delat.html">Заявка отклонена Ozon: причины, решения и повторная подача</a></li><li><a href="/articles/c/ch/chto-takoe-kontent-rejting-na-ozone.html">Контент-рейтинг на Озон: что это и как его повысить</a></li><li><a href="/articles/k/ka/kak-perenesti-kartochku-s-vb-na-ozon.html">Как перенести карточку с Wildberries на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-sozdat-video-oblozhku-dlya-ozon.html">Как сделать обложку для Ozon: размеры и требования 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Экспорт CSV на Ozon: полное руководство для продавцов в 2026 году</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-экспорт-csv-на-ozon-и-зачем-он-нужен">Что такое экспорт CSV на Ozon и зачем он нужен</a></li><li><a href="#типы-csv-файлов-на-ozon-какой-выбрать-для-вашей-задачи">Типы CSV-файлов на Ozon: какой выбрать для вашей задачи</a></li><li><a href="#пошаговая-инструкция-как-экспортировать-csv-из-ozon-seller">Пошаговая инструкция: как экспортировать CSV из Ozon Seller</a></li><li><a href="#структура-csv-файла-обязательные-и-опциональные-поля">Структура CSV-файла: обязательные и опциональные поля</a></li><li><a href="#распространённые-ошибки-при-экспорте-csv-и-как-их-избежать">Распространённые ошибки при экспорте CSV и как их избежать</a></li><li><a href="#автоматизация-экспорта-csv-api-и-сторонние-сервисы">Автоматизация экспорта CSV: API и сторонние сервисы</a></li><li><a href="#как-проверить-и-отладить-csv-перед-загрузкой-на-ozon">Как проверить и отладить CSV перед загрузкой на Ozon</a></li><li><a href="#faq-ответы-на-частые-вопросы-об-экспорте-csv-на-ozon">FAQ: Ответы на частые вопросы об экспорте CSV на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Экспорт данных в формате <strong>CSV</strong> на <em>Ozon</em> — это ключевой инструмент для продавцов, который позволяет массово управлять каталогом товаров, обновлять цены, остатки и характеристики без ручного ввода. Если вы только начинаете работать с маркетплейсом или хотите оптимизировать процессы, понимание механизма выгрузки CSV сэкономит часы времени и минимизирует ошибки.</p>
+
+<p>В этой статье мы разберём не только базовые принципы экспорта, но и нюансы, которые редко упоминают в официальной документации. Например, почему некоторые поля в файле игнорируются системой, как избежать дублирования товаров при повторной загрузке, и какие <mark>скрытые ограничения на количество символов в описаниях</mark> действуют в 2026 году. Вы также узнаете, как автоматизировать экспорт с помощью API и сторонних сервисов — это актуально для продавцов с ассортиментом от 1000+ позиций.</p>
+
+<h2 id="что-такое-экспорт-csv-на-ozon-и-зачем-он-нужен">Что такое экспорт CSV на Ozon и зачем он нужен</h2>
+
+<p>Файл <strong>CSV (Comma-Separated Values)</strong> — это табличный формат, где данные разделяются запятыми или другими разделителями. На <em>Ozon</em> он используется для:</p>
+<ul>
+  <li>📦 <strong>Массовой загрузки товаров</strong> — добавление новых позиций в каталог без ручного создания карточек.</li>
+  <li>🔄 <strong>Обновления информации</strong> — изменение цен, остатков, описаний или характеристик для сотен товаров одновременно.</li>
+  <li>📊 <strong>Аналитики и отчётности</strong> — выгрузка данных о продажах, возвратах или отзывах для дальнейшей обработки в <em>Excel</em> или <em>Google Sheets</em>.</li>
+  <li>🔗 <strong>Синхронизации с 1С или CRM</strong> — интеграция внутренних систем учёта с маркетплейсом.</li>
+</ul>
+
+<p>Главное преимущество CSV перед ручным вводом — <strong>скорость и точность</strong>. Например, обновление цен на 500 товаров через интерфейс <em>Ozon Seller</em> займёт несколько часов, тогда как с помощью файла это делается за минуты. Однако есть и подводные камни: неправильный формат файла, ошибки в данных или несоответствие требованиям маркетплейса могут привести к отказу в загрузке.</p>
+
+<div class="pb-poll" id="poll-597a949a"><div class="pb-poll-question">📊 Как часто вы используете экспорт CSV на Ozon?</div><div class="pb-poll-option" data-poll="597a949a" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="597a949a" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Несколько раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="597a949a" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко, по необходимости</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="597a949a" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не пробовал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="типы-csv-файлов-на-ozon-какой-выбрать-для-вашей-задачи">Типы CSV-файлов на Ozon: какой выбрать для вашей задачи</h2>
+
+<p>На платформе используется несколько типов CSV-файлов, каждый из которых предназначен для конкретных операций. Основные из них:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип файла</th>
+      <th>Назначение</th>
+      <th>Пример использования</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>import_goods.csv</code></td>
+      <td>Загрузка новых товаров или обновление существующих</td>
+      <td>Добавление 200 новых позиций в каталог</td>
+    </tr>
+    <tr>
+      <td><code>prices_stocks.csv</code></td>
+      <td>Обновление цен и остатков</td>
+      <td>Массовое снижение цен на акционные товары</td>
+    </tr>
+    <tr>
+      <td><code>orders.csv</code></td>
+      <td>Выгрузка информации о заказах</td>
+      <td>Анализ продаж за последний месяц</td>
+    </tr>
+    <tr>
+      <td><code>reviews.csv</code></td>
+      <td>Экспорт отзывов покупателей</td>
+      <td>Мониторинг рейтингов и обработка негатива</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Самый востребованный файл — <code>import_goods.csv</code>, так как он позволяет управлять всей номенклатурой. Однако для регулярного обновления цен и остатков удобнее использовать <code>prices_stocks.csv</code>, поскольку он содержит минимальный набор полей и обрабатывается системой быстрее.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы загружаете <code>import_goods.csv</code> с товарами, которые уже есть в каталоге, система обновит их данные. Чтобы избежать случайного изменения, всегда проверяйте файл на дубликаты по артикулам (<code>offer_id</code>).</blockquote>
+
+<h2 id="пошаговая-инструкция-как-экспортировать-csv-из-ozon-seller">Пошаговая инструкция: как экспортировать CSV из Ozon Seller</h2>
+
+<p>Рассмотрим процесс выгрузки файла на примере экспорта данных о товарах:</p>
+
+<ol>
+  <li><strong>Авторизуйтесь</strong> в личном кабинете <a href="https://seller.ozon.ru" target="_blank" rel="noopener noreferrer"><em>Ozon Seller</em></a>.</li>
+  <li>Перейдите в раздел <code>Товары → Импорт/Экспорт</code>.</li>
+  <li>Выберите тип операции:
+    <ul>
+      <li>📥 <strong>Импорт</strong> — для загрузки данных на платформу.</li>
+      <li>📤 <strong>Экспорт</strong> — для выгрузки данных с платформы.</li>
+    </ol>
+  </li>
+  <li>Укажите нужный тип файла (например, <code>Товары</code> или <code>Заказы</code>).</li>
+  <li>Нажмите <code>Сформировать файл</code> и дождитесь завершения процесса (может занять до 10 минут при большом объёме данных).</li>
+  <li>Скачайте готовый CSV-файл и сохраните его на компьютере.</li>
+</ul>
+
+
+<p>Проверьте права доступа к разделу "Импорт/Экспорт"</p>
+<p>Убедитесь, что в каталоге нет дубликатов артикулов</p>
+<p>Сохраните резервную копию текущих данных</p>
+<p>Используйте последнюю версию шаблона от Ozon--></p>
+
+<p>Обратите внимание: экспортированный файл будет содержать только те поля, которые доступны в вашем тарифе. Например, продавцы на тарифе <em>FBS</em> увидят дополнительные колонки с данными о логистике, которых нет у <em>FBO</em>-продавцов.</p>
+
+<h2 id="структура-csv-файла-обязательные-и-опциональные-поля">Структура CSV-файла: обязательные и опциональные поля</h2>
+
+<p>Каждый CSV-файл для <em>Ozon</em> имеет строгую структуру. Рассмотрим ключевые поля для <code>import_goods.csv</code>:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Поле</th>
+      <th>Тип</th>
+      <th>Обязательно?</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>offer_id</code></td>
+      <td>Строка</td>
+      <td>Да</td>
+      <td>Уникальный артикул товара (до 40 символов)</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>Строка</td>
+      <td>Да</td>
+      <td>Название товара (до 255 символов)</td>
+    </tr>
+    <tr>
+      <td><code>price</code></td>
+      <td>Число</td>
+      <td>Да</td>
+      <td>Цена в рублях (без копеек)</td>
+    </tr>
+    <tr>
+      <td><code>old_price</code></td>
+      <td>Число</td>
+      <td>Нет</td>
+      <td>Старая цена (для отображения скидки)</td>
+    </tr>
+    <tr>
+      <td><code>quantity</code></td>
+      <td>Число</td>
+      <td>Да</td>
+      <td>Количество на складе</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Поля <code>category_id</code> и <code>attributes</code> также критически важны, но их заполнение зависит от категории товара. Например, для <em>электроники</em> потребуется указать <code>brand</code>, <code>model</code> и <code>color</code>, а для <em>одежды</em> — <code>size</code>, <code>material</code> и <code>gender</code>.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте функцию <code>Текст по столбцам</code> в Excel, чтобы избежать проблем с кодировкой при открытии CSV. Сохраняйте файл в формате <code>CSV UTF-8 (разделители — запятые)</code>.</!</p></aside>
+
+<p>Одно из самых распространённых заблуждений — что поле <code>description</code> можно заполнять произвольно. На самом деле <em>Ozon</em> ограничивает его до <strong>4000 символов</strong> и блокирует HTML-теги. Также нельзя использовать ключевые слова, не относящиеся к товару (например, "акция", "хит продаж"), — это приведёт к отказу в модерации.</p>
+
+<h2 id="распространённые-ошибки-при-экспорте-csv-и-как-их-избежать">Распространённые ошибки при экспорте CSV и как их избежать</h2>
+
+<p>Даже опытные продавцы сталкиваются с проблемами при работе с CSV. Вот самые частые ошибки и способы их решения:</p>
+
+<ul>
+  <li>❌ <strong>Неправильный разделитель</strong> — файл не открывается или данные сдвинуты.
+    <br><em>Решение:</em> Используйте запятую (,) как разделитель и проверяйте настройки региональных стандартов в Excel.</li>
+  <li>❌ <strong>Дублирующиеся <code>offer_id</code></strong> — система откажет в загрузке.
+    <br><em>Решение:</em> Проверьте уникальность артикулов с помощью функции <code>Условное форматирование → Правила выделения ячеек → Повторяющиеся значения</code>.</li>
+  <li>❌ <strong>Несоответствие категорий</strong> — товар не проходит модерацию.
+    <br><em>Решение:</em> Указывайте <code>category_id</code> из официального справочника <em>Ozon</em> (актуализируется раз в квартал).</li>
+  <li>❌ <strong>Ошибки в формате цен</strong> — система не распознаёт значение.
+    <br><em>Решение:</em> Цены должны быть целыми числами (например, <code>1999</code>, а не <code>1999.00</code> или <code>1 999</code>).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы загружаете файл с товарами, которые уже есть в каталоге, но не указываете <code>offer_id</code>, система создаст дубликаты. Это приведёт к блокировке карточки до ручной проверки модератором.</blockquote>
+
+<p>Ещё одна типичная проблема — <strong>превышение лимитов</strong>. Например, в одном файле можно загрузить не более <strong>50 000 строк</strong>. Если у вас больше товаров, разбейте файл на части. Также учитывайте, что <em>Ozon</em> ограничивает частоту загрузок: не более <strong>5 файлов в час</strong> для одного аккаунта.</p>
+
+<details class="pb-accordion"><summary>Что делать, если файл не загружается без ошибок?</summary><div class="pb-accordion-body"><p>
+<p>Если система не выдаёт конкретную ошибку, но файл не обрабатывается, проверьте:</p>
+<p>1. Кодировку файла (должна быть UTF-8).</p>
+<p>2. Наличие скрытых символов (например, неразрывных пробелов).</p>
+<p>3. Соответствие названий колонок шаблону (регистр имеет значение!).</p>
+<p>4. Размер файла (максимум 50 МБ).</p>
+<p>Если проблема остаётся, обратитесь в поддержку с логами загрузки (их можно скачать в разделе <code>Импорт/Экспорт → История операций</code>).</p></div></details></p>
+
+<h2 id="автоматизация-экспорта-csv-api-и-сторонние-сервисы">Автоматизация экспорта CSV: API и сторонние сервисы</h2>
+
+<p>Для продавцов с большим ассортиментом ручной экспорт/импорт CSV становится неэффективным. В этом случае поможет автоматизация:</p>
+
+<ul>
+  <li>🤖 <strong>Ozon API</strong> — позволяет интегрировать вашу систему учёта с маркетплейсом. Например, можно настроить автоматическое обновление остатков каждые 2 часа.</li>
+  <li>📈 <strong>1С:Предприятие</strong> — модуль для синхронизации с <em>Ozon</em> через CSV или API.</li>
+  <li>🔄 <strong>Сервисы типа <em>MoySklad</em>, <em>Bitrix24</strong>, <em>RetailCRM</strong></em> — поддерживают готовую интеграцию с маркетплейсом.</li>
+  <li>🛠️ <strong>Самостоятельные скрипты</em> — на <em>Python</em> или <em>PHP</em> для парсинга и генерации CSV (требует навыков программирования).</li>
+</ul>
+
+<p>Пример кода для выгрузки данных через API на <em>Python</em>:</p>
+<pre><code>import requests
+
+<p>url = "https://api-seller.ozon.ru/v1/product/info"</p>
+<p>headers = {</p>
+<p>"Client-Id": "Ваш_Client_ID",</p>
+<p>"Api-Key": "Ваш_API_ключ",</p>
+<p>"Content-Type": "application/json"</p>
+<p>}</p>
+<p>params = {</p>
+<p>"offer_id": ["12345", "67890"]  # Список артикулов</p>
+<p>}</p>
+
+<p>response = requests.post(url, headers=headers, json=params)</p>
+<p>print(response.json())</code></pre></p>
+
+<p>Автоматизация особенно актуальна для продавцов на <em>FBS</em>, где остатки нужно обновлять в реальном времени. Однако учтите, что за частые запросы к API <em>Ozon</strong> может ввести ограничения (например, не более 1000 запросов в сутки для одного аккаунта).</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте API для динамических данных (цены, остатки) и CSV для статических (описания, характеристики). Комбинация обоих методов даёт максимальную эффективность.</p></aside>
+
+<h2 id="как-проверить-и-отладить-csv-перед-загрузкой-на-ozon">Как проверить и отладить CSV перед загрузкой на Ozon</h2>
+
+<p>Перед загрузкой файла на платформу обязательно выполните проверку:</p>
+
+<ol>
+  <li><strong>Валидация структуры</strong> — убедитесь, что все обязательные поля заполнены, а формат данных соответствует требованиям (например, целые числа для цен).</li>
+  <li><strong>Проверка уникальности</strong> — используйте формулу <code>=СЧЁТЕСЛИ($A:$A; A2)</code> в Excel, чтобы найти дубликаты <code>offer_id</code>.</li>
+  <li><strong>Тестовая загрузка</strong> — загрузите файл с 5–10 товарами, чтобы проверить обработку системой.</li>
+  <li><strong>Анализ логов</strong> — после загрузки скачайте файл с ошибками (если они есть) в разделе <code>История операций</code>.</li>
+</ol>
+
+<p>Для удобства можно использовать специализированные инструменты:</p>
+<ul>
+  <li>📊 <strong>CSVLint</strong> — онлайн-валидатор структуры файла.</li>
+  <li>🔍 <strong>Notepad++</strong> — для поиска скрытых символов (включите отображение всех знаков через <code>Вид → Символы → Показать все символы</code>).</li>
+  <li>📈 <strong>Google Sheets</strong> — для совместной работы над файлом (например, если данные заполняет несколько менеджеров).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</em> Если вы редактируете CSV в Excel, сохраняйте файл через <code>Файл → Сохранить как → CSV UTF-8 (разделители — запятые)</code>. Сохранение в стандартном формате <code>.csv</code> может привести к проблемам с кодировкой кириллических символов.</blockquote>
+
+<h2 id="faq-ответы-на-частые-вопросы-об-экспорте-csv-на-ozon">FAQ: Ответы на частые вопросы об экспорте CSV на Ozon</h2>
+
+<details>
+  <summary>Можно ли загрузить CSV с товарами, которые уже есть в каталоге?</summary>
+  <p>Да, но система обновит данные существующих товаров. Чтобы избежать случайных изменений, убедитесь, что <code>offer_id</code> в файле совпадают с артикулами в каталоге. Если <code>offer_id</code> не указан или не совпадает, будут созданы дубликаты.</p>
+</details>
+
+<details>
+  <summary>Сколько времени занимает обработка файла?</summary>
+  <p>Время зависит от размера файла:
+  <ul>
+    <li>До 1000 строк — 1–5 минут.</li>
+    <li>1000–10 000 строк — 5–30 минут.</li>
+    <li>Более 10 000 строк — до 2–3 часов.</li>
+  </ul>
+<p>В пиковые часы (с 10:00 до 14:00 по МСК) обработка может занять больше времени.</p></p>
+</details>
+
+<details>
+  <summary>Что делать, если после загрузки CSV товары не отображаются в каталоге?</summary>
+  <p>Причины могут быть следующими:
+  <ol>
+    <li>Товары на модерации (проверьте статус в разделе <code>Товары → На модерации</code>).</li>
+    <li>Ошибки в данных (скачайте лог ошибок в <code>История операций</code>).</li>
+    <li>Несоответствие категории (убедитесь, что <code>category_id</code> актуален).</li>
+    <li>Ограничения аккаунта (например, лимит на количество товаров).</li>
+  </ol>
+<p>Если проблема не решена, обратитесь в поддержку с указанием ID операции из истории.</p></p>
+</details>
+
+<details>
+  <summary>Можно ли экспортировать CSV с отзывами покупателей?</summary>
+  <p>Да, для этого в разделе <code>Отзывы → Экспорт</code> выберите формат CSV. Файл будет содержать:
+  <ul>
+    <li>ID отзыва;</li>
+    <li>Рейтинг (от 1 до 5);</li>
+    <li>Текст отзыва;</li>
+    <li>Дата публикации;</li>
+    <li>ID товара (<code>offer_id</code>).</li>
+  </ul>
+<p>Обратите внимание: экспорт отзывов доступен только для товаров, проданных за последние 12 месяцев.</p></p>
+</details>
+
+<details>
+  <summary>Как часто можно обновлять цены через CSV?</summary>
+  <p><em>Ozon</em> не устанавливает жёстких ограничений на частоту обновления цен, но:
+  <ul>
+    <li>Рекомендуемый интервал — не чаще 1 раза в 2–3 часа.</li>
+    <li>При массовых обновлениях (более 1000 товаров) используйте API.</li>
+    <li>Частые изменения цен (например, раз в 10 минут) могут привести к временной блокировке функции импорта.</li>
+  </ul>
+<p>Для динамического ценообразования (например, подстраивания под конкурентов) лучше использовать специализированные сервисы вроде <em>Pricer24</em> или <em>Competer</em>.</p></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/t/tr/trafarety-ozon-seller-kak-nastroit.html" class="pb-related-card">
+                <span class="pb-related-title">Трафареты Ozon Seller: как настроить и использовать в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по созданию, настройке и применению трафаретов в личном кабинете Ozon Seller. У</span>
+            </a><a href="/articles/z/za/zayavka-otklonena-ozon-chto-delat.html" class="pb-related-card">
+                <span class="pb-related-title">Заявка отклонена Ozon: причины, решения и повторная подача</span>
+                <span class="pb-related-desc">Почему Ozon отклонил заявку на создание товара или возврат? Полный разбор причин, пошаговая инструкц</span>
+            </a><a href="/articles/c/ch/chto-takoe-kontent-rejting-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Контент-рейтинг на Озон: что это и как его повысить</span>
+                <span class="pb-related-desc">Подробный разбор системы оценки качества карточек на Ozon. Узнайте, как контент-рейтинг влияет на пр</span>
+            </a><a href="/articles/k/ka/kak-perenesti-kartochku-s-vb-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как перенести карточку с Wildberries на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Детальный гайд по миграции товарных карточек с WB на Озон: экспорт данных, адаптация под требования </span>
+            </a><a href="/articles/k/ka/kak-sozdat-video-oblozhku-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать обложку для Ozon: размеры и требования 2026</span>
+                <span class="pb-related-desc">Полный гайд по созданию видеообложки для Ozon. Узнайте размеры, форматы, требования к весу и длитель</span>
+            </a><a href="/articles/u/up/upakovka-ozon-kak-vyglyadit.html" class="pb-related-card">
+                <span class="pb-related-title">Упаковка Ozon: размеры, виды коробок и требования 2026</span>
+                <span class="pb-related-desc">Как выглядит упаковка Ozon для продавцов FBO и FBS. Таблица размеров коробов, требования к маркировк</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

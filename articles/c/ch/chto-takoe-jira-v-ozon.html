@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Jira в Ozon: как работает трекер задач на маркетплейсе — Об Озоне</title>
+    <meta name="description" content="Полный разбор Jira в Озон. Как система управления проектами помогает селлерам и сотрудникам контролировать процессы, FBS, FBO и поддержку.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-takoe-jira-v-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Jira в Ozon: как работает трекер задач на маркетплейсе">
+    <meta property="og:description" content="Полный разбор Jira в Озон. Как система управления проектами помогает селлерам и сотрудникам контролировать процессы, FBS, FBO и поддержку.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Jira в Ozon: как работает трекер задач на маркетплейсе</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-jira-и-почему-она-используется-в-ozon">Что такое Jira и почему она используется в Ozon</a></li><li><a href="#роль-трекера-задач-в-жизни-селлера-и-покупателя">Роль трекера задач в жизни селлера и покупателя</a></li><li><a href="#основные-понятия-и-терминология-системы">Основные понятия и терминология системы</a></li><li><a href="#как-происходит-управление-инцидентами-и-багами">Как происходит управление инцидентами и багами</a></li><li><a href="#интеграция-jira-с-другими-сервисами-ozon">Интеграция Jira с другими сервисами Ozon</a></li><li><a href="#сравнение-схем-работы-как-задачи-влияют-на-логистику">Сравнение схем работы: как задачи влияют на логистику</a></li><li><a href="#перспективы-развития-автоматизации-процессов">Перспективы развития автоматизации процессов</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-ispolzuetsya-kislorod-i-ozon.html">Где используется кислород и озон: сферы применения и различия</a></li><li><a href="/articles/o/oz/ozon-kapelnitsa-skolko-seansov.html">Озон капельница: сколько сеансов нужно для эффекта</a></li><li><a href="/articles/k/ka/kakie-zhiklery-dolzhny-stoyat-na-karbyuratore-ozon-2105.html">Жиклеры карбюратора Озон 2105: таблица тарировки и настройки</a></li><li><a href="/articles/k/ka/kakaya-atomnaya-massa-u-ozona.html">Атомная масса озона: точный расчет и свойства</a></li><li><a href="/articles/i/iz/iz-chego-obrazuetsya-ozon-3-klass.html">Из чего образуется озон: объяснение для 3 класса</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Система Jira в Ozon: зачем нужна и как используется</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-jira-и-почему-она-используется-в-ozon">Что такое Jira и почему она используется в Ozon</a></li><li><a href="#роль-трекера-задач-в-жизни-селлера-и-покупателя">Роль трекера задач в жизни селлера и покупателя</a></li><li><a href="#основные-понятия-и-терминология-системы">Основные понятия и терминология системы</a></li><li><a href="#как-происходит-управление-инцидентами-и-багами">Как происходит управление инцидентами и багами</a></li><li><a href="#интеграция-jira-с-другими-сервисами-ozon">Интеграция Jira с другими сервисами Ozon</a></li><li><a href="#сравнение-схем-работы-как-задачи-влияют-на-логистику">Сравнение схем работы: как задачи влияют на логистику</a></li><li><a href="#перспективы-развития-автоматизации-процессов">Перспективы развития автоматизации процессов</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современной экосистеме электронной коммерции, особенно в масштабах такого гиганта, как <strong>Ozon</strong>, управление тысячами параллельных процессов превращается в сложнейшую логистическую и программную задачу. Для координации работы тысяч сотрудников, от разработчиков до менеджеров по продажам, и для интеграции с внешними партнерами-селлерами требуется мощный инструмент. Именно таким инструментом становится система <em>Jira</em>, которая глубоко интегрирована в корпоративную культуру и технические процессы компании.</p>
+
+<p>Многие пользователи и партнеры маркетплейса задаются вопросом, что такое <strong>Jira в Ozon</strong>, так как сталкиваются с упоминанием этого термина в контексте решения технических проблем или внедрения новых схем работы. Важно понимать, что это не просто программа для рисования задач, а фундаментальная платформа, на которой строится <em>Agile</em>-разработка и управление проектами внутри холдинга. Без нее было бы невозможно поддерживать текущий темп развития логистических центров и IT-инфраструктуры.</p>
+
+<p>В этой статье мы детально разберем, как именно используется этот трекер, почему он важен для стабильности работы сайта и как знание принципов его работы может косвенно помочь селлерам лучше понимать процессы модерации и технической поддержки. Мы рассмотрим внутреннюю кухню управления задачами, которая обеспечивает бесперебойную работу вашего личного кабинета.</p>
+
+<h2 id="что-такое-jira-и-почему-она-используется-в-ozon">Что такое Jira и почему она используется в Ozon</h2>
+
+<p><strong>Jira</strong> — это программное обеспечение для отслеживания ошибок и управления проектами, разработанное австралийской компанией <em>Atlassian</em>. В контексте <strong>Ozon</strong> эта система выполняет роль центрального нервного узла, где рождаются, живут и умирают задачи. Будь то исправление бага в мобильном приложении или запуск новой акции для покупателей, все это фиксируется в виде тикетов (карточек) внутри системы.</p>
+
+<p>Почему именно этот инструмент стал стандартом? Дело в гибкости. Ozon — это не просто интернет-магазин, это сложнейшая <strong>IT-экосистема</strong>. Система позволяет настраивать workflows (рабочие процессы) под любые нужды: от классического <em>Scrum</em> для разработчиков до <em>Kanban</em>-досок для отделов маркетинга. Это позволяет командам работать в едином информационном поле, исключая потерю данных.</p>
+
+<p>Ключевым преимуществом является возможность интеграции. Jira в Ozon связана с системами мониторинга, репозиториями кода и даже с CRM-системами. Это означает, что если на сайте падает оплата, система мониторинга может автоматически создать задачу в Jira, назначить ответственного разработчика и запустить таймер решения проблемы. Такой подход минимизирует время простоя сервисов.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Jira является внутренним корпоративным инструментом Ozon. Доступ к ней имеют только штатные сотрудники и подрядчики с соответствующими допусками. Селлеры и покупатели не могут получить доступ к этой системе напрямую.</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-50448aad"><div class="pb-poll-question">📊 Как вы предпочитаете решать технические вопросы с поддержкой?</div><div class="pb-poll-option" data-poll="50448aad" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через чат в ЛК</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="50448aad" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через email</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="50448aad" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через телефон горячей линии</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="50448aad" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Жду ответа в течение суток</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="роль-трекера-задач-в-жизни-селлера-и-покупателя">Роль трекера задач в жизни селлера и покупателя</h2>
+
+<p>Хотя вы не видите интерфейса Jira в своем личном кабинете, результаты работы с этой системой влияют на ваш опыт напрямую. Каждая жалоба, поступившая в отдел технической поддержки Ozon, трансформируется в задачу. Если проблема массовая или требует вмешательства программистов, она попадает в бэклог разработки. Именно приоритизация этих задач в <strong>Jira</strong> определяет, когда будет исправлен баг с отображением остатков или когда заработает новый фильтр в поиске.</p>
+
+<p>Для селлеров, работающих по схемам <em>FBO</em> и <em>FBS</em>, критически важна скорость реакции системы на изменения. Когда вы создаете поставку или меняете габариты товара, этот запрос проходит через множество микросервисов. Если происходит сбой, инженеры Ozon используют Jira для отслеживания пути транзакции, находят узкое место и устраняют ошибку. Без структурированного подхода к таким инцидентам хаос наступил бы за считанные часы.</p>
+
+<p>Кроме того, существуют задачи, связанные с безопасностью. Модерация товаров, проверка документов и блокировка подозрительных аккаунтов также часто координируются через подобные системы управления workflows. Это позволяет обеспечивать прозрачность действий модераторов и возможность аудита принятых решений в любой момент времени.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Понимание того, что ваша проблема — это задача в очереди (очереди могут быть огромными), помогает адекватнее оценивать сроки ответа поддержки. Чем критичнее баг, тем выше его приоритет в системе.</p></aside>
+
+<h2 id="основные-понятия-и-терминология-системы">Основные понятия и терминология системы</h2>
+
+<p>Чтобы лучше разбираться в том, как устроены процессы внутри Ozon, полезно знать базовую терминологию, используемую в <strong>Jira</strong>. Эти термины часто проскальзывают в ответах техподдержки или в статьях для партнеров, описывающих технические работы.</p>
+
+<p>Вот основные понятия, которые формируют структуру работы:</p>
+<ul>
+<li>📌 <strong>Issue (Задача)</strong> — минимальная единица работы. Это может быть баг, новая фича, вопрос от пользователя или задача по рефакторингу кода.</li>
+<li>📊 <strong>Project (Проект)</strong> — контейнер для группы задач, объединенных общей целью. Например, проект "Логистика FBS" или проект "Мобильное приложение iOS".</li>
+<li>🔄 <strong>Workflow (Рабочий процесс)</strong> — жизненный цикл задачи. Она может переходить из статуса "To Do" (Нужно сделать) в "In Progress" (В работе) и далее в "Done" (Готово).</li>
+<li>🏷️ <strong>Epic (Эпик)</strong> — большая задача, которую невозможно выполнить за один раз. Эпик разбивается на множество мелких Stories (историй) и Tasks.</li>
+</ul>
+
+<p>Понимание этих терминов помогает осознать масштаб работы, который проводится ежедневно. Когда вы видите сообщение "Технические работы", это значит, что команда выполняет сложный <strong>Epic</strong>, затрагивающий множество микросервисов.</p>
+
+<details class="pb-accordion"><summary>Что такое бэклог?</summary><div class="pb-accordion-body"><p>Бэклог — это список всех задач, которые нужно выполнить в проекте, отсортированный по приоритету. Задачи с верхушки списка выполняются в первую очередь, а нижние могут ждать своей очереди месяцами.</p></div></details>
+
+<h2 id="как-происходит-управление-инцидентами-и-багами">Как происходит управление инцидентами и багами</h2>
+
+<p>Процесс обработки ошибок в Ozon отлажен до мелочей. Когда пользователь или система фиксирует ошибку, создается соответствующий тикет. Важнейшим этапом является <strong>триаж</strong> — первичная сортировка поступивших задач. Специалисты определяют серьезность бага и его влияние на бизнес-процессы.</p>
+
+<p>Существует четкая градация приоритетов, которая определяет скорость реакции:</p>
+<ul>
+<li>🔥 <strong>Critical</strong> — критическая ошибка, блокирующая работу основного функционала (например, невозможность оплаты). Решается в течение минут или часов.</li>
+<li>⚠️ <strong>Major</strong> — серьезная проблема, затрагивающая многих пользователей, но имеющая обходные пути.</li>
+<li>📉 <strong>Minor</strong> — косметические дефекты или ошибки, затрагивающие малый процент пользователей.</li>
+<li>📝 <strong>Trivial</strong> — опечатки или незначительные неудобства в интерфейсе.</li>
+</ul>
+
+<p>Для селлеров важно понимать эту градацию. Если у вас не грузится фотография одного товара, это, скорее всего, <em>Minor</em>. Если же упала выгрузка всего ассортимента через API, это уже <strong>Critical</strong>, и реакция команды Ozon будет мгновенной. Система Jira позволяет автоматически эскалировать такие задачи на руководителей отделов, если они не решены в установленное время (SLA).</p>
+
+<blockquote>
+<p>⚠️ Внимание: При описании проблемы в поддержку старайтесь четко указывать, насколько она влияет на ваш бизнес. Это поможет оператору правильно классифицировать задачу и присвоить ей верный приоритет в системе.</p>
+</blockquote>
+
+<h2 id="интеграция-jira-с-другими-сервисами-ozon">Интеграция Jira с другими сервисами Ozon</h2>
+
+<p>Система управления задачами не существует в вакууме. В экосистеме Ozon она плотно связана с инструментами разработки и аналитики. Основным связующим звеном часто выступает <em>Confluence</em> (база знаний) и <strong>Bitbucket</strong> или <em>GitLab</em> (хранилища кода).</p>
+
+<p>Вот как выглядит типичная цепочка взаимодействия:</p>
+<ol>
+<li>Разработчик получает задачу в Jira.</li>
+<li>Он пишет код и создает Pull Request в репозитории.</li>
+<li>После проверки код вливается в основную ветку.</li>
+<li>Система автоматически обновляет статус задачи в Jira.</li>
+<li>Задача переходит в тестирование.</li>
+</ol>
+
+<p>Такая автоматизация исключает человеческий фактор и забыть про задачу. Кроме того, Jira интегрирована с системами мониторинга, такими как <em>Grafana</em> или <em>Zabbix</em>. Если серверы Ozon начинают испытывать высокую нагрузку, алерты могут автоматически создавать превентивные задачи для инженеров, позволяя устранить проблему до того, как она станет заметна пользователям.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Что делать, если у вас возникла проблема с ЛК</h4><label class="check-item"><input type="checkbox"><span></span></label><label class="check-item"><input type="checkbox"><span>Опишите проблему максимально подробно</span></label><label class="check-item"><input type="checkbox"><span>Укажите ID заказа или товара</span></label><label class="check-item"><input type="checkbox"><span>Приложите скриншоты ошибки</span></label><label class="check-item"><input type="checkbox"><span>Сообщите в поддержку через официальный канал</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="сравнение-схем-работы-как-задачи-влияют-на-логистику">Сравнение схем работы: как задачи влияют на логистику</h2>
+
+<p>Разные схемы работы с Ozon (<em>FBO, FBS, RealFBS</em>) требуют разных настроек в IT-инфраструктуре. Управление этими настройками также ведется через систему задач. Например, изменение правил приема товара на склад FBO требует обновления регламентов в системе и изменения логики работы терминалов сборщиков.</p>
+
+<p>Ниже приведена таблица, демонстрирующая, как задачи в Jira могут влиять на различные аспекты работы селлера:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип задачи</th>
+<th>Влияние на FBO</th>
+<th>Влияние на FBS</th>
+<th>Влияние на Маркетплейс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Обновление API</td>
+<td>Изменение формата файлов поставки</td>
+<td>Необходимость обновить ПО для печати этикеток</td>
+<td>Изменение способов передачи данных</td>
+</tr>
+<tr>
+<td>Изменение габаритов</td>
+<td>Пересчет стоимости хранения</td>
+<td>Корректировка логистического тарифа</td>
+<td>Актуализация данных в карточке</td>
+</tr>
+<tr>
+<td>Сбой в платежах</td>
+<td>Задержка выплат</td>
+<td>Задержка выплат</td>
+<td>Невозможность покупки для клиентов</td>
+</tr>
+<tr>
+<td>Модерация контента</td>
+<td>Блокировка карточек товаров</td>
+<td>Блокировка карточек товаров</td>
+<td>Удаление запрещенного контента</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, одна техническая задача на стороне Ozon может иметь волновой эффект для всех участников рынка. Именно поэтому качество проработки требований (Task Requirements) в Jira так важно. Ошибка на этапе планирования может стоить миллионами рублей убытков для селлеров из-за неверного расчета логистики.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Стабильность работы Ozon зависит от качества управления задачами внутри компании. Каждая ваша жалоба — это потенциальная задача, которая помогает сделать платформу лучше.</p></aside>
+
+<h2 id="перспективы-развития-автоматизации-процессов">Перспективы развития автоматизации процессов</h2>
+
+<p>Ozon продолжает активно инвестировать в автоматизацию. Внедрение искусственного интеллекта и машинного обучения в процессы управления задачами — следующий шаг. Уже сейчас существуют алгоритмы, которые могут автоматически предлагать исполнителя для задачи или предсказывать время её выполнения на основе истории.</p>
+
+<p>В будущем мы можем увидеть еще более глубокую интеграцию, где селлеры смогут отслеживать статус исправления багов в реальном времени через свой кабинет, видя прогресс-бар задачи прямо в интерфейсе поддержки. Это сделает взаимодействие между платформой и партнерами максимально прозрачным.</p>
+
+<p>Однако, несмотря на развитие технологий, роль человека остается ключевой. Именно специалисты Ozon принимают финальные решения о приоритетах и методах решения сложных проблем. Система лишь предоставляет им удобный и мощный инструмент для работы.</p>
+
+<details>
+<summary>Может ли селлер получить доступ к Jira Ozon?</summary>
+<p>Нет, доступ к внутренней системе управления задачами Ozon имеют только сотрудники компании и авторизованные подрядчики. Для селлеров эта информация закрыта в целях безопасности.</p>
+</details>
+
+<details>
+<summary>Как быстрее решить проблему, если она связана с багом?</summary>
+<p>Опишите проблему максимально подробно в поддержке, указав шаги для воспроизведения ошибки. Чем точнее описание, тем быстрее задача будет классифицирована и передана разработчикам.</p>
+</details>
+
+<details>
+<summary>Использует ли Ozon только Jira?</summary>
+<p>Нет, Ozon использует широкий спектр инструментов. Jira — лишь один из них, хотя и один из самых важных для координации работы IT-отделов и смежных подразделений.</p>
+</details>
+
+<details>
+<summary>Влияет ли Jira на скорость доставки товаров?</summary>
+<p>Косвенно — да. Эффективное управление задачами по логистике и работе складов через такие системы помогает оптимизировать процессы и избегать сбоев, что в итоге ускоряет доставку.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-ispolzuetsya-kislorod-i-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где используется кислород и озон: сферы применения и различия</span>
+                <span class="pb-related-desc">Подробный гид: где применяется кислород и озон. Медицина, промышленность, экология. В чем разница ме</span>
+            </a><a href="/articles/o/oz/ozon-kapelnitsa-skolko-seansov.html" class="pb-related-card">
+                <span class="pb-related-title">Озон капельница: сколько сеансов нужно для эффекта</span>
+                <span class="pb-related-desc">Узнайте, сколько сеансов озонотерапии потребуется. График процедур, дозировки и длительность курса л</span>
+            </a><a href="/articles/k/ka/kakie-zhiklery-dolzhny-stoyat-na-karbyuratore-ozon-2105.html" class="pb-related-card">
+                <span class="pb-related-title">Жиклеры карбюратора Озон 2105: таблица тарировки и настройки</span>
+                <span class="pb-related-desc">Какие жиклеры стоят на карбюраторе Озон 2105. Таблица размеров, калибровки и правильная установка дл</span>
+            </a><a href="/articles/k/ka/kakaya-atomnaya-massa-u-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Атомная масса озона: точный расчет и свойства</span>
+                <span class="pb-related-desc">Какая атомная масса у озона? Разбор молекулярной массы O3, сравнение с кислородом и влияние изотопов</span>
+            </a><a href="/articles/i/iz/iz-chego-obrazuetsya-ozon-3-klass.html" class="pb-related-card">
+                <span class="pb-related-title">Из чего образуется озон: объяснение для 3 класса</span>
+                <span class="pb-related-desc">Узнайте, как образуется озон в природе и лаборатории. Простое объяснение для 3 класса про электричес</span>
+            </a><a href="/articles/c/ch/chem-polezny-inektsii-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Чем полезны инъекции озона: польза и вред процедуры</span>
+                <span class="pb-related-desc">Узнайте, чем полезны инъекции озона для здоровья и красоты. Полный разбор показаний, противопоказани</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

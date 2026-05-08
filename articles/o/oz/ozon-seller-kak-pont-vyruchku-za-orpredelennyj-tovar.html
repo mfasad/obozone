@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как узнать выручку по товару на Ozon Seller — 5 способов с инструкциями — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство для продавцов Ozon: как посмотреть выручку по конкретному товару в личном кабинете, через отчёты и API. Разбираем нюансы FBS/FBO, комиссии и скрытые данные.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-seller-kak-pont-vyruchku-za-orpredelennyj-tovar.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как узнать выручку по товару на Ozon Seller — 5 способов с инструкциями">
+    <meta property="og:description" content="Пошаговое руководство для продавцов Ozon: как посмотреть выручку по конкретному товару в личном кабинете, через отчёты и API. Разбираем нюансы FBS/FBO, комиссии и скрытые данные.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как узнать выручку по товару на Ozon Seller — 5 способов с инструкциями</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-базовый-способ-раздел-финансы-в-ozon-seller">1. Базовый способ: раздел «Финансы» в Ozon Seller</a></li><li><a href="#2-детализированный-отчёт-продажи-и-возвраты">2. Детализированный отчёт «Продажи и возвраты»</a></li><li><a href="#3-скрытые-данные-отчёт-транзакции-по-товарам">3. Скрытые данные: отчёт «Транзакции по товарам»</a></li><li><a href="#4-api-ozon-автоматическое-получение-выручки-для-продвинутых">4. API Ozon: автоматическое получение выручки (для продвинутых)</a></li><li><a href="#5-особенности-выручки-для-схем-fbs-и-fbo">5. Особенности выручки для схем FBS и FBO</a></li><li><a href="#6-типичные-ошибки-при-расчёте-выручки">6. Типичные ошибки при расчёте выручки</a></li><li><a href="#7-как-увеличить-выручку-по-товару-3-работающих-способа">7. Как увеличить выручку по товару: 3 работающих способа</a></li><li><a href="#faq-частые-вопросы-о-выручке-на-ozon">FAQ: Частые вопросы о выручке на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vybrat-termoprinter-dlya-pechati-etiketok-samokleyashchikhsya-ozon.html">Как выбрать термопринтер для этикеток Озон: гид по моделям</a></li><li><a href="/articles/o/oz/ozon-kak-rabotat-prodavtsom.html">Как работать продавцом на Ozon в 2026: пошаговое руководство</a></li><li><a href="/articles/k/ka/kak-poluchit-subsidiyu-ozon.html">Субсидия Озон для продавцов: как получить и условия 2026</a></li><li><a href="/articles/k/ka/kak-prodat-chto-nibud-na-ozone.html">Как продать товар на Озоне: пошаговое руководство 2026</a></li><li><a href="/articles/k/kt/kto-yavlyaetsya-prodavtsom-na-ozone.html">Кто является продавцом на Озоне: статусы и роли</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как продавцу на Ozon узнать выручку по конкретному товару: все способы 2026</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-базовый-способ-раздел-финансы-в-ozon-seller">1. Базовый способ: раздел «Финансы» в Ozon Seller</a></li><li><a href="#2-детализированный-отчёт-продажи-и-возвраты">2. Детализированный отчёт «Продажи и возвраты»</a></li><li><a href="#3-скрытые-данные-отчёт-транзакции-по-товарам">3. Скрытые данные: отчёт «Транзакции по товарам»</a></li><li><a href="#4-api-ozon-автоматическое-получение-выручки-для-продвинутых">4. API Ozon: автоматическое получение выручки (для продвинутых)</a></li><li><a href="#5-особенности-выручки-для-схем-fbs-и-fbo">5. Особенности выручки для схем FBS и FBO</a></li><li><a href="#6-типичные-ошибки-при-расчёте-выручки">6. Типичные ошибки при расчёте выручки</a></li><li><a href="#7-как-увеличить-выручку-по-товару-3-работающих-способа">7. Как увеличить выручку по товару: 3 работающих способа</a></li><li><a href="#faq-частые-вопросы-о-выручке-на-ozon">FAQ: Частые вопросы о выручке на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Продаёте на <em>Ozon</em> и хотите понять, сколько реально заработали на конкретном товаре? Эта задача только кажется простой. В личном кабинете продавца (<strong>Ozon Seller</strong>) данные о выручке разбросаны по разным разделам, а итоговые суммы часто не совпадают с ожиданиями из-за комиссий, возвратов и особенностей схем <code>FBS</code>/<code>FBO</code>. В этой статье разберём <strong>все доступные способы</strong> получения данных — от базовых отчётов до скрытых фишек API, которые знают не все продавцы.</p>
+
+<p>Многие продавцы ошибочно смотрят только на график продаж в разделе <code>Аналитика</code>, но он показывает <strong>оборот</strong>, а не чистую выручку. Разница может достигать <strong>30-40%</strong> из-за комиссий маркетплейса, логистических расходов и удержаний по гарантиям. Мы покажем, как вычленить <strong>точные цифры</strong> по каждому товару, включая нюансы для разных категорий (например, <em>Ozon Premium</em> или <em>Экспресс</em>).</p>
+
+<p>В статье вы найдёте:</p>
+<ul>
+  <li>🔍 <strong>3 стандартных способа</strong> проверки выручки через личный кабинет (с скриншотами и путями)</li>
+  <li>📊 <strong>Расшифровку отчётов</strong>: где искать данные по комиссиям, возвратам и штрафам</li>
+  <li>💻 <strong>Скрытые возможности API</strong> для автоматизации (даже без технических навыков)</li>
+  <li>⚠️ <strong>Типичные ошибки</strong>, из-за которых продавцы теряют до 15% выручки</li>
+</ul>
+
+<h2 id="1-базовый-способ-раздел-финансы-в-ozon-seller">1. Базовый способ: раздел «Финансы» в Ozon Seller</h2>
+
+<p>Самый очевидный, но не всегда точный метод — проверка через вкладку <code>Финансы → Выплаты</code>. Здесь отображаются все транзакции, но данные требуют <strong>ручной фильтрации</strong>.</p>
+
+<p>Чтобы увидеть выручку по конкретному товару:</p>
+<ol>
+  <li>Перейдите в <code>Финансы → Выплаты → История выплат</code>.</li>
+  <li>В фильтре выберите период (например, последний месяц).</li>
+  <li>В поле <code>Артикул</code> введите SKU вашего товара.</li>
+  <li>Нажмите <code>Применить</code> и экспортируйте данные в <code>Excel</code>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> В этом разделе показываются <mark>только подтверждённые выплаты</mark>, без учёта заказов в статусе «В обработке» или возвратов. Если товар продался вчера, его выручка может появиться здесь только через 3-5 дней.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте фильтр по статусу «Выполнен» — так вы исключите отменённые заказы, которые искажают статистику.</p></aside>
+
+<p>Кроме того, здесь не видно <strong>детализацию комиссий</strong>. Например, если у вас схемы <code>FBS</code> и <code>FBO</code> одновременно, суммы будут смешаны. Чтобы разделить их, потребуется дополнительный отчёт (о нём — в следующем разделе).</p>
+
+<h2 id="2-детализированный-отчёт-продажи-и-возвраты">2. Детализированный отчёт «Продажи и возвраты»</h2>
+
+<p>Для точного анализа выручки используйте отчёт <code>Аналитика → Продажи и возвраты</code>. Он показывает:</p>
+<ul>
+  <li>📦 <strong>Количество проданных единиц</strong> по каждому SKU</li>
+  <li>💰 <strong>Сумму продаж брутто</strong> (до вычета комиссий)</li>
+  <li>🔄 <strong>Возвраты и отмены</strong> с указанием причины</li>
+  <li>📉 <strong>Итоговую выручку нетто</strong> (с учётом удержаний)</li>
+</ul>
+
+<p>Как получить данные:</p>
+<ol>
+  <li>Откройте <code>Аналитика → Продажи и возвраты</code>.</li>
+  <li>Установите период (максимум 90 дней).</li>
+  <li>В фильтре <code>Товары</code> выберите нужный SKU или категорию.</li>
+  <li>Экспортируйте отчёт в <code>CSV</code> для дальнейшего анализа.</li>
+</ol>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Показатель</th>
+      <th>Описание</th>
+      <th>Где искать в отчёте</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Выручка брутто</strong></td>
+      <td>Сумма всех продаж без вычета комиссий</td>
+      <td>Колонка «Сумма заказа»</td>
+    </tr>
+    <tr>
+      <td><strong>Комиссия Ozon</strong></td>
+      <td>Процент маркетплейса (от 5% до 25%)</td>
+      <td>Колонка «Комиссия»</td>
+    </tr>
+    <tr>
+      <td><strong>Логистика FBS</strong></td>
+      <td>Стоимость хранения и доставки (если используется)</td>
+      <td>Колонка «Логистика»</td>
+    </tr>
+    <tr>
+      <td><strong>Выручка нетто</strong></td>
+      <td>Итоговая сумма к выплате продавцу</td>
+      <td>Колонка «Итого к выплате»</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если вы продаёте товары в категории <em>Ozon Premium</em> или участвуете в акциях (например, «Выгодная цена»), комиссии могут отличаться от стандартных. В отчёте это не всегда видно — проверяйте условия в договоре.</p>
+
+<div class="pb-poll" id="poll-a6273d4f"><div class="pb-poll-question">📊 Как часто вы анализируете выручку по товарам?</div><div class="pb-poll-option" data-poll="a6273d4f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a6273d4f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a6273d4f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a6273d4f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только перед выплатой</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a6273d4f" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Не анализирую</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-скрытые-данные-отчёт-транзакции-по-товарам">3. Скрытые данные: отчёт «Транзакции по товарам»</h2>
+
+<p>Мало кто знает, но в <strong>Ozon Seller</strong> есть скрытый отчёт, который показывает <mark>почасовую динамику продаж и выручки</mark> по каждому товару. Он называется <code>Транзакции по товарам</code> и доступен по пути:</p>
+<pre><code>Аналитика → Отчёты → Транзакции по товарам</code></pre>
+
+<p>Преимущества этого отчёта:</p>
+<ul>
+  <li>🕒 <strong>Данные в реальном времени</strong> (обновляются каждые 2 часа)</li>
+  <li>📈 <strong>Разбивка по типам заказов</strong> (FBS/FBO, самовывоз, курьер)</li>
+  <li>💳 <strong>Учёт всех удержаний</strong>, включая штрафы за нарушения</li>
+</ul>
+
+<p>Как им пользоваться:</p>
+<ol>
+  <li>Выберите период (максимум 30 дней).</li>
+  <li>Отфильтруйте по нужному SKU или категории.</li>
+  <li>Обратите внимание на колонку <code>Тип транзакции</code> — там могут быть скрытые удержания (например, за несоответствие описанию).</li>
+</ol>
+
+<details class="pb-accordion"><summary>Какие удержания могут быть скрыты в отчёте?</summary><div class="pb-accordion-body"><p>
+<p>В отчёте "Транзакции по товарам" иногда не явным образом отображаются:</p>
+<p>- Штрафы за нарушение сроков отгрузки (до 10% от стоимости заказа).</p>
+<p>- Компенсации покупателям за дефекты (если вы не подтвердили возврат).</p>
+<p>- Удержания по гарантийным случаям (до 30 дней после продажи).</p>
+<p>Эти суммы могут "съедать" до 5-7% выручки, но в стандартных отчётах они часто группируются под общей строкой "Прочие удержания".</p></div></details></p>
+
+<p>🔹 <strong>Совет:</strong> Сравнивайте данные из этого отчёта с выпиской из раздела <code>Финансы</code>. Если суммы не сходятся, проверьте наличие штрафов в <code>Поддержка → Штрафы и блокировки</code>.</p>
+
+<h2 id="4-api-ozon-автоматическое-получение-выручки-для-продвинутых">4. API Ozon: автоматическое получение выручки (для продвинутых)</h2>
+
+<p>Если у вас сотни товаров, ручной анализ отчётов займёт часы. Решение — <strong>API Ozon</strong>, которое позволяет автоматически выгружать данные о выручке по каждому SKU. Для этого не обязательно быть программистом: можно использовать готовые сервисы вроде <em>Zapier</em> или <em>Make (ex-Integromat)</em>.</p>
+
+<p>Что можно получить через API:</p>
+<ul>
+  <li>📌 <strong>Выручку по товару в реальном времени</strong> (с разбивкой по дням)</li>
+  <li>📊 <strong>Данные по комиссиям и логистике</strong> для каждого заказа</li>
+  <li>🔄 <strong>Статусы возвратов и отмен</strong> с причинами</li>
+</ul>
+
+<p>Как подключиться:</p>
+<ol>
+  <li>Зарегистрируйте приложение в <a href="https://seller.ozon.ru/api-keys" target="_blank"><code>Личном кабинете → API-ключи</code></a>.</li>
+  <li>Получите <code>Client-ID</code> и <code>API-Key</code>.</li>
+  <li>Используйте endpoint <code>/v2/finance/transaction/totals</code> для выгрузки финансовых данных.</li>
+</ol>
+
+<p>Пример запроса для получения выручки по товару (SKU <code>12345-ABC</code>) за месяц:</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/finance/transaction/totals
+<p>Headers:</p>
+<p>- Client-Id: [ваш_client_id]</p>
+<p>- Api-Key: [ваш_api_key]</p>
+<p>Params:</p>
+<p>- date_from: "2026-06-01T00:00:00Z"</p>
+<p>- date_to: "2026-06-30T23:59:59Z"</p>
+<p>- sku: 12345-ABC</code></pre></p>
+
+<p>⚠️ <strong>Внимание:</strong> API имеет лимиты — не более 100 запросов в минуту. Для массовой выгрузки используйте пагинацию (<code>limit</code> и <code>offset</code>).</p>
+
+
+<p>Получить Client-ID и API-Key в личном кабинете</p>
+<p>Установить Postman или другой HTTP-клиент</p>
+<p>Изучить документацию по endpoint /v2/finance/transaction/totals</p>
+<p>Настроить автоматическую выгрузку в Google Sheets или Excel--></p>
+
+<h2 id="5-особенности-выручки-для-схем-fbs-и-fbo">5. Особенности выручки для схем FBS и FBO</h2>
+
+<p>Выручка по одному и тому же товару может отличаться в зависимости от схемы работы: <code>FBS</code> (хранение на складе Ozon) или <code>FBO</code> (самостоятельная отгрузка). Разберём ключевые различия.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>FBS</th>
+      <th>FBO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Комиссия Ozon</strong></td>
+      <td>От 10% до 25% (включает логистику)</td>
+      <td>От 5% до 15% (логистика отдельно)</td>
+    </tr>
+    <tr>
+      <td><strong>Логистические расходы</strong></td>
+      <td>Включены в комиссию</td>
+      <td>Оплачиваются отдельно (по тарифам перевозчиков)</td>
+    </tr>
+    <tr>
+      <td><strong>Сроки выплаты</strong></td>
+      <td>До 3 дней после доставки</td>
+      <td>До 5 дней после подтверждения заказа</td>
+    </tr>
+    <tr>
+      <td><strong>Возвраты</strong></td>
+      <td>Озон обрабатывает самостоятельно</td>
+      <td>Продавец управляет процессом</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>🔹 <strong>Пример:</strong> Если вы продаёте товар за <strong>1000 ₽</strong> по схеме <code>FBS</code> с комиссией 15%, ваша выручка составит <strong>850 ₽</strong> (включая логистику). По <code>FBO</code> с комиссией 10% вы получите <strong>900 ₽</strong>, но отдельно оплатите доставку (например, <strong>150 ₽</strong>), итого — <strong>750 ₽</strong>. Разница в <strong>100 ₽</strong> на одном заказе!</p>
+
+<p>⚠️ <strong>Внимание:</strong> При работе по <code>FBO</code> в отчётах не всегда видна реальная стоимость доставки. Чтобы её учесть, экспортируйте данные из раздела <code>Логистика → Заказы</code> и суммируйте расходы вручную.</p>
+
+<h2 id="6-типичные-ошибки-при-расчёте-выручки">6. Типичные ошибки при расчёте выручки</h2>
+
+<p>Даже опытные продавцы часто допускают ошибки, из-за которых теряют контроль над финансами. Вот самые распространённые:</p>
+
+<ul>
+  <li>🚫 <strong>Игнорирование возвратов</strong>: Выручка в отчётах показывается до учёта возвратов. Если не отслеживать их, можно переоценить прибыль на 10-30%.</li>
+  <li>🚫 <strong>Неучтённые комиссии</strong>: Например, за участие в акциях (<em>Ozon Акции</em>) или продажу в <em>Ozon Premium</em> комиссия увеличивается на 2-5%.</li>
+  <li>🚫 <strong>Путаница между брутто и нетто</strong>: Многие смотрят на сумму заказов, забывая вычесть комиссии и логистику.</li>
+  <li>🚫 <strong>Несвоевременный анализ</strong>: Данные о штрафах или удержаниях могут появиться в отчётах через 1-2 недели после продажи.</li>
+</ul>
+
+<p>🔹 <strong>Как избежать ошибок:</strong></p>
+<ol>
+  <li>Проверяйте выручку не реже 1 раза в неделю.</li>
+  <li>Сверяйте данные из отчётов <code>Продажи и возвраты</code> и <code>Транзакции по товарам</code>.</li>
+  <li>Используйте <code>Excel</code> или <code>Google Sheets</code> для автоматического расчёта нетто-выручки по формуле:
+    <pre><code>=СУММ(выручка_брутто) - СУММ(комиссии) - СУММ(логистика) - СУММ(штрафы)</code></pre>
+  </li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Реальная выручка = (Сумма продаж) − (Комиссии Ozon) − (Логистика) − (Возвраты) − (Штрафы). Без учёта этих компонентов ваши расчёты будут неточными.</p></aside>
+
+<h2 id="7-как-увеличить-выручку-по-товару-3-работающих-способа">7. Как увеличить выручку по товару: 3 работающих способа</h2>
+
+<p>Зная точную выручку, можно оптимизировать продажи. Вот что реально работает в 2026 году:</p>
+
+<ul>
+  <li>📈 <strong>Повышение среднего чека</strong>: Добавьте к товару <em>комплектующие</em> или <em>аксессуары</em> (например, чехол к телефону). Это увеличивает выручку на 15-20% без дополнительных затрат на рекламу.</li>
+  <li>🎯 <strong>Участие в акциях</strong>: Товары в <em>Ozon Акции</em> или <em>Распродажа</em> продаются в 2-3 раза чаще, но следите за комиссией (она вырастает до 20-25%).</li>
+  <li>🚀 <strong>Оптимизация карточки</strong>: Добавьте в описание ключевые слова из <code>Wordstat</code> и <code>Ozon Подсказки</code>. Товары с проработанным SEO продаются на 30-40% лучше.</li>
+</ul>
+
+<p>🔹 <strong>Пример:</strong> Продавец электроники добавил к смартфону (<em>SKU: PHONE-123</em>) чехол и плёнку в виде комплектов. Средний чек вырос с <strong>20 000 ₽</strong> до <strong>23 500 ₽</strong>, а выручка по товару — на <strong>17%</strong> за месяц.</p>
+
+<p>⚠️ <strong>Внимание:</strong> Если вы участвуете в акциях, в отчётах выручка будет показана с учётом скидки, но комиссия Ozon рассчитывается от <strong>полной стоимости товара</strong>. Например, при цене <strong>10 000 ₽</strong> и скидке 20% покупатель платит <strong>8 000 ₽</strong>, но комиссия берётся с <strong>10 000 ₽</strong>. Это снижает вашу маржу!</p>
+
+<h2 id="faq-частые-вопросы-о-выручке-на-ozon">FAQ: Частые вопросы о выручке на Ozon</h2>
+
+<details>
+  <summary>🔹 Почему выручка в отчёте не совпадает с суммой на счёту?</summary>
+  <p>Это происходит из-за:</p>
+  <ul>
+    <li>Задержки выплат (до 5 дней после доставки).</li>
+    <li>Удержаний по гарантиям или штрафам (они могут списаться через 1-2 недели).</li>
+    <li>Возвратов, которые ещё не обработали.</li>
+  </ul>
+  <p>Чтобы увидеть точную картину, сверяйте данные из отчётов <code>Продажи и возвраты</code> и <code>Транзакции по товарам</code>.</p>
+</details>
+
+<details>
+  <summary>🔹 Как узнать выручку по товару за весь период продаж?</summary>
+  <p>В личном кабинете данные хранятся максимум за 90 дней. Чтобы получить историю:</p>
+  <ol>
+    <li>Экспортируйте отчёты ежемесячно и сохраняйте их в <code>Excel</code>.</li>
+    <li>Используйте <strong>API Ozon</strong> для выгрузки архивных данных.</li>
+    <li>Обратитесь в поддержку с запросом на предоставление исторических данных (иногда помогает).</li>
+  </ol>
+</details>
+
+<details>
+  <summary>🔹 Почему комиссия Ozon выше, чем в договоре?</summary>
+  <p>Это может быть связано с:</p>
+  <ul>
+    <li>Участием в акциях (комиссия увеличивается на 2-5%).</li>
+    <li>Продажей в категории <em>Ozon Premium</em> или <em>Экспресс</em>.</li>
+    <li>Штрафами за нарушение правил (например, несоответствие описанию).</li>
+  </ul>
+  <p>Проверьте детализацию в отчёте <code>Транзакции по товарам</code> или уточните у менеджера Ozon.</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли увидеть выручку по товару в мобильном приложении Ozon Seller?</summary>
+  <p>В мобильном приложении функционал ограничен. Вы можете:</p>
+  <ul>
+    <li>Посмотреть общую выручку в разделе <code>Финансы</code>.</li>
+    <li>Увидеть количество продаж по товару в <code>Аналитика</code>.</li>
+  </ul>
+  <p>Но для детального анализа (с учётом комиссий и возвратов) лучше использовать <strong>десктопную версию</strong> или <strong>API</strong>.</p>
+</details>
+
+<details>
+  <summary>🔹 Как посчитать рентабельность товара на Ozon?</summary>
+  <p>Формула:</p>
+  <pre><code>Рентабельность (%) = (Выручка нетто − Себестоимость − Доп. расходы) / Себестоимость × 100%</code></pre>
+  <p>Где:</p>
+  <ul>
+    <li><strong>Выручка нетто</strong> — из отчёта <code>Продажи и возвраты</code> (колонка «Итого к выплате»).</li>
+    <li><strong>Себестоимость</strong> — ваша закупочная цена + доставка на склад (для FBS).</li>
+    <li><strong>Доп. расходы</strong> — реклама, упаковка, хранение (если FBS).</li>
+  </ul>
+  <p>🔹 <strong>Пример:</strong> Если выручка нетто — <strong>800 ₽</strong>, себестоимость — <strong>500 ₽</strong>, а доп. расходы — <strong>100 ₽</strong>, то рентабельность = <strong>(800 − 500 − 100) / 500 × 100% = 40%</strong>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-vybrat-termoprinter-dlya-pechati-etiketok-samokleyashchikhsya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выбрать термопринтер для этикеток Озон: гид по моделям</span>
+                <span class="pb-related-desc">Полный гайд по выбору термопринтера для маркетплейса Ozon. Сравнение моделей, типы печати, советы по</span>
+            </a><a href="/articles/o/oz/ozon-kak-rabotat-prodavtsom.html" class="pb-related-card">
+                <span class="pb-related-title">Как работать продавцом на Ozon в 2026: пошаговое руководство</span>
+                <span class="pb-related-desc">Полная инструкция для новичков: регистрация, загрузка товаров, схемы FBS/FBO, тарифы и советы по уве</span>
+            </a><a href="/articles/k/ka/kak-poluchit-subsidiyu-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Субсидия Озон для продавцов: как получить и условия 2026</span>
+                <span class="pb-related-desc">Узнайте, как получить субсидию Озон в 2026 году. Разбор условий, требования к селлерам, пошаговая ин</span>
+            </a><a href="/articles/k/ka/kak-prodat-chto-nibud-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать товар на Озоне: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Полная инструкция для новичков: от регистрации до первых продаж на Ozon. Реальные советы по оформлен</span>
+            </a><a href="/articles/k/kt/kto-yavlyaetsya-prodavtsom-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Кто является продавцом на Озоне: статусы и роли</span>
+                <span class="pb-related-desc">Разбираем, кто считается продавцом на Озоне. ИП, ООО или самозанятый? Юридические статусы, ответстве</span>
+            </a><a href="/articles/k/ka/kakaya-natsenka-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Наценка на Озоне в 2026: как формируется и как снизить издержки</span>
+                <span class="pb-related-desc">Разбираемся, какая наценка на Озоне для продавцов и покупателей: комиссии маркетплейса, скрытые плат</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

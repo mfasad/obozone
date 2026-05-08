@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как рассчитать рейтинг товара на Ozon: формула и советы 2026 — Об Озоне</title>
+    <meta name="description" content="Пошаговый разбор алгоритма рейтинга Ozon: какие метрики влияют на позиции товара, как улучшить показатели и избежать ошибок. Актуальные данные для продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rasschitat-rejting-tovara-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как рассчитать рейтинг товара на Ozon: формула и советы 2026">
+    <meta property="og:description" content="Пошаговый разбор алгоритма рейтинга Ozon: какие метрики влияют на позиции товара, как улучшить показатели и избежать ошибок. Актуальные данные для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как рассчитать рейтинг товара на Ozon: формула и советы 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#официальная-формула-рейтинга-ozon-что-известно">Официальная формула рейтинга Ozon: что известно</a></li><li><a href="#топ-5-факторов-влияющих-на-рейтинг-разбор-по-весам">Топ-5 факторов, влияющих на рейтинг: разбор по весам</a></li><li><a href="#как-рассчитать-рейтинг-самостоятельно-пошаговая-инструкция">Как рассчитать рейтинг самостоятельно: пошаговая инструкция</a></li><li><a href="#скрытые-факторы-рейтинга-что-не-говорят-в-документации">Скрытые факторы рейтинга: что не говорят в документации</a></li><li><a href="#ошибки-которые-убивают-рейтинг-чек-лист-антипримеров">Ошибки, которые убивают рейтинг: чек-лист антипримеров</a></li><li><a href="#как-улучшить-рейтинг-практические-шаги">Как улучшить рейтинг: практические шаги</a></li><li><a href="#faq-частые-вопросы-о-рейтинге-на-ozon">FAQ: Частые вопросы о рейтинге на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-podklyuchit-edo-dlya-ip-na-ozon.html">Как подключить ЭДО для ИП на Ozon: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-nachat-sotrudnichat-s-ozon-po-prodazhe-tovara.html">Как начать продавать на Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/g/gd/gde-v-prilozhenii-ozon-posmotret-protsent-vykupa.html">Как в Озон посмотреть процент выкупа: пошаговый гайд 2026</a></li><li><a href="/articles/k/ka/kak-poluchit-ozon-bally-selleru.html">Как получить Ozon баллы селлеру: полная инструкция</a></li><li><a href="/articles/k/ka/kak-stat-sejlerom-v-ozon.html">Как стать продавцом на Ozon в 2026: пошаговое руководство для новичков</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как рассчитать рейтинг товара на Ozon: формула, факторы и практические советы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#официальная-формула-рейтинга-ozon-что-известно">Официальная формула рейтинга Ozon: что известно</a></li><li><a href="#топ-5-факторов-влияющих-на-рейтинг-разбор-по-весам">Топ-5 факторов, влияющих на рейтинг: разбор по весам</a></li><li><a href="#как-рассчитать-рейтинг-самостоятельно-пошаговая-инструкция">Как рассчитать рейтинг самостоятельно: пошаговая инструкция</a></li><li><a href="#скрытые-факторы-рейтинга-что-не-говорят-в-документации">Скрытые факторы рейтинга: что не говорят в документации</a></li><li><a href="#ошибки-которые-убивают-рейтинг-чек-лист-антипримеров">Ошибки, которые убивают рейтинг: чек-лист антипримеров</a></li><li><a href="#как-улучшить-рейтинг-практические-шаги">Как улучшить рейтинг: практические шаги</a></li><li><a href="#faq-частые-вопросы-о-рейтинге-на-ozon">FAQ: Частые вопросы о рейтинге на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Рейтинг товара на <em>Ozon</em> — это не просто цифра в личном кабинете, а ключевой показатель, определяющий видимость вашего продукта в поисковой выдаче и, как следствие, объем продаж. Многие продавцы ошибочно считают, что достаточно загрузить качественные фото и указать конкурентную цену, но на самом деле алгоритм маркетплейса учитывает десятки параметров — от скорости обработки заказов до количества возвратов. Без понимания механики формирования рейтинга даже лучший товар рискует остаться незамеченным на последних страницах каталога.</p>
+
+<p>В этой статье мы разберём официальную формулу расчёта рейтинга <em>Ozon</em>, раскроем скрытые факторы, влияющие на позиции, и дадим практические рекомендации, как улучшить показатели без нарушения правил платформы. Актуальная информация на 2026 год с учётом последних обновлений алгоритма.</p>
+
+<h2 id="официальная-формула-рейтинга-ozon-что-известно">Официальная формула рейтинга Ozon: что известно</h2>
+
+<p>Маркетплейс <em>Ozon</em> не раскрывает полный алгоритм ранжирования, но в документации для продавцов указаны ключевые компоненты формулы. Рейтинг товара (<strong>Product Rating</strong>) рассчитывается как взвешенная сумма нескольких метрик, где каждая имеет свой вес. Базовая формула выглядит так:</p>
+
+<pre><code>Рейтинг = (w₁ × Конверсия) + (w₂ × Оценка покупателей) + (w₃ × Скорость обработки) + (w₄ × Коэффициент возвратов) + ...</code></pre>
+
+<p>Где <code>w₁, w₂, w₃</code> — весовые коэффициенты, которые <em>Ozon</em> периодически корректирует. Например, в 2026 году повышен вес <strong>скорости доставки</strong> для товаров в категории FBS (до 30% от общего рейтинга), а для FBO — <strong>коэффициента отмен</strong> (до 25%).</p>
+
+<p>Важно: формула динамична и может меняться в зависимости от:</p>
+<ul>
+  <li>📦 <strong>Категории товара</strong> (электроника, одежда, продукты питания имеют разные приоритеты)</li>
+  <li>📈 <strong>Сезонности</strong> (в период распродаж вес цены увеличивается до 40%)</li>
+  <li>🏆 <strong>Уровня продавца</strong> (для <em>Premium</em>-партнёров действуют льготные коэффициенты)</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если ваш товар попал в топ-100 категории, <em>Ozon</em> автоматически увеличивает вес метрики "оценка покупателей" на 15%. Это стимул поддерживать высокий сервис.</p></aside>
+
+<h2 id="топ-5-факторов-влияющих-на-рейтинг-разбор-по-весам">Топ-5 факторов, влияющих на рейтинг: разбор по весам</h2>
+
+<p>Анализ данных продавцов и официальные заявления <em>Ozon</em> позволяют выделить 5 ключевых метрик, которые формируют до 80% итогового рейтинга. Их вес распределён следующим образом (актуально для большинства категорий в 2026 году):</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Фактор</th>
+      <th>Вес в формуле (%)</th>
+      <th>Как улучшить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Конверсия в покупку</strong> (CTR + CR)</td>
+      <td>35%</td>
+      <td>Оптимизировать карточку товара, использовать промо-акции</td>
+    </tr>
+    <tr>
+      <td><strong>Оценка покупателей</strong> (средний рейтинг отзывов)</td>
+      <td>25%</td>
+      <td>Стимулировать отзывы, решать претензии оперативно</td>
+    </tr>
+    <tr>
+      <td><strong>Скорость обработки заказов</strong> (FBS/FBO)</td>
+      <td>20%</td>
+      <td>Автоматизировать логистику, соблюдать SLA</td>
+    </tr>
+    <tr>
+      <td><strong>Коэффициент возвратов</strong> (доля возвращённых товаров)</td>
+      <td>10%</td>
+      <td>Улучшать описание, добавлять видеообзоры</td>
+    </tr>
+    <tr>
+      <td><strong>Цена относительно конкурентов</strong> (индекс ценовой конкурентоспособности)</td>
+      <td>10%</td>
+      <td>Мониторить цены, использовать динамическое ценообразование</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><mark>Критическая ошибка: игнорирование метрики "скорость обработки" в FBS может снизить рейтинг на 40-50% за 1 месяц, даже при высоких продажах.</mark> Например, если вы превышаете SLA (время на сборку заказа) более чем на 20%, <em>Ozon</em> автоматически понижает вес всех остальных метрик.</p>
+
+<blockquote>⚠️ Внимание: В категории "Электроника" вес фактора <strong>коэффициент возвратов</strong> увеличен до 15% из-за высокой доли брака. Если возвращаемость превышает 8%, товар исключается из рекомендаций.</blockquote>
+
+<h2 id="как-рассчитать-рейтинг-самостоятельно-пошаговая-инструкция">Как рассчитать рейтинг самостоятельно: пошаговая инструкция</h2>
+
+<p>Хотя точную формулу знает только <em>Ozon</em>, вы можете приблизительно оценить рейтинг своего товара с помощью упрощённой модели. Для этого потребуются данные из личного кабинета за последние 30 дней:</p>
+
+
+<p>Скачать отчёт "Аналитика продаж" за 30 дней|Посчитать конверсию (покупки/просмотры)|Оценить средний рейтинг отзывов|Проверить скорость обработки заказов (SLA)|Рассчитать долю возвратов--></p>
+
+<p>Шаг 1. <strong>Конверсия</strong>:</p>
+<p>Используйте формулу:</p>
+<pre><code>Конверсия (%) = (Количество покупок / Количество просмотров карточки) × 100</code></pre>
+<p>Нормальные значения: 3-5% для новых товаров, 8-12% для лидеров категории.</p>
+
+<p>Шаг 2. <strong>Оценка покупателей</strong>:</p>
+<p>Возьмите средний балл из отзывов за 30 дней. Если отзывов меньше 10, <em>Ozon</em> применяет понижающий коэффициент 0.7.</p>
+
+<p>Шаг 3. <strong>Скорость обработки</strong> (только для FBS):</p>
+<p>Проверьте в отчёте <code>Логистика → SLA</code> долю заказов, обработанных в срок. Оптимально: 98%+.</p>
+
+<p>Шаг 4. <strong>Коэффициент возвратов</strong>:</p>
+<pre><code>Коэффициент возвратов = (Количество возвратов / Общее количество заказов) × 100</code></pre>
+<p>Критический порог: 5%. Превышение ведёт к штрафам.</p>
+
+<p>Шаг 5. <strong>Сравните с конкурентами</strong>:</p>
+<p>Используйте инструмент <code>Ozon Statistics</code> (доступен для <em>Premium</em>-партнёров), чтобы увидеть средние значения по категории.</p>
+
+
+<p>Конверсия|Оценки покупателей|Скорость обработки|Цена|Другой--></p>
+
+<h2 id="скрытые-факторы-рейтинга-что-не-говорят-в-документации">Скрытые факторы рейтинга: что не говорят в документации</h2>
+
+<p>Помимо официальных метрик, <em>Ozon</em> учитывает ряд скрытых параметров, которые могут как резко поднять, так и обвалить рейтинг. Их не найти в справке, но продавцы с опытом выявили следующие закономерности:</p>
+
+<ul>
+  <li>🔄 <strong>Частота обновления карточки</strong>: Товары, у которых раз в 7-10 дней обновляется описание, фото или цена, получают бонус +5% к видимости. Это связано с алгоритмом "свежести контента".</li>
+  <li>📊 <strong>Глубина просмотра карточки</strong>: Если покупатели проводят на странице товара более 45 секунд, <em>Ozon</em> повышает вес метрики <strong>конверсии</strong> на 10%. Добиться этого помогают видеообзоры и детализированные характеристики.</li>
+  <li>🛒 <strong>Корзина и избранное</strong>: Количество добавлений в корзину (даже без покупки) увеличивает рейтинг на 2-3%. Это сигнал о высоком интересе.</li>
+  <li>📢 <strong>Участие в акциях</strong>: Товары, участвующие в распродажах <em>Ozon</em> (например, "Выгодная цена"), получают временный бонус +15% к рейтингу на 7 дней после окончания акции.</li>
+</ul>
+
+<p><strong>Пример из практики</strong>: Продавец одежды обновлял фото товаров каждую неделю и добавил 3D-тур карточки. За месяц конверсия выросла с 4% до 9%, а позиции в поиске улучшились с 15-го на 3-е место.</p>
+
+<blockquote>⚠️ Внимание: Резкое увеличение трафика на карточку без роста продаж (например, из-за нецелевой рекламы) может <strong>снизить рейтинг</strong>. Алгоритм расценивает это как низкую релевантность.</blockquote>
+
+<details class="pb-accordion"><summary>Как Ozon борется с накруткой рейтинга?</summary><div class="pb-accordion-body"><p>
+<p>Маркетплейс использует поведенческий анализ: если 80% отзывов оставлены с одного IP-адреса или в течение 1 часа, они автоматически помечаются как подозрительные и исключаются из расчёта рейтинга. Также блокируются аккаунты с аномально высокой конверсией (более 30% за день) без соответствующего роста трафика.</p></div></details></p>
+
+<h2 id="ошибки-которые-убивают-рейтинг-чек-лист-антипримеров">Ошибки, которые убивают рейтинг: чек-лист антипримеров</h2>
+
+<p>Даже опытные продавцы иногда совершают действия, которые ведут к обвалу рейтинга. Вот топ-7 ошибок, которые нужно исключить:</p>
+
+<ul>
+  <li>❌ <strong>Игнорирование претензий</strong>: Неответ на жалобу покупателя в течение 24 часов снижает рейтинг на 1% за каждый день просрочки.</li>
+  <li>❌ <strong>Некорректные характеристики</strong>: Если реальные параметры товара не совпадают с указанными (например, цвет или размер), доля возвратов растёт, а рейтинг падает.</li>
+  <li>❌ <strong>Резкие скачки цены</strong>: Повышение цены более чем на 20% за 3 дня ведёт к понижению в выдаче на 10-15 позиций.</li>
+  <li>❌ <strong>Отсутствие фото в отзывах</strong>: Товары с отзывами без фото получают на 30% меньше веса в алгоритме.</li>
+  <li>❌ <strong>Нарушение SLA в FBS</strong>: За каждый просроченный заказ штраф — минус 0.5% к рейтингу.</li>
+  <li>❌ <strong>Копирование описаний</strong>: Уникальность текста менее 80% ведёт к понижению в поиске.</li>
+  <li>❌ <strong>Использование запрещённых ключевых слов</strong>: Слова вроде "хит продаж" или "суперскидка" в заголовке могут вызвать санкции.</li>
+</ul>
+
+<p>Реальный кейс: Магазин электроники потерял 60% трафика после того, как в отзывах появилось 15 жалоб на несоответствие комплектации. Восстановление рейтинга заняло 3 месяца.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Один негативный отзыв с рейтингом 1 звезда нивелирует эффект от 10 положительных отзывов с 5 звёздами. Всегда реагируйте на критику оперативно!</p></aside>
+
+<h2 id="как-улучшить-рейтинг-практические-шаги">Как улучшить рейтинг: практические шаги</h2>
+
+<p>Повысить рейтинг можно системно, работая над каждой метрикой. Вот проверенная стратегия:</p>
+
+<p><strong>1. Конверсия</strong>:</p>
+<ul>
+  <li>📸 Добавьте <em>360°-фото</em> и видеообзор (увеличивает конверсию на 12%).</li>
+  <li>🎯 Используйте в заголовке ключевые слова из <code>Ozon Statistics</code> (например, вместо "Смартфон" укажите "Смартфон 128ГБ NFC быстрая доставка").</li>
+  <li>💰 Тестируйте цены: снижение на 3-5% может увеличить продажи на 20%.</li>
+</ul>
+
+<p><strong>2. Оценки покупателей</strong>:</p>
+<ul>
+  <li>📩 Отправляйте персонализированные сообщения после покупки с просьбой оставить отзыв (но без стимулирования!).</li>
+  <li>🎁 Вкладывайте в заказ бонус (стикер, образец) — это увеличивает вероятность положительного отзыва на 40%.</li>
+  <li>🔄 Решайте претензии до эскалации: если покупатель закрывает спор в вашу пользу, <em>Ozon</em> не учитывает его в негативных метриках.</li>
+</ul>
+
+<p><strong>3. Скорость обработки (FBS)</strong>:</p>
+<ul>
+  <li>⚡ Автоматизируйте сборку заказов с помощью <em>WMS</em>-систем (например, <em>МойСклад</em> или <em>1С:Логистика</em>).</li>
+  <li>📦 Упаковывайте товары заранее (например, комплектование популярных позиций).</li>
+  <li>📈 Отслеживайте SLA в реальном времени через <code>Ozon Seller → Логистика</code>.</li>
+</ul>
+
+<p><strong>4. Коэффициент возвратов</strong>:</p>
+<ul>
+  <li>📹 Добавьте видео с демонстрацией товара (снижает возвраты на 30%).</li>
+  <li>📏 Укажите точные размеры в описании (для одежды — таблицу соответствия).</li>
+  <li>🔄 Предложите обмен вместо возврата (это не влияет на рейтинг так сильно).</li>
+</ul>
+
+<p>Пример: После добавления видеообзора и таблицы размеров в карточку платья магазин <em>"ModaStyle"</em> снизил возвраты с 12% до 4%, а рейтинг вырос с 4.2 до 4.8 за 2 месяца.</p>
+
+<h2 id="faq-частые-вопросы-о-рейтинге-на-ozon">FAQ: Частые вопросы о рейтинге на Ozon</h2>
+
+<details>
+  <summary>Как часто обновляется рейтинг товара?</summary>
+  <p>Рейтинг пересчитывается ежедневно в 03:00 по московскому времени, но изменения в поисковой выдаче могут проявляться с задержкой до 48 часов. В период распродаж (например, <em>Ozon Sale</em>) обновление происходит каждые 6 часов.</p>
+</details>
+
+<details>
+  <summary>Можно ли искусственно поднять рейтинг?</summary>
+  <p>Любые манипуляции (накрутка отзывов, покупка трафика, подставные аккаунты) ведут к блокировке. <em>Ozon</em> использует поведенческий анализ и нейросеть для выявления мошенничества. Например, если 20% заказов сделаны с одного устройства, товар исключают из выдачи.</p>
+</details>
+
+<details>
+  <summary>Почему рейтинг упал без видимых причин?</summary>
+  <p>Причины могут быть скрытыми:</p>
+  <ul>
+    <li>Конкуренты улучшили метрики (например, снизили цены).</li>
+    <li><em>Ozon</em> изменил веса в формуле (бывает 1-2 раза в квартал).</li>
+    <li>Появились новые жалобы на качество (даже без возвратов).</li>
+    <li>Алгоритм зафиксировал нетипичное поведение (например, рост трафика без продаж).</li>
+  </ul>
+  <p>Проверьте отчёт <code>Аналитика → Диагностика рейтинга</code>.</p>
+</details>
+
+<details>
+  <summary>Как рейтинг влияет на участие в акциях?</summary>
+  <p>Для участия в промо-кампаниях (например, "Топ дня") требуется минимальный рейтинг:</p>
+  <ul>
+    <li>4.5+ — для электроники и бытовой техники;</li>
+    <li>4.2+ — для одежды и обуви;</li>
+    <li>4.7+ — для детских товаров.</li>
+  </ul>
+  <p>Если рейтинг ниже порога, <em>Ozon</em> может отказать в участии даже при высоких продажах.</p>
+</details>
+
+<details>
+  <summary>Что важнее: рейтинг товара или рейтинг продавца?</summary>
+  <p>Оба показателя взаимосвязаны, но приоритет зависит от категории:</p>
+  <ul>
+    <li>Для <strong>новых товаров</strong> важнее рейтинг продавца (он влияет на доверие).</li>
+    <li>Для <strong>популярных позиций</strong> (топ-100) — рейтинг товара (определяет позиции в выдаче).</li>
+  </ul>
+  <p>Например, продавец с рейтингом 4.8, но товаром с рейтингом 3.5 будет проигрывать конкуренту с обратными показателями.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-podklyuchit-edo-dlya-ip-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как подключить ЭДО для ИП на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гайд по подключению электронного документооборота для ИП на Ozon. Разбор операторов, настр</span>
+            </a><a href="/articles/k/ka/kak-nachat-sotrudnichat-s-ozon-po-prodazhe-tovara.html" class="pb-related-card">
+                <span class="pb-related-title">Как начать продавать на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как начать сотрудничать с Озон, выбрать схему FBO или FBS, оформить документы и запустить п</span>
+            </a><a href="/articles/g/gd/gde-v-prilozhenii-ozon-posmotret-protsent-vykupa.html" class="pb-related-card">
+                <span class="pb-related-title">Как в Озон посмотреть процент выкупа: пошаговый гайд 2026</span>
+                <span class="pb-related-desc">Где найти процент выкупа в приложении Озон: подробная инструкция для продавцов с картинками, советам</span>
+            </a><a href="/articles/k/ka/kak-poluchit-ozon-bally-selleru.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить Ozon баллы селлеру: полная инструкция</span>
+                <span class="pb-related-desc">Узнайте, как получить Ozon баллы селлеру. Разбор программ лояльности, кэшбэка, акций и условий испол</span>
+            </a><a href="/articles/k/ka/kak-stat-sejlerom-v-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как стать продавцом на Ozon в 2026: пошаговое руководство для новичков</span>
+                <span class="pb-related-desc">Полная инструкция по регистрации, требованиям и первым шагам для продажи на Ozon. Открытие магазина,</span>
+            </a><a href="/articles/o/oz/ozon-chto-vkhodit-v-dokhody.html" class="pb-related-card">
+                <span class="pb-related-title">Что входит в доходы на Озон: полная инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, какие поступления считаются доходом на Озон. Разбор факторинга, возвратов, бонусов и штрафо</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

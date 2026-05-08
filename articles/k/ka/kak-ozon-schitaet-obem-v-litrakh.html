@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Ozon считает объем в литрах: правила габаритов — Об Озоне</title>
+    <meta name="description" content="Узнайте, как Ozon рассчитывает объем в литрах для расчета стоимости логистики. Формулы, нюансы упаковки и влияние на комиссию продавца.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ozon-schitaet-obem-v-litrakh.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Ozon считает объем в литрах: правила габаритов">
+    <meta property="og:description" content="Узнайте, как Ozon рассчитывает объем в литрах для расчета стоимости логистики. Формулы, нюансы упаковки и влияние на комиссию продавца.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Ozon считает объем в литрах: правила габаритов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#базовая-формула-расчета-литража">Базовая формула расчета литража</a></li><li><a href="#правила-округления-и-дискретизация-данных">Правила округления и дискретизация данных</a></li><li><a href="#влияние-типа-упаковки-на-расчет-объема">Влияние типа упаковки на расчет объема</a></li><li><a href="#особенности-расчета-для-составных-товаров">Особенности расчета для составных товаров</a></li><li><a href="#проверка-и-корректировка-габаритов-в-личном-кабинете">Проверка и корректировка габаритов в личном кабинете</a></li><li><a href="#стратегии-оптимизации-объема-для-sellers">Стратегии оптимизации объема для sellers</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-vzyat-nomer-gtd-na-tovar-ozon.html">Где найти номер ГТД на Ozon: инструкция для продавца</a></li><li><a href="/articles/k/ka/kak-skachat-foto-ozon.html">Как скачать фото Ozon: подробная инструкция для продавцов</a></li><li><a href="/articles/k/ka/kak-pravilno-pisat-kheshtegi-na-ozon.html">Хештеги на Ozon: как писать правильно для продаж в 2026 году</a></li><li><a href="/articles/g/gd/gde-brat-artikuly-na-ozon.html">Где взять артикулы для Озон: 7 проверенных способов 2026</a></li><li><a href="/articles/m/mo/mozhno-li-kak-to-obedinit-kartochki-na-ozone-s-vb.html">Объединить карточки Ozon и Wildberries: возможно ли это?</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как Ozon считает объем в литрах: формулы и правила</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#базовая-формула-расчета-литража">Базовая формула расчета литража</a></li><li><a href="#правила-округления-и-дискретизация-данных">Правила округления и дискретизация данных</a></li><li><a href="#влияние-типа-упаковки-на-расчет-объема">Влияние типа упаковки на расчет объема</a></li><li><a href="#особенности-расчета-для-составных-товаров">Особенности расчета для составных товаров</a></li><li><a href="#проверка-и-корректировка-габаритов-в-личном-кабинете">Проверка и корректировка габаритов в личном кабинете</a></li><li><a href="#стратегии-оптимизации-объема-для-sellers">Стратегии оптимизации объема для sellers</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Понимание принципов расчета объема товаров на Ozon является критически важным навыком для любого селлера, стремящегося оптимизировать свои расходы на логистику. Маркетплейс использует сложную систему тарификации, где стоимость хранения и доставки напрямую зависит от габаритов упаковки, переведенных в литры. Ошибка в расчетах или неверное указание размеров может привести к существенным финансовым потерям и неожиданным списаниям с баланса.</p>
+
+<p>В этой статье мы подробно разберем математические алгоритмы, которые применяет платформа для конвертации физических размеров в литраж. Вы узнаете, почему <strong>округление</strong> играет ключевую роль, как правильно измерять товар и какие нюансы скрываются в интерфейсе личного кабинета продавца. Точность данных — залог прозрачности ваших доходов.</p>
+
+<h2 id="базовая-формула-расчета-литража">Базовая формула расчета литража</h2>
+
+<p>В основе всей системы логистических расчетов Ozon лежит простая, но строго регламентированная математическая формула. Алгоритм берет три линейных измерения упаковки — длину, ширину и высоту — и перемножает их между собой. Полученное значение в кубических сантиметрах затем делится на 1000 для перевода в литры. Важно понимать, что система не учитывает форму предмета, если он не вписан в прямоугольную коробку.</p>
+
+<p>Для точного расчета необходимо использовать миллиметры или сантиметры, но итоговый результат всегда приводится к литрам. <strong>Объемная масса</strong> товара может отличаться от физической, и именно объемная используется для тарификации. Если вы торгуете легкими, но крупногабаритными товарами, этот параметр становится определяющим для вашей маржинальности.</p>
+
+<p>Существует распространенное заблуждение, что система берет средние значения или игнорирует выступы упаковки. На самом деле, алгоритм работает по принципу описанного прямоугольника. Это означает, что любые неровности, ручки или выдающиеся части упаковки будут учтены в общих габаритах.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не указывайте размеры самого товара без учета упаковки. Система рассчитывает стоимость логистики исходя из габаритов, которые займет единица товара на полке склада или в машине курьера.</p>
+</blockquote>
+
+<p>Рассмотрим пример расчета для стандартной коробки. Если длина составляет 20 см, ширина 15 см, а высота 10 см, то расчет будет следующим: (20 <em> 15 </em> 10) / 1000 = 3 литра. Именно эта цифра ляжет в основу тарифа.</p>
+
+<h2 id="правила-округления-и-дискретизация-данных">Правила округления и дискретизация данных</h2>
+
+<p>Одним из самых важных аспектов, который часто упускают новички, является правило округления. Ozon не работает с дробными числами в литрах при финальном расчете стоимости услуг. Все полученные значения объема округляются в большую сторону до целого числа. Это правило называется "математическое округление вверх" или ceiling function в контексте тарификации.</p>
+
+<p>Даже если расчетный объем составляет 0,1 литра или 1,01 литра, для системы это будет равно 1 литру и 2 литрам соответственно. Такая дискретизация создает так называемые "ценовые ступени". Попадание в следующую ступень даже на сотые доли литра может увеличить стоимость логистики на 10-15%.</p>
+
+<ul>
+<li>📦 <strong>Минимальный порог:</strong> Товары объемом до 1 литра тарифицируются как 1 литр, независимо от фактического размера.</li>
+<li>📈 <strong>Шаг тарификации:</strong> Каждый следующий целый литр открывает новый ценовой диапазон в логистическом калькуляторе.</li>
+<li>📉 <strong>Влияние на маржу:</strong> Товар объемом 1,1 литра оплачивается как 2 литра, что существенно снижает рентабельность.</li>
+</ul>
+
+<p>Это правило диктует жесткие требования к выбору упаковочных материалов. Использование коробок "впритык" позволяет экономить на каждом отправленном заказе. Если вы используете пакеты, важно максимально сплющивать товар перед запайкой, чтобы минимизировать высоту упаковки.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Округление происходит автоматически в момент приемки товара на складе Ozon или при создании поставки. Самостоятельный расчет в Excel может дать расхождение с данными платформы, если не учесть этот нюанс.</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-9dfb4993"><div class="pb-poll-question">📊 Как вы обычно измеряете габариты товара?</div><div class="pb-poll-option" data-poll="9dfb4993" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Линейкой вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9dfb4993" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Автоматически на линии</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9dfb4993" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">По данным поставщика</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9dfb4993" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не измеряю, беру из карточки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="влияние-типа-упаковки-на-расчет-объема">Влияние типа упаковки на расчет объема</h2>
+
+<p>Тип упаковки, который вы выбираете для отгрузки товара, напрямую влияет на итоговый литраж. Ozon различает жесткую тару (коробки) и мягкую упаковку (пакеты, стрейч-пленка). Для жестких коробок размеры фиксируются по внешним граням. Для мягкой упаковки действуют особые правила, так как она может деформироваться.</p>
+
+<p>При использовании пакетов-маек или курьер-пакетов система часто применяет коэффициенты или специальные алгоритмы замера, если товар не занимает весь объем пакета. Однако, если пакет раздут, именно его фактические размеры в расправленном или заполненном состоянии будут взяты за основу. <strong>Вакуумная упаковка</strong> является отличным способом снизить объем для товаров из текстиля или мягкой игрушки.</p>
+
+<p>Существуют также требования к минимальным размерам упаковки. Если товар слишком мал, но упакован в большую коробку с большим количеством пустого пространства (воздуха), вы платите за воздух. Логистические операторы называют это "shipping air", и это прямая потеря денег продавца.</p>
+
+<p>В таблице ниже приведены примеры влияния типа упаковки на расчетный объем для одного и того же товара (футболка):</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип упаковки</th>
+<th>Размеры (см)</th>
+<th>Расчетный объем (л)</th>
+<th>Округленный объем (л)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стандартный пакет</td>
+<td>20 x 15 x 2</td>
+<td>0.6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Коробка 20x20x5</td>
+<td>20 x 20 x 5</td>
+<td>2.0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Коробка 25x25x5</td>
+<td>25 x 25 x 5</td>
+<td>3.125</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Вакуумный пакет</td>
+<td>20 x 15 x 1</td>
+<td>0.3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, увеличение высоты коробки всего на несколько сантиметров может привести к удвоению расчетного литража. Поэтому подбор <em>оптимальной тары</em> — это задача, требующая внимательности и точных измерений.</p>
+
+<h2 id="особенности-расчета-для-составных-товаров">Особенности расчета для составных товаров</h2>
+
+<p>Отдельного внимания заслуживает расчет объема для товаров, состоящих из нескольких единиц (наборы, комплекты). Здесь важно различать два понятия: продажа отдельными единицами и продажа комплектом. Если вы продаете набор посуды из 6 тарелок, упакованных вместе, объем считается для всей упаковки целиком.</p>
+
+<p>Если же товар подразумевает сборку из нескольких частей, которые поставляются в разных коробках, но являются одной товарной единицей (SKU), ситуация усложняется. В таких случаях Ozon может суммировать объемы всех коробок или считать по габаритам самой крупной, в зависимости от настроек в личном кабинете. <strong>Составной SKU</strong> требует особой внимательности при заполнении карточки.</p>
+
+<p>При создании комплектов вручную (например, "шампунь + кондиционер") система берет сумму объемов упаковок каждого товара. Однако, если вы упаковываете их в общий внешний пакет или коробку, необходимо указывать габариты именно этой финальной упаковки. Иначе логистика посчитается некорректно.</p>
+
+<details class="pb-accordion"><summary>Как избежать ошибок при составных товарах?</summary><div class="pb-accordion-body"><p>При создании составного товара (комплекта) создавайте новый SKU и указывайте для него габариты финальной, собранной упаковки. Не полагайтесь на автоматическое суммирование габаритов компонентов, так как это может привести к двойному учету объема воздуха между упаковками.</p></div></details>
+
+<p>Частой ошибкой является указание габаритов одного предмета из набора, когда продается упаковка из нескольких штук. Например, для набора из 10 пар носков нельзя указывать размеры одной пары. Указывайте размеры пачки, в которой лежат все 10 пар.</p>
+
+<h2 id="проверка-и-корректировка-габаритов-в-личном-кабинете">Проверка и корректировка габаритов в личном кабинете</h2>
+
+<p>После отгрузки товара на склад Ozon проводится процедура приемки, в ходе которой сотрудники маркетплейса перемеряют товар. Данные, полученные в результате этого замера, становятся приоритетными. Если ваши указанные габариты отличаются от замеренных, система автоматически обновит информацию и пересчитает стоимость услуг.</p>
+
+<p>Проверить актуальные габариты можно в разделе "Товары и цены" -> "Список товаров". Там отображаются колонки "Длина", "Ширина", "Высота" и "Объем". Если вы видите, что объем рассчитан неверно на ваш взгляд, необходимо инициировать пересмотр габаритов.</p>
+
+<ul>
+<li>🔍 <strong>Анализ:</strong> Регулярно проверяйте отчеты по габаритам в разделе аналитики.</li>
+<li>📝 <strong>Заявка:</strong> Для изменения размеров подавайте заявку через поддержку или специальный инструмент в ЛК.</li>
+<li>📸 <strong>Доказательства:</strong> Приложите фотографии товара с рулеткой для подтверждения своих расчетов.</li>
+</ul>
+
+<p>Процесс оспаривания габаритов может занять от нескольких дней до двух недель. В этот период тарификация будет производиться по новым, "ошибочным" данным. Поэтому превентивная проверка размеров перед отправкой первой партии на FBO критически важна.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если расхождение в габаритах вызвано производственным браком упаковки (коробки разного размера в одной партии), Ozon возьмет максимальные значения. Контролируйте качество упаковки у поставщика.</p>
+</blockquote>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед отгрузкой</h4><label class="check-item"><input type="checkbox"><span>Измерить товар с упаковкой</span></label><label class="check-item"><input type="checkbox"><span>Проверить правило округления</span></label><label class="check-item"><input type="checkbox"><span>Сравнить с данными в ЛК</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в жесткости упаковки</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="стратегии-оптимизации-объема-для-sellers">Стратегии оптимизации объема для sellers</h2>
+
+<p>Зная, как Ozon считает объем в литрах, можно разработать эффективную стратегию по снижению логистических расходов. Первым шагом является аудит упаковки. Переход с картонных коробок на плотные полиэтиленовые пакеты для определенных категорий товаров (одежда, текстиль, мягкие игрушки) позволяет сократить объем в 2-3 раза.</p>
+
+<p>Второй шаг — работа с поставщиками. Многие фабрики упаковывают товар в громоздкие коробки "на складской запас". Договоритесь с производителем об использовании компактной упаковки или о поставке товара в сжатом виде (например, в вакууме). <strong>Оптимизация упаковки</strong> на этапе производства дает наибольший эффект.</p>
+
+<p>Третий шаг — комбинирование товаров. Если вы продаете сопутствующие товары, попробуйте формировать наборы, которые в сумме занимают меньше места, чем если бы они лежали отдельно. Однако здесь нужно быть осторожным с правилами округления.</p>
+
+<p>Также стоит рассмотреть возможность использования услуг фулфилмента, который специализируется на работе с маркетплейсами. Профессиональные упаковщики знают, как сложить товар, чтобы минимизировать занимаемый объем, и часто имеют доступ к упаковке нестандартных, более эффективных размеров.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте коробки стандартных размеров, которые кратны размерам паллет Ozon. Это позволит эффективнее использовать пространство при отгрузке на склад и избежать переплаты за "воздух" в паллетоместе.</p></aside>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Что будет, если я укажу меньший объем, чем есть на самом деле?</summary>
+<p>Система Ozon при приемке на складе проведет замеры. Если фактический объем окажется больше указанного, данные будут обновлены, а с вашего счета будет списана разница в стоимости логистики за весь период хранения и доставки. Также возможны штрафы за недостоверные данные.</p>
+</details>
+
+<details>
+<summary>Как измеряется объем товара неправильной формы (например, велосипед или гитара)?</summary>
+<p>Для товаров неправильной формы расчет производится по методу описанного прямоугольника. Измеряются максимальные точки выступающих частей по длине, ширине и высоте, и строится виртуальная коробка, в которую вписан товар. Объем этой коробки и будет считаться литражом.</p>
+</details>
+
+<details>
+<summary>Влияет ли вес товара на расчет объема в литрах?</summary>
+<p>Непосредственно на расчет литров вес не влияет. Литраж считается только по габаритам. Однако для расчета итоговой стоимости доставки используется понятие "объемный вес", который сравнивается с физическим весом, и выбирается большее значение для тарификации.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить габариты товара после того, как он уже принят на склад?</summary>
+<p>Да, можно подать заявку на пересмотр габаритов в личном кабинете. Однако изменение вступит в силу только после того, как сотрудники склада подтвердят новые размеры. До этого момента расчеты будут вестись по старым данным.</p>
+</details>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Понимание алгоритма расчета объема Ozon — это не просто теоретическое знание, а инструмент прямой финансовой оптимизации, позволяющий сохранять до 20% маржи на логистике.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-vzyat-nomer-gtd-na-tovar-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти номер ГТД на Ozon: инструкция для продавца</span>
+                <span class="pb-related-desc">Узнайте, где взять номер ГТД для товаров на Ozon. Инструкция по поиску в документах, правила заполне</span>
+            </a><a href="/articles/k/ka/kak-skachat-foto-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как скачать фото Ozon: подробная инструкция для продавцов</span>
+                <span class="pb-related-desc">Узнайте, как скачать фото Ozon, чтобы перенести контент. Инструкция для продавцов по выгрузке изобра</span>
+            </a><a href="/articles/k/ka/kak-pravilno-pisat-kheshtegi-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Хештеги на Ozon: как писать правильно для продаж в 2026 году</span>
+                <span class="pb-related-desc">Полное руководство по созданию эффективных хештегов на Ozon: правила, ошибки, примеры и секреты увел</span>
+            </a><a href="/articles/g/gd/gde-brat-artikuly-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять артикулы для Озон: 7 проверенных способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как найти артикулы товаров для Озон: от официальных источников до парсингов. А</span>
+            </a><a href="/articles/m/mo/mozhno-li-kak-to-obedinit-kartochki-na-ozone-s-vb.html" class="pb-related-card">
+                <span class="pb-related-title">Объединить карточки Ozon и Wildberries: возможно ли это?</span>
+                <span class="pb-related-desc">Можно ли объединить карточки на Озоне с ВБ? Разбираем мифы, технические ограничения платформ и реаль</span>
+            </a><a href="/articles/k/ka/kak-vykladyvat-kartochki-na-vb-i-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выкладывать карточки на WB и Ozon: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство: как создать и оформить карточку товара на Wildberries и Ozon. Разбор отличий,</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

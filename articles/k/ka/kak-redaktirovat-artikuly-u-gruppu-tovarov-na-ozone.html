@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как редактировать артикулы Ozon: массовое изменение SKU — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция, как изменить артикул товара на Озоне. Массовое редактирование через Excel, работа со связанными товарами и устранение ошибок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-redaktirovat-artikuly-u-gruppu-tovarov-na-ozone.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как редактировать артикулы Ozon: массовое изменение SKU">
+    <meta property="og:description" content="Подробная инструкция, как изменить артикул товара на Озоне. Массовое редактирование через Excel, работа со связанными товарами и устранение ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как редактировать артикулы Ozon: массовое изменение SKU</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#понятие-артикула-и-его-роль-в-системе-ozon">Понятие артикула и его роль в системе Ozon</a></li><li><a href="#ручное-редактирование-артикула-в-карточке-товара">Ручное редактирование артикула в карточке товара</a></li><li><a href="#массовое-изменение-артикулов-через-xls-шаблон">Массовое изменение артикулов через XLS-шаблон</a></li><li><a href="#работа-со-связанными-товарами-и-вариативностью">Работа со связанными товарами и вариативностью</a></li><li><a href="#устранение-ошибок-при-изменении-sku">Устранение ошибок при изменении SKU</a></li><li><a href="#создание-новой-карточки-вместо-редактирования">Создание новой карточки вместо редактирования</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prodavat-soft-na-ozon.html">Как продавать софт на Ozon: правила, лицензии и ключи</a></li><li><a href="/articles/g/gd/gde-najti-v-ozon-sellere-moi-postavki.html">Где найти мои поставки в Ozon Seller: полный гид</a></li><li><a href="/articles/k/ka/kak-dobavit-tovar-na-sklad-na-ozone.html">Как добавить товар на склад Ozon: пошаговая инструкция FBO</a></li><li><a href="/articles/k/ka/kak-proverit-shtrikh-kod-ozon-pered-otpravkoj.html">Как проверить штрихкод Озон перед отправкой: пошаговая инструкция 2026</a></li><li><a href="/articles/g/gd/gde-nakhoditsya-artikul-na-tovar-na-ozon.html">Где найти артикул товара на Ozon: полное руководство</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как редактировать артикулы товаров на Ozon: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#понятие-артикула-и-его-роль-в-системе-ozon">Понятие артикула и его роль в системе Ozon</a></li><li><a href="#ручное-редактирование-артикула-в-карточке-товара">Ручное редактирование артикула в карточке товара</a></li><li><a href="#массовое-изменение-артикулов-через-xls-шаблон">Массовое изменение артикулов через XLS-шаблон</a></li><li><a href="#работа-со-связанными-товарами-и-вариативностью">Работа со связанными товарами и вариативностью</a></li><li><a href="#устранение-ошибок-при-изменении-sku">Устранение ошибок при изменении SKU</a></li><li><a href="#создание-новой-карточки-вместо-редактирования">Создание новой карточки вместо редактирования</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с номенклатурой на маркетплейсах требует высокой точности, особенно когда речь заходит об <strong>артикулах</strong>. Многие селлеры сталкиваются с ситуацией, когда необходимо изменить уникальный идентификатор товара уже после его создания в личном кабинете. Это может быть связано с ошибкой при первоначальной загрузке, сменой системы учета на складе или необходимостью унификации данных для интеграции с внешними сервисами.</p>
+
+<p>Однако платформа Ozon имеет строгую логику работы с <strong>SKU</strong> (Stock Keeping Unit), и просто взять и переписать значение в карточке не всегда возможно. Система идентифицирует товар именно по этому коду, поэтому его изменение часто приравнивается к созданию новой карточки или требует выполнения специфических процедур. Понимание этих нюансов критически важно для предотвращения дублирования товаров и потери рейтинга.</p>
+
+<p>В этой статье мы разберем все доступные способы редактирования: от ручной правки единичных позиций до <strong>массового обновления</strong> через XLS-файлы. Вы узнаете, в каких случаях система позволит изменить данные, а когда потребуется удалять товар и создавать его заново, сохраняя при этом привязку к существующей карточке.</p>
+
+<h2 id="понятие-артикула-и-его-роль-в-системе-ozon">Понятие артикула и его роль в системе Ozon</h2>
+
+<p><strong>Артикул</strong> — это уникальный идентификатор товара в рамках вашего личного кабинета продавца. В отличие от глобального штрихкода, который может быть одинаковым у разных поставщиков одного и того же продукта, артикул Ozon вы присваиваете сами. Именно по этому коду система понимает, какой конкретно товар от какого продавца должен уехать покупателю при заказе.</p>
+
+<p>Часто пользователи путают <em>Ozon SKU</em> и <strong>артикул продавца</strong>. Важно различать эти понятия. Артикул продавца — это то значение, которое вы вписываете при создании товара (например, <code>MY-SHOES-001</code>). Ozon SKU — это внутренний числовой код платформы, который генерируется автоматически после создания карточки. Редактированию подлежит именно ваш артикул, но и здесь есть свои ограничения.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Изменение артикула существующего товара может привести к разрыву связей с уже созданными поставками или заказами, находящимися в обработке. Всегда проверяйте статусы перед внесением правок.</p>
+</blockquote>
+
+<p>Для чего вообще может потребоваться изменение? Чаще всего это необходимо при переходе на новую <strong>ERP-систему</strong>, где нумерация ведется по другим правилам, или при обнаружении опечатки, которая мешает автоматической выгрузке остатков. Если ваш складской учет завязан на конкретный код, его соответствие в личном кабинете Озон становится критически важным параметром.</p>
+
+<h2 id="ручное-редактирование-артикула-в-карточке-товара">Ручное редактирование артикула в карточке товара</h2>
+
+<p>Самый простой, но не всегда доступный способ — это правка непосредственно в интерфейсе личного кабинета. Этот метод подходит, если вам нужно изменить данные у одного или нескольких товаров, и они еще не участвуют в активных процессах продаж или логистики.</p>
+
+<p>Для начала работы перейдите в раздел <code>Товары и цены</code> и выберите <code>Список товаров</code>. Найдите нужную позицию через поиск или фильтры. В списке товаров найдите колонку"Артикул продавца". Если поле активно для редактирования (не заблокировано серым цветом), вы можете нажать на него и ввести новое значение.</p>
+
+<div class="pb-poll" id="poll-79a40e89"><div class="pb-poll-question">📊 Как часто вы меняете артикулы?</div><div class="pb-poll-option" data-poll="79a40e89" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко, при запуске нового товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="79a40e89" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Постоянно, при смене поставщиков</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="79a40e89" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только при ошибках</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="79a40e89" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не менял</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Однако часто селлеры сталкиваются с ситуацией, когда поле заблокировано. Это происходит, если товар уже имеет историю продаж, находится в пути на склад Ozon или имеет активные заказы. В таких случаях система блокирует прямое редактирование ключевых идентификаторов во избежание логистических ошибок.</p>
+
+<ul>
+<li>🔍 Убедитесь, что у товара нет активных заказов в статусе"Собирается".</li>
+<li>📦 Проверьте, не находится ли товар в пути на склад маркетплейса.</li>
+<li>🚫 Убедитесь, что товар не участвует в активных акциях с жесткими условиями.</li>
+</ul>
+
+<p>Если поле доступно для редактирования, просто введите новый код и сохраните изменения. Система обновит данные в течение нескольких минут. </p>
+
+<h2 id="массовое-изменение-артикулов-через-xls-шаблон">Массовое изменение артикулов через XLS-шаблон</h2>
+
+<p>Когда речь заходит о редактировании сотен или тысяч позиций, ручной метод становится неэффективным. В этом случае на помощь приходит <strong>массовое обновление</strong> через таблицу. Это наиболее надежный способ внесенияных изменений в номенклатуру.</p>
+
+<p>Для начала скачайте актуальный шаблон товаров. Перейдите в раздел <code>Товары и цены</code>, выберите <code>Список товаров</code> и нажмите кнопку <code>Скачать</code> (или <code>Обновить цены и остатки</code> -> <code>Скачать файл</code>). Важно выбрать вариант выгрузки, который содержит все необходимые поля, включая артикулы.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед массовой загрузкой</h4><label class="check-item"><input type="checkbox"><span>Сделать резервную копию текущего списка товаров</span></label><label class="check-item"><input type="checkbox"><span>Проверить уникальность новых артикулов</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в отсутствии активных заказов на редактируемые товары</span></label><label class="check-item"><input type="checkbox"><span>Проверить файл на наличие ошибок форматирования</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>В полученном файле найдите столбец <strong>Артикул продавца</strong>. Внесите необходимые изменения. Будьте предельно внимательны: не меняйте другие идентифицирующие поля, такие как Ozon ID, если это не требуется инструкцией по заполнению, так как это может привести к созданию дублей вместо обновления.</p>
+
+<p>После заполнения файла загрузите его обратно через раздел <code>Обновление цен и остатков</code>. Система проведет валидацию данных. Если в файле будут найдены ошибки (например, дублирование артикулов или нарушение формата), вы получите отчет об ошибках, который необходимо исправить перед повторной загрузкой.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Обязательно для заполнения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Артикул продавца</td>
+<td>Ваш уникальный код товара</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>Ozon ID</td>
+<td>Внутренний номер карточки</td>
+<td>Нет (для обновления)</td>
+</tr>
+<tr>
+<td>Цена</td>
+<td>Стоимость товара</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>Остаток</td>
+<td>Количество единиц на складе</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="работа-со-связанными-товарами-и-вариативностью">Работа со связанными товарами и вариативностью</h2>
+
+<p>Особую сложность представляет редактирование артикулов у товаров, имеющих <strong>вариативность</strong> (например, обувь разных размеров или футболки разных цветов). В системе Ozon такие товары объединены в одну карточку, но каждый вариант имеет свой уникальный артикул.</p>
+
+<p>При попытке изменить артикул одного из вариантов, важно не нарушить связь с общей карточкой. Если вы используете XLS-загрузку, убедитесь, что в файле присутствуют все необходимые поля для идентификации вариативности, такие как размер, цвет или объем. Отсутствие этих данных может привести к тому, что система создаст новую отдельную карточку вместо обновления существующей.</p>
+
+<details class="pb-accordion"><summary>Что делать, если вариативность"развалилась"?</summary><div class="pb-accordion-body"><p>Если после загрузки файла товары разделились на разные карточки, необходимо удалить дубли и заново объединить их через функционал"Добавить вариант" в интерфейсе карточки товара, предварительно исправив артикулы.</p></div></details>
+
+<p>Также стоит упомянуть о <strong>связанных товарах</strong>. Если вы используете функционал комплектации или кросс-продаж, изменение артикула основного товара может потребовать перенастройки этих связей. Проверьте, не использовался ли старый артикул в настройках комплектов.</p>
+
+<p>Для сложных случаев, когда товар имеет множество модификаций, рекомендуется использовать API интеграцию. Это позволяет программно обновлять атрибуты товаров, минимизируя риск человеческой ошибки при работе с большими массивами данных в Excel.</p>
+
+<h2 id="устранение-ошибок-при-изменении-sku">Устранение ошибок при изменении SKU</h2>
+
+<p>В процессе редактирования часто возникают ошибки. Самая распространенная из них — <strong>"Артикул уже занят"</strong>. Это означает, что в вашем магазине уже существует товар с таким кодом. Решение одно: придумать новый уникальный идентификатор или удалить товар-конфликтер, если он был создан ошибочно.</p>
+
+<p>Другая частая проблема — <em>рассинхронизация</em> данных. Вы изменили артикул в личном кабинете, но в системе аналитики или у байера он отображается старый. В этом случае требуется время на обновление кэша серверов Ozon. Обычно это занимает от 15 минут до 2 часов.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы используете сторонние сервисы для управления торговлей (например, Moysklad, 1C), изменение артикула на стороне Ozon может разорвать связь с вашей учетной системой. Сначала измените данные в вашей ERP, а затем синхронизируйте с маркетплейсом.</p>
+</blockquote>
+
+<p>Иногда система может выдавать ошибку формата, если в артикуле используются запрещенные символы. Разрешено использовать латинские буквы, цифры и некоторые спецсимволы (дефис, подчеркивание). Использование кириллицы или пробелов часто приводит к ошибкам валидации.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте префиксы в артикулах (например, SHOE-001, SHIRT-001) для быстрой сортировки и понимания категории товара при просмотре списков в Excel.</p></aside>
+
+<h2 id="создание-новой-карточки-вместо-редактирования">Создание новой карточки вместо редактирования</h2>
+
+<p>Бывают ситуации, когда редактирование артикула технически невозможно из-за ограничений платформы (товар продается, идет поставка, есть отзывы). В этом случае экспертным решением становится создание <strong>новой карточки</strong> с правильным артикулом и перенос остатков.</p>
+
+<p>Алгоритм действий в таком случае следующий: создайте новый товар с корректным артикулом, дождитесь его модерации, а затем удалите старый товар с ошибочным кодом. Однако здесь кроется риск потери истории продаж и отзывов, так как они привязаны к ID карточки.</p>
+
+<p>Чтобы минимизировать потери, можно попытаться объединить карточки, если система позволяет это сделать через поддержку или специальные инструменты для брендовых продавцов. Но в большинстве случаев для FBS-продавцов проще и быстрее создать новую позицию, особенно если товар новый и не имеет накопленной статистики.</p>
+
+<ul>
+<li>🆕 Создайте товар с новым, правильным артикулом.</li>
+<li>📸 Скопируйте все медиа-файлы и описания из старой карточки.</li>
+<li>🗑️ Удалите старую карточку (или скройте ее, удалив остатки).</li>
+<li>🔄 Настройте заново логистические параметры для новой позиции.</li>
+</ul>
+
+<p>Этот метод кажется трудоемким, но он гарантирует, что в будущем у вас не возникнет проблем с выгрузкой остатков и проведением инвентаризации, так как учет будет вестись корректно с самого начала.</p>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли изменить артикул, если товар уже продается?</summary>
+<p>В большинстве случаев прямое изменение артикула для активного товара заблокировано. Рекомендуется создать новую карточку с правильным артикулом, перенести туда контент и остатки, а старую удалить.</p>
+</details>
+
+<details>
+<summary>Что будет, если два товара будут иметь одинаковый артикул?</summary>
+<p>Система не позволит сохранить такие изменения. При загрузке через Excel вы получите ошибку валидации. Артикулы в пределах одного продавца должны быть уникальными.</p>
+</details>
+
+<details>
+<summary>Влияет ли смена артикула на рейтинг товара?</summary>
+<p>Если вы создаете новую карточку взамен старой, рейтинг и отзывы не перенесутся, так как они привязаны к ID карточки. Если же удалось изменить артикул в существующей карточке (редкий случай), то рейтинг сохранится.</p>
+</details>
+
+<details>
+<summary>Как изменить артикул через API?</summary>
+<p>API Ozon позволяет обновлять информацию о товаре, включая артикул, через метод <code>/v1/product/import</code>. Однако действуют те же ограничения: если товар активен и имеет историю, изменение ключевого идентификатора может быть отклонено сервером.</p>
+</details>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный вывод: Проще и безопаснее сразу задавать правильные артикулы при создании товара. Редактирование — это сложная процедура с рисками, которую стоит использовать только в крайних случаях.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-prodavat-soft-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать софт на Ozon: правила, лицензии и ключи</span>
+                <span class="pb-related-desc">Полный гайд по продаже цифровых товаров на Ozon. Как загружать ключи активации, требования к лицензи</span>
+            </a><a href="/articles/g/gd/gde-najti-v-ozon-sellere-moi-postavki.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти мои поставки в Ozon Seller: полный гид</span>
+                <span class="pb-related-desc">Подробная инструкция для селлеров: как найти раздел поставок в личном кабинете Озон, создать новую п</span>
+            </a><a href="/articles/k/ka/kak-dobavit-tovar-na-sklad-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить товар на склад Ozon: пошаговая инструкция FBO</span>
+                <span class="pb-related-desc">Узнайте, как добавить товар на склад Ozon (FBO). Подробный гид по созданию поставки, маркировке и от</span>
+            </a><a href="/articles/k/ka/kak-proverit-shtrikh-kod-ozon-pered-otpravkoj.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить штрихкод Озон перед отправкой: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно проверить штрихкод товара на Озон перед отправкой в FBS/FBO, чтобы избежать ш</span>
+            </a><a href="/articles/g/gd/gde-nakhoditsya-artikul-na-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти артикул товара на Ozon: полное руководство</span>
+                <span class="pb-related-desc">Узнайте, где находится артикул на Ozon. Подробная инструкция для продавцов и покупателей по поиску I</span>
+            </a><a href="/articles/k/ka/kak-skopirovat-art-v-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как скопировать арт в Ozon: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Подробное руководство по копированию артикулов на Ozon: способы, ограничения и советы для избежания </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как выглядит код Ozon: разбор структуры и ID — Об Озоне</title>
+    <meta name="description" content="Узнайте, как выглядит код Ozon, как найти артикул товара, ID заказа и проверить подлинность штрихкода для продавца.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-vyglyadit-kod-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выглядит код Ozon: разбор структуры и ID">
+    <meta property="og:description" content="Узнайте, как выглядит код Ozon, как найти артикул товара, ID заказа и проверить подлинность штрихкода для продавца.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как выглядит код Ozon: разбор структуры и ID</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#основные-типы-идентификаторов-на-маркетплейсе">Основные типы идентификаторов на маркетплейсе</a></li><li><a href="#визуальная-структура-артикула-и-id-товара">Визуальная структура артикула и ID товара</a></li><li><a href="#как-выглядит-код-на-этикетке-и-в-приложении">Как выглядит код на этикетке и в приложении</a></li><li><a href="#таблица-сравнения-типов-кодов">Таблица сравнения типов кодов</a></li><li><a href="#специфика-кодов-для-схемы-fbs-и-fbo">Специфика кодов для схемы FBS и FBO</a></li><li><a href="#проблемы-с-кодами-и-их-решение">Проблемы с кодами и их решение</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-reduksin-luchshe-ozon-ili-promomed.html">Редуксин или Промомед: что выбрать для похудения</a></li><li><a href="/articles/k/ka/kak-oformit-zakaz-ikea-cherez-ozon.html">Как оформить заказ ИКЕА через Озон: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-ustanovit-ozon-na-noutbuk.html">Как установить Ozon на ноутбук: полная инструкция</a></li><li><a href="/articles/k/ka/kakie-uslugi-okazyvaet-ozon.html">Какие услуги оказывает Ozon: полный гид для покупателей и продавцов</a></li><li><a href="/articles/p/po/pod-kakim-nomerom-ozon-v-tablitse-mendeleeva.html">Ozon в таблице Менделеева: под каким номером?</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как выглядит код Ozon: структура и примеры</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#основные-типы-идентификаторов-на-маркетплейсе">Основные типы идентификаторов на маркетплейсе</a></li><li><a href="#визуальная-структура-артикула-и-id-товара">Визуальная структура артикула и ID товара</a></li><li><a href="#как-выглядит-код-на-этикетке-и-в-приложении">Как выглядит код на этикетке и в приложении</a></li><li><a href="#таблица-сравнения-типов-кодов">Таблица сравнения типов кодов</a></li><li><a href="#специфика-кодов-для-схемы-fbs-и-fbo">Специфика кодов для схемы FBS и FBO</a></li><li><a href="#проблемы-с-кодами-и-их-решение">Проблемы с кодами и их решение</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>В огромной экосистеме электронной коммерции каждый товар, заказ и логистическая операция сопровождаются уникальным набором цифр. Для обычного покупателя это может показаться набором случайных чисел, но для продавца или курьера — это ключевая информация, позволяющая управлять товарными потоками. Понимание того, как выглядит код Ozon, помогает избежать ошибок при заполнении карточек товаров и ускоряет процесс приемки на складе.</p>
+
+<p>Многие пользователи путают различные типы идентификаторов, что приводит к задержкам в доставке или проблемам с возвратом средств. <strong>Артикул</strong> продавца, <strong>Ozon ID</strong> товара и трек-номер — это совершенно разные сущности, каждая из которых имеет свою уникальную структуру. Разобраться в этих различиях необходимо каждому, кто планирует зарабатывать на маркетплейсе или просто хочет быть уверенным в качестве приобретаемой продукции.</p>
+
+<p>В этой статье мы детально разберем визуальные и структурные особенности кодов, используемых внутри платформы. Вы узнаете, где искать нужные цифры, как они кодируются в штрихкоды и почему важно не перепутать один идентификатор с другим при взаимодействии с техподдержкой.</p>
+
+<blockquote>⚠️ Внимание: Никогда не сообщайте посторонним лицам коды из SMS-сообщений или коды подтверждения входа в личный кабинет, так как это может привести к потере аккаунта.</blockquote>
+
+<h2 id="основные-типы-идентификаторов-на-маркетплейсе">Основные типы идентификаторов на маркетплейсе</h2>
+<p>Система учета товаров на Ozon базируется на нескольких уровнях идентификации. Первым и самым важным для продавца является <strong>SKU</strong> (Stock Keeping Unit) или артикул продавца. Это уникальный код, который вы присваиваете товару самостоятельно при создании карточки. Он может содержать буквы, цифры и специальные символы, и его длина ограничена техническими требованиями платформы, обычно составляя до 50 символов.</p>
+
+<p>В отличие от вашего артикула, <strong>Ozon ID</strong> (или просто ID товара) — это внутренний идентификатор, который система присваивает карточке автоматически. Он выглядит как длинная последовательность цифр, например, 123456789. Этот номер неизменен и привязан к конкретной карточке товара в базе данных маркетплейса. Именно по этому коду часто приходится искать товар в интерфейсе селлера или обращаться в службу поддержки.</p>
+
+<p>Третий важный элемент — это <strong>штрихкод</strong>. Он необходим для маркировки каждой единицы товара, поступающей на склад. Штрихкод может быть вашим собственным (EAN-13, ITF-16) или сгенерированным системой Ozon. Визуально он представляет собой набор вертикальных полос различной ширины и числовую последовательность под ними, которую считывает сканер.</p>
+
+<ul>
+<li>🔢 <strong>Артикул продавца:</strong> уникальное имя товара, которое придумываете вы.</li>
+<li>🆔 <strong>Ozon ID:</strong> внутренний цифровой номер карточки в системе.</li>
+<li>📦 <strong>Штрихкод:</strong> графическое отображение кода для сканирования на складе.</li>
+<li>🏷️ <strong>Честный ЗНАК:</strong> специальный код маркировки для определенных групп товаров.</li>
+</ul>
+
+<blockquote>⚠️ Внимание: При печати этикеток убедитесь, что штрихкодный и не имеет заломов, иначе сканер на складе не сможет его считать, и товар будет отправлен на доработку.</blockquote>
+
+<h2 id="визуальная-структура-артикула-и-id-товара">Визуальная структура артикула и ID товара</h2>
+<p>Когда вы смотрите на карточку товара в личном кабинете продавца, вы видите два основных поля, которые часто путают. <strong>Артикул</strong> выглядит так, как вы его задали: это может быть комбинация вроде"TSHIRT-BLACK-L-2026" или"ZUBNAYA-SCHETKA-001". Система позволяет использовать латинские буквы, цифры и некоторые спецсимволы, но запрещает пробелы и русские буквы во избежание ошибок кодировки.</p>
+
+<p><strong>Ozon ID</strong> выглядит строго как последовательность цифр. В разных разделах интерфейса он может отображаться по-разному: иногда полностью, иногда с многоточием в середине, если поле слишком узкое. Например, ID может выглядеть как <code>9876543210</code>. Важно понимать, что этот номер присваивается один раз и навсегда. Если вы удалите товар и создадите его заново, ID будет уже другим, даже если артикул останется прежним.</p>
+
+<p>Для программистов и тех, кто работает с API, эти коды выглядят как параметры в JSON-ответах. В запросе к API вы увидите структуру, где <code>offer_id</code> соответствует вашему артикулу, а <code>product_id</code> — внутреннему ID Ozon. Понимание этой разницы критично при настройке автоматической выгрузки товаров.</p>
+
+<div class="pb-poll" id="poll-4c46f1e4"><div class="pb-poll-question">📊 Какой идентификатор вы ищете чаще всего?</div><div class="pb-poll-option" data-poll="4c46f1e4" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Артикул продавца</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4c46f1e4" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Ozon ID (product_id)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4c46f1e4" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Штрихкод</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4c46f1e4" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Трек-номер заказа</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="как-выглядит-код-на-этикетке-и-в-приложении">Как выглядит код на этикетке и в приложении</h2>
+<p>Физическое воплощение кода Ozon — это этикетка, которую продавец клеит на упаковку. Она содержит несколько уровней информации. В верхней части обычно расположен крупный <strong>штрихкод</strong> (чаще всего формат Code 128 или DataMatrix), который считывается терминалом сбора данных. Под ним цифрами продублирован сам код, чтобы в случае повреждения штриха оператор мог ввести его вручную.</p>
+
+<p>В мобильном приложении для покупателей код товара скрыт в URL-адресе страницы. Если вы откроете карточку товара в браузере смартфона, адресная строка будет содержать ссылку вида <code>https://www.ozon.ru/product/...</code>, где после слова product идет тот самый <strong>Ozon ID</strong>. Это самый быстрый способ найти ID товара, если он не отображается явно в описании.</p>
+
+<p>Для курьеров и сотрудников ПВЗ код выглядит как QR-код или стандартный штрихкод на экране смартфона в разделе"Заказы". При сканировании этого кода система мгновенно идентифицирует конкретный заказ и статус его доставки. Ошибки здесь недопустимы, так как один неверный символ может привести к выдаче чужого заказа.</p>
+
+<details class="pb-accordion"><summary>Что делать, если штрихкод не читается?</summary><div class="pb-accordion-body"><p>Если сканер не реагирует на штрихкод, проверьте, не замята ли этикетка. Если проблема в печати, попробуйте увеличить контрастность или перепечатать этикетку на более качественной бумаге. В крайнем случае, сотрудник склада может ввести цифровой код вручную, но это займет больше времени.</p></div></details>
+
+<h2 id="таблица-сравнения-типов-кодов">Таблица сравнения типов кодов</h2>
+<p>Чтобы окончательно систематизировать знания о том, как выглядят различные коды, обратимся к сравнительному анализу. Ниже приведена таблица, которая поможет быстро ориентироваться в типах идентификаторов, их формате и назначении.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип кода</th>
+<th>Пример формата</th>
+<th>Кто присваивает</th>
+<th>Где используется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Артикул (SKU)</td>
+<td>Tovar-Red-001</td>
+<td>Продавец</td>
+<td>Внутренний учет, поиск в личном кабинете</td>
+</tr>
+<tr>
+<td>Ozon ID</td>
+<td>15489632</td>
+<td>Система Ozon</td>
+<td>Ссылка на товар, API, техподдержка</td>
+</tr>
+<tr>
+<td>Штрихкод</td>
+<td>4600000000000</td>
+<td>Производитель или Ozon</td>
+<td>Маркировка упаковки, складская логистика</td>
+</tr>
+<tr>
+<td>Трек-номер</td>
+<td>00000000000000</td>
+<td>Система Ozon</td>
+<td>Отслеживание доставки заказа покупателем</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, форматы данных существенно различаются. <strong>Артикул</strong> может быть текстовым, что удобно для человека, но <strong>Ozon ID</strong> всегда числовой, что оптимально для машинной обработки. <strong>Штрихкоды</strong> же имеют строгие стандарты длины и контрольных сумм, нарушение которых делает код невалидным.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главное отличие артикула от ID в том, что артикул вы придумываете сами для удобства, а ID — это технический паспорт товара в системе Ozon, который менять нельзя.</p></aside>
+
+<h2 id="специфика-кодов-для-схемы-fbs-и-fbo">Специфика кодов для схемы FBS и FBO</h2>
+<p>Работа по разным схемам доставки накладывает свои требования на то, как должен выглядеть код на товаре. Для схемы <em>FBO</em> (Fulfillment by Ozon), когда товар лежит на складе маркетплейса, критически важен правильный <strong>штрихкод</strong>. Он должен быть уникальным для каждого конкретного экземпляра товара (если это не весовой товар) и соответствовать тому, что указан в карточке.</p>
+
+<p>В схеме <em>FBS</em> (Fulfillment by Seller) продавец хранит товар у себя. Здесь код Ozon генерируется только после того, как поступил заказ. Вы получаете задание на отгрузку, и система предоставляет уникальный <strong>штрихкод доставки</strong>. Его нужноать и клеить поверх упаковки. Этот код выглядит как длинная полоса с цифрами и часто содержит информацию о пункте назначения и курьерской службе.</p>
+
+<p>Особое внимание стоит уделить товарам, подлежащим обязательной маркировке (<strong>Честный ЗНАК</strong>). Для них код Ozon дополняется DataMatrix кодом маркировки. Это квадратный двухмерный штрихкод, который содержит зашифрованную информацию о производстве и легальности товара. Без считывания этого кода отгрузка невозможна.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка кодов перед отгрузкой</h4><label class="check-item"><input type="checkbox"><span>Штрихкод читается с первого раза</span></label><label class="check-item"><input type="checkbox"><span>Цифры под штрихкодом совпадают</span></label><label class="check-item"><input type="checkbox"><span>Этикетка наклеена ровно</span></label><label class="check-item"><input type="checkbox"><span>Код Честный ЗНАК не поврежден</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="проблемы-с-кодами-и-их-решение">Проблемы с кодами и их решение</h2>
+<p>Наиболее частая проблема, с которой сталкиваются продавцы — это <strong>несоответствие штрихкода</strong>. Ситуация возникает, когда на товаре наклеен один код, а в системе указан другой. Склад Ozon в этом случае не принимает товар или отправляет его на переупаковку, что влечет за собой штрафы. Всегда перепроверяйте, соответствует ли напечатанная этикетка данным в карточке товара.</p>
+
+<p>Еще одна сложность — это <strong>дублирование ID</strong>. Иногда при слиянии карточек товаров (например, разных цветов одной модели) система может объединить их под одним ID, но с разными вариациями. В этом случае код в URL может вести на общую карточку, а конкретный вариант выбирается через параметры. Это важно учитывать при настройке рекламы и аналитики.</p>
+
+<p>Если вы используете сторонние сервисы для автоматизации торговли, убедитесь, что они корректно передают <strong>offer_id</strong> и <strong>product_id</strong>. Ошибка в одну цифру может привести к тому, что остатки товара обновятся не для той позиции, что вызовет пересорт и недовольство покупателей.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сохраняйте таблицу соответствия ваших артикулов и Ozon ID в Excel или Google Таблицах. Это позволит быстро находить нужный товар в системе, даже если интерфейс личного кабинета работает медленно.</p></aside>
+
+<details>
+<summary>Где найти Ozon ID товара в личном кабинете?</summary>
+<p>Зайдите в раздел"Товары" →"Список товаров". Наведите курсор на название товара или нажмите на кнопку"Еще" (три точки) справа от карточки. В выпадающем меню часто есть опция"Копировать ID" или"Ссылка на товар". В ссылке после слова product будет искомый номер.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить артикул товара после создания?</summary>
+<p>Да, артикул продавца (SKU) можно изменить в карточке товара, но делать это нужно осторожно. Если товар уже находится на складе Ozon или имеет активные заказы, изменение артикула может привести к рассинхронизации данных. Лучше задавать правильный артикул сразу при создании.</p>
+</details>
+
+<details>
+<summary>Что делать, если штрихкод на товаре стерся?</summary>
+<p>Если штрихкод на заводской упаковке стерся, но сам товар идентифицировать можно, продавец должен наклеить новую этикетку с правильным штрихкодом поверх старого или на свободное место. Главное, чтобы новый код читался и соответствовал данным в системе.</p>
+</details>
+
+<details>
+<summary>Как выглядит код возврата?</summary>
+<p>Код возврата — это обычно трек-номер, который генерируется при оформлении возврата товара покупателем или продавцом. Он выглядит как стандартный трек-номер почтовой службы или курьерской компании и отображается в разделе"Финансы" или"Отчеты" в зависимости от типа возврата.</p>
+</details>
+
+<details>
+<summary>В чем разница между barcode и DataMatrix?</summary>
+<p>Barcode (штрихкод) — это линейный код из полосок, который читается лазерным сканером. DataMatrix — это двумерный квадратный код, похожий на QR, который содержит больше информации и читается камерой. Ozon использует оба типа в зависимости от типа товара и схемы работы.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-reduksin-luchshe-ozon-ili-promomed.html" class="pb-related-card">
+                <span class="pb-related-title">Редуксин или Промомед: что выбрать для похудения</span>
+                <span class="pb-related-desc">Подробное сравнение препаратов Редуксин и Промомед. Анализ эффективности, состава, противопоказаний </span>
+            </a><a href="/articles/k/ka/kak-oformit-zakaz-ikea-cherez-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оформить заказ ИКЕА через Озон: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как купить мебель IKEA через Ozon. Подробная инструкция, условия доставки, цены и нюансы оф</span>
+            </a><a href="/articles/k/ka/kak-ustanovit-ozon-na-noutbuk.html" class="pb-related-card">
+                <span class="pb-related-title">Как установить Ozon на ноутбук: полная инструкция</span>
+                <span class="pb-related-desc">Узнайте, как установить приложение Озон на ноутбук или компьютер. Пошаговая инструкция по настройке </span>
+            </a><a href="/articles/k/ka/kakie-uslugi-okazyvaet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие услуги оказывает Ozon: полный гид для покупателей и продавцов</span>
+                <span class="pb-related-desc">Подробный обзор экосистемы Ozon: от FBO и FBS до Ozon Банка и рекламы. Узнайте, какие услуги доступн</span>
+            </a><a href="/articles/p/po/pod-kakim-nomerom-ozon-v-tablitse-mendeleeva.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon в таблице Менделеева: под каким номером?</span>
+                <span class="pb-related-desc">Популярный вопрос: под каким номером Ozon в таблице Менделеева? Разбираем шутку, химию и реальные фа</span>
+            </a><a href="/articles/k/ka/kak-zamenit-karbyurator-ozon-na-soleks.html" class="pb-related-card">
+                <span class="pb-related-title">Замена карбюратора Озон на Солекс: пошаговая инструкция</span>
+                <span class="pb-related-desc">Как заменить карбюратор Озон на Солекс своими руками. Подробное руководство, настройки, таблица жикл</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

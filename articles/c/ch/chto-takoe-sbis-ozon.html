@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>СБИС и Ozon: как подключить и настроить электронную подпись — Об Озоне</title>
+    <meta name="description" content="Полный гид по интеграции СБИС с Ozon. Настройка ЭЦП, обмен документами, выгрузка накладных и устранение ошибок при работе с маркетплейсом.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-takoe-sbis-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="СБИС и Ozon: как подключить и настроить электронную подпись">
+    <meta property="og:description" content="Полный гид по интеграции СБИС с Ozon. Настройка ЭЦП, обмен документами, выгрузка накладных и устранение ошибок при работе с маркетплейсом.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">СБИС и Ozon: как подключить и настроить электронную подпись</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#архитектура-взаимодействия-систем-сбис-и-ozon">Архитектура взаимодействия систем СБИС и Ozon</a></li><li><a href="#подготовка-электронной-подписи-для-работы-с-маркетплейсом">Подготовка электронной подписи для работы с маркетплейсом</a></li><li><a href="#пошаговая-инструкция-по-подключению-модуля-интеграции">Пошаговая инструкция по подключению модуля интеграции</a></li><li><a href="#автоматизация-документооборота-акты-накладные-и-упд">Автоматизация документооборота: акты, накладные и УПД</a></li><li><a href="#управление-товарами-и-остатками-через-интерфейс-сбис">Управление товарами и остатками через интерфейс СБИС</a></li><li><a href="#решение-типичных-ошибок-и-проблем-синхронизации">Решение типичных ошибок и проблем синхронизации</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-takoe-domennyj-login-ozon.html">Доменный логин Озон: что это и как его использовать в 2026 году</a></li><li><a href="/articles/k/ka/kak-dobavit-polzovatelya-v-ozon-seller.html">Как добавить пользователя в Озон Селлер: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-prodavat-na-ozon-ru.html">Как продавать на Ozon в 2026: пошаговое руководство для новичков</a></li><li><a href="/articles/o/oz/ozon-ili-valberis-chto-vygodnej-otkryt.html">Озон или Валберис: что выгоднее открыть в 2026 году</a></li><li><a href="/articles/k/ka/kak-zajti-v-ozon-learning-dlya-obucheniya.html">Как войти в Ozon Learning для обучения — пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Интеграция СБИС и Ozon: полное руководство по настройке</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#архитектура-взаимодействия-систем-сбис-и-ozon">Архитектура взаимодействия систем СБИС и Ozon</a></li><li><a href="#подготовка-электронной-подписи-для-работы-с-маркетплейсом">Подготовка электронной подписи для работы с маркетплейсом</a></li><li><a href="#пошаговая-инструкция-по-подключению-модуля-интеграции">Пошаговая инструкция по подключению модуля интеграции</a></li><li><a href="#автоматизация-документооборота-акты-накладные-и-упд">Автоматизация документооборота: акты, накладные и УПД</a></li><li><a href="#управление-товарами-и-остатками-через-интерфейс-сбис">Управление товарами и остатками через интерфейс СБИС</a></li><li><a href="#решение-типичных-ошибок-и-проблем-синхронизации">Решение типичных ошибок и проблем синхронизации</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Современный бизнес на маркетплейсах требует высокой автоматизации процессов, и связка <strong>СБИС и Ozon</strong> становится стандартом для успешных селлеров. Интеграция этих двух систем позволяет существенно сократить время на обработку заказов, выгрузку закрывающих документов и сверку остатков, что критически важно при больших объемах продаж. Вместо ручного переноса данных из личного кабинета торговой площадки в бухгалтерию, предприниматель получает единую цифровую экосистему, где все операции синхронизированы в реальном времени.</p>
+
+<p>Использование платформы <em>SBI</em> для работы с Ozon открывает доступ к мощным аналитическим инструментам и упрощает взаимодействие с контрагентами через систему электронного документооборота. <mark>Ключевым преимуществом является возможность подписывать акты сверки и накладные электронной подписью прямо внутри интерфейса СБИС, не переключаясь между окнами браузера.</mark> Это не просто вопрос удобства, а необходимость для соблюдения законодательства и прозрачности финансовых потоков.</p>
+
+<p>В этой статье мы подробно разберем техническую сторону подключения, нюансы настройки профилей и типичные ошибки, с которыми сталкиваются пользователи. Понимание архитектуры взаимодействия этих сервисов поможет вам избежать блокировок аккаунтов и штрафов за несвоевременную передачу данных. Мы рассмотрим как базовые сценарии для новичков, так и продвинутые настройки для крупного бизнеса.</p>
+
+<h2 id="архитектура-взаимодействия-систем-сбис-и-ozon">Архитектура взаимодействия систем СБИС и Ozon</h2>
+
+<p>Фундаментом эффективной работы связки <strong>СБИС Ozon</strong> является правильный обмен данными через API-протоколы. Когда вы подключаете модуль интеграции, создается защищенный канал связи, по которому информация о новых заказах, статусах отгрузок и возвратах передается автоматически. Система <em>Ten</em> (оператор СБИС) выступает в роли надежного шлюза, который преобразует данные из формата маркетплейса в понятный для вашей бухгалтерии вид.</p>
+
+<p>Важно понимать, что интеграция работает в обе стороны: данные не только поступают в СБИС, но и могут отправляться обратно на площадку для обновления статусов. <strong>Двусторонний обмен</strong> позволяет избежать ситуаций, когда менеджер отгрузил товар на склад, но в системе он все еще числится как "ожидающий". Это обеспечивает актуальность информации для всех участников процесса.</p>
+
+<details class="pb-accordion"><summary>Технические детали API-запросов</summary><div class="pb-accordion-body"><p>При настройке интеграции используется протокол HTTPS с авторизацией по ключу доступа. Запросы отправляются с определенной периодичностью (поллинг), обычно составляющей 1-5 минут, что гарантирует минимальную задержку в отображении новых заказов.</p></div></details>
+
+<p>Существует несколько уровней интеграции, зависящих от тарифа и потребностей бизнеса. Базовый уровень предполагает лишь выгрузку отчетов, тогда как продвинутый позволяет управлять запасами и ценами. Выбор подходящего варианта зависит от товарооборота и количества SKU в вашем каталоге.</p>
+
+<ul>
+<li>📡 <strong>Синхронизация справочников:</strong> Автоматическое обновление номенклатуры товаров и контрагентов.</li>
+<li>🔄 <strong>Статусы заказов:</strong> Мгновенное отражение перехода заказа из статуса "Новый" в "В пути".</li>
+<li>📦 <strong>Учет остатков:</strong> Корректировка количества товара на виртуальных складах в реальном времени.</li>
+</ul>
+
+<h2 id="подготовка-электронной-подписи-для-работы-с-маркетплейсом">Подготовка электронной подписи для работы с маркетплейсом</h2>
+
+<p>Без действующей <strong>ЭЦП (Электронной Цифровой Подписи)</strong> полноценная работа в связке СБИС и Ozon невозможна, так как именно она придает документам юридическую силу. Перед началом настройки необходимо убедиться, что ваш сертификат выпущен аккредитованным удостоверяющим центром и имеет необходимые расширения для работы с торговыми площадками. Часто пользователи сталкиваются с проблемой, когда сертификат действителен для налоговой, но не подходит для маркетплейсов.</p>
+
+<p>Процесс установки ключей защиты требует внимательности, особенно если вы работаете на нескольких компьютерах или используете облачные решения. <em>КриптоПро CSP</em> должен быть установлен корректно, а контейнеры закрытого ключа — доступны системе. Ошибки на этом этапе могут привести к тому, что документы будут формироваться, но не смогут быть отправлены или подписаны.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте облачное хранилище ключей СБИС (SBI Cloud Keys), чтобы иметь доступ к подписи с любого устройства без необходимости носить с собой физический токен RuToken или JaCarta.</p></aside>
+
+<p>Срок действия сертификата — критический параметр, который нужно контролировать заранее. Если подпись истечет в разгар активной торговли, вы потеряете возможность подтверждать отгрузки, что может привести к блокировке поставок со стороны Ozon. Рекомендуется устанавливать автоматические напоминания за 30 дней до окончания срока.</p>
+
+<ul>
+<li>🔑 <strong>Тип сертификата:</strong> Убедитесь, что в поле "Применение" указаны права для работы с торгами и ЭДО.</li>
+<li>💻 <strong>Драйверы:</strong> Установите последние версии драйверов для токена и плагина для браузера.</li>
+<li>📅 <strong>Актуальность:</strong> Проверьте дату окончания действия в реестре сертификатов Windows или macOS.</li>
+</ul>
+
+<p>Также стоит проверить, не заблокирован ли ключ защиты из-за многократного ввода неверного PIN-кода. В таких случаях требуется процедура разблокировки через PUK-код, который выдается при покупке токена. Храните PUK-код в надежном месте, отдельно от самого носителя.</p>
+
+<h2 id="пошаговая-инструкция-по-подключению-модуля-интеграции">Пошаговая инструкция по подключению модуля интеграции</h2>
+
+<p>Настройка связи между системами начинается с авторизации в личном кабинете СБИС и перехода в раздел маркетплейсов. Вам потребуется ввести API-ключи, которые генерируются в профиле селлера на Ozon. Эти ключи являются уникальным идентификатором вашего магазина и дают разрешение внешней системе на доступ к данным.</p>
+
+<p>После ввода ключей система предложит выбрать схему работы: ручную, полуавтоматическую или полностью автоматическую. Для большинства магазинов оптимальным вариантом является <strong>полуавтоматический режим</strong>, где подтверждение критических операций (например, отгрузка) требует участия человека, а рутинные задачи выполняются сами.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист подключения</h4><label class="check-item"><input type="checkbox"><span>Получить API-ключи в личном кабинете Ozon</span></label><label class="check-item"><input type="checkbox"><span>Установить плагин СБИС для браузера</span></label><label class="check-item"><input type="checkbox"><span>Войти в раздел "Маркетплейсы" в СБИС</span></label><label class="check-item"><input type="checkbox"><span>Ввести ключи и нажать "Проверить соединение"</span></label><label class="check-item"><input type="checkbox"><span>Настроить правила маппинга статусов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Важным этапом является маппинг (сопоставление) статусов заказов. Вам нужно указать системе, какому статусу в СБИС соответствует статус "Принят в обработку" или "Доставлен" на Ozon. Ошибка в этой настройке приведет к тому, что бухгалтерия будет видеть неверную картину продаж.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При первичной настройке не включайте автоматическую выгрузку остатков, пока не убедитесь, что номенклатура товаров в СБИС и на Ozon полностью совпадает. Это может привести к продаже товаров, которых нет в наличии, и последующим штрафам за отмену заказов.</p>
+</blockquote>
+
+<p>После тестового прогона и проверки корректности отображения данных можно переходить к полноценной эксплуатации. Система начнет загружать историю заказов за выбранный период, что позволит сразу сформировать полную отчетность.</p>
+
+<h2 id="автоматизация-документооборота-акты-накладные-и-упд">Автоматизация документооборота: акты, накладные и УПД</h2>
+
+<p>Одним из главных преимуществ использования <strong>СБИС для Ozon</strong> является автоматическое формирование первичных документов. Система сама создает Универсальные Передаточные Документы (УПД) на основе данных о реализованных товарах. Это избавляет бухгалтерию от тысяч ручных операций и снижает риск человеческой ошибки при вводе цифр.</p>
+
+<p>Документы формируются по расписанию или по событию (например, при завершении отчетного периода). Вы можете настроить шаблоны документов, добавив в них необходимые реквизиты или логотип компании. <em>Электронный документооборот</em> позволяет мгновенно отправлять подписанные файлы контрагентам или хранить их в архиве.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип документа</th>
+<th>Момент формирования</th>
+<th>Необходимость подписи</th>
+<th>Юридическая сила</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Реализация (УПД)</td>
+<td>Ежедневно/Еженедельно</td>
+<td>Обязательно (ЭЦП)</td>
+<td>Полная</td>
+</tr>
+<tr>
+<td>Акт сверки</td>
+<td>По запросу/Ежемесячно</td>
+<td>Желательно</td>
+<td>Подтверждающая</td>
+</tr>
+<tr>
+<td>Товарная накладная</td>
+<td>При отгрузке</td>
+<td>Обязательно</td>
+<td>Полная</td>
+</tr>
+<tr>
+<td>Акт удержания комиссии</td>
+<td>По факту продажи</td>
+<td>Автоматически</td>
+<td>Полная</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Особое внимание следует уделить актам сверки, так как расхождения в них часто становятся причиной финансовых потерь. СБИС позволяет автоматически сверять суммы начислений Ozon с фактическими поступлениями на расчетный счет, подсвечивая разногласия красным цветом.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Автоматическое формирование УПД в СБИС сокращает время работы бухгалтера с документами маркетплейса до 90%, устраняя необходимость ручного ввода тысяч строк реализаций.</p></aside>
+
+<h2 id="управление-товарами-и-остатками-через-интерфейс-сбис">Управление товарами и остатками через интерфейс СБИС</h2>
+
+<p>Управление ассортиментом непосредственно из интерфейса СБИС дает возможность контролировать наличие товаров на складах Ozon (FBO) и на своей стороне (FBS). Вы можете видеть, сколько единиц товара зарезервировано под заказы, сколько доступно для продажи, а сколько находится в пути.</p>
+
+<p>Функция <strong>автообновления остатков</strong> особенно полезна для магазинов, торгующих на нескольких площадках одновременно. Изменение количества товара в СБИС автоматически пересчитывает остатки на Ozon, предотвращая оверселлинг (продажу отсутствующего товара). Это критически важно для поддержания рейтинга магазина.</p>
+
+<p>Также доступна работа с карточками товаров: вы можете обновлять описания, характеристики и изображения, если это предусмотрено функционалом интеграции. Однако, основная масса работы ведется именно с количественными показателями и ценами. Гибкие настройки позволяют задавать правила наценки и округления цен при синхронизации.</p>
+
+<ul>
+<li>📉 <strong>Контроль минимума:</strong> Автоматическая остановка продаж при достижении минимального остатка.</li>
+<li>🏷️ <strong>Динамическое ценообразование:</strong> Изменение цены в зависимости от остатков на складе.</li>
+<li>🚚 <strong>Мониторинг поставок:</strong> Отслеживание статуса приемки товаров на складах маркетплейса.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: При изменении штрихкодов (баркодов) товаров в СБИС обязательно проверьте их соответствие маркировке на товарах на складе Ozon. Несоответствие штрихкода приведет к проблемам при отгрузке и возможной потере товара.</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-cdb05463"><div class="pb-poll-question">📊 Как вы чаще всего обновляете остатки на Ozon?</div><div class="pb-poll-option" data-poll="cdb05463" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через ЛК Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cdb05463" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Автоматически через СБИС</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cdb05463" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сторонние сервисы аналитики</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cdb05463" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не обновляю, торгую со своего склада</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="решение-типичных-ошибок-и-проблем-синхронизации">Решение типичных ошибок и проблем синхронизации</h2>
+
+<p>В процессе работы могут возникать ситуации, когда синхронизация прерывается или данные передаются некорректно. Чаще всего это связано с истечением сессии API, изменением структуры данных на стороне Ozon или ошибками в заполнении карточек товаров. <strong>Логирование</strong> всех операций в СБИС позволяет быстро выявить причину сбоя.</p>
+
+<p>Если вы видите ошибку "Неверный формат данных" или "Товар не найден", первым делом проверьте соответствие артикулов. Артикул в СБИС должен один в один совпадать с артикулом в личном кабинете селлера. Любые лишние пробелы или символы приведут к отказу в обработке.</p>
+
+<p>Частой проблемой является также рассинхронизация времени на серверах. Убедитесь, что на компьютере, с которого производится управление, установлено правильное время и часовой пояс. Разница даже в несколько минут может привести к ошибке подписи документа.</p>
+
+<details class="pb-accordion"><summary>Что делать, если пропала связь?</summary><div class="pb-accordion-body"><p>Если интеграция перестала работать, выполните следующие шаги: 1. Проверьте статус сервиса СБИС (status.sbis.ru). 2. Переподключите API-ключи в настройках модуля. 3. Очистите кэш браузера и плагинов. 4. Обратитесь в поддержку, предоставив ID последней успешной операции.</p></div></details>
+
+<p>Для сложных случаев, когда стандартные методы не помогают, рекомендуется выполнить полную перепривязку магазина. Это удалит локальные кэшированные данные и загрузит актуальную информацию с серверов Ozon заново. Перед этой процедурой обязательно сделайте резервную копию базы данных.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли работать в СБИС с Ozon без электронной подписи?</summary>
+<p>Полноценная работа с документами и юридически значимый обмен данными без ЭЦП невозможны. Вы сможете только просматривать статистику, если модуль это позволяет, но формировать УПД и акты сверки придется вручную или через другие сервисы.</p>
+</details>
+
+<details>
+<summary>Сколько стоит подключение модуля интеграции СБИС и Ozon?</summary>
+<p>Стоимость зависит от тарифа СБИС и выбранного набора функций. Базовая интеграция может входить в некоторые тарифные планы, но за расширенные возможности (автообновление остатков, управление ценами) часто взимается дополнительная ежемесячная плата.</p>
+</details>
+
+<details>
+<summary>Как часто обновляются данные между системами?</summary>
+<p>В стандартном режиме опрос сервера Ozon происходит каждые 3-5 минут. При большом потоке заказов интервал может быть уменьшен техническими специалистами, но это создает дополнительную нагрузку на канал связи.</p>
+</details>
+
+<details>
+<summary>Что делать, если в СБИС не грузятся новые заказы?</summary>
+<p>Проверьте статус подключения API-ключей, убедитесь, что на балансе СБИС есть средства для передачи данных, и проверьте фильтры отбора, которые могли случайно скрыть новые заказы (например, фильтр по дате или статусу).</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-takoe-domennyj-login-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Доменный логин Озон: что это и как его использовать в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое доменный логин на Ozon, зачем он нужен продавцам и покупателям, как его получ</span>
+            </a><a href="/articles/k/ka/kak-dobavit-polzovatelya-v-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить пользователя в Озон Селлер: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению сотрудников в личный кабинет Озон Селлер: права доступа, шаги, о</span>
+            </a><a href="/articles/k/ka/kak-prodavat-na-ozon-ru.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Ozon в 2026: пошаговое руководство для новичков</span>
+                <span class="pb-related-desc">Полный гайд по продажам на Ozon: от регистрации до масштабирования бизнеса. Узнайте, как загружать т</span>
+            </a><a href="/articles/o/oz/ozon-ili-valberis-chto-vygodnej-otkryt.html" class="pb-related-card">
+                <span class="pb-related-title">Озон или Валберис: что выгоднее открыть в 2026 году</span>
+                <span class="pb-related-desc">Сравнение Wildberries и Ozon для селлеров: комиссии, логистика, штрафы и условия входа. Анализ, где </span>
+            </a><a href="/articles/k/ka/kak-zajti-v-ozon-learning-dlya-obucheniya.html" class="pb-related-card">
+                <span class="pb-related-title">Как войти в Ozon Learning для обучения — пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд по регистрации и входу в Ozon Learning: для продавцов, сотрудников и партнёров. Решен</span>
+            </a><a href="/articles/k/ka/kak-na-ozone-sdelat-tovarnyj-chek.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать товарный чек на Озоне: инструкция для продавца</span>
+                <span class="pb-related-desc">Полное руководство: как сформировать и скачать товарный чек в Ozon Seller. Настройка автоматической </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

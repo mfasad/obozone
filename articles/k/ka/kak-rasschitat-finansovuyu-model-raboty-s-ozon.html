@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Финансовая модель для Озон: как рассчитать прибыль и риски — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по расчёту финансовой модели работы с Ozon: комиссии, логистика, налоги и скрытые издержки. Готовые формулы + примеры для FBO и FBS.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rasschitat-finansovuyu-model-raboty-s-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Финансовая модель для Озон: как рассчитать прибыль и риски">
+    <meta property="og:description" content="Пошаговое руководство по расчёту финансовой модели работы с Ozon: комиссии, логистика, налоги и скрытые издержки. Готовые формулы + примеры для FBO и FBS.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Финансовая модель для Озон: как рассчитать прибыль и риски</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-базовые-компоненты-финансовой-модели-для-ozon">1. Базовые компоненты финансовой модели для Ozon</a></li><li><a href="#2-комиссии-ozon-как-их-посчитать-и-уменьшить">2. Комиссии Ozon: как их посчитать и уменьшить</a></li><li><a href="#3-логистические-расходы-fbs-vs-fbo">3. Логистические расходы: FBS vs FBO</a></li><li><a href="#4-скрытые-расходы-что-часто-упускают-из-виду">4. Скрытые расходы: что часто упускают из виду</a></li><li><a href="#5-налоги-и-бухгалтерия-как-не-потерять-прибыль">5. Налоги и бухгалтерия: как не потерять прибыль</a></li><li><a href="#6-пример-расчёта-финансовой-модели-для-реального-товара">6. Пример расчёта финансовой модели для реального товара</a></li><li><a href="#7-оптимизация-финансовой-модели-5-рабочих-способов">7. Оптимизация финансовой модели: 5 рабочих способов</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/s/sk/sklad-ozon-domodedovo-gde.html">Склад Озон Домодедово: адрес, график и как попасть</a></li><li><a href="/articles/k/ka/kak-rasschitat-komissiyu-na-ozone.html">Как рассчитать комиссию Озон в 2026: формулы, калькулятор и примеры</a></li><li><a href="/articles/u/up/upd-ozon-eto-chto.html">УПД в Ozon: что это, как работает и зачем нужен документ в 2026 году</a></li><li><a href="/articles/o/oz/ozon-seller-kak-perenesti-datu-otgruzki.html">Как перенести дату отгрузки на Озон Селлер: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oformit-fbs-ozon.html">FBS на Ozon: пошаговое оформление заказа для продавцов 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как рассчитать финансовую модель работы с Ozon: пошаговый разбор с формулами и примерами</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-базовые-компоненты-финансовой-модели-для-ozon">1. Базовые компоненты финансовой модели для Ozon</a></li><li><a href="#2-комиссии-ozon-как-их-посчитать-и-уменьшить">2. Комиссии Ozon: как их посчитать и уменьшить</a></li><li><a href="#3-логистические-расходы-fbs-vs-fbo">3. Логистические расходы: FBS vs FBO</a></li><li><a href="#4-скрытые-расходы-что-часто-упускают-из-виду">4. Скрытые расходы: что часто упускают из виду</a></li><li><a href="#5-налоги-и-бухгалтерия-как-не-потерять-прибыль">5. Налоги и бухгалтерия: как не потерять прибыль</a></li><li><a href="#6-пример-расчёта-финансовой-модели-для-реального-товара">6. Пример расчёта финансовой модели для реального товара</a></li><li><a href="#7-оптимизация-финансовой-модели-5-рабочих-способов">7. Оптимизация финансовой модели: 5 рабочих способов</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Работа на маркетплейсе <em>Ozon</em> требует не только грамотного подбора товаров и маркетинга, но и точного финансового планирования. Без чёткого понимания всех статей расходов и доходов даже успешный на первый взгляд бизнес может оказаться убыточным. В этой статье мы разберём, как построить <strong>финансовую модель для Ozon</strong> с учётом всех нюансов: от комиссий платформы до логистических издержек и налоговых обязательств.</p>
+
+<p>Основная ошибка новичков — ориентация только на <strong>цену продажи</strong> без учёта скрытых затрат. Например, продавец может радоваться высокой марже, но забыть про <code>комиссию за возврат</code> (до 15% от стоимости товара) или <code>штрафы за нарушение сроков отгрузки</code> (до 3% от оборота). Мы покажем, как избежать таких просчётов и спрогнозировать реальную прибыль ещё до запуска продаж.</p>
+
+<p>Материал будет полезен как начинающим продавцам, так и опытным предпринимателям, которые хотят оптимизировать текущие процессы. Все формулы и примеры адаптированы под актуальные тарифы <em>Ozon</em> на 2026 год и учитывают особенности схем <strong>FBO</strong> (самостоятельная логистика) и <strong>FBS</strong> (логистика через Ozon).</p>
+
+<h2 id="1-базовые-компоненты-финансовой-модели-для-ozon">1. Базовые компоненты финансовой модели для Ozon</h2>
+
+<p>Любая финансовая модель состоит из трёх ключевых блоков: <strong>доходы</strong>, <strong>расходы</strong> и <strong>налоги</strong>. На <em>Ozon</em> каждый из этих блоков имеет свои особенности, которые нужно учитывать при расчётах.</p>
+
+<p>Начнём с <strong>доходов</strong>. Здесь всё кажется простым: доход = цена продажи × количество проданных единиц. Однако на практике важно учитывать:</p>
+<ul>
+  <li>📦 <strong>Скидки и промокоды</strong> — Ozon часто проводит акции, где продавец вынужден снижать цену (например, <code>"День рождения Ozon"</code> или <code>"Чёрная пятница"</code>). Это уменьшает средний чек.</li>
+  <li>🔄 <strong>Возвраты</strong> — по статистике, до 10-15% заказов возвращаются (в некоторых категориях, например, одежде — до 30%). Деньги за возврат приходят не сразу, а через 3-7 дней.</li>
+  <li>💳 <strong>Оплаты картами с кэшбэком</strong> — Ozon удерживает дополнительную комиссию (0,5-1%) за транзакции по картам с повышенным кэшбэком (например, <em>Тинькофф</em> или <em>Сбербанк Premium</em>).</li>
+</ul>
+
+<p>Теперь перейдём к <strong>расходам</strong>. Их можно разделить на:</p>
+<ul>
+  <li>📊 <strong>Прямые затраты</strong> — себестоимость товара, упаковка, доставка до склада Ozon (для FBS).</li>
+  <li>🏢 <strong>Комиссии Ozon</strong> — фиксированный процент от продажи (от 5% до 25% в зависимости от категории).</li>
+  <li>🚚 <strong>Логистические издержки</strong> — стоимость хранения на складе (для FBS), доставки до покупателя (для FBO), обратной логистики.</li>
+  <li>📝 <strong>Прочие расходы</strong> — реклама на платформе, штрафы, банковские комиссии за вывод средств.</li>
+</ul>
+
+<p>Наконец, <strong>налоги</strong>. Здесь всё зависит от выбранной системы налогообложения:</p>
+<ul>
+  <li>📑 <strong>ИП на УСН 6%</strong> — уплачивает 6% от дохода (без учёта расходов).</li>
+  <li>📑 <strong>ИП на УСН 15%</strong> — 15% от прибыли (доходы минус расходы).</li>
+  <li>🏢 <strong>ООО на УСН 15%</strong> — аналогично, но с дополнительными отчислениями (например, 1% с доходов свыше 150 млн руб.).</li>
+  <li>💼 <strong>ОСНО</strong> — 20% на прибыль + НДС 20% (актуально для крупных продавцов с оборотом свыше 200 млн руб.).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы работаете по схеме <strong>FBS</strong>, Ozon автоматически удерживает НДС (20%) с комиссий за логистику и хранение, даже если вы не плательщик НДС. Эти суммы можно вернуть через налоговую декларацию, но для этого нужно вести отдельный учёт.</blockquote>
+
+<h2 id="2-комиссии-ozon-как-их-посчитать-и-уменьшить">2. Комиссии Ozon: как их посчитать и уменьшить</h2>
+
+<p>Комиссии <em>Ozon</em> — одна из самых значительных статей расходов. Они зависят от <strong>категории товара</strong>, <strong>цены</strong> и <strong>схемы работы</strong> (FBO/FBS). Разберёмся, как их правильно рассчитать.</p>
+
+<p>Базовая комиссия состоит из:</p>
+<ol>
+  <li><strong>Процент от продажи</strong> — варьируется от 5% (например, для книг) до 25% (для электроники). Полный список тарифов можно найти в <a href="https://seller.ozon.ru/prices" target="_blank">личном кабинете продавца</a>.</li>
+  <li><strong>Фиксированная комиссия за заказ</strong> — от 30 до 150 рублей в зависимости от категории.</li>
+  <li><strong>Комиссия за доставку</strong> — если вы работаете по <strong>FBO</strong>, Ozon берёт 1-3% от стоимости доставки, которую оплачивает покупатель.</li>
+</ol>
+
+<p>Пример расчёта для товара категории "Одежда" (комиссия 15% + 50 руб. за заказ):</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>Значение</th>
+      <th>Формула</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Цена товара</td>
+      <td>2 000 руб.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Процентная комиссия (15%)</td>
+      <td>300 руб.</td>
+      <td>2 000 × 0,15</td>
+    </tr>
+    <tr>
+      <td>Фиксированная комиссия</td>
+      <td>50 руб.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>Итого комиссия Ozon</strong></td>
+      <td><strong>350 руб.</strong></td>
+      <td>300 + 50</td>
+    </tr>
+    <tr>
+      <td>Чистый доход продавца</td>
+      <td><strong>1 650 руб.</strong></td>
+      <td>2 000 – 350</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Однако это ещё не всё. Дополнительно Ozon удерживает:</p>
+<ul>
+  <li>🔙 <strong>Комиссию за возврат</strong> — 10-15% от стоимости товара, если покупатель вернёт заказ.</li>
+  <li>📦 <strong>Комиссию за упаковку</strong> (для FBS) — от 5 до 20 руб. за заказ.</li>
+  <li>🚛 <strong>Штрафы за нарушение сроков</strong> — например, если вы не уложились в <code>SLI (Service Level Indicator)</code> по отгрузке.</li>
+</ul>
+
+<p>Как уменьшить комиссии?</p>
+<ul>
+  <li>🎯 <strong>Участвуйте в акциях Ozon</strong> — иногда платформа снижает комиссии для участников промо (например, до 10% вместо 15%).</li>
+  <li>📈 <strong>Повышайте средний чек</strong> — комиссия в рублях фиксирована, поэтому продажа дорогого товара выгоднее.</li>
+  <li>🔄 <strong>Оптимизируйте возвраты</strong> — чем меньше возвратов, тем меньше дополнительных комиссий.</li>
+</ul>
+
+<div class="pb-poll" id="poll-896dbe8e"><div class="pb-poll-question">📊 Какую схему работы на Ozon вы используете?</div><div class="pb-poll-option" data-poll="896dbe8e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">FBO (самостоятельная логистика)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="896dbe8e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">FBS (логистика через Ozon)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="896dbe8e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Комбинирую обе</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="896dbe8e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ещё не выбрал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-логистические-расходы-fbs-vs-fbo">3. Логистические расходы: FBS vs FBO</h2>
+
+<p>Выбор между <strong>FBO</strong> (самостоятельная логистика) и <strong>FBS</strong> (логистика через Ozon) напрямую влияет на финансовую модель. Разберём плюсы и минусы каждой схемы.</p>
+
+<p><strong>FBS (Fulfillment by Ozon)</strong>:</p>
+<ul>
+  <li>✅ <strong>Плюсы:</strong>
+    <ul>
+      <li>🚀 Быстрая доставка (1-2 дня) — повышает конверсию.</li>
+      <li>📦 Нет нужды в собственном складе — Ozon хранит товар.</li>
+      <li>🔄 Автоматическая обработка возвратов.</li>
+    </ul>
+  </li>
+  <li>❌ <strong>Минусы:</strong>
+    <ul>
+      <li>💰 Высокие комиссии за хранение (от 1 руб./день за место).</li>
+      <li>📦 Ограничения по упаковке (требования к этикеткам, размерам).</li>
+      <li>🔄 Риск штрафов за несоответствие товаров (например, если вес не совпадает с заявленным).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>FBO (Fulfillment by Owner)</strong>:</p>
+<ul>
+  <li>✅ <strong>Плюсы:</strong>
+    <ul>
+      <li>💰 Никаких комиссий за хранение.</li>
+      <li>📦 Полный контроль над запасами и упаковкой.</li>
+      <li>🚚 Возможность работать с курьерскими службами по своим тарифам.</li>
+    </ul>
+  </li>
+  <li>❌ <strong>Минусы:</strong>
+    <ul>
+      <li>🏢 Нужно арендовать склад или место для хранения.</li>
+      <li>🚚 Самостоятельно организовывать доставку (или платить курьерским службам).</li>
+      <li>📦 Риск ошибок при упаковке и отгрузке (ведут к штрафам).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Сравним расходы на примере товара стоимостью 1 500 руб. (категория "Бытовая техника", комиссия 12%):</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Статья расходов</th>
+      <th>FBS</th>
+      <th>FBO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Комиссия Ozon (12% + 50 руб.)</td>
+      <td>230 руб.</td>
+      <td>230 руб.</td>
+    </tr>
+    <tr>
+      <td>Доставка до покупателя</td>
+      <td>Включено в комиссию</td>
+      <td>200 руб. (курьер)</td>
+    </tr>
+    <tr>
+      <td>Хранение на складе (30 дней)</td>
+      <td>30 руб. (1 руб./день)</td>
+      <td>0 руб.</td>
+    </tr>
+    <tr>
+      <td>Упаковка</td>
+      <td>10 руб.</td>
+      <td>15 руб. (свои материалы)</td>
+    </tr>
+    <tr>
+      <td><strong>Итого расходов</strong></td>
+      <td><strong>270 руб.</strong></td>
+      <td><strong>445 руб.</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Как видно из таблицы, <strong>FBS выгоднее</strong> для небольших товаров с высоким оборотом. Однако если у вас крупногабаритные товары (например, мебель) или низкая маржа, <strong>FBO</strong> может быть предпочтительнее.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При работе по <strong>FBS</strong> Ozon может взимать дополнительную плату за <code>"длинное хранение"</code> (если товар лежит на складе больше 90 дней). В некоторых случаях это приводит к тому, что продавец теряет деньги на каждом непроданном товаре.</blockquote>
+
+
+<p>- Сравнить комиссии FBS и стоимость самостоятельной доставки (FBO)</p>
+<p>- Оценить оборот товара (для медленно продающихся FBS может быть убыточным)</p>
+<p>- Проверить требования Ozon к упаковке (для FBS)</p>
+<p>- Учесть расходы на склад (для FBO)</p>
+<p>- Посчитать риски штрафов за нарушение SLI (для FBO)</p>
+<p>--></p>
+
+<h2 id="4-скрытые-расходы-что-часто-упускают-из-виду">4. Скрытые расходы: что часто упускают из виду</h2>
+
+<p>Многие продавцы при расчёте финансовой модели забывают о <strong>скрытых расходах</strong>, которые могут съесть значительную часть прибыли. Разберём самые распространённые.</p>
+
+<p><strong>1. Штрафы и пени</strong></p>
+<p>Ozon активно штрафует продавцов за нарушение правил. Например:</p>
+<ul>
+  <li>📅 <strong>Нарушение SLI по отгрузке</strong> — штраф до 3% от оборота за месяц.</li>
+  <li>📦 <strong>Несоответствие товара</strong> (вес, размер, описание) — штраф 500-2 000 руб. за инцидент.</li>
+  <li>🔄 <strong>Отмена заказа продавцом</strong> — штраф 300 руб. за каждый случай.</li>
+</ul>
+
+<p><strong>2. Банковские комиссии</strong></p>
+<p>При выводе средств с <em>Ozon</em> банки могут брать комиссию:</p>
+<ul>
+  <li>🏦 <strong>Тинькофф</strong> — 0% за перевод на счёт ИП, но 1,5% за обналичивание.</li>
+  <li>🏦 <strong>Сбербанк</strong> — до 1% за перевод на счёт ООО.</li>
+  <li>💳 <strong>Эквайринг</strong> — если принимаете оплату картами на своём сайте (для мультиканальных продаж), комиссия может достигать 2,5%.</li>
+</ul>
+
+<p><strong>3. Реклама и промо</strong></p>
+<p>Без рекламы на <em>Ozon</em> сложно добиться высоких продаж. Основные статьи расходов:</p>
+<ul>
+  <li>📢 <strong>Ozon Реклама</strong> — ставки от 5 до 50 руб. за клик (в зависимости от категории).</li>
+  <li>🎁 <strong>Участие в акциях</strong> — Ozon может требовать дополнительную скидку (например, 10-20% от цены).</li>
+  <li>📊 <strong>Внешний трафик</strong> — если привлекаете покупателей через соцсети или контекстную рекламу.</li>
+</ul>
+
+<p><strong>4. Возвраты и обратная логистика</strong></p>
+<p>Возврат товара — это не только потеря выручки, но и дополнительные расходы:</p>
+<ul>
+  <li>🚚 <strong>Доставка обратно на склад</strong> — если работаете по FBS, Ozon берёт 50-200 руб. за возврат.</li>
+  <li>📦 <strong>Проверка и повторная упаковка</strong> — может потребоваться дополнительный персонал.</li>
+  <li>🗑️ <strong>Утилизация</strong> — если товар нельзя продать повторно (например, косметика с нарушенной упаковкой).</li>
+</ul>
+
+<p>Пример расчёта скрытых расходов для товара стоимостью 3 000 руб. (категория "Электроника", комиссия 20%):</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Статья расходов</th>
+      <th>Сумма</th>
+      <th>Комментарий</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Штраф за нарушение SLI</td>
+      <td>90 руб.</td>
+      <td>3% от 3 000 руб.</td>
+    </tr>
+    <tr>
+      <td>Банковская комиссия</td>
+      <td>30 руб.</td>
+      <td>1% от вывода</td>
+    </tr>
+    <tr>
+      <td>Реклама (5 кликов по 20 руб.)</td>
+      <td>100 руб.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Возврат (1 шт. из 10)</td>
+      <td>450 руб.</td>
+      <td>15% от 3 000 руб. + доставка 150 руб.</td>
+    </tr>
+    <tr>
+      <td><strong>Итого скрытые расходы</strong></td>
+      <td><strong>670 руб.</strong></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><mark>Важно: если не учитывать скрытые расходы, реальная рентабельность может оказаться на 10-30% ниже запланированной.</mark></p>
+
+<details class="pb-accordion"><summary>Что делать, если Ozon заблокировал вывод средств?</summary><div class="pb-accordion-body"><p>
+<p>Если Ozon приостановил вывод средств, проверьте:</p>
+<p>1. Наличие неоплаченных штрафов (в личном кабинете во вкладке "Финансы").</p>
+<p>2. Незакрытые возвраты или претензии от покупателей.</p>
+<p>3. Нарушение правил (например, продажа товара без сертификата).</p>
+<p>4. Подозрение в мошенничестве (например, подозрительно высокий возврат).</p>
+
+<p>Для разблокировки напишите в поддержку с просьбой уточнить причину. Обычно проблема решается в течение 3-5 дней после оплаты штрафов или предоставления документов.</p>
+<p></p></div></details></p>
+
+<h2 id="5-налоги-и-бухгалтерия-как-не-потерять-прибыль">5. Налоги и бухгалтерия: как не потерять прибыль</h2>
+
+<p>Налоговая нагрузка — одна из самых сложных частей финансовой модели. Ошибки здесь могут привести к штрафам или даже блокировке счёта. Разберём основные нюансы.</p>
+
+<p><strong>1. Выбор системы налогообложения</strong></p>
+<p>Для продавцов на <em>Ozon</em> подходят:</p>
+<ul>
+  <li>📑 <strong>УСН 6%</strong> — простая система, но невыгодна при высоких расходах (налог берётся с дохода, а не с прибыли).</li>
+  <li>📑 <strong>УСН 15%</strong> — оптимальна, если у вас много расходов (налог берётся с прибыли).</li>
+  <li>💼 <strong>ОСНО</strong> — только для крупных продавцов (оборот > 200 млн руб./год).</li>
+</ul>
+
+<p>Пример расчёта налогов для ИП на УСН 6% и УСН 15% (доход 500 000 руб., расходы 300 000 руб.):</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>УСН 6%</th>
+      <th>УСН 15%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Доход</td>
+      <td>500 000 руб.</td>
+      <td>500 000 руб.</td>
+    </tr>
+    <tr>
+      <td>Расходы</td>
+      <td>—</td>
+      <td>300 000 руб.</td>
+    </tr>
+    <tr>
+      <td>Прибыль</td>
+      <td>—</td>
+      <td>200 000 руб.</td>
+    </tr>
+    <tr>
+      <td>Налог</td>
+      <td>30 000 руб. (6%)</td>
+      <td>30 000 руб. (15% от прибыли)</td>
+    </tr>
+    <tr>
+      <td><strong>Чистая прибыль</strong></td>
+      <td><strong>470 000 руб.</strong></td>
+      <td><strong>470 000 руб.</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>В этом случае обе системы равнозначны. Но если расходы выше (например, 400 000 руб.), то УСН 15% становится выгоднее:</p>
+<ul>
+  <li>УСН 6%: налог 30 000 руб. (6% от 500 000).</li>
+  <li>УСН 15%: налог 15 000 руб. (15% от 100 000 прибыли).</li>
+</ul>
+
+<p><strong>2. НДС для FBS</strong></p>
+<p>Если вы работаете по <strong>FBS</strong>, Ozon автоматически удерживает НДС (20%) с комиссий за логистику и хранение, даже если вы не плательщик НДС. Эти суммы можно:</p>
+<ul>
+  <li>📝 <strong>Вернуть</strong> через налоговую декларацию (если вы на ОСНО).</li>
+  <li>📊 <strong>Учесть как расход</strong> (если вы на УСН).</li>
+</ul>
+
+<p><strong>3. Страховые взносы</strong></p>
+<p>ИП обязаны платить фиксированные взносы "за себя" (в 2026 году — 45 842 руб./год). Если доход превышает 300 000 руб., добавляется 1% от суммы превышения.</p>
+
+<p><strong>4. Бухгалтерский учёт</strong></p>
+<p>Обязательно ведите отдельный учёт:</p>
+<ul>
+  <li>📑 <strong>Выписки от Ozon</strong> (ежедневные отчёты о продажах и комиссиях).</li>
+  <li>📦 <strong>Документы на товар</strong> (накладные, счета-фактуры от поставщиков).</li>
+  <li>🚚 <strong>Чеки на логистику</strong> (если работаете по FBO).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы продаёте товары, облагаемые <strong>акцизом</strong> (алкоголь, табак), или работаете с <strong>импортными товарами</strong>, обязательно уточните дополнительные налоговые обязательства. Например, при ввозе товара из-за границы может потребоваться уплата таможенных пошлин (даже если вы заказываете через дропшиппинг).</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте сервисы автоматизации бухгалтерии, такие как <em>МойСклад</em>, <em>1С</em> или <em>Ozon Seller Helper</em>. Они интегрируются с личным кабинетом Ozon и автоматически формируют отчёты для налоговой.</p></aside>
+
+<h2 id="6-пример-расчёта-финансовой-модели-для-реального-товара">6. Пример расчёта финансовой модели для реального товара</h2>
+
+<p>Давайте смоделируем финансовую модель для гипотетического товара — <strong>беспроводных наушников</strong> стоимостью 2 500 руб. (категория "Электроника", комиссия 18%). Будем использовать схему <strong>FBS</strong>.</p>
+
+<p><strong>Исходные данные:</strong></p>
+<ul>
+  <li>📦 Себестоимость товара: 1 200 руб.</li>
+  <li>🚚 Стоимость доставки до склада Ozon: 50 руб./шт.</li>
+  <li>📈 Прогнозируемый объём продаж: 100 шт./месяц.</li>
+  <li>🔄 Процент возвратов: 10%.</li>
+  <li>📊 Рекламный бюджет: 5% от оборота.</li>
+</ul>
+
+<p><strong>Расчёт доходов:</strong></p>
+<ul>
+  <li>Общий доход: 100 шт. × 2 500 руб. = <strong>250 000 руб.</strong></li>
+  <li>Минус возвраты (10 шт.): 10 × 2 500 = 25 000 руб.</li>
+  <li><strong>Чистый доход:</strong> 250 000 – 25 000 = <strong>225 000 руб.</strong></li>
+</ul>
+
+<p><strong>Расчёт расходов:</strong></p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Статья расходов</th>
+      <th>Сумма</th>
+      <th>Формула</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Себестоимость товара</td>
+      <td>120 000 руб.</td>
+      <td>100 × 1 200</td>
+    </tr>
+    <tr>
+      <td>Доставка до склада Ozon</td>
+      <td>5 000 руб.</td>
+      <td>100 × 50</td>
+    </tr>
+    <tr>
+      <td>Комиссия Ozon (18% + 50 руб.)</td>
+      <td>42 500 руб.</td>
+      <td>(250 000 × 0,18) + (100 × 50)</td>
+    </tr>
+    <tr>
+      <td>Хранение на складе (30 дней × 1 руб.)</td>
+      <td>3 000 руб.</td>
+      <td>100 × 30</td>
+    </tr>
+    <tr>
+      <td>Комиссия за возврат (15%)</td>
+      <td>3 750 руб.</td>
+      <td>25 000 × 0,15</td>
+    </tr>
+    <tr>
+      <td>Реклама (5% от оборота)</td>
+      <td>12 500 руб.</td>
+      <td>250 000 × 0,05</td>
+    </tr>
+    <tr>
+      <td><strong>Итого расходов</strong></td>
+      <td><strong>187 750 руб.</strong></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Расчёт прибыли и рентабельности:</strong></p>
+<ul>
+  <li>Прибыль до налогов: 225 000 (доход) – 187 750 (расходы) = <strong>37 250 руб.</strong></li>
+  <li>Налог (УСН 6%): 225 000 × 0,06 = <strong>13 500 руб.</strong></li>
+  <li>Чистая прибыль: 37 250 – 13 500 = <strong>23 750 руб.</strong></li>
+  <li>Рентабельность: (23 750 / 187 750) × 100% ≈ <strong>12,6%</strong></li>
+</ul>
+
+<p>Вывод: при продаже 100 наушников в месяц чистая прибыль составит <strong>23 750 руб.</strong>, а рентабельность — <strong>12,6%</strong>. Это средний показатель для электроники. Чтобы увеличить прибыль, можно:</p>
+<ul>
+  <li>📈 <strong>Повысить цену</strong> (например, до 2 800 руб.).</li>
+  <li>🛒 <strong>Снизить себестоимость</strong> (найти более дешёвого поставщика).</li>
+  <li>📢 <strong>Уменьшить рекламный бюджет</strong> (оптимизировать таргетинг).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Прибыльность товара на Ozon зависит не только от цены продажи, но и от оборотности, процента возвратов и скрытых расходов. Всегда моделируйте финансовую модель перед закупкой большой партии.</p></aside>
+
+<h2 id="7-оптимизация-финансовой-модели-5-рабочих-способов">7. Оптимизация финансовой модели: 5 рабочих способов</h2>
+
+<p>Даже если ваша текущая финансовая модель показывает небольшую прибыль, её можно оптимизировать. Вот <strong>5 проверенных способов</strong> увеличить рентабельность:</p>
+
+<p><strong>1. Анализ возвратов и отмен</strong></p>
+<p>Каждый возврат — это потеря не только выручки, но и времени. Чтобы снизить процент возвратов:</p>
+<ul>
+  <li>📸 <strong>Улучшайте фотографии товара</strong> — добавьте видео, 3D-обзор, реальные фото (не стоковые).</li>
+  <li>📝 <strong>Детализируйте описание</strong> — укажите все характеристики, возможные недостатки, размеры.</li>
+  <li>📦 <strong>Проверяйте качество упаковки</strong> — частая причина возвратов — повреждения при транспортировке.</li>
+</ul>
+
+<p><strong>2. Оптимизация логистики</strong></p>
+<p>Если работаете по <strong>FBO</strong>:</p>
+<ul>
+  <li>🚚 <strong>Договаривайтесь с курьерскими службами</strong> на корпоративные тарифы (например, <em>СДЭК</em> или <em>Boxberry</</div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/s/sk/sklad-ozon-domodedovo-gde.html" class="pb-related-card">
+                <span class="pb-related-title">Склад Озон Домодедово: адрес, график и как попасть</span>
+                <span class="pb-related-desc">Где находится склад Озон в Домодедово? Точный адрес, схема проезда, график работы и инструкции для с</span>
+            </a><a href="/articles/k/ka/kak-rasschitat-komissiyu-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать комиссию Озон в 2026: формулы, калькулятор и примеры</span>
+                <span class="pb-related-desc">Пошаговый разбор всех комиссий Озон для продавцов: FBO, FBS, логистика, возвраты. Расчёты с примерам</span>
+            </a><a href="/articles/u/up/upd-ozon-eto-chto.html" class="pb-related-card">
+                <span class="pb-related-title">УПД в Ozon: что это, как работает и зачем нужен документ в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое УПД на Озон: зачем нужен универсальный передаточный документ, как его получит</span>
+            </a><a href="/articles/o/oz/ozon-seller-kak-perenesti-datu-otgruzki.html" class="pb-related-card">
+                <span class="pb-related-title">Как перенести дату отгрузки на Озон Селлер: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно изменить сроки отгрузки заказа на Ozon: через личный кабинет, API или поддерж</span>
+            </a><a href="/articles/k/ka/kak-oformit-fbs-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">FBS на Ozon: пошаговое оформление заказа для продавцов 2026</span>
+                <span class="pb-related-desc">Как правильно оформить FBS-заказ на Озон: от выбора схемы до передачи товара в ПВЗ. Актуальные требо</span>
+            </a><a href="/articles/y/ya/yachejki-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Ячейки Ozon: что это, как выбрать и рассчитать стоимость</span>
+                <span class="pb-related-desc">Подробный гид по ячейкам Ozon: типы складов, стоимость хранения, правила упаковки и выбор схемы рабо</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

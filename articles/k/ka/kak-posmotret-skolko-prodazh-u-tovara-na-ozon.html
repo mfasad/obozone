@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как узнать количество продаж товара на Ozon — 5 рабочих способов — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция для продавцов и покупателей: как посмотреть статистику продаж на Озон через личный кабинет, API, парсинг и сторонние сервисы. Актуально в 2026 году.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-posmotret-skolko-prodazh-u-tovara-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как узнать количество продаж товара на Ozon — 5 рабочих способов">
+    <meta property="og:description" content="Пошаговая инструкция для продавцов и покупателей: как посмотреть статистику продаж на Озон через личный кабинет, API, парсинг и сторонние сервисы. Актуально в 2026 году.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как узнать количество продаж товара на Ozon — 5 рабочих способов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-официальная-статистика-в-личном-кабинете-ozon-seller">1. Официальная статистика в личном кабинете Ozon Seller</a></li><li><a href="#2-api-ozon-автоматизированный-сбор-данных">2. API Ozon: автоматизированный сбор данных</a></li><li><a href="#3-парсинг-данных-с-карточки-товара">3. Парсинг данных с карточки товара</a></li><li><a href="#4-сторонние-сервисы-для-анализа-ozon">4. Сторонние сервисы для анализа Ozon</a></li><li><a href="#5-косвенные-показатели-популярности-товара">5. Косвенные показатели популярности товара</a></li><li><a href="#6-риски-и-ограничения-при-сборе-данных">6. Риски и ограничения при сборе данных</a></li><li><a href="#faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zajti-na-ozon-so-svoim-tovarom-2021.html">Как зайти на Ozon со своим товаром 2021: старт для селлера</a></li><li><a href="/articles/c/ch/chto-luchshe-vsego-prodaetsya-na-ozone-v-2022-godu.html">Что лучше всего продается на Ozon в 2022 году: ТОП ниш</a></li><li><a href="/articles/k/ka/kak-prodavat-na-ozon-esli-net-ip.html">Как продавать на Озон без ИП: старт для самозанятых и физлиц</a></li><li><a href="/articles/k/ka/kak-rabotat-na-udalenke-na-ozon.html">Как работать на удаленке на Озон: вакансии и схемы 2026</a></li><li><a href="/articles/g/gd/gde-legche-torgovat-na-ozon-ili-vajldberriz.html">Где легче торговать: Ozon или Wildberries? Сравнение 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как посмотреть количество продаж товара на Ozon: официальные и альтернативные методы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-официальная-статистика-в-личном-кабинете-ozon-seller">1. Официальная статистика в личном кабинете Ozon Seller</a></li><li><a href="#2-api-ozon-автоматизированный-сбор-данных">2. API Ozon: автоматизированный сбор данных</a></li><li><a href="#3-парсинг-данных-с-карточки-товара">3. Парсинг данных с карточки товара</a></li><li><a href="#4-сторонние-сервисы-для-анализа-ozon">4. Сторонние сервисы для анализа Ozon</a></li><li><a href="#5-косвенные-показатели-популярности-товара">5. Косвенные показатели популярности товара</a></li><li><a href="#6-риски-и-ограничения-при-сборе-данных">6. Риски и ограничения при сборе данных</a></li><li><a href="#faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Выбор товара для продажи на <em>Ozon</em> или анализ конкурентов требует точных данных о популярности позиций. Один из ключевых показателей — <strong>количество продаж</strong>, но маркетплейс не всегда предоставляет эту информацию в открытом доступе. Продавцы с личным кабинетом видят статистику по своим товарам, а вот данные по чужим карточкам приходится добывать обходными путями.</p>
+
+<p>В этой статье разберём все актуальные способы, как узнать продажи товара на <em>Ozon</em> — от официальных инструментов для продавцов до аналитических сервисов и парсинга. Отдельно остановимся на ограничениях платформы, рисках использования неофициальных методов и альтернативных метриках, которые помогут оценить спрос без точных цифр.</p>
+
+<h2 id="1-официальная-статистика-в-личном-кабинете-ozon-seller">1. Официальная статистика в личном кабинете Ozon Seller</h2>
+
+<p>Если вы продавец и товар принадлежит вам, самый надёжный способ — использовать встроенную аналитику в <strong>Личном кабинете Ozon Seller</strong>. Платформа предоставляет детализированные отчёты по каждому <em>SKU</em>, но доступ к ним зависит от модели сотрудничества (<em>FBS</em> или <em>FBO</em>) и тарифного плана.</p>
+
+<p>Чтобы найти данные:</p>
+<ul>
+  <li>📊 Перейдите в раздел <code>Аналитика → Продажи</code>.</li>
+  <li>🔍 В фильтрах выберите нужный товар по <code>артикулу</code> или названию.</li>
+  <li>📅 Укажите период (максимум — 90 дней для детализации).</li>
+  <li>📈 Экспортируйте отчёт в <code>Excel</code> или <code>CSV</code> для дальнейшего анализа.</li>
+</ul>
+
+<p>Обратите внимание: в бесплатном тарифе некоторые метрики могут быть скрыты. Например, продавцы на <em>FBO</em> видят только количество заказов, а не фактические продажи (с учётом отмен и возвратов). Для полной картины потребуется тариф <strong>"Профи"</strong> или <strong>"Премиум"</strong>.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если товар продаётся менее 30 дней, данные в отчётах могут быть неполными. Дождитесь накопления статистики или используйте альтернативные методы оценки спрос.</p></aside>
+
+<h2 id="2-api-ozon-автоматизированный-сбор-данных">2. API Ozon: автоматизированный сбор данных</h2>
+
+<p>Для продавцов с техническими навыками или крупных компаний оптимальный вариант — подключение к <strong>API Ozon</strong>. Официальная документация описывает методы для получения статистики, включая количество продаж. Основные эндпоинты:</p>
+
+<ul>
+  <li>🔗 <code>/v1/analytics/data</code> — общая аналитика по товарам.</li>
+  <li>📦 <code>/v2/analytics/sales</code> — детализация продаж с разбивкой по дням.</li>
+  <li>📊 <code>/v1/product/info</code> — информация о товаре, включая рейтинг и отзывы.</li>
+</ul>
+
+<p>Пример запроса для получения продаж за последний месяц:</p>
+<pre><code>GET https://api-seller.ozon.ru/v1/analytics/data
+<p>Headers:</p>
+<p>- Client-Id: [ваш_client_id]</p>
+<p>- Api-Key: [ваш_api_key]</p>
+<p>Body:</p>
+<p>{</p>
+<p>"date_from": "2026-06-01T00:00:00Z",</p>
+<p>"date_to": "2026-06-30T23:59:59Z",</p>
+<p>"metrics": ["ordered_units", "shipped_units"],</p>
+<p>"dimensions": ["sku", "day"],</p>
+<p>"limit": 1000</p>
+<p>}</code></pre></p>
+
+<p>⚠️ <strong>Внимание:</strong> Для работы с API требуется <em>OAuth 2.0</em>-авторизация и регистрация приложения в кабинете разработчика. Бесплатный лимит запросов — 1000 в день, превышение тарифицируется. Подробности в <a href="https://docs.ozon.ru/api/seller/" target="_blank">документации Ozon API</a>.</p>
+
+<div class="pb-poll" id="poll-aeb92cc5"><div class="pb-poll-question">📊 Как вы обычно анализируете конкурентов на Ozon?</div><div class="pb-poll-option" data-poll="aeb92cc5" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую официальную аналитику</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="aeb92cc5" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Смотрю отзывы и рейтинги</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="aeb92cc5" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Пользуюсь сторонними сервисами</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="aeb92cc5" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не анализирую</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-парсинг-данных-с-карточки-товара">3. Парсинг данных с карточки товара</h2>
+
+<p>Если вы не продавец, а покупатель или конкурент, официальные методы недоступны. В этом случае можно попробовать <strong>парсинг</strong> — автоматический сбор данных с публичных страниц. Например, количество отзывов косвенно указывает на объём продаж: чем их больше, тем популярнее товар.</p>
+
+<p>Как это работает:</p>
+<ol>
+  <li>Откройте карточку товара на <em>Ozon</em> (например, <code>https://www.ozon.ru/product/название-123456789</code>).</li>
+  <li>Прокрутите до блока <strong>"Отзывы"</strong> — там указано общее количество.</li>
+  <li>Разделите число отзывов на средний процент оставляющих их (обычно 5–15%) — получите приблизительную оценку продаж.</li>
+</ol>
+
+<p>Пример: если у товара 500 отзывов и предположить, что их оставляют 10% покупателей, то продаж могло быть около 5000. Этот метод даёт очень приблизительные данные, но помогает сравнить товары между собой.</p>
+
+<details class="pb-accordion"><summary>Как обойти блокировку парсинга на Ozon?</summary><div class="pb-accordion-body"><p>Платформа активно борется с автоматизированным сбором данных: блокирует IP, требует капчу и ограничивает количество запросов. Чтобы снизить риски, используйте:
+<p>- <strong>Прокси-серверы</strong> (меняйте IP-адреса).</p>
+<p>- <strong>User-Agent ротацию</strong> (имитируйте разные браузеры).</p>
+<p>- <strong>Задержки между запросами</strong> (не более 1–2 запросов в секунду).</p>
+<p>- <strong>Официальное API</strong> (если возможно).</p>
+<p>Лучше всего парсить данные через специализированные сервисы, которые уже решили эти проблемы.</p></div></details></p>
+
+<h2 id="4-сторонние-сервисы-для-анализа-ozon">4. Сторонние сервисы для анализа Ozon</h2>
+
+<p>Если самостоятельный парсинг слишком сложен, можно воспользоваться платными или бесплатными сервисами анализа маркетплейсов. Они агрегируют данные с <em>Ozon</em>, <em>Wildberries</em> и других платформ, предоставляя статистику по продажам, динамике цен и конкурентам.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Сервис</th>
+      <th>Функционал</th>
+      <th>Стоимость</th>
+      <th>Ограничения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>DataLens</em></td>
+      <td>Анализ продаж, мониторинг цен, отслеживание позиций</td>
+      <td>От 1 500 ₽/мес</td>
+      <td>Нет данных по FBO-товарам</td>
+    </tr>
+    <tr>
+      <td><em>MPStats</em></td>
+      <td>Статистика продаж, динамика спрос, анализ конкурентов</td>
+      <td>От 990 ₽/мес</td>
+      <td>Ограничение по количеству запросов</td>
+    </tr>
+    <tr>
+      <td><em>SellerLab</em></td>
+      <td>Полная аналитика по товарам, ключевые слова, рейтинг</td>
+      <td>От 2 990 ₽/мес</td>
+      <td>Требует привязки аккаунта Ozon</td>
+    </tr>
+    <tr>
+      <td><em>EcomAnalytica</em></td>
+      <td>Парсинг отзывов, оценка продаж, трекинг позиций</td>
+      <td>Бесплатно (лимиты)</td>
+      <td>Данные обновляются раз в неделю</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Большинство сервисов получают данные через парсинг или API, поэтому их точность зависит от методов сбора. Например, <em>DataLens</em> может показывать продажи с задержкой в 2–3 дня, а <em>MPStats</em> — только по товарам с более чем 10 отзывами.</p>
+
+<h2 id="5-косвенные-показатели-популярности-товара">5. Косвенные показатели популярности товара</h2>
+
+<p>Если точные данные получить невозможно, оценить спрос помогут альтернативные метрики:</p>
+
+<ul>
+  <li>🏆 <strong>Рейтинг товара</strong> — позиции в топе категории (например, "Топ 100 в <em>Смартфоны</em>").</li>
+  <li>⭐ <strong>Количество отзывов и оценка</strong> — товары с 4.5+ звёздами и 100+ отзывами обычно продаются хорошо.</li>
+  <li>📦 <strong>Наличие на складе</strong> — если товар часто заканчивается, спрос высокий.</li>
+  <li>🔄 <strong>Динамика цены</strong> — частые скидки могут указывать на низкий спрос или залёживание.</li>
+  <li>📢 <strong>Активность в вопросах</strong> — много вопросов от покупателей = высокий интерес.</li>
+</ul>
+
+<p><mark>Критическая деталь: Ozon скрывает реальное количество продаж для товаров с низкой конверсией (менее 5% от просмотров). В этом случае даже сервисы анализа не смогут предоставить точные данные.</mark></p>
+
+
+<p>Посмотреть количество отзывов и их даты</p>
+<p>Проверить позицию в категории (топ-10/топ-100)</p>
+<p>Оценить динамику цены за последние 3 месяца</p>
+<p>Проанализировать вопросы покупателей (их количество и актуальность)--></p>
+
+<h2 id="6-риски-и-ограничения-при-сборе-данных">6. Риски и ограничения при сборе данных</h2>
+
+<p>Попытки получить данные о продажах на <em>Ozon</em> неофициальными методами чреваты последствиями:</p>
+
+<ul>
+  <li>🚫 <strong>Блокировка аккаунта</strong> — за парсинг без согласия платформы могут забанить IP или учётную запись.</li>
+  <li>⚖️ <strong>Нарушение пользовательского соглашения</strong> — автоматизированный сбор данных запрещён правилами <em>Ozon</em>.</li>
+  <li>🔍 <strong>Неточные данные</strong> — многие сервисы дают приблизительные оценки, а не реальные цифры.</li>
+  <li>💰 <strong>Затраты на инструменты</strong> — качественные сервисы анализа стоят от 1 000 ₽ в месяц.</li>
+</ul>
+
+<p>Легальная альтернатива — использовать <strong>открытые данные</strong>:
+<p>- Анализировать тренды через <em>Google Trends</em> или <em>Яндекс.Вордстат</em>.</p>
+<p>- Смотреть статистику запросов в <em>Ozon</em> через <code>Подбор слов</code> в кабинете продавца.</p>
+<p>- Изучать отраслевые отчёты (например, от <em>Data Insight</em> или <em>GfK</em>).</p></p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Единственный легальный способ получить точные продажи по чужому товару — договориться с продавцом о предоставлении данных или купить отчёт у официальных партнёров Ozon (например, через <em>Ozon Analytics</em>).</p></aside>
+
+<h2 id="faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</h2>
+
+<details>
+  <summary>Можно ли увидеть продажи конкурентов, если я не продавец?</summary>
+  <p>Нет, <em>Ozon</em> не предоставляет эту информацию публично. Максимум, что доступно — количество отзывов, рейтинг и позиция в категории. Для более глубокого анализа потребуются сторонние сервисы или парсинг (с риском блокировки).</p>
+</details>
+
+<details>
+  <summary>Почему в личном кабинете продажи отличаются от реальных?</summary>
+  <p>В отчётах <em>Ozon Seller</em> учитываются <strong>заказы</strong>, а не фактические продажи. Разница возникает из-за отмен, возвратов и невыкупов. Чтобы увидеть чистые продажи, экспортируйте данные с фильтром по статусу <code>"Доставлен"</code>.</p>
+</details>
+
+<details>
+  <summary>Как узнать продажи товара, если он в архиве?</summary>
+  <p>Для архивных товаров данные сохраняются в отчётах до 1 года (в зависимости от тарифа). Если товар удалён более года назад, восстановить статистику невозможно — <em>Ozon</em> не хранит историю дольше этого срока.</p>
+</details>
+
+<details>
+  <summary>Есть ли бесплатные сервисы для анализа Ozon?</summary>
+  <p>Да, но с серьёзными ограничениями:
+<p>- <em>EcomAnalytica</em> (бесплатный тариф с лимитами).</p>
+<p>- <em>MPStats</em> (пробный период 7 дней).</p>
+<p>- <em>Parser.Ozon</em> (бесплатно до 100 запросов в месяц).</p>
+<p>Для полноценной работы потребуется платная подписка.</p></p>
+</details>
+
+<details>
+  <summary>Можно ли через API получить продажи конкурентов?</summary>
+  <p>Нет, <strong>API Ozon</strong> предоставляет данные только по вашим товарам. Попытки получить информацию о чужих позициях через API приведут к ошибке <code>403 Forbidden</code>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-zajti-na-ozon-so-svoim-tovarom-2021.html" class="pb-related-card">
+                <span class="pb-related-title">Как зайти на Ozon со своим товаром 2021: старт для селлера</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как выйти на Ozon в 2021 году. Регистрация, документы, схема FBO и FBS, загруз</span>
+            </a><a href="/articles/c/ch/chto-luchshe-vsego-prodaetsya-na-ozone-v-2022-godu.html" class="pb-related-card">
+                <span class="pb-related-title">Что лучше всего продается на Ozon в 2022 году: ТОП ниш</span>
+                <span class="pb-related-desc">Анализ спроса 2022 года: что покупают на Ozon. Лучшие категории для старта продаж, статистика, тренд</span>
+            </a><a href="/articles/k/ka/kak-prodavat-na-ozon-esli-net-ip.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Озон без ИП: старт для самозанятых и физлиц</span>
+                <span class="pb-related-desc">Полное руководство: как начать продавать на Ozon без ИП. Сравнение статусов самозанятого и физлица, </span>
+            </a><a href="/articles/k/ka/kak-rabotat-na-udalenke-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как работать на удаленке на Озон: вакансии и схемы 2026</span>
+                <span class="pb-related-desc">Полный гид по удаленной работе на Ozon: менеджером, аналитиком, куратором. Реальные зарплаты, где ис</span>
+            </a><a href="/articles/g/gd/gde-legche-torgovat-na-ozon-ili-vajldberriz.html" class="pb-related-card">
+                <span class="pb-related-title">Где легче торговать: Ozon или Wildberries? Сравнение 2026</span>
+                <span class="pb-related-desc">Аналитика для селлеров: где проще стартовать в 2026 году — на Wildberries или Ozon? Сравнение комисс</span>
+            </a><a href="/articles/k/ka/kak-rabotaet-poiskovik-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает поисковик Ozon: алгоритмы ранжирования</span>
+                <span class="pb-related-desc">Разбор алгоритмов поиска Ozon: факторы ранжирования, релевантность, поведенческие метрики. Как подня</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

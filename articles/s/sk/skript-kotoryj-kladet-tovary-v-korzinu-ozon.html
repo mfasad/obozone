@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Скрипт для автодобавления товаров в корзину Ozon: риски и альтернативы — Об Озоне</title>
+    <meta name="description" content="Как работают скрипты для массового добавления товаров в корзину Ozon, их легальность, технические нюансы и безопасные альтернативы для покупателей и продавцов. Разбор API, браузерных расширений и последствий использования автоматизации.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/s/sk/skript-kotoryj-kladet-tovary-v-korzinu-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Скрипт для автодобавления товаров в корзину Ozon: риски и альтернативы">
+    <meta property="og:description" content="Как работают скрипты для массового добавления товаров в корзину Ozon, их легальность, технические нюансы и безопасные альтернативы для покупателей и продавцов. Разбор API, браузерных расширений и последствий использования автоматизации.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/" class="pb-nav-active">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pokupki-i-oplata/">Покупки и Оплата</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Скрипт для автодобавления товаров в корзину Ozon: риски и альтернативы</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#введение-зачем-нужны-скрипты-для-корзины-ozon">Введение: зачем нужны скрипты для корзины Ozon?</a></li><li><a href="#как-технически-работают-скрипты-для-корзины-ozon">Как технически работают скрипты для корзины Ozon</a></li><li><a href="#риски-использования-скриптов-от-бана-аккаунта-до-судебных-исков">Риски использования скриптов: от бана аккаунта до судебных исков</a></li><li><a href="#легальные-альтернативы-как-автоматизировать-покупки-без-рисков">Легальные альтернативы: как автоматизировать покупки без рисков</a></li><li><a href="#как-ozon-обнаруживает-и-блокирует-скрипты">Как Ozon обнаруживает и блокирует скрипты</a></li><li><a href="#скрипты-для-продавцов-как-работать-с-корзинами-покупателей-легально">Скрипты для продавцов: как работать с корзинами покупателей легально</a></li><li><a href="#примеры-реальных-случаев-блокировок-и-их-последствия">Примеры реальных случаев блокировок и их последствия</a></li><li><a href="#faq-частые-вопросы-о-скриптах-для-корзины-ozon">FAQ: Частые вопросы о скриптах для корзины Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-znachit-stok-na-ozone.html">Что значит «сток» на Озоне: разбираемся в терминах маркетплейса</a></li><li><a href="/articles/k/ka/kak-oplatit-kreditnoj-kartoj-psb-na-ozon.html">Оплата картой ПСБ на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/o/oz/ozon-istek-srok-khraneniya-a-zakaz-oplachen-chto-budet.html">Озон истек срок хранения: вернут ли деньги за оплаченный заказ?</a></li><li><a href="/articles/k/ka/kak-platit-kartoj-ozon-na-ozon.html">Как платить картой Ozon на Ozon: инструкция по привязке</a></li><li><a href="/articles/k/ke/kejt-morton-kogda-rasseetsya-tuman-ozon.html">Кейт Мортон «Когда рассеется туман»: купить на Озон</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Скрипты для добавления товаров в корзину Ozon: как работают и чем опасны</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#введение-зачем-нужны-скрипты-для-корзины-ozon">Введение: зачем нужны скрипты для корзины Ozon?</a></li><li><a href="#как-технически-работают-скрипты-для-корзины-ozon">Как технически работают скрипты для корзины Ozon</a></li><li><a href="#риски-использования-скриптов-от-бана-аккаунта-до-судебных-исков">Риски использования скриптов: от бана аккаунта до судебных исков</a></li><li><a href="#легальные-альтернативы-как-автоматизировать-покупки-без-рисков">Легальные альтернативы: как автоматизировать покупки без рисков</a></li><li><a href="#как-ozon-обнаруживает-и-блокирует-скрипты">Как Ozon обнаруживает и блокирует скрипты</a></li><li><a href="#скрипты-для-продавцов-как-работать-с-корзинами-покупателей-легально">Скрипты для продавцов: как работать с корзинами покупателей легально</a></li><li><a href="#примеры-реальных-случаев-блокировок-и-их-последствия">Примеры реальных случаев блокировок и их последствия</a></li><li><a href="#faq-частые-вопросы-о-скриптах-для-корзины-ozon">FAQ: Частые вопросы о скриптах для корзины Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><h2 id="введение-зачем-нужны-скрипты-для-корзины-ozon">Введение: зачем нужны скрипты для корзины Ozon?</h2>
+
+<p>Автоматизация покупок на маркетплейсах — тема, которая волнует как обычных покупателей, так и профессиональных реселлеров. Скрипты для добавления товаров в корзину <em>Ozon</em> часто позиционируются как инструмент для "обхода ограничений", массовых заказов или фиксации цен перед распродажами. Но насколько это легально, безопасно и эффективно?</p>
+
+<p>С одной стороны, такие решения могут экономить время: вместо ручного добавления каждого товара скрипт выполняет действие за доли секунды. С другой — <strong>Ozon активно борется с автоматизированными действиями</strong>, блокируя аккаунты и IP-адреса при подозрении на бот-активность. В этой статье разберём техническую сторону вопроса, риски для аккаунта и легальные альтернативы, которые не приведут к бану.</p>
+
+<h2 id="как-технически-работают-скрипты-для-корзины-ozon">Как технически работают скрипты для корзины Ozon</h2>
+
+<p>Большинство скриптов для добавления товаров в корзину <em>Ozon</em> используют один из трёх подходов:</p>
+
+<ul>
+  <li>🔹 <strong>Эмуляция действий пользователя</strong> через браузерные расширения (например, <em>Tampermonkey</em> или <em>Greasemonkey</em>). Скрипт имитирует клики по кнопке "В корзину", заполняет формы и обходит CAPTCHA.</li>
+  <li>🔹 <strong>Прямые запросы к API Ozon</strong>. Некоторые разработчики анализируют сетевой трафик и воспроизводят HTTP-запросы, которые отправляет сайт при добавлении товара. Это требует знания <code>productId</code>, <code>cartId</code> и действующих токенов аутентификации.</li>
+  <li>🔹 <strong>Автоматизация через Selenium/Puppeteer</strong>. Эти инструменты управляют реальным браузером, что сложнее обнаружить, но требует больших ресурсов и настройки прокси для обхода блокировок.</li>
+</ul>
+
+<p>Пример кода для добавления товара через API (упрощённая версия):</p>
+<pre><code>fetch('https://api.ozon.ru/commerce/cart/add', {
+<p>method: 'POST',</p>
+<p>headers: {</p>
+<p>'Content-Type': 'application/json',</p>
+<p>'Authorization': 'Bearer YOUR_ACCESS_TOKEN'</p>
+<p>},</p>
+<p>body: JSON.stringify({</p>
+<p>"productId": 123456789,</p>
+<p>"quantity": 1,</p>
+<p>"offerId": "ABC-123"</p>
+<p>})</p>
+<p>})</code></pre></p>
+
+<p>Однако <mark>Ozon регулярно обновляет структуру API и механизмы защиты</mark>, поэтому работоспособность таких скриптов часто ограничена несколькими днями. К тому же, для получения <code>access_token</code> требуется авторизация, что делает скрипт привязанным к конкретному аккаунту — а это первый шаг к его блокировке.</p>
+
+<div class="pb-poll" id="poll-ca392a3f"><div class="pb-poll-question">📊 Для чего вы рассматриваете скрипты для корзины Ozon?</div><div class="pb-poll-option" data-poll="ca392a3f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Массовые заказы для реселла</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ca392a3f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Фиксация цен перед распродажей</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ca392a3f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Тестирование функционала</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ca392a3f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Любопытство</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ca392a3f" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Другое</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="риски-использования-скриптов-от-бана-аккаунта-до-судебных-исков">Риски использования скриптов: от бана аккаунта до судебных исков</h2>
+
+<p>Главная проблема скриптов — нарушение <a href="https://docs.ozon.ru/common/user-agreement/" target="_blank">Пользовательского соглашения Ozon</a>. В разделе 5.3 чётко прописано:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Запрещается использовать любые автоматизированные средства для взаимодействия с Сервисом, включая парсинг, скрейпинг, боты, скрипты или иные программы, если они не предусмотрены официальной документацией Ozon.</blockquote>
+
+<p>Последствия могут быть разными:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип нарушения</th>
+      <th>Последствия для покупателя</th>
+      <th>Последствия для продавца</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Массовое добавление товаров в корзину</td>
+      <td>Блокировка аккаунта на 7–30 дней</td>
+      <td>Штраф до 100 000 ₽ за "недобросовестную конкуренцию"</td>
+    </tr>
+    <tr>
+      <td>Использование API без разрешения</td>
+      <td>Постоянный бан IP-адреса</td>
+      <td>Приостановка продаж на 1–3 месяца</td>
+    </tr>
+    <tr>
+      <td>Обход лимитов на заказы</td>
+      <td>Отмена всех текущих заказов</td>
+      <td>Исключение из программы <em>Ozon Premium</em></td>
+    </tr>
+    <tr>
+      <td>Скрипты для скупа товаров на распродажах</td>
+      <td>Бан аккаунта + запрет на создание нового</td>
+      <td>Расторжение договора с маркетплейсом</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Особенно жёстко <em>Ozon</em> относится к скриптам, которые:</p>
+<ul>
+  <li>🛒 Скупают товары на распродажах (например, в <em>Ozon Sale</em> или <em>Чёрную пятницу</em>).</li>
+  <li>🔄 Обновляют корзину с высокой частотой (более 10 запросов в минуту).</li>
+  <li>📦 Добавляют товары в корзину без намерения покупать (например, для искусственного повышения спроса).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вам нужно зафиксировать цену на товар перед распродажей, используйте официальную функцию "Отложить" в приложении Ozon. Это легально и не ведёт к блокировке.</p></aside>
+
+<h2 id="легальные-альтернативы-как-автоматизировать-покупки-без-рисков">Легальные альтернативы: как автоматизировать покупки без рисков</h2>
+
+<p>Если цель — ускорить процесс добавления товаров в корзину, есть несколько безопасных способов:</p>
+
+<ol>
+  <li><strong>Списки покупок в Ozon</strong>. Функция "Избранное" позволяет сохранять товары и добавлять их в корзину в один клик. Подходит для планирования покупок.</li>
+  <li><strong>API для партнёров</strong>. Если вы продавец, можно использовать <a href="https://docs.ozon.ru/api/seller/" target="_blank">официальное API Ozon</a> для управления заказами (но не для массового добавления в корзину!).</li>
+  <li><strong>Браузерные закладки (Bookmarklets)</strong>. Простые JavaScript-снippet’ы, которые работают только после ручного клика. Пример:
+    <pre><code>javascript:(function(){document.querySelectorAll('.button[data-widget="webAddToCart"]').forEach(b=>b.click());})();</code></pre>
+    <em>Внимание:</em> такой код добавит в корзину <strong>все</strong> товары на странице!</li>
+</ol>
+
+<p>Для продавцов, которые хотят анализировать спрос, лучше использовать:</p>
+<ul>
+  <li>📊 <em>Ozon Analytics</em> — официальный инструмент для мониторинга трендов.</li>
+  <li>🛠️ <em>Парсеры цен</em> с разрешения Ozon (например, через <em>Ozon Partner</em>).</li>
+  <li>📈 Сервисы вроде <em>DataLens</em> или <em>Retail Rocket</em> для анализа поведения покупателей.</li>
+</ul>
+
+
+<p>Использовать только официальные инструменты (API, Ozon Analytics)</p>
+<p>Не превышать лимит 50 действий в час (добавление/удаление из корзины)</p>
+<p>Не использовать прокси или VPN при работе со скриптами</p>
+<p>Проверять аккаунт на подозрительную активность в <code>Настройки → Безопасность</code></p>
+<p>Отказываться от предложений "купить скрипт для обхода ограничений"--></p>
+
+<h2 id="как-ozon-обнаруживает-и-блокирует-скрипты">Как Ozon обнаруживает и блокирует скрипты</h2>
+
+<p><em>Ozon</em> использует многокомпонентную систему защиты от автоматизации:</p>
+
+<ol>
+  <li><strong>Анализ поведения</strong>. Алгоритмы отслеживают:
+    <ul>
+      <li>Скорость кликов (более 3 действий в секунду — признак бота).</li>
+      <li>Последовательность переходов (боты часто открывают страницы в нелогичном порядке).</li>
+      <li>Время нахождения на странице (слишком быстрое добавление в корзину).</li>
+    </ul>
+  </li>
+  <li><strong>Проверка устройства</strong>. Система анализирует:
+    <ul>
+      <li>User-Agent браузера (несоответствие реальному устройству).</li>
+      <li>Наличие расширений для автоматизации (Tampermonkey, Selenium).</li>
+      <li>Отсутствие мышиных движений (если скрипт работает без участия пользователя).</li>
+    </ul>
+  </li>
+  <li><strong>CAPTCHA и невидимые тесты</strong>. На подозрительных аккаунтах включаются:
+    <ul>
+      <li>Дополнительные проверки при добавлении в корзину.</li>
+      <li>Скрытые поля в формах (боты их не заполняют).</li>
+      <li>Динамически генерируемые идентификаторы элементов (чтобы сломать селекторы в скриптах).</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если аккаунт попал под блокировку, восстановить его можно через поддержку, но только при первом нарушении. Повторные случаи ведут к <strong>постоянному бану</strong>.</p>
+
+<details class="pb-accordion"><summary>Что делать если аккаунт заблокировали за скрипты?</summary><div class="pb-accordion-body"><p>
+<p>1. Написать в поддержку Ozon с объяснением ("тестировал расширение для личного использования").</p>
+<p>2. Приложить скриншоты истории покупок (если аккаунт старше 6 месяцев, шансы выше).</p>
+<p>3. Подождать 3–7 дней — иногда блокировка снимается автоматически.</p>
+<p>4. Не пытаться создать новый аккаунт с того же IP или устройства — это усугубит ситуацию.</p>
+<p></p></div></details></p>
+
+<h2 id="скрипты-для-продавцов-как-работать-с-корзинами-покупателей-легально">Скрипты для продавцов: как работать с корзинами покупателей легально</h2>
+
+<p>Продавцы на <em>Ozon</em> часто хотят анализировать, какие товары добавляют в корзину их клиенты, чтобы оптимизировать ассортимент или запускать таргетированные акции. Однако прямые методы (парсинг корзин, скрипты для массового добавления) запрещены. Вместо этого можно:</p>
+
+<ul>
+  <li>📊 Использовать <strong>отчёты Ozon Seller</strong> в разделе "Аналитика → Поведение покупателей". Там видно, какие товары чаще добавляют в корзину, но не покупают.</li>
+  <li>🛒 Запускать <strong>промоакции "Купи X — получи Y в подарок"</strong>. Это стимулирует покупателей добавлять больше товаров легально.</li>
+  <li>🔍 Настраивать <strong>рекомендательные виджеты</strong> на карточках товаров (через личный кабинет продавца).</li>
+</ul>
+
+<p>Для продвинутых продавцов доступен <code>API Ozon</code> с методами:</p>
+<ul>
+  <li><code>/v1/product/info</code> — данные по товарам.</li>
+  <li><code>/v2/analytics/sales</code> — статистика продаж.</li>
+  <li><code>/v1/cart/stats</code> — агрегированная информация по корзина (только для своих товаров!).</li>
+</ul>
+
+<p><blockquote>⚠️ <strong>Внимание:</strong> Попытка получить данные о корзинах других продавцов через API приведёт к немедленному отключению доступа и штрафу до 50 000 ₽.</blockquote></p>
+
+<h2 id="примеры-реальных-случаев-блокировок-и-их-последствия">Примеры реальных случаев блокировок и их последствия</h2>
+
+<p>В 2023 году <em>Ozon</em> заблокировал более 12 000 аккаунтов за использование скриптов во время <em>Чёрной пятницы</em>. Среди пострадавших:</p>
+
+<ul>
+  <li>🛍️ <strong>Реселлеры</strong>, которые пытались скупить товары по акционной цене для перепродажи на <em>Авито</em> или <em>Wildberries</em>. Потери составили до 300 000 ₽ на аккаунт.</li>
+  <li>📦 <strong>Дропшипперы</strong>, автоматизировавшие заказы у поставщиков. Им приостановили выплаты на 2 месяца.</li>
+  <li>🔍 <strong>Арбитражники</strong>, тестировавшие скрипты для парсинга цен. Их IP-адреса попали в чёрный список на полгода.</li>
+</ul>
+
+<p>Один из самых громких случаев — блокировка аккаунта продавца с оборотом 15 млн ₽/месяц. Причина: скрипт добавлял товары в корзину "призрачных" покупателей, чтобы создать искусственный спрос. В результате:</p>
+<ul>
+  <li>📉 Выручка упала на 80% за месяц.</li>
+  <li>💰 Штраф составил 200 000 ₽.</li>
+  <li>⏳ Восстановление аккаунта заняло 45 дней.</li>
+</ul>
+
+<p><aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Даже если скрипт работает "незаметно" несколько недель, рано или поздно алгоритмы Ozon его обнаружат. Риски всегда превышают выгоду.</p></aside></p>
+
+<h2 id="faq-частые-вопросы-о-скриптах-для-корзины-ozon">FAQ: Частые вопросы о скриптах для корзины Ozon</h2>
+
+<details>
+  <summary>Можно ли использовать скрипты для добавления товаров в корзину, если я покупаю для себя?</summary>
+  <p>Технически — да, но это нарушает правила <em>Ozon</em>. Даже для личных покупок аккаунт могут заблокировать, если система заподозрит автоматизацию. Безопаснее использовать официальные инструменты вроде "Избранного".</p>
+</details>
+
+<details>
+  <summary>Как обойти блокировку IP после использования скрипта?</summary>
+  <p>Обойти блокировку почти невозможно: <em>Ozon</em> использует комплексную защиту, включая анализ "отпечатка" браузера (<em>fingerprinting</em>). Лучше дождаться разблокировки (обычно 1–7 дней) или написать в поддержку с объяснением. Использование VPN или прокси только ухудшит ситуацию.</p>
+</details>
+
+<details>
+  <summary>Существуют ли "белые" скрипты, которые не блокируют?</summary>
+  <p>Нет. Любой скрипт, который взаимодействует с корзиной <em>Ozon</em> автоматически, рано или поздно будет обнаружен. Единственный "белый" способ — официальное API, но оно не предназначено для массового добавления товаров в корзину.</p>
+</details>
+
+<details>
+  <summary>Можно ли через скрипт узнать, какие товары добавили в корзину другие покупатели?</summary>
+  <p>Нет, это невозможно по двум причинам:
+    <ol>
+      <li>Техническая: корзины пользователей не доступны через публичные методы API.</li>
+      <li>Юридическая: это нарушает политику конфиденциальности <em>Ozon</em> и может повлечь судебный иск.</li>
+    </ol>
+  </p>
+</details>
+
+<details>
+  <summary>Что делать, если мой конкурент использует скрипты для скупа товаров?</summary>
+  <p>Можно сообщить в службу безопасности <em>Ozon</em> через форму обратной связи (раздел "Нарушения правил"). Приложите доказательства (скриншоты, видео, логи), и аккаунт нарушителя проверят. Однако анонимные жалобы без доказательств не рассматриваются.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-znachit-stok-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Что значит «сток» на Озоне: разбираемся в терминах маркетплейса</span>
+                <span class="pb-related-desc">Сток на Озоне — это товар в оригинальной упаковке от производителя или бренда. Узнайте, чем он отлич</span>
+            </a><a href="/articles/k/ka/kak-oplatit-kreditnoj-kartoj-psb-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Оплата картой ПСБ на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как привязать и оплатить кредитной картой ПСБ на Озон: способы оплаты, комиссии, безопасность. Актуа</span>
+            </a><a href="/articles/o/oz/ozon-istek-srok-khraneniya-a-zakaz-oplachen-chto-budet.html" class="pb-related-card">
+                <span class="pb-related-title">Озон истек срок хранения: вернут ли деньги за оплаченный заказ?</span>
+                <span class="pb-related-desc">Заказ на Озон оплачен, но срок хранения истек. Узнайте, вернут ли деньги, как продлить ожидание и чт</span>
+            </a><a href="/articles/k/ka/kak-platit-kartoj-ozon-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как платить картой Ozon на Ozon: инструкция по привязке</span>
+                <span class="pb-related-desc">Узнайте, как оплатить покупки картой Озон на маркетплейсе. Пошаговая инструкция по привязке, использ</span>
+            </a><a href="/articles/k/ke/kejt-morton-kogda-rasseetsya-tuman-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Кейт Мортон «Когда рассеется туман»: купить на Озон</span>
+                <span class="pb-related-desc">Ищете роман Кейт Мортон «Когда рассеется туман» на Озон? Обзор книги, сравнение изданий, форматов и </span>
+            </a><a href="/articles/k/ka/kak-vypisat-s-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как выписать с Ozon: инструкция по отмене заказа и возврату</span>
+                <span class="pb-related-desc">Узнайте, как выписать с Озон заказ, отменить его или оформить возврат. Подробная инструкция для поку</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

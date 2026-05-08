@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как добавить Ozon ID в 1С: пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Подробное руководство по интеграции Ozon ID в 1С: настройка обмена, синхронизация товаров и заказов. Актуальные схемы для FBS/FBO и решения типичных ошибок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-dobavit-ozon-id-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как добавить Ozon ID в 1С: пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по интеграции Ozon ID в 1С: настройка обмена, синхронизация товаров и заказов. Актуальные схемы для FBS/FBO и решения типичных ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как добавить Ozon ID в 1С: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-ozon-id-и-зачем-его-добавлять-в-1с">Что такое Ozon ID и зачем его добавлять в 1С</a></li><li><a href="#подготовка-1с-к-интеграции-с-ozon-проверка-конфигурации">Подготовка 1С к интеграции с Ozon: проверка конфигурации</a></li><li><a href="#способы-добавления-ozon-id-в-1с-сравнение-методов">Способы добавления Ozon ID в 1С: сравнение методов</a></li><li><a href="#метод-1-ручной-ввод-ozon-id-в-карточку-номенклатуры">Метод 1: Ручной ввод Ozon ID в карточку номенклатуры</a></li><li><a href="#метод-2-импорт-ozon-id-из-excel-в-1с">Метод 2: Импорт Ozon ID из Excel в 1С</a></li><li><a href="#метод-3-автоматическая-синхронизация-через-api-ozon">Метод 3: Автоматическая синхронизация через API Ozon</a></li><li><a href="#типичные-ошибки-при-добавлении-ozon-id-и-как-их-исправить">Типичные ошибки при добавлении Ozon ID и как их исправить</a></li><li><a href="#faq-частые-вопросы-по-работе-с-ozon-id-в-1с">FAQ: Частые вопросы по работе с Ozon ID в 1С</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-obedinit-kartochki-na-ozone-tovara-ozon.html">Как объединить карточки на Озон: инструкция 2026</a></li><li><a href="/articles/k/ka/kak-sozdat-kartochki-na-ozon.html">Как создать карточки на Озон: пошаговая инструкция для селлеров</a></li><li><a href="/articles/k/ka/kakie-kody-tn-ved-vvodit-na-ozon-esli-kupil-tovar-na-rynke.html">Коды ТН ВЭД для Озон: как указать при покупке товара на рынке</a></li><li><a href="/articles/k/ka/kak-dobavit-tovar-v-zakaz-ozon.html">Как добавить товар в заказ на Ozon: полная инструкция</a></li><li><a href="/articles/k/ka/kak-upakovat-ryukzaki-na-ozon.html">Как упаковать рюкзаки для Ozon: требования 2026 и пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как правильно добавить Ozon ID в 1С: полная инструкция с примерами</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-ozon-id-и-зачем-его-добавлять-в-1с">Что такое Ozon ID и зачем его добавлять в 1С</a></li><li><a href="#подготовка-1с-к-интеграции-с-ozon-проверка-конфигурации">Подготовка 1С к интеграции с Ozon: проверка конфигурации</a></li><li><a href="#способы-добавления-ozon-id-в-1с-сравнение-методов">Способы добавления Ozon ID в 1С: сравнение методов</a></li><li><a href="#метод-1-ручной-ввод-ozon-id-в-карточку-номенклатуры">Метод 1: Ручной ввод Ozon ID в карточку номенклатуры</a></li><li><a href="#метод-2-импорт-ozon-id-из-excel-в-1с">Метод 2: Импорт Ozon ID из Excel в 1С</a></li><li><a href="#метод-3-автоматическая-синхронизация-через-api-ozon">Метод 3: Автоматическая синхронизация через API Ozon</a></li><li><a href="#типичные-ошибки-при-добавлении-ozon-id-и-как-их-исправить">Типичные ошибки при добавлении Ozon ID и как их исправить</a></li><li><a href="#faq-частые-вопросы-по-работе-с-ozon-id-в-1с">FAQ: Частые вопросы по работе с Ozon ID в 1С</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Интеграция <strong>Ozon ID</strong> с <em>1С:Предприятие</em> — обязательный шаг для продавцов, которые хотят автоматизировать работу с маркетплейсом. Без корректной привязки идентификаторов товаров вы рискуете столкнуться с дублями карточек, ошибками синхронизации заказов и штрафами за несоответствие остатков. В этой статье разберём все способы добавления <strong>Ozon ID</strong> в базу 1С — от ручного ввода до автоматической выгрузки через API, с учётом особенностей схем <code>FBS</code> и <code>FBO</code>.</p>
+
+<p>Проблема в том, что <em>Ozon</em> присваивает каждому товару уникальный идентификатор (<strong>Ozon ID</strong> или <strong>SKU</strong>), который не совпадает с вашим внутренним артикулом в 1С. Если не синхронизировать эти данные, система не сможет сопоставить заказы с номенклатурой, а вы потеряете контроль над остатками и отгрузками. Мы покажем, как избежать таких ошибок на примерах реальных конфигураций: <em>1С:Управление торговлей 11</em>, <em>1С:ERP</em> и <em>1С:Розница</em>.</p>
+
+<h2 id="что-такое-ozon-id-и-зачем-его-добавлять-в-1с">Что такое Ozon ID и зачем его добавлять в 1С</h2>
+
+<p><strong>Ozon ID</strong> (или <strong>Product ID</strong>) — это уникальный числовой идентификатор товара в системе <em>Ozon</em>, который присваивается автоматически при создании карточки. Он отличается от:</p>
+<ul>
+  <li>📌 <strong>Артикула продавца</strong> — вашего внутреннего кода товара (например, <code>ART-00123</code>)</li>
+  <li>📌 <strong>SKU Ozon</strong> — идентификатора торгового предложения (может совпадать с <strong>Ozon ID</strong> для простых товаров)</li>
+  <li>📌 <strong>Barcode</strong> — штрихкода производителя (например, <code>4607001234567</code>)</li>
+</ul>
+
+<p>Без привязки <strong>Ozon ID</strong> к номенклатуре в 1С вы не сможете:</p>
+<ul>
+  <li>🔄 Автоматически обновлять остатки на <em>Ozon</em> из 1С</li>
+  <li>📦 Корректно формировать заказы на отгрузку по схеме <code>FBS</code></li>
+  <li>📊 Получать данные о продажах и возвратах в разрезе конкретных товаров</li>
+  <li>⚠️ Избежать штрафов за расхождения по остаткам (до 50% от стоимости товара)</li>
+</ul>
+
+<div class="pb-poll" id="poll-51006109"><div class="pb-poll-question">📊 Как вы обычно синхронизируете данные с Ozon?</div><div class="pb-poll-option" data-poll="51006109" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="51006109" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через стандартный обмен 1С</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="51006109" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую API Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="51006109" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Пользуюсь сторонними сервисами</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>На практике многие продавцы сталкиваются с проблемой "раздвоения" товаров: одна и та же номенклатура в 1С имеет несколько <strong>Ozon ID</strong> из-за дублирующихся карточек на маркетплейсе. Это приводит к хаосу в учёте. Например, если вы продаёте кроссовки <em>Nike Air Max</em> в трёх цветах, но забыли указать <strong>Ozon ID</strong> для каждого варианта, система создаст три отдельные позиции в заказах, хотя в 1С это один товар с характеристиками.</p>
+
+<h2 id="подготовка-1с-к-интеграции-с-ozon-проверка-конфигурации">Подготовка 1С к интеграции с Ozon: проверка конфигурации</h2>
+
+<p>Прежде чем добавлять <strong>Ozon ID</strong>, убедитесь, что ваша 1С готова к обмену данными. Откройте конфигуратор (<code>Файл → Конфигуратор</code>) и проверьте:</p>
+
+<ol>
+  <li><strong>Наличие реквизита для Ozon ID</strong>. В справочнике <code>Номенклатура</code> должен быть реквизит типа <code>Строка (50)</code> или <code>Число</code> с названием <code>OzonID</code>, <code>КодOzon</code> или аналогичным. Если его нет — добавьте через <code>Конфигуратор → Объекты → Справочники → Номенклатура → Реквизиты</code>.</li>
+  <li><strong>Версию платформы</strong>. Для работы с API <em>Ozon</em> требуется <em>1С:Предприятие 8.3.18+</em>. Проверьте версию в <code>Справка → О программе</code>.</li>
+  <li><strong>Настройки обмена</strong>. Убедитесь, что включён функционал <code>Обмен данными с сайтами</code> (для <em>1С:УТ 11</em>) или <code>Интеграция с маркетплейсами</code> (для <em>1С:ERP</em>).</li>
+</ol>
+
+<p>Если вы используете типовые конфигурации (<em>1С:УТ 11.5</em>, <em>1С:ERP 2.5</em>), реквизит для <strong>Ozon ID</strong> уже может быть предусмотрен в разделе <code>Интернет-магазин → Настройки синхронизации</code>. Для старых версий (например, <em>1С:УТ 10.3</em>) потребуется доработка.</p>
+
+<details class="pb-accordion"><summary>Что делать, если в 1С нет реквизита для Ozon ID?</summary><div class="pb-accordion-body"><p>Если в вашей конфигурации нет поля для хранения Ozon ID, вы можете:
+<p>1. Добавить его самостоятельно через Конфигуратор (требуются права администратора).</p>
+<p>2. Использовать существующий реквизит, например, "Код для сайта" или "Внешний код".</p>
+<p>3. Обратиться к программисту 1С для доработки (стоимость ~1 500–3 000 ₽).</p>
+<p>Важно: после добавления реквизита обновите базу (F7 в Конфигураторе) и перезапустите 1С.</p></div></details></p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы работаете по схеме <code>FBO</code> (отгрузка со склада <em>Ozon</em>), без привязки <strong>Ozon ID</strong> вы не сможете передавать остатки. Маркетплейс блокирует обновление запасов для товаров без корректного идентификатора.</blockquote>
+
+<h2 id="способы-добавления-ozon-id-в-1с-сравнение-методов">Способы добавления Ozon ID в 1С: сравнение методов</h2>
+
+<p>Существует три основных способа привязки <strong>Ozon ID</strong> к номенклатуре в 1С. Выбор зависит от объёма товаров и технических возможностей:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Метод</th>
+      <th>Подходит для</th>
+      <th>Плюсы</th>
+      <th>Минусы</th>
+      <th>Время настройки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ручной ввод</strong></td>
+      <td>До 100 товаров</td>
+      <td>Не требует доработок 1С</td>
+      <td>Высокая вероятность ошибок</td>
+      <td>1–2 часа</td>
+    </tr>
+    <tr>
+      <td><strong>Импорт из Excel</strong></td>
+      <td>100–10 000 товаров</td>
+      <td>Быстрее ручного ввода</td>
+      <td>Нужно правильно сформировать файл</td>
+      <td>30–60 минут</td>
+    </tr>
+    <tr>
+      <td><strong>Автоматическая синхронизация через API</strong></td>
+      <td>От 1 000 товаров</td>
+      <td>Минимальные ошибки, актуальные данные</td>
+      <td>Требует настройки обмена</td>
+      <td>2–4 часа (с программистом)</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Рассмотрим каждый метод подробнее, с пошаговыми инструкциями и примерами.</p>
+
+<h2 id="метод-1-ручной-ввод-ozon-id-в-карточку-номенклатуры">Метод 1: Ручной ввод Ozon ID в карточку номенклатуры</h2>
+
+<p>Это самый простой способ, который подходит для небольших каталогов (до 100 товаров). Инструкция:</p>
+
+<ol>
+  <li>Откройте справочник <code>Номенклатура</code> (<code>Справочники → Номенклатура</code>).</li>
+  <li>Найдите нужный товар и откройте его карточку двойным кликом.</li>
+  <li>Перейдите на вкладку <code>Дополнительно</code> или <code>Интернет-магазин</code> (зависит от конфигурации).</li>
+  <li>В поле <code>Ozon ID</code> (или аналогичное) введите идентификатор из личного кабинета <em>Ozon Seller</em>. Пример: <code>123456789</code>.</li>
+  <li>Сохраните изменения (<code>Ctrl+S</code> или кнопка <code>Записать</code>).</li>
+</ol>
+
+<p>Где взять <strong>Ozon ID</strong>:</p>
+<ol>
+  <li>Зайдите в <a href="https://seller.ozon.ru/" target="_blank">личный кабинет Ozon Seller</a>.</li>
+  <li>Перейдите в раздел <code>Товары → Мои товары</code>.</li>
+  <li>Скопируйте значение из колонки <code>ID</code> (не путать с <code>Артикул</code>!).</li>
+</ol>
+
+
+<p>✔ Убедитесь, что поле для Ozon ID доступно для редактирования</p>
+<p>✔ Сверьте артикул в 1С и на Ozon — они должны совпадать</p>
+<p>✔ Проверьте, нет ли дублей одного товара с разными Ozon ID</p>
+<p>✔ Сохраните резервную копию базы 1С (Файл → Сохранить копию)--></p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если у товара есть варианты (например, размеры или цвета), каждый <strong>SKU</strong> на <em>Ozon</em> будет иметь свой <strong>Ozon ID</strong>. В 1С такие товары обычно хранятся как одна номенклатура с характеристиками — придётся добавлять идентификаторы для каждой комбинации вручную.</blockquote>
+
+<p>Пример: у вас в 1С есть футболка <em>"Поло синяя"</em> с характеристиками <code>Размер: S, M, L</code>. На <em>Ozon</em> это три отдельные карточки с уникальными <strong>Ozon ID</strong>: <code>987654321</code> (S), <code>987654322</code> (M), <code>987654323</code> (L). В этом случае нужно:</p>
+<ol>
+  <li>Создать в 1С три позиции с одинаковым названием, но разными характеристиками.</li>
+  <li>Для каждой указать свой <strong>Ozon ID</strong>.</li>
+</ol>
+
+<h2 id="метод-2-импорт-ozon-id-из-excel-в-1с">Метод 2: Импорт Ozon ID из Excel в 1С</h2>
+
+<p>Для каталогов от 100 товаров ручной ввод становится неэффективным. Оптимальное решение — экспортировать данные из <em>Ozon Seller</em> в <code>Excel</code>, а затем загрузить их в 1С. Пошаговая инструкция:</p>
+
+<h3>Шаг 1. Экспорт товаров из Ozon</h3>
+<p>В личном кабинете <em>Ozon Seller</em>:</p>
+<ol>
+  <li>Перейдите в <code>Товары → Мои товары</code>.</li>
+  <li>Нажмите <code>Экспорт → Выгрузить в Excel</code>.</li>
+  <li>Выберите колонки: <code>ID</code>, <code>Артикул</code>, <code>Название</code>.</li>
+  <li>Сохраните файл (например, <code>ozon_export.xlsx</code>).</li>
+</ol>
+
+<h3>Шаг 2. Подготовка файла для 1С</h3>
+<p>Откройте полученный файл в <em>Excel</em> и:</p>
+<ol>
+  <li>Удалите лишние колонки, оставив только:
+    <ul>
+      <li>📋 <code>Артикул</code> (ваш внутренний код)</li>
+      <li>📋 <code>ID</code> (это и есть <strong>Ozon ID</strong>)</li>
+    </ol>
+  </li>
+  <li>Сохраните файл в формате <code>CSV (разделитель — запятая)</code>.</li>
+</ol>
+
+<h3>Шаг 3. Загрузка в 1С</h3>
+<p>В <em>1С:Предприятие</em>:</p>
+<ol>
+  <li>Перейдите в <code>Файл → Открыть → Загрузка данных из файла</code>.</li>
+  <li>Выберите сохранённый <code>CSV</code>-файл.</li>
+  <li>Сопоставьте колонки:
+    <ul>
+      <li>🔗 <code>Артикул</code> → <code>Артикул</code> (в 1С)</li>
+      <li>🔗 <code>ID</code> → <code>OzonID</code> (или ваше поле для идентификатора)</li>
+    </ol>
+  </li>
+  <li>Запустите загрузку и дождитесь завершения.</li>
+</ul>
+
+
+<p>1. Совпадают ли артикулы в файле и в 1С (включая пробелы и регистр).</p>
+<p>2. Нет ли в файле скрытых символов (попробуйте открыть CSV в Блокноте и сохранить заново).</p>
+<p>3. Правильно ли указан разделитель (для России обычно ";", а не ",").--></p>
+
+<p>Пример файла для загрузки:</p>
+<pre><code>Артикул;OzonID
+<p>ART-001;123456789</p>
+<p>ART-002;987654321</p>
+<p>ART-003;456123789</code></pre></p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если в вашей 1С включён контроль уникальности артикулов, а в файле есть дубли, загрузка прервётся. Перед импортом удалите повторяющиеся строки или исправьте артикулы.</blockquote>
+
+<h2 id="метод-3-автоматическая-синхронизация-через-api-ozon">Метод 3: Автоматическая синхронизация через API Ozon</h2>
+
+<p>Для крупных каталогов (от 1 000 товаров) оптимально настроить автоматический обмен данными через <strong>API Ozon</strong>. Это позволит:</p>
+<ul>
+  <li>🔄 Ежедневно обновлять <strong>Ozon ID</strong> для новых товаров</li>
+  <li>📦 Синхронизировать остатки и цены в реальном времени</li>
+  <li>📊 Автоматически создавать заказы в 1С при продажах на <em>Ozon</em></li>
+</ul>
+
+<p>Для настройки потребуется:</p>
+<ol>
+  <li><strong>Ключ API</strong> из личного кабинета <em>Ozon Seller</em> (<code>Настройки → API-ключи</code>).</li>
+  <li><strong>Обработка для 1С</strong>, которая будет отправлять запросы к API. Её можно:
+    <ul>
+      <li>🛠️ Скачать готовую (например, <a href="https://infostart.ru/" target="_blank">на Infostart</a>)</li>
+      <li>👨‍💻 Заказать у программиста 1С (~5 000–15 000 ₽)</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Пример кода для получения <strong>Ozon ID</strong> через API (на языке 1С):</p>
+<pre><code>// Подключение к API Ozon
+<p>Параметры = Новый Структура;</p>
+<p>Параметры.Вставить("client-id", "ВАШ_CLIENT_ID");</p>
+<p>Параметры.Вставить("api-key", "ВАШ_API_KEY");</p>
+
+<p>Запрос = Новый HTTPЗапрос("/v2/products/info");</p>
+<p>Запрос.УстановитьТелоИзСтроки(Json.Записать(Параметры));</p>
+<p>Ответ = Новый HTTPСоединение("https://api-seller.ozon.ru", 443, "", "", Истина).Получить(Запрос);</p>
+
+<p>// Обработка ответа</p>
+<p>Если Ответ.КодСостояния = 200 Тогда</p>
+<p>Данные = Json.Прочитать(Ответ.ПолучитьТелоКакСтроку());</p>
+<p>Для Каждого Товар Из Данные.result.items Цикл</p>
+<p>OzonID = Товар.id;</p>
+<p>Артикул = Товар.offer_id;</p>
+<p>// Здесь код для поиска номенклатуры в 1С и записи OzonID</p>
+<p>КонецЦикла;</p>
+<p>КонецЕсли;</code></pre></p>
+
+<p><mark>Важно: при работе с API Ozon используйте метод <code>/v2/products/info</code> для получения актуальных Ozon ID, а не <code>/v1/product/info</code> — он устарел и может возвращать некорректные данные.</mark></p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Автоматическая синхронизация через API — единственный способ гарантировать актуальность Ozon ID при частых изменениях каталога на маркетплейсе.</p></aside>
+
+<h2 id="типичные-ошибки-при-добавлении-ozon-id-и-как-их-исправить">Типичные ошибки при добавлении Ozon ID и как их исправить</h2>
+
+<p>Даже при следовании инструкциям продавцы часто сталкиваются с проблемами. Рассмотрим самые распространённые ошибки и способы их решения:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ошибка сопоставления: номенклатура не найдена</code></td>
+      <td>Артикулы в 1С и на Ozon не совпадают</td>
+      <td>Проверьте регистр, пробелы и специальные символы в артикулах. Используйте <code>СРАВНИТЬ()</code> вместо <code>=</code> в запросах 1С.</td>
+    </tr>
+    <tr>
+      <td><code>Дубль Ozon ID для одного товара</code></td>
+      <td>На Ozon созданы две карточки для одной номенклатуры</td>
+      <td>Объедините карточки на Ozon через поддержку или удалите дубль. В 1С оставьте только актуальный <strong>Ozon ID</strong>.</td>
+    </tr>
+    <tr>
+      <td><code>Ошибка типа: ожидалось число, получено строка</code></td>
+      <td>Поле <strong>Ozon ID</strong> в 1С имеет тип <code>Число</code>, а в файле — текст</td>
+      <td>Измените тип поля в 1С на <code>Строка</code> или преобразуйте данные при загрузке.</td>
+    </tr>
+    <tr>
+      <td><code>Не обновляются остатки на Ozon</code></td>
+      <td>Не привязан <strong>Ozon ID</strong> или ошибка в настройках обмена</td>
+      <td>Проверьте, что для всех товаров заполнен <strong>Ozon ID</strong> и включена синхронизация в <code>Настройки → Обмен с Ozon</code>.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Если после добавления <strong>Ozon ID</strong> заказы с <em>Ozon</em> не попадают в 1С, проверьте:</p>
+<ul>
+  <li>🔍 Настройки <code>Правил обмена</code> в 1С (раздел <code>Интернет-магазин</code>).</li>
+  <li>🔍 Права доступа API-ключа (должны быть включены <code>Чтение заказов</code> и <code>Запись товаров</code>).</li>
+  <li>🔍 Логи обмена (в 1С: <code>Администрирование → Журнал регистрации</code>).</li>
+</ul>
+
+<h2 id="faq-частые-вопросы-по-работе-с-ozon-id-в-1с">FAQ: Частые вопросы по работе с Ozon ID в 1С</h2>
+
+<details>
+  <summary>Как найти Ozon ID для товара с вариантами (цвета/размеры)?</summary>
+  <p>Для товаров с характеристиками (например, обувь разных размеров) каждый вариант на <em>Ozon</em> имеет свой <strong>Ozon ID</strong>. Чтобы его найти:</p>
+  <ol>
+    <li>В личном кабинете <em>Ozon Seller</em> откройте карточку товара.</li>
+    <li>Перейдите на вкладку <code>Вариации</code>.</li>
+    <li>Скопируйте <code>ID</code> для каждого варианта (например, <code>123456789</code> для размера 42, <code>987654321</code> для размера 43).</li>
+  </ol>
+  <p>В 1С такие товары обычно хранятся как одна номенклатура с характеристиками. Вам нужно:</p>
+  <ol>
+    <li>Создать дополнительный реквизит для хранения <strong>Ozon ID</strong> вариантов (например, <code>OzonIDВарианта</code>).</li>
+    <li>Или использовать справочник <code>Характеристики номенклатуры</code> и добавлять <strong>Ozon ID</strong> туда.</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Можно ли использовать артикул вместо Ozon ID для синхронизации?</summary>
+  <p>Технически да, но это <strong>не рекомендуется</strong>. Артикул — это ваш внутренний код, который может:</p>
+  <ul>
+    <li>🔄 Измениться (например, при ребрендинге)</li>
+    <li>📌 Совпадать для разных товаров (если вы используете общие артикулы для вариантов)</li>
+    <li>🚫 Не совпадать с артикулом на <em>Ozon</em> (если вы вручную указали другой код при создании карточки)</li>
+  </ul>
+  <p><strong>Ozon ID</strong> — это гарантированно уникальный и неизменный идентификатор, который присваивается маркетплейсом. Используйте его для надёжной синхронизации.</p>
+</details>
+
+<details>
+  <summary>Как обновлять Ozon ID при изменении каталога на Ozon?</summary>
+  <p>Если вы добавили новые товары на <em>Ozon</em> или изменили существующие, <strong>Ozon ID</strong> могут поменяться. Чтобы актуализировать данные в 1С:</p>
+  <ol>
+    <li><strong>Для ручного метода</strong>: повторно экспортируйте данные из <em>Ozon Seller</em> и обновите <strong>Ozon ID</strong> в карточках номенклатуры.</li>
+    <li><strong>Для импорта из Excel</strong>: выполните шаги из <a href="#метод-2">Метода 2</a>, заменив старые <strong>Ozon ID</strong> новыми.</li>
+    <li><strong>Для API</strong>: настройте регулярный обмен (например, раз в сутки) через обработку в 1С. Пример кода для обновления:
+      <pre><code>Процедура ОбновитьOzonID()
+<p>Запрос = Новый HTTPЗапрос("/v2/products/info");</p>
+<p>Ответ = ОтправитьЗапросAPI(Запрос);</p>
+<p>Данные = Json.Прочитать(Ответ.ПолучитьТелоКакСтроку());</p>
+
+<p>Для Каждого Товар Из Данные.result.items Цикл</p>
+<p>Номенклатура = Номенклатура.НайтиПоАртикулу(Товар.offer_id);</p>
+<p>Если Номенклатура <> Неопределено Тогда</p>
+<p>Номенклатура.OzonID = Товар.id;</p>
+<p>Номенклатура.Записать();</p>
+<p>КонецЕсли;</p>
+<p>КонецЦикла;</p>
+<p>КонецПроцедуры</code></pre></p>
+    </li>
+  </ol>
+</details>
+
+<details>
+  <summary>Что делать, если Ozon ID не сохраняется в 1С?</summary>
+  <p>Если после ввода <strong>Ozon ID</strong> поле сбрасывается или не сохраняется, проверьте:</p>
+  <ul>
+    <li>🔧 <strong>Права доступа</strong>: у вашего пользователя в 1С должны быть права на редактирование номенклатуры.</li>
+    <li>🔧 <strong>Тип поля</strong>: если <strong>Ozon ID</strong> — число, а вы вводите текст (например, с пробелами), возникнет ошибка. Измените тип поля на <code>Строка</code>.</li>
+    <li>🔧 <strong>Ограничения</strong>: в конфигураторе может быть установлено ограничение на длину поля (например, 10 символов, а ваш <strong>Ozon ID</strong> — 12 символов). Увеличьте длину до 50.</li>
+    <li>🔧 <strong>Транзакции</strong>: если вы редактируете номенклатуру в транзакции, изменения могут не сохраняться при откате. Проверьте логи в <code>Журнале регистрации</code>.</li>
+  </ul>
+  <p>Если проблема остаётся, попробуйте:</p>
+  <ol>
+    <li>Создать тестовую номенклатуру и проверить сохранение <strong>Ozon ID</strong> на ней.</li>
+    <li>Обновить конфигурацию 1С (возможно, это известная ошибка, исправленная в новой версии).</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Как перенести Ozon ID при переходе на новую базу 1С?</summary>
+  <p>При миграции на новую версию 1С или другой сервер <strong>Ozon ID</strong> можно перенести несколькими способами:</p>
+  <ol>
+    <li><strong>Через выгрузку/загрузку данных</strong>:
+      <ol>
+        <li>В старой базе экспортируйте номенклатуру с <strong>Ozon ID</strong> в <code>Excel</code> (<code>Файл → Выгрузить данные</code>).</li>
+        <li>В новой базе импортируйте файл (см. <a href="#метод-2">Метод 2</a>).</li>
+      </ol>
+    </li>
+    <li><strong>Через обмен данными</strong>:
+      <ol>
+        <li>Настройте <code>Универсальный обмен данными</code> между базами.</li>
+        <li>В правила обмена добавьте сопоставление для реквизита <strong>Ozon ID</strong>.</li>
+      </ol>
+    </li>
+    <li><strong>Через API</strong>:
+      <ol>
+        <li>Напишите обработку, которая прочитает <strong>Ozon ID</strong> из старой базы и запишет в новую.</li>
+        <li>Пример кода:
+          <pre><code>// Чтение из старой базы
+<p>СтараяБаза = Новый COMОбъект("V83.COMConnector").Connect("File=""C:\OldBase""");</p>
+<p>Запрос = Новый Запрос("ВЫБРАТЬ Ссылка, OzonID ИЗ Справочник.Номенклатура");</p>
+<p>Результат = СтараяБаза.ВыполнитьЗапрос(Запрос.Текст);</p>
+
+<p>// Запись в новую базу</p>
+<p>Для Каждого Строка Из Результат Цикл</p>
+<p>НоваяНоменклатура = Номенклатура.НайтиПоНаименованию(Строка.Ссылка.Наименование);</p>
+<p>Если НоваяНоменклатура <> Неопределено Тогда</p>
+<p>НоваяНоменклатура.OzonID = Строка.OzonID;</p>
+<p>НоваяНоменклатура.Записать();</p>
+<p>КонецЕсли;</p>
+<p>КонецЦикла;</code></pre></p>
+        </li>
+      </ol>
+    </li>
+  </ol>
+  <p>После переноса обязательно проверьте:</p>
+  <ul>
+    <li>🔍 Совпадает ли количество товаров в старой и новой базе.</li>
+    <li>🔍 Корректно ли заполнен <strong>Ozon ID</strong> для всех позиций (особенно для товаров с вариантами).</li>
+    <li>🔍 Работает ли синхронизация заказов с <em>Ozon</em>.</li>
+  </ul>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-obedinit-kartochki-na-ozone-tovara-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как объединить карточки на Озон: инструкция 2026</span>
+                <span class="pb-related-desc">Подробная инструкция, как объединить карточки товаров на Озон. Узнайте про ручное и автоматическое с</span>
+            </a><a href="/articles/k/ka/kak-sozdat-kartochki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать карточки на Озон: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как правильно создать карточки на Озон. Подробное руководство по заполнению атрибутов, SEO-</span>
+            </a><a href="/articles/k/ka/kakie-kody-tn-ved-vvodit-na-ozon-esli-kupil-tovar-na-rynke.html" class="pb-related-card">
+                <span class="pb-related-title">Коды ТН ВЭД для Озон: как указать при покупке товара на рынке</span>
+                <span class="pb-related-desc">Пошаговая инструкция по выбору кодов ТН ВЭД для товаров с рынка при размещении на Ozon. Таблицы, при</span>
+            </a><a href="/articles/k/ka/kak-dobavit-tovar-v-zakaz-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить товар в заказ на Ozon: полная инструкция</span>
+                <span class="pb-related-desc">Подробная инструкция для продавцов: как добавить товар в заказ Ozon, исправить спецификацию и избежа</span>
+            </a><a href="/articles/k/ka/kak-upakovat-ryukzaki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать рюкзаки для Ozon: требования 2026 и пошаговая инструкция</span>
+                <span class="pb-related-desc">Правила упаковки рюкзаков для Ozon: размеры, материалы, маркировка и советы, чтобы избежать штрафов.</span>
+            </a><a href="/articles/k/ka/kak-sinkhronizirovat-ozon-s-1s.html" class="pb-related-card">
+                <span class="pb-related-title">Синхронизация Озон с 1С: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как настроить автоматическую синхронизацию Озон с 1С: выбор метода, настройка обмена данными, решени</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

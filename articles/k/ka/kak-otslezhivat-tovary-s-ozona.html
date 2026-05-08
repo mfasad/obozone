@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отслеживать товары с Ozon: 7 способов и лайфхаки 2026 — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по отслеживанию заказов на Ozon для покупателей и продавцов: от номера трека до API-интеграции. Узнайте, как не потерять посылку и ускорить доставку!">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-otslezhivat-tovary-s-ozona.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отслеживать товары с Ozon: 7 способов и лайфхаки 2026">
+    <meta property="og:description" content="Пошаговая инструкция по отслеживанию заказов на Ozon для покупателей и продавцов: от номера трека до API-интеграции. Узнайте, как не потерять посылку и ускорить доставку!">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отслеживать товары с Ozon: 7 способов и лайфхаки 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-стандартное-отслеживание-через-личный-кабинет-ozon">1. Стандартное отслеживание через личный кабинет Ozon</a></li><li><a href="#2-отслеживание-через-трек-номер-на-сайтах-курьерских-служб">2. Отслеживание через трек-номер на сайтах курьерских служб</a></li><li><a href="#3-сторонние-сервисы-для-отслеживания-17track-parcel-и-др">3. Сторонние сервисы для отслеживания (17Track, Parcel, и др.)</a></li><li><a href="#4-отслеживание-для-продавцов-личный-кабинет-и-ozon-seller">4. Отслеживание для продавцов: личный кабинет и Ozon Seller</a></li><li><a href="#5-автоматизация-отслеживания-через-api-ozon">5. Автоматизация отслеживания через API Ozon</a></li><li><a href="#6-отслеживание-через-telegram-боты-и-уведомления">6. Отслеживание через Telegram-боты и уведомления</a></li><li><a href="#7-что-делать-если-посылка-не-отслеживается">7. Что делать, если посылка не отслеживается?</a></li><li><a href="#faq-частые-вопросы-об-отслеживании-заказов-на-ozon">FAQ: Частые вопросы об отслеживании заказов на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vybrat-kurerskuyu-dostavku-na-ozone.html">Как выбрать курьерскую доставку на Ozon: гид по тарифам</a></li><li><a href="/articles/g/gd/gde-mozhno-vstretit-ozon.html">Где можно встретить Озон: адреса ПВЗ и поиск на карте</a></li><li><a href="/articles/k/ka/kak-otpravit-posylku-cherez-ozon-chastnomu-litsu-postamat.html">Как отправить посылку частному лицу через постамат Озон — пошаговая инструкция 2026</a></li><li><a href="/articles/o/oz/ozon-ekspress-otkuda-vozyat.html">Откуда Ozon Express везет товары: схема работы</a></li><li><a href="/articles/p/po/posmotret-gde-posylka-po-nomeru-ozona.html">Где посылка по номеру Ozon: как отследить и найти заказ</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как отследить товар с Ozon: все способы от номера заказа до API</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-стандартное-отслеживание-через-личный-кабинет-ozon">1. Стандартное отслеживание через личный кабинет Ozon</a></li><li><a href="#2-отслеживание-через-трек-номер-на-сайтах-курьерских-служб">2. Отслеживание через трек-номер на сайтах курьерских служб</a></li><li><a href="#3-сторонние-сервисы-для-отслеживания-17track-parcel-и-др">3. Сторонние сервисы для отслеживания (17Track, Parcel, и др.)</a></li><li><a href="#4-отслеживание-для-продавцов-личный-кабинет-и-ozon-seller">4. Отслеживание для продавцов: личный кабинет и Ozon Seller</a></li><li><a href="#5-автоматизация-отслеживания-через-api-ozon">5. Автоматизация отслеживания через API Ozon</a></li><li><a href="#6-отслеживание-через-telegram-боты-и-уведомления">6. Отслеживание через Telegram-боты и уведомления</a></li><li><a href="#7-что-делать-если-посылка-не-отслеживается">7. Что делать, если посылка не отслеживается?</a></li><li><a href="#faq-частые-вопросы-об-отслеживании-заказов-на-ozon">FAQ: Частые вопросы об отслеживании заказов на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы сделали заказ на <em>Ozon</em>, но посылка идёт уже неделю, а статус так и не изменился? Или вы продавец, и покупатель требует уточнить, где его товар, а вы не знаете, как быстро проверить? Отслеживание заказов на маркетплейсе — это не только способ успокоить нервы, но и инструмент для оптимизации логистики. В 2026 году <strong>Ozon</strong> предлагает более 7 способов мониторинга посылок — от стандартных трекеров до скрытых фишек для продавцов.</p>
+
+<p>Проблема в том, что большинство пользователей ограничиваются базовыми функциями в личном кабинете, упуская возможности ускоренного отслеживания через сторонние сервисы или API. Например, знали ли вы, что статус «Передан в доставку» может означать как минимум 5 разных этапов? Или что некоторые курьерские службы обновляют данные с задержкой до 48 часов? В этой статье разберём <strong>все актуальные методы отслеживания</strong> — от простых для покупателей до продвинутых для продавцов, включая автоматизацию через <code>Excel</code> и <em>Google Sheets</em>.</p>
+
+<h2 id="1-стандартное-отслеживание-через-личный-кабинет-ozon">1. Стандартное отслеживание через личный кабинет Ozon</h2>
+
+<p>Самый очевидный способ — зайти в раздел «Мои заказы» на сайте или в приложении <em>Ozon</em>. Здесь отображается история покупок с текущим статусом каждого товара. Однако даже этот простой метод имеет нюансы:</p>
+
+<ul>
+  <li>📦 <strong>Статусы заказов</strong> обновляются не в реальном времени. Например, статус «Собран» может висеть сутки, пока посылка физически не покинет склада.</li>
+  <li>🚚 <strong>Номер трек-номера</strong> появляется только после передачи заказа курьерской службе (для <em>FBS</em>) или продавцу (для <em>FBO</em>).</li>
+  <li>⏳ <strong>Задержки</strong> в 12–24 часа между фактическим движением посылки и обновлением статуса — норма для <em>Ozon</em>.</li>
+</ul>
+
+<p>Чтобы найти трек-номер:</p>
+<ol>
+  <li>Откройте раздел <code>Мои заказы</code> → выберите нужный заказ.</li>
+  <li>Прокрутите вниз до блока <code>Информация о доставке</code>.</li>
+  <li>Скопируйте номер трека (формат: <code>OZONxxxxxxRU</code> или <code>CXxxxxxxRU</code> для <em>CDEK</em>).</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если статус заказа застрял на «Обработка» дольше 48 часов, проверьте, не требуется ли подтверждение оплаты (иногда банки блокируют транзакции). Для этого перейдите в <code>Оплаты → История платежей</code>.</blockquote>
+
+<div class="pb-poll" id="poll-dae46d08"><div class="pb-poll-question">📊 Как часто вы отслеживаете заказы на Ozon?</div><div class="pb-poll-option" data-poll="dae46d08" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Каждый день</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dae46d08" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в 2–3 дня</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dae46d08" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только если есть задержка</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dae46d08" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не отслеживаю вообще</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-отслеживание-через-трек-номер-на-сайтах-курьерских-служб">2. Отслеживание через трек-номер на сайтах курьерских служб</h2>
+
+<p>Как только у вас есть трек-номер, можно использовать сервисы курьерских компаний, которые доставляют заказ. <em>Ozon</em> работает с:</p>
+<ul>
+  <li>📦 <em>CDEK</em> (самый распространённый партнёр, ~60% заказов)</li>
+  <li>🚛 <em>Деловые Линии</em> (крупногабаритные товары)</li>
+  <li>📦 <em>Boxberry</em> (мелкие посылки, особенно в регионах)</li>
+  <li>🏢 <em>Ozon Logistics</em> (собственная служба доставки маркетплейса)</li>
+</ul>
+
+<p>Как определить, какая служба везёт ваш заказ? Первые 2–3 буквы трек-номера подскажут:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr><th>Префикс трека</th><th>Курьерская служба</th><th>Пример номера</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>CX</code></td><td><em>CDEK</em></td><td><code>CX123456789RU</code></td></tr>
+    <tr><td><code>DL</code></td><td><em>Деловые Линии</em></td><td><code>DL123456789</code></td></tr>
+    <tr><td><code>BB</code></td><td><em>Boxberry</em></td><td><code>BB1234567890</code></td></tr>
+    <tr><td><code>OZON</code></td><td><em>Ozon Logistics</em></td><td><code>OZON123456RU</code></td></tr>
+    <tr><td><code>RP</code></td><td><em>Почта России</em> (редко)</td><td><code>RP123456789RU</code></td></tr>
+  </tbody>
+</table></div>
+
+<p>Скопируйте трек-номер и вставьте его на сайте соответствующей службы:
+<p>- <em>CDEK</em>: <a href="https://www.cdek.ru/ru/tracking" target="_blank">www.cdek.ru/tracking</a></p>
+<p>- <em>Boxberry</em>: <a href="https://boxberry.ru/tracking/" target="_blank">boxberry.ru/tracking</a></p>
+<p>- <em>Деловые Линии</em>: <a href="https://www.dellin.ru/tracking/" target="_blank">www.dellin.ru/tracking</a></p></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если трек-номер начинается с <code>OZON</code>, но на сайте <em>Ozon Logistics</em> данных нет, проверьте его через <em>CDEK</em> — иногда маркетплейс передаёт заказы между службами без обновления префикса.</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если посылка идёт через <em>CDEK</em>, установите их официальное приложение — оно присылает push-уведомления о каждом изменении статуса, даже если вы не открываете сайт.</p></aside>
+
+<h2 id="3-сторонние-сервисы-для-отслеживания-17track-parcel-и-др">3. Сторонние сервисы для отслеживания (17Track, Parcel, и др.)</h2>
+
+<p>Сервисы-агрегаторы типа <em>17Track</em>, <em>Parcel</em> или <em>GdePosylka</em> умеют отслеживать посылки от сотен курьерских компаний в одном окне. Их преимущества:</p>
+<ul>
+  <li>🌍 Поддержка <strong>международных</strong> отправлений (если заказ идёт из-за границы).</li>
+  <li>📊 <strong>История изменений</strong> статусов с указанием времени (полезно для споров с поддержкой).</li>
+  <li>🔔 <strong>Уведомления</strong> на email или в Telegram (настраивается в личном кабинете).</li>
+</ul>
+
+<p>Как пользоваться:</p>
+<ol>
+  <li>Зарегистрируйтесь на <a href="https://www.17track.net/ru" target="_blank">17Track</a> или <a href="https://parcelapp.com/ru" target="_blank">Parcel</a>.</li>
+  <li>Вставьте трек-номер в поисковую строку.</li>
+  <li>Активируйте опцию «Отслеживать» (будет сохранён в истории).</li>
+</ol>
+
+<p>Пример отображения статусов в <em>17Track</em>:</p>
+<pre><code>
+<p>2026-05-15 14:30  📦 Принято на склад Ozon (Москва)</p>
+<p>2026-05-16 08:15  🚛 Передано курьерской службе CDEK</p>
+<p>2026-05-17 12:45  ✈️ Отправлено в город назначения (Екатеринбург)</p>
+<p>2026-05-18 18:20  🏠 Доставлено в пункт выдачи</p>
+</code></pre>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Некоторые агрегаторы (например, <em>GdePosylka</em>) могут показывать устаревшие данные, если курьерская служба не обновляет API. Всегда сверяйте информацию с официальным трекером.</blockquote>
+
+
+<p>Проверьте правильность ввода номера (без пробелов)</p>
+<p>Убедитесь, что прошло ≥24 часов с момента отправки</p>
+<p>Попробуйте другой сервис (например, если не работает 17Track — используйте Parcel)</p>
+<p>Свяжитесь с поддержкой Ozon через чат в приложении--></p>
+
+<h2 id="4-отслеживание-для-продавцов-личный-кабинет-и-ozon-seller">4. Отслеживание для продавцов: личный кабинет и Ozon Seller</h2>
+
+<p>Если вы продавец на <em>Ozon</em>, у вас есть расширенные инструменты мониторинга заказов. В панели <strong>Ozon Seller</strong> доступны:</p>
+<ul>
+  <li>📈 <strong>Аналитика доставки</strong> — среднее время транзита по регионам.</li>
+  <li>🔄 <strong>Статусы FBS/FBO</strong> — отдельные фильтры для заказов на складе и в пути.</li>
+  <li>📤 <strong>Экспорт данных</strong> в <code>Excel</code> для массового отслеживания.</li>
+</ul>
+
+<p>Как найти информацию о заказе:</p>
+<ol>
+  <li>Перейдите в раздел <code>Заказы → Все заказы</code>.</li>
+  <li>Используйте фильтры:
+<p>- По <strong>статусу</strong> (например, «В доставке»).</p>
+<p>- По <strong>дате</strong> (укажите диапазон).</p>
+<p>- По <strong>номеру заказа</strong> или <strong>арт. товара</strong>.</li></p>
+  <li>Для детальной информации кликните на номер заказа → вкладка <code>Логистика</code>.</li>
+</ol>
+
+<p><mark>Критичный нюанс для FBS: если статус заказа «Передан курьеру», но трек-номер не появился в течение 12 часов, это может означать сбой в логистической цепочке. В таком случае необходимо создать тикет в поддержку с пометкой «Проблема с передачей заказа курьеру».</mark></p>
+
+<details class="pb-accordion"><summary>Как ускорить обработку тикета в поддержке?</summary><div class="pb-accordion-body"><p>
+<p>1. В теме укажите: "Срочно: задержка передачи заказа №[номер] курьеру".</p>
+<p>2. Прикрепите скриншот из личного кабинета с висящим статусом.</p>
+<p>3. Упомяните, что покупатель уже обратился с претензией (если это так) — такие тикеты рассматриваются в приоритете.</p></div></details></p>
+
+<h2 id="5-автоматизация-отслеживания-через-api-ozon">5. Автоматизация отслеживания через API Ozon</h2>
+
+<p>Для продавцов с большим объёмом заказов ручное отслеживание неэффективно. <em>Ozon</em> предоставляет <strong>API</strong> для автоматизации, которое позволяет:</p>
+<ul>
+  <li>🤖 Получать статусы заказов в реальном времени.</li>
+  <li>📊 Интегрировать данные с <em>1С</em>, <em>Google Sheets</em> или CRM.</li>
+  <li>🔔 Настраивать автоматические уведомления при изменении статуса.</li>
+</ul>
+
+<p>Пример запроса для получения информации о заказе (используется <code>OAuth 2.0</code>):</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/posting/fbs/get
+<p>Headers:</p>
+<p>- Client-Id: [ваш_client_id]</p>
+<p>- Api-Key: [ваш_api_key]</p>
+<p>Body:</p>
+<p>{</p>
+<p>"posting_number": "12345-6789-9876"</p>
+<p>}</code></pre></p>
+
+<p>Ответ будет содержать детальную информацию, включая:</p>
+<ul>
+  <li>Текущий статус (<code>delivering</code>, <code>delivered</code> и т.д.).</li>
+  <li>Дата и время последнего обновления.</li>
+  <li>Номер трека курьерской службы (если присвоен).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Для работы с API требуется <strong>подтверждённый аккаунт продавца</strong> и доступ к разделу «API-ключи» в <em>Ozon Seller</em>. Бесплатный тариф ограничен 1000 запросами в день.</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>API — единственный способ получить актуальные данные о заказах FBS в реальном времени. Стандартные отчёты в личном кабинете обновляются с задержкой до 6 часов.</p></aside>
+
+<h2 id="6-отслеживание-через-telegram-боты-и-уведомления">6. Отслеживание через Telegram-боты и уведомления</h2>
+
+<p>Если вам надоело постоянно проверять статус заказа вручную, настройте автоматические уведомления. Для этого подойдут:</p>
+<ul>
+  <li>🤖 <strong>Официальный бот Ozon</strong> (@OzonHelpBot) — присылает уведомления о изменении статуса.</li>
+  <li>📱 <strong>Боты-агрегаторы</strong> (например, @Track24Bot) — отслеживают посылки от разных служб.</li>
+  <li>📧 <strong>Email-рассылка</strong> от курьерских служб (настраивается на их сайтах).</li>
+</ul>
+
+<p>Как настроить уведомления в @OzonHelpBot:</p>
+<ol>
+  <li>Откройте чат с ботом и отправьте команду <code>/start</code>.</li>
+  <li>Выберите опцию «Отслеживание заказов».</li>
+  <li>Введите номер заказа или трек-номер.</li>
+  <li>Активируйте опцию «Уведомлять о изменениях».</li>
+</ol>
+
+<p>Пример уведомления от бота:</p>
+<pre><code>
+<p>📦 Заказ №12345-6789-9876</p>
+<p>🔄 Статус изменён: "Доставлено в пункт выдачи"</p>
+<p>📍 Адрес: г. Москва, ул. Ленина, 1, ПВЗ №5</p>
+<p>⏰ Время: 15 мая 2026, 14:30</p>
+</code></pre>
+
+<p>Для продавцов полезен бот @OzonSellerBot — он умеет мониторить статусы FBS-заказов и присылать оповещения о проблемах (например, если посылка застряла на складе).</p>
+
+<h2 id="7-что-делать-если-посылка-не-отслеживается">7. Что делать, если посылка не отслеживается?</h2>
+
+<p>Ситуации, когда трек-номер не находится или статус не обновляется дольше 3 дней, требуют активных действий. Алгоритм решения:</p>
+
+<ol>
+  <li><strong>Проверьте корректность трек-номера</strong>:
+<p>- Убедитесь, что нет лишних пробелов или символов.</p>
+<p>- Попробуйте ввести номер на разных сервисах (например, если не работает <em>CDEK</em>, проверьте через <em>17Track</em>).</li></p>
+  <li><strong>Свяжитесь с поддержкой Ozon</strong>:
+<p>- Для покупателей: чат в приложении (<code>Профиль → Помощь</code>).</p>
+<p>- Для продавцов: тикет в <em>Ozon Seller</em> с пометкой «Проблема с отслеживанием».</li></p>
+  <li><strong>Обратитесь в курьерскую службу</strong>:
+<p>- Напишите в поддержку <em>CDEK</em>/<em>Boxberry</em> с указанием номера заказа и трека.</p>
+<p>- Приложите скриншот из личного кабинета <em>Ozon</em>.</li></p>
+</ol>
+
+<p>Типичные причины проблем с отслеживанием:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr><th>Проблема</th><th>Причина</th><th>Решение</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Трек не найден</td><td>Заказ ещё не передан курьеру</td><td>Подождите 24–48 часов или уточните у продавца</td></tr>
+    <tr><td>Статус не обновляется >3 дней</td><td>Сбой в логистической цепочке</td><td>Создайте тикет в поддержку с пометкой «Задержка обновления статуса»</td></tr>
+    <tr><td>Трек выдаёт ошибку</td><td>Неверный формат номера</td><td>Проверьте префикс (например, <code>CX</code> для <em>CDEK</em>)</td></tr>
+    <tr><td>Посылка «доставлена», но её нет</td><td>Ошибка сканирования или кража</td><td>Обратитесь в полицию и в поддержку <em>Ozon</em> с требованием компенсации</td></tr>
+  </tbody>
+</table></div>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если посылка marked как «доставленная», но вы её не получили, у вас есть <strong>5 дней</strong> для оформления претензии через поддержку <em>Ozon</em>. После этого сроки рассмотрения увеличиваются до 30 дней.</blockquote>
+
+<h2 id="faq-частые-вопросы-об-отслеживании-заказов-на-ozon">FAQ: Частые вопросы об отслеживании заказов на Ozon</h2>
+
+<details>
+  <summary>Можно ли отследить заказ без трек-номера?</summary>
+  <p>Да, но только через личный кабинет <em>Ozon</em>. Перейдите в <code>Мои заказы</code>, выберите нужный заказ — там будет текущий статус (например, «Собран» или «В пути»). Однако детальную информацию о местоположении посылки без трек-номера получить нельзя.</p>
+</details>
+
+<details>
+  <summary>Почему статус «Передан в доставку», но трек-номера нет?</summary>
+  <p>Это типичная ситуация для заказов <strong>FBS</strong> (хранение на складе <em>Ozon</em>). Трек-номер появляется только после того, как посылка физически передана курьерской службе. Обычно это занимает от нескольких часов до 2 суток. Если трек не появился дольше, напишите в поддержку с пометкой «Задержка передачи курьеру».</p>
+</details>
+
+<details>
+  <summary>Как отследить международный заказ с Ozon?</summary>
+  <p>Международные заказы (например, из Китая) отслеживаются через агрегаторы типа <em>17Track</em> или <em>Parcel</em>. Введите трек-номер на их сайте — сервис автоматически определит перевозчика (например, <em>Cainiao</em> для Алиэкспресс или <em>Yanwen</em>). Обратите внимание, что на таможне статус может не обновляться до 5 дней.</p>
+</details>
+
+<details>
+  <summary>Что значит статус «Возврат на склад»?</summary>
+  <p>Этот статус означает, что посылка не была доставлена по одной из причин:
+<p>- Покупатель отказался от заказа.</p>
+<p>- Адрес указан неверно.</p>
+<p>- Курьер не смог связаться с получателем.</p>
+<p>- Товар повреждён при транспортировке.</p>
+  <br>Для продавцов это сигнал проверить заказ на предмет возврата или уточнить детали у поддержки.</p>
+</details>
+
+<details>
+  <summary>Можно ли ускорить доставку, если посылка идёт слишком долго?</summary>
+  <p>Прямого способа ускорить доставку нет, но можно:
+  <ol>
+    <li>Обратиться в поддержку <em>Ozon</em> с просьбой проверить заказ (иногда это срабатывает для FBS).</li>
+    <li>Если посылка идёт через <em>CDEK</em>, позвонить в их службу поддержки и уточнить, нет ли задержек на транзитном складе.</li>
+    <li>Для заказов <strong>FBO</strong> (отправленных продавцом) связаться с ним напрямую — иногда продавцы могут перенаправить посылку через более быструю службу (за дополнительную плату).</li>
+  </ol>
+  </p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-vybrat-kurerskuyu-dostavku-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как выбрать курьерскую доставку на Ozon: гид по тарифам</span>
+                <span class="pb-related-desc">Полный обзор вариантов курьерской доставки Ozon. Как выбрать время, адрес, изменить параметры заказа</span>
+            </a><a href="/articles/g/gd/gde-mozhno-vstretit-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где можно встретить Озон: адреса ПВЗ и поиск на карте</span>
+                <span class="pb-related-desc">Узнайте, где можно встретить Озон: поиск пунктов выдачи, постаматов и магазинов партнеров на интерак</span>
+            </a><a href="/articles/k/ka/kak-otpravit-posylku-cherez-ozon-chastnomu-litsu-postamat.html" class="pb-related-card">
+                <span class="pb-related-title">Как отправить посылку частному лицу через постамат Озон — пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд: как отправить посылку через Озон на постамат частному лицу — от упаковки до оплаты. </span>
+            </a><a href="/articles/o/oz/ozon-ekspress-otkuda-vozyat.html" class="pb-related-card">
+                <span class="pb-related-title">Откуда Ozon Express везет товары: схема работы</span>
+                <span class="pb-related-desc">Узнайте, откуда привозят товары Ozon Express. Подробная схема работы экспресс-доставки, сроки, склад</span>
+            </a><a href="/articles/p/po/posmotret-gde-posylka-po-nomeru-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Где посылка по номеру Ozon: как отследить и найти заказ</span>
+                <span class="pb-related-desc">Подробный гид: как посмотреть где посылка по номеру Ozon. Способы отслеживания через сайт, приложени</span>
+            </a><a href="/articles/k/ka/kak-uznat-gde-edet-zakaz-s-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Где едет заказ с Ozon: как отследить доставку</span>
+                <span class="pb-related-desc">Подробная инструкция, как узнать местоположение заказа на Ozon. Трекинг-коды, статусы, карта курьера</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

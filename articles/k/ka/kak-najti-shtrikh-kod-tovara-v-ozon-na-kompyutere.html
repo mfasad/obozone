@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как найти штрихкод товара на Ozon с компьютера — 5 способов 2026 — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция, где искать штрихкод (GTIN/EAN) на Ozon через ПК: в карточке товара, личном кабинете продавца, через API и парсинг. Актуальные методы для FBS/FBO с примерами.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-najti-shtrikh-kod-tovara-v-ozon-na-kompyutere.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как найти штрихкод товара на Ozon с компьютера — 5 способов 2026">
+    <meta property="og:description" content="Пошаговая инструкция, где искать штрихкод (GTIN/EAN) на Ozon через ПК: в карточке товара, личном кабинете продавца, через API и парсинг. Актуальные методы для FBS/FBO с примерами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как найти штрихкод товара на Ozon с компьютера — 5 способов 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-где-искать-штрихкод-в-карточке-товара-на-ozon-для-покупателей-и-продавцов">1. Где искать штрихкод в карточке товара на Ozon (для покупателей и продавцов)</a></li><li><a href="#2-поиск-штрихкода-в-личном-кабинете-продавца-seller-cabinet">2. Поиск штрихкода в личном кабинете продавца (Seller Cabinet)</a></li><li><a href="#3-как-найти-штрихкод-через-ozon-api-для-продвинутых-пользователей">3. Как найти штрихкод через Ozon API (для продвинутых пользователей)</a></li><li><a href="#4-парсинг-штрихкодов-с-других-сайтов-wildberries-яндекс-маркет-gs1">4. Парсинг штрихкодов с других сайтов (Wildberries, Яндекс Маркет, GS1)</a></li><li><a href="#5-что-делать-если-штрихкода-нет-вообще">5. Что делать, если штрихкода нет вообще?</a></li><li><a href="#6-автоматизация-поиска-штрихкодов-сервисы-и-программы">6. Автоматизация поиска штрихкодов: сервисы и программы</a></li><li><a href="#7-частые-ошибки-при-работе-со-штрихкодами-на-ozon">7. Частые ошибки при работе со штрихкодами на Ozon</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-штрихкодах-на-ozon">FAQ: Ответы на частые вопросы о штрихкодах на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chestnyj-znak-ozon-chto-eto.html">Честный знак на Озон: что это и как работать с маркировкой</a></li><li><a href="/articles/t/ti/tip-tovara-ukazan-neverno-tip-chto-delat-ozon.html">Тип товара указан неверно на Озон: как исправить и избежать штрафов</a></li><li><a href="/articles/s/sk/sku-tovara-chto-eto-na-ozon.html">SKU товара на Ozon: что это, где найти и как использовать в 2026</a></li><li><a href="/articles/k/ka/kak-prodavat-soft-na-ozon.html">Как продавать софт на Ozon: правила, лицензии и ключи</a></li><li><a href="/articles/k/ka/kak-pravilno-dobavit-tovar-na-ozon.html">Как добавить товар на Ozon: полная инструкция для селлеров 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Где и как найти штрихкод товара на Ozon с компьютера: все способы 2026</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-где-искать-штрихкод-в-карточке-товара-на-ozon-для-покупателей-и-продавцов">1. Где искать штрихкод в карточке товара на Ozon (для покупателей и продавцов)</a></li><li><a href="#2-поиск-штрихкода-в-личном-кабинете-продавца-seller-cabinet">2. Поиск штрихкода в личном кабинете продавца (Seller Cabinet)</a></li><li><a href="#3-как-найти-штрихкод-через-ozon-api-для-продвинутых-пользователей">3. Как найти штрихкод через Ozon API (для продвинутых пользователей)</a></li><li><a href="#4-парсинг-штрихкодов-с-других-сайтов-wildberries-яндекс-маркет-gs1">4. Парсинг штрихкодов с других сайтов (Wildberries, Яндекс Маркет, GS1)</a></li><li><a href="#5-что-делать-если-штрихкода-нет-вообще">5. Что делать, если штрихкода нет вообще?</a></li><li><a href="#6-автоматизация-поиска-штрихкодов-сервисы-и-программы">6. Автоматизация поиска штрихкодов: сервисы и программы</a></li><li><a href="#7-частые-ошибки-при-работе-со-штрихкодами-на-ozon">7. Частые ошибки при работе со штрихкодами на Ozon</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-штрихкодах-на-ozon">FAQ: Ответы на частые вопросы о штрихкодах на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Штрихкод товара на <em>Ozon</em> — это уникальный идентификатор, без которого невозможно добавить позицию в каталог, синхронизировать остатки или оформить заказ по схеме <strong>FBS/FBO</strong>. Продавцы часто сталкиваются с проблемой: где взять этот код, если его нет на упаковке, а поставщик не предоставил данные? В этой статье разберём <strong>все актуальные способы поиска штрихкода</strong> (GTIN, EAN, UPC) напрямую через компьютер — от стандартных методов в личном кабинете до продвинутых инструментов вроде <em>Ozon API</em> и парсинга.</p>
+
+<p>Важно понимать, что на <em>Ozon</em> штрихкод может обозначаться по-разному: как <code>GTIN</code> (глобальный номер торговой единицы), <code>EAN-13</code> (европейский стандарт), <code>UPC</code> (американский формат) или просто <code>баркод</code>. Мы покажем, где искать каждый из этих вариантов, а также что делать, если кода нет вообще. Инструкции актуальны для <mark>2026 года</mark> и учитывают последние обновления интерфейса маркетплейса.</p>
+
+<h2 id="1-где-искать-штрихкод-в-карточке-товара-на-ozon-для-покупателей-и-продавцов">1. Где искать штрихкод в карточке товара на Ozon (для покупателей и продавцов)</h2>
+
+<p>Самый очевидный способ — посмотреть код прямо в публичной карточке товара. Это работает и для покупателей (если нужно проверить оригинальность), и для продавцов (чтобы скопировать GTIN для своего товара). Вот как это сделать:</p>
+
+<ul>
+  <li>🔍 Откройте страницу товара на <em>Ozon</em> (пример: <code>https://www.ozon.ru/product/primer-tovara-123456789/</code>).</li>
+  <li>📄 Прокрутите вниз до блока <strong>"Характеристики"</strong> — обычно он находится под описанием и отзывами.</li>
+  <li>🏷️ Найдите строку <code>"Штрихкод"</code>, <code>"EAN"</code> или <code>"Артикул"</code>. Иногда код скрыт под кнопкой <code>"Показать все"</code>.</li>
+  <li>📋 Скопируйте значение — это может быть 8-, 12-, 13- или 14-значный цифровой код.</li>
+</ul>
+
+<p>Если штрихкода в характеристиках нет, попробуйте другой путь:</p>
+<ol>
+  <li>Нажмите правой кнопкой мыши на странице товара и выберите <code>"Просмотр кода страницы"</code> (или <code>Ctrl+U</code>).</li>
+  <li>В открывшемся HTML-коде нажмите <code>Ctrl+F</code> и введите <code>"gtin"</code> или <code>"ean"</code>.</li>
+  <li>Если найдёте строку вроде <code>"gtin": "4607001234567"</code> — это и есть нужный код.</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если товара ещё нет на Ozon, но он есть на Wildberries или Яндекс Маркете, попробуйте найти штрихкод там — часто коды совпадают.</p></aside>
+
+<h2 id="2-поиск-штрихкода-в-личном-кабинете-продавца-seller-cabinet">2. Поиск штрихкода в личном кабинете продавца (Seller Cabinet)</h2>
+
+<p>Для продавцов, которые уже добавили товар в каталог <em>Ozon</em>, штрихкод можно найти в личном кабинете. Этот метод подходит, если вы забыли код или нужно проверить его корректность.</p>
+
+<p>Инструкция:</p>
+<ol>
+  <li>Авторизуйтесь в <a href="https://seller.ozon.ru/" target="_blank" rel="noopener noreferrer"><em>Личном кабинете продавца</em></a>.</li>
+  <li>Перейдите в раздел <code>"Товары" → "Мой каталог"</code>.</li>
+  <li>Найдите нужный товар в списке и кликните по его названию.</li>
+  <li>В открывшейся карточке перейдите на вкладку <code>"Характеристики"</code>.</li>
+  <li>Прокрутите до блока <strong>"Идентификаторы"</strong> — там будет строка <code>"Штрихкод (GTIN)"</code>.</li>
+</ol>
+
+<p>Если товар ещё не добавлен, но вы знаете его <strong>артикул производителя</strong> (SKU), можно попробовать найти штрихкод через <code>Excel</code>-файл выгрузки:</p>
+<ul>
+  <li>📥 Скачайте шаблон выгрузки товаров в разделе <code>"Товары" → "Импорт"</code>.</li>
+  <li>🔍 В колонке <code>"Штрихкод"</code> может быть указан GTIN, если товар уже есть в каталоге <em>Ozon</em>.</li>
+  <li>🔄 Если ячейка пустая, попробуйте загрузить файл с артикулом — система может подтянуть штрихкод автоматически.</li>
+</ul>
+
+<div class="pb-poll" id="poll-003d0b6c"><div class="pb-poll-question">📊 Как вы обычно добавляете товары на Ozon?</div><div class="pb-poll-option" data-poll="003d0b6c" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через личный кабинет вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="003d0b6c" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую Excel-выгрузку</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="003d0b6c" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="003d0b6c" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Парсинг с других сайтов</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-как-найти-штрихкод-через-ozon-api-для-продвинутых-пользователей">3. Как найти штрихкод через Ozon API (для продвинутых пользователей)</h2>
+
+<p>Если вы работаете с большим количеством товаров, ручной поиск штрихкодов неэффективен. В этом случае поможет <strong><em>Ozon API</em></em> — инструмент для автоматизации. Чтобы получить GTIN через API, нужно:</p>
+
+<p>Шаг 1. Получить доступ к API:</p>
+<ul>
+  <li>🔑 Зарегистрируйте приложение в <a href="https://api-seller.ozon.ru/" target="_blank" rel="noopener noreferrer">Личном кабинете разработчика</a>.</li>
+  <li>📝 Заполните анкету и дождитесь одобрения (может занять до 3 дней).</li>
+  <li>🔐 Получите <code>Client-ID</code> и <code>API-Key</code>.</li>
+</ul>
+
+<p>Шаг 2. Использовать запрос для получения информации о товаре:</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/product/info?offer_id={ID_ПРЕДЛОЖЕНИЯ}&product_id={ID_ТОВАРА}
+<p>Headers:</p>
+<p>Client-Id: {ВАШ_CLIENT_ID}</p>
+<p>Api-Key: {ВАШ_API_KEY}</code></pre></p>
+
+<p>В ответе будет JSON-объект с полем <code>"barcode"</code> или <code>"gtin"</code>. Пример:</p>
+<pre><code>{
+<p>"barcode": "4607001234567",</p>
+<p>"gtin": "4607001234567"</p>
+<p>}</code></pre></p>
+
+<details class="pb-accordion"><summary>Что делать, если API возвращает ошибку 403?</summary><div class="pb-accordion-body"><p>Ошибка 403 при работе с Ozon API обычно означает, что у вашего Client-ID нет прав на запрашиваемый метод. Проверьте:
+<p>1. Правильно ли указаны заголовки <code>Client-Id</code> и <code>Api-Key</code>.</p>
+<p>2. Одобрен ли ваш доступ к методу <code>/v2/product/info</code> в Личном кабинете разработчика.</p>
+<p>3. Не истёк ли срок действия ключа (обновляется раз в год).</p>
+<p>Если проблема остаётся, обратитесь в поддержку API через тикет в Личном кабинете.</p></div></details></p>
+
+<h2 id="4-парсинг-штрихкодов-с-других-сайтов-wildberries-яндекс-маркет-gs1">4. Парсинг штрихкодов с других сайтов (Wildberries, Яндекс Маркет, GS1)</h2>
+
+<p>Если товара нет на <em>Ozon</em>, но он продаётся на других площадках, можно "подтянуть" штрихкод оттуда. Этот метод подходит для <strong>уникальных товаров</strong>, которые ещё не добавлены в каталог маркетплейса.</p>
+
+<p>Где искать:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Площадка</th>
+      <th>Где смотреть штрихкод</th>
+      <th>Пример ссылки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Wildberries</em></td>
+      <td>Блок "Характеристики" → "Штрихкод"</td>
+      <td><code>https://www.wildberries.ru/catalog/12345678/detail.aspx</code></td>
+    </tr>
+    <tr>
+      <td><em>Яндекс Маркет</em></td>
+      <td>Вкладка "О товаре" → "Коды товара"</td>
+      <td><code>https://market.yandex.ru/product--primer-tovara/12345678</code></td>
+    </tr>
+    <tr>
+      <td><em>GS1 Russia</em></td>
+      <td>База данных официальных кодов (платно)</td>
+      <td><code>https://www.gs1ru.org/</code></td>
+    </tr>
+    <tr>
+      <td><em>Amazon</em></td>
+      <td>Блок "Product information" → "UPC"</td>
+      <td><code>https://www.amazon.com/dp/B123456789</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Копировать штрихкоды с других сайтов можно только для <strong>оригинальных товаров</strong>. Если вы продаёте <em>реплики</em> или <em>несертифицированные</em> товары, использование чужого GTIN может привести к <strong>блокировке аккаунта</strong> на <em>Ozon</em>.</p>
+
+
+<p>🔹 Убедитесь, что код соответствует товару (не перепутан с другой моделью)</p>
+<p>🔹 Проверьте длину кода (EAN-13 — 13 цифр, UPC — 12 цифр)</p>
+<p>🔹 Сверьте код с данными на упаковке (если есть)</p>
+<p>🔹 Используйте валидатор (например, <a href="https://www.gs1.org/services/check-digit-calculator" target="_blank" rel="noopener noreferrer">GS1 Check Digit Calculator</a>)</p>
+<p>--></p>
+
+<h2 id="5-что-делать-если-штрихкода-нет-вообще">5. Что делать, если штрихкода нет вообще?</h2>
+
+<p>Ситуации, когда у товара нет штрихкода, встречаются часто: это может быть <em>handmade</em>-продукция, <em>б/у</em> техника или товары от небольших производителей. В этом случае у вас есть несколько вариантов:</p>
+
+<ul>
+  <li>🏷️ <strong>Заказать штрихкод в GS1 Russia</strong> (официальный регистратор). Стоимость — от 5 000 ₽ за префикс. Это единственный легальный способ для продажи на <em>Ozon</em>.</li>
+  <li>📦 <strong>Использовать внутренний код <em>Ozon</strong></strong> (если товар уникальный). Для этого при добавлении товара выберите опцию <code>"Нет штрихкода"</code> — система сгенерирует свой идентификатор.</li>
+  <li>🔄 <strong>Нанять поставщика с готовыми кодами</strong>. Некоторые дистрибьюторы предоставляют GTIN вместе с товаром.</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</em> Никогда не используйте <strong>выдуманные штрихкоды</em> или коды от других товаров. <em>Ozon</em> регулярно проводит проверки, и за нарушение правил идентификации могут:</p>
+<ul>
+  <li>🚫 Удалить товар из каталога.</li>
+  <li>💸 Наложить штраф до 10 000 ₽.</li>
+  <li>🔒 Заблокировать аккаунт продавца.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы продаёте товары собственного производства, регистрация штрихкода в GS1 — обязательное условие для работы на Ozon в долгосрочной перспективе.</p></aside>
+
+<h2 id="6-автоматизация-поиска-штрихкодов-сервисы-и-программы">6. Автоматизация поиска штрихкодов: сервисы и программы</h2>
+
+<p>Для продавцов с большим ассортиментом ручной поиск штрихкодов нереально долог. К счастью, есть инструменты для автоматизации:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Сервис</th>
+      <th>Функционал</th>
+      <th>Стоимость</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Parser-Ozon</em></td>
+      <td>Парсинг штрихкодов с карточек товаров <em>Ozon</em> по ключевым словам</td>
+      <td>От 1 500 ₽/мес</td>
+    </tr>
+    <tr>
+      <td><em>DataCol</em></td>
+      <td>Сбор GTIN с <em>Wildberries</em>, <em>Яндекс Маркета</em> и других площадок</td>
+      <td>От 2 000 ₽/мес</td>
+    </tr>
+    <tr>
+      <td><em>Ozon Helper</em></td>
+      <td>Автозаполнение штрихкодов при выгрузке товаров через Excel</td>
+      <td>Бесплатно (расширение для Chrome)</td>
+    </tr>
+    <tr>
+      <td><em>GS1 Barcode Generator</strong></td>
+      <td>Генерация и проверка штрихкодов по стандарту GS1</td>
+      <td>От 3 000 ₽/год</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>При выборе сервиса обращайте внимание на:</p>
+<ul>
+  <li>🔒 <strong>Безопасность</em>: сервис не должен требовать ваш пароль от <em>Ozon Seller</em>.</li>
+  <li>📊 <strong>Точность данных</strong>: проверьте отзывы, чтобы избежать ошибок в кодах.</li>
+  <li>💰 <strong>Стоимость</strong>: некоторые сервисы берут плату за каждый запрос.</li>
+</ul>
+
+<h2 id="7-частые-ошибки-при-работе-со-штрихкодами-на-ozon">7. Частые ошибки при работе со штрихкодами на Ozon</h2>
+
+<p>Даже опытные продавцы допускают ошибки, которые ведут к проблемам с модерацией или логистикой. Вот самые распространённые:</p>
+
+<ul>
+  <li>🔢 <strong>Неправильная длина кода</strong>: EAN-13 должен содержать ровно 13 цифр, UPC — 12. Если код короче или длиннее, <em>Ozon</em> его не примет.</li>
+  <li>🔄 <strong>Перепутанные коды</strong>: использование GTIN от другой модели или цвета товара. Это приводит к <strong>отказу в приёмке</strong> на складе FBS.</li>
+  <li>📄 <strong>Отсутствие кода на этикетке</strong>: даже если GTIN указан в личном кабинете, на физической упаковке должен быть наклеен <strong>читаемый штрихкод</strong> (иначе сканер на складе не распознает товар).</li>
+  <li>🔒 <strong>Использование чужих кодов</strong>: например, взятие GTIN с <em>Wildberries</em> для товара, который там не продаётся. Это нарушает правила <em>Ozon</em>.</li>
+</ul>
+
+<p>Чтобы избежать проблем:</p>
+<ol>
+  <li>Всегда <strong>проверяйте код</strong> через <a href="https://www.gs1.org/services/check-digit-calculator" target="_blank" rel="noopener noreferrer">валидатор GS1</a>.</li>
+  <li>Если товар имеет <strong>несколько модификаций</strong> (цвет, размер), у каждой должен быть <strong>свой уникальный GTIN</strong>.</li>
+  <li>Для <em>FBS</em> распечатывайте этикетки с штрихкодом через <code>"Печать этикеток"</code> в личном кабинете.</li>
+</ol>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-штрихкодах-на-ozon">FAQ: Ответы на частые вопросы о штрихкодах на Ozon</h2>
+
+<details>
+  <summary>Можно ли продавать на Ozon без штрихкода?</summary>
+  <p>Да, но только если товар уникальный (например, <em>handmade</em> или <em>vinil</em>). В этом случае при добавлении товара выберите опцию <code>"Нет штрихкода"</code>, и система сгенерирует внутренний идентификатор. Однако для большинства категорий (электроника, одежда, косметика) GTIN обязателен.</p>
+</details>
+
+<details>
+  <summary>Что делать, если штрихкод на упаковке не сканируется?</summary>
+  <p>Проблемы со сканированием обычно связаны с:
+  <ul>
+    <li>🖨️ Низким качеством печати (размытый или бледный код).</li>
+    <li>📏 Неправильным размером (минимальный размер для EAN-13 — 37,29 × 25,93 мм).</li>
+    <li>🎨 Цветовым контрастом (код должен быть чёрным на белом фоне).</li>
+  </ul>
+<p>Решение: перепечатайте этикетку с правильными параметрами или запросите новый штрихкод у поставщика.</p></p>
+</details>
+
+<details>
+  <summary>Как узнать, какой штрихкод подходит для моего товара: EAN или UPC?</summary>
+  <p>Это зависит от страны производства:
+  <ul>
+    <li>🇪🇺 <strong>EAN-13</strong> — для товаров из Европы, России, Азии.</li>
+    <li>🇺🇸 <strong>UPC</strong> — для товаров из США и Канады.</li>
+  </ul>
+<p>На <em>Ozon</em> принимаются оба формата, но предпочтительнее использовать <strong>EAN-13</strong>, так как он более распространён в России. Если у товара есть оба кода, указывайте тот, который нанесён на упаковку.</p></p>
+</details>
+
+<details>
+  <summary>Можно ли использовать один штрихкод для разных цветов одного товара?</summary>
+  <p>Нет! Каждая модификация товара (цвет, размер, материал) должна иметь <strong>уникальный GTIN</strong>. Например, если вы продаёте футболки одного фасона в 3 цветах, у каждой должен быть свой штрихкод. Исключение — если модификации не влияют на идентификацию товара (например, комплектация).</p>
+</details>
+
+<details>
+  <summary>Как добавить штрихкод в Excel-шаблон для выгрузки на Ozon?</summary>
+  <p>В шаблоне выгрузки товаров (<code>import_xls</code>) штрихкод указывается в колонке <code>"barcode"</code> или <code>"gtin"</code>. Правила заполнения:
+  <ul>
+    <li>📋 Формат ячейки: <strong>текстовый</strong> (не число!).</li>
+    <li>🔢 Длина: 8, 12, 13 или 14 символов (без пробелов и тире).</li>
+    <li>🔍 Проверка: перед выгрузкой используйте формулу <code>=ДЛСТР(A1)</code>, чтобы убедиться в правильной длине.</li>
+  </ul>
+<p>Пример правильного заполнения:</p>
+  <pre><code>
+<p>| A (barcode)  | B (offer_id) |</p>
+<p>|--------------|--------------|</p>
+<p>| 4607001234567| 12345-6789   |</p>
+  </code></pre></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chestnyj-znak-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Честный знак на Озон: что это и как работать с маркировкой</span>
+                <span class="pb-related-desc">Полный гид по системе Честный знак для продавцов Ozon. Как маркировать товары, передавать коды, штра</span>
+            </a><a href="/articles/t/ti/tip-tovara-ukazan-neverno-tip-chto-delat-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Тип товара указан неверно на Озон: как исправить и избежать штрафов</span>
+                <span class="pb-related-desc">Пошаговая инструкция для продавцов Озон: что делать, если тип товара указан неправильно, как изменит</span>
+            </a><a href="/articles/s/sk/sku-tovara-chto-eto-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">SKU товара на Ozon: что это, где найти и как использовать в 2026</span>
+                <span class="pb-related-desc">Разбираемся, что такое SKU на Озон, как он формируется, где посмотреть и почему важен для продавцов </span>
+            </a><a href="/articles/k/ka/kak-prodavat-soft-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать софт на Ozon: правила, лицензии и ключи</span>
+                <span class="pb-related-desc">Полный гайд по продаже цифровых товаров на Ozon. Как загружать ключи активации, требования к лицензи</span>
+            </a><a href="/articles/k/ka/kak-pravilno-dobavit-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить товар на Ozon: полная инструкция для селлеров 2026</span>
+                <span class="pb-related-desc">Подробный гид, как правильно добавить товар на Ozon. Разбор карточек, создание штрихкодов, настройка</span>
+            </a><a href="/articles/k/ka/kak-izmenit-tovar-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить товар на Озоне: полная инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как изменить товар на Озоне. Инструкция по редактированию карточки, характеристик и фото. П</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

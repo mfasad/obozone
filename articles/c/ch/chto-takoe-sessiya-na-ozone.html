@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Что такое сессия на Озоне: виды, время и ошибки — Об Озоне</title>
+    <meta name="description" content="Полный разбор понятия сессии на Ozon для покупателей и продавцов. Как работает тайм-аут, почему слетает вход и как продлить время работы.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-takoe-sessiya-na-ozone.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Что такое сессия на Озоне: виды, время и ошибки">
+    <meta property="og:description" content="Полный разбор понятия сессии на Ozon для покупателей и продавцов. Как работает тайм-аут, почему слетает вход и как продлить время работы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/podderzhka-i-shtrafy/">Поддержка и Штрафы</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Что такое сессия на Озоне: виды, время и ошибки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#техническая-суть-пользовательской-сессии">Техническая суть пользовательской сессии</a></li><li><a href="#различия-между-сессией-покупателя-и-селлера">Различия между сессией покупателя и селлера</a></li><li><a href="#основные-причины-разрыва-соединения">Основные причины разрыва соединения</a></li><li><a href="#проблемы-с-сессией-в-мобильном-приложении">Проблемы с сессией в мобильном приложении</a></li><li><a href="#как-продлить-время-активной-работы">Как продлить время активной работы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-cherez-prilozhenie-ozon-napisat-prodavtsu.html">Как написать продавцу на Озон через приложение: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-otmenit-rassylku-na-pochtu-ozon.html">Как отписаться от рассылки Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/t/ti/tikety-ozon-chto-eto.html">Тикеты на Озон: что это, как создать и решить проблему быстро</a></li><li><a href="/articles/g/gd/gde-raspolozhena-informatsiya-ob-avtorizovannykh-servisnykh-tsentrakh-ozon.html">Где найти авторизованные сервисные центры Ozon: адреса и контакты</a></li><li><a href="/articles/k/ka/kak-svyazatsya-so-sluzhboj-podderzhki-ozon-trevel.html">Как связаться со службой поддержки Ozon Travel: все контакты</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Что такое сессия на Озоне: виды, время и ошибки</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#техническая-суть-пользовательской-сессии">Техническая суть пользовательской сессии</a></li><li><a href="#различия-между-сессией-покупателя-и-селлера">Различия между сессией покупателя и селлера</a></li><li><a href="#основные-причины-разрыва-соединения">Основные причины разрыва соединения</a></li><li><a href="#проблемы-с-сессией-в-мобильном-приложении">Проблемы с сессией в мобильном приложении</a></li><li><a href="#как-продлить-время-активной-работы">Как продлить время активной работы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с любым крупным маркетплейсом, будь то <strong>покупка товаров</strong> или управление магазином селлера, всегда завязана на понятие сессии. Простыми словами, это временной интервал, в течение которого система «помнит» вас как авторизованного пользователя и позволяет совершать действия без повторного ввода пароля. На <em>Ozon</em> этот механизм реализован достаточно строго, что часто вызывает вопросы у тех, кто привык к более длительным сессиям на других площадках или в социальных сетях.</p>
+
+<p>Понимание того, как именно работает <strong>тайм-аут</strong> соединения, критически важно для тех, кто занимается наполнением карточек товаров или оформлением крупных заказов. Если вы долго не проявляете активность на странице, система автоматически разорвет соединение в целях безопасности. Это стандартная практика защиты персональных данных и финансовой информации, однако она может доставлять неудобства, если вы работаете с большими объемами данных и отвлеклись на телефонный звонок.</p>
+
+<p>В этой статье мы детально разберем, что именно происходит в момент истечения времени ожидания, как отличить проблемы с интернетом от завершения сессии и какие существуют способы минимизировать риски потери несохраненных данных. <mark>Среднее время жизни сессии без активных действий на Озоне составляет от 15 до 30 минут, после чего требуется повторная авторизация.</mark> Знание этих нюансов поможет вам избежать стрессовых ситуаций при работе в личном кабинете.</p>
+
+<h2 id="техническая-суть-пользовательской-сессии">Техническая суть пользовательской сессии</h2>
+
+<p>С технической точки зрения, сессия на Озоне — это запись на сервере, которая хранит информацию о состоянии взаимодействия между вашим браузером и платформой. Когда вы вводите логин и пароль, сервер создает уникальный <strong>идентификатор сессии</strong> (часто сохраняемый в виде cookie-файла) и отправляет его вашему устройству. При каждом вашем действии, будь то клик по кнопке или прокрутка ленты, браузер отправляет этот идентификатор обратно, подтверждая, что вы все еще «здесь».</p>
+
+<p>Если вы перестаете совершать активные действия, запускается обратный отсчет. Важно понимать разницу между временем жизни сессии и временем ожидания. <em>Время жизни</em> — это максимальный срок, который вы можете оставаться залогиненным (иногда до нескольких дней при выборе опции «Запомнить меня»), а <strong>время ожидания</strong> — это период неактивности, после которого вас выбросит на страницу входа. Для банковских операций или смены пароля этот таймер значительно короче, чем для простого просмотра каталога.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не пытайтесь открывать один и тот же личный кабинет продавца в множестве вкладок одновременно для ускорения работы. Система может расценить это как подозрительную активность и принудительно завершить все сессии, требуя повторной верификации по СМС.</p>
+</blockquote>
+
+<p>Механизм безопасности также учитывает IP-адрес и устройство. Если геолокация вашего подключения резко изменится в течение короткого промежутка времени (например, вы были в Москве, а через минуту «переместились» в другой регион без использования корпоративных VPN-шлюзов), <strong>Ozon Security</strong> может мгновенно оборвать сессию. Это делается для предотвращения несанкированного доступа к аккаунту в случае кражи cookies-файлов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте режим инкогнито только для проверки отображения карточек товаров, но никогда не работайте в нем с финансовыми отчетами или настройками магазина, так как сессия в этом режиме гарантированно прервется сразу после закрытия вкладки.</p></aside>
+
+<h2 id="различия-между-сессией-покупателя-и-селлера">Различия между сессией покупателя и селлера</h2>
+
+<p>Хотя техническая основа едина, логика работы сессий для разных типов пользователей на платформе существенно различается. Для обычного <strong>покупателя</strong> приоритетом является удобство: система старается держать пользователя авторизованным как можно дольше, чтобы он мог легко вернуться к брошенной корзине или сравнению товаров. Здесь сессия может жить сутками, если пользователь хотя бы иногда обновляет страницу или переходит по ссылкам внутри приложения.</p>
+
+<p>Совершенно иная ситуация в <em>Ozon Seller</em> (личном кабинете продавца). Здесь обрабатываются финансовые потоки, меняются остатки и цены, поэтому требования к безопасности выше. Сессия продавца более чувствительна к периодам простоя. Если вы заполняете спецификацию товаров и 15 минут печатали текст в Word, не касаясь клавиатуры в браузере, при попытке сохранить изменения на сайте вы, скорее всего, увидите ошибку авторизации.</p>
+
+<p>Ключевые отличия можно систематизировать для лучшего понимания:</p>
+<ul>
+<li>🛒 <strong>Покупатель:</strong> длительная сессия, приоритет на удержание пользователя в приложении, редкие запросы пароля при смене устройства.</li>
+<li>💼 <strong>Селлер:</strong> короткое время ожидания (тайм-аут), строгая проверка при финансовых операциях, частые разрывы при переключении между вкладками отчетов.</li>
+<li>🔒 <strong>Безопасность:</strong> для продавцов внедрена двухфакторная аутентификация, которая может запрашиваться повторно даже в рамках одной сессии при доступе к чувствительным данным.</li>
+</ul>
+
+<div class="pb-poll" id="poll-b56b8802"><div class="pb-poll-question">📊 Как часто у вас слетает сессия в Личном кабинете?</div><div class="pb-poll-option" data-poll="b56b8802" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Несколько раз в день</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b56b8802" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b56b8802" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только при смене IP</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b56b8802" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Практически никогда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="основные-причины-разрыва-соединения">Основные причины разрыва соединения</h2>
+
+<p>Существует ряд факторов, которые приводят к преждевременному завершению работы на сайте. Самая очевидная причина — это истечение <strong>таймера неактивности</strong>. Однако пользователи часто сталкиваются с ситуацией, когда сессия прерывается, хотя они активно работали с сайтом. В таких случаях проблема часто кроется не во времени, а в стаб2ильности соединения или конфликтах на стороне браузера.</p>
+
+<p>Одной из частых причин является переполненный кэш или конфликтующие <em>cookie-файлы</em>. Если в браузере накопилось много мусорных данных или если вы недавно обновляли страницу во время скачка напряжения (что привело к некорректной записи данных), сервер может не распознать ваш токен доступа. Также сессию может «убить» резкая смена сети, например, переход с Wi-Fi на мобильный интернет, если IP-адрес изменился на адрес другой страны или подозрительного провайдера.</p>
+
+<p>Ниже приведена таблица, иллюстрирующая основные причины и их симптомы:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Причина</th>
+<th>Симптом</th>
+<th>Решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Истек таймер</td>
+<td>Страница входа после простоя</td>
+<td>Войти повторно</td>
+</tr>
+<tr>
+<td>Смена IP</td>
+<td>Ошибка безопасности</td>
+<td>Проверить сеть</td>
+</tr>
+<tr>
+<td>Переполнен кэш</td>
+<td>Циклическая перезагрузка</td>
+<td>Очистить браузер</td>
+</tr>
+<tr>
+<td>Блокировка антивирусом</td>
+<td>Нет доступа к скриптам</td>
+<td>Добавить в исключения</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Еще один важный аспект — это работа расширений в браузере. Различные <strong>блокировщики рекламы</em> или скрипты для автоматизации (например, парсеры цен) могут блокировать выполнение служебных скриптов Озона, которые обновляют «пульс» сессии. В результате сервер считает, что пользователь ушел, хотя на самом деле скрипт просто не смог отправить сигнал «я тут».</p>
+
+<h2 id="проблемы-с-сессией-в-мобильном-приложении">Проблемы с сессией в мобильном приложении</h2>
+
+<p>Мобильная версия платформы и нативное приложение имеют свою специфику работы с сессиями. В отличие от десктопной версии, где сессия привязана к вкладке браузера, в приложении <em>Ozon</strong> сессия тесно связана с токеном устройства. Это позволяет сохранять вход даже после полного закрытия приложения, но делает процесс более уязвимым к обновлениям самого приложения или операционной системы.</p>
+
+<p>Частой проблемой является так называемый «тихий сброс». Вы открываете приложение, видите свой профиль, но при попытке оформить заказ или перейти в раздел «Профиль» вас выбрасывает на экран приветствия. Это происходит, когда фоновый процесс обновляет токены безопасности, а текущая сессия помечается как устаревшая. В мобильной среде <strong>время жизни токена</strong> часто короче, чем в веб-версии, из соображений безопасности в случае потери телефона.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</em> Если приложение постоянно требует заново вводить пароль при каждом запуске, несмотря на стабильный интернет, попробуйте удалить приложение и установить его заново. Старые файлы конфигурации могут конфликтовать с новыми протоколами безопасности сервера.</p>
+</blockquote>
+
+<p>Также стоит учитывать, что на мобильных устройствах сессия может прерываться из-за агрессивной экономии энергии. Операционная система (Android или iOS) может «замораживать» фоновые процессы браузера или приложения, из-за чего механизм обновления сессии перестает работать. В этом случае помогает добавление приложения в список исключений батареи или запрет на очистку памяти в фоновом режиме.</p>
+
+<details class="pb-accordion"><summary>Почему сессия слетает при переключении между вкладками?</summary><div class="pb-accordion-body"><p>Современные браузеры (Chrome, Safari) для экономии ресурсов часто «усыпляют» неактивные вкладки. Если вкладка Озона спит более 15-20 минут, скрипт обновления сессии перестает исполняться. При возврате на вкладку сервер уже не получает сигналов и разрывает соединение. Решение: используйте отдельные окна браузера для важных операций или специальные расширения для «оживления» вкладок.</p></div></details>
+
+<h2 id="как-продлить-время-активной-работы">Как продлить время активной работы</h2>
+
+<p>Для тех, кто проводит много времени</div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-cherez-prilozhenie-ozon-napisat-prodavtsu.html" class="pb-related-card">
+                <span class="pb-related-title">Как написать продавцу на Озон через приложение: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство, как связаться с продавцом на Ozon через мобильное приложение: где найти чат, </span>
+            </a><a href="/articles/k/ka/kak-otmenit-rassylku-na-pochtu-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отписаться от рассылки Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по отмене почтовых уведомлений от Ozon: через сайт, мобильное приложение и поч</span>
+            </a><a href="/articles/t/ti/tikety-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Тикеты на Озон: что это, как создать и решить проблему быстро</span>
+                <span class="pb-related-desc">Разбираемся, что такое тикеты в Озон, как их правильно оформить, какие бывают виды и как ускорить ре</span>
+            </a><a href="/articles/g/gd/gde-raspolozhena-informatsiya-ob-avtorizovannykh-servisnykh-tsentrakh-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти авторизованные сервисные центры Ozon: адреса и контакты</span>
+                <span class="pb-related-desc">Полный гайд: как найти официальный сервисный центр Озон для ремонта техники. Список партнеров, прави</span>
+            </a><a href="/articles/k/ka/kak-svyazatsya-so-sluzhboj-podderzhki-ozon-trevel.html" class="pb-related-card">
+                <span class="pb-related-title">Как связаться со службой поддержки Ozon Travel: все контакты</span>
+                <span class="pb-related-desc">Узнайте, как быстро связаться с техподдержкой Озон Тревел. Актуальные номера телефонов, email, чаты </span>
+            </a><a href="/articles/k/ka/kak-napisat-v-chate-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как правильно написать в чате Озон: инструкция 2026 года</span>
+                <span class="pb-related-desc">Пошаговое руководство по общению с поддержкой Озон: как составить сообщение, избежать блокировки и у</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

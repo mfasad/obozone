@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Отчеты Озон: как рассчитать реальный доход селлера — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция по расчету дохода в отчетах Озон. Разбираем реализацию, возвраты, логистику и налоги для чистой прибыли.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/ot/otchety-ozon-kak-schitat-dokhod.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Отчеты Озон: как рассчитать реальный доход селлера">
+    <meta property="og:description" content="Подробная инструкция по расчету дохода в отчетах Озон. Разбираем реализацию, возвраты, логистику и налоги для чистой прибыли.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Отчеты Озон: как рассчитать реальный доход селлера</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#где-искать-финансовую-отчетность-в-личном-кабинете">Где искать финансовую отчетность в личном кабинете</a></li><li><a href="#структура-отчета-о-реализациях-ключевые-столбцы">Структура отчета о реализациях: ключевые столбцы</a></li><li><a href="#расчет-чистой-прибыли-формула-и-пример">Расчет чистой прибыли: формула и пример</a></li><li><a href="#учет-возвратов-и-их-влияние-на-доход">Учет возвратов и их влияние на доход</a></li><li><a href="#сводная-таблица-расходов-и-доходов">Сводная таблица расходов и доходов</a></li><li><a href="#налоги-и-окончательный-расчет">Налоги и окончательный расчет</a></li><li><a href="#автоматизация-и-сервисы-аналитики">Автоматизация и сервисы аналитики</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-khorosho-prodaetsya-na-ozon-2023.html">Что хорошо продается на Ozon в 2023: ТОП товаров и тренды</a></li><li><a href="/articles/k/ka/kak-vybrat-tovar-dlya-prodazhi-na-ozon.html">Как выбрать товар для Ozon: стратегия поиска ниши</a></li><li><a href="/articles/k/ka/kak-poluchit-sertifikat-valberis-ili-ozon-dlya-prodazhi-chaya.html">Как получить сертификат для продажи чая на Озон и Валберис в 2026 году</a></li><li><a href="/articles/k/ka/kak-ya-prodaval-na-ozon.html">Как я продавал на Ozon: личный опыт и секреты успеха в 2026 году</a></li><li><a href="/articles/t/ta/target-ozon-kak-rabotaet.html">Таргет Озон: как работает и как запустить рекламу</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Отчеты Озон: как считать доход и чистую прибыль</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-искать-финансовую-отчетность-в-личном-кабинете">Где искать финансовую отчетность в личном кабинете</a></li><li><a href="#структура-отчета-о-реализациях-ключевые-столбцы">Структура отчета о реализациях: ключевые столбцы</a></li><li><a href="#расчет-чистой-прибыли-формула-и-пример">Расчет чистой прибыли: формула и пример</a></li><li><a href="#учет-возвратов-и-их-влияние-на-доход">Учет возвратов и их влияние на доход</a></li><li><a href="#сводная-таблица-расходов-и-доходов">Сводная таблица расходов и доходов</a></li><li><a href="#налоги-и-окончательный-расчет">Налоги и окончательный расчет</a></li><li><a href="#автоматизация-и-сервисы-аналитики">Автоматизация и сервисы аналитики</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Для любого селлера на маркетплейсе критически важно понимать разницу между оборотом и реальной прибылью. Многие новички совершают ошибку, считая доходом общую сумму проданных товаров, забывая вычесть комиссию, логистику и рекламные расходы. Система <strong>отчетности Озон</strong> устроена так, что данные разбросаны по разным разделам, и чтобы увидеть реальную картину, необходимо уметь собирать их воедино.</p>
+
+<p>Правильный расчет <em>Net Income</em> (чистой прибыли) требует внимательного анализа финансовых отчетов, доступных в личном кабинете. В этой статье мы разберем, какие именно документы нужно скачивать, какие строки имеют решающее значение и как избежать кассового разрыва, когда деньги вроде бы есть в отчете, но их нет на счете. Понимание этих нюансов — фундамент финансовой устойчивости вашего бизнеса на площадке.</p>
+
+<h2 id="где-искать-финансовую-отчетность-в-личном-кабинете">Где искать финансовую отчетность в личном кабинете</h2>
+
+<p>Вся финансовая документация собрана в разделе «Финансы». Именно здесь селлер может получить доступ к сырым данным о движении денежных средств. Для глубокого анализа вам понадобится не просто общая сводка, а детализированные отчеты, которые можно выгрузить в формате Excel или CSV. Основной путь навигации выглядит так: <code>Финансы → Финансовые отчеты → Отчет о реализациях</code>.</p>
+
+<p>Важно различать два типа отчетов: отчеты о реализациях и отчеты о возвратах. Первый показывает, какие товары были проданы и зачислены на баланс, второй — какие товары вернулись от клиентов. Также существует отчет «Движение денежных средств», который отражает фактические выплаты на ваш расчетный счет. Для расчета дохода нам в первую очередь необходим отчет о реализациях, так как он содержит себестоимость, комиссию и логистику.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Отчеты формируются с задержкой. Данные в разделе «Финансы» могут обновляться не мгновенно, а в течение нескольких дней после совершения операции. Не полагайтесь на данные «онлайн» для принятия срочных финансовых решений.</p>
+</blockquote>
+
+<p>При выгрузке данных обратите внимание на период. Озон позволяет выгружать отчеты по месяцам или за произвольный период. Для точного расчета дохода рекомендуется работать с помесячными отчетами, так как это упрощает сверку с бухгалтерией и налоговыми декларациями. Файл может быть достаточно тяжелым, если у вас большой ассортимент, поэтому открытие в Excel может занять время.</p>
+
+<div class="pb-poll" id="poll-0a51c6e9"><div class="pb-poll-question">📊 Как часто вы анализируете финотчеты Озон?</div><div class="pb-poll-option" data-poll="0a51c6e9" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0a51c6e9" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0a51c6e9" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0a51c6e9" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только при выводе денег</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="структура-отчета-о-реализациях-ключевые-столбцы">Структура отчета о реализациях: ключевые столбцы</h2>
+
+<p>После выгрузки файла перед вами откроется таблица с множеством столбцов. Новичка это может напугать, но для расчета дохода нужны лишь определенные параметры. Главным ориентиром является столбец «Цена продажи», однако это еще не ваши деньги. Из этой суммы будут вычитаться различные сервисы площадки.</p>
+
+<p>Самые важные столбцы, на которые нужно обратить внимание:</p>
+<ul>
+<li>📦 <strong>Цена продажи</strong> — сумма, которую заплатил покупатель за товар с учетом скидок и акций.</li>
+<li>💸 <strong>Комиссия за продажу</strong> — процент, который маркетплейс забирает за продажу товара в вашей категории.</li>
+<li>🚚 <strong>Логистика до клиента</strong> — стоимость доставки товара до покупателя или пункта выдачи заказов.</li>
+<li>📉 <strong>Обработка возвратов</strong> — расходы, связанные с приемом и обработкой товаров, которые клиент решил вернуть.</li>
+</ul>
+
+<p>Отдельного внимания заслуживает столбец «Штрафы и пени». Он появляется, если были нарушения правил площадки, например, пересорт или потеря товара на складе Озон. Хотя это редкий случай в нормальной работе, игнорировать его нельзя. Также важно смотреть на колонку «Акции и скидки». Часто селлеры забывают, что участие в распродажах снижает их маржинальность, и эту сумму нужно учитывать при планированииUnit-экономики.</p>
+
+
+
+<h2 id="расчет-чистой-прибыли-формула-и-пример">Расчет чистой прибыли: формула и пример</h2>
+
+<p>Чтобы понять, сколько вы реально заработали, необходимо применить простую, но важную формулу. Доход селлера — это не просто деньги, пришедшие на счет, а результат сложных математических операций. Формула расчета выглядит следующим образом: <code>Чистая прибыль = Цена продажи - Комиссия - Логистика - Стоимость товара - Налоги - Расходы на упаковку</code>.</p>
+
+<p>Рассмотрим конкретный пример. Допустим, вы продали товар за 1000 рублей. Комиссия категории составляет 15%, логистика — 100 рублей, себестоимость товара — 400 рублей.
+<p>1. Комиссия Озон: 150 руб.</p>
+<p>2. Логистика: 100 руб.</p>
+<p>3. Итого расходов на площадку: 250 руб.</p>
+<p>4. Выручка до налогов: 1000 - 250 - 400 = 350 руб.</p>
+<p>Из этих 350 рублей вам еще нужно вычесть налоги (например, 6% с оборота или 15% с прибыли) и расходы на упаковку.</p></p>
+
+
+
+<p>Частой ошибкой является игнорирование стоимости упаковки. Пакеты, пупырчатая пленка, коробки и скотч — это прямые расходы, которые «съедают» прибыль. Если вы продаете габаритные товары, расходы на упаковку могут быть существенными. Всегда добавляйте среднюю стоимость упаковки на единицу товара в свои расчеты, чтобы не работать в ноль.</p>
+
+<h2 id="учет-возвратов-и-их-влияние-на-доход">Учет возвратов и их влияние на доход</h2>
+
+<p>Возвраты — это неизбежная часть торговли на маркетплейсах, особенно в категориях одежды и обуви. Когда клиент возвращает товар, вы не только теряете продажу, но и несете дополнительные расходы. В отчете о возвратах отражаются товары, которые вернулись на склад. Важно понимать, что деньги за такой товар вам не начисляются, а расходы на логистику до клиента и обратно могут быть списаны с вашего баланса.</p>
+
+<p>Влияние возвратов на финансовый результат:</p>
+<ul>
+<li>❌ <strong>Потеря комиссии</strong> — комиссия за продажу не возвращается, если товар был продан, а затем возвращен по вине покупателя (в некоторых случаях).</li>
+<li>🔄 <strong>Двойная логистика</strong> — вы платите за доставку товара клиенту и за его возврат на склад.</li>
+<li>📉 <strong>Снижение рейтинга</strong> — высокий процент возвратов может негативно сказаться на ранжировании карточки товара.</li>
+</ul>
+
+<p>Существует понятие «возвратный процент». В некоторых категориях он может достигать 30-40%. Это означает, что из 10 проданных единиц 3-4 вернутся. При расчете дохода необходимо закладывать этот риск в цену товара. Если не учитывать возвратность, реальная прибыль может оказаться отрицательной, несмотря на высокие продажи.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Товар, признанный браком по вине селлера, не возвращается на склад, а утилизируется. В этом случае вы теряете и товар, и деньги за его производство, и платите штраф за утилизацию.</p>
+</blockquote>
+
+<h2 id="сводная-таблица-расходов-и-доходов">Сводная таблица расходов и доходов</h2>
+
+<p>Для удобства анализа можно свести все основные параметры в единую таблицу. Это поможет быстро оценить рентабельность разных товаров в вашем ассортименте. Ниже приведена структура, которую можно использовать для ежемесячного мониторинга.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Где смотреть</th>
+<th>Влияние на доход</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Оборот</td>
+<td>Сумма всех продаж</td>
+<td>Отчет о реализациях</td>
+<td>Положительное</td>
+</tr>
+<tr>
+<td>Комиссия</td>
+<td>% за продажу товара</td>
+<td>Отчет о реализациях</td>
+<td>Отрицательное</td>
+</tr>
+<tr>
+<td>Логистика</td>
+<td>Доставка до клиента</td>
+<td>Отчет о реализациях</td>
+<p>td>Отрицательное</td></p>
+</tr>
+<tr>
+<td>Реклама</td>
+<td>Бюджет на продвижение</td>
+<td>Отчет о рекламе</td>
+<td>Отрицательное</td>
+</tr>
+<tr>
+<td>Налоги</td>
+<td>Платежи в бюджет</td>
+<td>Налоговая декларация</td>
+<td>Отрицательное</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Используя такую таблицу, вы можете быстро выявить товары-«пылесосы», которые генерируют оборот, но не приносят прибыли из-за высокой логистики или низкой маржинальности. Анализ структуры расходов позволяет оптимизировать ассортимент и отказываться от убыточных позиций.</p>
+
+
+
+<h2 id="налоги-и-окончательный-расчет">Налоги и окончательный расчет</h2>
+
+<p>Финальным этапом расчета дохода является вычет налогов. Система налогообложения зависит от вашего статуса: ИП, ООО или самозанятый. Для самозанятых налог составляет 6% при работе с юрлицами (Озон является юрлицом), для ИП на УСН «Доходы» — обычно 6%, на УСН «Доходы минус Расходы» — 15%. Важно правильно выбрать базу для налогообложения.</p>
+
+<p>На режиме «Доходы» налог платится со всей суммы, поступившей на счет (или отраженной в отчете о реализациях), без вычета расходов. На режиме «Доходы минус Расходы» можно уменьшить налогооблагаемую базу на сумму расходов, подтвержденных документально (закупка товара, логистика, упаковка). Однако второй режим требует идеального документооборота и часто выгоден только при высокой доле подтвержденных расходов.</p>
+
+<p>Не забывайте про страховые взносы. Для ИП с 2023 года изменилась система расчетов, и теперь взносы зависят от дохода. Если ваш доход превысит 300 000 рублей в год, придется заплатить дополнительный 1% с суммы превышения. Это также следует учитывать при планировании годовой прибыли.</p>
+
+
+
+<h2 id="автоматизация-и-сервисы-аналитики">Автоматизация и сервисы аналитики</h2>
+
+<p>Вручную сводить данные из отчетов Озон в Excel можно, но это долго и чревато ошибками. Для профессиональной работы существуют сервисы внешней аналитики, такие как <em>Ozon Analytics</em>, <em>Moneyplace</em> или <em>Stat4Market</em>. Они автоматически загружают отчеты, считают юнит-экономику, прогнозируют прибыль и показывают реальную маржинальность в режиме реального времени.</p>
+
+<p>Использование таких сервисов позволяет:</p>
+<ul>
+<li>🚀 <strong>Экономить время</strong> — данные обновляются автоматически, не нужно скачивать CSV.</li>
+<li>📊 <strong>Видеть полную картину</strong> — аналитика по каждому SKU, включая возвраты и рекламу.</li>
+<li>🔮 <strong>Прогнозировать</strong> — строить планы закупок на основе реальной, а не желаемой прибыли.</li>
+</ul>
+
+<p>Однако, даже используя сторонние сервисы, важно понимать логику расчетов, заложенную в них. Периодически проверяйте данные вручную, сверяясь с официальными отчетами Озон, чтобы убедиться в корректности работы алгоритмов. Слепое доверие автоматике может привести к неожиданным финансовым результатам.</p>
+
+<details>
+<summary>Как часто нужно проверять отчеты?</summary>
+<p>Оптимальная частота проверки — раз в неделю для оперативного контроля и раз в месяц для глубокого финансового анализа. Ежедневная проверка нужна только в периоды активных акций или при запуске новых товаров.</p>
+</details>
+
+<details>
+<summary>Что делать, если данные в отчете не сходятся?</summary>
+<p>Если вы обнаружили расхождение между отчетом о реализациях и фактическим поступлением денег, создайте обращение в поддержку через раздел «Помощь селлера». Приложите скриншоты отчетов и укажите конкретные артикулы или номера операций.</p>
+</details>
+
+<details>
+<summary>Можно ли вернуть комиссию при возврате товара?</summary>
+<p>Комиссия за продажу не возвращается, если товар был успешно доставлен покупателю, но затем возвращен по его инициативе. Комиссия взимается за факт совершенной сделки. Однако, если товар потерял Озон, комиссия не берется.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-khorosho-prodaetsya-na-ozon-2023.html" class="pb-related-card">
+                <span class="pb-related-title">Что хорошо продается на Ozon в 2023: ТОП товаров и тренды</span>
+                <span class="pb-related-desc">Актуальный анализ самых продаваемых категорий на Ozon в 2023 году: от электроники до хобби. Данные п</span>
+            </a><a href="/articles/k/ka/kak-vybrat-tovar-dlya-prodazhi-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выбрать товар для Ozon: стратегия поиска ниши</span>
+                <span class="pb-related-desc">Узнайте, как выбрать товар для продажи на Ozon. Анализ спроса, маржинальности, конкурентов и логисти</span>
+            </a><a href="/articles/k/ka/kak-poluchit-sertifikat-valberis-ili-ozon-dlya-prodazhi-chaya.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить сертификат для продажи чая на Озон и Валберис в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по оформлению сертификатов соответствия для чая на маркетплейсах Озон и Валбери</span>
+            </a><a href="/articles/k/ka/kak-ya-prodaval-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как я продавал на Ozon: личный опыт и секреты успеха в 2026 году</span>
+                <span class="pb-related-desc">Реальный опыт продаж на Ozon: от регистрации до первых заказов. Анализ ошибок, работа с FBS/FBO, опт</span>
+            </a><a href="/articles/t/ta/target-ozon-kak-rabotaet.html" class="pb-related-card">
+                <span class="pb-related-title">Таргет Озон: как работает и как запустить рекламу</span>
+                <span class="pb-related-desc">Узнайте, как работает таргет на Озон. Подробный разбор механик аукциона, настройки кампаний, ставок </span>
+            </a><a href="/articles/k/ka/kak-uznat-populyarnost-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить популярность товара на Ozon: 7 работающих способов</span>
+                <span class="pb-related-desc">Узнайте, как анализировать спрос на товары в Ozon с помощью статистики, конкурентов и инструментов м</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

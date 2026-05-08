@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает сортировка на складе Ozon: алгоритмы и особенности 2026 — Об Озоне</title>
+    <meta name="description" content="Разбираемся, как Ozon сортирует товары на складах FBS/FBO, какие технологии используются и как это влияет на скорость доставки. Актуальные данные 2026 года для продавцов и покупателей.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rabotaet-sortirovka-na-sklade-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает сортировка на складе Ozon: алгоритмы и особенности 2026">
+    <meta property="og:description" content="Разбираемся, как Ozon сортирует товары на складах FBS/FBO, какие технологии используются и как это влияет на скорость доставки. Актуальные данные 2026 года для продавцов и покупателей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работает сортировка на складе Ozon: алгоритмы и особенности 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-этапы-сортировки-на-складе-ozon-от-приёмки-до-отгрузки">1. Этапы сортировки на складе Ozon: от приёмки до отгрузки</a></li><li><a href="#2-технологии-сортировки-от-штрихкодов-до-роботов">2. Технологии сортировки: от штрихкодов до роботов</a></li><li><a href="#3-как-сортировка-влияет-на-скорость-доставки-и-стоимость-хранения">3. Как сортировка влияет на скорость доставки и стоимость хранения</a></li><li><a href="#4-типичные-ошибки-продавцов-которые-замедляют-сортировку">4. Типичные ошибки продавцов, которые замедляют сортировку</a></li><li><a href="#5-как-ускорить-сортировку-своих-товаров-практические-советы">5. Как ускорить сортировку своих товаров: практические советы</a></li><li><a href="#6-частые-вопросы-о-сортировке-на-складе-ozon">6. Частые вопросы о сортировке на складе Ozon</a></li><li><a href="#7-будущее-сортировки-на-складах-ozon-что-ждать-продавцам">7. Будущее сортировки на складах Ozon: что ждать продавцам</a></li><li><a href="#8-выводы-как-продавцу-работать-с-сортировкой-эффективно">8. Выводы: как продавцу работать с сортировкой эффективно</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-razmer-korobki-prinimaet-ozon-po-fbo.html">Размер коробки для Ozon FBO: требования 2026</a></li><li><a href="/articles/c/ch/chto-takoe-fulfilment-tsentr-ozon.html">Что такое фулфилмент центр Озон: виды, схемы работы и советы</a></li><li><a href="/articles/f/fb/fbs-ozon-chto-eto.html">FBS на Ozon: что это и как работает схема для продавцов в 2026</a></li><li><a href="/articles/k/ka/kak-rabotat-s-fbo-na-ozon.html">FBO на Ozon: как работать с 2026 года — полное руководство для продавцов</a></li><li><a href="/articles/k/ka/kak-napechatat-akt-priema-peredachi-ozon.html">Как правильно распечатать акт приёма-передачи для Ozon в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Сортировка на складе Ozon: как это работает изнутри и почему это важно для вашего бизнеса</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-этапы-сортировки-на-складе-ozon-от-приёмки-до-отгрузки">1. Этапы сортировки на складе Ozon: от приёмки до отгрузки</a></li><li><a href="#2-технологии-сортировки-от-штрихкодов-до-роботов">2. Технологии сортировки: от штрихкодов до роботов</a></li><li><a href="#3-как-сортировка-влияет-на-скорость-доставки-и-стоимость-хранения">3. Как сортировка влияет на скорость доставки и стоимость хранения</a></li><li><a href="#4-типичные-ошибки-продавцов-которые-замедляют-сортировку">4. Типичные ошибки продавцов, которые замедляют сортировку</a></li><li><a href="#5-как-ускорить-сортировку-своих-товаров-практические-советы">5. Как ускорить сортировку своих товаров: практические советы</a></li><li><a href="#6-частые-вопросы-о-сортировке-на-складе-ozon">6. Частые вопросы о сортировке на складе Ozon</a></li><li><a href="#7-будущее-сортировки-на-складах-ozon-что-ждать-продавцам">7. Будущее сортировки на складах Ozon: что ждать продавцам</a></li><li><a href="#8-выводы-как-продавцу-работать-с-сортировкой-эффективно">8. Выводы: как продавцу работать с сортировкой эффективно</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Логистика <em>Ozon</em> — одна из самых продвинутых среди российских маркетплейсов, и ключевую роль в ней играет <strong>сортировка товаров на складах</strong>. От того, насколько быстро и точно распределяются заказы, зависит не только скорость доставки, но и рейтинг продавца, количество возвратов и даже стоимость хранения. Если вы работаете по схеме <strong>FBS</strong> (склад <em>Ozon</em>) или <strong>FBO</strong> (собственный склад с интеграцией), понимать принципы сортировки критически важно — это помогает оптимизировать затраты и избегать штрафов.</p>
+
+<p>Многие продавцы ошибочно думают, что сортировка — это просто "разложить товары по полкам". На деле это сложный процесс с использованием <strong>автоматизированных систем</strong>, алгоритмов машинного обучения и даже роботов. В 2026 году <em>Ozon</em> активно внедряет новые технологии, такие как <strong>автоматические сортировочные центры</strong> и <strong>системы компьютерного зрения</strong>, чтобы сократить время обработки заказов до <strong>менее 1 часа</strong> в пиковые периоды. Но как это работает на практике? И что нужно знать продавцу, чтобы его товары не "застревали" на сортировке?</p>
+
+<p>В этой статье мы разберём:
+<ul>
+  <li>🔹 <strong>Как устроена сортировка</strong> на складах <em>Ozon</em> (FBS/FBO) и какие этапы проходит товар</li>
+  <li>🔹 <strong>Какие технологии</strong> используются для ускорения процесса (от штрихкодов до роботов)</li>
+  <li>🔹 <strong>Типичные ошибки продавцов</strong>, из-за которых товары "теряются" или сортируются дольше</li>
+  <li>🔹 <strong>Как влияет сортировка</strong> на стоимость хранения, скорость доставки и рейтинг</li>
+</ul>
+
+<div class="pb-poll" id="poll-abbd8397"><div class="pb-poll-question">📊 Вы продавец на Ozon? Какую схему работы используете?</div><div class="pb-poll-option" data-poll="abbd8397" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">FBS (склад Ozon)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="abbd8397" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">FBO (собственный склад)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="abbd8397" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Обе схемы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="abbd8397" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только покупаю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="1-этапы-сортировки-на-складе-ozon-от-приёмки-до-отгрузки">1. Этапы сортировки на складе Ozon: от приёмки до отгрузки</h2>
+
+<p>Процесс сортировки начинается с момента, когда ваш товар попадает на склад <em>Ozon</em> — будь то через <strong>FBS</strong> (вы отправляете товар на склад маркетплейса) или <strong>FBO</strong> (вы храните товар у себя, но интегрированы с системой <em>Ozon</em>). В среднем товар проходит <strong>5 ключевых этапов</strong>, каждый из которых влияет на конечную скорость обработки заказа.
+
+<p>Первый этап — <strong>приёмка</strong>. Здесь проверяется соответствие товара заявленным характеристикам: количество, вес, габариты и даже внешний вид упаковки. <mark>Если на этом этапе обнаруживаются расхождения (например, вес коробки не совпадает с указанным в карточке товара), товар может быть отправлен на дополнительную проверку или даже заблокирован.</mark> Это одна из причин, почему продавцам важно точно указывать параметры товара при загрузке в личный кабинет.
+
+<p>Далее следует <strong>сканирование и регистрация в системе</strong>. Каждому товару присваивается уникальный <strong>штрихкод <em>Ozon</em></em>, который связывает его с заказом в базе данных. На крупных складах (например, в <em>Ozon Фулфилмент Хаб</em> под Москвой) этот процесс автоматизирован: конвейерные ленты с камерами считывают коды со скоростью <strong>до 6000 единиц в час</strong>.
+
+<p>Третий этап — <strong>распределение по зонам хранения</strong>. Здесь алгоритмы <em>Ozon</em> анализируют:
+<ul>
+  <li>📦 <strong>Категорию товара</strong> (электроника, одежда, продукты и т.д.)</li>
+  <li>📊 <strong>Частоту заказов</strong> (хITS продаются быстрее, поэтому хранятся ближе к зоне отгрузки)</li>
+  <li>📅 <strong>Срок годности</strong> (для товаров с ограниченным сроком хранения)</li>
+  <li>🏷️ <strong>Особые условия</strong> (например, хрупкие товары или требующие температурного контроля)</li>
+</ul>
+
+<p>Наконец, на этапах <strong>комплектации</strong> и <strong>отгрузки</strong> товары собираются в заказы и упаковываются. Здесь важно, чтобы продавец правильно указал <strong>габаритные группы</strong> (<code>S/M/L/XL</code>) — от этого зависит, какую коробку подберёт система и сколько вы заплатите за доставку.
+
+<details class="pb-accordion"><summary>Что такое "зона кросс-докинга"?</summary><div class="pb-accordion-body"><p>Это специальная зона на складе, где товары не хранятся долго, а сразу перераспределяются на отгрузку. Используется для товаров с высоким оборотом (например, акционные позиции или хиты продаж).</p></div></details>
+
+<h2 id="2-технологии-сортировки-от-штрихкодов-до-роботов">2. Технологии сортировки: от штрихкодов до роботов</h2>
+
+<p><em>Ozon</em> активно инвестирует в автоматизацию складов, и сегодня на некоторых хабах до <strong>40% операций</strong> выполняют роботы. Основные технологии, которые используются для сортировки:
+
+<p><strong>Автоматические сортировочные машины (AS/RS)</strong>. Это системы с роботами-манипуляторами, которые перемещают коробки по складу без участия человека. Например, на складе в <em>Ozon Новосибирск</em> такие машины обрабатывают до <strong>12 000 заказов в сутки</strong>. Они работают по принципу "товар к человеку": вместо того чтобы отправлять сотрудника за товаром, робот приносит нужную коробку к рабочей станции.
+
+<p><strong>Компьютерное зрение и AI</strong>. Камеры сканируют этикетки и упаковки, а нейросеть распознаёт даже повреждённые или неправильно наклеенные штрихкоды. Это сокращает количество ошибок при сортировке на <strong>30-40%</strong> по сравнению с ручным сканированием.
+
+<p><strong>Системы управления складом (WMS)</strong>. Программное обеспечение от <em>Ozon Tech</em> анализирует тысячи параметров в реальном времени:
+<ul>
+  <li>📈 <strong>Спрос на товар</strong> (чтобы переместить хITS ближе к зоне отгрузки)</li>
+  <li>⏳ <strong>Время обработки</strong> (оптимизирует маршруты сборщиков)</li>
+  <li>🚛 <strong>Логистические маршруты</strong> (группирует заказы по регионам доставки)</li>
+</ul>
+
+<p>Интересный факт: на складе <em>Ozon</em> в <em>Санкт-Петербурге</em> тестируется система <strong>дронов для инвентаризации</strong>. Беспилотники сканируют верхние полки и передают данные в WMS, что ускоряет проверку остатков в <strong>5 раз</strong>.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы отправляете товары на FBS, используйте <strong>упаковку с чёткими штрихкодами</strong> и избегайте глянцевых или тёмных поверхностей — это упрощает сканирование роботами.</p></aside>
+
+<h2 id="3-как-сортировка-влияет-на-скорость-доставки-и-стоимость-хранения">3. Как сортировка влияет на скорость доставки и стоимость хранения</h2>
+
+<p>От того, насколько быстро товар проходит сортировку, зависит <strong>время доставки клиенту</strong>. По данным <em>Ozon</em>, заказы, обработанные в течение <strong>первых 2 часов</strong> после оформления, доставляются на <strong>1-2 дня быстрее</strong>. Это особенно важно для программ <strong>Ozon Rocket</strong> (доставка за 2 часа) и <strong>Ozon Premium</strong> (гарантированная доставка на следующий день).
+
+<p>Но сортировка влияет не только на скорость, но и на <strong>стоимость хранения</strong>. Например:
+<ul>
+  <li>💰 Товары, которые долго лежат на складе без движения, автоматически перемещаются в "долгосрочную зону хранения", где тарифы выше.</li>
+  <li>⚡ Товары с высоким оборотом (например, участники акций) хранятся в "горячей зоне" с минимальной комиссией.</li>
+  <li>📦 Неправильно упакованные товары (например, без штрихкода) могут быть отправлены на ручную сортировку, что увеличивает время обработки и риск штрафов.</li>
+</ul>
+
+<p>Вот как тарифы хранения зависят от зоны сортировки (данные на 2026 год):
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Зона хранения</th>
+      <th>Срок обработки</th>
+      <th>Стоимость хранения (руб/м³/день)</th>
+      <th>Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Горячая зона (хITS)</td>
+      <td>до 1 часа</td>
+      <td>120-150</td>
+      <td>Товары с оборотом >50 ед./день</td>
+    </tr>
+    <tr>
+      <td>Стандартная зона</td>
+      <td>2-6 часов</td>
+      <td>180-220</td>
+      <td>Большинство товаров</td>
+    </tr>
+    <tr>
+      <td>Долгосрочная зона</td>
+      <td>24+ часа</td>
+      <td>300-400</td>
+      <td>Товары без движения >30 дней</td>
+    </tr>
+    <tr>
+      <td>Зона кросс-докинга</td>
+      <td>до 30 минут</td>
+      <td>50-80</td>
+      <td>Только для акционных товаров</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Важно: если ваш товар попадает в "долгосрочную зону", <em>Ozon</em> может автоматически снизить его позицию в поисковой выдаче, так как алгоритмы маркетплейса отдают приоритет товарам с быстрой отгрузкой.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Товары, которые проходят сортировку за 1-2 часа, имеют на 20% выше шанс попасть в "Рекомендации" и "Топ продаж" по данным Ozon Analytics.</p></aside>
+
+<h2 id="4-типичные-ошибки-продавцов-которые-замедляют-сортировку">4. Типичные ошибки продавцов, которые замедляют сортировку</h2>
+
+<p>Многие задержки на сортировке происходят из-за ошибок продавцов. Вот самые распространённые проблемы и как их избежать:
+
+<p><strong>1. Неправильная маркировка</strong>
+<ul>
+  <li>🏷️ Штрихкоды наклеены криво или на неровную поверхность → роботы не могут их считать.</li>
+  <li>📦 Отсутствует штрихкод <em>Ozon</em> (используется только заводской) → товар отправляется на ручную обработку.</li>
+</ul>
+<blockquote>⚠️ <strong>Внимание:</strong> Если на коробке более 1 штрихкода (например, заводской + от <em>Ozon</em>), система может считывать не тот. В этом случае товар будет заблокирован до ручной проверки.</blockquote>
+
+<p><strong>2. Несоответствие габаритов</strong>
+<ul>
+  <li>📏 Указанные в личном кабинете размеры не совпадают с реальными → система подбирает неподходящую коробку для отгрузки.</li>
+  <li>⚖️ Вес товара занижен → возможны проблемы с тарифами доставки.</li>
+</ul>
+
+<p><strong>3. Неправильная упаковка</strong>
+<ul>
+  <li>📦 Хрупкие товары без защиты → высокая вероятность повреждения при автоматической сортировке.</li>
+  <li>🌡️ Товары, требующие специальных условий (например, батарейки), упакованы без маркировки → могут быть отправлены в обычную зону хранения.</li>
+</ul>
+
+<p><strong>4. Ошибки в карточке товара</strong>
+<ul>
+  <li>📝 Не указан срок годности (для продуктов) → товар может быть заблокирован.</li>
+  <li>🔋 Неправильно указана категория (например, "электроника" вместо "аксессуары") → товар попадёт в неверную зону хранения.</li>
+</ul>
+
+
+<p>Убедитесь, что штрихкод Ozon наклеен на ровную поверхность|Проверьте соответствие веса и габаритов в ЛК и на упаковке|Используйте прочную упаковку для хрупких товаров|Укажите срок годности (если применимо)|Проверьте категорию товара в карточке--></p>
+
+<h2 id="5-как-ускорить-сортировку-своих-товаров-практические-советы">5. Как ускорить сортировку своих товаров: практические советы</h2>
+
+<p>Если вы хотите, чтобы ваши товары проходили сортировку максимально быстро, следуйте этим рекомендациям:
+
+<p><strong>1. Оптимизируйте упаковку</strong>
+<ul>
+  <li>📦 Используйте коробки стандартных размеров (<code>S/M/L/XL</code>), чтобы роботы могли легко их обрабатывать.</li>
+  <li>🏷️ Наклеивайте штрихкоды на <strong>верхнюю грань</strong> коробки (это ускоряет сканирование на конвейере).</li>
+</ul>
+
+<p><strong>2. Правильно заполняйте данные в личном кабинете</strong>
+<ul>
+  <li>📏 Указывайте точные габариты и вес (с точностью до 1 см и 10 грамм).</li>
+  <li>🔖 Выбирайте правильную категорию товара — это влияет на зону хранения.</li>
+</ul>
+
+<p><strong>3. Участвуйте в акциях и программах лояльности</strong>
+<ul>
+  <li>🔥 Товары, участвующие в <em>Ozon Rocket</em> или <em>Premium</em>, получают приоритет при сортировке.</li>
+  <li>🎁 Товары с высоким рейтингом и большим количеством отзывов автоматически перемещаются в "горячую зону".</li>
+</ul>
+
+<p><strong>4. Мониторьте оборот товаров</strong>
+<ul>
+  <li>📊 Если товар лежит на складе более 30 дней, рассмотрите возможность вывода его по акции или перемещения на другой склад.</li>
+  <li>📈 Используйте <em>Ozon Analytics</em>, чтобы отслеживать скорость обработки своих заказов.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы отправляете партию товаров на FBS, разделите их по категориям и габаритам — это упростит сортировку на складе и снизит риск ошибок.</p></aside>
+
+<h2 id="6-частые-вопросы-о-сортировке-на-складе-ozon">6. Частые вопросы о сортировке на складе Ozon</h2>
+
+<details>
+  <summary>❓ Сколько времени занимает сортировка товара на складе Ozon?</summary>
+  <p>В среднем — от <strong>1 до 6 часов</strong>, в зависимости от загруженности склада и категории товара. Товары из "горячей зоны" (хITS) проходят сортировку за <strong>30-60 минут</strong>, а редко заказываемые позиции могут обрабатываться до <strong>24 часов</strong>.</p>
+</details>
+
+<details>
+  <summary>❓ Что делать, если товар "застрял" на сортировке?</summary>
+  <p>Сначала проверьте статус в личном кабинете (<code>Логистика → Отслеживание</code>). Если товар находится на сортировке более суток, свяжитесь с поддержкой <em>Ozon</em> и уточните причину. Чаще всего задержки происходят из-за:
+  <ul>
+    <li>🏷️ Нечитаемого штрихкода</li>
+    <li>⚖️ Несоответствия веса/габаритов</li>
+    <li>📦 Повреждённой упаковки</li>
+  </ul>
+  </p>
+</details>
+
+<details>
+  <summary>❓ Можно ли повлиять на зону хранения своего товара?</summary>
+  <p>Да, но косвенно. Алгоритмы <em>Ozon</em> автоматически распределяют товары по зонам на основе:
+  <ul>
+    <li>📈 Оборота (чем чаще заказывают, тем ближе к зоне отгрузки)</li>
+    <li>🎯 Участия в акциях (приоритет для <em>Rocket/Premium</em>)</li>
+    <li>📦 Габаритов (компактные товары сортируются быстрее)</li>
+  </ul>
+<p>Чтобы товар попал в "горячую зону", увеличьте его оборот с помощью промо-акций или улучшите карточку (фото, описание, отзывы).</p>
+  </p>
+</details>
+
+<details>
+  <summary>❓ Как избежать штрафов за медленную сортировку?</summary>
+  <p><em>Ozon</em> может штрафовать продавцов за задержки на сортировке, если они происходят по их вине. Чтобы избежать штрафов:
+  <ul>
+    <li>📦 Правильно упаковывайте товары (используйте рекомендации <em>Ozon</em> по упаковке).</li>
+    <li>🏷️ Проверяйте читаемость штрихкодов перед отправкой.</li>
+    <li>📝 Точно заполняйте данные о товаре в личном кабинете.</li>
+  </ul>
+<p>Штрафы за задержки могут достигать <strong>500 руб. за каждый случай</strong>, поэтому лучше сразу следить за качеством подготовки товаров.</p>
+  </p>
+</details>
+
+<details>
+  <summary>❓ Работают ли на складах Ozon люди или только роботы?</summary>
+  <p>На большинстве складов <em>Ozon</em> используется <strong>гибридная модель</strong>: роботы выполняют до 40% операций (сканирование, перемещение коробок), а люди занимаются комплектацией заказов и проверкой качества. Полностью автоматизированные склады (например, в <em>Дубне</em>) пока тестируются и обрабатывают ограниченный ассортимент.</p>
+</details>
+
+<h2 id="7-будущее-сортировки-на-складах-ozon-что-ждать-продавцам">7. Будущее сортировки на складах Ozon: что ждать продавцам</h2>
+
+<p>В 2026-2026 годах <em>Ozon</em> планирует внедрить несколько ключевых нововведений, которые изменят процесс сортировки:
+
+<p><strong>1. Полная автоматизация мелких товаров</strong>
+<ul>
+  <li>🤖 Роботы будут обрабатывать до <strong>80% заказов</strong> с товарами габаритной группы <code>S</code> (до 30 см).</li>
+  <li>⚡ Скорость сортировки таких товаров сократится до <strong>15-20 минут</strong>.</li>
+</ul>
+
+<p><strong>2. Искусственный интеллект для прогнозирования спроса</strong>
+<ul>
+  <li>📊 AI будет анализировать не только историю продаж, но и внешние факторы (погода, праздники, тренды в соцсетях), чтобы оптимизировать размещение товаров.</li>
+  <li>🎯 Это позволит сократить количество "мёртвых зон" на складах, где товары лежат без движения.</li>
+</ul>
+
+<p><strong>3. Экологичные упаковки и "зелёная" логистика</strong>
+<ul>
+  <li>♻️ <em>Ozon</em> тестирует биоразлагаемые упаковки, которые будут автоматически сортироваться в специальные зоны.</li>
+  <li>🚛 Внедряются маршруты доставки с минимальным углеродным следом (например, электромобили для последней мили).</li>
+</ul>
+
+<p><strong>4. Персонализированные склады для продавцов</strong>
+<ul>
+  <li>🏢 Крупные продавцы смогут арендовать выделенные зоны на складах <em>Ozon</em> с индивидуальными настройками сортировки.</li>
+  <li>📈 Это особенно актуально для брендов с большим ассортиментом (например, одежды или электроники).</li>
+</ul>
+
+<p>Для продавцов эти изменения означают, что уже в ближайшем будущем <strong>скорость сортировки станет одним из ключевых факторов конкурентоспособности</strong>. Те, кто адаптируются к новым технологиям (правильная маркировка, участие в акциях, оптимизация упаковки), получат преимущество в виде более быстрой доставки и меньших издержек.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>К 2026 году Ozon планирует сократить время сортировки для 70% заказов до 1 часа благодаря полной автоматизации и AI-прогнозированию.</p></aside>
+
+<h2 id="8-выводы-как-продавцу-работать-с-сортировкой-эффективно">8. Выводы: как продавцу работать с сортировкой эффективно</h2>
+
+<p>Сортировка на складах <em>Ozon</em> — это не просто технический процесс, а один из ключевых факторов успеха вашего бизнеса на маркетплейсе. От неё зависят:
+<ul>
+  <li>⏱️ <strong>Скорость доставки</strong> (а значит, и лояльность клиентов)</li>
+  <li>💰 <strong>Стоимость хранения</strong> (товары в "горячей зоне" обходятся дешевле)</li>
+  <li>📈 <strong>Позиции в поиске</strong> (<em>Ozon</em> отдаёт приоритет товарам с быстрой отгрузкой)</li>
+</ul>
+
+<p>Чтобы ваши товары проходили сортировку максимально быстро:
+<ol>
+  <li>Следуйте <strong>рекомендациям по упаковке</strong> (штрихкоды, габариты, маркировка).</li>
+  <li>Оптимизируйте <strong>карточки товаров</strong> (правильная категория, точные параметры).</li>
+  <li>Участвуйте в <strong>акциях и программах лояльности</strong> (<em>Rocket</em>, <em>Premium</em>).</li>
+  <li>Мониторьте <strong>оборот товаров</strong> и избегайте "мёртвых зон".</li>
+</ol>
+
+<p>И помните: <em>Ozon</em> постоянно совершенствует свои логистические процессы. Следите за обновлениями в личном кабинете и адаптируйтесь к новым требованиям — это поможет вам оставаться конкурентоспособным даже в условиях растущей конкуренции.
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы заметили, что ваши товары регулярно задерживаются на сортировке, запросите в поддержке <em>Ozon</em> <strong>отчёт по логистическим инцидентам</strong>. Это поможет выявить системные ошибки (например, проблемы со штрихкодами или упаковкой) и исправить их.</blockquote></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-razmer-korobki-prinimaet-ozon-po-fbo.html" class="pb-related-card">
+                <span class="pb-related-title">Размер коробки для Ozon FBO: требования 2026</span>
+                <span class="pb-related-desc">Максимальный размер коробки для Ozon FBO, ограничения по весу и объему. Как рассчитать габариты, изб</span>
+            </a><a href="/articles/c/ch/chto-takoe-fulfilment-tsentr-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое фулфилмент центр Озон: виды, схемы работы и советы</span>
+                <span class="pb-related-desc">Полный гид по фулфилмент-центрам Озон. Узнайте, как работает логистика Ozon, чем отличаются FBO и FB</span>
+            </a><a href="/articles/f/fb/fbs-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">FBS на Ozon: что это и как работает схема для продавцов в 2026</span>
+                <span class="pb-related-desc">Разбираем модель FBS на Озон: отличие от FBO, плюсы и минусы для продавцов, тарифы, условия хранения</span>
+            </a><a href="/articles/k/ka/kak-rabotat-s-fbo-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">FBO на Ozon: как работать с 2026 года — полное руководство для продавцов</span>
+                <span class="pb-related-desc">Пошаговая инструкция по работе с моделью FBO на Ozon: от регистрации до оптимизации логистики. Разби</span>
+            </a><a href="/articles/k/ka/kak-napechatat-akt-priema-peredachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как правильно распечатать акт приёма-передачи для Ozon в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по созданию, заполнению и печати акта приёма-передачи товаров для Ozon: образцы</span>
+            </a><a href="/articles/k/ka/kak-dostavit-tovar-na-ozon-iz-regiona.html" class="pb-related-card">
+                <span class="pb-related-title">Как доставить товар на Ozon из региона: схемы FBO и FBS</span>
+                <span class="pb-related-desc">Подробная инструкция для селлеров: как отправить товар на Ozon из регионов через FBO или FBS. Сравне</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

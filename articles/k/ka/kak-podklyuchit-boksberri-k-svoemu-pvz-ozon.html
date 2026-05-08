@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Интеграция Boxberry с ПВЗ Ozon: руководство — Об Озоне</title>
+    <meta name="description" content="Узнайте, как подключить логистику Boxberry к своему пункту выдачи Ozon. Настройка маршрутизации, тарифов и решение частых ошибок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-podklyuchit-boksberri-k-svoemu-pvz-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Интеграция Boxberry с ПВЗ Ozon: руководство">
+    <meta property="og:description" content="Узнайте, как подключить логистику Boxberry к своему пункту выдачи Ozon. Настройка маршрутизации, тарифов и решение частых ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pvz-i-franshiza/">ПВЗ и Франшиза</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Интеграция Boxberry с ПВЗ Ozon: руководство</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#понимание-архитектуры-взаимодействия-платформ">Понимание архитектуры взаимодействия платформ</a></li><li><a href="#сценарии-использования-boxberry-владельцем-пвз">Сценарии использования Boxberry владельцем ПВЗ</a></li><li><a href="#техническая-настройка-и-api-интеграции">Техническая настройка и API интеграции</a></li><li><a href="#сравнение-условий-работы-с-логистическими-операторами">Сравнение условий работы с логистическими операторами</a></li><li><a href="#решение-частых-проблем-при-интеграции">Решение частых проблем при интеграции</a></li><li><a href="#оптимизация-бизнес-процессов-пвз">Оптимизация бизнес-процессов ПВЗ</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/p/pz/pzv-ozon-chto-eto.html">ПЗВ Озон — что это такое и как работает в 2026 году</a></li><li><a href="/articles/k/ka/kak-otkryt-tochku-vydachi-ozon-v-belarusi.html">Как открыть точку выдачи Озон в Беларуси: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sk/skolko-mozhno-zarabotat-na-otkrytii-punkta-vydachi-ozon.html">Сколько можно заработать на пункте выдачи Озон: расчеты</a></li><li><a href="/articles/k/ka/kak-organizovat-punkt-vydachi-ozona-i-valdberisa.html">Как открыть пункт выдачи Ozon и Wildberries: пошаговый план</a></li><li><a href="/articles/k/ka/kak-otkryt-pvz-ozon-poshagovo.html">Как открыть ПВЗ Озон в 2026: пошаговая инструкция для партнёров</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как подключить Boxberry к своему ПВЗ Ozon: пошаговая инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#понимание-архитектуры-взаимодействия-платформ">Понимание архитектуры взаимодействия платформ</a></li><li><a href="#сценарии-использования-boxberry-владельцем-пвз">Сценарии использования Boxberry владельцем ПВЗ</a></li><li><a href="#техническая-настройка-и-api-интеграции">Техническая настройка и API интеграции</a></li><li><a href="#сравнение-условий-работы-с-логистическими-операторами">Сравнение условий работы с логистическими операторами</a></li><li><a href="#решение-частых-проблем-при-интеграции">Решение частых проблем при интеграции</a></li><li><a href="#оптимизация-бизнес-процессов-пвз">Оптимизация бизнес-процессов ПВЗ</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Организация эффективной логистики для пункта выдачи заказов (ПВЗ) маркетплейса Ozon часто требует гибкости в выборе транспортных компаний. Многие предприниматели, управляющие франшизой, задаются вопросом, как наладить сотрудничество с крупными игроками логистического рынка, такими как Boxberry, для расширения спектра услуг или оптимизации маршрутов. Однако важно сразу обозначить ключевой момент: техническая интеграция Boxberry непосредственно в интерфейс управления <strong>ПВЗ Ozon</strong> как таковая не предусмотрена платформой маркетплейса.</p>
+
+<p>Тем не менее, существует ряд сценариев, при которых взаимодействие этих систем становится необходимым для владельца бизнеса. Это может быть связано с желанием использовать Boxberry для доставки товаров от поставщиков на склад перед отправкой на маркетплейс или для организации собственной курьерской доставки клиентам в рамках гибридной модели торговли. Понимание этих нюансов поможет вам избежать ошибок при настройке бизнес-процессов и правильно распределить потоки грузов.</p>
+
+<p>В этой статье мы подробно разберем технические и организационные аспекты работы с обеими платформами. Вы узнаете, в каких случаях требуется настройка взаимодействия между логистическими сервисами, как правильно оформить документы для партнерства и какие существуют альтернативные пути решения задач по доставке, если прямая интеграция невозможна.</p>
+
+<h2 id="понимание-архитектуры-взаимодействия-платформ">Понимание архитектуры взаимодействия платформ</h2>
+<p>Прежде чем приступать к любым техническим настройкам, необходимо четко осознавать, что Ozon и Boxberry — это две независимые экосистемы с собственными протоколами безопасности и API. <strong>Ozon</strong> использует закрытую инфраструктуру для приема и выдачи товаров, куда сторонние логистические провайдеры не имеют прямого доступа для управления статусами заказов внутри приложения продавца. Пункт выдачи работает строго по регламенту маркетплейса, используя специализированное ПО <em>Ozon Seller</em> или терминалы.</p>
+
+<p>С другой стороны, <em>Boxberry</em> предлагает свои решения для интернет-магазинов, позволяя интегрировать калькулятор доставки и трекинг на сайт продавца. Если вы являетесь франчайзи Ozon, ваш основной инструмент — это личный кабинет партнера, где уже заложены маршруты доставки силами самого Ozon или его официальных партнеров. Попытка внедрить стороннюю логистику внутрь процесса приемки товаров Ozon технически нецелесообразна и программно не поддерживается.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не пытайтесь использовать API Boxberry для автоматического изменения статусов заказов в системе Ozon. Это приведет к конфликту данных, блокировке аккаунта и возможным штрафным санкциям со стороны маркетплейса за нарушение регламента работы с заказами.</p>
+</blockquote>
+
+<p>Тем не менее, взаимодействие возможно на уровне бизнес-процессов владельца бизнеса. Например, если вы параллельно продаете товары на своем сайте или других площадках, используя Boxberry, а также управляете ПВЗ Ozon, вам может потребоваться единая система учета. В этом случае настройка происходит не между Boxberry и Ozon напрямую, а через промежуточное ПО или ERP-систему, которая агрегирует данные из обоих источников.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Прямая техническая интеграция Boxberry в интерфейс управления ПВЗ Ozon невозможна; взаимодействие строится на уровне бизнес-процессов владельца или через сторонние ERP-системы.</p></aside>
+
+<h2 id="сценарии-использования-boxberry-владельцем-пвз">Сценарии использования Boxberry владельцем ПВЗ</h2>
+<p>Владельцы франшиз часто ищут способы диверсифицировать доходы. Одним из таких способов является использование площадей пункта выдачи для приема грузов от других логистических операторов, если это позволяет договор франшизы и техническое оснащение точки. Однако чаще всего вопрос интеграции встает при необходимости доставить товар от поставщика или клиента на склад Ozon (схема FBS) или при организации собственной доставки для локальных клиентов, не связанных с маркетплейсом.</p>
+
+<p>Рассмотрим типичную ситуацию: вы принимаете товар от поставщика через Boxberry, чтобы затем отгрузить его на склад Ozon. В этом случае Boxberry выступает как транспортная компания для вас как для юридического лица, а не как часть инфраструктуры ПВЗ. Вам необходимо настроить в личном кабинете Boxberry адресацию отправлений на свой склад или напрямую в сортировочный центр Ozon, если это требуется вашей схемой работы.</p>
+
+<ul>
+<li>🚚 <strong>Приемка от поставщиков:</strong> Использование Boxberry для доставки товаров на ваш склад перед маркировкой и отправкой на Ozon.</li>
+<li>📦 <strong>Гибридная доставка:</strong> Организация доставки товаров, купленных через ваш собственный сайт, с использованием мощностей Boxberry, пока вы управляете ПВЗ Ozon.</li>
+<li>🔄 <strong>Обратная логистика:</strong> Возврат бракованного товара от клиентов (не из системы Ozon) через службы доставки Boxberry.</li>
+</ul>
+
+<p>Важно различать эти процессы. Если ваша цель — улучшить логистику внутри экосистемы Ozon, то вам следует изучать возможности <strong>Ozon Logistics</strong> или подключать смежные сервисы самого маркетплейса. Boxberry в этой цепочке может быть полезен только как внешний контрагент для ваших внутренних нужд бизнеса, не затрагивая напрямую выдачу заказов покупателям Ozon.</p>
+
+<div class="pb-poll" id="poll-6ace8480"><div class="pb-poll-question">📊 Какой сценарий использования вас интересует больше?</div><div class="pb-poll-option" data-poll="6ace8480" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Использование Boxberry для доставки товаров на склад Ozon (FBS)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6ace8480" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Организация доставки для своего интернет-магазина параллельно с ПВЗ</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6ace8480" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Настройка возврата товаров от клиентов</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="6ace8480" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Мне нужно просто понять техническую невозможность прямой интеграции</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="техническая-настройка-и-api-интеграции">Техническая настройка и API интеграции</h2>
+<p>Для тех, кто все же стремится автоматизировать процессы между своим складом (где может находиться ПВЗ) и службой доставки Boxberry, основным инструментом остается API. Интеграция позволяет автоматически создавать накладные, рассчитывать стоимость и отслеживать перемещение грузов. Это актуально, если вы используете свою CRM-систему для управления товарами, которые затем уходят на Ozon или продаются отдельно.</p>
+
+<p>Процесс настройки начинается с получения ключей доступа в личном кабинете Boxberry. Вам необходимо перейти в раздел разработчика и сгенерировать <code>API Token</code>. Этот ключ будет использоваться для авторизации запросов при создании заказов. В отличие от открытых API Ozon, здесь вы работаете с документацией стороннего сервиса, что требует внимательности к форматам передаваемых данных.</p>
+
+<pre><code>POST https://api.boxberry.ru/api.php
+<p>Content-Type: application/json</p>
+
+<p>{</p>
+<p>"token": "ВАШ_ТОКЕН",</p>
+<p>"method": "ListCities",</p>
+<p>"params": {}</p>
+<p>}</code></pre></p>
+
+<p>После получения токена необходимо настроить маппинг полей в вашей учетной системе. Это значит, что адреса, веса и габариты товаров из вашей базы должны корректно передаваться в систему Boxberry. Особое внимание уделите полям, отвечающим за <strong>индексы</strong> и коды городов, так как ошибки в этих данных приведут к невозможности расчета стоимости доставки.</p>
+
+<details class="pb-accordion"><summary>Как проверить работоспособность API?</summary><div class="pb-accordion-body"><p>Для тестирования интеграции используйте тестовый режим (sandbox), если он доступен, или создайте тестовый заказ с минимальной стоимостью. Отследите, приходит ли статус-бар в вашу систему. Убедитесь, что вебхуки (если используются) принимаются вашим сервером и имеют белый IP-адрес, разрешенный в настройках безопасности Boxberry.</p></div></details>
+
+<h2 id="сравнение-условий-работы-с-логистическими-операторами">Сравнение условий работы с логистическими операторами</h2>
+<p>Выбор между использованием встроенных решений Ozon и подключением сторонних служб вроде Boxberry часто зависит от экономических факторов и специфики товара. Для владельца ПВЗ важно понимать разницу в тарифах, скорости обработки и географии покрытия, чтобы принимать взвешенные решения для своего бизнеса.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ozon Logistics (Робот)</th>
+<th>Boxberry</th>
+<th>Сторонние ТК (СДЭК и др.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Интеграция с ПВЗ</td>
+<td>Полная, автоматическая</td>
+<td>Отсутствует (только как внешний партнер)</td>
+<td>Отсутствует</td>
+</tr>
+<tr>
+<td>Тарификация</td>
+<td>Зависит от категории и габаритов</td>
+<td>Гибкая, зависит от объема</td>
+<td>Индивидуальная</td>
+</tr>
+<tr>
+<td>География</td>
+<td>По всей России и СНГ</td>
+<td>Крупные города и области</td>
+<td>Варьируется</td>
+</tr>
+<tr>
+<td>Скорость вывода денег</td>
+<td>По графику маркетплейса</td>
+<td>По договору</td>
+<td>По договору</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, для операций, связанных непосредственно с заказами на маркетплейсе, альтернативы внутренней логистике практически нет. Однако для сопутствующих бизнес-процессов, таких как доставка расходных материалов для упаковки или приемка товаров от локальных поставщиков, условия Boxberry могут оказаться более выгодными. <em>Гибкость тарифов</em> часто позволяет экономить на небольших партиях грузов.</p>
+
+<p>Кроме того, стоит учитывать человеческий фактор. Сотрудникам ПВЗ проще работать с одним интерфейсом Ozon, чем переключаться между несколькими системами. Поэтому подключение дополнительных логистических каналов оправдано только при наличии отдельного менеджера или высокой степени автоматизации процессов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте CSV-выгрузку тарифов Boxberry для сравнения с актуальными ставками Ozon Logistics. Часто для тяжелых грузов (тяжелее 5 кг) сторонние перевозчики могут быть дешевле, что актуально для закупки оборудования для пункта выдачи.</p></aside>
+
+<h2 id="решение-частых-проблем-при-интеграции">Решение частых проблем при интеграции</h2>
+<p>В процессе настройки взаимодействия различных логистических систем пользователи часто сталкиваются с техническими трудностями. Наиболее распространенная проблема — рассинхронизация статусов. Когда товар физически передан курьеру Boxberry, в вашей системе он может числиться как "отправлен", но в трек-номере Ozon (если речь идет о FBS) статус не обновится, пока груз не прибудет на сортировочный центр маркетплейса.</p>
+
+<p>Другая сложность связана с габаритами. Boxberry и Ozon используют разные методы измерения и округления объемного веса. Если вы рассчитываете доставку поставщика, полагаясь на данные одной системы, а фактический приемщик использует другую, может возникнуть пересортица или доплата за лишние килограммы. Всегда закладывайте небольшой запас в расчетах.</p>
+
+<ul>
+<li>❌ <strong>Ошибка авторизации:</strong> Проверьте validity периода вашего API-ключа и IP-адреса сервера, с которого идут запросы.</li>
+<li>📉 <strong>Неверный расчет стоимости:</strong> Убедитесь, что в обоих системах используются одинаковые единицы измерения (сантиметры против метров, граммы против килограммов).</li>
+<li>🕒 <strong>Задержка обновления:</strong> Статусы в API Boxberry могут обновляться с задержкой до 15 минут, что нормально для фоновых процессов.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: При работе с API обязательно реализуйте механизм повторных попыток (retry logic). Если сервер Boxberry временно недоступен, ваш скрипт не должен прерывать работу, а должен повторить запрос через определенный интервал времени, чтобы не потерять данные о заказе.</p>
+</blockquote>
+
+<p>Также стоит упомянуть проблему дублирования заказов. Если интеграция настроена некорректно, один и тот же заказ может быть отправлен в доставку дважды. Чтобы избежать этого, используйте уникальные идентификаторы заказов (<code>order_id</code>) и проверяйте их наличие в системе перед отправкой нового запроса на создание накладной.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Диагностика проблем интеграции</h4><label class="check-item"><input type="checkbox"><span>Проверить логи сервера на наличие ошибок 4xx и 5xx</span></label><label class="check-item"><input type="checkbox"><span>Сверить формат передаваемых данных с документацией API</span></label><label class="check-item"><input type="checkbox"><span>Проверить доступность сервера Boxberry с вашего IP</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в актуальности токена доступа</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="оптимизация-бизнес-процессов-пвз">Оптимизация бизнес-процессов ПВЗ</h2>
+<p>Эффективное управление пунктом выдачи требует постоянного анализа workflows. Если вы совмещаете работу с Ozon и другими логистическими операторами, критически важно разделить потоки товаров. Физическое зонирование склада, даже небольшого, поможет избежать путаницы. Выделите отдельную зону для товаров, пришедших через Boxberry, и зону для товаров Ozon.</p>
+
+<p>Автоматизация рутинных задач — ключ к успеху. Вместо ручного ввода данных используйте штрих-кодирование. При приемке товара от Boxberry сканирование штрих-кода должно автоматически создавать запись в вашей базе и, при необходимости, формировать задание на отгрузку в Ozon. Это сокращает время обработки и минимизирует влияние человеческого фактора.</p>
+
+<p>Не забывайте про аналитику. Регулярно отслеживайте, сколько времени занимает доставка от момента заказа у поставщика до поступления на склад Ozon. Если Boxberry справляется быстрее и дешевле, чем альтернативные варианты доставки до склада маркетплейса, имеет смысл закрепить этот канал как основной для закупки определенных групп товаров.</p>
+
+<p>В заключение, помните, что <strong>гибкость</strong> вашего бизнеса зависит от правильно выстроенных связей между контрагентами. Хотя прямой кнопки "Подключить Boxberry к Ozon" не существует, грамотное использование доступных инструментов позволяет создать мощную гибридную логистическую схему, повышающую рентабельность вашего пункта выдачи.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный секрет успеха — не искать несуществующую прямую интеграцию, а выстраивать параллельные процессы с четким разделением зон ответственности и автоматизацией передачи данных через API или CSV.</p></aside>
+
+<details>
+<summary>Можно ли оплачивать услуги Boxberry с баланса Ozon Seller?</summary>
+<p>Нет, баланс Ozon Seller предназначен исключительно для оплаты услуг внутри экосистемы маркетплейса (реклама, логистика Ozon, хранение). Оплата услуг сторонних транспортных компаний, таких как Boxberry, производится отдельно по договору с этими компаниями с расчетного счета вашего юридического лица или ИП.</p>
+</details>
+
+<details>
+<summary>Нужно ли отдельное оборудование для работы с Boxberry в ПВЗ?</summary>
+<p>Для приема и отправки грузов Boxberry вам потребуется стандартное оборудование: компьютер с доступом в интернет, принтер для печати накладных (формат А4 или термопринтер этикеток) и сканер штрих-кодов. Отдельное специализированное оборудование, как терминалы Ozon, не требуется, достаточно доступа в личный кабинет Boxberry.</p>
+</details>
+
+<details>
+<summary>Что делать, если товар от Boxberry поврежден при приемке в ПВЗ?</summary>
+<p>Если вы принимаете товар как получатель (для себя или клиента), акт о повреждении составляется с курьером в момент приемки. Если же товар предназначен для дальнейшей продажи на Ozon, и повреждение обнаружено на вашем складе, вам необходимо зафиксировать это фото/видео, составить акт внутренней проверки и инициировать претензию в Boxberry, так как ответственность за сохранность груза до момента передачи на склад Ozon несете вы.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/p/pz/pzv-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">ПЗВ Озон — что это такое и как работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое ПЗВ (пункт выдачи заказов) Озон: как работает, чем отличается от ПВЗ, как выб</span>
+            </a><a href="/articles/k/ka/kak-otkryt-tochku-vydachi-ozon-v-belarusi.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть точку выдачи Озон в Беларуси: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по открытию ПВЗ Ozon в РБ: требования, документы, затраты и шаги для партнерства </span>
+            </a><a href="/articles/s/sk/skolko-mozhno-zarabotat-na-otkrytii-punkta-vydachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько можно заработать на пункте выдачи Озон: расчеты</span>
+                <span class="pb-related-desc">Реальный доход пункта выдачи Ozon в 2026-2026 гг. Разбор расходов, франшизы и партнерской программы.</span>
+            </a><a href="/articles/k/ka/kak-organizovat-punkt-vydachi-ozona-i-valdberisa.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть пункт выдачи Ozon и Wildberries: пошаговый план</span>
+                <span class="pb-related-desc">Полное руководство: как открыть пункт выдачи Ozon и Wildberries. Требования к помещению, договор фра</span>
+            </a><a href="/articles/k/ka/kak-otkryt-pvz-ozon-poshagovo.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть ПВЗ Озон в 2026: пошаговая инструкция для партнёров</span>
+                <span class="pb-related-desc">Подробное руководство по открытию пункта выдачи заказов Озон: требования, документы, затраты и шаги </span>
+            </a><a href="/articles/k/ka/kak-na-ozone-ustanovit-punkt-vydachi-zakazov.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть пункт выдачи Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гайд, как открыть пункт выдачи заказов Озон с нуля. Требования к помещению, документы, усл</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

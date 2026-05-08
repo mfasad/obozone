@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как устроен Ozon: логистика, склад и алгоритмы ранжирования — Об Озоне</title>
+    <meta name="description" content="Полный разбор внутренней кухни маркетплейса Ozon. Как работает логистика FBO/FBS, что такое ранжирование и как происходит сортировка товаров на складах.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ustroen-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как устроен Ozon: логистика, склад и алгоритмы ранжирования">
+    <meta property="og:description" content="Полный разбор внутренней кухни маркетплейса Ozon. Как работает логистика FBO/FBS, что такое ранжирование и как происходит сортировка товаров на складах.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как устроен Ozon: логистика, склад и алгоритмы ранжирования</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#архитектура-платформы-и-работа-алгоритмов">Архитектура платформы и работа алгоритмов</a></li><li><a href="#логистическая-модель-fbo-fbs-и-dbs">Логистическая модель: FBO, FBS и DBS</a></li><li><a href="#устройство-складов-и-сортировочных-центров">Устройство складов и сортировочных центров</a></li><li><a href="#финансовая-инфраструктура-и-ozon-банк">Финансовая инфраструктура и Ozon Банк</a></li><li><a href="#система-рейтингов-и-качество-обслуживания">Система рейтингов и качество обслуживания</a></li><li><a href="#безопасность-и-защита-данных">Безопасность и защита данных</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/s/sk/skolko-nuzhno-sdelat-kapelnits-ozona.html">Сколько нужно сделать капельниц озона: курс, схема и эффект</a></li><li><a href="/articles/k/ka/kak-ozon-prevratit-v-kislorod.html">Как Ozon превратить в кислород: экологические инициативы бренда</a></li><li><a href="/articles/s/sk/skolko-mol-ozona-sostavlyayut-240-g-ozona.html">Сколько моль озона в 240 г: расчет и химия</a></li><li><a href="/articles/s/sk/skolko-ozon-derzhitsya-v-organizme.html">Сколько Ozon держится в организме: влияние на здоровье</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-zemli.html">Что такое озон земли: мифы, факты и реальность</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как устроен Ozon: устройство платформы, логистика и ранжирование</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#архитектура-платформы-и-работа-алгоритмов">Архитектура платформы и работа алгоритмов</a></li><li><a href="#логистическая-модель-fbo-fbs-и-dbs">Логистическая модель: FBO, FBS и DBS</a></li><li><a href="#устройство-складов-и-сортировочных-центров">Устройство складов и сортировочных центров</a></li><li><a href="#финансовая-инфраструктура-и-ozon-банк">Финансовая инфраструктура и Ozon Банк</a></li><li><a href="#система-рейтингов-и-качество-обслуживания">Система рейтингов и качество обслуживания</a></li><li><a href="#безопасность-и-защита-данных">Безопасность и защита данных</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Многие воспринимают Ozon как простой сайт, где можно купить товары, но за видимым фасадом скрывается сложнейшая экосистема, работающая по строгим алгоритмическим правилам. <strong>Платформа</strong> представляет собой гибрид IT-гиганта и логистической компании, где каждый клик пользователя и каждая перемещенная коробка влияют на общую эффективность системы. Понимание того, как устроен Ozon, необходимо не только для селлеров, желающих увеличить продажи, но и для покупателей, стремящихся разобраться в сроках доставки и причинах отмен.</p>
+
+<p>В основе функционирования маркетплейса лежит <em>микросервисная архитектура</em>, которая позволяет обрабатывать миллионы запросов в секунду без остановки работы сайта. <strong>Система</strong> автоматически распределяет нагрузку между серверами, чтобы витрина оставалась доступной даже во время масштабных распродаж вроде "Дней Озона". Именно программный код управляет всем: от отображения цены до расчета оптимального маршрута курьера.</p>
+
+<p>В этой статье мы детально разберем внутреннее устройство популярного маркетплейса, затронем вопросы логистики и объясним, как искусственный интеллект помогает формировать выдачу товаров.</p>
+
+<h2 id="архитектура-платформы-и-работа-алгоритмов">Архитектура платформы и работа алгоритмов</h2>
+
+<p>Сердцем Ozon является его <strong>бэкенд</strong>, написанный преимущественно на языке Go, который обеспечивает высокую скорость обработки данных. Когда вы открываете карточку товара, система за доли секунды проверяет остатки на складах, актуальную цену, рейтинг продавца и персонализированные коэффициенты для вашего региона. <mark>Все эти данные агрегируются в единую матрицу доступности, которая обновляется в реальном времени.</mark></p>
+
+<p>Особую роль играет <strong>алгоритм ранжирования</strong>, который решает, какой товар показать пользователю первым. Это не просто сортировка по цене, а сложная математическая модель, учитывающая сотни факторов. В их число входят скорость доставки, количество возвратов, полнота заполнения карточки и поведенческие факторы покупателей.</p>
+
+<p>Для селлеров важно понимать, что <strong>ранжирование</strong> — это динамический процесс. Если вчера ваш товар был на первой странице, сегодня он может сместиться вниз из-за появления нового конкурента с лучшей ценой или более быстрой логистикой. Алгоритм постоянно обучается на новых данных, пытаясь предсказать, какой товар с наибольшей вероятностью купит конкретный пользователь.</p>
+
+<ul>
+<li>📊 <strong>Персонализация:</strong> система анализирует историю просмотров и покупок, чтобы предлагать релевантные товары.</li>
+<li>🚀 <strong>Скорость реакции:</strong> изменения в цене или остатках отображаются на витрине практически мгновенно.</li>
+<li>🤖 <strong>Автоматизация:</strong> многие процессы, включая модерацию контента, проходят через нейросети.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Частое изменение цены или резкое изменение остатков товара может временно снизить его видимость в выдаче, так как алгоритм расценивает это как нестабильность предложения.</p>
+</blockquote>
+
+<details class="pb-accordion"><summary>Как нейросети помогают модерации?</summary><div class="pb-accordion-body"><p>Нейросети Ozon автоматически проверяют загружаемые изображения на наличие запрещенного контента, водяных знаков и несоответствия категории. Если бот находит нарушение, карточка уходит на ручную проверку или блокируется.>
+
+<h2 id="логистическая-модель-fbo-fbs-и-dbs">Логистическая модель: FBO, FBS и DBS</h2>
+
+<p>Логистика — это скелет, на котором держится вся структура Ozon. Существует несколько основных схем работы, каждая из которых имеет свои технические особенности и требования к упаковке. Выбор схемы напрямую влияет на то, как быстро товар доедет до клиента и сколько это будет стоить.</p>
+
+<p>Схема <strong>FBO (Fulfillment by Ozon)</strong> предполагает хранение товаров на складах маркетплейса. Селлер заранее отгружает партию, а Ozon берет на себя все процессы: приемку, хранение, сборку, упаковку и доставку. Это наиболее автоматизированный вариант, где роль продавца сводится к контролю остатков и маркетингу.</p>
+
+<p>В отличие от FBO, модель <strong>FBS (Fulfillment by Seller)</strong> требует от продавца самостоятельного хранения товаров. Заказ поступает на склад продавца, который обязан упаковать его и передать курьеру или в пункт приема в строго отведенное время (обычно до 12:00 следующего дня). Здесь критически важна дисциплина и наличие собственной складской логистики.</p>
+
+
+
+<p>Третий вариант — <strong>DBS (Delivery by Seller)</strong>, при котором Ozon выступает только витриной, а доставку полностью организует продавец. Эта схема подходит для крупногабаритных товаров или регионов, куда логистика маркетплейса еще не добралась. В этом случае трек-номер и статусы доставки контролируются через личный кабинет продавца.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Готовность к отгрузке на FBO</h4><label class="check-item"><input type="checkbox"><span>Товар промаркирован штрихкодом Ozon</span></label><label class="check-item"><input type="checkbox"><span>Упаковка соответствует габаритам ячейки</span></label><label class="check-item"><input type="checkbox"><span>Создана поставка в личном кабинете</span></label><label class="check-item"><input type="checkbox"><span>Печать манифеста и этикеток</span></label><label class="check-item"><input type="checkbox"><span>Товар передан в сортировочный центр</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="устройство-складов-и-сортировочных-центров">Устройство складов и сортировочных центров</h2>
+
+<p>Сортировочные центры Ozon — это высокотехнологичные комплексы, где человеческий труд тесно переплетен с роботизированными системами. Попадая на склад, товар проходит процедуру <strong> приемки</strong>, где сканируется каждый штрихкод. Система присваивает товару место хранения, оптимизируя его расположение для быстрого доступа.</p>
+
+<p>Процесс <strong>сборки</strong> заказа выглядит как квест для сотрудника склада. Мобильное приложение или терминал сбора данных (ТСД) строит оптимальный маршрут движения по складу, чтобы сборщик прошел минимальное расстояние. Роботы-сортировщики, в свою очередь, перемещают коробки между зонами, считывая QR-коды на конвейерной ленте.</p>
+
+<p>Особое внимание уделяется <strong>упаковке</strong>. Если товар не имеет заводской коробки или она повреждена, его упаковывают в фирменный пакет или коробку Ozon. Это защищает вещь при транспортировке и создает единый стандарт качества для покупателя, независимо от того, кто является продавцом.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>FBO (Склад Ozon)</th>
+<th>FBS (Склад продавца)</th>
+<th>DBS (Доставка продавца)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Хранение</td>
+<td>На складах Ozon</td>
+<td>На складе продавца</td>
+<td>На складе продавца</td>
+</tr>
+<tr>
+<td>Доставка до клиента</td>
+<td>Ozon</td>
+<td>Ozon</td>
+<td>Продавец</td>
+</tr>
+<tr>
+<td>Обработка возвратов</td>
+<td>Ozon</td>
+<td>Продавец</td>
+<td>Продавец</td>
+</tr>
+<tr>
+<td>Скорость доставки</td>
+<p>td>Максимальная</td></p>
+<td>Высокая</td>
+<td>Зависит от продавца</td>
+</tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При приемке товара на склад FBO может обнаружиться пересорт или бой. В этом случае составляется акт, и стоимость товара может быть списана с баланса продавца, если вина будет доказана.</p>
+</blockquote>
+
+
+
+<h2 id="финансовая-инфраструктура-и-ozon-банк">Финансовая инфраструктура и Ozon Банк</h2>
+
+<p>Финансовый контур маркетплейса устроен так, чтобы минимизировать риски всех участников сделки. Деньги покупателя не сразу попадают продавцу, а замораживаются на <strong>гарантийном счете</strong>. Это защищает клиента от недобросовестных действий, а платформу — от Chargeback-ов.</p>
+
+<p>Для продавцов работает система <strong>Ozon Банк</strong>, которая позволяет получать выплаты ежедневно, а не раз в две недели, как это было в классической схеме. Это значительно улучшает cash flow бизнеса, позволяя быстрее закупать новые партии товара. Банк также предоставляет кредитные продукты, основанные на статистике продаж магазина.</p>
+
+<p>Комиссия маркетплейса рассчитывается автоматически в момент продажи и зависит от категории товара. В стоимость комиссии уже заложены расходы на эквайринг (обработку платежей картами) и базовая логистика. Прозрачность финансовых потоков обеспечивается детальными <strong>отчетами</strong>, которые можно выгрузить в личном кабинете.</p>
+
+<ul>
+<li>💳 <strong>Эквайринг:</strong> обработка платежей карт любых банков мира (в рамках доступных систем).</li>
+<li>💸 <strong>Выплаты:</strong> возможность настроить автоматический вывод средств на расчетный счет.</li>
+<li>📉 <strong>Комиссии:</strong> варьируются от 5% до 20% в зависимости от товарной категории.</li>
+</ul>
+
+<h2 id="система-рейтингов-и-качество-обслуживания">Система рейтингов и качество обслуживания</h2>
+
+<p>Репутация продавца на Ozon измеряется не абстрактными баллами, а конкретным показателем — <strong>Индексом локального рейтинга (ИЛР)</strong>. Он рассчитывается на основе отзывов, процента отмен, скорости ответов на вопросы и количества возвратов. Низкий ИЛР может привести к блокировке магазина или скрытию товаров из выдачи.</p>
+
+<p>Отзывы проходят через фильтр <strong>модерации</strong>. Система отсеивает фейковые отзывы, заказные реакции и сообщения, не несущие смысловой нагрузки. Однако живые негативные отзывы, даже если они кажутся продавцу несправедливыми, остаются и влияют на рейтинг, заставляя бизнес работать над качеством.</p>
+
+<p>Важным элементом является <strong>время ответа</strong> на вопросы покупателей. Селлерам рекомендуется отвечать в течение нескольких часов. Долгое молчание воспринимается алгоритмами как низкий уровень сервиса, что может негативно сказаться на ранжировании карточки.</p>
+
+
+
+<h2 id="безопасность-и-защита-данных">Безопасность и защита данных</h2>
+
+<p>Ozon обрабатывает колоссальные объемы персональных данных, поэтому вопросам <strong>кибербезопасности</strong> уделяется первостепенное внимание. Используются протоколы шифрования данных при передаче и хранении. Доступ к внутренней информации сотрудников строго регламентирован и логируется.</p>
+
+<p>Для пользователей и продавцов внедрена <strong>двухфакторная аутентификация</strong>. Это обязательное требование для доступа к финансовым отчетам и изменения настроек магазина. Игнорирование этого элемента защиты может привести к взлому аккаunta мошенниками.</p>
+
+<p>Система также мониторит подозрительную активность: попытки массового скачивания данных, входы с необычных IP-адресов или резкие изменения реквизитов для выплат. При обнаружении аномалий аккаунт может быть временно заморожен до выяснения обстоятельств.</p>
+
+<details>
+<summary>Что делать, если аккаунт заблокировали?</summary>
+<p>В первую очередь необходимо написать в поддержку через форму обратной связи. Обычно блокировка связана с нарушением правил площадки или подозрением на мошенничество. Потребуется предоставить сканы документов, подтверждающих личность и право владения бизнесом.</p>
+</details>
+
+<details>
+<summary>Как часто обновляются алгоритмы ранжирования?</summary>
+<p>Микрос изменения в алгоритмах происходят ежедневно. Крупные обновления, меняющие принципы работы выдачи, проводятся несколько раз в год. Точная формула является коммерческой тайной компании.</p>
+</details>
+
+<details>
+<summary>Можно ли работать на Ozon без склада?</summary>
+<p>Да, используя схему FBO (вы просто отгружаете товар на склад Ozon) или дропшиппинг (если найдете поставщика, готового отгружать поштучно, хотя официально Ozon требует, чтобы отправителем значился продавец).</p>
+</details>
+
+<details>
+<summary>Почему товар может исчезнуть из поиска?</summary>
+<p>Причин может быть несколько: закончились остатки, товар заблокирован модерацией за нарушение правил, низкий рейтинг продавца или технические работы на сайте.</p>
+</details>
+
+<details>
+<summary>Как рассчитывается стоимость доставки для покупателя?</summary>
+<p>Стоимость зависит от габаритов и веса товара, расстояния до пункта выдачи и статуса подписки Ozon Premium. Для продавцов стоимость логистики вычитается из итоговой суммы продажи.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/s/sk/skolko-nuzhno-sdelat-kapelnits-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько нужно сделать капельниц озона: курс, схема и эффект</span>
+                <span class="pb-related-desc">Узнайте, сколько капельниц озона нужно сделать для здоровья. Полный разбор курса озонотерапии, дозир</span>
+            </a><a href="/articles/k/ka/kak-ozon-prevratit-v-kislorod.html" class="pb-related-card">
+                <span class="pb-related-title">Как Ozon превратить в кислород: экологические инициативы бренда</span>
+                <span class="pb-related-desc">Разбираем реальные экологические проекты маркетплейса. Как Ozon помогает природе, внедряет электромо</span>
+            </a><a href="/articles/s/sk/skolko-mol-ozona-sostavlyayut-240-g-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько моль озона в 240 г: расчет и химия</span>
+                <span class="pb-related-desc">Узнайте, сколько моль озона составляют 240 г вещества. Подробный расчет молярной массы, формулы и св</span>
+            </a><a href="/articles/s/sk/skolko-ozon-derzhitsya-v-organizme.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько Ozon держится в организме: влияние на здоровье</span>
+                <span class="pb-related-desc">Узнайте, сколько времени Ozon остается в организме человека. Влияние озонотерапии на самочувствие и </span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-zemli.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое озон земли: мифы, факты и реальность</span>
+                <span class="pb-related-desc">Узнайте, что такое озон земли: природный щит атмосферы или опасный газ у поверхности? Разбираем свой</span>
+            </a><a href="/articles/k/ka/kak-ne-platit-za-dostavku-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как не платить за доставку на Ozon: все способы 2026</span>
+                <span class="pb-related-desc">Полный гид по бесплатной доставке Ozon. Узнайте, как оформить заказ без комиссии, условия подписки O</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

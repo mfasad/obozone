@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как проверить выкуп товара на Ozon: 5 способов для продавцов — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция, как отследить выкуп товара на Ozon в личном кабинете, мобильном приложении и через API. Разбираем статусы заказов, уведомления и типичные ошибки.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ponyat-na-ozone-chto-tovar-vykuplen.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как проверить выкуп товара на Ozon: 5 способов для продавцов">
+    <meta property="og:description" content="Пошаговая инструкция, как отследить выкуп товара на Ozon в личном кабинете, мобильном приложении и через API. Разбираем статусы заказов, уведомления и типичные ошибки.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как проверить выкуп товара на Ozon: 5 способов для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-что-значит-товар-выкуплен-на-ozon">1. Что значит «товар выкуплен» на Ozon?</a></li><li><a href="#2-где-смотреть-выкупленные-товары-в-личном-кабинете-ozon">2. Где смотреть выкупленные товары в личном кабинете Ozon</a></li><li><a href="#3-как-отследить-выкуп-в-мобильном-приложении-ozon-seller">3. Как отследить выкуп в мобильном приложении Ozon Seller</a></li><li><a href="#4-статусы-заказов-на-ozon-что-означает-каждый">4. Статусы заказов на Ozon: что означает каждый</a></li><li><a href="#5-автоматизация-отслеживания-выкупов-через-api">5. Автоматизация отслеживания выкупов через API</a></li><li><a href="#6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</a></li><li><a href="#7-как-проверить-выкуп-через-отчёты-и-excel">7. Как проверить выкуп через отчёты и Excel</a></li><li><a href="#faq-частые-вопросы-о-выкупах-на-ozon">FAQ: Частые вопросы о выкупах на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-ustroitsya-v-ozon-moderatorom.html">Как устроиться модератором на Ozon: вакансии и требования</a></li><li><a href="/articles/k/ka/kak-pravilno-nastroit-reklamu-na-ozone.html">Как настроить рекламу на Озоне: пошаговая инструкция</a></li><li><a href="/articles/i/in/instruktsiya-kak-vyjti-na-ozon.html">Как выйти на Ozon: пошаговая инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-rabotayut-algoritmy-ozon.html">Как работают алгоритмы Ozon: ранжирование и продвижение товаров</a></li><li><a href="/articles/k/ka/kak-prodvinut-tovar-na-ozon-v-top.html">Как вывести товар на Озон в ТОП: рабочие методы 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как понять, что товар выкуплен на Ozon: инструкция для продавцов 2026 года</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-что-значит-товар-выкуплен-на-ozon">1. Что значит «товар выкуплен» на Ozon?</a></li><li><a href="#2-где-смотреть-выкупленные-товары-в-личном-кабинете-ozon">2. Где смотреть выкупленные товары в личном кабинете Ozon</a></li><li><a href="#3-как-отследить-выкуп-в-мобильном-приложении-ozon-seller">3. Как отследить выкуп в мобильном приложении Ozon Seller</a></li><li><a href="#4-статусы-заказов-на-ozon-что-означает-каждый">4. Статусы заказов на Ozon: что означает каждый</a></li><li><a href="#5-автоматизация-отслеживания-выкупов-через-api">5. Автоматизация отслеживания выкупов через API</a></li><li><a href="#6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</a></li><li><a href="#7-как-проверить-выкуп-через-отчёты-и-excel">7. Как проверить выкуп через отчёты и Excel</a></li><li><a href="#faq-частые-вопросы-о-выкупах-на-ozon">FAQ: Частые вопросы о выкупах на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Продажи на <em>Ozon</em> строятся на принципе <strong>выкупа товаров</strong> — момента, когда покупатель оплачивает заказ, и маркетплейс списывает его со склада. Однако не всегда этот процесс очевиден для продавцов, особенно новичков. Отсутствие чёткого понимания, когда именно товар считается выкупленным, может привести к ошибкам в логистике, финансовом учёте или даже штрафам за несвоевременную отгрузку.</p>
+
+<p>В этой статье разберём все доступные способы отслеживания выкупа — от базовых (через личный кабинет) до продвинутых (API и автоматизированные отчёты). Особое внимание уделим <strong>статусам заказов</strong>, которые часто путают с выкупом, и типичным «подводным камням», например, когда товар списан со склада, но денег на счёте ещё нет. Если вы продаёте через <em>FBS</em> или <em>FBO</em>, здесь найдёте актуальные инструкции для обеих схем.</p>
+
+<h2 id="1-что-значит-товар-выкуплен-на-ozon">1. Что значит «товар выкуплен» на Ozon?</h2>
+
+<p>На <em>Ozon</em> термин «<strong>выкуп</strong)» имеет строгое значение: это момент, когда покупатель <mark>оплатил заказ, и маркетплейс списал товар с вашего виртуального склада</mark>. Важно понимать, что выкуп ≠ продажа: после выкупа товар ещё может быть возвращён (в течение 14 дней), а деньги поступят на ваш счёт только после подтверждения доставки.</p>
+
+<p>Ключевые признаки выкупа:</p>
+<ul>
+  <li>📦 <strong>Статус заказа</strong> меняется на «<code>Выкуплен</code>» или «<code>Оплачен</code>» (в зависимости от схемы работы).</li>
+  <li>💰 <strong>Списание со склада</strong>: количество товара в остатках уменьшается на 1 единицу.</li>
+  <li>📈 <strong>Финансовая транзакция</strong>: в отчётах появляется запись о резервировании средств (но не их зачислении!).</li>
+</ul>
+
+<p>При работе по <em>FBS</em> (когда товар хранится на складе <em>Ozon</em>) выкуп происходит автоматически после оплаты. В <em>FBO</em> (самостоятельная доставка) продавец должен подтвердить отгрузку вручную — только тогда заказ считается выкупленным.</p>
+
+<div class="pb-poll" id="poll-49da082f"><div class="pb-poll-question">📊 Как вы обычно отслеживаете выкупы на Ozon?</div><div class="pb-poll-option" data-poll="49da082f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через личный кабинет на сайте</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="49da082f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">В мобильном приложении</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="49da082f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Автоматизировал через API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="49da082f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Пользуюсь Excel-отчётами</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="49da082f" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Не отслеживаю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-где-смотреть-выкупленные-товары-в-личном-кабинете-ozon">2. Где смотреть выкупленные товары в личном кабинете Ozon</h2>
+
+<p>Самый простой способ — использовать веб-версию личного кабинета <em>Ozon Seller</em>. Для этого:</p>
+
+<ol>
+  <li>Авторизуйтесь на сайте <a href="https://seller.ozon.ru" target="_blank" rel="noopener">seller.ozon.ru</a>.</li>
+  <li>Перейдите в раздел <code>Заказы → Все заказы</code>.</li>
+  <li>В фильтре статусов выберите «<code>Выкуплен</code>» или «<code>Оплачен</code>».</li>
+  <li>Для детализации нажмите на номер заказа — там будет информация о времени выкупа и сумме.</li>
+</ol>
+
+<p>Обратите внимание на колонку «<code>Статус оплаты</code>»: если там указано «<code>Оплачено</code>», но в колонке «<code>Статус заказа</code>» стоит «<code>В обработке</code>», это означает, что деньги резервированы, но товар ещё не списан со склада (актуально для <em>FBS</em>).</p>
+
+
+<p>Открыть раздел "Заказы"|Установить фильтр по статусу "Выкуплен"|Проверить колонку "Статус оплаты"|Экспортировать отчёт при необходимости</p>
+<p>--></p>
+
+<p>Для удобства можно настроить <strong>автоматический экспорт отчётов</strong> в формате <code>.xlsx</code> или <code>.csv</code>. Для этого в разделе «<code>Отчёты → Заказы</code>» выберите период и тип данных «<code>Выкупленные заказы</code>». Отчёт будет содержать:</p>
+<ul>
+  <li>📅 Дату и время выкупа;</li>
+  <li>🆔 Номер заказа и артикул товара;</li>
+  <li>💵 Сумму с учётом скидок и комиссий;</li>
+  <li>📍 Адрес доставки (для <em>FBO</em>).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы работаете с большим количеством заказов, настройте уведомления о выкупах в Telegram через сервис <em>Ozon API</em> или сторонние интеграции типа <em>Peak</em> или <em>МойСклад</em>.</p></aside>
+
+<h2 id="3-как-отследить-выкуп-в-мобильном-приложении-ozon-seller">3. Как отследить выкуп в мобильном приложении Ozon Seller</h2>
+
+<p>Мобильное приложение <em>Ozon Seller</em> (доступно для <em>iOS</em> и <em>Android</em>) удобно для оперативного контроля выкупов. Алгоритм проверки:</p>
+
+<ol>
+  <li>Откройте приложение и авторизуйтесь.</li>
+  <li>На главном экране тапните на вкладку «<code>Заказы</code>».</li>
+  <li>В верхнем меню выберите фильтр «<code>Выкупленные</code>».</li>
+  <li>Для детализации свайпните заказ влево — появится информация о времени выкупа и статусе доставки.</li>
+</ol>
+
+<p>В приложении есть <strong>push-уведомления</strong> о новых выкупах, но они работают нестабильно. Чтобы их включить:</p>
+<ol>
+  <li>Перейдите в <code>Настройки → Уведомления</code>.</li>
+  <li>Активируйте опцию «<code>Выкупы заказов</code>».</li>
+  <li>Убедитесь, что в настройках телефона для приложения <em>Ozon Seller</em> разрешены уведомления.</li>
+</ol>
+
+<p>Ограничения мобильного приложения:</p>
+<ul>
+  <li>❌ Нет возможности экспорта данных (только просмотр).</li>
+  <li>❌ Отсутствует детализация по комиссиям и финансовым транзакциям.</li>
+  <li>❌ Задержка обновления статусов до 10–15 минут.</li>
+</ul>
+
+<details class="pb-accordion"><summary>Что делать, если в приложении не отображаются выкупы?</summary><div class="pb-accordion-body"><p>
+<p>Если выкупленные заказы не появляются в мобильном приложении, проверьте:</p>
+<p>1. <strong>Обновление данных</strong>: потяните экран вниз для принудительной синхронизации.</p>
+<p>2. <strong>Фильтры</strong>: возможно, установлен другой период или статус.</p>
+<p>3. <strong>Кэш</strong>: очистите кэш приложения в настройках телефона.</p>
+<p>4. <strong>Версию приложения</strong>: обновите его до последней версии в <em>App Store</em> или <em>Google Play</em>.</p>
+<p>Если проблема сохраняется, обратитесь в поддержку <em>Ozon</em> через чат в приложении.</p>
+<p></p></div></details></p>
+
+<h2 id="4-статусы-заказов-на-ozon-что-означает-каждый">4. Статусы заказов на Ozon: что означает каждый</h2>
+
+<p>Частая ошибка продавцов — путать <strong>выкуп</strong> с другими статусами заказа. Разберём основные:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Статус</th>
+      <th>Что означает</th>
+      <th>Это выкуп?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ожидает оплаты</code></td>
+      <td>Покупатель оформил заказ, но ещё не оплатил.</td>
+      <td>❌ Нет</td>
+    </tr>
+    <tr>
+      <td><code>Оплачен</code></td>
+      <td>Деньги списаны с покупателя, но товар ещё не передан в доставку (<em>FBS</em>) или не подтверждена отгрузка (<em>FBO</em>).</td>
+      <td>⚠️ Частично (для <em>FBS</em> — да, для <em>FBO</em> — нет)</td>
+    </tr>
+    <tr>
+      <td><code>Выкуплен</code></td>
+      <td>Товар списан со склада (<em>FBS</em>) или подтверждена отгрузка (<em>FBO</em>).</td>
+      <td>✅ Да</td>
+    </tr>
+    <tr>
+      <td><code>В обработке</code></td>
+      <td>Заказ оплачен, но ещё не передан курьеру или в ПВЗ.</td>
+      <td>❌ Нет (но близко к выкупу)</td>
+    </tr>
+    <tr>
+      <td><code>Доставляется</code></td>
+      <td>Товар в пути к покупателю.</td>
+      <td>❌ Нет</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Особенности для <em>FBO</em>:</p>
+<ul>
+  <li>📌 Выкуп происходит только после того, как вы нажали «<code>Подтвердить отгрузку</code>» в личном кабинете.</li>
+  <li>📌 Если не подтвердить отгрузку в течение 24 часов, заказ может быть отменён автоматически.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для <em>FBS</em> выкуп = списание товара со склада <em>Ozon</em>. Для <em>FBO</em> выкуп = ваше подтверждение отгрузки. Не путайте эти процессы!</p></aside>
+
+<h2 id="5-автоматизация-отслеживания-выкупов-через-api">5. Автоматизация отслеживания выкупов через API</h2>
+
+<p>Если вы продаёте в большом объёме (от 50 заказов в день), ручной контроль выкупов становится неэффективным. В этом случае поможет <strong>Ozon API</strong> — инструмент для автоматизации работы с заказами. Чтобы настроить отслеживание выкупов:</p>
+
+<ol>
+  <li>Получите <code>API-key</code> в личном кабинете (<code>Настройки → API</code>).</li>
+  <li>Используйте метод <code>/v2/orders/list</code> с фильтром по статусу <code>awaiting_packaging</code> (для <em>FBS</em>) или <code>awaiting_deliver</code> (для <em>FBO</em>).</li>
+  <li>Настройте вебхук (webhook) для получения уведомлений о новых выкупах в реальном времени.</li>
+</ol>
+
+<p>Пример запроса для получения выкупленных заказов за последние 24 часа:</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/orders/list
+<p>Headers:</p>
+<p>- Client-Id: [ваш_client_id]</p>
+<p>- Api-Key: [ваш_api_key]</p>
+<p>Body:</p>
+<p>{</p>
+<p>"filter": {</p>
+<p>"status": "awaiting_packaging",</p>
+<p>"since": "2026-05-20T00:00:00Z",</p>
+<p>"to": "2026-05-21T00:00:00Z"</p>
+<p>}</p>
+<p>}</code></pre></p>
+
+<p>Для автоматизации можно использовать:</p>
+<ul>
+  <li>🤖 <strong>Скрипты на Python</strong> (библиотека <code>requests</code>).</li>
+  <li>📊 <strong>Google Sheets + Apps Script</strong> для парсинга данных в таблицу.</li>
+  <li>🛠️ <strong>Готовые сервисы</strong> типа <em>Peak</em>, <em>МойСклад</em> или <em>RetailCRM</em>.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если не разбираетесь в программировании, используйте сервис <em>Zapier</em> или <em>Make (ex-Integromat)</em> для связки <em>Ozon API</em> с <em>Google Таблицами</em> или <em>Telegram</em>.</p></aside>
+
+<p>Преимущества API:</p>
+<ul>
+  <li>✅ Данные в реальном времени (задержка 1–5 минут).</li>
+  <li>✅ Возможность интеграции с 1С, CRM или складскими системами.</li>
+  <li>✅ Автоматическое формирование отчётов и уведомлений.</li>
+</ul>
+
+<p>Недостатки:</p>
+<ul>
+  <li>❌ Требуются технические навыки или помощь разработчика.</li>
+  <li>❌ Ограничения по количеству запросов (до 1000 в час для стандартного тарифа).</li>
+</ul>
+
+<h2 id="6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</h2>
+
+<p>Даже опытные продавцы допускают ошибки при работе с выкупами. Рассмотрим самые распространённые:</p>
+
+<blockquote>⚠️ <strong>Внимание!</strong> Если вы работаете по <em>FBO</em> и не подтвердили отгрузку в течение 24 часов, <em>Ozon</em> автоматически отменит заказ и вернёт деньги покупателю. Это приводит к <strong>штрафу за отмену</strong> (до 500 рублей) и снижению рейтинга надёжности.</blockquote>
+
+<p><strong>Ошибка 1: Путают «Оплачен» и «Выкуплен»</strong></p>
+<ul>
+  <li>🔍 <strong>Причина</strong>: В <em>FBS</em> статус «<code>Оплачен</code>» появляется сразу после списания денег с покупателя, но товар ещё не списан со склада.</li>
+  <li>🛑 <strong>Последствия</strong>: Можно начать собирать заказ, который ещё не гарантированно выкуплен.</li>
+  <li>✅ <strong>Решение</strong>: Сначала дождитесь статуса «<code>Выкуплен</code>», затем приступайте к сборке.</li>
+</ul>
+
+<p><strong>Ошибка 2: Не учитывают резерв товара</strong></p>
+<ul>
+  <li>🔍 <strong>Причина</strong>: При выкупе товар резервируется, но не всегда списывается с остатков (например, при отмене заказа).</li>
+  <li>🛑 <strong>Последствия</strong>: Может возникнуть <strong>оверселлинг</strong> (продажа товара, которого нет в наличии).</li>
+  <li>✅ <strong>Решение</strong>: Регулярно сверяйте остатки в личном кабинете с реальным складом.</li>
+</ul>
+
+<p><strong>Ошибка 3: Игнорируют уведомления о выкупах</strong></p>
+<ul>
+  <li>🔍 <strong>Причина</strong>: Уведомления приходят на почту или в приложение, но продавцы их не проверяют.</li>
+  <li>🛑 <strong>Последствия</strong>: Пропуск срока отгрузки (<em>FBO</em>) или сборки (<em>FBS</em>).</li>
+  <li>✅ <strong>Решение</strong>: Настройте дублирование уведомлений в <em>Telegram</em> или <em>Slack</em>.</li>
+</ul>
+
+<details class="pb-accordion"><summary>Что делать, если товар выкуплен, но денег на счёте нет?</summary><div class="pb-accordion-body"><p>
+<p>Это нормальная ситуация для <em>Ozon</em>. Деньги поступают на ваш счёт только после:</p>
+<p>1. Подтверждения доставки покупателем (для <em>FBS</em>).</p>
+<p>2. Подтверждения отгрузки и доставки (для <em>FBO</em>).</p>
+<p>Срок зачисления — до 3 рабочих дней после выполнения условий. Если деньги не пришли дольше, проверьте:</p>
+<p>- Статус заказа (не был ли возвращён).</p>
+<p>- Наличие штрафов или удержаний.</p>
+<p>- Корректность реквизитов в личном кабинете.</p>
+<p></p></div></details></p>
+
+<h2 id="7-как-проверить-выкуп-через-отчёты-и-excel">7. Как проверить выкуп через отчёты и Excel</h2>
+
+<p>Для анализа выкупов в ретроспективе удобно использовать отчёты <em>Ozon</em> в формате <code>.xlsx</code>. Чтобы их получить:</p>
+
+<ol>
+  <li>Перейдите в раздел <code>Отчёты → Заказы</code>.</li>
+  <li>Выберите тип отчёта «<code>Детализация заказов</code>».</li>
+  <li>Установите период (например, последнюю неделю).</li>
+  <li>Нажмите «<code>Сформировать</code>» и дождитесь письма на почту с файлом.</li>
+</ol>
+
+<p>В отчёте обратите внимание на столбцы:</p>
+<ul>
+  <li>📌 <code>order_id</code> — уникальный номер заказа;</li>
+  <li>📌 <code>status</code> — текущий статус («<code>delivered</code>» = доставлен, «<code>cancelled</code>» = отменён);</li>
+  <li>📌 <code>payment_type</code> — способ оплаты;</li>
+  <li>📌 <code>shipment_date</code> — дата отгрузки (для <em>FBO</em>);</li>
+  <li>📌 <code>buyout_date</code> — дата выкупа.</li>
+</ul>
+
+<p>Для удобства можно создать сводную таблицу в <em>Excel</em>:</p>
+<ol>
+  <li>Выделите все данные (Ctrl+A).</li>
+  <li>Перейдите на вкладку «<code>Вставка → Сводная таблица</code>».</li>
+  <li>В строках укажите <code>buyout_date</code>, в значениях — «<code>Количество</code>».</li>
+  <li>Добавьте фильтр по <code>status</code>, чтобы исключить отменённые заказы.</li>
+</ol>
+
+<p>Пример формулы для подсчёта выручки от выкупленных товаров:</p>
+<pre><code>=СУММЕСЛИМ(диапазон_сумм; диапазон_статусов; "delivered")</code></pre>
+
+<h2 id="faq-частые-вопросы-о-выкупах-на-ozon">FAQ: Частые вопросы о выкупах на Ozon</h2>
+
+<details>
+  <summary>🔹 Почему товар выкуплен, но деньги не поступили на счёт?</summary>
+  <p>Деньги зачисляются только после подтверждения доставки покупателем. Для <em>FBS</em> это происходит автоматически через 14 дней (если не было возврата), для <em>FBO</em> — после того, как покупатель получит заказ. Проверьте статус заказа: если он «<code>Доставлен</code>», но денег нет, обратитесь в поддержку <em>Ozon</em>.</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли отменить выкупленный заказ?</summary>
+  <p>Да, но только в течение 2 часов после выкупа (для <em>FBS</em>). Для этого в личном кабинете нажмите «<code>Отменить заказ</code>» и укажите причину. После истечения этого срока отмена возможна только по согласованию с покупателем или через поддержку. В <em>FBO</em> отменить заказ можно до момента подтверждения отгрузки.</p>
+</details>
+
+<details>
+  <summary>🔹 Как понять, что товар выкуплен по акции или промокоду?</summary>
+  <p>В отчёте «<code>Детализация заказов</code>» есть столбец <code>promo_code</code> или <code>discount</code>. Если там указано значение, значит, покупатель использовал скидку. Также в личном кабинете в карточке заказа будет пометка «<code>Акция</code>» или «<code>Промокод</code>».</p>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если выкуплен товар, которого нет в наличии?</summary>
+  <p>Это называется <strong>оверселлинг</strong>. Немедленно свяжитесь с покупателем через чат в личном кабинете и предложите альтернативу (другой товар или отмену заказа). Если не решить проблему в течение 24 часов, <em>Ozon</em> может наложить штраф за неисполнение обязательств.</p>
+</details>
+
+<details>
+  <summary>🔹 Как отследить выкупы по нескольким аккаунтам?</summary>
+  <p>Если у вас несколько аккаунтов продавца, используйте <em>Ozon API</em> с разными <code>Client-Id</code> и <code>Api-Key</code> для каждого. Альтернатива — сервисы типа <em>Peak</em> или <em>МойСклад</em>, которые поддерживают мультиаккаунтность. Вручную сводите данные из отчётов каждого аккаунта в одну таблицу <em>Excel</em>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-ustroitsya-v-ozon-moderatorom.html" class="pb-related-card">
+                <span class="pb-related-title">Как устроиться модератором на Ozon: вакансии и требования</span>
+                <span class="pb-related-desc">Полная инструкция: как стать модератором на Озон. Требования к кандидатам, зарплата, график работы и</span>
+            </a><a href="/articles/k/ka/kak-pravilno-nastroit-reklamu-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как настроить рекламу на Озоне: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как правильно настроить рекламу на Ozon. Разбор моделей ДРР, бустеров и стратегий для роста</span>
+            </a><a href="/articles/i/in/instruktsiya-kak-vyjti-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выйти на Ozon: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как выйти на Ozon в 2026 году. Полный гид по регистрации, выбору модели работы и первым про</span>
+            </a><a href="/articles/k/ka/kak-rabotayut-algoritmy-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как работают алгоритмы Ozon: ранжирование и продвижение товаров</span>
+                <span class="pb-related-desc">Подробный разбор алгоритмов ранжирования Ozon. Узнайте, как вывести карточку в топ, какие факторы вл</span>
+            </a><a href="/articles/k/ka/kak-prodvinut-tovar-na-ozon-v-top.html" class="pb-related-card">
+                <span class="pb-related-title">Как вывести товар на Озон в ТОП: рабочие методы 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по продвижению карточки товара на Озон: от оптимизации до рекламы. Актуальные а</span>
+            </a><a href="/articles/k/ka/kak-prodavat-kartiny-khudozhniku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать картины художнику на Озон: полная инструкция</span>
+                <span class="pb-related-desc">Узнайте, как продавать картины на Озон художнику без ИП. Требования к упаковке, комиссии, FBO/FBS сх</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отследить источник заказа на Ozon: 5 способов для продавцов — Об Озоне</title>
+    <meta name="description" content="Узнайте, как определить геолокацию покупателя, ПВЗ или курьера для заказа на Озоне. Пошаговые инструкции с картинками и лайфхаками для FBO/FBS.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-posmotret-otkuda-idet-zakaz-s-ozona.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отследить источник заказа на Ozon: 5 способов для продавцов">
+    <meta property="og:description" content="Узнайте, как определить геолокацию покупателя, ПВЗ или курьера для заказа на Озоне. Пошаговые инструкции с картинками и лайфхаками для FBO/FBS.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отследить источник заказа на Ozon: 5 способов для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-проверка-данных-в-личном-кабинете-ozon-seller">1. Проверка данных в личном кабинете Ozon Seller</a></li><li><a href="#2-анализ-номера-заказа-что-скрыто-в-коде">2. Анализ номера заказа: что скрыто в коде</a></li><li><a href="#3-использование-ozon-seller-api-для-точной-геолокации">3. Использование Ozon Seller API для точной геолокации</a></li><li><a href="#4-геолокация-по-ip-адресу-покупателя-продвинутый-метод">4. Геолокация по IP-адресу покупателя (продвинутый метод)</a></li><li><a href="#5-анализ-отчётов-ozon-скрытые-данные-о-регионах">5. Анализ отчётов Ozon: скрытые данные о регионах</a></li><li><a href="#6-альтернативные-способы-чат-с-покупателем-и-внешние-сервисы">6. Альтернативные способы: чат с покупателем и внешние сервисы</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-brat-tovary-dlya-ozon.html">Где брать товары для Озон: 10 проверенных способов для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-prodat-svoj-tovar-na-ozon-samozanyatomu.html">Как продавать на Озон самозанятому: пошаговая инструкция 2026</a></li><li><a href="/articles/p/pr/prodazha-nizhnego-belya-na-ozon-chto-nuzhno.html">Продажа нижнего белья на Ozon: требования 2026 и секреты успеха</a></li><li><a href="/articles/k/ka/kak-zarabatyvayut-na-ozone-otzyvy.html">Как зарабатывают на отзывах Ozon: 7 проверенных способов в 2026</a></li><li><a href="/articles/k/ka/kak-uznat-spros-na-tovar-na-ozon.html">Как проверить спрос на товар на Ozon в 2026 году: 7 рабочих методов</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Откуда идёт заказ с Ozon: как продавцу узнать город, ПВЗ или курьерскую службу</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-проверка-данных-в-личном-кабинете-ozon-seller">1. Проверка данных в личном кабинете Ozon Seller</a></li><li><a href="#2-анализ-номера-заказа-что-скрыто-в-коде">2. Анализ номера заказа: что скрыто в коде</a></li><li><a href="#3-использование-ozon-seller-api-для-точной-геолокации">3. Использование Ozon Seller API для точной геолокации</a></li><li><a href="#4-геолокация-по-ip-адресу-покупателя-продвинутый-метод">4. Геолокация по IP-адресу покупателя (продвинутый метод)</a></li><li><a href="#5-анализ-отчётов-ozon-скрытые-данные-о-регионах">5. Анализ отчётов Ozon: скрытые данные о регионах</a></li><li><a href="#6-альтернативные-способы-чат-с-покупателем-и-внешние-сервисы">6. Альтернативные способы: чат с покупателем и внешние сервисы</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы продаёте на <em>Ozon</em> и хотите понять, откуда concretno идёт заказ покупателя? Это критично для логистики, если вы работаете по модели <strong>FBO</strong> (самостоятельная отправка), или для анализа спроса по регионам. Но даже на <strong>FBS</strong> (склад Озона) знание геолокации покупателя помогает оптимизировать запасы и рекламные кампании.</p>
+
+<p>Проблема в том, что <em>Ozon</em> не всегда показывает исходный пункт заказа в личном кабинете. Иногда виден только финальный пункт выдачи (ПВЗ), а сам покупатель мог оформить заказ из другого города — например, отправив подарок родственникам. В этой статье разберём <strong>5 проверенных способов</strong>, как определить реальный источник заказа: от анализа данных в <code>Личном кабинете</code> до использования сторонних сервисов.</p>
+
+<p>Важно: часть методов работает только для продавцов с доступом к <strong>Ozon Seller API</strong> или расширенной аналитике. Но мы также приведём решения для новичков без технических навыков.</p>
+
+<h2 id="1-проверка-данных-в-личном-кабинете-ozon-seller">1. Проверка данных в личном кабинете Ozon Seller</h2>
+
+<p>Самый очевидный способ — изучить информацию о заказе в интерфейсе <em>Ozon Seller</em>. Вот что нужно сделать:</p>
+
+<ul>
+ <li>📌 Перейдите в раздел <code>Заказы → Все заказы</code>.</li>
+ <li>🔍 Найдите нужный заказ по номеру или фильтру (например, по статусу"Ожидает отправки").</li>
+ <li>📋 Кликните на номер заказа, чтобы открыть детальную карточку.</li>
+</ul>
+
+<p>В карточке заказа обратите внимание на следующие поля:</p>
+
+<ul>
+ <li>📍 <strong>Адрес доставки</strong> — здесь может быть указан ПВЗ (пункт выдачи заказов) или адрес курьерской доставки. Но это <em>не всегда</em> совпадает с местом оформления заказа!</li>
+ <li>🏠 <strong>Город покупателя</strong> — иногда отображается в блоке"Информация о покупателе". Если поле пустое, попробуйте другие методы.</li>
+ <li>📦 <strong>Тип доставки</strong> —"Курьер","ПВЗ","Почта России". Это подскажет, как именно заказ дойдёт до клиента.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если в карточке заказа нет города покупателя, попробуйте экспортировать данные в Excel через кнопку"Экспорт" в правом верхнем углу. В некоторых версиях отчётов эта информация присутствует.</p></aside>
+
+<p>Ограничение метода: <em>Ozon</em> может скрывать реальный город покупателя, если тот использует функцию"Подарок" или оформляет заказ в другой регион. В таком случае переходите к следующим способам.</p>
+
+<h2 id="2-анализ-номера-заказа-что-скрыто-в-коде">2. Анализ номера заказа: что скрыто в коде</h2>
+
+<p>Каждый заказ на <em>Ozon</em> имеет уникальный номер, который содержит зашифрованную информацию. Например, номер вида <code>2134567890-123456</code> можно расшифровать:</p>
+
+<ul>
+ <li>🔢 Первые 10 цифр — идентификатор заказа.</li>
+ <li>📌 Последние 6 цифр (после тире) — код <strong>ПВЗ или маршрута курьера</strong>.</li>
+</ul>
+
+<p>Чтобы определить регион по коду ПВЗ:</p>
+
+<ol>
+ <li>Скопируйте последние 6 цифр из номера заказа.</li>
+ <li>Перейдите на сайт <a href="https://points.ozon.ru/" target="_blank" rel="noopener">points.ozon.ru</a> (официальная карта ПВЗ Озона).</li>
+ <li>Введите код в поле поиска. Система покажет адрес пункта выдачи и город.</li>
+</ol>
+
+<p>Если заказ курьерский, код после тире может указывать на <strong>логистический хаб</strong>, откуда отправляется посылка. Например, коды <code>101<strong><em></code> часто относятся к Москве, <code>202</strong></em></code> — к Санкт-Петербургу, а <code>380***</code> — к Краснодару.</p>
+
+<div class="pb-poll" id="poll-4e259484"><div class="pb-poll-question">📊 Как часто вы анализируете геолокацию заказов?</div><div class="pb-poll-option" data-poll="4e259484" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Всегда, это критично для бизнеса</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4e259484" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Иногда, для важных заказов</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4e259484" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раньше не знал, что это возможно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4e259484" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не анализирую, не вижу смысла</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-использование-ozon-seller-api-для-точной-геолокации">3. Использование Ozon Seller API для точной геолокации</h2>
+
+<p>Для продавцов с техническими навыками или доступом к разработчикам есть более точный метод — запрос данных через <strong>Ozon Seller API</em>. Этот способ позволяет получить:</p>
+
+<ul>
+ <li>🌍 Город оформления заказа (не всегда совпадает с адресом доставки).</li>
+ <li>📦 Информацию о складе, с которого будет отправлен заказ (для FBS).</li>
+ <li>🚚 Данные о курьерской службе (если доставка не через ПВЗ).</li>
+</ul>
+
+<p>Пример запроса для получения информации о заказе:</p>
+
+<pre><code>GET https://api-seller.ozon.ru/v2/posting/fbo/list
+<p>Headers:</p>
+<p>- Client-Id: [Ваш Client-ID]</p>
+<p>- Api-Key: [Ваш API-ключ]</p>
+
+<p>Query params:</p>
+<p>- limit=10</p>
+<p>- offset=0</p>
+<p>- status=awaiting_packaging</code></pre></p>
+
+<p>В ответе ищите поля:</p>
+<ul>
+ <li><code>"delivery_method"</code> — способ доставки.</li>
+ <li><code>"warehouse_id"</code> — идентификатор склада (для FBS).</li>
+ <li><code>"region"</code> или <code>"city"</code> — регион покупателя.</li>
+</ul>
+
+<p>Если вы не знакомы с API, можно использовать готовые сервисы-коннекторы, например, <em>AltoBI</em> или <em>RetailCRM</strong>, которые автоматически парсят и визуализируют данные о заказах, включая геолокацию.</p>
+
+<details class="pb-accordion"><summary>Как получить доступ к Ozon Seller API?</summary><div class="pb-accordion-body"><p>Для этого нужно зарегистрировать приложение в личном кабинете Ozon Seller (раздел"API и Интеграции"), указать Client-ID и сгенерировать Api-Key. Подробная инструкция есть в <a href="https://docs.ozon.ru/api/seller/" target="_blank" rel="noopener">официальной документации</a>.</p></div></details>
+
+<h2 id="4-геолокация-по-ip-адресу-покупателя-продвинутый-метод">4. Геолокация по IP-адресу покупателя (продвинутый метод)</h2>
+
+<p>Этот способ подходит для продавцов, которые хотят анализировать <strong>реальное местоположение покупателя</em> в момент оформления заказа. Для этого нужно:</p>
+
+<ol>
+ <li>Интегрировать на сайт (если продаёте через него) или в чат-бот сервис геолокации по IP, например, <em>IPAPI</em> или <em>MaxMind</em>.</li>
+ <li>Настроить сбор IP-адресов покупателей при переходе с <em>Ozon</em> (например, через UTM-метки или пиксель).</li>
+ <li>Сопоставить IP с заказами в CRM.</li>
+</ol>
+
+<p>Пример ответа от <em>IPAPI</em> для IP <code>95.108.231.7</code>:</p>
+
+<pre><code>{
+<p>"status":"success",</p>
+<p>"country":"Russia",</p>
+<p>"countryCode":"RU",</p>
+<p>"region":"MOW",</p>
+<p>"regionName":"Moscow",</p>
+<p>"city":"Moscow",</p>
+<p>"zip":"101000",</p>
+<p>"lat": 55.7522,</p>
+<p>"lon": 37.6156</p>
+<p>}</code></pre></p>
+
+<p><mark>Важно: сбор IP-адресов должен соответствовать политике конфиденциальности Ozon и законодательству РФ (ФЗ-152). Не используйте этот метод без согласия покупателей!</mark></p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Геолокация по IP даёт наиболее точные данные, но требует технической настройки и соблюдения законов о персональных данных.</p></aside>
+
+<h2 id="5-анализ-отчётов-ozon-скрытые-данные-о-регионах">5. Анализ отчётов Ozon: скрытые данные о регионах</h2>
+
+<p>В личном кабинете <em>Ozon Seller</em> есть раздел <code>Аналитика → Отчёты</code>, где можно найти агрегированные данные о заказах по регионам. Вот как это работает:</p>
+
+<ol>
+ <li>Перейдите в <code>Аналитика → Отчёты → Отчёт по продажам</code>.</li>
+ <li>Выберите период (например, последнюю неделю).</li>
+ <li>В настройках отчёта добавьте группировку по полю <strong>"Регион покупателя"</strong>.</li>
+ <li>Экспортируйте данные в <em>Excel</em> или <em>Google Sheets</em>.</li>
+</ol>
+
+<p>В полученной таблице будут столбцы:</p>
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Поле</th>
+ <th>Описание</th>
+ <th>Пример значения</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><code>order_id</code></td>
+ <td>Номер заказа</td>
+ <td><code>2134567890-123456</code></td>
+ </tr>
+ <tr>
+ <td><code>region</code></td>
+ <td>Регион покупателя</td>
+ <td><code>Москва и Московская область</code></td>
+ </tr>
+ <tr>
+ <td><code>delivery_type</code></td>
+ <td>Тип доставки</td>
+ <td><code>courier</code> или <code>pickup_point</code></td>
+ </tr>
+ <tr>
+ <td><code>warehouse</code></td>
+ <td>Склад отправки (для FBS)</td>
+ <td><code>МСК-1 (Балашиха)</code></td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Если в отчёте нет колонки с регионом, попробуйте:</p>
+<ul>
+ <li>🔄 Обновить данные (иногда информация подгружается с задержкой).</li>
+ <li>📊 Использовать отчёт <code>"Отчёт по логистике"</code> — там может быть больше деталей.</li>
+</ul>
+
+
+<p>Сгруппировать данные по региону|Экспортировать в Excel для анализа|Сверить номера заказов с карточками в ЛК|Посмотреть отчёт по логистике, если данных мало--></p>
+
+<h2 id="6-альтернативные-способы-чат-с-покупателем-и-внешние-сервисы">6. Альтернативные способы: чат с покупателем и внешние сервисы</h2>
+
+<p>Если все вышеперечисленные методы не сработали, остаются"ручные" варианты:</p>
+
+<ul>
+ <li>💬 <strong>Написать покупателю</strong> через чат в заказе (вежливо уточните, из какого он города — иногда клиенты отвечают).</li>
+ <li>📦 <strong>Посмотреть этикетку</strong> (для FBO): если заказ уже собран, на наклейке может быть указан город назначения.</li>
+ <li>🌐 <strong>Использовать сервисы отслеживания</strong> вроде <em>Track24</em> или <em>Почта России</em> (если доставка через них). Введите трек-номер — система покажет маршрут.</li>
+</ul>
+
+<p>Пример сообщения покупателю:</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не спрашивайте у покупателя адрес или персональные данные — это нарушает правила <em>Ozon</em> и может привести к блокировке аккаунта. Достаточно вежливо уточнить город для уточнения деталей доставки.</p>
+</blockquote>
+
+<pre><code>Здравствуйте! Подскажите, пожалуйста, из какого вы города? Это поможет нам точнее подобрать способ доставки. Спасибо!</code></pre>
+
+<p>Если покупатель не отвечает, попробуйте проанализировать его профиль (если заказ оформлен через аккаунт <em>Ozon</em>). Иногда в отзывах или вопросах к товарам пользователи указывают свой город.</p>
+
+<h2 id="частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</h2>
+
+<p>При определении источника заказа продавцы часто сталкиваются с следующими проблемами:</p>
+
+<ul>
+ <li>🔍 <strong>Путают город покупателя и город доставки</strong> — например, покупатель из Екатеринбурга отправляет подарок в Казань. В этом случае в заказе будет указан Казань, но для анализа спроса важен Екатеринбург.</li>
+ <li>📦 <strong>Игнорируют тип доставки</strong> — заказы с ПВЗ и курьерские имеют разную логистику. Для FBS это критично, так как товар может уйти на другой склад.</li>
+ <li>🚫 <strong>Нарушают конфиденциальность</strong> — сбор IP или личных данных без согласия может привести к жалобам и блокировке.</li>
+</ul>
+
+<p>Чтобы избежать ошибок:</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если вы работаете по модели <strong>FBS</strong>, не пытайтесь перенаправлять заказы на другой склад самостоятельно — это нарушает договор с <em>Ozon</em>. Используйте геолокацию только для анализа и планирования запасов.</p>
+</blockquote>
+
+<ul>
+ <li>📌 Всегда сверяйте данные из нескольких источников (ЛК, API, отчёты).</li>
+ <li>🔄 Регулярно обновляйте отчёты — информация о регионах может появляться с задержкой.</li>
+ <li>📊 Используйте CRM-системы для автоматизации сбора данных (например, <em>МойСклад</em> или <em>1С:УНФ</em>).</li>
+</ul>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</h2>
+
+<details>
+ <summary>Можно ли узнать точный адрес покупателя?</summary>
+ <p>Нет, <em>Ozon</em> скрывает точные адреса покупателей для защиты персональных данных. Вы видите только город (иногда) и адрес ПВЗ/курьера. Для FBO адрес доставки указывается на этикетке после оплаты заказа.</p>
+</details>
+
+<details>
+ <summary>Почему в карточке заказа нет информации о городе покупателя?</summary>
+ <p>Это может происходить по нескольким причинам:
+ <ul>
+ <li>Покупатель оформил заказ как"Подарок" и указал другой адрес доставки.</li>
+ <li>Заказ сделан через мобильное приложение с включённым VPN (геолокация сбивается).</li>
+ <li>Ozon скрывает данные для некоторых типов доставки (например,"Почта России").</li>
+ </ul>
+<p>Попробуйте использовать API или отчёты для уточнения.</p></p>
+</details>
+
+<details>
+ <summary>Как понять, с какого склада FBS уйдёт заказ?</summary>
+ <p>Для FBS склад определяется автоматически по алгоритмам <em>Ozon</em>, но вы можете увидеть его в:
+ <ul>
+ <li>Отчёте по логистике (колонка <code>warehouse</code>).</li>
+ <li>API-запросе к методу <code>/v2/posting/fbs/list</code> (поле <code>warehouse_id</code>).</li>
+ <li>Этикетке заказа (если товар уже собран).</li>
+ </ul>
+<p>На выбор склада влияют: регион покупателя, наличие товара на ближайших хабах и тарифы доставки.</p></p>
+</details>
+
+<details>
+ <summary>Можно ли фильтровать заказы по региону в личном кабинете?</summary>
+ <p>Да, в разделе <code>Заказы</code> есть фильтр по региону, но он работает не всегда корректно. Лучше экспортировать данные в Excel и фильтровать там. Для этого:
+ <ol>
+ <li>Нажмите"Экспорт" в правом верхнем углу.</li>
+ <li>Выберите формат <em>XLSX</em>.</li>
+ <li>Откройте файл и отсортируйте по колонке"Регион".</li>
+ </ol></p>
+</details>
+
+<details>
+ <summary>Что делать, если заказ идёт из другого региона, чем мой склад?</summary>
+ <p>Если вы работаете по <strong>FBO</strong> и видите, что заказ идёт в другой регион:
+ <ul>
+ <li>Проверьте тарифы доставки — возможно, выгоднее отправить через <em>СДЭК</em> или <em>Boxberry</em>.</li>
+ <li>Уточните у покупателя, готов ли он ждать дольше (если отправляете из другого города).</li>
+ <li>Для FBS этот вопрос не актуален — <em>Ozon</em> сам перемещает товар между складами.</li>
+ </ul>
+<p>Если такие заказы частые, рассмотрите возможность открытия склада в другом регионе или подключения <strong>FBS</strong>.</p></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-brat-tovary-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где брать товары для Озон: 10 проверенных способов для продавцов 2026</span>
+                <span class="pb-related-desc">Ищем выгодные источники товаров для Озон: от оптовых поставщиков до дропшиппинга. Сравниваем цены, р</span>
+            </a><a href="/articles/k/ka/kak-prodat-svoj-tovar-na-ozon-samozanyatomu.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Озон самозанятому: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство для самозанятых: как зарегистрироваться на Озон, оформить товары, выбрать схему р</span>
+            </a><a href="/articles/p/pr/prodazha-nizhnego-belya-na-ozon-chto-nuzhno.html" class="pb-related-card">
+                <span class="pb-related-title">Продажа нижнего белья на Ozon: требования 2026 и секреты успеха</span>
+                <span class="pb-related-desc">Как продавать нижнее бельё на Ozon: правила размещения, требования к товарам, упаковке и фотографиям</span>
+            </a><a href="/articles/k/ka/kak-zarabatyvayut-na-ozone-otzyvy.html" class="pb-related-card">
+                <span class="pb-related-title">Как зарабатывают на отзывах Ozon: 7 проверенных способов в 2026</span>
+                <span class="pb-related-desc">Разбираем легальные и серые схемы монетизации отзывов на Озоне: от партнёрских программ до продажи а</span>
+            </a><a href="/articles/k/ka/kak-uznat-spros-na-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить спрос на товар на Ozon в 2026 году: 7 рабочих методов</span>
+                <span class="pb-related-desc">Узнайте, как точно определить спрос на товар на Ozon: анализ поисковых запросов, конкурентов, инстру</span>
+            </a><a href="/articles/k/ka/kak-otkryt-ip-dlya-ozon-samostoyatelno.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть ИП для Ozon самостоятельно: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гид: как открыть ИП для Ozon самостоятельно. Выбор кодов ОКВЭД, системы налогообложения и </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

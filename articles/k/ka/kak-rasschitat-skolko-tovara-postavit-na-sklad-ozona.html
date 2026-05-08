@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Расчет поставок на Ozon: формулы и стратегии склада — Об Озоне</title>
+    <meta name="description" content="Как рассчитать объем товара для Ozon: формулы оборачиваемости, страховые запасы, FBO и FBS. Избегайте штрафов и затоваривания склада.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rasschitat-skolko-tovara-postavit-na-sklad-ozona.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Расчет поставок на Ozon: формулы и стратегии склада">
+    <meta property="og:description" content="Как рассчитать объем товара для Ozon: формулы оборачиваемости, страховые запасы, FBO и FBS. Избегайте штрафов и затоваривания склада.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Расчет поставок на Ozon: формулы и стратегии склада</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#анализ-текущих-продаж-и-сезонность">Анализ текущих продаж и сезонность</a></li><li><a href="#формула-расчета-оптимального-запаса">Формула расчета оптимального запаса</a></li><li><a href="#учет-логистических-плеч-и-времени-приемки">Учет логистических плеч и времени приемки</a></li><li><a href="#специфика-расчетов-для-схем-fbo-и-fbs">Специфика расчетов для схем FBO и FBS</a></li><li><a href="#расчет-страхового-запаса-и-точка-заказа">Расчет страхового запаса и точка заказа</a></li><li><a href="#инструменты-автоматизации-и-аналитики">Инструменты автоматизации и аналитики</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rabotayut-na-sklade-ozon-video.html">Как работает склад Озон: видео-гид по процессам 2026</a></li><li><a href="/articles/c/ch/chto-takoe-rfbs-ozon.html">RFBS на Озон: что это, схемы работы и отличия от FBO</a></li><li><a href="/articles/c/ch/chto-takoe-logistika-ozon-seller.html">Логистика Ozon Seller: как работает доставка на маркетплейсе в 2026</a></li><li><a href="/articles/k/ka/kak-opredelit-pokupatelyu-chto-prodavets-na-ozone-rabotaet-po-skheme-fbs.html">Как определить FBS на Озоне: признаки продавца и доставки</a></li><li><a href="/articles/k/ka/kak-zagruzhat-otchety-o-realizatsii-s-ozon-imeya-tri-kompanii-v-lichnom-kabinete.html">Как выгрузить отчеты по 3 компаниям на Ozon: инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как рассчитать количество товара для поставок на склад Ozon</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#анализ-текущих-продаж-и-сезонность">Анализ текущих продаж и сезонность</a></li><li><a href="#формула-расчета-оптимального-запаса">Формула расчета оптимального запаса</a></li><li><a href="#учет-логистических-плеч-и-времени-приемки">Учет логистических плеч и времени приемки</a></li><li><a href="#специфика-расчетов-для-схем-fbo-и-fbs">Специфика расчетов для схем FBO и FBS</a></li><li><a href="#расчет-страхового-запаса-и-точка-заказа">Расчет страхового запаса и точка заказа</a></li><li><a href="#инструменты-автоматизации-и-аналитики">Инструменты автоматизации и аналитики</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Грамотное планирование товарных запасов — это фундамент рентабельности любого селлера на маркетплейсе. Ошибка в расчетах при отправке партии на склад <strong>Ozon</strong> может привести либо к критическому отсутствию товара и потере позиций в выдаче, либо к замораживанию денег в неликвиде иим штрафам за хранение. В отличие от классической розницы, здесь действуют свои правила игры, где алгоритмы ранжирования жестко реагируют на наличие товара.</p>
+<p>Многие новички совершают фатальную ошибку, полагаясь исключительно на интуицию или желая отгрузить"всё, что есть". Однако логистика маркетплейса требует математического подхода. <em>Оборачиваемость</em>, <strong>страховой запас</strong> и сезонность — это не просто слова из учебников, а реальные рычаги управления прибылью. Если вы не знаете, сколько товара нужно поставить прямо сейчас, вы теряете контроль над бизнесом.</p>
+<p>В этой статье мы разберем, как провести точный расчет потребности, учитывая логистические плечи и особенности работы складов Ozon. Вы научитесь избегать ситуаций, когда товар заканчивается в самый разгар продаж, или, наоборот, когда склад переполнен, а деньги не работают.</p>
+
+<h2 id="анализ-текущих-продаж-и-сезонность">Анализ текущих продаж и сезонность</h2>
+<p>Первым шагом к определению объема поставки является глубокий анализ исторических данных. Нельзя просто взять среднее значение за все время работы, так как продажи могут быть неравномерными. Необходимо выделить периоды роста и падения, чтобы понять реальную динамику спроса на ваш <strong>SKU</strong> (артикул).</p>
+<p>Сезонность играет колоссальную роль. Для летних товаров пик продаж приходится на май-июль, тогда как зимние категории взлетают в спросе ближе к ноябрю. Игнорирование этого фактора приведет к тому, что в пик сезона вы останетесь без товара, а в межсезонье будете платить за хранение.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не полагайтесь слепо на данные двухлетней давности. Рынок e-commerce меняется стремительно, и тренды могут смещаться. Используйте данные минимум за последние 3-6 месяцев для актуальной картины.</p>
+</blockquote>
+<p>Для точного прогноза используйте формулу среднего дневного количества проданных единиц за выбранный период. Это базовый показатель, от которого будут строиться дальнейшие расчеты.</p>
+<ul>
+<li>📊 <strong>Сбор данных:</strong> выгрузите отчеты о продажах из личного кабинета селлера за последние 90 дней.</li>
+<li>📈 <strong>Выявление тренда:</strong> постройте график, чтобы увидеть восходящую или нисходящую динамику.</li>
+<li>📅 <strong>Учет сезонности:</strong> сравните текущий период с аналогичным периодом прошлого года, если бренд существует давно.</li>
+</ul>
+<p>Также важно учитывать влияние маркетинговых активностей. Если вы планируете запускать рекламу или участвовать в акциях Ozon, спрос может вырасти в 2-3 раза. В такие периоды стандартные формулы расчета запаса перестают работать, и нужно закладывать дополнительный объем.</p>
+
+<h2 id="формула-расчета-оптимального-запаса">Формула расчета оптимального запаса</h2>
+<p>Чтобы понять, сколько именно единиц товара нужно отправить на склад, необходимо использовать проверенную формулу, учитывающую время на производство, доставку и реализацию. Основная цель — обеспечить бесперебойные продажи в течение цикла поставки.</p>
+<p>Ключевым параметром здесь является <strong>период оборачиваемости</strong>. Это время, которое проходит с момента заказа товара у поставщика до момента его продажи конечному клиенту. Чем длиннее этот цикл, тем больше запаса нужно иметь на руках.</p>
+<p>Базовая формула расчета выглядит следующим образом: <code>Потребность = (Средние продажи в день × (Время доставки + Время реализации)) + Страховой запас</code>. Здесь"Время реализации" — это период, на который вы хотите обеспечить наличие товара на складе до следующей поставки.</p>
+<div class="pb-poll" id="poll-c6445995"><div class="pb-poll-question">📊 Как часто вы делаете поставки на Ozon?</div><div class="pb-poll-option" data-poll="c6445995" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Еженедельно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6445995" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в две недели</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6445995" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6445995" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко и большими партиями</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+<p>Рассмотрим пример. Если вы продаете 10 единиц в день, логистика занимает 15 дней, а вы хотите обеспечить продажи еще на 30 дней вперед, то вам нужно: <code>10 × (15 + 30) = 450</code> единиц. Но это без учета страхового запаса.</p>
+<p>Страховой запас необходим для покрытия непредвиденных скачков спроса или задержек логистики. Обычно он составляет 20-30% от расчетного объема. В нашем примере это еще 90-135 единиц. Итого, к отправке рекомендуется около 540-585 единиц товара.</p>
+<p>Важно понимать, что для разных схем работы (<em>FBO</em> и <em>FBS</em>) подход к расчету может отличаться. На FBO вы должны держать больший объем, так как скорость пополнения ограничена графиком приемки склада.</p>
+
+<h2 id="учет-логистических-плеч-и-времени-приемки">Учет логистических плеч и времени приемки</h2>
+<p>Логистическое плечо — это время, которое товар проводит в пути от вашего склада до полки Ozon. Это один из самых критичных параметров в планировании. Если вы недооцените время приемки, вы рискуете получить <strong>Out of Stock</strong> (отсутствие товара) в самый неподходящий момент.</p>
+<p>Ozon имеет множество региональных складов (хабов). Товар, отправленный в Москву, может быть принят за 1-2 дня, тогда как доставка и приемка на склад в Новосибирск или Краснодар может занять значительно больше времени из-за удаленности и загруженности хаба.</p>
+<p>Кроме того, существуют периоды высокой нагрузки, например, перед"Хот-дей" или распродажами в ноябре. В это время сроки приемки могут растягиваться на неделю и более. Всегда закладывайте этот временной буфер в свои расчеты.</p>
+<ul>
+<li>🚚 <strong>Время в пути:</strong> учитывайте работу транспортной компании или курьерской службы до gates склада.</li>
+<li>📦 <strong>Время приемки:</strong> изучите статистику приемки на конкретном хабе Ozon в личном кабинете.</li>
+<li>🗓️ <strong>Сезонные задержки:</strong> добавляйте +3-5 дней к стандартному сроку в периоды пиковых нагрузок.</li>
+</ul>
+<p>Для точного планирования используйте данные из раздела"Аналитика" ->"Логистика". Там отображается среднее время приемки для каждого склада. Эти данные помогут скорректировать дату отгрузки, чтобы товар появился на витине именно тогда, когда он нужен.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не планируйте поставки"впритык". Если товар закончится сегодня, а новая партия приедет через 3 дня, вы потеряете не только продажи, но и карточку товара в ранжировании. Алгоритмы Ozon penalize за отсутствие наличия.</p>
+</blockquote>
+
+<h2 id="специфика-расчетов-для-схем-fbo-и-fbs">Специфика расчетов для схем FBO и FBS</h2>
+<p>Выбор схемы работы напрямую влияет на стратегию запасов. <strong>FBO</strong> (Fulfillment by Ozon) предполагает хранение товара на складах маркетплейса. Здесь вы должны быть максимально точны в прогнозах, так как вывоз товара обратно или его переоформление — это платные и долгие процедуры.</p>
+<p>При работе по схеме <strong>FBS</strong> (Fulfillment by Seller) товар хранится у вас, и вы сами контролируете отгрузку. Это дает больше гибкости: вы можете оперативно реагировать на изменения спроса. Однако требования к скорости сборки и отправки (часто в течение 24 часов) диктуют необходимость иметь достаточный запас на собственном складе.</p>
+<p>Для FBO расчет должен быть более консервативным и включать больший страховой запас, так как оперативное пополнение невозможно. Для FBS можно держать меньший остаток на полках Ozon, оперативно подвозя товар по мере необходимости, но риск штрафов за опоздание с отгрузкой выше.</p>
+<details class="pb-accordion"><summary>Сравнение затрат на хранение</summary><div class="pb-accordion-body"><p>На схеме FBO первые 90 дней хранения обычно бесплатны (условия могут меняться), но за превышение лимитов взимается плата. На FBS вы платите за аренду своего склада, но не платите Ozon за хранение до момента отгрузки.</p></div></details>
+<p>Оптимальной стратегией часто является гибридная модель: основной объем товара лежит на FBO для быстрой доставки клиенту, а резерв находится на FBS для подстраховки и тестирования новых позиций.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>FBO (Склад Ozon)</th>
+<th>FBS (Склад продавца)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Контроль остатков</td>
+<td>Ограниченный, сложный вывоз</td>
+<td>Полный, оперативное управление</td>
+</tr>
+<tr>
+<td>Скорость доставки</td>
+<td>Максимальная (Priority)</td>
+<td>Зависит от скорости сборки</td>
+</tr>
+<tr>
+<td>Риск затоваривания</td>
+<td>Высокий (платное хранение)</td>
+<td>Низкий (гибкость)</td>
+</tr>
+<tr>
+<td>Требования к упаковке</td>
+<td>Строгие (маркировка Ozon)</td>
+<td>Стандартные</td>
+</tr>
+</tbody>
+</table></div>
+<p>При расчете партии для FBO обязательно учитывайте габариты товара. Крупногабаритные items могут занимать много места, и их хранение может стать убыточным при низкой оборачиваемости.</p>
+
+<h2 id="расчет-страхового-запаса-и-точка-заказа">Расчет страхового запаса и точка заказа</h2>
+<p>Страховой запас — это буфер, который защищает бизнес от случайных колебаний спроса или сбоев в поставках. Без него любая непредвиденная ситуация (брак в партии, задержка транспорта, всплеск заказов) приведет к остановке продаж.</p>
+<p>Точка заказа (Reorder Point) — это уровень остатка, при достижении которого необходимо срочно запускать процесс поставки новой партии. Если ждать, пока товар закончится полностью, будет уже поздно.</p>
+<p>Формула точки заказа проста: <code>Точка заказа = (Средние продажи в день × Время поставки) + Страховой запас</code>. Когда фактический остаток на складе становится равен или меньше этого значения, вы должны сформировать поставку.</p>
+<ul>
+<li>🛡️ <strong>Размер буфера:</strong> для стабильных товаров достаточно 15-20%, для новинок или сезонных — до 40-50%.</li>
+<li>⏱️ <strong>Время реакции:</strong> учитывайте не только доставку, но и время на сборку, упаковку и создание поставки в личном кабинете.</li>
+<li>📉 <strong>Динамика:</strong> если продажи растут, точку заказа нужно пересчитывать еженедельно.</li>
+</ul>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте ABC-анализ для управления запасами. Товары группы A (лидеры продаж) требуют ежедневного контроля и минимального страхового запаса из-за высокой оборачиваемости. Товары группы C можно заказывать реже и большими партиями.</p></aside>
+<p>Важно регулярно пересматривать размер страхового запаса. То, что работало полгода назад, может быть неэффективно сейчас. Рынок меняется, меняются и ваши потребности в запасах.</p>
+
+<h2 id="инструменты-автоматизации-и-аналитики">Инструменты автоматизации и аналитики</h2>
+<p>Вручную рассчитывать поставки для сотен SKU крайне трудоемко и чревато ошибками. Современные селлеры используют специализированные сервисы аналитики (MPStats, Moneyplace и др.) или встроенные инструменты Ozon для автоматизации этого процесса.</p>
+<p>Эти инструменты позволяют видеть не только свои продажи, но и долю рынка, активность конкурентов и прогнозировать спрос на основе Big Data. Это значительно повышает точность расчетов и снижает риски.</p>
+<p>Также полезно настроить автоматические уведомления в личном кабинете Ozon о снижении остатков. Это поможет не пропустить момент, когда нужно формировать новую поставку.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист перед созданием поставки</h4><label class="check-item"><input type="checkbox"><span>Проверить текущие остатки на складе</span></label><label class="check-item"><input type="checkbox"><span>Рассчитать потребность по формуле</span></label><label class="check-item"><input type="checkbox"><span>Проверить сроки приемки на выбранном хабе</span></label><label class="check-item"><input type="checkbox"><span>Упаковать и промаркировать товар</span></label><label class="check-item"><input type="checkbox"><span>Создать поставку в ЛК</span></label><label class="check-item"><input type="checkbox"><span>Отгрузить товар</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 6</div></div>
+<p>Использование Excel или Google Таблиц с настроенными формулами — это минимально необходимый уровень автоматизации для старта. Но по мере роста бизнеса переход на профессиональные решения становится неизбежным.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Автоматизация не отменяет необходимости человеческого контроля. Всегда проверяйте сформированные системой рекомендации, особенно перед крупными закупками или в преддверии праздников.</p>
+</blockquote>
+<p>Помните, что правильная стратегия запасов — это баланс между риском отсутствия товара и затратами на его хранение. Найдя этот баланс, вы значительно повысите эффективность своего бизнеса на Ozon.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный секрет успеха — регулярный пересмотр прогнозов. Рынок динамичен, и расчеты, сделанные месяц назад, сегодня могут быть уже неактуальны.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Как часто нужно делать поставки на Ozon?</summary>
+<p>Частота поставок зависит от оборачиваемости вашего товара и логистического плеча. Для быстропродаваемых товаров (FMCG) поставки могут быть еженедельными. Для товаров с длительным циклом продажи (мебель, сложная техника) достаточно monthly или даже quarterly поставок. Главное — не допускать разрыва в наличии.</p>
+</details>
+<details>
+<summary>Что делать, если товар не приняли на складе Ozon?</summary>
+<p>Если товар не приняли, он будет возвращен вам или утилизирован (в зависимости от ваших настроек). В личном кабинете будет акт о расхождении. Необходимо проанализировать причину (брак, пересорт, проблемы с маркировкой) и устранить её перед следующей отправкой. Вернувшийся товар нельзя сразу же отправить повторно без устранения дефектов.</p>
+</details>
+<details>
+<summary>Можно ли хранить товар на разных складах Ozon?</summary>
+<p>Да, Ozon позволяет распределять товар по разным региональным складам (хабам). Это даже рекомендуется для ускорения доставки до клиента и снижения логистических расходов. Однако это усложняет управление запасами, так как нужно контролировать остатки на каждом хабе отдельно.</p>
+</details>
+<details>
+<summary>Как рассчитать точку заказа для сезонного товара?</summary>
+<p>Для сезонных товаров стандартные формулы работают плохо. Здесь нужно опираться на данные продаж в аналогичный сезон прошлого года, умноженные на коэффициент роста вашего бизнеса. Также критически важно начать завозить товар заранее, за 1.5-2 месяца до начала сезона, чтобы сформировать запасы на всех складах.</p>
+</details>
+<details>
+<summary>Влияет ли объем поставки на ранжирование товара?</summary>
+<p>Прямого влияния объем одной конкретной поставки на ранжирование нет. Однако наличие товара (in-stock) является критическим фактором. Если из-за малого объема поставки товар быстро заканчивается и исчезает с витрины, рейтинг карточки падает, и вернуть прежние позиции становится очень сложно.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-rabotayut-na-sklade-ozon-video.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает склад Озон: видео-гид по процессам 2026</span>
+                <span class="pb-related-desc">Подробный разбор логистики Озон: от приёмки товара до отгрузки заказов. Схемы FBS/FBO, видео с реаль</span>
+            </a><a href="/articles/c/ch/chto-takoe-rfbs-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">RFBS на Озон: что это, схемы работы и отличия от FBO</span>
+                <span class="pb-related-desc">Полный разбор схемы RFBS на Ozon. Узнайте, что такое Real FBS, как она работает, в чем отличия от FB</span>
+            </a><a href="/articles/c/ch/chto-takoe-logistika-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Логистика Ozon Seller: как работает доставка на маркетплейсе в 2026</span>
+                <span class="pb-related-desc">Разбираем схемы FBS и FBO, тарифы, сроки доставки и нюансы логистики для продавцов Озон. Пошаговая и</span>
+            </a><a href="/articles/k/ka/kak-opredelit-pokupatelyu-chto-prodavets-na-ozone-rabotaet-po-skheme-fbs.html" class="pb-related-card">
+                <span class="pb-related-title">Как определить FBS на Озоне: признаки продавца и доставки</span>
+                <span class="pb-related-desc">Узнайте, как покупателю отличить продавца FBS на Озоне. Разбираем маркеры, сроки доставки и особенно</span>
+            </a><a href="/articles/k/ka/kak-zagruzhat-otchety-o-realizatsii-s-ozon-imeya-tri-kompanii-v-lichnom-kabinete.html" class="pb-related-card">
+                <span class="pb-related-title">Как выгрузить отчеты по 3 компаниям на Ozon: инструкция</span>
+                <span class="pb-related-desc">Пошаговый алгоритм выгрузки отчетов реализации для нескольких юридических лиц. Как настроить сводный</span>
+            </a><a href="/articles/c/ch/chto-takoe-mezonin-na-sklade-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Мезонин на складе Озон: что это, виды, требования 2026</span>
+                <span class="pb-related-desc">Разбираемся, что такое мезонин на складе Озон: назначение, виды конструкций, требования к установке </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

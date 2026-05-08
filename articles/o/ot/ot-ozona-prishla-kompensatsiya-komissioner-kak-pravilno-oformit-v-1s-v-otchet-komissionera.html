@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Компенсация от Озон: как оформить в 1С отчёт комиссионера — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по правильному отражению компенсаций от Ozon в отчёте комиссионера в 1С: настройка документов, проводки, нюансы учёта и ошибки.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/ot/ot-ozona-prishla-kompensatsiya-komissioner-kak-pravilno-oformit-v-1s-v-otchet-komissionera.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Компенсация от Озон: как оформить в 1С отчёт комиссионера">
+    <meta property="og:description" content="Пошаговая инструкция по правильному отражению компенсаций от Ozon в отчёте комиссионера в 1С: настройка документов, проводки, нюансы учёта и ошибки.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Компенсация от Озон: как оформить в 1С отчёт комиссионера</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-виды-компенсаций-от-ozon-и-их-бухгалтерская-природа">1. Виды компенсаций от Ozon и их бухгалтерская природа</a></li><li><a href="#2-подготовка-1с-настройки-для-работы-с-ozon">2. Подготовка 1С: настройки для работы с Ozon</a></li><li><a href="#3-пошаговая-инструкция-как-оформить-компенсацию-в-отчёте-комиссионера">3. Пошаговая инструкция: как оформить компенсацию в отчёте комиссионера</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-особенности-учёта-компенсаций-для-fbs-и-fbo">5. Особенности учёта компенсаций для FBS и FBO</a></li><li><a href="#6-налоговый-учёт-компенсаций-ндс-и-налог-на-прибыль">6. Налоговый учёт компенсаций: НДС и налог на прибыль</a></li><li><a href="#7-автоматизация-учёта-компенсаций-обмен-данными-с-ozon">7. Автоматизация учёта компенсаций: обмен данными с Ozon</a></li><li><a href="#8-частые-вопросы-по-учёту-компенсаций-от-ozon">8. Частые вопросы по учёту компенсаций от Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-podklyuchit-sklad-na-ozon.html">Как подключить склад на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/o/oz/ozon-seller-chto-vkhodit-v-logistiku.html">Озон Селлер: что входит в логистику и как это работает</a></li><li><a href="/articles/o/oz/ozon-vykup-tovara-u-sellera-gde-otchet.html">Озон выкуп товара у селлера: где найти отчёт и как его читать</a></li><li><a href="/articles/k/ka/kak-sdelat-zayavku-na-vyvoz-ozon.html">Как сделать заявку на вывоз Ozon: инструкция FBS</a></li><li><a href="/articles/f/fb/fbs-ozon-v-kakikh-gorodakh.html">FBS Ozon: список городов и условия подключения</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Компенсация от Озон пришла: как правильно оформить в 1С отчёт комиссионера</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-виды-компенсаций-от-ozon-и-их-бухгалтерская-природа">1. Виды компенсаций от Ozon и их бухгалтерская природа</a></li><li><a href="#2-подготовка-1с-настройки-для-работы-с-ozon">2. Подготовка 1С: настройки для работы с Ozon</a></li><li><a href="#3-пошаговая-инструкция-как-оформить-компенсацию-в-отчёте-комиссионера">3. Пошаговая инструкция: как оформить компенсацию в отчёте комиссионера</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-особенности-учёта-компенсаций-для-fbs-и-fbo">5. Особенности учёта компенсаций для FBS и FBO</a></li><li><a href="#6-налоговый-учёт-компенсаций-ндс-и-налог-на-прибыль">6. Налоговый учёт компенсаций: НДС и налог на прибыль</a></li><li><a href="#7-автоматизация-учёта-компенсаций-обмен-данными-с-ozon">7. Автоматизация учёта компенсаций: обмен данными с Ozon</a></li><li><a href="#8-частые-вопросы-по-учёту-компенсаций-от-ozon">8. Частые вопросы по учёту компенсаций от Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы получили компенсацию от <em>Ozon</em> за возвраты, уценку или логистические ошибки, но не знаете, как корректно отразить её в отчёте комиссионера в <strong>1С</strong>? Эта ситуация типична для продавцов на маркетплейсе, работающих по схеме <strong>FBS</strong> или <strong>FBO</strong>, где <em>Ozon</em> выступает комиссионером. Ошибки в оформлении документов могут привести к расхождениям в учёте, штрафам от налоговой или конфликтам с маркетплейсом.</p>
+
+<p>В этой статье разберём <mark>пошаговый алгоритм отражения компенсаций в 1С 8.3 (включая "Управление торговлей" и "Бухгалтерию")</mark>, рассмотрим типичные проводки, нюансы работы с отчётом комиссионера и способы автоматизации процесса. Особое внимание уделим различиям между компенсациями за <strong>возвраты товаров</strong>, <strong>уценку</strong> и <strong>логистические ошибки</strong> — каждый случай требует своего подхода.</p>
+
+<h2 id="1-виды-компенсаций-от-ozon-и-их-бухгалтерская-природа">1. Виды компенсаций от Ozon и их бухгалтерская природа</h2>
+
+<p>Прежде чем оформлять документы в 1С, нужно понять, <strong>какой тип компенсации</strong> вы получили. От этого зависит выбор счета учёта и проводок. <em>Ozon</em> может перечислять средства по следующим основаниям:</p>
+
+<ul>
+  <li>🔄 <strong>Возврат товара покупателем</strong> — компенсация за возвратную логистику или невозврат товара на склад.</li>
+  <li>📉 <strong>Уценка товара</strong> — возмещение разницы приforced sale (принудительной распродаже).</li>
+  <li>🚚 <strong>Логистические ошибки</strong> — компенсация за потерю, порчу или неправильную доставку товара.</li>
+  <li>💰 <strong>Штрафы/бонусы</strong> — возмещение за нарушение SLA или, наоборот, премиальные выплаты.</li>
+</ul>
+
+<p>Каждый вид компенсации имеет свою <strong>налоговую базу</strong> и порядок отражения в учёте. Например, компенсация за возвраты обычно уменьшает выручку (счёт 90.01), а возмещение за уценку может учитываться как прочий доход (счёт 91.01).</p>
+
+<div class="pb-poll" id="poll-7d7425e2"><div class="pb-poll-question">📊 Какой тип компенсаций от Ozon вы получаете чаще?</div><div class="pb-poll-option" data-poll="7d7425e2" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Возвраты товаров</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7d7425e2" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Уценка (forced sale)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7d7425e2" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Логистические ошибки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7d7425e2" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Штрафы/бонусы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7d7425e2" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Другое</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-подготовка-1с-настройки-для-работы-с-ozon">2. Подготовка 1С: настройки для работы с Ozon</h2>
+
+<p>Чтобы корректно оформить компенсацию, убедитесь, что в вашей <strong>1С</strong> настроены:</p>
+
+<ol>
+  <li><strong>Контрагент "Ozon"</strong> с типом "Комиссионер" и правильными реквизитами (ИНН, КПП, договор).</li>
+  <li><strong>Договор комиссии</strong> с указанием условий сотрудничества (FBS/FBO, процент комиссии).</li>
+  <li><strong>Номенклатурные группы</strong> для товаров, продаваемых через маркетплейс.</li>
+  <li><strong>Счета учёта</strong>:
+    <ul>
+      <li>41.01 — "Товары на складах" (для FBS).</li>
+      <li>45.01 — "Товары отгруженные" (для FBO).</li>
+      <li>62.01 — "Расчёты с покупателями" (для отражения выручки).</li>
+      <li>76.09 — "Прочие расчёты с разными дебиторами и кредиторами" (для компенсаций).</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Если эти настройки отсутствуют, компенсации будут отражаться некорректно, а отчёт комиссионера — содержать ошибки. Например, без правильного договора комиссии программа не сможет автоматически распределять поступления от <em>Ozon</em> по статьям доходов/расходов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Перед настройкой проверьте актуальность тарифов Ozon в договоре комиссии. Устаревшие проценты приведут к неверному расчёту комиссионного вознаграждения и, как следствие, к ошибкам в компенсациях.</p></aside>
+
+<h2 id="3-пошаговая-инструкция-как-оформить-компенсацию-в-отчёте-комиссионера">3. Пошаговая инструкция: как оформить компенсацию в отчёте комиссионера</h2>
+
+<p>Рассмотрим процесс на примере компенсации за <strong>возврат товара</strong> (наиболее частый случай). Алгоритм для других типов компенсаций будет аналогичен с поправкой на счета учёта.</p>
+
+<h3>Шаг 1. Получение отчёта от Ozon</h3>
+<p>Компенсации отражаются в отчёте комиссионера (<code>Отчёт о продажах</code> или <code>Акт сверки</code> в личном кабинете <em>Ozon Seller</em>). Скачайте файл в формате <code>Excel</code> или <code>CSV</code> и проверьте:</p>
+<ul>
+  <li>📄 Наличие строки с компенсацией (обычно выделена отдельным цветом или пометкой "Компенсация").</li>
+  <li>💵 Сумму и основание (например, "Возврат товара: компенсация логистики").</li>
+  <li>📅 Дату операции (важно для периода отражения в 1С).</li>
+</ul>
+
+<h3>Шаг 2. Создание документа "Отчёт комиссионера" в 1С</h3>
+<p>Перейдите в раздел <code>Продажи → Отчёты комиссионеров</code> и создайте новый документ. Заполните поля:</p>
+<ul>
+  <li><strong>Контрагент</strong>: <em>Ozon</em> (выберите из справочника).</li>
+  <li><strong>Договор</strong>: договор комиссии с маркетплейсом.</li>
+  <li><strong>Период</strong>: дата, указанная в отчёте <em>Ozon</em>.</li>
+  <li><strong>Валюта</strong>: рубли (если компенсация в другой валюте, укажите курс).</li>
+</ul>
+
+<h3>Шаг 3. Ввод данных о компенсации</h3>
+<p>На вкладке <code>Товары и услуги</code> добавьте строку с компенсацией:</p>
+<ul>
+  <li><strong>Номенклатура</strong>: выберите товар, по которому получена компенсация (или создайте элемент "Компенсация возврата" в справочнике номенклатуры).</li>
+  <li><strong>Количество</strong>: 1 (условная единица).</li>
+  <li><strong>Цена</strong>: сумма компенсации (со знаком "+").</li>
+  <li><strong>Счёт учёта</strong>:
+    <ul>
+      <li>Для возвратов: <code>90.01.1</code> ("Выручка по деятельности с основной системой налогообложения").</li>
+      <li>Для уценки: <code>91.01.1</code> ("Прочие доходы").</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Шаг 4. Проводки и закрытие документа</h3>
+<p>После заполнения нажмите <code>Провести и закрыть</code>. Программа автоматически сформирует проводки:</p>
+<pre><code>
+<p>Дебет 76.09 (Ozon) — Кредит 90.01.1 (Выручка) — на сумму компенсации за возврат.</p>
+<p>Дебет 51 (Расчётный счёт) — Кредит 76.09 (Ozon) — при поступлении денег на счёт.</p>
+</code></pre>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед проведением документа</h4><label class="check-item"><input type="checkbox"><span>Контрагент указан верно (Ozon)</span></label><label class="check-item"><input type="checkbox"><span>Договор комиссии соответствует схеме (FBS/FBO)</span></label><label class="check-item"><input type="checkbox"><span>Сумма компенсации совпадает с отчётом Ozon</span></label><label class="check-item"><input type="checkbox"><span>Счёт учёта выбран согласно типу компенсации</span></label><label class="check-item"><input type="checkbox"><span>Период документа соответствует дате операции</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h3>Шаг 5. Сверка с банковской выпиской</h3>
+<p>После отражения компенсации в отчёте комиссионера дождитесь поступления денег на расчётный счёт. В 1С создайте документ <code>Поступление на расчётный счёт</code> (<code>Банк → Банковские выписки</code>) и укажите:</p>
+<ul>
+  <li><strong>Контрагент</strong>: <em>Ozon</em>.</li>
+  <li><strong>Договор</strong>: договор комиссии.</li>
+  <li><strong>Статья движения денежных средств</strong>: "Компенсации от маркетплейсов".</li>
+  <li><strong>Сумма</strong>: согласно выписке банка.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Компенсации от Ozon НЕ являются выручкой от продаж, но уменьшают расходы или увеличивают прочие доходы. Их нельзя путать с обычными поступлениями за реализованные товары!</p></aside>
+
+<h2 id="4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</h2>
+
+<p>Даже опытные бухгалтеры допускают ошибки при оформлении компенсаций. Вот наиболее распространённые:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Последствия</th>
+      <th>Как исправить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Компенсация отражена как выручка от продаж (счёт 90.01 вместо 91.01)</td>
+      <td>Искажение налоговой базы по НДС/налогу на прибыль</td>
+      <td>Перепровести документ с правильным счётом учёта</td>
+    </tr>
+    <tr>
+      <td>Не указан договор комиссии в отчёте</td>
+      <td>Некорректное распределение сумм между выручкой и комиссионным вознаграждением</td>
+      <td>Добавить договор в карточку контрагента <em>Ozon</em></td>
+    </tr>
+    <tr>
+      <td>Компенсация не сверена с банковской выпиской</td>
+      <td>Расхождения между учётом в 1С и фактическими поступлениями</td>
+      <td>Создать документ "Поступление на расчётный счёт" с привязкой к отчёту комиссионера</td>
+    </tr>
+    <tr>
+      <td>Неверный период отражения компенсации</td>
+      <td>Ошибки в декларациях (например, по НДС)</td>
+      <td>Скорректировать дату документа в 1С</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Чтобы избежать ошибок, используйте <strong>автоматизированные сервисы интеграции</strong> (например, <em>МойСклад</em>, <em>Атол Онлайн</em> или <em>1С:Облачный архив</em>). Они синхронизируют данные из <em>Ozon Seller</em> с 1С, сводя к минимуму ручной ввод.</p>
+
+<details class="pb-accordion"><summary>Что будет, если не отразить компенсацию в 1С?</summary><div class="pb-accordion-body"><p>Налоговая может доначислить НДС/налог на прибыль, так как компенсации считаются доходом. Кроме того, расхождения с отчётами Ozon приведут к блокировке выплат или штрафам за некорректную отчётность.</p></div></details>
+
+<h2 id="5-особенности-учёта-компенсаций-для-fbs-и-fbo">5. Особенности учёта компенсаций для FBS и FBO</h2>
+
+<p>Схема работы с <em>Ozon</em> (<strong>FBS</strong> или <strong>FBO</strong>) влияет на порядок отражения компенсаций:</p>
+
+<h3>FBS (Fulfillment by Ozon)</h3>
+<p>При FBS товар хранится на складах <em>Ozon</em>, и маркетплейс полностью контролирует логистику. Компенсации в этом случае:</p>
+<ul>
+  <li>📦 Отражаются как <strong>уменьшение себестоимости</strong> (счёт 41.01) — если компенсация за порчу/потерю товара.</li>
+  <li>🔙 Отражаются как <strong>корректировка выручки</strong> (счёт 90.01) — если компенсация за возврат.</li>
+</ul>
+
+<h3>FBO (Fulfillment by Ozon)</h3>
+<p>При FBO продавец сам хранит и отправляет товар, а <em>Ozon</em> только обрабатывает заказы. Компенсации здесь чаще связаны с:</p>
+<ul>
+  <li>🚫 <strong>Штрафами за нарушение SLA</strong> (счёт 91.02 — "Прочие расходы").</li>
+  <li>💰 <strong>Возмещением за логистические ошибки</strong> (счёт 76.09).</li>
+</ul>
+
+<p>Для FBS важно следить за <strong>остатками товара</strong> в 1С: компенсация за уценку или потерю должна уменьшать количество товара на складе <em>Ozon</em> (используйте документ <code>Списание товаров</code>).</p>
+
+<h2 id="6-налоговый-учёт-компенсаций-ндс-и-налог-на-прибыль">6. Налоговый учёт компенсаций: НДС и налог на прибыль</h2>
+
+<p>Компенсации от <em>Ozon</em> облагаются налогами по-разному в зависимости от их типа:</p>
+
+<ul>
+  <li>📊 <strong>НДС</strong>:
+    <ul>
+      <li>Компенсации за <strong>возвраты</strong> уменьшают налоговую базу по НДС (корректировка счета-фактуры).</li>
+      <li>Компенсации за <strong>уценку</strong> или логистические ошибки НДС не облагаются (если не связаны с реализацией).</li>
+    </ul>
+  </li>
+  <li>💼 <strong>Налог на прибыль</strong>:
+    <ul>
+      <li>Компенсации за возвраты уменьшают выручку (уменьшают налоговую базу).</li>
+      <li>Компенсации за уценку учитываются в прочих доходах (увеличивают налоговую базу).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Для корректного учёта НДС используйте документ <code>Корректировка реализации</code> (<code>Продажи → Корректировки реализаций</code>). В нём укажите:</p>
+<ul>
+  <li>Тип операции: "Корректировка количества".</li>
+  <li>Номенклатуру: товар, по которому получена компенсация.</li>
+  <li>Количество: со знаком "-".</li>
+  <li>Сумма корректировки: сумма компенсации.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если компенсация связана с возвратом товара, проверьте, не превышает ли она сумму первоначальной реализации. В противном случае налоговая может расценить излишек как доход.</p></aside>
+
+<h2 id="7-автоматизация-учёта-компенсаций-обмен-данными-с-ozon">7. Автоматизация учёта компенсаций: обмен данными с Ozon</h2>
+
+<p>Ручной ввод компенсаций занимает много времени и чреват ошибками. Чтобы упростить процесс, настройте <strong>автоматический обмен данными</strong> между <em>Ozon Seller</em> и 1С. Для этого подойдут:</p>
+
+<ul>
+  <li>🔗 <strong>Стандартные обработки 1С</strong>:
+    <ul>
+      <li><code>Обмен с сайтами (CommerceML)</code> — для выгрузки заказов и компенсаций.</li>
+      <li><code>Универсальный обмен данными</code> — для настройки правил импорта.</li>
+    </ul>
+  </li>
+  <li>🤖 <strong>Сторонние сервисы</strong>:
+    <ul>
+      <li><em>МойСклад</em> — синхронизирует заказы, возвраты и компенсации.</li>
+      <li><em>Атол Онлайн</em> — автоматически создаёт отчёты комиссионера.</li>
+      <li><em>1С:Облачный архив</em> — хранит и обрабатывает данные от <em>Ozon</em>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Для настройки обмена:</p>
+<ol>
+  <li>Получите <strong>API-ключи</strong> в личном кабинете <em>Ozon Seller</em> (<code>Настройки → Интеграции</code>).</li>
+  <li>В 1С перейдите в <code>Администрирование → Обмен данными с сайтами</code> и добавьте новый узел обмена.</li>
+  <li>Укажите параметры подключения (адрес API, ключ, формат данных).</li>
+  <li>Настройте правила загрузки компенсаций (обычно это отдельный раздел в обработке обмена).</li>
+</ol>
+
+<p>После настройки обмен будет проходить автоматически (например, раз в сутки). Компенсации будут создаваться в 1С в виде черновиков документов, которые останется только проверить и утвердить.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Автоматизация сокращает время учёта компенсаций на 80% и уменьшает риск ошибок. Однако даже при автоматическом обмене рекомендуется ежемесячно сверять данные с отчётами Ozon.</p></aside>
+
+<h2 id="8-частые-вопросы-по-учёту-компенсаций-от-ozon">8. Частые вопросы по учёту компенсаций от Ozon</h2>
+
+<details>
+  <summary>🔹 Как отразить компенсацию, если товар был уценён по программе forced sale?</summary>
+  <p>Компенсация за уценку отражается как прочий доход (счёт 91.01). В отчёте комиссионера создайте строку с номенклатурой "Компенсация уценки" и укажите сумму разницы между первоначальной и продажной ценой. Не забудьте списать товар со склада (документ <code>Списание товаров</code>).</p>
+</details>
+
+<details>
+  <summary>🔹 Нужно ли выписывать счет-фактуру на компенсацию?</summary>
+  <p>Счет-фактуру выписывают только если компенсация связана с корректировкой реализации (например, при возврате товара). Для прочих компенсаций (уценка, логистические ошибки) счет-фактура не требуется, но их суммы должны быть отражены в книге продаж/покупок при необходимости.</p>
+</details>
+
+<details>
+  <summary>🔹 Как быть, если компенсация пришла позже, чем отчётный период?</summary>
+  <p>Если компенсация относится к прошлому периоду, отразите её в текущем периоде с пометкой "Ретроактивно". В бухгалтерском учёте используйте счёт 91.01, в налоговом — уточните период в декларации (приложите пояснения).</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли компенсацию за логистическую ошибку учесть как уменьшение расходов?</summary>
+  <p>Да, если ошибка привела к дополнительным расходам (например, повторная доставка). В этом случае компенсация уменьшает расходы на счёте 44.01 ("Издержки обращения"). Если ошибка не повлекла расходов, компенсация учитывается как прочий доход (91.01).</p>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если сумма компенсации не совпадает с отчётом Ozon?</summary>
+  <p>Сначала уточните данные в поддержке <em>Ozon</em> (раздел <code>Финансы → Запросы</code>). Если ошибка подтвердится, скорректируйте отчёт комиссионера в 1С документа <code>Корректировка долга</code> (<code>Продажи → Корректировка долга</code>).</p>
+</details>
+
+<p>Если ваш вопрос не освещён в статье, проверьте актуальные разъяснения <em>Ozon</em> в <a href="https://seller.ozon.ru/" target="_blank">личном кабинете</a> или обратитесь к консультанту 1С с опытом работы с маркетплейсами.</p></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-podklyuchit-sklad-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как подключить склад на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по подключению склада к Ozon для FBS/FBO: требования, документы, настройки и о</span>
+            </a><a href="/articles/o/oz/ozon-seller-chto-vkhodit-v-logistiku.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Селлер: что входит в логистику и как это работает</span>
+                <span class="pb-related-desc">Полный разбор логистики для селлеров Ozon. Схемы FBO, FBS, DBS, стоимость услуг, тарифы и скрытые ню</span>
+            </a><a href="/articles/o/oz/ozon-vykup-tovara-u-sellera-gde-otchet.html" class="pb-related-card">
+                <span class="pb-related-title">Озон выкуп товара у селлера: где найти отчёт и как его читать</span>
+                <span class="pb-related-desc">Пошаговая инструкция по работе с отчётами о выкупе товаров на Ozon для продавцов: где скачать, как а</span>
+            </a><a href="/articles/k/ka/kak-sdelat-zayavku-na-vyvoz-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать заявку на вывоз Ozon: инструкция FBS</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как сделать заявку на вывоз Ozon для продавцов FBS. Тарифы, правила упаковки, </span>
+            </a><a href="/articles/f/fb/fbs-ozon-v-kakikh-gorodakh.html" class="pb-related-card">
+                <span class="pb-related-title">FBS Ozon: список городов и условия подключения</span>
+                <span class="pb-related-desc">Полный разбор географии FBS Ozon. В каких городах доступна схема, как настроить логистику и выбрать </span>
+            </a><a href="/articles/u/up/upali-prodazhi-na-ozon-chto-delat.html" class="pb-related-card">
+                <span class="pb-related-title">Упали продажи на Озон: 10 шагов для восстановления — экспертный разбор 2026</span>
+                <span class="pb-related-desc">Продажи на Ozon резко упали? Разбираем причины и даём чек-лист действий: от анализа алгоритмов до ра</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

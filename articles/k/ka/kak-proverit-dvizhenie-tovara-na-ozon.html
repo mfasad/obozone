@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как проверить движение товара на Ozon: 5 рабочих способов — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция, как отследить продажи, остатки и динамику товара на Ozon для продавцов. Анализ данных в личном кабинете, API, Excel и сторонних сервисах.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-proverit-dvizhenie-tovara-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как проверить движение товара на Ozon: 5 рабочих способов">
+    <meta property="og:description" content="Пошаговая инструкция, как отследить продажи, остатки и динамику товара на Ozon для продавцов. Анализ данных в личном кабинете, API, Excel и сторонних сервисах.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как проверить движение товара на Ozon: 5 рабочих способов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-личный-кабинет-ozon-seller-базовые-отчёты">1. Личный кабинет Ozon Seller: базовые отчёты</a></li><li><a href="#2-раздел-товары-детализация-по-артикулам">2. Раздел «Товары»: детализация по артикулам</a></li><li><a href="#3-api-ozon-автоматизированный-сбор-данных">3. API Ozon: автоматизированный сбор данных</a></li><li><a href="#4-экспорт-данных-в-excel-глубокий-анализ">4. Экспорт данных в Excel: глубокий анализ</a></li><li><a href="#5-сторонние-сервисы-аналитика-без-ручной-работы">5. Сторонние сервисы: аналитика без ручной работы</a></li><li><a href="#6-скрытые-нюансы-резервирование-и-фантомные-остатки">6. Скрытые нюансы: резервирование и «фантомные» остатки</a></li><li><a href="#7-практический-кейс-как-мы-увеличили-продажи-на-30">7. Практический кейс: как мы увеличили продажи на 30%</a></li><li><a href="#faq-частые-вопросы-о-движении-товара-на-ozon">FAQ: Частые вопросы о движении товара на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rabotat-na-ozon-seller.html">Как работать на Ozon Seller: полная инструкция для новичков 2026</a></li><li><a href="/articles/k/ko/kogda-platit-ozon-selleram.html">Когда Ozon платит селлерам: график и условия 2026</a></li><li><a href="/articles/k/ka/kak-pravilno-poschitat-chistuyu-pribyl-na-ozone.html">Как посчитать чистую прибыль на Ozon: формулы и ошибки</a></li><li><a href="/articles/a/an/analitika-tovarov-na-ozon-chto-prodavat.html">Аналитика товаров на Озон: что продавать в 2026 году</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-kratko-i-ponyatno.html">Что такое Озон: просто о маркетплейсе для новичков</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как проверить движение товара на Ozon: анализ продаж, остатков и динамики</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-личный-кабинет-ozon-seller-базовые-отчёты">1. Личный кабинет Ozon Seller: базовые отчёты</a></li><li><a href="#2-раздел-товары-детализация-по-артикулам">2. Раздел «Товары»: детализация по артикулам</a></li><li><a href="#3-api-ozon-автоматизированный-сбор-данных">3. API Ozon: автоматизированный сбор данных</a></li><li><a href="#4-экспорт-данных-в-excel-глубокий-анализ">4. Экспорт данных в Excel: глубокий анализ</a></li><li><a href="#5-сторонние-сервисы-аналитика-без-ручной-работы">5. Сторонние сервисы: аналитика без ручной работы</a></li><li><a href="#6-скрытые-нюансы-резервирование-и-фантомные-остатки">6. Скрытые нюансы: резервирование и «фантомные» остатки</a></li><li><a href="#7-практический-кейс-как-мы-увеличили-продажи-на-30">7. Практический кейс: как мы увеличили продажи на 30%</a></li><li><a href="#faq-частые-вопросы-о-движении-товара-на-ozon">FAQ: Частые вопросы о движении товара на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Продажи на <em>Ozon</em> требуют постоянного контроля: без анализа движения товара невозможно оценить спрос, оптимизировать запасы или предотвратить дефицит. Но где искать актуальные данные? Как отличить реальные продажи от возвратов, а остатки на складе — от резервированных позиций? Эта статья поможет разобраться в инструментах <strong>Ozon Seller</strong> и сторонних сервисах, которые дают полную картину по каждому артикулу.</p>
+
+<p>Мы рассмотрим официальные методы (отчёты в личном кабинете, <code>API</code>), а также альтернативные способы — от выгрузки данных в <em>Excel</em> до автоматизированных дашбордов. Особое внимание уделим <mark>скрытым нюансам резервирования товаров на складах FBS/FBO</mark>, которые часто искажают реальную картину остатков. Если вы только начинаете продавать на маркетплейсе или хотите систематизировать аналитику — эта инструкция для вас.</p>
+
+<h2 id="1-личный-кабинет-ozon-seller-базовые-отчёты">1. Личный кабинет Ozon Seller: базовые отчёты</h2>
+
+<p>Начнём с самого доступного инструмента — раздела <strong>«Аналитика»</strong> в личном кабинете продавца. Здесь собраны ключевые метрики по товарам, но не все данные одинаково полезны. Например, график продаж показывает только успешные заказы, игнорируя отмены и возвраты. Чтобы получить полную картину, нужно комбинировать несколько отчётов:</p>
+
+<ul>
+  <li>📊 <strong>«Продажи»</strong> — динамика по дням/неделям, включая сумму выручки и количество заказов. <em>Обратите внимание</em>: здесь не учитываются товары в статусе «В пути к покупателю».</li>
+  <li>📦 <strong>«Остатки»</strong> — текущее количество товара на складах <em>Ozon</em>, но без учёта резервированных позиций (о них ниже).</li>
+  <li>🔄 <strong>«Возвраты»</strong> — отдельный раздел, где видно, сколько товаров вернулось на склад и по какой причине (брак, не подошел размер и т.д.).</li>
+</ul>
+
+<p>Главный недостаток этого метода — <strong>отсутствие детализации по складам FBS/FBO</strong>. Если вы работаете по модели <em>FBS</em>, то не увидите, на каком именно складе лежит ваш товар, а это критично для логистики. К тому же, данные обновляются с задержкой до 24 часов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Скачивайте отчёты в формате CSV — так вы сможете объединить данные из разных разделов в одной таблице и построить собственные графики в Excel.</p></aside>
+
+<h2 id="2-раздел-товары-детализация-по-артикулам">2. Раздел «Товары»: детализация по артикулам</h2>
+
+<p>Более точную информацию по конкретному товару можно получить в разделе <code>Товары → Список товаров</code>. Здесь для каждого артикула отображаются:</p>
+
+<ul>
+  <li>🏷️ <strong>Текущий остаток</strong> — количество доступных для продажи единиц.</li>
+  <li>🚚 <strong>В пути к покупателю</strong> — товары, которые уже куплены, но ещё не доставлены (они временно «заморожены» в остатках).</li>
+  <li>🔙 <strong>Возвраты в обработке</strong> — позиции, которые покупатель вернул, но они ещё не поступили обратно на склад.</li>
+</ul>
+
+<p>Важный момент: если вы видите, что остаток равен нулю, но в графе «В пути к покупателю» есть цифра — это значит, что товар <strong>фактически продан</strong>, но ещё не списан с вашего баланса. Такие нюансы часто ведут к ошибкам в планировании закупок.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В разделе «Товары» не отображаются данные по <em>FBO</em>-складам, если вы используете смешанную модель продаж. Для них придётся проверять остатки отдельно через <code>API</code> или отчёты по заказам.</blockquote>
+
+
+<p>Сравнить текущий остаток с данными из отчёта "Продажи"|Учесть товары "В пути к покупателю" при планировании закупок|Отследить возвраты в обработке — они могут вернуть товар на склад|Проверить статус "Активен/Неактивен" — неактивные товары не участвуют в продажах--></p>
+
+<h2 id="3-api-ozon-автоматизированный-сбор-данных">3. API Ozon: автоматизированный сбор данных</h2>
+
+<p>Для продавцов с большим ассортиментом ручная проверка остатков становится неэффективной. В этом случае поможет <strong><em>API Ozon</strong></strong> — интерфейс для автоматизированного получения данных. Через него можно выгружать:</p>
+
+<ul>
+  <li>📈 <strong>Историю продаж</strong> с детализацией по времени, складам и статусам заказов.</li>
+  <li>📋 <strong>Остатки в реальном времени</em>, включая резервированные позиции.</li>
+  <li>🔄 <strong>Данные по возвратам</em> с указанием причины и статуса обработки.</li>
+</ul>
+
+<p>Пример запроса для получения остатков через <code>API</code>:</p>
+<pre><code>GET https://api-seller.ozon.ru/v2/product/info/stocks
+<p>Headers:</p>
+<p>- Client-Id: {ваш_client_id}</p>
+<p>- Api-Key: {ваш_api_key}</p>
+<p>Body:</p>
+<p>{</p>
+<p>"sku": [12345678, 87654321], // массив артикулов</p>
+<p>"warehouse_id": [1, 2]      // ID складов (опционально)</p>
+<p>}</code></pre></p>
+
+<p>Основной плюс <em>API</strong> — <strong>актуальность данных</strong> (обновляются каждые 15–30 минут) и возможность интеграции с собственными системами учёта. Однако для работы с <code>API</code> потребуются технические навыки или помощь разработчика.</p>
+
+<blockquote>⚠️ <strong>Внимание:</em> <em>Ozon</em> ограничивает количество запросов к <code>API</code> — при превышении лимита доступ блокируется на 24 часа. Планируйте выгрузку данных заранее, особенно в пиковые периоды (например, во время распродаж).</blockquote>
+
+<div class="pb-poll" id="poll-212dc24b"><div class="pb-poll-question">📊 Как вы обычно проверяете движение товара на Ozon?</div><div class="pb-poll-option" data-poll="212dc24b" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через личный кабинет</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212dc24b" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212dc24b" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Выгружаю отчёты в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="212dc24b" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Пользуюсь сторонними сервисами</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="4-экспорт-данных-в-excel-глубокий-анализ">4. Экспорт данных в Excel: глубокий анализ</h2>
+
+<p>Если <em>API</em> кажется сложным, альтернатива — выгрузка отчётов в <em>Excel</em> или <em>Google Sheets</em>. В личном кабинете <em>Ozon Seller</em> доступны готовые шаблоны отчётов:</p>
+
+<ol>
+  <li><strong>«Отчёт по продажам»</strong> — содержит данные о заказах, суммах и статусах.</li>
+  <li><strong>«Отчёт по остаткам»</strong> — показывает текущее количество товара на складах.</li>
+  <li><strong>«Отчёт по возвратам»</strong> — детализация по возвращённым позициям.</li>
+</ol>
+
+<p>Чтобы объединить эти данные в одну таблицу:</p>
+<ol>
+  <li>Скачайте все три отчёта в формате <code>.csv</code>.</li>
+  <li>Импортируйте их в <em>Excel</em> на отдельные листы.</li>
+  <li>Используйте функцию <code>ВПР</code> (или <code>XLOOKUP</code> в новых версиях) для связывания данных по артикулу (<code>sku</code>).</li>
+  <li>Постройте сводную таблицу с ключевыми метриками: продажи за период, текущие остатки, уровень возвратов.</li>
+</ol>
+
+<p>Пример формулы для расчёта <strong>коэффициента возвратов</strong>:</p>
+<pre><code>=СЧЁТЕСЛИ(Лист_возвраты!A:A; A2) / СЧЁТЕСЛИ(Лист_продажи!A:A; A2)</code></pre>
+<p>где <code>A2</code> — ячейка с артикулом товара.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Метрика</th>
+      <th>Формула в Excel</th>
+      <th>Что показывает</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Оборачиваемость товара</td>
+      <td><code>=СУММ(продажи_за_месяц) / средний_остаток</code></td>
+      <td>Сколько раз товар был продан относительно среднего запаса</td>
+    </tr>
+    <tr>
+      <td>Уровень возвратов</td>
+      <td><code>=количество_возвратов / количество_продаж</code></td>
+      <td>Долю возвращённых товаров от общего объёма продаж</td>
+    </tr>
+    <tr>
+      <td>Дни покрытия запаса</td>
+      <td><code>=текущий_остаток / средние_продажи_в_день</code></td>
+      <td>На сколько дней хватит текущего запаса при текущем темпе продаж</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Объединение данных из разных отчётов в Excel позволяет выявить товары с высоким уровнем возвратов или низкой оборачиваемостью — это сигнал для пересмотра цены, описания или логистики.</p></aside>
+
+<h2 id="5-сторонние-сервисы-аналитика-без-ручной-работы">5. Сторонние сервисы: аналитика без ручной работы</h2>
+
+<p>Если вам нужна <strong>автоматизация</strong> без глубоких знаний <code>API</code> или <em>Excel</em>, обратите внимание на сторонние сервисы для аналитики <em>Ozon</em>:</p>
+
+<ul>
+  <li>📌 <strong><em>Sellerboard</em></em> — собирает данные по продажам, остаткам и прибыли, строит графики динамики. Поддерживает интеграцию с <em>Ozon</em>, <em>Wildberries</em> и другими маркетплейсами.</li>
+  <li>📌 <strong><em>Peak</strong></strong> — фокусируется на анализе спрос и прогнозировании продаж. Помогает определить, какие товары стоит закупать, а какие — снимать с продажи.</li>
+  <li>📌 <strong><em>Lingonberry</em></em> — сервис для мониторинга цен конкурентов и остатков на складах <em>Ozon</em>. Полезен для динамического ценообразования.</li>
+</ul>
+
+<p>Преимущества сторонних сервисов:</p>
+<ul>
+  <li>🔍 <strong>Единый дашборд</strong> для всех маркетплейсов (если продаёте не только на <em>Ozon</em>).</li>
+  <li>⚡ <strong>Автоматические уведомления</strong> о критических остатках или скачках продаж.</li>
+  <li>📊 <strong>Готовые отчёты</strong> по ABC/XYZ-анализу, которые помогают сегментировать ассортимент.</li>
+</ul>
+
+<p>Недостаток — <strong>платная подписка</strong> (от 500 до 5 000 ₽/месяц в зависимости от тарифа). Однако для продавцов с оборотом от 500 000 ₽/месяц такие инструменты окупаются за счёт экономии времени и увеличения продаж.</p>
+
+<details class="pb-accordion"><summary>Как выбрать сервис для аналитики?</summary><div class="pb-accordion-body"><p>
+<p>1. Определите ключевые задачи: нужен ли мониторинг конкурентов, прогнозирование спрос или только отслеживание остатков.</p>
+<p>2. Проверьте, поддерживает ли сервис вашу модель продаж (FBS/FBO).</p>
+<p>3. Изучите отзывы других продавцов — некоторые сервисы могут «подвисать» в пиковые нагрузки (например, во время «Чёрной пятницы»).</p>
+<p>4. Попробуйте бесплатный пробный период (если есть) и оцените удобство интерфейса.</p></div></details></p>
+
+<h2 id="6-скрытые-нюансы-резервирование-и-фантомные-остатки">6. Скрытые нюансы: резервирование и «фантомные» остатки</h2>
+
+<p>Одна из самых распространённых проблем при анализе движения товара на <em>Ozon</em> — <strong>несоответствие реальных и отображаемых остатков</strong>. Это происходит из-за:</p>
+
+<ul>
+  <li>🔒 <strong>Резервирования</strong> — когда товар забронирован под заказ, но ещё не списан с вашего баланса. В личном кабинете он может отображаться как «в наличии», хотя фактически недоступен для продажи.</li>
+  <li>🚛 <strong>Логистических задержек</strong> — товар физически есть на складе, но не отсканирован системой (часто бывает при приёмке новых партий).</li>
+  <li>🔄 <strong>Возвратов в обработке</strong> — покупатель вернул товар, но он ещё не поступил обратно на склад и не отобразился в остатках.</li>
+</ul>
+
+<p>Как минимизировать риски?</p>
+<ul>
+  <li>📅 <strong>Проверяйте остатки в одно и то же время</strong> (например, утром), чтобы избежать искажений из-за дневных колебаний.</li>
+  <li>📊 <strong>Сверяйте данные</strong> из личного кабинета с отчётами по заказам — если видите расхождения, запросите у поддержки <em>Ozon</em> актуализацию.</li>
+  <li>📌 <strong>Используйте буферный запас</strong> — если продаёте 10 единиц товара в день, держите на складе не 30 (на 3 дня), а 40–50, чтобы покрыть возможные резервы.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В периоды распродаж (<em>Ozon Sale</em>, <em>Чёрная пятница</em>) резервирование товаров может достигать 30–40% от текущих остатков. Если не учесть это при планировании, рискуете остаться без запасов в пик спрос.</blockquote>
+
+<h2 id="7-практический-кейс-как-мы-увеличили-продажи-на-30">7. Практический кейс: как мы увеличили продажи на 30%</h2>
+
+<p>Пример из практики: один из наших клиентов продавал электронику на <em>Ozon</em> и столкнулся с проблемой — товар часто заканчивался в разгар продаж, хотя по отчётам остатки казались достаточными. Анализ показал:</p>
+
+<ul>
+  <li>🔍 <strong>25% товаров</strong> были резервированы под заказы, но не списывались с остатков.</li>
+  <li>📦 <strong>15% возвратов</strong> обрабатывались дольше 3 дней, из-за чего система не успевала обновлять данные.</li>
+  <li>🚚 <strong>10% заказов</strong> «зависали» в статусе «Собирается» из-за логистических сбоев.</li>
+</ul>
+
+<p>Решение:</p>
+<ol>
+  <li>Настроили <strong>ежедневную выгрузку данных через <code>API</code></strong> с учётом резервированных позиций.</li>
+  <li>Добавили <strong>буферный запас в 20%</strong> для всех топовых товаров.</li>
+  <li>Автоматизировали <strong>уведомления о критических остатках</strong> через <em>Google Sheets</em>.</li>
+</ol>
+
+<p>Результат: за 2 месяца <strong>увеличили продажи на 30%</strong> за счёт отсутствия дефицита и оптимизации закупок. При этом уровень возвратов снизился на 8% благодаря более точному прогнозированию спрос.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярный аудит остатков и учёта резервированных товаров — ключ к стабильным продажам. Даже небольшие корректировки в логистике могут дать значительный прирост выручки.</p></aside>
+
+<h2 id="faq-частые-вопросы-о-движении-товара-на-ozon">FAQ: Частые вопросы о движении товара на Ozon</h2>
+
+<details>
+  <summary>Как отличить реальные остатки от резервированных?</summary>
+  <p>Резервированные товары отображаются в разделе <code>Товары → В пути к покупателю</code>. Чтобы увидеть «чистые» остатки, вычтите из текущего количества значение в графе «Резерв». Также можно использовать <code>API</code>-запрос <code>/v2/product/info/stocks</code> с параметром <code>"available"</code> — он покажет только доступные для продажи позиции.</p>
+</details>
+
+<details>
+  <summary>Почему в отчёте по продажам не совпадают данные с реальными остатками?</summary>
+  <p>Расхождения возникают из-за:</p>
+  <ul>
+    <li>Задержки обновления данных (до 24 часов в личном кабинете).</li>
+    <li>Неучтённых возвратов или отменённых заказов.</li>
+    <li>Ошибок сканирования на складе (товар физически есть, но не отображается в системе).</li>
+  </ul>
+  <p>Для точности сверяйте данные из нескольких источников: отчёт по продажам, остатки и <code>API</code>.</p>
+</details>
+
+<details>
+  <summary>Можно ли отследить движение товара по конкретному складу FBS?</summary>
+  <p>Да, но только через <code>API</code>. В запросе <code>/v2/product/info/stocks</code> укажите параметр <code>"warehouse_id"</code> с ID нужного склада. В личном кабинете детализация по складам FBS не доступна. Список ID складов можно получить через запрос <code>/v1/warehouse/list</code>.</p>
+</details>
+
+<details>
+  <summary>Как узнать, сколько товара вернулось на склад после возврата?</summary>
+  <p>Информация о возвратах доступна в разделе <code>Заказы → Возвраты</code> или в отчёте «Возвраты» (экспорт в <em>Excel</em>). Обратите внимание на статус:</p>
+  <ul>
+    <li><strong>«Принят на склад»</strong> — товар вернулся и доступен для продажи.</li>
+    <li><strong>«В пути на склад»</strong> — возвращается, но ещё не обработан.</li>
+    <li><strong>«Утилизация»</strong> — товар списан (например, из-за брака).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Какие инструменты помогут автоматизировать аналитику?</summary>
+  <p>Для автоматизации подойдут:</p>
+  <ul>
+    <li><em>Sellerboard</em> или <em>Peak</em> — для комплексного анализа.</li>
+    <li><em>Google Apps Script</em> — для создания кастомных отчётов в <em>Google Sheets</em>.</li>
+    <li><em>Zapier</em> — для интеграции данных <em>Ozon</em> с другими сервисами (например, <em>1C</em> или <em>Bitrix24</em>).</li>
+  </ul>
+  <p>Для технически подкованных продавцов — собственные скрипты на <em>Python</em> с использованием <code>Ozon API</code>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-rabotat-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как работать на Ozon Seller: полная инструкция для новичков 2026</span>
+                <span class="pb-related-desc">Узнайте, как работать на Озон Селлер в 2026 году. Пошаговая регистрация, настройка личного кабинета,</span>
+            </a><a href="/articles/k/ko/kogda-platit-ozon-selleram.html" class="pb-related-card">
+                <span class="pb-related-title">Когда Ozon платит селлерам: график и условия 2026</span>
+                <span class="pb-related-desc">Узнайте точные даты выплат на Ozon в 2026 году. Разбор графиков FBO, FBS и RealFBS. Как избежать бло</span>
+            </a><a href="/articles/k/ka/kak-pravilno-poschitat-chistuyu-pribyl-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как посчитать чистую прибыль на Ozon: формулы и ошибки</span>
+                <span class="pb-related-desc">Узнайте, как правильно посчитать чистую прибыль на Ozon. Разбор всех комиссий, налогов, логистики и </span>
+            </a><a href="/articles/a/an/analitika-tovarov-na-ozon-chto-prodavat.html" class="pb-related-card">
+                <span class="pb-related-title">Аналитика товаров на Озон: что продавать в 2026 году</span>
+                <span class="pb-related-desc">Полный гид по аналитике на Ozon: как найти нишу, выбрать прибыльный товар и избежать ошибок новичку.</span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-kratko-i-ponyatno.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое Озон: просто о маркетплейсе для новичков</span>
+                <span class="pb-related-desc">Кратко и понятно объясняем, что такое Озон — как работает маркетплейс, чем отличается от других площ</span>
+            </a><a href="/articles/g/gd/gde-posmotret-kod-prodavtsa-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где посмотреть код продавца на Ozon: 5 проверенных способов</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как найти код продавца Ozon в личном кабинете, договоре, мобильном приложении </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

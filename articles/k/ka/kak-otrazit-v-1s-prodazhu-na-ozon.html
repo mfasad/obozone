@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отразить в 1С продажу на Озон: полная инструкция — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство: как отразить в 1С продажу на Озон. Настройка интеграции, проводки комиссий, учет FBO и FBS, работа с отчетами и актами.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-otrazit-v-1s-prodazhu-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отразить в 1С продажу на Озон: полная инструкция">
+    <meta property="og:description" content="Пошаговое руководство: как отразить в 1С продажу на Озон. Настройка интеграции, проводки комиссий, учет FBO и FBS, работа с отчетами и актами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отразить в 1С продажу на Озон: полная инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#особенности-учета-агентского-договора-с-маркетплейсом">Особенности учета агентского договора с маркетплейсом</a></li><li><a href="#настройка-справочников-и-номенклатуры-перед-интеграцией">Настройка справочников и номенклатуры перед интеграцией</a></li><li><a href="#загрузка-отчетов-о-продажах-и-формирование-документов">Загрузка отчетов о продажах и формирование документов</a></li><li><a href="#учет-комиссий-логистики-и-дополнительных-услуг">Учет комиссий, логистики и дополнительных услуг</a></li><li><a href="#работа-с-возвратами-и-корректировка-остатков">Работа с возвратами и корректировка остатков</a></li><li><a href="#сверка-взаиморасчетов-и-выгрузка-в-бухгалтерию">Сверка взаиморасчетов и выгрузка в бухгалтерию</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-printer-kupit-dlya-ozona.html">Какой принтер купить для Ozon: 7 лучших моделей 2026 года</a></li><li><a href="/articles/o/oz/ozon-ili-vajldberriz-chto-luchshe-forum.html">Озон или Вайлдберриз: что лучше для продавцов и покупателей?</a></li><li><a href="/articles/k/ka/kak-ustroitsya-na-rabotu-v-ozon-udalenno-otzyvy.html">Удаленная работа в Ozon: как устроиться и отзывы сотрудников</a></li><li><a href="/articles/k/ka/kakoj-tovar-luchshe-prodavat-na-ozone.html">Какой товар лучше продавать на Ozon: ТОП ниш и анализ спроса</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-alfa.html">Ozon Alpha: что это за программа и как она работает в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как отразить в 1С продажу на Озон: полная инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#особенности-учета-агентского-договора-с-маркетплейсом">Особенности учета агентского договора с маркетплейсом</a></li><li><a href="#настройка-справочников-и-номенклатуры-перед-интеграцией">Настройка справочников и номенклатуры перед интеграцией</a></li><li><a href="#загрузка-отчетов-о-продажах-и-формирование-документов">Загрузка отчетов о продажах и формирование документов</a></li><li><a href="#учет-комиссий-логистики-и-дополнительных-услуг">Учет комиссий, логистики и дополнительных услуг</a></li><li><a href="#работа-с-возвратами-и-корректировка-остатков">Работа с возвратами и корректировка остатков</a></li><li><a href="#сверка-взаиморасчетов-и-выгрузка-в-бухгалтерию">Сверка взаиморасчетов и выгрузка в бухгалтерию</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Синхронизация данных между популярным маркетплейсом и учетной системой предприятия — это фундамент стабильного бизнеса. Многие предприниматели задаются вопросом, как правильно и быстро отразить в 1С продажу на Озон, чтобы избежать расхождений в остатках и ошибках в бухгалтерии. Грамотный учет необходим не только для налоговой отчетности, но и для понимания реальной маржинальности каждого проданного товара.</p>
+
+<p>Процесс документооборота имеет свои особенности, зависящие от выбранной схемы работы: <em>FBO</em> или <em>FBS</em>. <strong>Агентский договор</strong>, который заключается с площадкой, подразумевает специфический порядок отражения выручки и комиссионного вознаграждения. В этой статье мы детально разберем все нюансы настройки и проведения операций.</p>
+
+<p>Автоматизация процесса значительно снижает риск человеческой ошибки. Однако даже при использовании современных модулей интеграции важно понимать логику проводок. Это позволит вам самостоятельно контролировать финансовые потоки и оперативно реагировать на изменения в правилах площадки.</p>
+
+<h2 id="особенности-учета-агентского-договора-с-маркетплейсом">Особенности учета агентского договора с маркетплейсом</h2>
+
+<p>Перед тем как настроить выгрузку, необходимо понять юридическую суть взаимодействия. Площадка выступает в роли агента, который продает ваш товар за комиссию. Вы, как принципал, получаете выручку за вычетом всех издержек маркетплейса. <strong>Агентское вознаграждение</strong> является вашим расходом, который уменьшает налоговую базу.</p>
+
+<p>Важно различать момент перехода права собственности и момент фактической оплаты покупателю. В системе 1С эти события часто разносятся по времени. Документы от Озон приходят с задержкой, поэтому учет ведется на основании еженедельных отчетов. <em>Бухгалтерский учет</em> требует строгой последовательности в отражении этих операций.</p>
+
+<blockquote>⚠️ Внимание: Никогда не проводите реализацию товара на полную сумму продажи без вычета комиссии, если в вашей конфигурации 1С не настроен автоматический расчет агентских услуг. Это приведет к двойному налогообложению.</blockquote>
+
+<p>Для корректного отражения операций используются специальные субсчета и аналитические статьи. <strong>Комиссия за хранение</strong>, логистика и услуги продвижения должны быть учтены отдельно. Это позволит в будущем провести глубокий анализ эффективности продаж.</p>
+
+<details class="pb-accordion"><summary>Почему нельзя считать выручкой полную сумму заказа?</summary><div class="pb-accordion-body"><p>В отчете покупателя фигурирует полная стоимость товара, но на ваш расчетный счет приходит меньшая сумма. Разница — это деньги, которые маркетплейс оставляет себе. Если вы проведете реализацию на полную сумму и не отразите расходы на услуги площадки, вы заплатите налоги с денег, которые фактически не получили.</p></div></details>
+
+<h2 id="настройка-справочников-и-номенклатуры-перед-интеграцией">Настройка справочников и номенклатуры перед интеграцией</h2>
+
+<p>Качественная подготовка данных — залог успешной интеграции. Перед тем как начать импорт отчетов, убедитесь, что карточки товаров в 1С и на маркетплейсе связаны. Для этого используется <strong>артикул</strong> или штрихкод. Без точного соответствия номенклатуры система не сможет автоматически создать документы реализации.</p>
+
+<p>В справочнике номенклатуры должны быть заполнены все необходимые реквизиты. Особое внимание уделите ставкам <strong>НДС</strong> и типу продукции. Если вы работаете по упрощенной системе налогообложения, это также должно быть отражено в настройках учетной политики.</p>
+
+<ul>
+    <li>📦 Проверьте соответствие артикулов в 1С и личном кабинете продавца.</li>
+    <li>🏷️ Убедитесь, что единицы измерения (штуки, наборы, кг) совпадают в обеих системах.</li>
+    <li>💰 Задайте правильные цены и типы цен для разных групп покупателей.</li>
+    <li>📊 Настройте статьи доходов и расходов для детальной аналитики.</li>
+</ul>
+
+<p>Использование <em>сканеров штрих-кодов</em> ускоряет процесс приемки и отгрузки. Однако для работы с отчетами маркетплейса критически важна цифровая связка. Часто требуется ручная привязка номенклатуры при первом запуске системы.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Подготовка базы 1С к работе с Озон</h4><label class="check-item"><input type="checkbox"><span>Проверить заполнение карточек товаров:Настроить типы цен:Проверить справочник контрагентов:Создать статью расходов "Комиссия Озон"</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<h2 id="загрузка-отчетов-о-продажах-и-формирование-документов">Загрузка отчетов о продажах и формирование документов</h2>
+
+<p>Основным документом, на основании которого вносится информация в базу, является отчет о реализации. Он формируется в личном кабинете продавца еженедельно. Чтобы отразить в 1С продажу на Озон, этот файл необходимо выгрузить в формате <code>.csv</code> или <code>.xml</code> и загрузить через обработку обмена данными.</p>
+
+<p>Процесс загрузки обычно автоматизирован в специализированных модулях. Система считывает данные о проданных единицах, суммах комиссий и логистических расходах. На основе этих данных создается документ <strong>Реализация (акт, накладная)</strong>. Важно проверить, чтобы даты в документе соответствовали периоду отчета.</p>
+
+<p>При загрузке могут возникнуть ошибки, связанные с отсутствием товаров в базе или некорректными ценами. Система выдаст список предупреждений, которые необходимо обработать вручную. После успешной загрузки документ попадает в общий реестр продаж.</p>
+
+<div class="pb-table-wrap"><table>
+    <thead>
+        <tr>
+            <th>Тип документа</th>
+            <th>Периодичность</th>
+            <th>Назначение</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Отчет о реализации</td>
+            <td>Еженедельно</td>
+            <td>Фиксация продаж и комиссий</td>
+        </tr>
+        <tr>
+            <td>Акт сверки</td>
+            <td>По запросу</td>
+            <td>Проверка взаиморасчетов</td>
+        </tr>
+        <tr>
+            <td>УПД</td>
+            <td>Ежемесячно</td>
+            <td>Подтверждение расходов на услуги</td>
+        </tr>
+        <tr>
+            <td>Реестр возвратов</td>
+            <td>По факту</td>
+            <td>Учет возвращенного товара</td>
+        </tr>
+    </tbody>
+</table></div>
+
+<p>После формирования документа реализации система автоматически рассчитывает себестоимость проданных товаров. Это позволяет мгновенно увидеть <strong>валовую прибыль</strong>. Не забывайте проводить сверку данных после каждой загрузки.</p>
+
+<div class="pb-poll" id="poll-0986b670"><div class="pb-poll-question">📊 Как вы загружаете отчеты с Озон в 1С?</div><div class="pb-poll-option" data-poll="0986b670" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через CSV:Автоматически через API:Через сторонний сервис:Не загружаю, веду в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="учет-комиссий-логистики-и-дополнительных-услуг">Учет комиссий, логистики и дополнительных услуг</h2>
+
+<p>Самая сложная часть учета — это корректное отражение удержаний. Маркетплейс предоставляет детализированный отчет, где указаны комиссии за продажу, расходы на логистику, хранение и обработку возвратов. В 1С эти суммы должны быть проведены как расходы, уменьшающие выручку.</p>
+
+<p>Существует два основных способа отражения: net-методом (на сумму поступления) и gross-методом (на полную сумму с последующим отражением расходов). Большинство бухгалтеров предпочитают второй вариант для полной прозрачности. <strong>Комиссионное вознаграждение</strong> проводится отдельным документом или строкой в реализации.</p>
+
+<p>Логистические расходы могут варьироваться в зависимости от региона доставки и габаритов товара. Важно, чтобы в 1С эти суммы распределялись корректно. Иногда требуется ручная корректировка, если автоматический алгоритм распределил расходы неверно.</p>
+
+<blockquote>⚠️ Внимание: Обратите внимание на НДС в услугах маркетплейса. Если площадка работает с НДС, вы имеете право принять его к вычету, но только при наличии правильно оформленного <em>УПД</em>.</blockquote>
+
+<p>Регулярный анализ структуры расходов помогает оптимизировать ценообразование. Вы можете увидеть, какие товары становятся убыточными из-за высоких затрат на логистику. Это ключевой момент для управления ассортиментом.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сохраняйте все закрывающие документы (УПД) от Озон в электронном виде в привязке к соответствующим отчетам в 1С. Это упростит работу с налоговой и аудитами в будущем.</p></aside>
+
+<h2 id="работа-с-возвратами-и-корректировка-остатков">Работа с возвратами и корректировка остатков</h2>
+
+<p>Возвраты товаров — неизбежная часть торговли на маркетплейсах. Клиент может отказаться от товара при получении или вернуть его в течение гарантийного срока. В 1С необходимо отразить возврат товара на склад и корректировку выручки.</p>
+
+<p>При поступлении отчета о возвратах создается документ <strong>Возврат товаров от покупателя</strong>. Товар снова оприходуется на склад, но уже с статусом "брак" или "требует проверки", так как его товарный вид мог пострадать. Выручка сторнируется или уменьшается.</p>
+
+<p>Сложность вызывает ситуация, когда товар возвращается не на ваш склад, а утилизируется или передается покупателю без возврата. В этом случае в 1С проводится списание. <em>Аналитика возвратов</em> позволяет выявлять проблемные товары.</p>
+
+<ul>
+    <li>🔄 Проверьте статус возвращенного товара: годен ли он для повторной продажи.</li>
+    <li>📉 Отразите уменьшение задолженности покупателя (маркетплейса) перед вами.</li>
+    <li>📝 Зафиксируйте причину возврата для внутренней статистики.</li>
+    <li>📦 Обновите остатки на складе в соответствии с фактическим наличием.</li>
+</ul>
+
+<p>Важно следить за тем, чтобы остатки в 1С совпадали с остатками в личном кабинете. Расхождения могут привести к блокировке карточек товара или штрафам. Регулярная <strong>инвентаризация</strong> помогает держать ситуацию под контролем.</p>
+
+<h2 id="сверка-взаиморасчетов-и-выгрузка-в-бухгалтерию">Сверка взаиморасчетов и выгрузка в бухгалтерию</h2>
+
+<p>Финальным этапом цикла является сверка взаиморасчетов. Вы должны быть уверены, что деньги, пришедшие на расчетный счет, соответствуют суммам в отчетах за вычетом всех комиссий. В 1С для этого используется механизм <strong>Акт сверки</strong>.</p>
+
+<p>Процесс сверки позволяет выявитьMissing payments или ошибочные начисления. Если суммы не сходятся, необходимо запросить детализацию у поддержки маркетплейса. Только после полной сверки данные можно считать достоверными.</p>
+
+<p>После завершения всех операций данные выгружаются в бухгалтерскую конфигурацию (например, 1С:Бухгалтерия). Там формируются итоговые проводки для сдачи отчетности. Автоматизация этого этапа экономит десятки часов работы бухгалтера.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярная сверка (раз в неделю) предотвращает накопление критических ошибок в учете и позволяет мгновенно реагировать на финансовые потери.</p></aside>
+
+<p>Грамотно настроенный учет в 1С дает полную прозрачность бизнеса. Вы видите реальную прибыль, а не просто обороты. Это позволяет принимать взвешенные управленческие решения и масштабироваться без потери контроля.</p>
+
+<details>
+    <summary>Нужно ли проводить каждую продажу отдельно или можно общим итогом?</summary>
+    <p>В 1С рекомендуется проводить продажи общим итогом за период отчета (обычно неделя). Проводка каждой отдельной транзакции перегрузит базу данных и усложнит сверку. Используйте документ "Реализация" с группировкой по контрагенту.</p>
+</details>
+
+<details>
+    <summary>Что делать, если артикул товара в 1С и на Озон отличаются?</summary>
+    <p>Необходимо настроить соответствие номенклатуры. В большинстве обработок обмена есть функция маппинга (сопоставления), где вы вручную или через файл связываете внешний артикул с внутренней номенклатурой 1С.</p>
+</details>
+
+<details>
+    <summary>Как учитывать товары, которые Озон потерял на складе?</summary>
+    <p>Маркетплейс компенсирует стоимость потерянного товара. В 1С это отражается как реализация (продажа) с последующим поступлением денежной компенсации, либо как прямая компенсация, зависящая от настроек вашей учетной политики.</p>
+</details>
+
+<details>
+    <summary>Можно ли автоматизировать загрузку отчетов полностью?</summary>
+    <p>Да, современные модули интеграции (например, 1С:Линк или сторонние решения) позволяют настроить автоматическую загрузку отчетов по расписанию через API, что исключает ручной труд.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-printer-kupit-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Какой принтер купить для Ozon: 7 лучших моделей 2026 года</span>
+                <span class="pb-related-desc">Рейтинг принтеров для печати этикеток и документов на Озон: сравнение лазерных, термотрансферных и с</span>
+            </a><a href="/articles/o/oz/ozon-ili-vajldberriz-chto-luchshe-forum.html" class="pb-related-card">
+                <span class="pb-related-title">Озон или Вайлдберриз: что лучше для продавцов и покупателей?</span>
+                <span class="pb-related-desc">Честное сравнение Ozon и Wildberries 2026. Комиссии, логистика, штрафы, отзывы форумов. Где выгоднее</span>
+            </a><a href="/articles/k/ka/kak-ustroitsya-na-rabotu-v-ozon-udalenno-otzyvy.html" class="pb-related-card">
+                <span class="pb-related-title">Удаленная работа в Ozon: как устроиться и отзывы сотрудников</span>
+                <span class="pb-related-desc">Ищете удаленную работу в Озон? Реальные отзывы сотрудников, обзор вакансий, условия трудоустройства </span>
+            </a><a href="/articles/k/ka/kakoj-tovar-luchshe-prodavat-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Какой товар лучше продавать на Ozon: ТОП ниш и анализ спроса</span>
+                <span class="pb-related-desc">Разбираем, какой товар лучше продавать на Озон в 2026 году. Анализ маржинальности, спроса и логистик</span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-alfa.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Alpha: что это за программа и как она работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираем Ozon Alpha — эксклюзивную программу для продавцов на маркетплейсе: условия участия, преиму</span>
+            </a><a href="/articles/o/oz/ozon-kto-takoj.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon — кто это? Полный гайд по маркетплейсу для покупателей и продавцов</span>
+                <span class="pb-related-desc">Что такое Ozon: история, возможности, как работает для покупателей и бизнесменов. Разбираем модели F</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>ADR Ozon: что это и как работает система рейтинга продавца — Об Озоне</title>
+    <meta name="description" content="Полный разбор ADR Ozon: как рассчитывается, что влияет на рейтинг, способы повышения и последствия низкого показателя для магазина.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/a/ad/adr-ozon-chto-eto.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ADR Ozon: что это и как работает система рейтинга продавца">
+    <meta property="og:description" content="Полный разбор ADR Ozon: как рассчитывается, что влияет на рейтинг, способы повышения и последствия низкого показателя для магазина.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/podderzhka-i-shtrafy/">Поддержка и Штрафы</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">ADR Ozon: что это и как работает система рейтинга продавца</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#расшифровка-и-суть-показателя-adr">Расшифровка и суть показателя ADR</a></li><li><a href="#ключевые-факторы-влияющие-на-рейтинг-доставки">Ключевые факторы, влияющие на рейтинг доставки</a></li><li><a href="#нормативы-adr-для-разных-схем-работы">Нормативы ADR для разных схем работы</a></li><li><a href="#как-проверить-текущий-adr-в-личном-кабинете">Как проверить текущий ADR в личном кабинете</a></li><li><a href="#стратегии-повышения-рейтинга-выполнения-заказов">Стратегии повышения рейтинга выполнения заказов</a></li><li><a href="#последствия-низкого-adr-для-магазина">Последствия низкого ADR для магазина</a></li><li><a href="#частые-ошибки-убивающие-рейтинг">Частые ошибки, убивающие рейтинг</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otklyuchit-uvedomleniya-ozon-na-android.html">Как отключить уведомления Ozon на Android: пошаговая инструкция 2026</a></li><li><a href="/articles/n/no/nomer-intsidenta-ozon-chto-to.html">Номер инцидента Озон: как найти, где используется и что делать</a></li><li><a href="/articles/c/ch/chto-ozon-mozhet-zablokirovat-prodavtsu.html">Блокировки на Ozon: причины, виды и восстановление</a></li><li><a href="/articles/o/oz/ozon-o-chem-molchit-lastochka.html">Озон: о чём молчит Ласточка — скрытые нюансы работы с маркетплейсом</a></li><li><a href="/articles/k/ka/kak-udalit-plokhoj-otzyv-na-ozone.html">Как удалить плохой отзыв на Озоне: инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>ADR Ozon: что это за показатель и как он влияет на продажи</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#расшифровка-и-суть-показателя-adr">Расшифровка и суть показателя ADR</a></li><li><a href="#ключевые-факторы-влияющие-на-рейтинг-доставки">Ключевые факторы, влияющие на рейтинг доставки</a></li><li><a href="#нормативы-adr-для-разных-схем-работы">Нормативы ADR для разных схем работы</a></li><li><a href="#как-проверить-текущий-adr-в-личном-кабинете">Как проверить текущий ADR в личном кабинете</a></li><li><a href="#стратегии-повышения-рейтинга-выполнения-заказов">Стратегии повышения рейтинга выполнения заказов</a></li><li><a href="#последствия-низкого-adr-для-магазина">Последствия низкого ADR для магазина</a></li><li><a href="#частые-ошибки-убивающие-рейтинг">Частые ошибки, убивающие рейтинг</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Для любого продавца на маркетплейсе <em>Ozon</em> аббревиатура <strong>ADR</strong> становится одним из самых важных индикаторов эффективности бизнеса. Это не просто набор цифр в личном кабинете, а комплексная оценка надежности вашего магазина в глазах алгоритмов площадки и потенциальных покупателей. Понимание механики этого показателя позволяет управлять видимостью товаров и избегать скрытых санкций со стороны системы.</p>
+
+<p>Многие селлеры ошибочно полагают, что рейтинг зависит исключительно от количества проданных единиц, однако реальность куда сложнее. <strong>Actual Delivery Rate</strong> (фактический уровень доставки) учитывает множество факторов, начиная от скорости сборки заказа и заканчивая процентом отказов. Игнорирование этого параметра может привести к тому, что даже качественный товар перестанет попадать в выдачу, что критически скажется на выручке.</p>
+
+<p>В этой статье мы детально разберем, из чего складывается ADR, какие существуют нормативы для разных схем работы и как избежать падения рейтинга. Вы узнаете, почему своевременная отгрузка важнее скорости курьера, и какие действия могут мгновенно обрушить показатели вашего магазина.</p>
+
+<h2 id="расшифровка-и-суть-показателя-adr">Расшифровка и суть показателя ADR</h2>
+
+<p>Термин <strong>ADR</strong> (Average Delivery Rate или Actual Delivery Rate, в зависимости от контекста метрик, чаще всего трактуется как рейтинг выполнения заказов) отражает процент заказов, которые были успешно доставлены покупателю в срок и без проблем. Система <em>Ozon</em> использует этот коэффициент для прогнозирования надежности продавца. Если алгоритм видит, что вы регулярно срываете сроки или получаете много отказов, он автоматически снижает приоритет ваших карточек.</p>
+
+<p>Важно понимать разницу между ADR и просто"рейтингом магазина". Последний формируется на основе отзывов и оценок звездочками, тогда как ADR — это <em>техническая метрика</em> выполнения обязательств. Она рассчитывается автоматически на основе данных о движении товара. Высокий ADR гарантирует, что ваши товары будут помечены значками"Доставим завтра" или"Экспресс-доставка", что напрямую влияет на конверсию.</p>
+
+<blockquote>⚠️ Внимание: Резкое падение ADR ниже пороговых значений может привести к блокировке возможности создавать новые поставки или ограничению участия в акциях маркетплейса.</blockquote>
+
+<p>Для разных категорий товаров и схем работы (<em>FBO, FBS, DBS</em>) нормативы могут отличаться, но общий принцип един: чем стабильнее вы работаете, тем выше ваш рейтинг. Алгоритмы учитывают скользящее окно данных, обычно за последние 28 или 90 дней, что позволяет сгладить единичные сбои, но не спасет от системных ошибок.</p>
+
+<h2 id="ключевые-факторы-влияющие-на-рейтинг-доставки">Ключевые факторы, влияющие на рейтинг доставки</h2>
+
+<p>Формирование итогового показателя происходит под воздействием нескольких переменных. Первая и самая важная — это <strong>своевременность отгрузки</strong>. Если вы работаете по схеме FBS, то товар должен быть передан курьеру или в пункт приема строго в согласованное временное окно. Опоздание даже на час фиксируется системой и негативно влияет на метрику.</p>
+
+<p>Второй критический фактор — <strong>процент отмен</strong>. Если покупатель оформил заказ, а вы его отменили (или система отменила его из-за отсутствия товара на складе), это наносит двойной удар по репутации магазина. Алгоритмы <em>Ozon</em> крайне негативно относятся к ситуациям, когда клиент остался ни с чем.</p>
+
+<ul>
+<li>📦 <strong>Скорость передачи товара:</strong> время между оформлением заказа клиентом и сканированием штрихкода на сортировке.</li>
+<li>❌ <strong>Частота отмен:</strong> отношение количества отмененных заказов к общему числу проданных единиц.</li>
+<li>🚚 <strong>Качество упаковки:</strong> процент повреждений в пути, который часто зависит от того, как товар был упакован на складе продавца.</li>
+<li>📝 <strong>Комплектность:</strong> отсутствие пересорта или недолива товаров в заказе.</li>
+</ul>
+
+<p>Также стоит упомянуть влияние логистических партнеров. Если вы используете доставку силами <em>Ozon</em>, то за (задержки) в пути часто отвечает логистика маркетплейса. Однако, если товар не был вовремя передан логистам, вина полностью лежит на продавце. Поэтому важно четко разделять зоны ответственности.</p>
+
+<div class="pb-poll" id="poll-b67ff22d"><div class="pb-poll-question">📊 Что чаще всего вызывает проблемы с доставкой?</div><div class="pb-poll-option" data-poll="b67ff22d" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Срыв сроков поставщиком</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b67ff22d" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Ошибки на складе</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b67ff22d" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Проблемы с логистикой Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b67ff22d" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Неверный остаток на сайте</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="нормативы-adr-для-разных-схем-работы">Нормативы ADR для разных схем работы</h2>
+
+<p>Требования к показателям доставки варьируются в зависимости от выбранной модели сотрудничества. Для схемы <strong>FBO</strong> (Fulfillment by Ozon), когда товар лежит на складах маркетплейса, ADR формируется практически полностью на основе работы логистов Ozon, и продавец влияет на него косвенно — через правильную приемку и отсутствие претензий по качеству.</p>
+
+<p>В схеме <strong>FBS</strong> (Fulfillment by Seller) ответственность продавца максимальна. Здесь ADR напрямую зависит от того, насколько быстро вы собираете заказы и передаете их в пункт приема. Нормативным значением для FBS обычно считается уровень выше 95%. Падение ниже 90% уже считается критическим и требует немедленного вмешательства.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Схема работы</th>
+<th>Кто отвечает за доставку</th>
+<th>Критический порог ADR</th>
+<th>Влияние на ранжирование</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FBO</td>
+<td>Ozon</td>
+<td>Зависит от региона</td>
+<td>Высокое (приоритет в выдаче)</td>
+</tr>
+<tr>
+<td>FBS</td>
+<td>Продавец + Ozon</td>
+<td>95%</td>
+<td>Критическое (риск скрытия карточек)</td>
+</tr>
+<tr>
+<td>rFBS</td>
+<td>Продавец</td>
+<td>98%</td>
+<td>Максимальное (требования строже)</td>
+</tr>
+<tr>
+<td>DBS</td>
+<td>Продавец</td>
+<td>98%</td>
+<td>Высокое (влияет на бейджи)</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Для схемы <strong>rFBS</strong> (Real FBS), где продавец сам доставляет товар до двери клиента или в ПВЗ своими силами, требования наиболее жесткие. Здесь важен каждый процент, так как вы конкурируете с эталонной скоростью самого маркетплейса.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для схемы FBS критически важно поддерживать ADR выше 95%, иначе карточки товаров могут быть скрыты из выдачи в вашем регионе.</p></aside>
+
+<h2 id="как-проверить-текущий-adr-в-личном-кабинете">Как проверить текущий ADR в личном кабинете</h2>
+
+<p>Чтобы отслеживать эффективность работы, не нужно быть аналитиком. Вся необходимая информация доступна в интерфейсе продавца. Перейдите в раздел <code>Аналитика</code>, затем выберите вкладку <code>Отчеты по продажам</code> или специализированный блок <code>Рейтинг продавца</code>. Именно там отображается текущее значение вашего показателя.</p>
+
+<p>Интерфейс позволяет детализировать данные. Вы можете посмотреть динамику изменения ADR по дням, неделям или месяцам. Это помогает выявить сезонные закономерности или понять, после какого именно инцидента произошло падение рейтинга. Также доступна разбивка по регионам, что полезно для продавцов, работающих по всей стране.</p>
+
+<p>Обращайте внимание на цветовую индикацию. Зеленый цвет означает, что ваши показатели в норме. Желтый или красный цвет сигнализируют о проблемах. Система также предоставляет список заказов, которые негативно повлияли на метрику, что позволяет провести внутреннее расследование и найти причину сбоя.</p>
+
+<details class="pb-accordion"><summary>Где найти детализацию по каждому заказу?</summary><div class="pb-accordion-body"><p>В разделе"Рейтинг продавца" нажмите на цифру текущего ADR. Откроется окно с перечнем всех заказов за выбранный период, где красным помечены те, что ухудшили статистику. Там же можно оставить комментарий для поддержки, если ошибка допущена не вами.</p></div></details>
+
+<h2 id="стратегии-повышения-рейтинга-выполнения-заказов">Стратегии повышения рейтинга выполнения заказов</h2>
+
+<p>Если ваш ADR упал, необходимо действовать быстро. Первый шаг — аудит складских процессов. Убедитесь, что остатки на сайте соответствуют реальности. Использование автоматических систем управления складом (<em>WMS</em>) или интеграция через API помогает избегать ситуаций, когда проданного товара нет в наличии.</p>
+
+<p>Второй шаг — оптимизация логистики. Если вы сами везете товар в пункт приема Ozon, заложите больше времени на дорогу с учетом пробок. Лучше сдать заказ раньше, чем опоздать. Для схем, где вы сами доставляете товар клиенту, используйте проверенные курьерские службы с онлайн-трекингом.</p>
+
+<ul>
+<li>✅ <strong>Регулярная инвентаризация:</strong> проводите сверку остатков минимум раз в неделю.</li>
+<li>✅ <strong>Буферное время:</strong> устанавливайте время отгрузки с запасом в 1-2 часа.</li>
+<li>✅ <strong>Качественная упаковка:</strong> используйте прочные коробки и наполнитель, чтобы товар доехал целым.</li>
+<li>✅ <strong>Мониторинг:</strong> проверяйте статусы заказов несколько раз в день.</li>
+</ul>
+
+<p>Также эффективным методом является работа с возвратами. Если клиент хочет вернуть товар, попробуйте решить проблему дистанционно (частичная компенсация), чтобы избежать физической отправки товара обратно, что всегда является стрессом для логистических показателей.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-ап склада перед сезоном</h4><label class="check-item"><input type="checkbox"><span>Проверить актуальность остатков</span></label><label class="check-item"><input type="checkbox"><span>Протестировать сканер штрихкодов</span></label><label class="check-item"><input type="checkbox"><span>Проверить запас упаковочных материалов</span></label><label class="check-item"><input type="checkbox"><span>Сверить часы на компьютере с серверным временем</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="последствия-низкого-adr-для-магазина">Последствия низкого ADR для магазина</h2>
+
+<p>Игнорирование показателя ADR может привести к серьезным финансовым потерям. В первую очередь, <strong>снижается видимость товаров</strong>. Алгоритмы ранжирования <em>Ozon</em> отодвигают вниз магазины с плохой дисциплиной доставки, отдавая приоритет более надежным конкурентам. Это приводит к падению органического трафика.</p>
+
+<p>Во-вторых, магазин может лишиться возможности участвовать в <strong>акциях и распродажах</strong>. Маркетплейс не рискует репутацией, допуская к масштабным мероприятиям продавцов, которые могут подвести клиентов в пиковые нагрузки. Кроме того, при очень низком рейтинге возможна принудительная смена типа доставки на FBO за счет продавца или полная блокировка аккаунта.</p>
+
+<blockquote>⚠️ Внимание: При систематическом нарушении нормативов ADR (ниже 85% в течение месяца) администрация Ozon имеет право расторгнуть договор оферты в одностороннем порядке.</blockquote>
+
+<p>Еще одним последствием является рост затрат на логистику. Ошибки в доставке, повторные отправки и обработки возвратов увеличивают себестоимость каждой проданной единицы. Таким образом, низкий ADR бьет по карману дважды: через падение продаж и через рост издержек.</p>
+
+<h2 id="частые-ошибки-убивающие-рейтинг">Частые ошибки, убивающие рейтинг</h2>
+
+<p>Одна из самых распространенных ошибок — <strong>неактуальные остатки</strong>. Продавцы часто забывают обновить количество товара после продажи в другом канале или на другом маркетплейсе. Это приводит к автоматическим отменам заказов, что для ADR является"смертельным грехом".</p>
+
+<p>Другая ошибка — неправильная настройка времени отгрузки. Если вы указываете, что готовы отгрузить товар сегодня, но физически не успеваете это сделать из-за графика работы склада или курьерской службы, система зафиксирует опоздание. Всегда ставьте реалистичные сроки, даже если они кажутся вамтивными.</p>
+
+<p>Также многие игнорируют <strong>качество упаковки</strong>. Товар может доехать до клиента целым, но если упаковка будет мятой или поврежденной, клиент оформит возврат по причине"Товарный вид". Такие возвраты также учитываются в общей статистике надежности продавца.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте правило"двойной проверки": перед отправкой заказа курьеру второй сотрудник должен сверить артикул и количество единиц в коробке с накладной. Это снижает риск пересорта на 90%.</p></aside>
+
+<details>
+<summary>Как быстро восстановится ADR после серии отмен?</summary>
+<p>Показатель ADR является скользящим. Это значит, что старые данные постепенно вымываются новыми. Обычно для полного обновления статистики требуется от 14 до 28 дней стабильной работы без срывов. Если у вас был единичный сбой, он перестанет влиять на общий процент примерно через месяц.</p>
+</details>
+
+<details>
+<summary>Влияют ли возвраты по инициативе клиента на ADR?</summary>
+<p>Прямые возвраты по желанию клиента (например,"не подошел размер") меньше влияют на ADR, чем отмены со стороны продавца или браки. Однако, если процент возвратов по категории"Брак" или"Пересорт" будет высоким, это негативно скажется на общем рейтинге надежности магазина.</p>
+</details>
+
+<details>
+<summary>Можно ли оспорить снижение ADR, если виновата логистика Ozon?</summary>
+<p>Да, если задержка произошла на этапе, когда товар уже был передан логистам Ozon (есть акт приема-передачи), вы можете создать обращение в поддержку с просьбой пересчитать метрики. Однако, если товар не был вовремя принят из-за вашей опоздалой заявки, оспорить это не получится.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-otklyuchit-uvedomleniya-ozon-na-android.html" class="pb-related-card">
+                <span class="pb-related-title">Как отключить уведомления Ozon на Android: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по отключению всех типов уведомлений от Ozon на смартфонах Android. Способы дл</span>
+            </a><a href="/articles/n/no/nomer-intsidenta-ozon-chto-to.html" class="pb-related-card">
+                <span class="pb-related-title">Номер инцидента Озон: как найти, где используется и что делать</span>
+                <span class="pb-related-desc">Разбираемся, что такое номер инцидента на Озон, где его взять и как использовать для решения проблем</span>
+            </a><a href="/articles/c/ch/chto-ozon-mozhet-zablokirovat-prodavtsu.html" class="pb-related-card">
+                <span class="pb-related-title">Блокировки на Ozon: причины, виды и восстановление</span>
+                <span class="pb-related-desc">Полный список причин блокировки продавца на Ozon. Что делать при бане аккаунта, товара или карточки.</span>
+            </a><a href="/articles/o/oz/ozon-o-chem-molchit-lastochka.html" class="pb-related-card">
+                <span class="pb-related-title">Озон: о чём молчит Ласточка — скрытые нюансы работы с маркетплейсом</span>
+                <span class="pb-related-desc">Разбираем неочевидные проблемы и секреты Ozon Ласточка: что скрывают от продавцов и покупателей, как</span>
+            </a><a href="/articles/k/ka/kak-udalit-plokhoj-otzyv-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как удалить плохой отзыв на Озоне: инструкция</span>
+                <span class="pb-related-desc">Узнайте, как удалить плохой отзыв на Озоне продавцу. Эффективные методы, правила модерации и работа </span>
+            </a><a href="/articles/k/ka/kak-skachat-video-iz-otzyvov-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как скачать видео из отзывов Ozon: 5 проверенных способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как сохранить видеоотзывы с Ozon на телефон или ПК. Легальные методы, программ</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Декомпенсация Ozon в 1С: пошаговая инструкция — Об Озоне</title>
+    <meta name="description" content="Как провести декомпенсацию Ozon в 1С: подробный гайд для селлеров. Разбор ошибок, настройка интеграции и выгрузка документов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-provesti-dekompensatsiyu-ozon-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Декомпенсация Ozon в 1С: пошаговая инструкция">
+    <meta property="og:description" content="Как провести декомпенсацию Ozon в 1С: подробный гайд для селлеров. Разбор ошибок, настройка интеграции и выгрузка документов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Декомпенсация Ozon в 1С: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-декомпенсация-в-контексте-ozon-и-1с">Что такое декомпенсация в контексте Ozon и 1С</a></li><li><a href="#типовые-ситуации-требующие-вмешательства">Типовые ситуации, требующие вмешательства</a></li><li><a href="#подготовка-базы-1с-к-процедуре">Подготовка базы 1С к процедуре</a></li><li><a href="#пошаговая-инструкция-как-провести-декомпенсацию">Пошаговая инструкция: как провести декомпенсацию</a></li><li><a href="#работа-с-ошибками-и-конфликтами-данных">Работа с ошибками и конфликтами данных</a></li><li><a href="#автоматизация-и-профилактика-проблем">Автоматизация и профилактика проблем</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-posmotret-v-ozon-seller-vykupy-ozonom.html">Где посмотреть выкупы Озоном в Seller: полный гид</a></li><li><a href="/articles/o/oz/ozon-registratsiya-ip-kak-pokupatelya.html">Озон регистрация ИП как покупателя: пошаговая инструкция</a></li><li><a href="/articles/o/oz/ozon-zaregistrirovatsya-kak-ip.html">Как зарегистрироваться на Ozon как ИП в 2026: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-prodavat-chekhly-na-ozon.html">Как продавать чехлы на Озон: полный гайд для новичков и профи</a></li><li><a href="/articles/k/ka/kak-pravilno-platit-nalogi-s-ozona.html">Как правильно платить налоги с Ozon: полный гид для селлеров</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как провести декомпенсацию Ozon в 1С: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-декомпенсация-в-контексте-ozon-и-1с">Что такое декомпенсация в контексте Ozon и 1С</a></li><li><a href="#типовые-ситуации-требующие-вмешательства">Типовые ситуации, требующие вмешательства</a></li><li><a href="#подготовка-базы-1с-к-процедуре">Подготовка базы 1С к процедуре</a></li><li><a href="#пошаговая-инструкция-как-провести-декомпенсацию">Пошаговая инструкция: как провести декомпенсацию</a></li><li><a href="#работа-с-ошибками-и-конфликтами-данных">Работа с ошибками и конфликтами данных</a></li><li><a href="#автоматизация-и-профилактика-проблем">Автоматизация и профилактика проблем</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Работа с маркетплейсом Ozon требует высокой точности в учете, особенно когда речь заходит о финансовых операциях. <strong>Декомпенсация</strong> — это один из ключевых процессов, который часто вызывает вопросы у предпринимателей, использующих связку <em>Ozon Seller</em> и <em>1С:Предприятие</em>. Этот термин может относиться к корректировке остатков, отмене ошибочных начислений или исправлению статусов документов после неудачной выгрузки.</p>
+<p>В данном руководстве мы детально разберем, как правильно выполнить процедуру, чтобы избежать расхождений в бухгалтерии. Вы узнаете о типовых ошибках, способах их предотвращения и алгоритмах действий в различных версиях учетных систем. Понимание механики этих процессов поможет вам сохранять чистоту данных и избегать проблем с налоговой.</p>
+
+<h2 id="что-такое-декомпенсация-в-контексте-ozon-и-1с">Что такое декомпенсация в контексте Ozon и 1С</h2>
+<p>В среде автоматизированного учета термин «декомпенсация» не является официальным бухгалтерским понятием, но активно используется специалистами по интеграции. Под ним обычно подразумевают <strong>обратный процесс</strong>, направленный на отмену ранее совершенных действий: возврат товаров на склад, отмену проведенных документов реализации или корректировку взаиморасчетов. Это критически важно, когда данные на стороне маркетплейса и в вашей базе <em>1С</em> перестают совпадать.</p>
+<p>Чаще всего необходимость в такой операции возникает при технических сбоях обмена данными. Например, если статус отгрузки на Ozon сменился на «Отменен», а в 1С документ уже был проведен и сформировал выручку. В этом случае система должна «отыграть» назад все изменения, чтобы <strong>баланс сошелся</strong>. Без грамотной декомпенсации вы рискуете получить неверные отчеты о прибыли и ошибки в складском учете.</p>
+<p>Важно различать ручную корректировку и автоматическую. Ручная требует внимательности и знания структуры базы, тогда как автоматическая, при правильной настройке модуля интеграции, происходит по заданным алгоритмам. Однако даже автоматика иногда дает сбои, требуя вмешательства человека для анализа причин.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не удаляйте проведенные документы реализации вручную без предварительной выгрузки отчета о продажах. Это приведет к разрыву связей в регистре накопления и сделает невозможным корректный повторный импорт данных.</p>
+</blockquote>
+
+<h2 id="типовые-ситуации-требующие-вмешательства">Типовые ситуации, требующие вмешательства</h2>
+<p>Существует ряд сценариев, когда проведение процедуры становится неизбежным. Первый и самый частый — это <strong>отмена заказа</strong> покупателем после того, как вы уже успели отгрузить товар в системе 1С. В этом случае необходимо не просто изменить статус, но и вернуть товарные остатки на баланс, а также сторнировать выручку.</p>
+<p>Второй распространенный случай — ошибка в цене или количестве при первичной выгрузке. Если менеджер случайно указал неверное количество единиц или цену, и документ ушел на маркетплейс, потребуется <strong>корректировка</strong>. Третий вариант — технические проблемы самого шлюза обмена, когда документы «зависли» или продублировались.</p>
+<ul>
+<li>🔄 Отмена заказа клиентом после формирования накладной в 1С.</li>
+<li>❌ Ошибка в номенклатуре или количестве при создании отгрузки.</li>
+<li>📉 Расхождение остатков между FBO и FBS после инвентаризации.</li>
+<li>💸 Некорректное начисление комиссий или логистических расходов.</li>
+</ul>
+<p>Каждая из этих ситуаций требует индивидуального подхода. Например, при отмене заказа важно убедиться, что товар физически вернулся на склад или был утилизирован, прежде чем отражать это в учете. Игнорирование физического движения товара приведет к <strong>инвентаризационным потерям</strong> в будущем.</p>
+
+<h2 id="подготовка-базы-1с-к-процедуре">Подготовка базы 1С к процедуре</h2>
+<p>Прежде чем приступать к активным действиям, необходимо убедиться, что ваша учетная система готова к изменениям. В первую очередь проверьте актуальность конфигурации. Работа с <em>Ozon</em> требует современных версий модулей, так как API маркетплейса часто обновляется. Устаревшие обработчики могут некорректно интерпретировать новые статусы заказов.</p>
+<p>Сделайте <strong>резервную копию</strong> базы данных. Это золотое правило любого бухгалтера или системного администратора. Если в процессе декомпенсации произойдет сбой или вы случайно проведете лишнее действие, возможность откатиться к точке восстановления спасет вас от часов ручной перепроверки.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Готовность базы 1С к работе</h4><label class="check-item"><input type="checkbox"><span>Сделана полная резервная копия базы</span></label><label class="check-item"><input type="checkbox"><span>Проверены права доступа пользователя</span></label><label class="check-item"><input type="checkbox"><span>Обновлен модуль интеграции с Ozon</span></label><label class="check-item"><input type="checkbox"><span>Сверены остатки перед началом работ</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>Также стоит проверить права доступа. Операции по исправлению проведенных документов часто требуют расширенных прав, таких как «Полные права» или роль «Администратор». Убедитесь, что вы работаете под учетной записью, которая имеет разрешение на <strong>проведение и отмену</strong> документов в соответствующих разделах.</p>
+
+<h2 id="пошаговая-инструкция-как-провести-декомпенсацию">Пошаговая инструкция: как провести декомпенсацию</h2>
+<p>Алгоритм действий может незначительно отличаться в зависимости от версии 1С (УТ, КА, ERP) и используемого модуля интеграции, но общая логика остается единой. Рассмотрим стандартный сценарий через стандартные инструменты или популярные расширения.</p>
+<p>Сначала необходимо найти проблемный документ. Перейдите в раздел <code>Продажи → Реализация (акты, накладные)</code>. Найдите документ, соответствующий заказу, который требует исправления. Откройте его и проверьте статус. Если документ проведен, его нужно сначала <strong>отменить проведение</strong>. Это можно сделать кнопкой «Отменить проведение» в верхней панели или через меню «Еще».</p>
+<pre><code>1. Найти документ реализации по номеру заказа Ozon.
+<p>2. Открыть документ и нажать «Отменить проведение».</p>
+<p>3. Изменить статус документа на «Не проведен» или удалить (если позволяет политика учета).</p>
+<p>4. Перейти в обработку интеграции и запустить синхронизацию.</code></pre></p>
+<p>После отмены проведения в 1С, необходимо инициировать обмен данными с маркетплейсом. В обработке выгрузки обычно есть кнопка «Получить новые заказы» или «Обновить статусы». Система скачает актуальное состояние заказа с Ozon. Если заказ был отменен, 1С создаст документ возврата или сторно.</p>
+<ul>
+<li>📂 Откройте журнал документов «Реализация товаров и услуг».</li>
+<li>🔍 Найдите нужный заказ, используя фильтр по номеру или дате.</li>
+<li>🔙 Выполните отмену проведения документа.</li>
+<li>🔄 Запустите обмен данными с сервером Ozon.</li>
+</ul>
+<p>Важно следить за тем, чтобы при повторной загрузке не создался дубль документа. Современные модули интеграции используют уникальные идентификаторы (GUID), но при ручном вмешательстве есть риск нарушить эту логику. Всегда проверяйте журнал регистрации событий после синхронизации.</p>
+<div class="pb-poll" id="poll-8e45d4ad"><div class="pb-poll-question">📊 Каким модулем интеграции вы пользуетесь?</div><div class="pb-poll-option" data-poll="8e45d4ad" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Официальный модуль Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e45d4ad" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние решения (Атол, МоеСклад и др.)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e45d4ad" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Самописные обработки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e45d4ad" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не использую интеграцию, работаю вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="работа-с-ошибками-и-конфликтами-данных">Работа с ошибками и конфликтами данных</h2>
+<p>Даже при строгом следовании инструкции могут возникнуть конфликты. Часто встречается ошибка «Не найден контрагент» или «Нет такой номенклатуры». Это происходит, если в 1С удален справочник или изменено наименование товара, а Ozon продолжает слать данные по старым <strong>артикулам</strong>.</p>
+<p>Для решения таких проблем используйте механизм <strong>сопоставления</strong>. В большинстве обработок интеграции есть раздел «Настройки соответствия», где можно вручную связать элементы справочника Ozon с элементами справочника 1С. После настройки соответствия процедуру декомпенсации и повторной выгрузки нужно запустить заново.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип ошибки</th>
+<th>Причина возникновения</th>
+<th>Способ решения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Дубликат документа</td>
+<td>Повторный импорт одного заказа</td>
+<td>Проверить наличие документа с тем же external_id</td>
+</tr>
+<tr>
+<td>Отрицательный остаток</td>
+<td>Отгрузка больше, чем есть на складе</td>
+<td>Провести оприходование или инвентаризацию</td>
+</tr>
+<tr>
+<td>Ошибка курса валют</td>
+<td>Разница курсов ЦБ и Ozon</td>
+<td>Использовать курcовые разницы в настройках</td>
+</tr>
+<tr>
+<td>Неверная сумма</td>
+<td>Изменение цены после заказа</td>
+<td>Корректировка через документ «Корректировка долга»</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если система выдает ошибку о блокировке таблицы или записи, значит, в этот момент базу использует другой пользователь или фоновый процесс. Дождитесь освобождения ресурса, прежде чем повторять попытку.</p>
+</blockquote>
+<p>Особое внимание уделите логированию. В 1С есть журнал регистрации (<code>Администрирование → Журнал регистрации</code>). Анализируя записи в журнале в момент ошибки, можно точно определить, на каком этапе произошел сбой: при чтении файла, при маппинге данных или при проведении документа.</p>
+
+<h2 id="автоматизация-и-профилактика-проблем">Автоматизация и профилактика проблем</h2>
+<p>Чтобы минимизировать необходимость в ручной декомпенсации, стоит задуматься об автоматизации процессов. Настройка <strong>расписания</strong> обмена данными позволяет системе чаще синхронизироваться с Ozon, выявляя расхождения на ранних этапах. Чем чаще происходит обмен, тем меньше данных нужно исправлять за один раз.</p>
+<p>Используйте <em>обработки мониторинга</em>. Многие продвинутые модули предлагают функцию «Монитор ошибок», который собирает все проблемные заказы в одном окне. Это позволяет оператору быстро пробегаться по списку и исправлять только действительно критичные моменты, не тратя время на успешные выгрузки.</p>
+<details class="pb-accordion"><summary>Секреты быстрой настройки 1С</summary><div class="pb-accordion-body"><p>Для ускорения работы создайте отдельные виды цен для Ozon и настройте автоматическое округление. Это снизит количество ошибок при расчете комиссий и маржинальности.</p></div></details>
+<p>Регулярно проводите <strong>сверку остатков</strong>. Раз в неделю или месяц сравнивайте данные в 1С с данными в личном кабинете селлера. Это поможет выявить «тихие» ошибки, которые не блокируют работу, но искажают финансовую картину. Автоматические отчеты по расхождениям — лучший друг бухгалтера.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Совет: Настройте отправку уведомлений в Telegram или на почту при возникновении критических ошибок выгрузки. Это позволит реагировать на проблемы мгновенно, даже если вы не за компьютером.</p></aside>
+<p>Внедрение этих практик превратит хаотичное исправление ошибок в управляемый процесс. Ваша цель — не просто исправить текущую ошибку, а создать систему, которая не будет допускать ее повторения в будущем.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Можно ли восстановить удаленный документ реализации в 1С?</summary>
+<p>Если документ был просто не проведен, его можно найти в списке и провести заново. Если же он был удален физически (помечен на удаление и удален), то восстановить его можно только из резервной копии базы данных или создав новый документ на основе данных из отчета Ozon.</p>
+</details>
+<details>
+<summary>Почему после декомпенсации изменилась сумма в отчете о продажах?</summary>
+<p>Это может происходить из-за изменения курса валют, если расчеты ведутся в у.е., или из-за обновления комиссии маркетплейса. Проверьте, не изменились ли вводные данные в самом заказе на стороне Ozon.</p>
+</details>
+<details>
+<summary>Как часто нужно делать резервное копирование базы?</summary>
+<p>При активной торговле на маркетплейсах рекомендуется делать бэкап минимум раз в сутки, а в идеале — использовать облачное резервное копирование в реальном времени. Это обезопасит вас от потери данных при сбоях оборудования.</p>
+</details>
+<details>
+<summary>Что делать, если Ozon прислал статус «Доставлен», а в 1С товар числится в пути?</summary>
+<p>Необходимо принудительно обновить статусы заказов в обработке интеграции. Если автоматический обмен не срабатывает, проверьте API-ключи и логи соединения. В крайнем случае, измените статус документа в 1С вручную, но обязательно зафиксируйте это в комментарии к документу.</p>
+</details>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главное правило успешной работы с 1С и Ozon — регулярная сверка данных и своевременное обновление модулей интеграции. Профилактика занимает меньше времени, чем исправление ошибок.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-posmotret-v-ozon-seller-vykupy-ozonom.html" class="pb-related-card">
+                <span class="pb-related-title">Где посмотреть выкупы Озоном в Seller: полный гид</span>
+                <span class="pb-related-desc">Узнайте, как найти выкупленные товары в Ozon Seller. Инструкция по отчетам, аналитике продаж и причи</span>
+            </a><a href="/articles/o/oz/ozon-registratsiya-ip-kak-pokupatelya.html" class="pb-related-card">
+                <span class="pb-related-title">Озон регистрация ИП как покупателя: пошаговая инструкция</span>
+                <span class="pb-related-desc">Как зарегистрировать ИП на Озоне для покупок. Пошаговый алгоритм, выбор типа аккаунта, нюансы верифи</span>
+            </a><a href="/articles/o/oz/ozon-zaregistrirovatsya-kak-ip.html" class="pb-related-card">
+                <span class="pb-related-title">Как зарегистрироваться на Ozon как ИП в 2026: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полный гайд по регистрации ИП для продаж на Ozon: документы, налоги, шаги в личном кабинете. Актуаль</span>
+            </a><a href="/articles/k/ka/kak-prodavat-chekhly-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать чехлы на Озон: полный гайд для новичков и профи</span>
+                <span class="pb-related-desc">Пошаговый алгоритм запуска продаж чехлов на Ozon: от выбора ниши до масштабирования. Узнайте, как об</span>
+            </a><a href="/articles/k/ka/kak-pravilno-platit-nalogi-s-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как правильно платить налоги с Ozon: полный гид для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как платить налоги с Ozon в 2026 году. Разбор УСН, патента, НДС и самозанятости. Инструкция</span>
+            </a><a href="/articles/k/ka/kak-nachat-prodavat-na-ozone-poshagovaya-instruktsiya.html" class="pb-related-card">
+                <span class="pb-related-title">Как начать продавать на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как начать продавать на Озон с нуля. Полная инструкция для новичков: регистрация, выбор схе</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

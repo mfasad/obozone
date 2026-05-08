@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает время на Ozon: таймеры, акции и отмена заказов — Об Озоне</title>
+    <meta name="description" content="Разбираем тайминги маркетплейса: когда отменяется заказ, как продлить время хранения и сколько действуют скидки. Все про часы работы Ozon.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-kak-rabotaet-vremya.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает время на Ozon: таймеры, акции и отмена заказов">
+    <meta property="og:description" content="Разбираем тайминги маркетплейса: когда отменяется заказ, как продлить время хранения и сколько действуют скидки. Все про часы работы Ozon.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работает время на Ozon: таймеры, акции и отмена заказов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#таймер-отмены-заказа-и-время-на-оплату">Таймер отмены заказа и время на оплату</a></li><li><a href="#сроки-хранения-на-складе-и-в-пунктах-выдачи">Сроки хранения на складе и в пунктах выдачи</a></li><li><a href="#временные-интервалы-доставки-и-работа-курьеров">Временные интервалы доставки и работа курьеров</a></li><li><a href="#время-действия-акций-и-динамическое-ценообразование">Время действия акций и динамическое ценообразование</a></li><li><a href="#технические-задержки-и-статусы-заказов">Технические задержки и статусы заказов</a></li><li><a href="#как-управлять-временем-доставки-в-приложении">Как управлять временем доставки в приложении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rabotayut-punkty-ozon.html">Как работают пункты выдачи Озон: полный гайд 2026 для покупателей</a></li><li><a href="/articles/k/ka/kak-uznat-chto-zakaz-prishel-v-punkt-vydachi-ozon.html">Как отследить заказ в пункте выдачи Озон — 5 способов 2026</a></li><li><a href="/articles/k/ka/kak-uznat-v-kakom-gorode-posylka-s-ozona.html">Как отследить город посылки с Озон: 5 способов 2026 года</a></li><li><a href="/articles/k/ka/kak-izmenit-geografiyu-dostavki-na-ozon-seller.html">Как изменить географию доставки на Ozon Seller: инструкция</a></li><li><a href="/articles/v/vo/vo-skolko-prikhodit-tovar-na-ozon.html">Сроки доставки на Озон: когда придет ваш заказ в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как работает время на Ozon: таймеры, акции и отмена заказов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#таймер-отмены-заказа-и-время-на-оплату">Таймер отмены заказа и время на оплату</a></li><li><a href="#сроки-хранения-на-складе-и-в-пунктах-выдачи">Сроки хранения на складе и в пунктах выдачи</a></li><li><a href="#временные-интервалы-доставки-и-работа-курьеров">Временные интервалы доставки и работа курьеров</a></li><li><a href="#время-действия-акций-и-динамическое-ценообразование">Время действия акций и динамическое ценообразование</a></li><li><a href="#технические-задержки-и-статусы-заказов">Технические задержки и статусы заказов</a></li><li><a href="#как-управлять-временем-доставки-в-приложении">Как управлять временем доставки в приложении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В мире электронной коммерции время измеряется не часами, а минутами и даже секундами. Для покупателя каждая задержка может означать срыв планов, а для продавца — риск получить штраф или рейтинг ниже. <strong>Озон</strong> выстроил сложнейшую логистическую экосистему, где алгоритмы рассчитывают сроки доставки с точностью до часа, но человеческий фактор и технические нюансы вносят свои коррективы. Понимание того, как именно маркетплейс оперирует временными промежутками, поможет вам экономить деньги и нервы.</p>
+
+<p>Многие пользователи сталкиваются с ситуацией, когда таймер на экране показывает одно, а реальность диктует другое. Почему товар исчез из корзины? Сколько времени есть на отмену заказа после оплаты? Ответы на эти вопросы кроются в <em>алгоритмах бронирования</em> склада. Система не просто фиксирует наличие товара, она резервирует его под ваш заказ на строго определенное время. Если вы не успеете оплатить или подтвердить данные, резерв снимается, и товар снова становится доступен для других.</p>
+
+<p>В этой статье мы детально разберем механику работы таймеров, сроки хранения на складах и ПВЗ, а также особенности временных рамок во время крупных распродаж. Вы узнаете, как <strong>интервалы доставки</strong> влияют на стоимость и скорость, и что делать, если курьер опаздывает. Временной фактор — ключевой элемент успешного шопинга на Ozon.</p>
+
+<h2 id="таймер-отмены-заказа-и-время-на-оплату">Таймер отмены заказа и время на оплату</h2>
+
+<p>Один из самых волнующих вопросов для покупателей — сколько времени дается на"подумать" после оформления заказа. В интерфейсе Ozon существует понятие <strong>таймера отмены</strong>. Как только вы нажали кнопку"Оформить", но еще не произвели оплату, запускается обратный отсчет. Обычно он составляет от 15 до 30 минут, в зависимости от текущей нагрузки на систему и популярности товара. Если в течение этого времени оплата не поступит, заказ будет автоматически аннулирован.</p>
+
+<p>После успешной оплаты у покупателя также есть временное окно для бесплатной отмены. Это время варьируется, но чаще всего составляет <strong>15-20 минут</strong>. В этот период заказ еще находится в статусе"Собирается" и не передан в логистическую службу. Как только статус меняется на"Передан в доставку", кнопка отмены исчезает, и для возврата товаров потребуется инициировать процедуру возврата через личный кабинет, что займет больше времени.</p>
+
+<div class="pb-poll" id="poll-915fea41"><div class="pb-poll-question">📊 Как часто вы отменяете заказы после оплаты?</div><div class="pb-poll-option" data-poll="915fea41" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Почти никогда, покупаю обдуманно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="915fea41" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Часто, меняю решение</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="915fea41" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только если долго не доставляют</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="915fea41" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Зависит от цены товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Важно понимать разницу между <em>временем сборки</em> и <strong>временем доставки</strong>. Сборка происходит на складе продавца или Ozon и может занимать от нескольких часов до двух суток. В этот период заказ еще можно попытаться отменить через поддержку, но гарантий нет. Если товар уже упакован и промаркирован, система может не дать отменить заказ автоматически.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Во время крупных распродаж, таких как"Хиты" или"Черная пятница", время на отмену заказа после оплаты может быть сокращено до 5-10 минут из-за огромного потока транзакций. Не затягивайте с решением, если сомневаетесь.</p>
+</blockquote>
+
+<h2 id="сроки-хранения-на-складе-и-в-пунктах-выдачи">Сроки хранения на складе и в пунктах выдачи</h2>
+
+<p>Логистика Ozon построена на жестких временных регламентах хранения. Когда вы оформляете заказ с самовывозом, товар бронируется на складе, а затем отправляется в выбранный пункт выдачи заказов (ПВЗ). С момента поступления товара в ПВЗ запускается <strong>таймер хранения</strong>. Стандартный срок бесплатного хранения составляет 7 дней (168 часов). В течение этого времени вы можете в любой удобный час работы пункта забрать свою посылку.</p>
+
+<p>Если в течение 7 дней вы не забрали товар, он не пропадает мгновенно. Система автоматически продлевает срок хранения еще на 7 дней, но уже с начислением платы за хранение. Стоимость обычно составляет около 50 рублей в сутки, но может варьироваться в зависимости от габаритов товара. После истечения второго периода (всего 14 дней) заказ возвращается отправителю, а деньги за товар возвращаются на ваш счет за вычетом стоимости обратной логистики.</p>
+
+<p>Для заказов, доставляемых курьером, действуют свои временные рамки. Курьерская служба Ozon работает в определенные часы, обычно с 09:00 до 21:00, но точное время зависит от вашего региона. Если курьер не смог дозвониться или вас не было дома, заказ уезжает обратно на склад. Там он хранится <strong>3 дня</strong>, в течение которых с вами будут пытаться связаться для повторной доставки. Если за 3 дня связаться не удалось, заказ также уезжает обратно продавцу.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>В приложении Ozon можно продлить срок хранения в ПВЗ бесплатно, если нажать соответствующую кнопку до истечения 7 дней, но это доступно не для всех товаров и зависит от загруженности пункта.</p></aside>
+
+<p>Особое внимание стоит уделить крупногабаритным товарам. Для них сроки хранения могут быть сокращены, а условия возврата сложнее из-за логистических особенностей. Всегда проверяйте <em>карточку товара</em>, где часто указывается специфика хранения для габаритных позиций.</p>
+
+<h2 id="временные-интервалы-доставки-и-работа-курьеров">Временные интервалы доставки и работа курьеров</h2>
+
+<p>При заказе товаров на дом система предлагает выбрать временной интервал. Это не просто удобство, а важный элемент оптимизации логистических маршрутов. Ozon делит сутки на несколько <strong>временных слотов</strong>, например,"09:00–13:00","13:00–17:00" или"18:00–22:00". Выбор конкретного окна позволяет курьеру спланировать маршрут так, чтобы доставить максимальное количество заказов за смену.</p>
+
+<p>Важно понимать, что выбранный интервал является ориентировочным. <strong>Озон</strong> предупреждает, что курьер может опоздать или приехать раньше из-за пробок, погодных условий или сложности поиска адреса. В приложении вы можете отслеживать перемещение курьера в реальном времени, когда заказ уже находится в статусе"Курьер в пути". Обычно это окно открывается за 1-2 часа до конца выбранного интервала.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип доставки</th>
+<th>Стандартный срок</th>
+<th>Возможность выбора времени</th>
+<th>Особенности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Экспресс</td>
+<td>До 2 часов</td>
+<td>Нет (срочно)</td>
+<td>Доставка день в день</td>
+</tr>
+<tr>
+<td>Курьером (стандарт)</td>
+<td>1-3 дня</td>
+<td>Да (интервалы)</td>
+<td>Доставка до двери</td>
+</tr>
+<tr>
+<td>В ПВЗ</td>
+<td>1-5 дней</td>
+<td>Нет (по графику ПВЗ)</td>
+<td>Хранение 7+7 дней</td>
+</tr>
+<tr>
+<td>Почта России</td>
+<td>3-10 дней</td>
+<td>Нет</td>
+<td>Зависит от региона</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Если курьер опаздывает более чем на 30 минут от конца интервала, у пользователя появляется возможность получить бонусы или баллы Ozon Карточки в качестве компенсации. Однако для этого часто требуется активное действие со стороны клиента или автоматическая система лояльности. В некоторых случаях можно связаться с поддержкой и попросить перенести доставку на другой день, если текущий интервал уже не актуален.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Выбор узкого временного интервала (например,"утро" или"вечер") повышает вероятность точной доставки, но может увеличить срок ожидания товара на 1 день по сравнению с доставкой"в течение дня".</p></aside>
+
+<h2 id="время-действия-акций-и-динамическое-ценообразование">Время действия акций и динамическое ценообразование</h2>
+
+<p>Озон активно использует <strong>динамическое ценообразование</strong> и-акции (flash sales). Цены на товары могут меняться несколько раз в день в зависимости от спроса, остатков на складе и поведения конкурентов. Особый интерес представляют"Товары дня" и"Товары со скидкой", которые действуют ограниченное время. Таймер обратного отсчета на карточке товара показывает, сколько осталось до окончания акции.</p>
+
+<p>Психологический эффект таймера заставляет покупателей принимать решения быстрее. Однако стоит быть внимательным: иногда после истечения времени акции цена не возвращается к исходной, а становится еще ниже, или же товар просто исчезает из продажи. Алгоритмы <em>Ozon</em> анализируют конверсию: если товар не покупают даже со скидкой, цена может быть снижена дополнительно.</p>
+
+<p>Существует также понятие <strong>персональных предложений</strong>, которые действуют 24 или 48 часов. Они формируются индивидуально для каждого пользователя на основе истории покупок и просмотров. Если вы видите товар с пометкой"Цена только для вас" и таймером, это сигнал, что система готова дать максимальную скидку именно сейчас, чтобы стимулировать покупку.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Добавление товара в корзину не фиксирует цену. Если акция закончится пока товар лежит в корзине, при оформлении заказа вы увидите уже новую, более высокую цену. Оплачивайте выгодные предложения сразу.</p>
+</blockquote>
+
+<p>Во время глобальных распродаж, таких как"День рождения Ozon", правила могут меняться. Скидки могут быть ступенчатыми: утром одни, вечером другие. Также в эти периоды время обработки заказов увеличивается, а таймеры доставки могут сдвигаться на 1-2 дня из-за перегрузки складов.</p>
+
+<h2 id="технические-задержки-и-статусы-заказов">Технические задержки и статусы заказов</h2>
+
+<p>Иногда пользователи сталкиваются с рассинхронизацией времени в приложении и реальностью. Статус заказа может"зависать" на несколько часов. Например, статус"Собирается" может висеть дольше обычного. Это часто связано с работой <strong>логистических центров</strong>, где происходит сортировка тысяч посылок. Система обновляет статус только после сканирования штрих-кода сотрудником склада.</p>
+
+<p>Существует также технический нюанс с часами работы поддержки. Живой оператор доступен 24/7, но время реакции может варьироваться. Ночью (с 02:00 до 07:00 по московскому времени) время ожидания ответа может увеличиваться, так как работает дежурная смена. Робот-помощник отвечает мгновенно в любое время суток, но его возможности решения сложных проблем ограничены.</p>
+
+<p>Если вы заметили, что статус заказа не меняется более 3-4 дней (для экспресс-доставки) или более 7 дней (для обычной), стоит инициировать проверку. Время здесь играет против покупателя, так как чем дольше тянется процесс, тем сложнее найти товар на складах-гигантах.</p>
+
+<details class="pb-accordion"><summary>Почему статус не обновляется?</summary><div class="pb-accordion-body"><p>Часто товар физически уже едет к вам, но курьерское устройство не имеет связи или сотрудник забыл отсканировать посылку на этапе сортировки. В 90% случаев заказ доезжает в срок, несмотря на"застывший" статус.</p></div></details>
+
+<h2 id="как-управлять-временем-доставки-в-приложении">Как управлять временем доставки в приложении</h2>
+
+<p>Чтобы минимизировать временные потери, Ozon предоставляет инструменты управления. В разделе"Профиль" ->"Настройки" можно указать предпочтительное время для звонков от курьеров. Это помогает избежать ситуаций, когда вам звонят во время совещания или глубокой ночи.</p>
+
+<p>Также доступна функция <strong>предзаказа</strong>. Если товар появится в продаже в определенное время (например, новый гаджет или коллекционная вещь), система позволит оформить заказ заранее. Оплата спишется только когда товар фактически поступит на склад и будет готов к отправке. Это экономит время на мониторинге наличия.</p>
+
+<ul>
+<li>🕒 Используйте уведомления: включите пуш-уведомления о смене статуса, чтобы знать точное время прибытия курьера.</li>
+<li>📦 Планируйте заранее: для товаров с длительным сроком доставки (из-за рубежа или от удаленных продавцов) закладывайте запас в 10-14 дней.</li>
+<li>📍 Выбирайте правильные ПВЗ: пункты выдачи в бизнес-центрах работают только в будни до 19:00, а в жилых домах могут быть открыты до 23:00 или круглосуточно.</li>
+</ul>
+
+<p>Умение грамотно управлять этими настройками превращает шопинг из лотереи в предсказуемый процесс. Вы контролируете время, а не оно вас.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист перед заказом</h4><label class="check-item"><input type="checkbox"><span>Проверить срок доставки в карточке товара</span></label><label class="check-item"><input type="checkbox"><span>Убедиться, что ПВЗ работает в удобное время</span></label><label class="check-item"><input type="checkbox"><span>Проверить актуальность цены и действия акции</span></label><label class="check-item"><input type="checkbox"><span>Указать комментарий для курьера (домофон, этаж)</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли изменить время доставки уже после оформления заказа?</summary>
+<p>Да, изменить интервал доставки можно, пока заказ не передан курьеру. Зайдите в детали заказа, найдите кнопку"Изменить" рядом со временем доставки. Если заказ уже в пути, изменить время можно только связавшись с курьером по телефону (номер будет в трекинге) или через поддержку, но это не гарантировано.</p>
+</details>
+
+<details>
+<summary>Что будет, если я не успею забрать товар за 7 дней?</summary>
+<p>Ничего страшного не произойдет. Ozon автоматически продлит хранение еще на 7 дней. Однако со второго дня продления (или сразу, в зависимости от типа товара) может начать начисляться плата за хранение, которая спишется при получении или с баланса Ozon Карты.</p>
+</details>
+
+<details>
+<summary>Как долго хранится история заказов?</summary>
+<p>История заказов в личном кабинете Ozon хранится indefinitely (бессрочно), пока существует ваш аккаунт. Вы можете найти заказы, сделанные несколько лет назад, через фильтр по датам или поиск. Это удобно для отслеживания гарантийных сроков техники.</p>
+</details>
+
+<details>
+<summary>Влияет ли время суток на скорость обработки заказа?</summary>
+<p>Заказы, оформленные до 12:00 или 14:00 (время зависит от склада), чаще всего успевают уехать в сортировочный центр в тот же день. Заказы, оформленные вечером или ночью, обычно начинают обрабатываться на следующее утро.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-rabotayut-punkty-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как работают пункты выдачи Озон: полный гайд 2026 для покупателей</span>
+                <span class="pb-related-desc">Разбираемся, как устроены ПВЗ Озон: от получения заказа до возврата. Пошаговые инструкции, сроки хра</span>
+            </a><a href="/articles/k/ka/kak-uznat-chto-zakaz-prishel-v-punkt-vydachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отследить заказ в пункте выдачи Озон — 5 способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как проверить прибыл ли заказ в ПВЗ Озон через приложение, сайт, SMS и email. </span>
+            </a><a href="/articles/k/ka/kak-uznat-v-kakom-gorode-posylka-s-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как отследить город посылки с Озон: 5 способов 2026 года</span>
+                <span class="pb-related-desc">Узнайте, в каком городе находится ваша посылка с Ozon: через трек-номер, приложение, карту доставки </span>
+            </a><a href="/articles/k/ka/kak-izmenit-geografiyu-dostavki-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить географию доставки на Ozon Seller: инструкция</span>
+                <span class="pb-related-desc">Узнайте, как настроить и изменить географию доставки на Ozon Seller для схем FBO и FBS. Полный гид п</span>
+            </a><a href="/articles/v/vo/vo-skolko-prikhodit-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сроки доставки на Озон: когда придет ваш заказ в 2026 году</span>
+                <span class="pb-related-desc">Точные сроки доставки товаров на Ozon: от чего зависит скорость, как отследить заказ и что делать, е</span>
+            </a><a href="/articles/s/sk/skolko-khranyatsya-veshchi-v-postamate-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Срок хранения в постамате Ozon: сколько дней ждать?</span>
+                <span class="pb-related-desc">Узнайте, сколько времени хранится заказ в постамате Озон. Разбор правил для разных тарифов, штрафы з</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отразить баллы Озон в 1С: пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Подробное руководство по интеграции бонусов Озон в 1С: настройка обмена, учет баллов, типичные ошибки и решения. Актуально для продавцов FBO/FBS.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-otrazit-bally-ozona-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отразить баллы Озон в 1С: пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по интеграции бонусов Озон в 1С: настройка обмена, учет баллов, типичные ошибки и решения. Актуально для продавцов FBO/FBS.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отразить баллы Озон в 1С: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#почему-учет-бонусов-озон-в-1с-важен-для-продавцов">Почему учет бонусов Озон в 1С важен для продавцов</a></li><li><a href="#подготовка-1с-к-работе-с-баллами-озон">Подготовка 1С к работе с баллами Озон</a></li><li><a href="#настройка-обмена-данными-с-ozon-api">Настройка обмена данными с Ozon API</a></li><li><a href="#ручной-ввод-баллов-озон-в-1с-когда-это-необходимо">Ручной ввод баллов Озон в 1С: когда это необходимо</a></li><li><a href="#автоматизация-учета-баллов-обработки-и-внешние-сервисы">Автоматизация учета баллов: обработки и внешние сервисы</a></li><li><a href="#типичные-ошибки-при-учете-баллов-озон-и-как-их-избежать">Типичные ошибки при учете баллов Озон и как их избежать</a></li><li><a href="#интеграция-с-другими-системами-crm-wms-bi">Интеграция с другими системами: CRM, WMS, BI</a></li><li><a href="#отчетность-и-аналитика-как-использовать-данные-о-баллах">Отчетность и аналитика: как использовать данные о баллах</a></li><li><a href="#faq-частые-вопросы-по-учету-баллов-озон-в-1с">FAQ: Частые вопросы по учету баллов Озон в 1С</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vyjti-na-ozon-so-svoim-tovarom-otzyvy.html">Как выйти на Ozon со своим товаром: отзывы и старт 2026</a></li><li><a href="/articles/k/ka/kak-prodat-svoj-tovar-ozonu.html">Как продать товар на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-nachat-prodavat-svoj-tovar-na-ozone-usloviya.html">Как начать продавать на Ozon: условия, документы и старт в 2026</a></li><li><a href="/articles/k/ka/kak-sdelat-i-poluchit-zakaz-na-ozone.html">Как получить заказ на Озоне: пошаговая инструкция для селлеров</a></li><li><a href="/articles/o/ot/otkryt-ozon-kak-otkryt.html">Как открыть Ozon: пошаговая инструкция для старта</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как правильно отразить баллы Озон в 1С: от настройки до учета</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#почему-учет-бонусов-озон-в-1с-важен-для-продавцов">Почему учет бонусов Озон в 1С важен для продавцов</a></li><li><a href="#подготовка-1с-к-работе-с-баллами-озон">Подготовка 1С к работе с баллами Озон</a></li><li><a href="#настройка-обмена-данными-с-ozon-api">Настройка обмена данными с Ozon API</a></li><li><a href="#ручной-ввод-баллов-озон-в-1с-когда-это-необходимо">Ручной ввод баллов Озон в 1С: когда это необходимо</a></li><li><a href="#автоматизация-учета-баллов-обработки-и-внешние-сервисы">Автоматизация учета баллов: обработки и внешние сервисы</a></li><li><a href="#типичные-ошибки-при-учете-баллов-озон-и-как-их-избежать">Типичные ошибки при учете баллов Озон и как их избежать</a></li><li><a href="#интеграция-с-другими-системами-crm-wms-bi">Интеграция с другими системами: CRM, WMS, BI</a></li><li><a href="#отчетность-и-аналитика-как-использовать-данные-о-баллах">Отчетность и аналитика: как использовать данные о баллах</a></li><li><a href="#faq-частые-вопросы-по-учету-баллов-озон-в-1с">FAQ: Частые вопросы по учету баллов Озон в 1С</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><h2 id="почему-учет-бонусов-озон-в-1с-важен-для-продавцов">Почему учет бонусов Озон в 1С важен для продавцов</h2>
+
+<p>Работа с маркетплейсом <em>Ozon</em> подразумевает не только продажу товаров, но и участие в программе лояльности, где покупатели получают баллы за покупки. Эти баллы later могут быть использованы как частичная оплата заказов, что напрямую влияет на финансовые потоки вашего бизнеса. Без корректного отражения бонусных операций в <strong>1С</strong> вы рискуете получить искаженную картину выручки, себестоимости и налоговой базы.</p>
+
+<p>Проблема усложняется тем, что <em>Ozon</em> не всегда предоставляет детализированные данные о списаниях баллов в стандартных отчетах. Продавцы часто сталкиваются с ситуацией, когда сумма заказа в личном кабинете не совпадает с фактически поступившими средствами из-за списания бонусов. В этой статье мы разберем, как настроить <strong>1С</strong> для автоматического учета бонусов, избежать ошибок при ручном вводе и интегрировать данные с другими системами аналитики.</p>
+
+<p>Особое внимание уделим двум ключевым сценариям: работе по модели <em>FBO</em> (когда вы сами храните и отправляете товар) и <em>FBS</em> (когда логистикой занимается <em>Ozon</em>). В каждом случае потребуются разные подходы к настройке обмена данными и формированию проводок.</p>
+
+<h2 id="подготовка-1с-к-работе-с-баллами-озон">Подготовка 1С к работе с баллами Озон</h2>
+
+<p>Прежде чем настраивать обмен данными, убедитесь, что ваша конфигурация <strong>1С</strong> поддерживает работу с маркетплейсами. Для большинства продавцов подойдут следующие решения:</p>
+
+<ul>
+  <li>📌 <strong>1С:Управление торговлей 11</strong> (рекомендовано для среднего и крупного бизнеса)</li>
+  <li>📌 <strong>1С:Бухгалтерия 8.3</strong> (если нужна только финансовая часть)</li>
+  <li>📌 <strong>1С:Розница 2.3</strong> (для магазинов с омниканальными продажами)</li>
+  <li>📌 <strong>1С:ERP Управление предприятием 2</strong> (для комплексного учета)</li>
+</ul>
+
+<p>Если вы используете типовые конфигурации, проверьте наличие последних обновлений — в версиях старше 2023 года могут отсутствовать необходимые обработки для работы с <em>API Ozon</em>. Для нетиповых решений потребуется доработка через <code>1С:Предприятие</code> или внешние модули.</p>
+
+<p>Важный момент: перед настройкой обмена создайте отдельный <strong>справочник "Маркетплейсы"</strong> (если его нет), где будет храниться информация о <em>Ozon</em>, включая реквизиты для API, ставки комиссий и правила учета бонусов. Это упростит дальнейшую аналитику и отчетность.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы работаете с несколькими маркетплейсами, настройте в 1С отдельные подсистемы для каждого. Это позволит избежать путаницы при списании бонусов и комиссий.</p></aside>
+
+<h2 id="настройка-обмена-данными-с-ozon-api">Настройка обмена данными с Ozon API</h2>
+
+<p>Для автоматического получения информации о баллах необходимо подключить <strong>1С к API Ozon</strong>. Это можно сделать двумя способами:</p>
+
+<ol>
+  <li><strong>Через стандартный функционал</strong> (доступен в последних версиях <em>1С:Управление торговлей</em> и <em>1С:ERP</em>).</li>
+  <li><strong>Через внешнюю обработку</strong> (например, <em>"Интеграция с Ozon для 1С"</em> от партнеров <em>1С-Битрикс</em>).</li>
+</ol>
+
+<p>Рассмотрим первый вариант подробнее. Для настройки стандартного обмена:</p>
+
+<ol>
+  <li>Перейдите в раздел <code>Администрирование → Обмен данными → Настройка обмена с маркетплейсами</code>.</li>
+  <li>Выберите <em>Ozon</em> из списка поддерживаемых платформ.</li>
+  <li>Введите <code>Client-ID</code> и <code>API-Key</code> из личного кабинета <em>Ozon Seller</em>.</li>
+  <li>Укажите частоту обмена (рекомендуется не реже 1 раза в час для оперативного учета).</li>
+  <li>В настройках отметьте галочкой пункт <code>"Загружать данные о бонусных списаниях"</code>.</li>
+</ol>
+
+<p>После сохранения настроек запустите тестовое подключение. Если обмен прошел успешно, в <strong>1С</strong> начнут поступать данные о заказах, включая информацию о списанных баллах. Обратите внимание, что <em>Ozon</em> может задерживать передачу данных о бонусах до 24 часов — это нормальная практика.</p>
+
+<div class="pb-poll" id="poll-2877e0e5"><div class="pb-poll-question">📊 Какой способ обмена данными с Ozon вы используете?</div><div class="pb-poll-option" data-poll="2877e0e5" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Стандартный функционал 1С</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2877e0e5" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Внешнюю обработку</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2877e0e5" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручной ввод</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2877e0e5" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не настраивал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="ручной-ввод-баллов-озон-в-1с-когда-это-необходимо">Ручной ввод баллов Озон в 1С: когда это необходимо</h2>
+
+<p>Автоматический обмен не всегда возможен. Например, если вы работаете с устаревшей версией <strong>1С</strong> или у вас ограниченный доступ к <em>API Ozon</em>. В таких случаях придется вводить данные о баллах вручную. Вот пошаговая инструкция:</p>
+
+<ol>
+  <li>Скачайте отчет <code>"Детализация заказов"</code> в личном кабинете <em>Ozon Seller</em> (раздел <code>Финансы → Отчеты</code>).</li>
+  <li>Откройте в <strong>1С</strong> документ <code>"Поступление на расчетный счет"</code> для соответствующего заказа.</li>
+  <li>В табличной части добавьте строку с типом операции <code>"Списание бонусов"</code> (если такого типа нет, создайте его в справочнике <code>"Виды операций"</code>).</li>
+  <li>Укажите сумму списанных баллов со знаком <code>"минус"</code> (например, <code>-350 ₽</code>).</li>
+  <li>В комментарии укажите номер заказа и дату списания (пример: <code>"Ozon #12345678, бонусы 15.05.2026"</code>).</li>
+</ol>
+
+<p>При ручном вводе легко допустить ошибку, поэтому рекомендуем использовать <strong>контрольный чек-лист</strong>:</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка корректности ручного ввода баллов</h4><label class="check-item"><input type="checkbox"><span>Сверить сумму бонусов с отчетом Ozon</span></label><label class="check-item"><input type="checkbox"><span>Проверить знак операции (должен быть минус)</span></label><label class="check-item"><input type="checkbox"><span>Указать правильный контрагента (Ozon LLC)</span></label><label class="check-item"><input type="checkbox"><span>Прикрепить скриншот из личного кабинета</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Если вы вводите баллы ретроактивно (например, за прошлый месяц), не забудьте пересчитать налоговую базу по НДС и налогу на прибыль. Списание бонусов уменьшает выручку, что влияет на налоговые обязательства.</p>
+
+<details class="pb-accordion"><summary>Что будет если не учитывать баллы Озон в 1С?</summary><div class="pb-accordion-body"><p>Искажение финансовой отчетности, занижение/завышение налоговой базы, проблемы при аудите, сложности с анализом рентабельности заказов.</p></div></details>
+
+<h2 id="автоматизация-учета-баллов-обработки-и-внешние-сервисы">Автоматизация учета баллов: обработки и внешние сервисы</h2>
+
+<p>Для упрощения работы с бонусами <em>Ozon</em> можно использовать специализированные решения. Вот наиболее популярные варианты:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Решение</th>
+      <th>Стоимость</th>
+      <th>Функционал</th>
+      <th>Сложность настройки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>1С-Битрикс: Интеграция с Ozon</em></td>
+      <td>от 15 000 ₽/год</td>
+      <td>Автоматический обмен заказами, остатками, ценами, бонусами</td>
+      <td>Средняя</td>
+    </tr>
+    <tr>
+      <td><em>Модуль "Ozon Seller" для 1С</em> (от <em>АйТи Интеграция</em>)</td>
+      <td>от 20 000 ₽ разово</td>
+      <td>Полная синхронизация, включая бонусные программы и возвраты</td>
+      <td>Высокая</td>
+    </tr>
+    <tr>
+      <td><em>Сервис MyWare</em></td>
+      <td>от 5 000 ₽/мес</td>
+      <td>Облачная интеграция, поддержка мультимаркетплейсовых продаж</td>
+      <td>Низкая</td>
+    </tr>
+    <tr>
+      <td><em>Самостоятельная доработка через API</em></td>
+      <td>от 30 000 ₽ (разработчик)</td>
+      <td>Гибкая настройка под специфику бизнеса</td>
+      <td>Очень высокая</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>При выборе решения обратите внимание на следующие критерии:</p>
+
+<ul>
+  <li>🔄 <strong>Частота обновления данных</strong> (оптимально — не реже 1 раза в час).</li>
+  <li>📊 <strong>Поддержка аналитики</strong> (возможность формировать отчеты по списаниям бонусов).</li>
+  <li>🔒 <strong>Безопасность</strong> (шифрование данных, двухфакторная аутентификация).</li>
+  <li>🛠️ <strong>Техническая поддержка</strong> (наличие документации и помощи при ошибках).</li>
+</ul>
+
+<p><mark>Важно: некоторые сервисы интеграции не учитывают бонусы, списанные по промокодам или акциям Ozon. Уточняйте этот момент у поставщика решения перед покупкой.</mark></p>
+
+<h2 id="типичные-ошибки-при-учете-баллов-озон-и-как-их-избежать">Типичные ошибки при учете баллов Озон и как их избежать</h2>
+
+<p>Даже при автоматическом обмене данные о бонусах могут отражаться некорректно. Вот наиболее распространенные ошибки и способы их решения:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если сумма списанных баллов в 1С не совпадает с данными Ozon, проверьте настройки округления валют. Часто проблема кроется в разных правилах округления копеек.</blockquote>
+
+<ul>
+  <li>🔴 <strong>Бонусы не списываются автоматически</strong><br>
+<p>Причина: не включена опция <code>"Загружать бонусные операции"</code> в настройках обмена.<br></p>
+<p>Решение: переподключите API с правильными параметрами.</li></p>
+
+  <li>🔴 <strong>Двойное списание баллов</strong><br>
+<p>Причина: дублирование заказов при ручном и автоматическом вводе.<br></p>
+<p>Решение: настройте блокировку редактирования закрытых документов.</li></p>
+
+  <li>🔴 <strong>Неверная аналитика по бонусам</strong><br>
+<p>Причина: отсутствует разделение бонусов по типам (стандартные, промо, кешбэк).<br></p>
+<p>Решение: доработайте справочник <code>"Виды бонусов"</code>.</li></p>
+</ul>
+
+<p>Еще одна частая проблема — <strong>несоответствие дат списания</strong>. <em>Ozon</em> может фиксировать списание баллов в один день, а денежные средства поступают на счет позже. В этом случае в 1С образуется "висящая" сумма. Чтобы избежать путаницы, настройте отдельный регистр сведений <code>"Ожидаемые платежи по бонусам"</code>, где будут храниться данные до фактического поступления денег.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Перед закрытием месяца всегда сверяйте сумму списанных баллов в 1С с отчетом "Финансовые операции" в личном кабинете Ozon. Расхождения более 1% — повод для проверки.</p></aside>
+
+<h2 id="интеграция-с-другими-системами-crm-wms-bi">Интеграция с другими системами: CRM, WMS, BI</h2>
+
+<p>Учет баллов <em>Ozon</em> в <strong>1С</strong> — только часть задачи. Для полноценного анализа эффективности продаж данные нужно передавать в другие системы:</p>
+
+<ul>
+  <li>📈 <strong>BI-системы</strong> (Power BI, Tableau) — для визуализации динамики списания бонусов.</li>
+  <li>🏢 <strong>CRM</strong> (Bitrix24, amoCRM) — для сегментации клиентов по уровню лояльности.</li>
+  <li>🚚 <strong>WMS</strong> (1С:WMS Логистика) — для учета бонусов при комплектации заказов.</li>
+</ul>
+
+<p>Для передачи данных можно использовать:</p>
+<ol>
+  <li><strong>Прямую интеграцию</strong> через <em>REST API</em> (потребуется доработка).</li>
+  <li><strong>Промежуточные сервисы</strong> типа <em>Zapier</em> или <em>Make (ex-Integromat)</em>.</li>
+  <li><strong>Экспорт/импорт через файлы</strong> (CSV, Excel) — самый простой, но трудоемкий способ.</li>
+</ol>
+
+<p>Пример настройки интеграции с <em>Power BI</em>:</p>
+<ol>
+  <li>В <strong>1С</strong> создайте отчет с данными о бонусах (раздел <code>Отчеты → Маркетплейсы → Анализ бонусов Ozon</code>).</li>
+  <li>Экспортируйте данные в <code>CSV</code> с разделителем <code>";"</code>.</li>
+  <li>В <em>Power BI</em> подключите источник данных и настройте дашборд с виджетом <code>"Динамика списания бонусов"</code>.</li>
+</ol>
+
+<p>Если вы используете <em>1С:ERP</em>, можно настроить автоматическую выгрузку данных в <em>BI-систему</em> через <code>Обработку "Выгрузка данных в Power BI"</code>, которая доступна в последних версиях платформы.</p>
+
+<h2 id="отчетность-и-аналитика-как-использовать-данные-о-баллах">Отчетность и аналитика: как использовать данные о баллах</h2>
+
+<p>Корректный учет бонусов <em>Ozon</em> позволяет не только избежать ошибок в бухгалтерии, но и улучшить бизнес-показатели. Вот несколько полезных отчетов, которые можно формировать в <strong>1С</strong>:</p>
+
+<ul>
+  <li>📊 <strong>Отчет "Эффективность бонусной программы"</strong> — показывает, сколько заказов было оплачено с использованием баллов и как это повлияло на средний чек.</li>
+  <li>📉 <strong>Анализ списаний по категориям товаров</strong> — помогает понять, на какие группы товаров покупатели чаще тратят бонусы.</li>
+  <li>💰 <strong>Сравнение выручки до и после списания бонусов</strong> — необходим для корректного расчета рентабельности.</li>
+</ul>
+
+<p>Для создания таких отчетов в <strong>1С:Управление торговлей</strong>:</p>
+<ol>
+  <li>Перейдите в <code>Отчеты → Маркетплейсы → Ozon</code>.</li>
+  <li>Выберите шаблон <code>"Анализ бонусных операций"</code>.</li>
+  <li>Укажите период и нажмите <code>"Сформировать"</code>.</li>
+  <li>Экспортируйте отчет в <code>Excel</code> для дальнейшего анализа.</li>
+</ol>
+
+<p>Если стандартных отчетов недостаточно, можно создать собственные с помощью <strong>СКД (Система Компоновки Данных)</strong>. Например, отчет по формуле:</p>
+<pre><code>// Пример запроса для анализа бонусов
+<p>ВЫБРАТЬ</p>
+<p>ЗаказыОзон.Номер КАК НомерЗаказа,</p>
+<p>ЗаказыОзон.Дата КАК ДатаЗаказа,</p>
+<p>СУММА(ЗаказыОзон.СуммаБонусов) КАК СуммаБонусов,</p>
+<p>ЗаказыОзон.КатегорияТовара КАК Категория</p>
+<p>ИЗ</p>
+<p>Документ.ЗаказПокупателя.Озон КАК ЗаказыОзон</p>
+<p>ГДЕ</p>
+<p>ЗаказыОзон.Дата МЕЖДУ &НачалоПериода И &КонецПериода</p>
+<p>СГРУППИРОВАТЬ ПО</p>
+<p>ЗаказыОзон.Номер,</p>
+<p>ЗаказыОзон.Дата,</p>
+<p>ЗаказыОзон.КатегорияТовара</code></pre></p>
+
+<p>Такой отчет поможет выявить категории товаров, где покупатели активнее используют бонусы, и скорректировать маркетинговую стратегию.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярный анализ бонусных операций позволяет оптимизировать ценообразование. Например, если покупатели часто доплачивают баллами, можно немного завысить базовую цену, компенсируя это бонусами.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-учету-баллов-озон-в-1с">FAQ: Частые вопросы по учету баллов Озон в 1С</h2>
+
+<details>
+  <summary>Как отразить в 1С возврат товара, оплаченного баллами?</summary>
+  <p>При возврате товара, оплаченного частично баллами, в <strong>1С</strong> необходимо:</p>
+  <ol>
+    <li>Создать документ <code>"Возврат товара от покупателя"</code>.</li>
+    <li>В табличной части указать сумму возвращаемых баллов с знаком <code>"плюс"</code> (так как бонусы возвращаются покупателю).</li>
+    <li>Связать документ с исходным заказом по номеру.</li>
+  </ol>
+  <p>В личном кабинете <em>Ozon</em> бонусы будут автоматически возвращены на счет покупателя в течение 1-3 дней.</p>
+</details>
+
+<details>
+  <summary>Можно ли в 1С разделить учет стандартных бонусов и промо-баллов?</summary>
+  <p>Да, для этого нужно:</p>
+  <ol>
+    <li>Создать в справочнике <code>"Виды бонусов"</code> два элемента: <code>"Стандартные бонусы"</code> и <code>"Промо-бонусы"</code>.</li>
+    <li>В настройках обмена с <em>Ozon</em> указать соответствие типов бонусов.</li>
+    <li>При ручном вводе выбирать правильный вид бонуса в документе.</li>
+  </ol>
+  <p>Это позволит анализировать эффективность разных бонусных программ отдельно.</p>
+</details>
+
+<details>
+  <summary>Что делать, если в 1С не отображаются бонусы за старые заказы?</summary>
+  <p>Если бонусы не подгрузились автоматически, можно:</p>
+  <ul>
+    <li>Запросить в поддержке <em>Ozon</em> выгрузку исторических данных по бонусам (доступно для партнеров с высоким рейтингом).</li>
+    <li>Ввести данные вручную на основании скриншотов из личного кабинета.</li>
+    <li>Использовать внешнюю обработку для ретроактивной загрузки (например, <em>"Загрузка истории бонусов Ozon"</em> от <em>1С-Рарус</em>).</li>
+  </ul>
+  <p>Учтите, что <em>Ozon</em> хранит данные о бонусах только за последние 12 месяцев.</p>
+</details>
+
+<details>
+  <summary>Как учитывать бонусы при расчете НДС?</summary>
+  <p>Списание бонусов уменьшает налоговую базу по НДС, так как фактически уменьшает выручку. В <strong>1С</strong> это отражается автоматически, если:</p>
+  <ul>
+    <li>В документе <code>"Реализация товаров"</code> указана сумма бонусов в отдельной строке.</li>
+    <li>В настройках учета включена опция <code>"Учитывать скидки и бонусы при расчете НДС"</code>.</li>
+  </ul>
+  <p>Если вы работаете на УСН, бонусы учитываются при расчете налога "Доходы минус расходы" как уменьшение выручки.</p>
+</details>
+
+<details>
+  <summary>Какие настройки 1С нужны для учета бонусов по модели FBS?</summary>
+  <p>Для <em>FBS</em> (когда логистикой занимается <em>Ozon</em>) требуются дополнительные настройки:</p>
+  <ol>
+    <li>В справочнике <code>"Склады"</code> создайте виртуальный склад <code>"Ozon FBS"</code>.</li>
+    <li>В настройках обмена укажите, что бонусы списываются на этом складе.</li>
+    <li>Настройте автоматическое создание документов <code>"Отгрузка без перехода права собственности"</code> для FBS-заказов.</li>
+  </ol>
+  <p>Это позволит разделить учет бонусов по разным моделям работы.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-vyjti-na-ozon-so-svoim-tovarom-otzyvy.html" class="pb-related-card">
+                <span class="pb-related-title">Как выйти на Ozon со своим товаром: отзывы и старт 2026</span>
+                <span class="pb-related-desc">Полный гайд: как выйти на Ozon со своим товаром, реальные отзывы селлеров, схемы FBO/FBS и анализ ри</span>
+            </a><a href="/articles/k/ka/kak-prodat-svoj-tovar-ozonu.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать товар на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по продаже товаров на Ozon: от регистрации до первых заказов. Узнайте, как быстро</span>
+            </a><a href="/articles/k/ka/kak-nachat-prodavat-svoj-tovar-na-ozone-usloviya.html" class="pb-related-card">
+                <span class="pb-related-title">Как начать продавать на Ozon: условия, документы и старт в 2026</span>
+                <span class="pb-related-desc">Полная инструкция, как начать продавать на Озоне: условия регистрации, выбор схемы работы, необходим</span>
+            </a><a href="/articles/k/ka/kak-sdelat-i-poluchit-zakaz-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить заказ на Озоне: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как сделать и получить заказ на Озоне. Подробная схема работы с карточками, логистикой FBO/</span>
+            </a><a href="/articles/o/ot/otkryt-ozon-kak-otkryt.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть Ozon: пошаговая инструкция для старта</span>
+                <span class="pb-related-desc">Узнайте, как открыть Ozon для продаж или покупки. Полное руководство по регистрации, выбору схемы ра</span>
+            </a><a href="/articles/g/gd/gde-luchshe-prodavat-tovary-na-vajldberriz-ili-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где выгоднее продавать: Wildberries или Ozon в 2026 году?</span>
+                <span class="pb-related-desc">Сравнение Wildberries и Ozon для продавцов: комиссии, аудитория, логистика и прибыль. Разбор плюсов </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

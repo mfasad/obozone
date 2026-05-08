@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>JSON код для Ozon: зачем нужен и как его читать продавцу — Об Озоне</title>
+    <meta name="description" content="Разбираем, что такое JSON код для Ozon. Узнайте, как использовать JSON для массовой загрузки товаров, редактирования карточек и автоматизации работы продавца.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/j/js/json-kod-dlya-ozon-chto-eto.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JSON код для Ozon: зачем нужен и как его читать продавцу">
+    <meta property="og:description" content="Разбираем, что такое JSON код для Ozon. Узнайте, как использовать JSON для массовой загрузки товаров, редактирования карточек и автоматизации работы продавца.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">JSON код для Ozon: зачем нужен и как его читать продавцу</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-json-и-почему-он-важен-для-продавца-на-ozon">Что такое JSON и почему он важен для продавца на Ozon</a></li><li><a href="#основные-элементы-структуры-json-кода">Основные элементы структуры JSON кода</a></li><li><a href="#примеры-json-кода-для-загрузки-товаров-на-ozon">Примеры JSON кода для загрузки товаров на Ozon</a></li><li><a href="#использование-json-для-массового-обновления-цен-и-остатков">Использование JSON для массового обновления цен и остатков</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#инструменты-для-работы-с-json-кодом">Инструменты для работы с JSON кодом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-pomenyat-razmer-na-ozon.html">Как поменять размер товара на Ozon: инструкция для селлера</a></li><li><a href="/articles/k/ka/kak-sovmestit-kartochki-na-ozon.html">Как объединить карточки на Ozon: инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-otpravit-foto-dlya-ozona.html">Как отправить фото для Ozon: инструкция по карточкам и отзывам</a></li><li><a href="/articles/k/ka/kak-povysit-klikabelnost-na-tovar-na-stranitse-vydachi-ozon-s-pomoshchyu-dizajna.html">Как повысить кликабельность на Ozon с помощью дизайна карточки</a></li><li><a href="/articles/g/gd/gde-najti-id-tovara-na-ozon-seller.html">Где найти ID товара на Ozon Seller — 5 способов и инструкции</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>JSON код для Ozon: зачем нужен и как его читать продавцу</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-json-и-почему-он-важен-для-продавца-на-ozon">Что такое JSON и почему он важен для продавца на Ozon</a></li><li><a href="#основные-элементы-структуры-json-кода">Основные элементы структуры JSON кода</a></li><li><a href="#примеры-json-кода-для-загрузки-товаров-на-ozon">Примеры JSON кода для загрузки товаров на Ozon</a></li><li><a href="#использование-json-для-массового-обновления-цен-и-остатков">Использование JSON для массового обновления цен и остатков</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#инструменты-для-работы-с-json-кодом">Инструменты для работы с JSON кодом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современном мире электронной коммерции ручное управление тысячами позиций на складе превращается в настоящий кошмар для продавца. Именно здесь на помощь приходят технологии автоматизации, и одной из ключевых составляющих этого процесса является <strong>JSON код</strong>. Для новичков в сфере маркетплейсов это сочетание букв может показаться сложным программированием, недоступным для понимания без глубоких технических знаний.</p>
+
+<p>Однако, если разобраться, <em>JSON</em> (JavaScript Object Notation) — это всего лишь удобный текстовый формат для хранения и передачи данных, который легко читается как человеком, так и машиной. На платформе <strong>Ozon</strong> этот формат активно используется для массовой загрузки товаров, обновления остатков и цен, а также для тонкой настройки характеристик карточек. Понимание принципов работы с этим кодом дает продавцу огромное преимущество перед конкурентами, полагающимися исключительно на ручной ввод.</p>
+
+<p>В этой статье мы подробно разберем структуру JSON, рассмотрим реальные примеры кода для Ozon и объясним, как использовать этот инструмент для оптимизации вашей работы. Вам не нужно быть программистом, чтобы освоить базовые принципы, которые позволят экономить часы времени каждую неделю. Главное — внимательность к деталям и соблюдение синтаксических правил.</p>
+
+<h2 id="что-такое-json-и-почему-он-важен-для-продавца-на-ozon">Что такое JSON и почему он важен для продавца на Ozon</h2>
+
+<p><strong>JSON</strong> представляет собой текстовый формат обмена данными, основанный на синтаксисе языка JavaScript. Его главная особенность — структурированность в виде пар «ключ: значение». Для продавца на Ozon это означает, что вместо того, чтобы заполнять поля «Название», «Цена» и «Артикул» в интерфейсе сайта по одному, вы можете передать всю эту информацию одним файлом. Система маркетплейса мгновенно распознает структуру и обработает тысячи товаров за секунды.</p>
+
+<p>Использование этого формата критически важно для <strong>масштабирования бизнеса</strong>. Пока вы вручную вбиваете данные в одну карточку, ваш конкурент с помощью JSON-файла загружает целую категорию из 500 позиций. Кроме того, формат минимизирует человеческий фактор: если в коде нет ошибок синтаксиса, то и данные будут переданы корректно, без опечаток в названиях или перепутанных цен.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> JSON чувствителен к регистру букв и пунктуации. Одна пропущенная запятая или лишняя скобка могут привести к ошибке при загрузке всего файла. Всегда проверяйте структуру перед отправкой.</p>
+</blockquote>
+
+<p>Важно понимать, что Ozon использует JSON не только для загрузки товаров, но и для работы API, когда ваш складской софт напрямую общается с серверами маркетплейса. Это позволяет в реальном времени обновлять остатки, что критически важно для избежания <strong>штрафов за отмену</strong> заказов из-за отсутствия товара.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте онлайн-валидаторы JSON перед загрузкой файла в личный кабинет продавца, чтобы избежать ошибок синтаксиса.</p></aside>
+
+<h2 id="основные-элементы-структуры-json-кода">Основные элементы структуры JSON кода</h2>
+
+<p>Структура JSON-документа базируется на двух основных концепциях: объектах и массивах. Объект заключается в фигурные скобки <code>{ }</code> и содержит пары ключей и значений. Массив заключается в квадратные скобки <code></code> и представляет собой упорядоченный список значений. Понимание вложенности этих элементов — ключ к чтению кода.</p>
+
+<p>Ключом всегда выступает строка, заключенная в двойные кавычки. Значением может быть строка, число, логическое значение (true/false), null, объект или массив. В контексте Ozon ключом может быть название атрибута, например <code>"price"</code>, а значением — конкретная цифра, например <code>1500</code>.</p>
+
+<p>Рассмотрим, как выглядят основные типы данных в контексте товарной номенклатуры:</p>
+<ul>
+<li>🔹 <strong>Строка (String):</strong> Текстовые данные, всегда в двойных кавычках (например, название бренда"Samsung").</li>
+<li>🔹 <strong>Число (Number):</strong> Целые или дробные числа без кавычек (например, цена 999.90 или количество 50).</li>
+<li>🔹 <strong>Булево (Boolean):</strong> Логический тип true/false (например, доступен ли товар для покупки).</li>
+<li>🔹 <strong>Массив (Array):</strong> Список элементов, например, список цветов или размеров, доступных для товара.</li>
+</ul>
+
+<p>Особое внимание стоит уделить вложенности. Объекты могут содержать другие объекты, создавая иерархическую структуру. Например, внутри объекта «Товар» может быть объект «Габариты», который, в свою очередь, содержит поля «Длина», «Ширина» и «Высота». Такая логика позволяет описывать сложные характеристики продукции.</p>
+
+<details class="pb-accordion"><summary>Пример простой структуры</summary><div class="pb-accordion-body"><p>{"product_id": 12345,"name":"Наушники","specs": {"color":"black","weight": 200}}</p></div></details>
+
+<h2 id="примеры-json-кода-для-загрузки-товаров-на-ozon">Примеры JSON кода для загрузки товаров на Ozon</h2>
+
+<p>Чтобы понять, как теория применяется на практике, давайте рассмотрим реальный пример JSON-структуры для создания или обновления карточки товара на Ozon. Обычно такие данные формируются в соответствии с документацией API Ozon, но базовая логика остается единой для всех форматов импорта.</p>
+
+<p>Ниже представлен упрощенный пример того, как может выглядеть описание одного товара с его характеристиками. Обратите внимание на использование двойных кавычек для ключей и строковых значений, а также на отсутствие запятой после последнего элемента в объекте.</p>
+
+<pre><code>{
+<p>"offer_id":"SKU-12345",</p>
+<p>"product_id": 987654321,</p>
+<p>"price":"1500.00",</p>
+<p>"old_price":"2000.00",</p>
+<p>"vat":"20",</p>
+<p>"quantity": 100,</p>
+<p>"name":"Беспроводные наушники Pro",</p>
+<p>"description":"Качественный звук..",</p>
+<p>"images": [</p>
+<p>"https://example.com/image1.jpg",</p>
+<p>"https://example.com/image2.jpg"</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>В этом примере <code>offer_id</code> — это ваш артикул, уникальный идентификатор предложения. Поле <code>product_id</code> — это идентификатор товара на Ozon, который присваивается после создания карточки. Массив <code>images</code> содержит ссылки на фотографии, которые должны быть предварительно загружены на хостинг или в систему маркетплейса.</p>
+
+<p>При массовой загрузке таких объектов объединяют в массив, создавая список из множества товаров. Это позволяет обновлять цены и остатки для всего ассортимента сразу, что особенно актуально перед крупными <strong>распродажами</strong> или изменением курсов валют.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка JSON перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Все ключи в двойных кавычках</span></label><label class="check-item"><input type="checkbox"><span>Значения-строки в двойных кавычках</span></label><label class="check-item"><input type="checkbox"><span>Нет запятой после последнего элемента</span></label><label class="check-item"><input type="checkbox"><span>Скобки { и [ закрыты корректно</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="использование-json-для-массового-обновления-цен-и-остатков">Использование JSON для массового обновления цен и остатков</h2>
+
+<p>Одна из самых частых задач продавца — оперативное изменение цен и количества товара. Делать это через интерфейс для сотен позиций долго и неудобно. Формат JSON позволяет создать файл, в котором будут указаны только изменяемые параметры: артикул, новая цена и новый остаток.</p>
+
+<p>При обновлении через API или специальные загрузчики вам не нужно передавать полное описание товара (название, описание, характеристики). Достаточно отправить «дельту» — изменение конкретных полей. Это значительно ускоряет процесс обработки запроса серверами Ozon.</p>
+
+<p>Список преимуществ использования JSON для обновлений:</p>
+<ul>
+<li>🚀 <strong>Скорость:</strong> Обновление тысяч позиций занимает секунды, а не часы.</li>
+<li>📉 <strong>Снижение ошибок:</strong> Автоматическая выгрузка из 1С или Excel минимизирует риск перепутать цену.</li>
+<li>🔄 <strong>Синхронизация:</strong> Возможность синхронизировать остатки на Ozon с вашим основным складом в реальном времени.</li>
+<li>💰 <strong>Динамическое ценообразование:</strong> Возможность быстро менять цены в зависимости от курса доллара или цен конкурентов.</li>
+</ul>
+
+<p> Если в JSON-файле будет указано <code>"quantity": 0</code>, товар исчезнет с витрины или станет недоступным для заказа. Ошибка в коде может стоить вам потерянных продаж.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При массовом обновлении цен всегда делайте резервную копию файла с текущими ценами. В случае ошибки в формуле расчета вы сможете быстро откатить изменения.</p>
+</blockquote>
+
+<p>Для реализации таких обновлений многие продавцы используют связку Excel и конвертеров. Вы формируете таблицу с артикулами и новыми ценами, конвертируете её в JSON и загружаете в систему. Это промежуточный этап перед полной автоматизацией через API.</p>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+
+<p>Работа с кодом всегда сопряжена с риском возникновения ошибок. В JSON они делятся на синтаксические (ошибки написания) и логические (ошибки в данных). Синтаксические ошибки проще всего отлавливаются валидаторами, которые подсветят строку, где нарушена структура.</p>
+
+<p>Самые распространенные проблемы, с которыми сталкиваются селлеры:</p>
+<ul>
+<li>❌ <strong>Лишняя запятая:</strong> Часто забывают убрать запятую после последнего элемента в объекте или массиве.</li>
+<li>❌ <strong>Одинарные кавычки:</strong> Стандарт JSON требует использования только двойных кавычек <code>""</code> для ключей и строк.</li>
+<li>❌ <strong>Незакрытые скобки:</strong> Каждая открытая скобка <code>{</code> или <code>[</code> должна иметь закрывающую пару <code>}</code> или <code>]</code>.</li>
+<li>❌ <strong>Неверный тип данных:</strong> Например, передача цены как строки"1000" там, где ожидается число 1000, или наоборот, в зависимости от требований конкретного метода API.</li>
+</ul>
+
+<p>Для устранения ошибок используйте инструменты форматирования (pretty print), которые расставляют отступы и делают код читаемым. Визуально гораздо легче найти mismatched brackets (несоответствие скобок) в отформатированном тексте.</p>
+
+<p>Также частой ошибкой является использование зарезервированных слов или спецсимволов в ключах без экранирования. Хотя в стандартных полях Ozon (<code>price</code>, <code>name</code>) проблем обычно не возникает, при работе с кастомными атрибутами нужно быть внимательным.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте специализированные плагины для редакторов кода (VS Code, Notepad++), которые подсвечивают синтаксические ошибки JSON в реальном времени.</p></aside>
+
+<h2 id="инструменты-для-работы-с-json-кодом">Инструменты для работы с JSON кодом</h2>
+
+<p>Для комфортной работы с JSON вам не нужен сложный софт. Существует множество бесплатных и удобных инструментов, которые помогут создать, отредактировать и проверить ваш код. Выбор инструмента зависит от объема задач и уровня вашей технической подготовки.</p>
+
+<p>Для разовых задач и небольших правок отлично подойдут онлайн-редакторы. Они позволяют вставить код, отформатировать его и сразу увидеть ошибки. Для постоянной работы лучше установить десктопное приложение или использовать возможности Excel/Google Таблиц с макросами.</p>
+
+<p>Сравнение популярных инструментов:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Инструмент</th>
+<th>Тип</th>
+<th>Для кого подходит</th>
+<th>Основная функция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSONLint</td>
+<td>Онлайн</td>
+<td>Новички</td>
+<td>Проверка синтаксиса</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>Редактор кода</td>
+<td>Продвинутые</td>
+<td>Редактирование и плагины</td>
+</tr>
+<tr>
+<td>Excel + Макросы</td>
+<td>Таблицы</td>
+<td>Менеджеры</td>
+<td>Конвертация из таблиц</td>
+</tr>
+<tr>
+<td>Postman</td>
+<td>API Клиент</td>
+<td>Разработчики</td>
+<td>Тестирование запросов</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Если вы планируете автоматизировать процессы, вам придется столкнуться с <strong>Postman</strong> или аналогичными программами для тестирования API запросов. Они позволяют отправлять JSON-файлы на сервер Ozon и видеть ответ системы, что незаменимо при отладке интеграции.</p>
+
+<div class="pb-poll" id="poll-89af4f0b"><div class="pb-poll-question">📊 Чем вы предпочитаете работать с кодом?</div><div class="pb-poll-option" data-poll="89af4f0b" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Онлайн-сервисы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="89af4f0b" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Редакторы кода (VS Code)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="89af4f0b" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel таблицы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="89af4f0b" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Готовые сервисы интеграции</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Нужно ли знать программирование, чтобы использовать JSON на Ozon?</summary>
+<p>Глубокое знание программирования не требуется. Вам достаточно понимать базовую структуру (ключи, значения, скобки) и уметь пользоваться конвертерами или готовыми шаблонами. Однако базовое понимание логики данных значительно облегчит работу.</p>
+</details>
+
+<details>
+<summary>Можно ли создать JSON файл в обычном Блокноте?</summary>
+<p>Технически да, текст есть текст. Однако стандартный Блокнот Windows не подсвечивает синтаксис и не показывает ошибки. Лучше использовать Notepad++ или специализированные онлайн-редакторы, чтобы избежать опечаток.</p>
+</details>
+
+<details>
+<summary>Что делать, если Ozon возвращает ошибку при загрузке JSON?</summary>
+<p>Внимательно прочитайте сообщение об ошибке. Обычно система указывает строку или поле, где возникла проблема. Проверьте наличие запятых, кавычек и соответствие типов данных требованиям документации API.</p>
+</details>
+
+<details>
+<summary>Как конвертировать таблицу Excel в JSON?</summary>
+<p>Существует множество бесплатных онлайн-конвертеров"Excel to JSON". Также эту функцию можно реализовать внутри Excel с помощью макросов VBA или Power Query, если требуется регулярная автоматическая выгрузка.</p>
+</details>
+
+<details>
+<summary>Безопасно ли хранить API-ключи в JSON файлах?</summary>
+<p>Нет, хранить секретные ключи доступа (Client ID, API Key) в файлах, которые вы передаете третьим лицам или загружаете в публичные репозитории, категорически нельзя. Передавайте их только напрямую в системы интеграции или защищенные хранилища.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-pomenyat-razmer-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как поменять размер товара на Ozon: инструкция для селлера</span>
+                <span class="pb-related-desc">Подробное руководство, как изменить габариты и вес товара на Ozon. Разбираем редактирование карточки</span>
+            </a><a href="/articles/k/ka/kak-sovmestit-kartochki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как объединить карточки на Ozon: инструкция для селлеров</span>
+                <span class="pb-related-desc">Полное руководство по слиянию товаров на Ozon. Узнайте, как объединить карточки с разными цветами ил</span>
+            </a><a href="/articles/k/ka/kak-otpravit-foto-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как отправить фото для Ozon: инструкция по карточкам и отзывам</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как отправить фото для Ozon продавцу или в поддержку. Требования к изображения</span>
+            </a><a href="/articles/k/ka/kak-povysit-klikabelnost-na-tovar-na-stranitse-vydachi-ozon-s-pomoshchyu-dizajna.html" class="pb-related-card">
+                <span class="pb-related-title">Как повысить кликабельность на Ozon с помощью дизайна карточки</span>
+                <span class="pb-related-desc">Узнайте, как увеличить CTR карточки товара на Ozon через дизайн инфографики, шрифты и цвета. Секреты</span>
+            </a><a href="/articles/g/gd/gde-najti-id-tovara-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти ID товара на Ozon Seller — 5 способов и инструкции</span>
+                <span class="pb-related-desc">Пошаговое руководство: как узнать артикул (ID) товара в личном кабинете Ozon для продавцов. Способы </span>
+            </a><a href="/articles/k/ka/kak-pravilno-kleit-shtrikh-kody-na-tovar-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как клеить штрих-коды на Ozon: инструкция и ошибки</span>
+                <span class="pb-related-desc">Правильная маркировка товаров для Ozon: выбор принтера, наклейка этикеток, штрихкоды FBO и FBS. Избе</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

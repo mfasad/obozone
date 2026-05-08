@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить DPD к своему ПВЗ Ozon: инструкция — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по подключению курьерской службы DPD к ПВЗ Ozon. Настройка интеграции, работа с накладными и решение типовых ошибок.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-podklyuchit-dpd-k-svoemu-pvz-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить DPD к своему ПВЗ Ozon: инструкция">
+    <meta property="og:description" content="Пошаговое руководство по подключению курьерской службы DPD к ПВЗ Ozon. Настройка интеграции, работа с накладными и решение типовых ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pvz-i-franshiza/">ПВЗ и Франшиза</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как подключить DPD к своему ПВЗ Ozon: инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#требования-к-партнерству-и-предварительная-подготовка">Требования к партнерству и предварительная подготовка</a></li><li><a href="#регистрация-в-системе-dpd-и-получение-доступов">Регистрация в системе DPD и получение доступов</a></li><li><a href="#техническая-настройка-интеграции-в-личном-кабинете">Техническая настройка интеграции в личном кабинете</a></li><li><a href="#процесс-оформления-накладных-и-приемка-груза">Процесс оформления накладных и приемка груза</a></li><li><a href="#работа-с-возвратами-и-проблемными-ситуациями">Работа с возвратами и проблемными ситуациями</a></li><li><a href="#аналитика-эффективности-и-оптимизация-процессов">Аналитика эффективности и оптимизация процессов</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/ot/otkryt-punkt-vydachi-ozon-dokhod-skolko.html">Сколько можно заработать на пункте выдачи Озон в 2026 году: реальные цифры и расчёты</a></li><li><a href="/articles/s/sk/skolko-platyat-v-punkte-vydachi-ozon-spb.html">Сколько платят в пункте выдачи Ozon СПБ: зарплата 2026</a></li><li><a href="/articles/k/ka/kak-otkryt-otdel-ozon.html">Как открыть отдел Ozon: пошаговая инструкция и расходы</a></li><li><a href="/articles/s/sk/skolko-zarabatyvayut-tochki-vydachi-ozon.html">Сколько зарабатывают ПВЗ Озон в 2026: реальные цифры и расчёты</a></li><li><a href="/articles/k/ka/kak-stat-predstavitelem-ozon-v-svoem-gorode.html">Как стать представителем Ozon в своём городе: пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как подключить DPD к своему ПВЗ Ozon: пошаговая инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#требования-к-партнерству-и-предварительная-подготовка">Требования к партнерству и предварительная подготовка</a></li><li><a href="#регистрация-в-системе-dpd-и-получение-доступов">Регистрация в системе DPD и получение доступов</a></li><li><a href="#техническая-настройка-интеграции-в-личном-кабинете">Техническая настройка интеграции в личном кабинете</a></li><li><a href="#процесс-оформления-накладных-и-приемка-груза">Процесс оформления накладных и приемка груза</a></li><li><a href="#работа-с-возвратами-и-проблемными-ситуациями">Работа с возвратами и проблемными ситуациями</a></li><li><a href="#аналитика-эффективности-и-оптимизация-процессов">Аналитика эффективности и оптимизация процессов</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Интеграция сторонних логистических операторов в экосистему <strong>Ozon</strong> открывает перед владельцами пунктов выдачи заказов новые горизонты. Владельцы франшизы часто сталкиваются с необходимостью расширения спектра услуг, чтобы не зависеть от одного канала поставок. Подключение <em>DPD</em> позволяет принимать и отправлять грузы, используя инфраструктуру уже действующего магазина.</p>
+
+<p>Процесс настройки требует внимательности к деталям и понимания специфики работы обеих систем. <strong>Логистический партнер</strong> должен быть официально согласован, а технические параметры — соответствовать актуальным требованиям маркетплейса. Ошибки на этапе конфигурации могут привести к задержкам в обработке посылок и финансовым потерям.</p>
+
+<p>В этой статье мы детально разберем алгоритм действий, необходимый для успешной активации сервиса. Вы узнаете, какие документы потребуются, как правильно настроить рабочее место сотрудника и где искать скрытые настройки в личном кабинете. Готовность к работе с <em>документооборотом</em> станет ключевым фактором успеха.</p>
+
+<h2 id="требования-к-партнерству-и-предварительная-подготовка">Требования к партнерству и предварительная подготовка</h2>
+
+<p>Прежде чем приступать к техническим манипуляциям, необходимо убедиться в соответствии вашего пункта выдачи базовым критериям. <strong>Партнерская программа</strong> Ozon имеет строгие правила, нарушение которых ведет к блокировке функционала. Первым шагом всегда становится проверка статуса вашего договора.</p>
+
+<p>Убедитесь, что помещение соответствует стандартам безопасности и имеет выделенную зону для приема грузов от сторонних курьерских служб. <em>Складское оборудование</em> должно позволять сортировать посылки разных операторов, чтобы исключить путаницу при выдаче клиентам.</p>
+
+<blockquote>⚠️ Внимание: Использование неофициальных каналов передачи данных или работа с серыми схемами доставки приведет к немедленному расторжению договора франшизы.</blockquote>
+
+<p>Важно также проверить стабильность интернет-соединения, так как синхронизация баз данных происходит в реальном времени. <strong>Скорость передачи данных</strong>ет время обработки накладных.</p>
+
+<div class="pb-poll" id="poll-a22ef447"><div class="pb-poll-question">📊 Какой у вас сейчас статус ПВЗ?</div><div class="pb-poll-option" data-poll="a22ef447" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Только что открылся</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a22ef447" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Работаю более года</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a22ef447" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Планирую открытие</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a22ef447" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Франшиза в другом городе</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="регистрация-в-системе-dpd-и-получение-доступов">Регистрация в системе DPD и получение доступов</h2>
+
+<p>Для начала работы необходимо создать корпоративный аккаунт в системе <em>DPD</em>. Этот процесс требует заполнения расширенной анкеты, где указываются реквизиты юридического лица или ИП. Без верификации аккаунта интеграция с Ozon невозможна.</p>
+
+<p>После регистрации вам будут предоставлены уникальные ключи API и доступы к личному кабинету. Эти данные необходимо хранить в secure месте, так как они используются для настройки <strong>автоматического обмена</strong> статусами заказов. Сохраните логин и пароль в надежном менеджере паролей.</p>
+
+<p>В процессе регистрации часто требуется загрузка сканов лицензий и подтверждение адреса склада. <em>Служба безопасности</em> DPD проводит проверку контрагентов, что может занять от одного до трех рабочих дней. Будьте готовы оперативно ответить на уточняющие вопросы менеджера.</p>
+
+<ul>
+<li>📦 Подготовка полного пакета учредительных документов для верификации.</li>
+<li>🔑 Получение API-ключей для технической интеграции систем.</li>
+<li>📄 Подписание договора на обслуживание и тарификацию услуг.</li>
+<li>💻 Настройка профилей пользователей внутри системы DPD.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сохраните полученные API-ключи в текстовом файле на защищенном компьютере, доступном только администратору системы.</p></aside>
+
+<h2 id="техническая-настройка-интеграции-в-личном-кабинете">Техническая настройка интеграции в личном кабинете</h2>
+
+<p>Основной этап работы происходит в разделе настроек вашего ПВЗ. Необходимо перейти в меню <code>Настройки → Логистика → Сторонние службы</code>. Здесь выбирается опция добавления нового провайдера услуг.</p>
+
+<p>В открывшемся окне введите полученные ранее credentials от <em>DPD</em>. Система автоматически проверит валидность ключей. Если проверка пройдена успешно, статус подключения сменится на <strong>«Активен»**. Ошибки на этом этапе чаще всего связаны с неверным вводом символов или истекшим сроком действия токена.</strong></p>
+
+<p>Важно правильно настроить маппинг статусов, чтобы изменения в одной системе отражались в другой. Например, статус «Готов к выдаче» в DPD должен триггерить уведомление в приложении Ozon для клиента. <strong>Синхронизация данных</strong> — критически важный параметр.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Настройка интеграции</h4><label class="check-item"><input type="checkbox"><span>Войти в ЛК Ozon Seller/Partner</span></label><label class="check-item"><input type="checkbox"><span>Перейти в раздел Логистика</span></label><label class="check-item"><input type="checkbox"><span>Ввести API ключи DPD</span></label><label class="check-item"><input type="checkbox"><span>Проверить статус соединения</span></label><label class="check-item"><input type="checkbox"><span>Сохранить изменения</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>После сохранения настроек рекомендуется выполнить тестовую отправку статуса. Это позволит убедиться, что канал связи работает корректно и данные передаются без искажений.</p>
+
+<h2 id="процесс-оформления-накладных-и-приемка-груза">Процесс оформления накладных и приемка груза</h2>
+
+<p>Ежедневная работа с курьерами <em>DPD</em> начинается с оформления сопроводительной документации. В системе необходимо создать новую накладную, указав количество мест и общий вес груза. <strong>Точность данных</strong> влияет на скорость прохождения контроля.</p>
+
+<p>Прибывший курьер сканирует штрих-коды на каждом месте. Сотрудник ПВЗ обязан визуально проверить целостность упаковки. Если обнаружены повреждения, они фиксируются в акте приема-передачи до момента подписания документов.</p>
+
+<pre><code>Процедура приемки:
+<p>1. Сверка количества мест с накладной.</p>
+<p>2. Визуальный осмотр упаковки.</p>
+<p>3. Сканирование штрих-кодов терминалом.</p>
+<p>4. Подпись в электронном документе.</code></pre></p>
+
+<p>Особое внимание следует уделять товарам с ограниченным сроком годности или хрупким грузам. Для них в системе <strong>Ozon</strong> предусмотрены специальные маркировки, которые нельзя игнорировать.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип груза</th>
+<th>Время обработки</th>
+<th>Требования к хранению</th>
+<th>Документация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стандартная посылка</td>
+<td>до 15 мин</td>
+<td>Сухое помещение</td>
+<td>Электронная накладная</td>
+</tr>
+<tr>
+<td>Крупногабарит</td>
+<td>до 40 мин</td>
+<td>Зона разгрузки у входа</td>
+<td>Акт приема + фото</td>
+</tr>
+<tr>
+<td>Хрупкий груз</td>
+<td>до 20 мин</td>
+<td>Отдельная полка</td>
+<td>Маркировка"Осторожно"</td>
+</tr>
+<tr>
+<td>Ценный груз</td>
+<td>до 30 мин</td>
+<td>Закрытый сейф/шкаф</td>
+<td>Двойная проверка</td>
+</tr>
+</tbody>
+</table></div>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Корректное оформление первичной документации при приемке сокращает количество спорных ситуаций с курьерской службой на 80%.</p></aside>
+
+<h2 id="работа-с-возвратами-и-проблемными-ситуациями">Работа с возвратами и проблемными ситуациями</h2>
+
+<p>Логистика невозможна без сбоев, поэтому важно знать алгоритм действий при возникновении проблем. Если клиент отказался от товара или срок хранения истек, необходимо инициировать процедуру возврата через интерфейс <em>DPD</em>. </p>
+
+<p>В случае расхождения фактического веса с заявленным в накладной, система может автоматически заблокировать отправку. Требуется ручной пересчет и обновление данных в карточке заказа. <strong>Дисциплина учета</strong> помогает избегать таких ситуаций.</p>
+
+<blockquote>⚠️ Внимание: Самовольное вскрытие упаковки для проверки содержимого без акта о повреждении запрещено и влечет материальную ответственность.</blockquote>
+
+<p>При технических сбоях в работе терминала или отсутствии связи с сервером, все операции фиксируются в журнале вручную. После восстановления соединения данные вносятся в систему ретроспективно. <em>Резервное копирование</em> данных — обязательная практика.</p>
+
+<ul>
+<li>🔄 Оформление возврата через стандартную процедуру в ЛК.
+<li>📸 Фиксация повреждений упаковки фотофиксацией.
+<li>📝 Ведение журнала инцидентов для отчетности.
+<li>📞 Связь со службой поддержки при критических ошибках.</li>
+</ul>
+
+<h2 id="аналитика-эффективности-и-оптимизация-процессов">Аналитика эффективности и оптимизация процессов</h2>
+
+<p>Регулярный анализ показателей работы позволяет выявлять узкие места в логистике. В личном кабинете доступны отчеты по времени обработки заказов и количеству ошибок. <strong>Метрики эффективности</strong> помогают планировать нагрузку на персонал.</p>
+
+<p>Сравнивайте данные по разным периодам, чтобы понять сезонные колебания спроса. Это позволит оптимизировать график работы сотрудников и количество заказываемых ресурсов у <em>DPD</em>. Грамотное планирование снижает издержки.</p>
+
+<details class="pb-accordion"><summary>Секрет успешной интеграции</summary><div class="pb-accordion-body"><p>Используйте кросс-докинг для товаров, которые не требуют длительного хранения на складе ПВЗ, отправляя их транзитом в другие пункты сети.</p></div></details>
+
+<p>Постоянное обновление знаний о новых функциях платформы Ozon и изменениях в правилах DPD — залог стабильного бизнеса. Следите за новостями в разделе уведомлений.</p>
+
+<details>
+<summary>Можно ли подключить DPD, если ПВЗ находится в жилом доме?</summary>
+<p>Да, подключение возможно, но требуется соблюдение дополнительных требований к шумоизоляции и времени работы курьерской службы, чтобы не нарушать покой жильцов.</p>
+</details>
+
+<details>
+<summary>Что делать, если система DPD не видит заказ из Ozon?</summary>
+<p>Проверьте правильность введенного трек-номера и убедитесь, что статус заказа в Ozon позволяет передачу стороннему перевозчику. Иногда требуется ручная синхронизация.</p>
+</details>
+
+<details>
+<summary>Есть ли комиссия за использование DPD через Ozon?</summary>
+<p>Тарификация зависит от вашего договора с DPD. Ozon не берет дополнительную комиссию за факт использования сторонней службы, но могут взиматься стандартные сервисные сборы.</p>
+</details>
+
+<details>
+<summary>Как быстро происходит обновление статусов между системами?</summary>
+<p>В штатном режиме обновление происходит в реальном времени. При высокой нагрузке на серверы задержка может составлять до 15 минут.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/ot/otkryt-punkt-vydachi-ozon-dokhod-skolko.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько можно заработать на пункте выдачи Озон в 2026 году: реальные цифры и расчёты</span>
+                <span class="pb-related-desc">Разбираем доходы и расходы пункта выдачи Озон (ПВЗ): сколько зарабатывает франчайзи, какие инвестици</span>
+            </a><a href="/articles/s/sk/skolko-platyat-v-punkte-vydachi-ozon-spb.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько платят в пункте выдачи Ozon СПБ: зарплата 2026</span>
+                <span class="pb-related-desc">Актуальные данные о зарплатах сотрудников ПВЗ Озон в Санкт-Петербурге. Разбор окладов, бонусов и усл</span>
+            </a><a href="/articles/k/ka/kak-otkryt-otdel-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть отдел Ozon: пошаговая инструкция и расходы</span>
+                <span class="pb-related-desc">Как открыть отдел Ozon с нуля: выбор локации, договор, оборудование и расходы. Полное руководство по</span>
+            </a><a href="/articles/s/sk/skolko-zarabatyvayut-tochki-vydachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько зарабатывают ПВЗ Озон в 2026: реальные цифры и расчёты</span>
+                <span class="pb-related-desc">Актуальные данные о доходах точек выдачи Озон: тарифы, комиссии, рентабельность и скрытые расходы. Р</span>
+            </a><a href="/articles/k/ka/kak-stat-predstavitelem-ozon-v-svoem-gorode.html" class="pb-related-card">
+                <span class="pb-related-title">Как стать представителем Ozon в своём городе: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Хотите открыть пункт выдачи Ozon? Узнайте требования к ПВЗ, условия франшизы, стоимость и шаги для р</span>
+            </a><a href="/articles/s/sk/skolko-zarabatyvaet-pvz-ozon-v-provintsii.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько зарабатывает ПВЗ Озон в провинции: реальная прибыль 2026</span>
+                <span class="pb-related-desc">Полный расчет доходов пункта выдачи Озон в малых городах. Расходы, налоги, штрафы и реальная чистая </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

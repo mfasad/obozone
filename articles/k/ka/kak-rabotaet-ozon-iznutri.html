@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает Ozon изнутри: архитектура и процессы маркетплейса 2026 — Об Озоне</title>
+    <meta name="description" content="Разбор внутренних механизмов Ozon: от обработки заказов до логистики FBS/FBO. Как устроена платформа для продавцов и покупателей.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rabotaet-ozon-iznutri.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает Ozon изнутри: архитектура и процессы маркетплейса 2026">
+    <meta property="og:description" content="Разбор внутренних механизмов Ozon: от обработки заказов до логистики FBS/FBO. Как устроена платформа для продавцов и покупателей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работает Ozon изнутри: архитектура и процессы маркетплейса 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#архитектура-платформы-фронтенд-бэкенд-и-микросервисы">Архитектура платформы: фронтенд, бэкенд и микросервисы</a></li><li><a href="#обработка-заказа-путь-от-кнопки-купить-до-склада">Обработка заказа: путь от кнопки «Купить» до склада</a></li><li><a href="#модели-fbs-и-fbo-чем-отличаются-изнутри">Модели FBS и FBO: чем отличаются изнутри</a></li><li><a href="#логистика-и-склады-как-ozon-управляет-миллионами-товаров">Логистика и склады: как Ozon управляет миллионами товаров</a></li><li><a href="#алгоритмы-ранжирования-как-ozon-выбирает-какие-товары-показать">Алгоритмы ранжирования: как Ozon выбирает, какие товары показать</a></li><li><a href="#безопасность-и-борьба-с-мошенниками">Безопасность и борьба с мошенниками</a></li><li><a href="#аналитика-и-инструменты-для-продавцов">Аналитика и инструменты для продавцов</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-oznachaet-knopka-ozon-na-avtomate-vydachi-vody.html">Кнопка «Озон» на автомате выдачи воды: что означает и как работает</a></li><li><a href="/articles/v/vo/vo-skolko-raz-molekula-ozona-tyazhelee-kisloroda-i-vodoroda.html">Во сколько раз молекула озона тяжелее кислорода и водорода</a></li><li><a href="/articles/o/oz/ozon-vozdukha-chto-eto.html">Озон воздуха: что это и как влияет на здоровье</a></li><li><a href="/articles/c/ch/chem-pakhnet-ozon-posle-grozy.html">Чем пахнет озон после грозы: химия свежего воздуха</a></li><li><a href="/articles/i/im/imya-ozon-kakoj-natsionalnosti.html">Имя Озон: какой национальности основатели и история бренда</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как устроен Ozon изнутри: техническая архитектура и бизнес-процессы маркетплейса</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#архитектура-платформы-фронтенд-бэкенд-и-микросервисы">Архитектура платформы: фронтенд, бэкенд и микросервисы</a></li><li><a href="#обработка-заказа-путь-от-кнопки-купить-до-склада">Обработка заказа: путь от кнопки «Купить» до склада</a></li><li><a href="#модели-fbs-и-fbo-чем-отличаются-изнутри">Модели FBS и FBO: чем отличаются изнутри</a></li><li><a href="#логистика-и-склады-как-ozon-управляет-миллионами-товаров">Логистика и склады: как Ozon управляет миллионами товаров</a></li><li><a href="#алгоритмы-ранжирования-как-ozon-выбирает-какие-товары-показать">Алгоритмы ранжирования: как Ozon выбирает, какие товары показать</a></li><li><a href="#безопасность-и-борьба-с-мошенниками">Безопасность и борьба с мошенниками</a></li><li><a href="#аналитика-и-инструменты-для-продавцов">Аналитика и инструменты для продавцов</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Маркетплейс <strong>Ozon</strong> — это не просто витрина товаров, а сложная экосистема, где ежедневно пересекаются миллионы покупателей, десятки тысяч продавцов и сотни логистических партнёров. За внешним интерфейсом сайта и мобильного приложения скрывается многогранная инфраструктура: от высоконагруженных серверов до автоматизированных складов, от алгоритмов ранжирования до систем борьбы с мошенниками. Понимание того, <em>как работает Ozon изнутри</em>, помогает продавцам оптимизировать бизнес, а покупателям — лучше ориентироваться в возможностях платформы.</p>
+
+<p>В этой статье мы разберём <strong>ключевые технические и организационные компоненты</strong> Ozon: от обработки заказа до доставки, от моделей <code>FBS</code> и <code>FBO</code> до внутренних аналитических инструментов. Особое внимание уделим «подводным камням», с которыми сталкиваются продавцы, — например, <mark>как именно Ozon распределяет трафик между товарами с одинаковой ценой, но разными рейтингами</mark>, или почему иногда заказы «зависают» на стадии «В обработке». Информация актуальна на <strong>2026 год</strong> и основана на открытых данных, интервью с экспертами и анализе публичных документов компании.</p>
+
+<h2 id="архитектура-платформы-фронтенд-бэкенд-и-микросервисы">Архитектура платформы: фронтенд, бэкенд и микросервисы</h2>
+
+<p>С технической точки зрения Ozon построена на <strong>микросервисной архитектуре</strong>, где каждый функциональный блок (каталог, корзина, личный кабинет, логистика) работает как отдельный сервис. Это позволяет масштабировать систему под нагрузку — например, во время «Чёрной пятницы» или распродаж <em>Ozon Sale</em>. Основные компоненты:</p>
+
+<ul>
+  <li>🖥️ <strong>Фронтенд</strong>: веб-версия (React.js), мобильные приложения (Kotlin/Swift), а также API для партнёров. Интерфейс адаптируется под устройство пользователя, а данные подгружаются динамически для ускорения загрузки.</li>
+  <li>🗃️ <strong>Бэкенд</strong>: написан преимущественно на <em>Go</em> и <em>Java</em>, обрабатывает до <code>100 000 запросов в секунду</code> в пиковые часы. Использует базы данных <em>PostgreSQL</em>, <em>ClickHouse</em> (для аналитики) и <em>Redis</em> (кеширование).</li>
+  <li>🚛 <strong>Логистические сервисы</strong>: отдельная подсистема, интегрированная с партнёрами (<em>СДЭК</em>, <em>Boxberry</em>, <em>Почта России</em>) и собственными складами Ozon.</li>
+  <li>🤖 <strong>ИИ и машинное обучение</strong>: используется для рекомендаций товаров, детектирования мошенничества и оптимизации маршрутов доставки.</li>
+</ul>
+
+<p>Интересный факт: Ozon активно применяет <strong>feature flags</strong> — механизм, позволяющий включать или отключать новые функции для отдельных групп пользователей без полного релиза. Например, <em>новый алгоритм ранжирования товаров</em> сначала тестируется на 5% аудитории, и только потом (если метрики улучшаются) внедряется повсеместно.</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы продавец и заметили, что ваши товары внезапно перестали показываться в поиске, проверьте <code>Личный кабинет → Настройки → Эксперименты</code>. Возможно, вас подключили к тестированию нового алгоритма, который временно занижает позиции.</blockquote>
+
+<div class="pb-poll" id="poll-57de1fef"><div class="pb-poll-question">📊 Какой интерфейс Ozon вы используете чаще?</div><div class="pb-poll-option" data-poll="57de1fef" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Мобильное приложение</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="57de1fef" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Веб-версия на ПК</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="57de1fef" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Оба варианта примерно одинаково</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="57de1fef" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Другой</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="обработка-заказа-путь-от-кнопки-купить-до-склада">Обработка заказа: путь от кнопки «Купить» до склада</h2>
+
+<p>Когда покупатель нажимает «Купить», запускается цепочка из <strong>12 этапов</strong>, которая занимает от нескольких секунд до часов (в зависимости от модели доставки). Рассмотрим ключевые шаги:</p>
+
+<ol>
+  <li><strong>Валидация заказа</strong>: система проверяет наличие товара на складе, корректность цены, доступность способа оплаты и доставки. Если товар участвует в акции (например, <em>«Кэшбэк 10%»</em>), применяются дополнительные проверки.</li>
+  <li><strong>Резервирование товара</strong>: товар «замораживается» на складе на 2 часа (для <code>FBS</code>) или у продавца (для <code>FBO</code>). Если покупатель не оплатит заказ в этот срок, резерв снимается.</li>
+  <li><strong>Формирование маршрута</strong>: для <code>FBS</code> система автоматически выбирает ближайший склад с наличием товара, для <code>FBO</code> — рассчитывает оптимальный способ доставки от продавца до ПВЗ.</li>
+  <li><strong>Информирование сторон</strong>: продавцу (в <code>FBO</code>) приходит уведомление о необходимости собрать и отправить заказ, логистическому партнёру — данные для этикетки.</li>
+</ol>
+
+<p>Самая частая проблема на этом этапе — <strong>«зависание» заказа на статусе «В обработке»</strong>. Это происходит, если:</p>
+<ul>
+  <li>🔄 Товар есть на виртуальном складе Ozon, но физически отсутствует на реальном (например, из-за ошибки инвентаризации).</li>
+  <li>💳 Платеж не прошёл (банк заблокировал транзакцию или недостаточно средств), но система не успела обновить статус.</li>
+  <li>📦 Продавец в <code>FBO</code> не подтвердил сборку заказа в течение 24 часов (Ozon автоматически отменяет такой заказ).</li>
+</ul>
+
+<details class="pb-accordion"><summary>Что делать, если заказ «завис» дольше суток?</summary><div class="pb-accordion-body"><p>
+<p>Если статус не меняется более 24 часов, свяжитесь с поддержкой Ozon через чат в личном кабинете. Укажите номер заказа и попросите проверить:</p>
+<p>1) Наличие товара на складе (для FBS).</p>
+<p>2) Статус платежа в банке (иногда требуется повторный запрос на списание).</p>
+<p>3) Логистические ограничения (например, доставка в ваш регион может быть приостановлена из-за погодных условий).</p>
+<p></p></div></details></p>
+
+<h2 id="модели-fbs-и-fbo-чем-отличаются-изнутри">Модели FBS и FBO: чем отличаются изнутри</h2>
+
+<p>Ozon предлагает продавцам две основные модели работы: <code>FBS</code> (<em>Fulfillment by Ozon</em>) и <code>FBO</code> (<em>Fulfillment by Operator</em>). Разница не только в том, кто хранит и отправляет товар, но и в <strong>алгоритмах ранжирования, комиссиях и рисках</strong>.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>FBS</th>
+      <th>FBO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Хранение товара</strong></td>
+      <td>На складах Ozon</td>
+      <td>У продавца или 3PL-оператора</td>
+    </tr>
+    <tr>
+      <td><strong>Доставка</strong></td>
+      <td>Ozon или партнёры (СДЭК, Boxberry)</td>
+      <td>Продавец выбирает перевозчика самостоятельно</td>
+    </tr>
+    <tr>
+      <td><strong>Комиссия Ozon</strong></td>
+      <td>От 5% до 15% (включает логистику)</td>
+      <td>От 10% до 20% (логистика оплачивается отдельно)</td>
+    </tr>
+    <tr>
+      <td><strong>Видимость в поиске</strong></td>
+      <td>Приоритетнее (алгоритм доверяет FBS-товары)</td>
+      <td>Ниже, если у продавца низкий рейтинг доставки</td>
+    </tr>
+    <tr>
+      <td><strong>Возвраты</strong></td>
+      <td>Ozon обрабатывает самостоятельно</td>
+      <td>Продавец управляет процессом</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Ключевое отличие для покупателя: при <code>FBS</code> товар обычно доставляется быстрее (1–3 дня), так как он уже находится на складе Ozon. При <code>FBO</code> сроки зависят от продавца — иногда доставка занимает до 10 дней. Для продавца <code>FBS</code> выгоднее с точки зрения трафика, но требует больших вложений в запасы.</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы продавец и переходите с <code>FBO</code> на <code>FBS</code>, учтите, что Ozon может <strong>заблокировать отправку товаров на склад</strong>, если они не соответствуют требованиям упаковки (например, отсутствует штрихкод или этикетка). Проверяйте правила в <code>Личный кабинет → FBS → Требования к товарам</code>.</blockquote>
+
+
+<p>Отсканируйте штрихкоды и проверьте их читаемость</p>
+<p>Упакуйте товар в соответствии с требованиями Ozon (без логотипов других маркетплейсов)</p>
+<p>Наклейте этикетку FBS (сгенерируйте в личном кабинете)</p>
+<p>Проверьте вес и габариты (превышение может привести к штрафам)</p>
+<p>--></p>
+
+<h2 id="логистика-и-склады-как-ozon-управляет-миллионами-товаров">Логистика и склады: как Ozon управляет миллионами товаров</h2>
+
+<p>На конец 2026 года Ozon владеет <strong>более 20 складами</strong> по России (включая <em>мегахабы</em> в Подмосковье, Санкт-Петербурге и Екатеринбурге) и сотрудничает с сотнями партнёров. Логистическая сеть построена по принципу <em>hub-and-spoke</em>: крупные хабы распределяют товары по мелким пунктам выдачи (ПВЗ) и постаматам. Основные технологии:</p>
+
+<ul>
+  <li>🤖 <strong>Автоматизированные склады</strong>: в некоторых хабах используются роботы <em>Kiva Systems</em> (подобные тем, что применяет Amazon), которые перемещают стеллажи с товарами к сотрудникам для комплектации.</li>
+  <li>📊 <strong>Предсказательная аналитика</strong>: Ozon прогнозирует спрос на товары с точностью до 85%, что позволяет оптимизировать запасы и сокращать избыточные остатки.</li>
+  <li>🚚 <strong>Динамическая маршрутизация</strong>: алгоритмы выбирают оптимальный путь доставки в реальном времени, учитывая пробки, погоду и загруженность ПВЗ.</li>
+</ul>
+
+<p>Интересный нюанс: Ozon активно развивает <strong>«тёмные склады»</strong> (<em>dark stores</em>) — пункты хранения, которые работают только на онлайн-заказы и не доступны для посещения покупателями. Такие склады расположены в черте городов и позволяют доставлять товары за <code>2–4 часа</code> (сервис <em>Ozon Express</em>).</p>
+
+
+<p>- Находиться на складе FBS в радиусе 50 км от города доставки.</p>
+<p>- Иметь высокий рейтинг (не ниже 4.5) и минимальное количество возвратов.</p>
+<p>- Быть в категории «Продукты», «Косметика» или «Электроника».</p>
+<p>--></p>
+
+<h2 id="алгоритмы-ранжирования-как-ozon-выбирает-какие-товары-показать">Алгоритмы ранжирования: как Ozon выбирает, какие товары показать</h2>
+
+<p>Поисковая выдача Ozon формируется на основе <strong>более 200 факторов</strong>, которые делятся на три группы:</p>
+
+<ol>
+  <li><strong>Факторы товара</strong>: цена, наличие на складе, рейтинг, количество отзывов, полнота карточки (фото, описание, характеристики).</li>
+  <li><strong>Факторы продавца</strong>: рейтинг надёжности, скорость обработки заказов, процент возвратов, участие в акциях Ozon.</li>
+  <li><strong>Факторы пользователя</strong>: история покупок, геолокация, устройство (мобильное/десктоп), время суток.</li>
+</ol>
+
+<p>Один из самых весомых параметров — <strong><code>CTR</code> (click-through rate)</strong>, то есть процент переходов на карточку товара из поисковой выдачи. Если ваш товар показывается 100 раз, но на него кликают только 2 раза (<code>CTR = 2%</code>), Ozon понизит его позиции. Нормальный <code>CTR</code> для большинства категорий — <code>5–15%</code>.</p>
+
+<p>Ещё один важный момент: Ozon использует <strong>А/Б-тестирование</strong> для поисковой выдачи. Это значит, что двум разным пользователям с одинаковым запросом могут показать <em>разные наборы товаров</em>, чтобы определить, какой вариант лучше конвертируется. Поэтому позиции товара могут «прыгать» даже без изменений со стороны продавца.</p>
+
+
+<p>- Оптимизации карточки товара (заголовок, ключевые слова, качественные фото).</p>
+<p>- Поддержании высокого рейтинга (4.7+).</p>
+<p>- Участии в акциях (например, «Топ дня» или «Выгодная цена»).</p>
+<p>- Быстрой обработке заказов (в FBS — не более 2 часов на сборку).</p>
+<p>--></p>
+
+<h2 id="безопасность-и-борьба-с-мошенниками">Безопасность и борьба с мошенниками</h2>
+
+<p>Ozon ежедневно блокирует тысячи подозрительных аккаунтов и транзакций. Для этого используются:</p>
+
+<ul>
+  <li>🛡️ <strong>Система верификации продавцов</strong>: проверка паспортных данных, ИНН, юридических документов. Новые продавцы проходят модерацию вручную.</li>
+  <li>🤖 <strong>Машинное обучение для детектирования фрода</strong>: алгоритмы анализируют поведение пользователей (скорость кликов, IP-адреса, устройства) и выявляют ботов.</li>
+  <li>🔍 <strong>Контроль возвратов</strong>: если покупатель слишком часто возвращает товары (более 30% от заказов), его аккаунт может быть заблокирован.</li>
+  <li>💳 <strong>Защита платежей</strong>: интеграция с <em>3D-Secure</em> и собственные антифрод-решения для предотвращения кражи карт.</li>
+</ul>
+
+<p>Для продавцов главная угроза — <strong>«серые» схемы</strong>, когда конкуренты массово заказывают и возвращают товар, чтобы испортить рейтинг. Ozon борется с этим через:</p>
+<ul>
+  <li>📉 Автоматическое скрытие отзывов, если обнаружено недобросовестное поведение (например, несколько негативных отзывов с одного IP).</li>
+  <li>🚫 Блокировку аккаунтов, которые системно возвращают товары одного продавца.</li>
+  <li>🔄 Возможность оспорить несправедливый возвраты через арбитраж Ozon (раздел <code>Личный кабинет → Споры</code>).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы продавец и заметили необычный всплеск возвратов (например, 10 заказов за день от разных покупателей с одинаковым комментарием), немедленно обратитесь в поддержку с просьбой проверить аккаунты на мошенничество. Ozon может временно приостановить обработку возвратов по вашим товарам.</blockquote>
+
+<h2 id="аналитика-и-инструменты-для-продавцов">Аналитика и инструменты для продавцов</h2>
+
+<p>Ozon предоставляет продавцам <strong>более 50 отчётов</strong> в личном кабинете, которые помогают анализировать продажи, трафик и поведение покупателей. Самые полезные инструменты:</p>
+
+<ul>
+  <li>📈 <strong>Дашборд продаж</strong>: показывает динамику выручки, количество заказов, средний чек и конверсию по дням/неделям.</li>
+  <li>🔍 <strong>Аналитика трафика</strong>: откуда приходят покупатели (поиск, рекомендации, акции), какие ключевые слова используют.</li>
+  <li>🛒 <strong>Отчёт по возвратам</strong>: причины возвратов, частые комментарии покупателей, товары с высоким процентом отказов.</li>
+  <li>📊 <strong>Benchmarking</strong>: сравнение ваших метрик (цена, рейтинг, CTR) с конкурентами в категории.</li>
+</ul>
+
+<p>Пример использования: если в отчёте <code>Аналитика трафика</code> вы видите, что 70% переходов на ваш товар идут по запросу <em>«кухонный нож нержавеющая сталь»</em>, но конверсия низкая, стоит:</p>
+<ol>
+  <li>Проверить, соответствует ли заголовок товара этому запросу.</li>
+  <li>Добавить в описание ключевые слова (<em>«нож для кухни из нержавейки»</em>).</li>
+  <li>Улучшить фото (показать нож в использовании на кухне).</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Экспортируйте отчёты Ozon в Excel и стройте собственные дашборды в <em>Google Data Studio</em> или <em>Power BI</em>. Это поможет выявлять тренды, которые не видны в стандартных отчётах. Например, корреляцию между погодой в регионе и продажами сезонных товаров.</p></aside>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</h2>
+
+<details>
+  <summary>Как Ozon определяет, какой товар показать в поиске первым?</summary>
+  <p>Алгоритм ранжирования учитывает <strong>релевантность запросу</strong> (совпадение ключевых слов в заголовке и описании), <strong>поведенческие факторы</strong> (CTR, конверсия), <strong>цену и наличие</strong>, а также <strong>рейтинг продавца</strong>. Товары с <code>FBS</code> имеют преимущество перед <code>FBO</code> при прочих равных.</p>
+  <p>Чтобы улучшить позиции, оптимизируйте карточку товара (заголовок, фото, характеристики) и поддерживайте высокий рейтинг (4.7+). Участие в акциях Ozon также повышает видимость.</p>
+</details>
+
+<details>
+  <summary>Почему заказ «завис» на статусе «В обработке»?</summary>
+  <p>Это может происходить по нескольким причинам:</p>
+  <ul>
+    <li>Товар отсутствует на складе (для <code>FBS</code>) или продавец не подтвердил отправку (для <code>FBO</code>).</li>
+    <li>Платёж не прошёл (банк заблокировал транзакцию).</li>
+    <li>Логистический партнёр временно приостановил доставку в ваш регион.</li>
+  </ul>
+  <p>Если статус не меняется более 24 часов, обратитесь в поддержку Ozon с номером заказа.</p>
+</details>
+
+<details>
+  <summary>Чем отличаются FBS и FBO для продавца?</summary>
+  <p><code>FBS</code> (<em>Fulfillment by Ozon</em>) подразумевает, что товар хранится на складах Ozon, а логистикой занимается платформа. Это даёт приоритет в поисковой выдаче, но требует оплаты комиссии за хранение и доставку. <code>FBO</code> (<em>Fulfillment by Operator</em>) позволяет продавцу самостоятельно управлять запасами и доставкой, но товары ранжируются ниже, если у продавца низкий рейтинг.</p>
+  <p>Для новичков рекомендуется начинать с <code>FBO</code>, чтобы протестировать спрос, а затем переходить на <code>FBS</code> для масштабирования.</p>
+</details>
+
+<details>
+  <summary>Как Ozon борется с мошенниками среди продавцов?</summary>
+  <p>Ozon использует <strong>автоматические и ручные проверки</strong>:</p>
+  <ul>
+    <li>Алгоритмы анализируют поведение аккаунтов (например, массовую регистрацию с одного IP).</li>
+    <li>Модераторы проверяют документы продавцов при регистрации.</li>
+    <li>Система отслеживает аномально высокий процент возвратов или негативных отзывов.</li>
+  </ul>
+  <p>Если продавец нарушает правила (например, продаёт контрафакт), его аккаунт блокируется, а товары снимаются с продажи.</p>
+</details>
+
+<details>
+  <summary>Можно ли интегрировать свой сайт с Ozon?</summary>
+  <p>Да, Ozon предоставляет <strong>API для партнёров</strong>, которое позволяет:</p>
+  <ul>
+    <li>Синхронизировать остатки товаров между вашим сайтом и Ozon.</li>
+    <li>Автоматически создавать заказы в личном кабинете Ozon при продаже на вашем ресурсе.</li>
+    <li>Получать данные о статусах заказов и отзывах.</li>
+  </ul>
+  <p>Документация доступна по ссылке: <code>https://docs.ozon.ru/api/seller/</code> (требуется авторизация).</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-oznachaet-knopka-ozon-na-avtomate-vydachi-vody.html" class="pb-related-card">
+                <span class="pb-related-title">Кнопка «Озон» на автомате выдачи воды: что означает и как работает</span>
+                <span class="pb-related-desc">Разбираемся, зачем нужна кнопка «Озон» на кулере, как она влияет на качество воды и когда её нажимат</span>
+            </a><a href="/articles/v/vo/vo-skolko-raz-molekula-ozona-tyazhelee-kisloroda-i-vodoroda.html" class="pb-related-card">
+                <span class="pb-related-title">Во сколько раз молекула озона тяжелее кислорода и водорода</span>
+                <span class="pb-related-desc">Точный расчет: во сколько раз молекула озона тяжелее кислорода и водорода. Формулы, физический смысл</span>
+            </a><a href="/articles/o/oz/ozon-vozdukha-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Озон воздуха: что это и как влияет на здоровье</span>
+                <span class="pb-related-desc">Узнайте, что такое озон в воздухе, какова его норма, чем опасен избыток и как очистить помещение от </span>
+            </a><a href="/articles/c/ch/chem-pakhnet-ozon-posle-grozy.html" class="pb-related-card">
+                <span class="pb-related-title">Чем пахнет озон после грозы: химия свежего воздуха</span>
+                <span class="pb-related-desc">Узнайте, чем пахнет озон после грозы, как он образуется и почему этот запах ассоциируется с чистотой</span>
+            </a><a href="/articles/i/im/imya-ozon-kakoj-natsionalnosti.html" class="pb-related-card">
+                <span class="pb-related-title">Имя Озон: какой национальности основатели и история бренда</span>
+                <span class="pb-related-desc">Узнайте, какой национальности имя Озон, кто основал маркетплейс и как развивалась компания от IT-ста</span>
+            </a><a href="/articles/s/s-/s-chem-vzaimodejstvuet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">С чем взаимодействует озон: химия, экология и безопасность на Ozon</span>
+                <span class="pb-related-desc">Разбираемся, как озон взаимодействует с веществами, материалами и организмами. Важные нюансы для про</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

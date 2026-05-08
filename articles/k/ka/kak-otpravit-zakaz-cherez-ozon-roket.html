@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отправить заказ через Ozon Rocket: пошаговая инструкция — Об Озоне</title>
+    <meta name="description" content="Подробный гайд по отправке заказов через Ozon Rocket. Настройка интеграции, работа со статусами и решение проблем при экспорте треков.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-otpravit-zakaz-cherez-ozon-roket.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отправить заказ через Ozon Rocket: пошаговая инструкция">
+    <meta property="og:description" content="Подробный гайд по отправке заказов через Ozon Rocket. Настройка интеграции, работа со статусами и решение проблем при экспорте треков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отправить заказ через Ozon Rocket: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-к-отправке-и-проверка-интеграции">Подготовка к отправке и проверка интеграции</a></li><li><a href="#автоматическая-отгрузка-через-интеграцию">Автоматическая отгрузка через интеграцию</a></li><li><a href="#ручная-отгрузка-заказов-пошаговая-инструкция">Ручная отгрузка заказов: пошаговая инструкция</a></li><li><a href="#массовая-загрузка-трек-номеров">Массовая загрузка трек-номеров</a></li><li><a href="#работа-со-статусами-и-отслеживание-ошибок">Работа со статусами и отслеживание ошибок</a></li><li><a href="#типичные-проблемы-и-способы-их-решения">Типичные проблемы и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/kt/kto-takie-tekhnologicheskie-partnery-ozon.html">Технологические партнеры Ozon: кто они и зачем нужны продавцам</a></li><li><a href="/articles/k/ka/kak-prodavat-postelnoe-bele-na-ozon.html">Как продавать постельное белье на Озон: старт и стратегии</a></li><li><a href="/articles/z/zh/zhira-ozon-chto-takoe.html">Жира Озон — что это такое и как работает на маркетплейсе в 2026 году</a></li><li><a href="/articles/o/oz/ozon-seller-gde-najti-dogovor.html">Где найти договор с Ozon Seller: поиск и скачивание оферты</a></li><li><a href="/articles/c/ch/chto-takoe-ctr-na-ozone.html">Что такое CTR на Озоне: как рассчитать и повысить</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как отправить заказ через Ozon Rocket: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-отправке-и-проверка-интеграции">Подготовка к отправке и проверка интеграции</a></li><li><a href="#автоматическая-отгрузка-через-интеграцию">Автоматическая отгрузка через интеграцию</a></li><li><a href="#ручная-отгрузка-заказов-пошаговая-инструкция">Ручная отгрузка заказов: пошаговая инструкция</a></li><li><a href="#массовая-загрузка-трек-номеров">Массовая загрузка трек-номеров</a></li><li><a href="#работа-со-статусами-и-отслеживание-ошибок">Работа со статусами и отслеживание ошибок</a></li><li><a href="#типичные-проблемы-и-способы-их-решения">Типичные проблемы и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с маркетплейсами требует высокой скорости реакции, особенно когда речь идет о логистике и своевременной отгрузке товаров. Для селлеров, использующих <strong>Ozon Rocket</strong> как основную ERP-систему, процесс передачи данных о трек-номерах в личный кабинет продавца становится рутинной, но критически важной задачей. Ошибки на этом этапе могут привести к штрафам за просрочку отгрузки или снижению рейтинга магазина, поэтому важно четко понимать алгоритм действий.</p>
+
+<p>В этой статье мы детально разберем, как настроить автоматический или ручной экспорт трек-номеров, чтобы ваши заказы получали статус «Отгружен» вовремя. Мы рассмотрим нюансы работы с интеграцией, типичные ошибки при заполнении полей и способы их оперативного устранения без обращения в техническую поддержку.</p>
+
+<p>Прежде чем переходить к техническим настройкам, необходимо убедиться, что ваш аккаунт в <em>Ozon Rocket</em> корректно связан с профилем продавца на маркетплейсе. Без успешной авторизации и настройки API-ключей любые манипуляции с заказами будут невозможны. Также важно, чтобы у вас были под рукой трек-номера от транспортной компании, которую вы планируете использовать для доставки.</p>
+
+<h2 id="подготовка-к-отправке-и-проверка-интеграции">Подготовка к отправке и проверка интеграции</h2>
+
+<p>Первым шагом перед массовой отгрузкой товаров является проверка текущего статуса соединения между вашей учетной записью в ERP-системе и площадкой. Часто пользователи забывают, что токены доступа имеют свойство истекать, что приводит к сбоям в синхронизации данных. Зайдите в раздел настроек и убедитесь, что горит зеленый индикатор подключения.</p>
+
+<p>Если вы планируете отправлять заказы через сторонние транспортные компании, убедитесь, что они поддерживаются системой автоматического трекинга. <strong>Ozon Rocket</strong> умеет самостоятельно подтягивать статусы от многих крупных логистических операторов, но для некоторых региональных перевозчиков может потребоваться ручной ввод данных.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы используете схему FBS, убедитесь, что в настройках профиля продавца на Ozon выбран правильный шаблон отгрузки. Несоответствие шаблона в ERP и на площадке приведет к ошибке при попытке передать трек-номер.</p>
+</blockquote>
+
+<p>Также стоит проверить, не заблокированы ли какие-либо заказы модерацией или службой безопасности. Такие заказы будут висеть в статусе «Новый», но система не даст их отгрузить до разрешения ситуации. Рекомендуется отфильтровать список заказов по дате создания, чтобы видеть только актуальные для отправки позиции.</p>
+
+<div class="pb-poll" id="poll-52a78a53"><div class="pb-poll-question">📊 Как вы чаще всего отгружаете заказы?</div><div class="pb-poll-option" data-poll="52a78a53" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Автоматически через интеграцию</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="52a78a53" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную по одному</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="52a78a53" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Массовым импортом CSV</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="52a78a53" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сторонний сервис</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="автоматическая-отгрузка-через-интеграцию">Автоматическая отгрузка через интеграцию</h2>
+
+<p>Наиболее эффективным способом работы является полная автоматизация процесса. При правильной настройке <strong>Ozon Rocket</strong> может самостоятельно передавать трек-номера сразу после их создания или сканирования. Для этого необходимо активировать соответствующий плагин или модуль в разделе логистики вашей ERP-системы.</p>
+
+<p>Алгоритм работы авто-отгрузки строится на триггерах: как только вы формируете накладную в системе учета, она отправляет запрос на серверы маркетплейса. Если ответ от сервера положительный, заказу присваивается статус «Отгружен», и клиент получает уведомление. Это значительно сокращает время между сборкой заказа и его фактической передачей курьеру.</p>
+
+<p>Однако автоматика не всегда идеальна. Иногда возникают задержки на стороне API Ozon, особенно в дни распродаж и высокого трафика. В таких случаях система может повторять попытку отправки несколько раз. Важно следить за логами ошибок, которые обычно находятся в разделе «История действий» или «Журнал событий».</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Настройте уведомления в мессенджере или по email о критических ошибках синхронизации, чтобы реагировать на сбои мгновенно, не дожидаясь конца рабочего дня.</p></aside>
+
+<p>Для настройки автоматической передачи данных часто требуется указать префикс транспортной компании в специальном поле. Это помогает системе правильно идентифицировать формат трек-номера и избежать ошибок валидации. Список поддерживаемых префиксов можно найти в справочном разделе документации платформы.</p>
+
+<h2 id="ручная-отгрузка-заказов-пошаговая-инструкция">Ручная отгрузка заказов: пошаговая инструкция</h2>
+
+<p>В ситуациях, когда автоматическая интеграция временно недоступна или вы работаете с нестандартными логистическими партнерами, приходится прибегать к ручной отгрузке. Этот процесс требует внимательности, так как риск опечатки в трек-номере здесь максимален. Откройте список заказов и выберите те, которые готовы к отправке.</p>
+
+<p>Далее необходимо перейти в карточку конкретного заказа. В интерфейсе <em>Ozon Rocket</em> это обычно делается двойным кликом или через кнопку «Детали». Найдите поле для ввода трек-номера и впишите туда данные, полученные от транспортной компании. Не забудьте выбрать правильного перевозчика из выпадающего списка, если он не определился автоматически.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист ручной отгрузки</h4><label class="check-item"><input type="checkbox"><span>Проверить адрес доставки</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в наличии товара на складе</span></label><label class="check-item"><input type="checkbox"><span>Распечатать этикетку</span></label><label class="check-item"><input type="checkbox"><span>Ввести трек-номер</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку «Отгрузить»</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>После ввода всех данных нажмите кнопку подтверждения. Система проведет валидацию введенного трек-номера. Если формат верен и заказ находится в допустимом статусе, произойдет успешная отправка данных. В противном случае вы увидите сообщение об ошибке, которое подскажет, что именно пошло не так.</p>
+
+<p>При работе с большими объемами ручная отгрузка может стать узким горлышком бизнес-процесса. Рекомендуется использовать этот метод только для единичных заказов или исключительных случаев. Для регулярной работы лучше стремиться к автоматизации или использовать массовые операции.</p>
+
+<h2 id="массовая-загрузка-трек-номеров">Массовая загрузка трек-номеров</h2>
+
+<p>Для селлеров, обрабатывающих сотни заказов в день, ручное заполнение каждого поля становится невозможным. В таких случаях <strong>Ozon Rocket</strong> предлагает функцию массовой загрузки через CSV-файл или Excel-таблицу. Это позволяет передать сотни трек-номеров за одну операцию, существенно экономя время менеджеров.</p>
+
+<p>Чтобы воспользоваться этим инструментом, необходимо сначала сформировать выгрузку заказов, которые требуют отгрузки. Затем в полученный файл добавляется колонка с трек-номерами. Важно строго соблюдать форматирование файла: не менять названия колонок и порядок данных, иначе система не сможет считать информацию корректно.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order ID</td>
+<td>Номер заказа</td>
+<td>Числовой формат, без пробелов</td>
+</tr>
+<tr>
+<td>Tracking Number</td>
+<td>Трек-номер</td>
+<td>Алфавитно-цифровой, регистр не важен</td>
+</tr>
+<tr>
+<td>Carrier Code</td>
+<td>Код перевозчика</td>
+<td>Строгий код из справочника Ozon</td>
+</tr>
+<tr>
+<td>Shipping Date</td>
+<td>Дата отгрузки</td>
+<td>Формат ГГГГ-ММ-ДД</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>После подготовки файла загрузите его через специальный интерфейс в разделе логистики. Система проверит каждую строку на наличие ошибок. Если в файле будут найдены некорректные данные, вам будет предложено скачать отчет об ошибках для их исправления. Корректные заказы будут отгружены сразу же.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При массовой загрузке будьте особенно внимательны к соответствию Order ID и трек-номера. Перепутанные строки приведут к тому, что клиент получит чужой трек, что вызовет массу проблем с доставкой и возвратами.</p>
+</blockquote>
+
+<details class="pb-accordion"><summary>Что делать, если массовая загрузка прервалась?</summary><div class="pb-accordion-body"><p>Если процесс загрузки файла прервался на середине, не загружайте файл заново полностью. Скачайте отчет об ошибках, исправьте только проблемные строки и загрузите файл, содержащий только исправленные записи. Повторная загрузка уже успешных заказов может вызвать дублирование событий в системе.</p></div></details>
+
+<h2 id="работа-со-статусами-и-отслеживание-ошибок">Работа со статусами и отслеживание ошибок</h2>
+
+<p>После отправки трек-номеров процесс не заканчивается. Необходимо контролировать, как изменились статусы заказов. В идеале статус должен смениться на «В пути» или «Доставлен» в соответствии с движениями груза. Если заказ долгое время висит в статусе «Отгружен», но трек не обновляется, возможно, транспортная компания еще не передала данные в общую сеть.</p>
+
+<p><strong>Ozon Rocket</strong> предоставляет инструменты для мониторинга таких ситуаций. В разделе аналитики можно увидеть график обновления статусов и выявить задержки. Также система может подсвечивать заказы, по которым давно не было движений, привлекая внимание менеджера.</p>
+
+<p>Частой проблемой является рассинхронизация статусов между ERP и маркетплейсом. Например, в системе учета заказ помечен как доставленный, а на сайте Ozon все еще числится в пути. В таких случаях помогает принудительная пересинхронизация, которую можно запустить вручную для конкретного заказа или группы заказов.</p>
+
+<p>Особое внимание стоит уделять заказам с частичной отгрузкой. Если вы не можете отправить весь объем товара сразу, система требует указания количества отгрученных единиц. Ошибка в этом поле приведет к тому, что остаток заказа может автоматически отмениться или уйти в пересорт.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярный мониторинг статусов позволяет выявлять проблемы с логистическими партнерами на ранней стадии и предотвращать негативные отзывы от клиентов.</p></aside>
+
+<h2 id="типичные-проблемы-и-способы-их-решения">Типичные проблемы и способы их решения</h2>
+
+<p>В процессе работы селлеры часто сталкиваются с техническими трудностями. Одной из самых распространенных проблем является ошибка «Неверный формат трек-номера». Это происходит, когда в поле попадают лишние пробелы, символы или когда выбран неверный тип перевозчика. Решение простое: внимательно перепроверить данные и сверить их с требованиями транспортной компании.</p>
+
+<p>Еще одна частая ситуация — таймаут соединения. Серверы Ozon могут быть перегружены, и запрос на отгрузку просто не проходит. В этом случае не стоит паниковать и повторять попытку бесконечно. Лучше подождать 10-15 минут и попробовать снова. Система сохранит черновик отгрузки, и данные не потеряются.</p>
+
+<p>Также встречаются случаи, когда заказ уже отгружен кем-то другим (например, другим менеджером или автоматическим скриптом), и повторная попытка вызывает ошибку. <em>Ozon Rocket</em> обычно предупреждает о таком состоянии, но иногда сообщение может быть неочевидным. Всегда проверяйте историю изменений заказа перед внесением правок.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не пытайтесь обойти ограничения системы, вводя фейковые трек-номера ради соблюдения сроков. Маркетплейс легко вычисляет такие манипуляции, что грозит блокировкой аккаунта и серьезными финансовыми санкциями.</p>
+</blockquote>
+
+<p>Если ни один из стандартных методов решения не помогает, необходимо обратиться в техническую поддержку. Для ускорения процесса обязательно прикрепите скриншоты ошибки, номер заказа и время возникновения проблемы. Это поможет специалистам быстрее диагностировать сбой.</p>
+
+<details class="pb-accordion"><summary>Скрытые возможности логов</summary><div class="pb-accordion-body"><p>В расширенных настройках можно включить подробное логирование API-запросов. Это полезно для IT-специалистов, которые настраивают интеграцию, так как позволяет видеть точный текст запроса и ответа сервера.</p></div></details>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли изменить трек-номер после отправки заказа?</summary>
+<p>Да, изменить трек-номер можно, но только до момента, пока заказ не принят транспортной компанией и не начал движение. После начала транспортировки изменение трек-номера может привести к потере отслеживания. В <strong>Ozon Rocket</strong> эта функция доступна в карточке заказа через кнопку «Редактировать».</p>
+</details>
+
+<details>
+<summary>Что делать, если система пишет «Заказ не найден» при загрузке файла?</summary>
+<p>Эта ошибка означает, что Order ID в вашем файле не совпадает ни с одним активным заказом в системе. Проверьте, не был ли заказ уже отгружен ранее, не находится ли он в архиве или canceled. Также убедитесь, что в файле нет лишних символов в колонке с номерами заказов.</p>
+</details>
+
+<details>
+<summary>Как долго действителен трек-номер после его создания?</summary>
+<p>Сам по себе трек-номер не имеет срока действия, но у заказа есть дедлайн отгрузки. Если вы создали трек-номер, но не передали его в систему Ozon в течение отведенного времени (обычно 24-48 часов для FBS), вы получите штраф за просрочку. Важно соблюдать тайминги, указанные в личном кабинете.</p>
+</details>
+
+<details>
+<summary>Работает ли автоматическая отгрузка в выходные и праздничные дни?</summary>
+<p>Да, программные интерфейсы работают в режиме 24/7. Однако стоит учитывать график работы логистических партнеров. Если вы отправите данные о трек-номере в воскресенье, а курьер заберет товар только в понедельник, статус «В пути» может появиться с задержкой. Учитывайте это при планировании отгрузок.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/kt/kto-takie-tekhnologicheskie-partnery-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Технологические партнеры Ozon: кто они и зачем нужны продавцам</span>
+                <span class="pb-related-desc">Разбираемся, кто такие технологические партнеры Ozon, как они помогают продавцам автоматизировать би</span>
+            </a><a href="/articles/k/ka/kak-prodavat-postelnoe-bele-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать постельное белье на Озон: старт и стратегии</span>
+                <span class="pb-related-desc">Полный гид для селлеров: как продавать постельное белье на Озон. Выбор поставщиков, упаковка, логист</span>
+            </a><a href="/articles/z/zh/zhira-ozon-chto-takoe.html" class="pb-related-card">
+                <span class="pb-related-title">Жира Озон — что это такое и как работает на маркетплейсе в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое «жира» на Озон: как она влияет на продажи, как её повысить и почему продавцы </span>
+            </a><a href="/articles/o/oz/ozon-seller-gde-najti-dogovor.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти договор с Ozon Seller: поиск и скачивание оферты</span>
+                <span class="pb-related-desc">Узнайте, как найти договор оферты в личном кабинете Ozon Seller. Подробная инструкция для селлеров: </span>
+            </a><a href="/articles/c/ch/chto-takoe-ctr-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое CTR на Озоне: как рассчитать и повысить</span>
+                <span class="pb-related-desc">Узнайте, что такое CTR карточки на Ozon, как его правильно считать и какие факторы влияют на кликабе</span>
+            </a><a href="/articles/c/ch/chto-sejchas-prodavat-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что продавать на Ozon в 2026 году: ТОП ниш и стратегия</span>
+                <span class="pb-related-desc">Актуальный гид: что выгодно продавать на Озон в 2026 году. Анализ трендов, маржинальных ниш и запрет</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

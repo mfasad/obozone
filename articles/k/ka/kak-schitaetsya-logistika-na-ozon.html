@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Логистика на Ozon: как считается стоимость доставки для продавцов — Об Озоне</title>
+    <meta name="description" content="Разбираем формулы расчёта логистики Ozon для FBS и FBO, тарифы 2026 года, скрытые комиссии и способы оптимизации затрат. Полный гайд с примерами и таблицами.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-schitaetsya-logistika-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Логистика на Ozon: как считается стоимость доставки для продавцов">
+    <meta property="og:description" content="Разбираем формулы расчёта логистики Ozon для FBS и FBO, тарифы 2026 года, скрытые комиссии и способы оптимизации затрат. Полный гайд с примерами и таблицами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Логистика на Ozon: как считается стоимость доставки для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#fbs-vs-fbo-что-дешевле-и-когда-выгоднее">FBS vs FBO: что дешевле и когда выгоднее</a></li><li><a href="#формула-расчёта-логистики-в-fbs-разбираем-по-шагам">Формула расчёта логистики в FBS: разбираем по шагам</a></li><li><a href="#тарифы-ozon-на-логистику-в-2024-году-актуальные-цены">Тарифы Ozon на логистику в 2024 году: актуальные цены</a></li><li><a href="#скрытые-комиссии-и-неочевидные-расходы">Скрытые комиссии и неочевидные расходы</a></li><li><a href="#как-оптимизировать-затраты-на-логистику-7-рабочих-способов">Как оптимизировать затраты на логистику: 7 рабочих способов</a></li><li><a href="#распространённые-ошибки-и-как-их-избежать">Распространённые ошибки и как их избежать</a></li><li><a href="#кейсы-реальные-расчёты-логистики-для-разных-товаров">Кейсы: реальные расчёты логистики для разных товаров</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-torgovat-na-ozon-so-svoego-sklada-fbs.html">FBS на Ozon со своего склада: полное руководство 2026</a></li><li><a href="/articles/s/sk/skhema-fbs-ozon-chto-eto.html">FBS на Ozon: что это за схема работы и как она работает в 2026 году</a></li><li><a href="/articles/o/oz/ozon-kak-proiskhodit-vydacha.html">Как работает выдача товаров на Ozon: алгоритмы и секреты 2026</a></li><li><a href="/articles/g/gd/gde-najti-fbs-v-lichnom-kabinete-ozon.html">Где найти FBS в личном кабинете Ozon: пошаговая инструкция</a></li><li><a href="/articles/r/ra/raspredelitelnyj-tsentr-ozon-eto-chto.html">Распределительный центр Озон: что это и как работает в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как рассчитывается логистика на Ozon: формулы, тарифы и лайфхаки для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#fbs-vs-fbo-что-дешевле-и-когда-выгоднее">FBS vs FBO: что дешевле и когда выгоднее</a></li><li><a href="#формула-расчёта-логистики-в-fbs-разбираем-по-шагам">Формула расчёта логистики в FBS: разбираем по шагам</a></li><li><a href="#тарифы-ozon-на-логистику-в-2024-году-актуальные-цены">Тарифы Ozon на логистику в 2024 году: актуальные цены</a></li><li><a href="#скрытые-комиссии-и-неочевидные-расходы">Скрытые комиссии и неочевидные расходы</a></li><li><a href="#как-оптимизировать-затраты-на-логистику-7-рабочих-способов">Как оптимизировать затраты на логистику: 7 рабочих способов</a></li><li><a href="#распространённые-ошибки-и-как-их-избежать">Распространённые ошибки и как их избежать</a></li><li><a href="#кейсы-реальные-расчёты-логистики-для-разных-товаров">Кейсы: реальные расчёты логистики для разных товаров</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Логистика на <em>Ozon</em> — одна из самых затратных статей для продавцов, но при этом ключевой фактор конкурентоспособности товара. От того, как вы организуете доставку, зависит не только ваша маржа, но и позиция в выдаче: маркетплейс активно продвигает товары с быстрой и дешёвой логистикой. Однако разобраться в тарифах <strong>FBS</strong> и <strong>FBO</strong>, скрытых комиссиях и формулах расчёта бывает сложно даже опытным селлерам.</p>
+
+<p>В этой статье мы детально разберём, как формируется стоимость логистики на <em>Ozon</em> в 2026 году, какие параметры влияют на конечную цену, и как оптимизировать затраты без потери качества обслуживания. Вы узнаете, почему иногда доставка по <strong>FBS</strong> обходится дешевле собственной логистики, как работают зоны доставки, и какие ошибки приводят к неожиданным переплатам. А ещё — реальные кейсы расчётов с пояснениями и таблицами для наглядности.</p>
+
+<p>Если вы только начинаете работать с <em>Ozon</em> или хотите пересмотреть текущие логистические схемы, этот гайд поможет избежать типичных ошибок и сэкономить до 30% на доставке. Начнём с основ: чем отличаются модели <strong>FBS</strong> и <strong>FBO</strong>, и как каждая из них влияет на итоговую стоимость.
+
+<h2 id="fbs-vs-fbo-что-дешевле-и-когда-выгоднее">FBS vs FBO: что дешевле и когда выгоднее</h2>
+
+<p>Основное отличие между <strong>FBS</strong> (<em>Fulfillment by Ozon</em>) и <strong>FBO</strong> (<em>Fulfillment by Operator</em>) — кто контролирует процесс хранения, упаковки и доставки товара. В модели <strong>FBS</strong> всё это берёт на себя <em>Ozon</em>: вы отправляете товар на склад маркетплейса, а дальше платформа сама формирует заказы, упаковывает и отправляет их покупателям. В <strong>FBO</strong> вы самостоятельно организуете хранение, упаковку и доставку — либо через партнёров <em>Ozon</em> (например, <em>СДЭК</em> или <em>Boxberry</em>), либо своими силами.
+
+<p>На первый взгляд, <strong>FBO</strong> кажется дешевле: нет комиссий за хранение на складах <em>Ozon</em>, нет платы за обработку заказа. Но здесь кроются подводные камни:
+<ul>
+  <li>📦 <strong>Скрытые затраты на упаковку</strong>: коробки, скотч, наполнители — всё это ложится на ваш бюджет. При больших объёмах разница может достигать 15-20% от стоимости товара.</li>
+  <li>🚚 <strong>Логистические риски</strong>: если курьер опоздает или потеряет посылку, штрафы и негативные отзывы лягут на вас, а не на <em>Ozon</em>.</li>
+  <li>⏱️ <strong>Время обработки</strong>: в <strong>FBS</strong> заказы отправляются в день оформления, а в <strong>FBO</strong> вам нужно успеть собрать и передать посылку курьеру.</li>
+</ul>
+
+<p>С другой стороны, <strong>FBS</strong> даёт доступ к premium-позициям в выдаче, бесплатной доставке для покупателей (что увеличивает конверсию) и снижает нагрузку на ваш бизнес. Но здесь важно понимать <mark>тарифы <em>Ozon</em> за хранение и обработку зависят от категории товара, его габаритов и сезона</mark>. Например, в ноябре-декабре комиссии могут вырасти на 20-40% из-за пиковых нагрузок.
+
+<p>Чтобы выбрать оптимальную модель, проанализируйте:
+<ul>
+  <li>📊 <strong>Средний чек</strong>: для товаров до 1 000 ₽ <strong>FBO</strong> часто выгоднее, для дорогих (от 5 000 ₽) — <strong>FBS</strong>.</li>
+  <li>📦 <strong>Габариты и вес</strong>: крупногабаритные товары в <strong>FBS</strong> обходятся дороже из-за высоких тарифов на хранение.</li>
+  <li>📈 <strong>Объёмы продаж</strong>: при 100+ заказах в день <strong>FBS</strong> экономит время и нервы.</li>
+</ul>
+
+<div class="pb-poll" id="poll-40d6d0c3"><div class="pb-poll-question">📊 Какую модель логистики вы используете на Ozon?</div><div class="pb-poll-option" data-poll="40d6d0c3" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBS</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40d6d0c3" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBO</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40d6d0c3" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Комбинацию FBS и FBO</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40d6d0c3" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Пока не определился</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="формула-расчёта-логистики-в-fbs-разбираем-по-шагам">Формула расчёта логистики в FBS: разбираем по шагам</h2>
+
+<p>Стоимость логистики в <strong>FBS</strong> складывается из трёх основных компонентов:
+<ol>
+  <li><strong>Входящая логистика</strong> — доставка вашего товара на склад <em>Ozon</em>.</li>
+  <li><strong>Хранение</strong> — плата за место на складе (зависит от объёма и сезона).</li>
+  <li><strong>Исходящая логистика</strong> — обработка и доставка заказа покупателю.</li>
+</ol>
+<p>Рассмотрим каждый пункт подробнее.
+
+<p><strong>1. Входящая логистика</strong> оплачивается один раз при отправке партии на склад. Тариф зависит от:
+<ul>
+  <li>📍 <strong>Региона отправки</strong>: доставка из Москвы до склада в Новосибирске обойдётся дороже, чем до подмосковного хаба.</li>
+  <li>🚛 <strong>Веса и габаритов</strong>: <em>Ozon</em> использует <strong>объёмный вес</strong> (максимум между фактическим и расчётным по формуле <code>Д × Ш × В (см) / 5000</code>).</li>
+  <li>📦 <strong>Типа транспорта</strong>: самовывоз дешевле, чем доставка транспортной компанией.</li>
+</ul>
+<p>Пример: вы отправляете партию обуви (10 коробок по 30×20×15 см, вес 1 кг каждая) из Санкт-Петербурга на склад в <em>Ozon</em> <code>Колпино</code>. Объёмный вес одной коробки: <code>(30 × 20 × 15) / 5000 = 1,8 кг</code>. Поскольку 1,8 кг > 1 кг, тариф будет рассчитываться по 1,8 кг.
+
+<p><strong>2. Хранение на складе</strong> — ежемесячная плата, которая зависит от:
+<ul>
+  <li>📅 <strong>Сезонности</strong>: с 1 ноября по 31 декабря тарифы увеличиваются на 30-50%.</li>
+  <li>📦 <strong>Категории товара</strong>: электроника хранится дороже, чем книги.</li>
+  <li>📏 <strong>Объёма</strong>: плата взимается за <code>м³/день</code>. Например, если ваш товар занимает 0,01 м³, а тариф для категории 50 ₽/м³/день, то суточная стоимость хранения составит <code>0,01 × 50 = 0,5 ₽</code>.</li>
+</ul>
+
+<p><strong>3. Исходящая логистика</strong> — самая сложная часть. Здесь учитываются:
+<ul>
+  <li>📍 <strong>Зона доставки</strong>: <em>Ozon</em> делит Россию на 5 зон (от <code>Зона 1</code> — Москва и область до <code>Зона 5</code> — Дальний Восток). Чем дальше зона, тем дороже.</li>
+  <li>🚀 <strong>Способ доставки</strong>: стандартная (3-7 дней) или экспресс (1-2 дня). Экспресс-доставка может стоить в 2-3 раза дороже.</li>
+  <li>📦 <strong>Вес и габариты</strong>: снова используется объёмный вес.</li>
+  <li>💳 <strong>Оплата покупателем</strong>: если покупатель выбрал оплату при получении, <em>Ozon</em> берёт дополнительную комиссию (от 1% до 3% от суммы заказа).</li>
+</ul>
+
+<p>Финальная формула для расчёта логистики в <strong>FBS</strong> выглядит так:
+<pre><code>
+<p>Итоговая стоимость = Входящая логистика + (Хранение × Количество дней)</p>
+<p>+ Исходящая логистика × Количество заказов</p>
+<p>+ Комиссия за наложенный платёж (если есть)</p>
+</code></pre>
+
+<details class="pb-accordion"><summary>Пример расчёта для реального товара</summary><div class="pb-accordion-body"><p>
+<p>Допустим, вы продаёте беспроводные наушники (габариты 15×10×5 см, вес 0,2 кг) по модели FBS.</p>
+<p>- Входящая логистика: отправляете 100 шт. из Москвы на склад в Колпино. Объёмный вес = (15×10×5)/5000 = 0,15 кг (берём фактический вес 0,2 кг). Тариф за кг — 50 ₽. Итого: 100 × 0,2 × 50 = 1 000 ₽.</p>
+<p>- Хранение: категория "Электроника", тариф 100 ₽/м³/день. Объём одного наушника = 0,00075 м³. Хранится 30 дней: 100 × 0,00075 × 100 × 30 = 2 250 ₽.</p>
+<p>- Исходящая логистика: продали 50 шт. в Зону 1 (тариф 80 ₽ за заказ). Итого: 50 × 80 = 4 000 ₽.</p>
+<p>- Итого за месяц: 1 000 + 2 250 + 4 000 = 7 250 ₽ (или 145 ₽ на один проданный наушник).</p>
+<p></p></div></details></p>
+
+<h2 id="тарифы-ozon-на-логистику-в-2026-году-актуальные-цены">Тарифы Ozon на логистику в 2026 году: актуальные цены</h2>
+
+<p>Тарифы <em>Ozon</em> обновляются ежеквартально, но базовые принципы остаются прежними. Ниже приведём актуальные ставки для <strong>FBS</strong> и <strong>FBO</strong> на второй квартал 2026 года. Обратите внимание: цены могут отличаться для разных категорий товаров (например, для <em>Ozon Premium</em> или крупногабаритных грузов).
+
+<p><strong>Таблица 1. Тарифы на исходящую логистику (FBS) по зонам доставки</strong>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Зона доставки</th>
+      <th>Регионы</th>
+      <th>Стоимость стандартной доставки (₽)</th>
+      <th>Стоимость экспресс-доставки (₽)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Зона 1</td>
+      <td>Москва, Московская область</td>
+      <td>70–90</td>
+      <td>180–220</td>
+    </tr>
+    <tr>
+      <td>Зона 2</td>
+      <td>Санкт-Петербург, Екатеринбург, Казань, Нижний Новгород</td>
+      <td>90–120</td>
+      <td>220–280</td>
+    </tr>
+    <tr>
+      <td>Зона 3</td>
+      <td>Краснодар, Ростов-на-Дону, Самара, Уфа</td>
+      <td>120–150</td>
+      <td>280–350</td>
+    </tr>
+    <tr>
+      <td>Зона 4</td>
+      <td>Новосибирск, Омск, Красноярск, Пермь</td>
+      <td>150–200</td>
+      <td>350–450</td>
+    </tr>
+    <tr>
+      <td>Зона 5</td>
+      <td>Дальний Восток, Сибирь (за Уралом)</td>
+      <td>200–300</td>
+      <td>450–600</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>Таблица 2. Тарифы на хранение (FBS) по категориям</strong>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Категория товара</th>
+      <th>Стоимость хранения (₽/м³/день)</th>
+      <th>Сезонный коэффициент (ноябрь-декабрь)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Книги, канцтовары</td>
+      <td>30–50</td>
+      <td>×1,3</td>
+    </tr>
+    <tr>
+      <td>Одежда, обувь</td>
+      <td>60–90</td>
+      <td>×1,5</td>
+    </tr>
+    <tr>
+      <td>Электроника, гаджеты</td>
+      <td>100–150</td>
+      <td>×1,7</td>
+    </tr>
+    <tr>
+      <td>Крупногабаритные товары (мебель, техника)</td>
+      <td>150–300</td>
+      <td>×2,0</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Для <strong>FBO</strong> тарифы зависят от выбранного партнёра. Например, доставка через <em>СДЭК</em> в пределах Москвы обойдётся в 120–180 ₽ за посылку до 1 кг, а через <em>Boxberry</em> — 100–150 ₽. Однако не забывайте про дополнительные расходы:
+<ul>
+  <li>📦 <strong>Упаковка</strong>: коробка — от 20 ₽, пупырка — от 5 ₽/м².</li>
+  <li>🖨️ <strong>Печать этикеток</strong>: если нет термопринтера, распечатка в салоне связи обойдётся в 10–30 ₽ за листок.</li>
+  <li>⏰ <strong>Время на обработку</strong>: если вы упаковываете заказы сами, учитывайте зарплату сотрудников или своё время.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте калькулятор логистики в личном кабинете <em>Ozon Seller</em> (раздел <code>Логистика → Тарифы</code>). Он учитывает актуальные коэффициенты и даёт точную оценку затрат для вашего товара.</p></aside>
+
+<h2 id="скрытые-комиссии-и-неочевидные-расходы">Скрытые комиссии и неочевидные расходы</h2>
+
+<p>Многие продавцы удивляются, когда видят в отчётах суммы, превышающие расчётные. Дело в том, что помимо базовых тарифов <em>Ozon</em> взимает дополнительные комиссии, о которых не всегда говорят открыто. Вот самые распространённые "подводные камни":
+
+<p><strong>1. Комиссия за обработку возвратов</strong>
+<ul>
+  <li>🔄 Если покупатель вернул товар, <em>Ozon</em> берёт плату за <strong>обратную логистику</strong> (от 50 до 200 ₽ в зависимости от зоны) и <strong>проверку товара</strong> (100–300 ₽).</li>
+  <li>📦 Если товар повреждён или утерян при возврате, вы теряете его стоимость + платите комиссию за утилизацию (до 500 ₽).</li>
+</ul>
+
+<p><strong>2. Штрафы за нарушение SLA</strong>
+<ul>
+  <li>⏱️ Если вы не укладываетесь в сроки обработки заказов в <strong>FBO</strong> (например, не передали посылку курьеру в течение 24 часов), <em>Ozon</em> штрафует на 100–500 ₽ за заказ.</li>
+  <li>📉 При системных нарушениях (более 5% заказов с опозданием) ваш рейтинг падает, а товары опускаются в выдаче.</li>
+</ul>
+
+<p><strong>3. Дополнительные услуги</strong>
+<ul>
+  <li>🎁 <strong>Подарочная упаковка</strong>: если покупатель заказал этот сервис, <em>Ozon</em> спишет с вас 50–150 ₽ (даже в <strong>FBS</strong>).</li>
+  <li>📝 <strong>Ручная обработка заказа</strong>: если товар требует особой упаковки (например, хрупкие изделия), комиссия вырастает на 20–50%.</li>
+  <li>🔧 <strong>Сборка комплекта</strong>: если вы продаёте наборы (например, "наушники + чехол"), <em>Ozon</em> берёт 30–100 ₽ за сборку.</li>
+</ul>
+
+<p><strong>4. Логистика для опасных грузов</strong>
+<p>Если вы продаёте товары с ограничениями (аэрозоли, жидкости, литиевые батареи), <em>Ozon</em> применяет повышенные тарифы:
+<ul>
+  <li>🔥 <strong>Опасные грузы</strong>: +50% к базовому тарифу на доставку.</li>
+  <li>📦 <strong>Специальная упаковка</strong>: обязательна для жидкостей и хрупких товаров (стоимость от 50 ₽ за заказ).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы указали в карточке товара неверные габариты или вес, <em>Ozon</em> пересчитает логистику по фактическим параметрам и спишет разницу со счёта. Это одна из самых частых причин споров с поддержкой.</blockquote>
+
+<h2 id="как-оптимизировать-затраты-на-логистику-7-рабочих-способов">Как оптимизировать затраты на логистику: 7 рабочих способов</h2>
+
+<p>Снизить расходы на доставку без ущерба для качества можно, если грамотно подойти к организации процессов. Вот проверенные методы, которые используют топовые продавцы на <em>Ozon</em>:
+
+<p><strong>1. Правильно укажите габариты и вес</strong>
+<ul>
+  <li>📏 Используйте <strong>объёмный вес</strong> для расчёта тарифов. Например, если ваш товар лёгкий, но крупный (например, подушка), укажите реальные габариты, чтобы избежать переплаты.</li>
+  <li>⚖️ Взвешивайте товар с упаковкой — именно этот вес будет учитываться в тарифах.</li>
+</ul>
+
+<p><strong>2. Оптимизируйте упаковку</strong>
+<ul>
+  <li>📦 Используйте коробки стандартных размеров <em>Ozon</em> (их можно заказать бесплатно в личном кабинете). Это сокращает время обработки и снижает риск повреждений.</li>
+  <li>♻️ Для лёгких товаров (до 500 г) используйте полиэтиленовые пакеты вместо коробок — они дешевле и занимают меньше места при хранении.</li>
+</ul>
+
+<p><strong>3. Управляйте запасами</strong>
+<ul>
+  <li>📊 Не завозите на склад <em>Ozon</em> больше товара, чем продаёте за 30–45 дней. Длительное хранение (свыше 60 дней) обходится в 2–3 раза дороже.</li>
+  <li>📈 В сезон распродаж (Чёрная пятница, Новый год) увеличьте запасы заранее, чтобы избежать штрафов за дефицит.</li>
+</ul>
+
+<p><strong>4. Выбирайте оптимальную зону хранения</strong>
+<ul>
+  <li>📍 Если ваши покупатели сосредоточены в европейской части России, размещайте товар на складах в <code>Зоне 1–2</code> (Москва, СПб). Это сократит стоимость исходящей логистики.</li>
+  <li>🌍 Для федеральных продаж используйте программу <strong>Ozon Регионы</strong> — она позволяет распределить товар по нескольким складам и ускорить доставку.</li>
+</ul>
+
+<p><strong>5. Комбинируйте FBS и FBO</strong>
+<ul>
+  <li>🔄 Для ходовых товаров (быстрая оборачиваемость) используйте <strong>FBS</strong>, а для медленно продающихся — <strong>FBO</strong>.</li>
+  <li>💰 Сравнивайте тарифы: иногда доставка через <em>СДЭК</em> в <strong>FBO</strong> дешевле, чем <strong>FBS</strong> для дальних регионов.</li>
+</ul>
+
+<p><strong>6. Участвуйте в акциях <em>Ozon</em></em>
+<ul>
+  <li>🎉 Во время распродаж (<em>Ozon Sale</em>, <em>День рождения Ozon</em>) маркетплейс часто компенсирует часть логистических расходов (до 50%).</li>
+  <li>📢 Подключайтесь к программам лойяльности (например, <em>Ozon Premium</em>) — они дают скидки на доставку.</li>
+</ul>
+
+<p><strong>7. Автоматизируйте процессы</strong>
+<ul>
+  <li>🤖 Подключите <strong>API <em>Ozon</strong></em> для автоматической передачи заказов в <strong>FBO</em>. Это сократит время обработки и избежит штрафов.</li>
+  <li>📊 Используйте сервисы аналитики (например, <em>SellerLab</em> или <em>eLama</strong>) для мониторинга логистических затрат.</li>
+</ul>
+
+
+<p>Проверьте габариты и вес товара в карточке|Оцените оборачиваемость запасов на складе|Сравните тарифы FBS и FBO для вашей категории|Подключитесь к программам лойяльности Ozon|Автоматизируйте обработку заказов в FBO--></p>
+
+<h2 id="распространённые-ошибки-и-как-их-избежать">Распространённые ошибки и как их избежать</h2>
+
+<p>Даже опытные продавцы иногда допускают ошибки, которые ведут к переплатам или штрафам. Вот самые критичные из них — и способы их предотвратить:
+
+<p><strong>1. Неучтённые габариты</strong>
+<p>Многие указывают в карточке товара только вес, забывая про объём. Например, детский велосипед весит 5 кг, но его габариты 120×60×30 см дают объёмный вес <code>(120 × 60 × 30) / 5000 = 43,2 кг</code>. В результате тариф рассчитывается по 43,2 кг, а не по 5 кг — разница в стоимости доставки может превысить 1 000 ₽ за один заказ.
+
+<p><strong>2. Неправильный выбор зоны хранения</strong>
+<p>Если вы размещаете товар на складе в Москве, а основные продажи идут в Сибирь, вы переплачиваете за исходящую логистику. Используйте инструмент <code>Аналитика продаж</code> в личном кабинете, чтобы определить географию спrosa и выбрать оптимальный склад.
+
+<p><strong>3. Игнорирование сезонных коэффициентов</em>
+<p>В ноябре-декабре тарифы на хранение вырастают на 30–50%, а на доставку — на 20%. Если вы не учли это при планировании бюджета, можете получить убытки. Заранее заложите резерв на сезонные расходы или сократите запасы на складах <em>Ozon</em> перед пиковым периодом.
+
+<p><strong>4. Забытые возвраты</strong>
+<p>Многие продавцы не отслеживают возвраты, а зря: за каждый возврат <em>Ozon</em> списывает комиссию, и если товар повреждён, вы теряете его стоимость. Настройте уведомления о возвратах и проверяйте состояние товара. Если покупатель вернул товар без упаковки, вы можете оспорить возврат через поддержку.
+
+<p><strong>5. Несвоевременная обработка заказов в FBO</strong>
+<p>Если вы не передаёте заказ курьеру в течение 24 часов, <em>Ozon</em> штрафует вас на 100–500 ₽. При этом покупатель может отменить заказ, а вы потеряете не только деньги, но и позиции в выдаче. Автоматизируйте процесс или нанимайте дополнительных сотрудников в пиковые периоды.
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы продаёте товары с ограниченным сроком годности (например, косметику или продукты), <em>Ozon</em> может списать их со склада без компенсации, если они не продадутся до истечения срока. Всегда указывайте актуальные даты в карточке товара.</blockquote>
+
+<h2 id="кейсы-реальные-расчёты-логистики-для-разных-товаров">Кейсы: реальные расчёты логистики для разных товаров</h2>
+
+<p>Чтобы лучше понять, как работает логистика на <em>Ozon</em>, разберём три реальных примера с расчётами для разных категорий товаров.
+
+<p><strong>Кейс 1. Книга (FBS)</strong>
+<ul>
+  <li>📚 <strong>Параметры</strong>: габариты 20×15×2 см, вес 0,3 кг, категория "Книги".</li>
+  <li>📦 <strong>Входящая логистика</strong>: отправляем 100 шт. из Москвы на склад в Колпино. Объёмный вес = (20×15×2)/5000 = 0,12 кг (берём фактический вес 0,3 кг). Тариф — 50 ₽/кг. Итого: 100 × 0,3 × 50 = 1 500 ₽.</li>
+  <li>🏭 <strong>Хранение</strong>: тариф для книг — 30 ₽/м³/день. Объём одной книги = 0,0006 м³. Хранится 30 дней: 100 × 0,0006 × 30 × 30 = 540 ₽.</li>
+  <li>🚚 <strong>Исходящая логистика</strong>: продали 50 шт. в Зону 1 (тариф 70 ₽). Итого: 50 × 70 = 3 500 ₽.</li>
+  <li>💰 <strong>Итого за месяц</strong>: 1 500 + 540 + 3 500 = 5 540 ₽ (или 110 ₽ на одну книгу).</li>
+</ul>
+
+<p><strong>Кейс 2. Смартфон (FBS)</strong>
+<ul>
+  <li>📱 <strong>Параметры</strong>: габариты 15×8×1 см, вес 0,2 кг, категория "Электроника".</li>
+  <li>📦 <strong>Входящая логистика</strong>: 50 шт. из Екатеринбурга на склад в Москве. Объёмный вес = (15×8×1)/5000 = 0,024 кг (берём фактический вес 0,2 кг). Тариф — 60 ₽/кг. Итого: 50 × 0,2 × 60 = 600 ₽.</li>
+  <li>🏭 <strong>Хранение</strong>: тариф для электроники — 100 ₽/м³/день. Объём одного смартфона = 0,00012 м³. Хранится 15 дней: 50 × 0,00012 × 15 × 100 = 90 ₽.</li>
+  <li>🚚 <strong>Исходящая логистика</strong>: продали 30 шт. в Зону 2 (тариф 100 ₽). Итого: 30 × 100 = 3 000 ₽.</li>
+  <li>💰 <strong>Итого за месяц</strong>: 600 + 90 + 3 000 = 3 690 ₽ (или 123 ₽ на один смартфон).</li>
+</ul>
+
+<p><strong>Кейс 3. Диван (FBO через СДЭК)</strong>
+<ul>
+  <li>🛋️ <strong>Параметры</strong>: габариты 200×100×80 см, вес 30 кг, категория "Мебель".</li>
+  <li>📦 <strong>Упаковка</strong>: коробка — 300 ₽, пупырка — 100 ₽. Итого: 400 ₽ на заказ.</li>
+  <li>🚚 <strong>Доставка</strong>: тариф <em>СДЭК</em> для крупногабарита до 30 кг в Москву — 1 200 ₽.</li>
+  <li>📝 <strong>Дополнительные расходы</strong>: печать этикетки — 20 ₽, сборка (если нужна) — 200 ₽.</li>
+  <li>💰 <strong>Итого на один заказ</strong>: 400 + 1 200 + 20 + 200 = 1 820 ₽.</li>
+</ul>
+
+<p>Как видно из примеров, для лёгких и компактных товаров <strong>FBS</strong> часто выгоднее, а для крупногабаритных — <strong>FBO</strong> с партнёрами. Всегда просчитывайте оба варианта перед выбором модели логистики.
+
+</div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-torgovat-na-ozon-so-svoego-sklada-fbs.html" class="pb-related-card">
+                <span class="pb-related-title">FBS на Ozon со своего склада: полное руководство 2026</span>
+                <span class="pb-related-desc">Как продавать на Ozon по модели FBS с личного склада: регистрация, логистика, цены и ошибки. Пошагов</span>
+            </a><a href="/articles/s/sk/skhema-fbs-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">FBS на Ozon: что это за схема работы и как она работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираем схему FBS на Ozon: отличие от FBO, как работает для продавцов и покупателей, плюсы и минус</span>
+            </a><a href="/articles/o/oz/ozon-kak-proiskhodit-vydacha.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает выдача товаров на Ozon: алгоритмы и секреты 2026</span>
+                <span class="pb-related-desc">Разбираемся, как Ozon ранжирует товары в поиске: факторы влияния, особенности выдачи и как продавцам</span>
+            </a><a href="/articles/g/gd/gde-najti-fbs-v-lichnom-kabinete-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти FBS в личном кабинете Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как найти схему FBS в личном кабинете Ozon. Подробная инструкция по подключению и настройке</span>
+            </a><a href="/articles/r/ra/raspredelitelnyj-tsentr-ozon-eto-chto.html" class="pb-related-card">
+                <span class="pb-related-title">Распределительный центр Озон: что это и как работает в 2026 году</span>
+                <span class="pb-related-desc">Подробный разбор логистики Озон: как устроены распределительные центры (РЦ), их роль в FBS/FBO, срок</span>
+            </a><a href="/articles/k/ka/kak-sdelat-podstavku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Подставка для Озон: как сделать своими руками за 1 день (2026)</span>
+                <span class="pb-related-desc">Пошаговая инструкция по изготовлению подставки для товаров Озон: материалы, чертежи, ошибки и лайфха</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

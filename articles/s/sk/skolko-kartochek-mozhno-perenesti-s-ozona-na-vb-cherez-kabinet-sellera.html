@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Лимиты переноса карточек с Ozon на Wildberries: сколько можно — Об Озоне</title>
+    <meta name="description" content="Узнайте, сколько карточек можно перенести с Ozon на Wildberries через API. Лимиты, технические ограничения и способы массовой загрузки товаров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/s/sk/skolko-kartochek-mozhno-perenesti-s-ozona-na-vb-cherez-kabinet-sellera.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Лимиты переноса карточек с Ozon на Wildberries: сколько можно">
+    <meta property="og:description" content="Узнайте, сколько карточек можно перенести с Ozon на Wildberries через API. Лимиты, технические ограничения и способы массовой загрузки товаров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Лимиты переноса карточек с Ozon на Wildberries: сколько можно</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#отсутствие-прямой-интеграции-и-роль-api">Отсутствие прямой интеграции и роль API</a></li><li><a href="#технические-лимиты-api-wildberries-при-загрузке">Технические лимиты API Wildberries при загрузке</a></li><li><a href="#ограничения-сторонних-сервисов-автоматизации">Ограничения сторонних сервисов автоматизации</a></li><li><a href="#специфика-переноса-характеристик-и-описаний">Специфика переноса характеристик и описаний</a></li><li><a href="#массовая-загрузка-через-excel-и-csv">Массовая загрузка через Excel и CSV</a></li><li><a href="#риски-модерации-и-дубликатов">Риски модерации и дубликатов</a></li><li><a href="#стратегия-безопасного-переноса-ассортимента">Стратегия безопасного переноса ассортимента</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kartochki-na-ozon-kak-dolzhna-vyglyadet-foto-tovara.html">Фото товара на Ozon: требования к карточке и фотошоп</a></li><li><a href="/articles/o/oz/ozon-varianty-tovarov-raznye-kategorii-kak.html">Как работать с вариантами товаров разных категорий на Ozon — полное руководство 2026</a></li><li><a href="/articles/k/ka/kak-udalit-kartochku-s-ozon.html">Как удалить карточку товара на Ozon: полная инструкция 2026</a></li><li><a href="/articles/k/ka/kak-perenesti-kartochku-tovara-s-vajldberriz-na-ozon.html">Перенос карточки товара с Wildberries на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-prodat-staruyu-knigu-na-ozone.html">Как продать старую книгу на Озоне: инструкция селлеру</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Перенос карточек с Ozon на Wildberries: лимиты и технические особенности</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#отсутствие-прямой-интеграции-и-роль-api">Отсутствие прямой интеграции и роль API</a></li><li><a href="#технические-лимиты-api-wildberries-при-загрузке">Технические лимиты API Wildberries при загрузке</a></li><li><a href="#ограничения-сторонних-сервисов-автоматизации">Ограничения сторонних сервисов автоматизации</a></li><li><a href="#специфика-переноса-характеристик-и-описаний">Специфика переноса характеристик и описаний</a></li><li><a href="#массовая-загрузка-через-excel-и-csv">Массовая загрузка через Excel и CSV</a></li><li><a href="#риски-модерации-и-дубликатов">Риски модерации и дубликатов</a></li><li><a href="#стратегия-безопасного-переноса-ассортимента">Стратегия безопасного переноса ассортимента</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Многие продавцы, работающие одновременно на нескольких площадках, часто сталкиваются с необходимостью дублировать ассортимент. <strong>Кросспостинг</strong> стал стандартной практикой для расширения бизнеса, однако техническая реализация этого процесса на разных маркетплейсах существенно различается. Вопрос о том, сколько карточек можно перенести с Ozon на Wildberries через кабинет селлера, не имеет однозначного ответа в виде одной цифры, так как прямой функции"импорт с Ozon" внутри Wildberries не существует.</p>
+
+<p>Вместо прямого копирования внутри одного интерфейса, селлеры используют сторонние сервисы или API-интеграции, которые имеют свои собственные ограничения по количеству запросов в секунду. Понимание этих лимитов критически важно для планирования загрузки большого ассортимента, чтобы избежать блокировок со стороны <em>Wildberries</em> за спам-атаки на сервер. В данной статье мы разберем технические нюансы, ограничения протоколов и стратегии безопасного переноса тысяч позиций.</p>
+
+<h2 id="отсутствие-прямой-интеграции-и-роль-api">Отсутствие прямой интеграции и роль API</h2>
+<p>Важно сразу уяснить, что <strong>Wildberries</strong> и Ozon являются прямыми конкурентами, поэтому они не предоставляют друг другу прямых каналов для импорта данных через свои личные кабинеты. <mark>Прямой технической возможности перенести карточку кнопкой"Копировать с Ozon" внутри интерфейса Wildberries не существует</mark>. Весь процесс происходит либо вручную, либо через промежуточное звено — программное обеспечение для автоматизации торговли или самописные скрипты, работающие через <code>Content API</code>.</p>
+
+<p>Именно через API (Application Programming Interface) происходит обмен данными между вашим софтом и серверами маркетплейса. Wildberries устанавливает жесткие ограничения на частоту запросов, чтобы защитить свою инфраструктуру от перегрузок. Если ваш софт попытается отправить слишком много запросов одновременно, сервер вернет ошибку <code>429 Too Many Requests</code>, и процесс создания карточек будет приостановлен до сброса счетчика.</p>
+
+<blockquote>⚠️ Внимание: Использование неофициальных скриптов-парсеров, которые имитируют действия пользователя в браузере (клики мышкой), может привести к блокировке аккаунта селлера за подозрительную активность. Работайте только через официальный <code>Content API</code>.</blockquote>
+
+<p>Для успешной работы вам необходимо получить API-ключ в личном кабинете Wildberries в разделе"Профиль" →"Настройки" →"Доступ к API". Этот ключ дает доступ к методам создания и обновления товаров, но не дает прав на финансовые операции, что обеспечивает базовую безопасность вашего счета при работе со сторонним софтом.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте отдельные API-ключи для разных сервисов автоматизации. Если один ключ будет скомпрометирован или заблокирован, вы сможете отозвать его, не затрагbiвая работу других подключенных систем.</p></aside>
+
+<h2 id="технические-лимиты-api-wildberries-при-загрузке">Технические лимиты API Wildberries при загрузке</h2>
+<p>Лимиты, устанавливаемые Wildberries, касаются не столько общего количества карточек, которое можно создать за сутки, сколько количества запросов в единицу времени. Протокол <strong>API</strong> позволяет создавать карточки пакетами, но размер этих пакетов и частота их отправки регламентированы. Стандартно рекомендуется отправлять не более 10-15 запросов в секунду для стабильной работы, хотя технически сервер может обработать и больше, если нагрузка на систему в данный момент низкая.</p>
+
+<p>При массовом создании карточек (например, при переносе ассортимента из 1000 позиций с Ozon) важно учитывать, что каждая карточка требует отдельного запроса на создание, а затем еще нескольких запросов для загрузки характеристик, описаний и фотографий. Это создает очередь задач, выполнение которой может занять значительное время при соблюдении правил"вежливости" по отношению к серверу.</p>
+
+<p>Существуют следующие основные ограничения, о которых должен знать разработчик или пользователь софта для автозагрузки:</p>
+<ul>
+ <li>🚀 <strong>RPS (Requests Per Second):</strong> Рекомендуемый лимит — до 10 запросов в секунду. Превышение ведет к временному бану IP-адреса.</li>
+ <li>📦 <strong>Размер пакета:</strong> Некоторые методы API позволяют передавать массивы данных, но оптимальным считается формирование пакетов по 50-100 товаров для балансировки нагрузки.</li>
+ <li>🕒 <strong>Время ответа:</strong> Сервер может обрабатывать запрос от 200 мс до 2 секунд. Скрипт должен уметь ждать ответ (таймаут), прежде чем отправлять следующий запрос.</li>
+</ul>
+
+<details class="pb-accordion"><summary>Что такое"Троттлинг" запросов?</summary><div class="pb-accordion-body"><p>Троттлинг — это искусственное замедление скорости отправки запросов вашим программным обеспечением. Если API Wildberries допускает 10 запросов в секунду, хороший парсер будет отправлять их с интервалом в 110-120 мс, чтобы создать буфер безопасности и избежать попадания в"черный список" фаервола маркетплейса.</p></div></details>
+
+<h2 id="ограничения-сторонних-сервисов-автоматизации">Ограничения сторонних сервисов автоматизации</h2>
+<p>Поскольку вручную переносить тысячи карточек неэффективно, большинство селлеров используют специализированные сервисы-агрегаторы (например, <em>MPStats, MarketGuru, InSales</em> и другие). Эти платформы берут на себя техническую часть общения с API Wildberries, но они также имеют свои тарифные ограничения. Количество переносимых карточек часто зависит от оплаченного вами тарифного плана в самом сервисе-посреднике.</p>
+
+<p>Некоторые сервисы ограничивают количество товаров, которые можно выгрузить с Ozon и загрузить на Wildberries в рамках одной операции или за месяц. Например, базовый тариф может позволять синхронизацию до 500 SKU (товарных позиций), в то время как для крупных селлеров с ассортиментом в 50 000 позиций требуются корпоративные решения с индивидуальной настройкой очереди задач.</p>
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Тип ограничения</th>
+ <th>Параметр</th>
+ <th>Влияние на процесс</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>API Wildberries</td>
+ <td>~10 запросов/сек</td>
+ <td>Определяет скорость создания карточек</td>
+ </tr>
+ <tr>
+ <td>Тариф сервиса</td>
+ <td>Лимит SKU</td>
+ <td>Ограничивает общее кол-во товаров в базе</td>
+ </tr>
+ <tr>
+ <td>Размер фото</td>
+ <td>До 20 Мб</td>
+ <td>Влияет на время загрузки медиа-контента</td>
+ </tr>
+ <tr>
+ <td>Длина описания</td>
+ <td>До 10 000 символов</td>
+ <td>Требует обрезки длинных текстов с Ozon</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>При выборе инструмента для переноса обязательно проверяйте, умеет ли он работать в фоновом режиме и ставить задачи в очередь. Это позволит запустить процесс переноса 1000 карточек ночью, когда нагрузка на серверы минимальна, и к утру получить готовый результат без риска превысить лимиты RPS.</p>
+
+<div class="pb-poll" id="poll-8ecc779b"><div class="pb-poll-question">📊 Какой способ загрузки товаров вы предпочитаете?</div><div class="pb-poll-option" data-poll="8ecc779b" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручное создание через Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8ecc779b" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние сервисы (SaaS)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8ecc779b" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Собственный скрипт (Python/PHP)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8ecc779b" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Услуги фрилансеров</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="специфика-переноса-характеристик-и-описаний">Специфика переноса характеристик и описаний</h2>
+<p>Простое копирование названия и цены — это лишь верхушка айсберга. Самая сложная часть переноса карточки с Ozon на Wildberries заключается в маппинге (сопоставлении) характеристик. Структура атрибутов на этих площадках кардинально отличается: то, что на Ozon называется"Бренд", на Wildberries может требовать выбора из справочника, а поле"Цвет" может быть обязательным для одной категории и отсутствовать для другой.</p>
+
+<p><strong>Алгоритм переноса</strong> должен учитывать, что многие поля на Wildberries являются обязательными для прохождения модерации. Если при выгрузке с Ozon данные для обязательного поля WB отсутствуют или имеют неверный формат, карточка будет создана с ошибкой или сразу уйдет на ручную модерацию с отказом. Особенно это касается категорий"Одежда","Обувь" и"Электроника", где требования к спецификациям максимально жесткие.</p>
+
+<p>Кроме того, тексты описаний часто требуют адаптации. На Ozon принята одна структура описания, на Wildberries — другая, более заточенная под SEO-оптимизацию внутри их поисковой выдачи. При массовом переносе рекомендуется не копировать описание"один в один", а использовать шаблоны, которые автоматически добавляют ключевые слова, актуальные именно для аудитории <em>Wildberries</em>.</p>
+
+<blockquote>⚠️ Внимание: При переносе фотографий следите за их количеством. Wildberries имеет лимит на количество фото для одной карточки (обычно до 20-25 штук в зависимости от категории), тогда как на Ozon их может быть больше. Лишние изображения будут обрезаны или загрузка прервется.</blockquote>
+
+<h2 id="массовая-загрузка-через-excel-и-csv">Массовая загрузка через Excel и CSV</h2>
+<p>Для тех, кто не готов подключать сложные API-интеграторы, Wildberries предлагает возможность загрузки товаров через <strong>XLS/CSV</strong> файлы. Этот метод также имеет свои лимиты: файл не должен быть слишком большим, иначе система таймаутит при его обработке. Оптимальный размер файла для безопасной загрузки — не более 10-15 Мб, что соответствует примерно 300-500 карточкам с минимальным набором данных.</p>
+
+<p>Процесс выглядит следующим образом: вы выгружаете отчет с Ozon, приводите его к шаблону Wildberries (используя формулы в Excel или Google Таблицах) и загружаете файл в раздел"Создать по XLS/Xlsx". Система ставит файл в очередь обработки. Если в файле 1000 строк и в 500 из них есть ошибки в характеристиках, система может отклонить весь файл целиком или создать только валидные карточки, что потребует дополнительной ручной проверки.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист подготовки файла для загрузки</h4><label class="check-item"><input type="checkbox"><span>Проверить наличие всех обязательных полей WB</span></label><label class="check-item"><input type="checkbox"><span>Удалить лишние столбцы из отчета Ozon</span></label><label class="check-item"><input type="checkbox"><span>Проверить коды категорий (SubjectID)</span></label><label class="check-item"><input type="checkbox"><span>Сохранить файл в кодировке UTF-8</span></label><label class="check-item"><input type="checkbox"><span>Сделать тестовую загрузку 5 товаров</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Преимущество метода через Excel в том, что здесь нет жесткого лимита RPS в реальном времени, так как файл обрабатывается асинхронно на стороне сервера. Однако вы теряете возможность мгновенного получения (обратной связи) об ошибках и вынуждены ждать завершения обработки, которая для больших файлов может длиться часами.</p>
+
+<h2 id="риски-модерации-и-дубликатов">Риски модерации и дубликатов</h2>
+<p>При переносе карточек с Ozon на Wildberries высок риск создания дубликатов. Если товар с таким же артикулом или штрихкодом (баркодом) уже существует на Wildberries (даже у другого продавца), система может предложить привязаться к существующей карточке или, наоборот, заблокировать создание новой из-за конфликта данных. Это особенно актуально для популярных брендов и товаров повседневного спроса.</p>
+
+<p>Модерация Wildberries также может отклонить карточки, если обнаружит, что контент (фото и текст) полностью скопирован с другого источника без уникализации, хотя алгоритмы пока работают в этом направлении слабее, чем у поисковых систем. Тем не менее, уникализация описаний — это хорошая практика, которая повышает ранжируемость товара внутри маркетплейса.</p>
+
+<p>Основные причины отказов при массовом создании:</p>
+<ul>
+ <li>❌ <strong>Неверный SubjectID:</strong> Попытка загрузить товар в неподходящую категорию.</li>
+ <li>❌ <strong>Отсутствие обязательных атрибутов:</strong> Например, состава ткани для одежды или страны-изготовителя.</li>
+ <li>❌ <strong>Низкое качество фото:</strong> Размытые изображения или наличие водяных знаков других маркетплейсов (логотип Ozon на фото запрещен).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный вывод: Не существует единого лимита"сколько карточек можно перенести", есть лимиты скорости обработки запросов API. Тысячи товаров переносятся успешно, но только при правильной настройке очереди задач и соблюдении пауз между запросами.</p></aside>
+
+<h2 id="стратегия-безопасного-переноса-ассортимента">Стратегия безопасного переноса ассортимента</h2>
+<p>Для успешного масштабирования бизнеса и переноса тысяч позиций с Ozon на Wildberries необходимо действовать поэтапно. Не пытайтесь загрузить весь ассортимент из 10 000 товаров за один час. Разбейте процесс на этапы: сначала загрузите"локомотивы" продаж (топ-100 товаров), проверьте их отображение, реакцию модерации и скорость индексации.</p>
+
+<p>Затем можно увеличить темпы, используя ночное время для загрузки больших объемов через CSV или настроенные скрипты. Обязательно мониторьте отчеты об ошибках в личном кабинете WB в разделе"Создание по XLS" или в логах вашего API-клиента. Регулярная очистка ошибок и повторная отправка корректных данных — залог того, что ваш ассортимент будет полным и актуальным.</p>
+
+<p>Помните, что качество карточки на Wildberries часто важнее скорости ее создания. Хорошо заполненная карточка с правильными характеристиками быстрее пройдет модерацию и начнет продаваться, в то время как массовая"помойка" из некорректных данных лишь засорит ваш складской учет и приведет к штрафам за габариты или несоответствие.</p>
+
+<details>
+ <summary>Можно ли перенести отзывы с Ozon на Wildberries?</summary>
+ <p>Нет, технически перенести отзывы с Ozon на Wildberries невозможно. Отзывы привязаны к конкретномуу (заказу) и аккаунту покупателя на конкретной площадке. Любые сервисы, предлагающие"перенос отзывов", являются мошенническими или предлагают накрутку, что запрещено правилами обоих маркетплейсов и ведет к блокировке.</p>
+</details>
+
+<details>
+ <summary>Что делать, если API Wildberries возвращает ошибку 429?</summary>
+ <p>Ошибка 429 означает"Too Many Requests". Вам необходимо увеличить интервал между запросами в вашем программном обеспечении. Рекомендуется поставить задержку (sleep) в 100-200 миллисекунд между каждым запросом или уменьшить размер пакетной отправки данных.</p>
+</details>
+
+<details>
+ <summary>Нужно ли менять штрихкоды при переносе карточки?</summary>
+ <p>Нет, штрихкод (баркод) — это уникальный идентификатор товара. Если вы переносите тот же самый физический товар, штрихкод должен оставаться прежним. Менять штрихкод нужно только в том случае, если это новая модификация товара или вы меняете упаковку.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kartochki-na-ozon-kak-dolzhna-vyglyadet-foto-tovara.html" class="pb-related-card">
+                <span class="pb-related-title">Фото товара на Ozon: требования к карточке и фотошоп</span>
+                <span class="pb-related-desc">Как сделать фото для Ozon, чтобы карточка прошла модерацию и продавала. Требования к размеру, формат</span>
+            </a><a href="/articles/o/oz/ozon-varianty-tovarov-raznye-kategorii-kak.html" class="pb-related-card">
+                <span class="pb-related-title">Как работать с вариантами товаров разных категорий на Ozon — полное руководство 2026</span>
+                <span class="pb-related-desc">Разбираемся, как правильно добавлять и управлять вариантами товаров (цвет, размер, модель) в разных </span>
+            </a><a href="/articles/k/ka/kak-udalit-kartochku-s-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как удалить карточку товара на Ozon: полная инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как удалить карточку с Озон за 3 шага. Инструкция для селлеров: скрытие, архивация и полное</span>
+            </a><a href="/articles/k/ka/kak-perenesti-kartochku-tovara-s-vajldberriz-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Перенос карточки товара с Wildberries на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как правильно перенести товар с WB на Озон: экспорт данных, адаптация описаний, настройка цен и кате</span>
+            </a><a href="/articles/k/ka/kak-prodat-staruyu-knigu-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать старую книгу на Озоне: инструкция селлеру</span>
+                <span class="pb-related-desc">Полное руководство по продаже б/у книг на Ozon. Требования к состоянию, категории, схемы FBS/FBO и н</span>
+            </a><a href="/articles/g/gd/gde-brat-markirovku-na-tovar-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять маркировку для товара на Ozon в 2026 году — все способы</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как получить коды DataMatrix для Ozon: официальные источники, проверенные пост</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

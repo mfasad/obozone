@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как бухгалтеру проверить отгрузки товаров на склад Озон: 5 способов — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция для бухгалтеров: где и как посмотреть отгруженные на склад Ozon товары. Личный кабинет, API, отчёты и интеграции с 1С.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/g/gd/gde-posmotret-kakie-tovary-otgruzili-na-sklad-ozon-bukhgalteru.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как бухгалтеру проверить отгрузки товаров на склад Озон: 5 способов">
+    <meta property="og:description" content="Пошаговая инструкция для бухгалтеров: где и как посмотреть отгруженные на склад Ozon товары. Личный кабинет, API, отчёты и интеграции с 1С.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как бухгалтеру проверить отгрузки товаров на склад Озон: 5 способов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-личный-кабинет-ozon-seller-где-искать-данные-об-отгрузках">1. Личный кабинет Ozon Seller: где искать данные об отгрузках</a></li><li><a href="#2-отчёты-ozon-какой-выбрать-для-сверки-с-бухгалтерией">2. Отчёты Ozon: какой выбрать для сверки с бухгалтерией</a></li><li><a href="#3-api-ozon-как-автоматизировать-получение-данных">3. API Ozon: как автоматизировать получение данных</a></li><li><a href="#4-интеграция-с-1с-как-синхронизировать-отгрузки">4. Интеграция с 1С: как синхронизировать отгрузки</a></li><li><a href="#5-альтернативные-способы-когда-стандартные-методы-не-работают">5. Альтернативные способы: когда стандартные методы не работают</a></li><li><a href="#6-типичные-ошибки-бухгалтеров-при-работе-с-отгрузками-ozon">6. Типичные ошибки бухгалтеров при работе с отгрузками Ozon</a></li><li><a href="#7-как-оформить-документы-для-бухгалтерии-образцы-и-шаблоны">7. Как оформить документы для бухгалтерии: образцы и шаблоны</a></li><li><a href="#faq-частые-вопросы-бухгалтеров-об-отгрузках-на-ozon">FAQ: Частые вопросы бухгалтеров об отгрузках на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakie-tovary-na-ozon-mogut-prodavat-samozanyatye.html">Какие товары на Озон могут продавать самозанятые в 2026 году</a></li><li><a href="/articles/k/ka/kakoj-tovar-prodavat-letom-na-ozon.html">Какой товар продавать летом на Озон: Топ ниш 2026</a></li><li><a href="/articles/k/ka/kak-nastroit-ozon-ekspress.html">Как настроить Озон Экспресс: инструкция для селлера</a></li><li><a href="/articles/k/ka/kak-zaregistrirovat-pochtu-ozon.html">Как зарегистрировать почту Озон: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kakoj-protsent-na-ozone-platyat-esli-tarif-korporativnyj.html">Комиссия Озон для корпоративных тарифов 2026: сколько % берет маркетплейс</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Где бухгалтеру посмотреть отгруженные на склад Озон товары: все способы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-личный-кабинет-ozon-seller-где-искать-данные-об-отгрузках">1. Личный кабинет Ozon Seller: где искать данные об отгрузках</a></li><li><a href="#2-отчёты-ozon-какой-выбрать-для-сверки-с-бухгалтерией">2. Отчёты Ozon: какой выбрать для сверки с бухгалтерией</a></li><li><a href="#3-api-ozon-как-автоматизировать-получение-данных">3. API Ozon: как автоматизировать получение данных</a></li><li><a href="#4-интеграция-с-1с-как-синхронизировать-отгрузки">4. Интеграция с 1С: как синхронизировать отгрузки</a></li><li><a href="#5-альтернативные-способы-когда-стандартные-методы-не-работают">5. Альтернативные способы: когда стандартные методы не работают</a></li><li><a href="#6-типичные-ошибки-бухгалтеров-при-работе-с-отгрузками-ozon">6. Типичные ошибки бухгалтеров при работе с отгрузками Ozon</a></li><li><a href="#7-как-оформить-документы-для-бухгалтерии-образцы-и-шаблоны">7. Как оформить документы для бухгалтерии: образцы и шаблоны</a></li><li><a href="#faq-частые-вопросы-бухгалтеров-об-отгрузках-на-ozon">FAQ: Частые вопросы бухгалтеров об отгрузках на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Контроль отгрузок на склад <em>Ozon</em> — критически важная задача для бухгалтера, особенно если компания работает по схеме <strong>FBO</strong> (отгрузка со своего склада) или <strong>FBS</strong> (хранение на площадке маркетплейса). Без точных данных о движении товаров невозможно корректно закрыть период, сверить остатки с фактическими поставками или подтвердить расходы для налогового учёта. Проблема в том, что информация об отгрузках разбросна: часть данных есть в личном кабинете <em>Ozon Seller</em>, часть — в системах логистики, а некоторые сведения приходится запрашивать у менеджеров склада.</p>
+
+<p>В этой статье разберём все доступные способы проверки отгруженных товаров — от стандартных отчётов в кабинете продавца до скрытых функций <code>API</code> и интеграций с <em>1С</em>. Особое внимание уделим нюансам, которые часто упускают: например, как отличить <strong>фактическую отгрузку</strong> от <strong>запланированной</strong>, или почему данные в отчёте <code>"Отгрузки"</code> могут не совпадать с данными кладовщиков. Также приведём готовые шаблоны запросов для бухгалтерских программ и предупредим о типичных ошибках, из-за которых сходятся остатки по учету и реальные запасы на складе <em>Ozon</em>.</p>
+
+<h2 id="1-личный-кабинет-ozon-seller-где-искать-данные-об-отгрузках">1. Личный кабинет Ozon Seller: где искать данные об отгрузках</h2>
+
+<p>Основной источник информации для бухгалтера — раздел <code>Логистика → Отгрузки</code> в личном кабинете <em>Ozon Seller</em>. Здесь отображаются все созданные вами или логистической службой <em>Ozon</em> отгрузки, но важно понимать: не все из них являются <strong>фактически выполненными</strong>. Например, отгрузка может иметь статус <code>"Создана"</code> или <code>"В обработке"</code>, но товар ещё не поступил на склад.</p>
+
+<p>Чтобы увидеть только <strong>завершённые отгрузки</strong>, используйте фильтры:</p>
+<ul>
+  <li>📌 <strong>Статус</strong>: выберите <code>"Завершена"</code> или <code>"Принята на складе"</code>.</li>
+  <li>📅 <strong>Дата</strong>: укажите период, за который нужен отчёт (например, текущий месяц для закрытия периода).</li>
+  <li>📦 <strong>Тип отгрузки</strong>: <code>FBO</code> (со своего склада) или <code>FBS</code> (на склад <em>Ozon</em>).</li>
+</ul>
+
+<p>В карточке каждой отгрузки доступны:</p>
+<ul>
+  <li>📄 <strong>Номер отгрузки</strong> (нужен для сверки с накладными).</li>
+  <li>📋 <strong>Список товаров</strong> с количеством и артикулами.</li>
+  <li>🚛 <strong>Дата и время приёмки</strong> на складе <em>Ozon</em>.</li>
+  <li>💰 <strong>Стоимость логистики</strong> (если отгрузка по <code>FBS</code>).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если в списке отгрузок нет нужной позиции, проверьте фильтр по <strong>складу назначения</strong> — иногда отгрузки разделяются по региональным хабам <em>Ozon</em> (Москва, Екатеринбург, Новосибирск и др.).</p></aside>
+
+<p>Обратите внимание: в личном кабинете отображаются только отгрузки, созданные через интерфейс <em>Ozon Seller</em>. Если ваша компания использует <code>API</code> или интеграцию с <em>1С</em>, часть данных может отсутствовать. В этом случае переходите к следующим способам.</p>
+
+<h2 id="2-отчёты-ozon-какой-выбрать-для-сверки-с-бухгалтерией">2. Отчёты Ozon: какой выбрать для сверки с бухгалтерией</h2>
+
+<p><em>Ozon</em> предоставляет несколько типов отчётов, но для бухгалтера наиболее полезны два:</p>
+
+<ol>
+  <li><code>"Отчёт по отгрузкам"</code> — содержит детализированную информацию о каждом товаре в отгрузке, включая артикулы, количество и статусы.</li>
+  <li><code>"Отчёт по остаткам"</code> — показывает текущие запасы на складах <em>Ozon</em>, что помогает сверить фактические остатки с бухгалтерскими данными.</li>
+</ol>
+
+<p>Чтобы скачать отчёт:</p>
+<ol>
+  <li>Перейдите в <code>Аналитика → Отчёты</code>.</li>
+  <li>Выберите нужный тип отчёта.</li>
+  <li>Укажите период (например, с 1 по 31 число месяца).</li>
+  <li>Нажмите <code>"Сформировать"</code> и дождитесь письма на email с файлом <code>.xlsx</code> или <code>.csv</code>.</li>
+</ol>
+
+<p>В отчёте <code>"По отгрузкам"</code> обратите внимание на колонки:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Колонка</th>
+      <th>Что означает</th>
+      <th>Зачем нужна бухгалтеру</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>order_id</code></td>
+      <td>Идентификатор отгрузки</td>
+      <td>Для сверки с накладными и актами приёмки</td>
+    </tr>
+    <tr>
+      <td><code>sku</code></td>
+      <td>Артикул товара</td>
+      <td>Сопоставление с номенклатурой в 1С</td>
+    </tr>
+    <tr>
+      <td><code>quantity</code></td>
+      <td>Количество отгруженных единиц</td>
+      <td>Контроль объёмов поставок</td>
+    </tr>
+    <tr>
+      <td><code>warehouse_id</code></td>
+      <td>Код склада <em>Ozon</em></td>
+      <td>Разделение по региональным хабам</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>Статус отгрузки</td>
+      <td>Фильтрация только завершённых поставок</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="pb-poll" id="poll-35031867"><div class="pb-poll-question">📊 Какой отчёт вы используете чаще для сверки с бухгалтерией?</div><div class="pb-poll-option" data-poll="35031867" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">"Отчёт по отгрузкам"</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="35031867" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">"Отчёт по остаткам"</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="35031867" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">"Выгрузку из API"</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="35031867" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">"Данные из 1С"</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p><mark>Критическая особенность: в отчёте <code>"По отгрузкам"</code> могут отсутствовать данные о возвратах и списаниях товаров на складе <em>Ozon</em>. Для полной картины дополнительно запрашивайте <code>"Отчёт по движениям остатков"</code>.</mark></p>
+
+<h2 id="3-api-ozon-как-автоматизировать-получение-данных">3. API Ozon: как автоматизировать получение данных</h2>
+
+<p>Если ваша компания отгружает большие объёмы товаров, ручная выгрузка отчётов становится неэффективной. В этом случае стоит настроить интеграцию через <code>API Ozon</code>. Для бухгалтера наиболее полезны два метода:</p>
+
+<ul>
+  <li>🔄 <code>POST /v2/analytics/data</code> — запрос данных по отгрузкам в формате <code>JSON</code>.</li>
+  <li>📊 <code>POST /v1/analytics/stock_on_warehouses</code> — остатки товаров на складах.</li>
+</ul>
+
+<p>Пример запроса для получения списка отгрузок за месяц:</p>
+<pre><code>{
+<p>"date_from": "2026-05-01T00:00:00Z",</p>
+<p>"date_to": "2026-05-31T23:59:59Z",</p>
+<p>"metrics": ["order_id", "sku", "quantity", "warehouse_id"],</p>
+<p>"dimensions": [],</p>
+<p>"filters": [</p>
+<p>{"key": "status", "value": "delivered"}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>Для работы с <code>API</code> потребуется:</p>
+<ol>
+  <li>Получить <code>Client-ID</code> и <code>API-Key</code> в настройках личного кабинета (<code>Настройки → API</code>).</li>
+  <li>Использовать инструменты вроде <em>Postman</em> или написать скрипт на <em>Python</em>.</li>
+  <li>Настроить автоматическую выгрузку данных в <em>1С</em> или <em>Google Sheets</em>.</li>
+</ol>
+
+<details class="pb-accordion"><summary>Как проверить корректность API-ключа?</summary><div class="pb-accordion-body"><p>Если при запросе вы получаете ошибку <code>"401 Unauthorized"</code>, убедитесь, что:
+<p>- Ключ скопирован без пробелов.</p>
+<p>- У указанного <code>Client-ID</code> есть права на доступ к аналитике.</p>
+<p>- Запрос отправляется с заголовком <code>Authorization: Bearer {API-Key}</code>.</p></div></details></p>
+
+<p>Преимущество <code>API</code> — возможность получать данные в реальном времени и автоматически сверять их с бухгалтерским учётом. Однако для этого потребуется помощь программиста или настройка готовых коннекторов (например, <em>Ozon API Connector для 1С</em>).</p>
+
+<h2 id="4-интеграция-с-1с-как-синхронизировать-отгрузки">4. Интеграция с 1С: как синхронизировать отгрузки</h2>
+
+<p>Для компаний, использующих <em>1С:Управление торговлей</em> или <em>1С:ERP</em>, оптимальный способ контроля отгрузок — настройка обмена данными с <em>Ozon</em>. Это позволяет:</p>
+<ul>
+  <li>🔄 Автоматически создавать документы <code>"Реализация товаров"</code> при отгрузке на <em>Ozon</em>.</li>
+  <li>📈 Сверять остатки в <em>1С</em> с фактическими запасами на складах маркетплейса.</li>
+  <li>💰 Формировать проводки по расходам на логистику (<code>FBS</code>).</li>
+</ul>
+
+<p>Для настройки интеграции:</p>
+<ol>
+  <li>Установите обработку <em>"Обмен с Ozon"</em> (доступна в <em>1С:Каталоге решений</em>).</li>
+  <li>Введите <code>Client-ID</code> и <code>API-Key</code> в настройках обмена.</li>
+  <li>Настройте расписание синхронизации (рекомендуется ежедневное обновление).</li>
+</ol>
+
+<p>После настройки в <em>1С</em> будут автоматически создаваться:</p>
+<ul>
+  <li>📄 <strong>Заказы покупателей</strong> (для <code>FBO</code>).</li>
+  <li>🚚 <strong>Документы отгрузки</strong> (для <code>FBS</code>).</li>
+  <li>📦 <strong>Акты приёмки</strong> (с датой и временем поступления на склад <em>Ozon</em>).</li>
+</ul>
+
+
+<p>Сверьте количество товаров в документе <code>"Отгрузка"</code> в 1С с данными отчёта <code>"По отгрузкам"</code> в Ozon.</p>
+<p>Проверьте, что артикулы (<code>sku</code>) в 1С совпадают с артикулами на Ozon.</p>
+<p>Убедитесь, что дата отгрузки в 1С соответствует дате в личном кабинете Ozon.</p>
+<p>Проверьте формирование проводок по логистическим расходам (для FBS).--></p>
+
+<p>Если после настройки интеграции данные не совпадают, проверьте:</p>
+<ul>
+  <li>🔄 <strong>Часовой пояс</strong>: <em>Ozon</em> работает по <code>UTC+0</code>, а <em>1С</em> может использовать местное время.</li>
+  <li>📌 <strong>Формат артикулов</strong>: в <em>1С</em> и <em>Ozon</em> должны использоваться одинаковые <code>sku</code>.</li>
+  <li>🔄 <strong>Периодичность обмена</strong>: при редкой синхронизации данные могут устаревать.</li>
+</ul>
+
+<h2 id="5-альтернативные-способы-когда-стандартные-методы-не-работают">5. Альтернативные способы: когда стандартные методы не работают</h2>
+
+<p>Иногда бухгалтеру требуются данные, которых нет в стандартных отчётах или <code>API</code>. В таких случаях поможет:</p>
+
+<ul>
+  <li>📧 <strong>Обращение в поддержку <em>Ozon</strong></em>: через чат в личном кабинете или на почту <code>seller-support@ozon.ru</code>. В запросе укажите:
+    <ul>
+      <li>Номера отгрузок (<code>order_id</code>).</li>
+      <li>Даты, за которые нужны данные.</li>
+      <li>Причину запроса (например, "сверка с бухгалтерским учётом").</li>
+    </ul>
+  </li>
+  <li>📊 <strong>Выгрузка из WMS-системы</em>: если ваш склад использует <em>WMS</em> (например, <em>1С:WMS</em> или <em>MegaWMS</em>), запросите отчёт по отгрузкам на <em>Ozon</strong> у логистов.</li>
+  <li>📱 <strong>Мобильное приложение <em>Ozon Seller</strong></em>: в нём доступны уведомления о статусах отгрузок (полезно для оперативного контроля).</li>
+</ul>
+
+<p>Если вы работаете по схеме <code>FBS</code> и нужны данные о <strong>списаниях товаров</em> (например, из-за истечения срока годности или брака), запросите у <em>Ozon</em> <code>"Акт списания"</code>. Этот документ требуется для бухгалтерского учёта убытков.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>При запросе данных у поддержки <em>Ozon</strong> всегда указывайте <strong>конкретные даты и номера отгрузок</strong> — это ускорит обработку запроса в 2–3 раза.</p></aside>
+
+<p>Также полезно вести <strong>внутренний реестр отгрузок</em> в <em>Excel</em> или <em>Google Sheets</em>, куда логисты или менеджеры вносят:</p>
+<ul>
+  <li>📅 Дату и время отгрузки.</li>
+  <li>📦 Номера накладных.</li>
+  <li>🚛 Данные о транспортной компании (для <code>FBO</code>).</li>
+  <li>✅ Статус приёмки на складе <em>Ozon</em>.</li>
+</ul>
+
+<h2 id="6-типичные-ошибки-бухгалтеров-при-работе-с-отгрузками-ozon">6. Типичные ошибки бухгалтеров при работе с отгрузками Ozon</h2>
+
+<p>Даже опытные бухгалтеры сталкиваются с проблемами при учёте отгрузок на <em>Ozon</em>. Вот наиболее распространённые ошибки и как их избежать:</p>
+
+<ul>
+  <li>🔴 <strong>Сверка по дате создания отгрузки, а не по дате приёмки</strong>:
+    <p>В бухгалтерском учёте расходы и доходы фиксируются по факту <strong>перехода права собственности</strong>. Для <code>FBS</code> это момент приёмки товара на складе <em>Ozon</em>, а не дата создания отгрузки в личном кабинете.</p>
+  </li>
+  <li>🔴 <strong>Игнорирование возвратов и списаний</strong>:
+    <p>Если товар был возвращён с склада <em>Ozon</em> или списан (например, из-за брака), это должно быть отражено в учёте. Без этих данных остатки в <em>1С</em> и на складе разойдутся.</p>
+  </li>
+  <li>🔴 <strong>Неучёт логистических расходов по FBS</strong>:
+    <p>При отгрузке по схеме <code>FBS</code> <em>Ozon</em> списывает плату за хранение и обработку товаров. Эти расходы должны учитываться в статье <code>"Логистика"</code> или <code>"Услуги маркетплейсов"</code>.</p>
+  </li>
+  <li>🔴 <strong>Разные артикулы в 1С и Ozon</strong>:
+    <p>Если в <em>1С</em> и на <em>Ozon</em> используются разные <code>sku</code>, автоматическая сверка становится невозможной. Решение — настроить сопоставление артикулов в интеграции.</p>
+  </li>
+</ul>
+
+
+<p>1. Остатки товаров в отчёте <code>"Stock on warehouses"</code> с данными <em>1С</em>.</p>
+<p>2. Суммы логистических расходов в отчёте <code>"Финансы → Транзакции"</code> с проводками в бухгалтерии.--></p>
+
+<p>Ещё одна типичная проблема — <strong>задержки в обновлении статусов отгрузок</strong>. Например, товар может быть физически принят на складе <em>Ozon</em>, но в личном кабинете статус ещё не обновился. В таких случаях:</p>
+<ul>
+  <li>Проверьте отчёт <code>"По движениям остатков"</code> — там данные обновляются чаще.</li>
+  <li>Свяжитесь с поддержкой <em>Ozon</em> и уточните статус по номеру отгрузки.</li>
+</ul>
+
+<h2 id="7-как-оформить-документы-для-бухгалтерии-образцы-и-шаблоны">7. Как оформить документы для бухгалтерии: образцы и шаблоны</h2>
+
+<p>Для корректного учёта отгрузок на <em>Ozon</em> бухгалтеру потребуются следующие документы:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Документ</th>
+      <th>Когда нужен</th>
+      <th>Где взять</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aкт приёмки-передачи</td>
+      <td>Для <code>FBS</code> (передача товара на склад <em>Ozon</em>)</td>
+      <td>Личный кабинет <em>Ozon Seller</em> или email от логистики</td>
+    </tr>
+    <tr>
+      <td>Товарная накладная (ТОРГ-12)</td>
+      <td>Для <code>FBO</code> (отгрузка покупателю)</td>
+      <td>Формируется в <em>1С</em> или вручную</td>
+    </tr>
+    <tr>
+      <td>Акт списания</td>
+      <td>При порче или истечении срока годности товара на складе <em>Ozon</em></td>
+      <td>Запросить у поддержки <em>Ozon</em></td>
+    </tr>
+    <tr>
+      <td>Счёт-фактура от <em>Ozon</em></td>
+      <td>Для учёта комиссий и логистических услуг</td>
+      <td>Раздел <code>"Финансы → Документы"</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Образец оформления акта приёмки-передачи для <code>FBS</code>:</p>
+<pre><code><p>АКТ ПРИЁМКИ-ПЕРЕДАЧИ № [номер] от [дата]</p>
+
+<p>ООО "[Ваша компания]", именуемое в дальнейшем "Поставщик", в лице [ФИО], действующего на основании [документ],</p>
+<p>с одной стороны, и ООО "Озон" (ИНН 7704280371), именуемое в дальнейшем "Получатель", с другой стороны, составили настоящий акт о нижеследующем:</p>
+
+<p>1. Поставщик передаёт, а Получатель принимает товар в соответствии с накладной № [номер] от [дата]:</p>
+<p>- Наименование: [название товара]</p>
+<p>- Артикул: [sku]</p>
+<p>- Количество: [штук]</p>
+<p>- Серийные номера (при наличии): [указать]</p>
+
+<p>2. Товар передан в исправной упаковке, претензий к количеству и качеству нет.</p>
+
+<p>Подписи:</p>
+<p>Поставщик: ___________ / [ФИО] /</p>
+<p>Получатель: ___________ / [ФИО представителя Ozon] /</p></code></pre>
+
+<p>Для <code>FBO</code> вместо акта приёмки-передачи оформляется <strong>товарная накладная (ТОРГ-12)</strong> на покупателя. В ней указываются:</p>
+<ul>
+  <li>📌 Данные покупателя (ФИО, адрес доставки).</li>
+  <li>📦 Перечень товаров с артикулами и количеством.</li>
+  <li>💰 Стоимость товаров и доставки (если оплачена покупателем).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>При оформлении документов для <em>Ozon</em> обязательно указывайте <strong>номер отгрузки (<code>order_id</code>)</strong> — это упростит сверку с данными маркетплейса.</p></aside>
+
+<h2 id="faq-частые-вопросы-бухгалтеров-об-отгрузках-на-ozon">FAQ: Частые вопросы бухгалтеров об отгрузках на Ozon</h2>
+
+<details>
+  <summary>Как отличить отгрузку по FBS от FBO в отчётах?</summary>
+  <p>В отчёте <code>"По отгрузкам"</code> обратите внимание на колонку <code>warehouse_id</code>:</p>
+  <ul>
+    <li>Если <code>warehouse_id</code> начинается с <code>"WB"</code> (например, <code>WB-MSK-1</code>) — это <code>FBS</code> (отгрузка на склад <em>Ozon</em>).</li>
+    <li>Если <code>warehouse_id</code> отсутствует или указан адрес покупателя — это <code>FBO</code> (отгрузка напрямую клиенту).</li>
+  </ul>
+  <p>Также в личном кабинете <em>Ozon Seller</em> отгрузки <code>FBS</code> помечены значком склада (🏭), а <code>FBO</code> — значком грузовика (🚛).</p>
+</details>
+
+<details>
+  <summary>Что делать, если в отчёте Ozon нет данных об отгрузке?</summary>
+  <p>Причины отсутствия данных могут быть следующими:</p>
+  <ol>
+    <li>Отгрузка создана, но ещё не обработана логистикой <em>Ozon</em> (статус <code>"В обработке"</code>).</li>
+    <li>Отгрузка создана через <code>API</code> или стороннюю систему, и данные не синхронизированы с личным кабинетом.</li>
+    <li>Ошибка при формировании отчёта (например, неверно указан период).</li>
+  </ol>
+  <p>Решения:</p>
+  <ul>
+    <li>Проверьте статус отгрузки в разделе <code>Логистика → Отгрузки</code>.</li>
+    <li>Сверьте данные с <code>WMS</code>-системой вашего склада.</li>
+    <li>Обратитесь в поддержку <em>Ozon</em> с номером отгрузки (<code>order_id</code>).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Как учесть логистические расходы по FBS?</summary>
+  <p>Расходы на логистику по схеме <code>FBS</code> отражаются в отчёте <code>"Финансы → Транзакции"</code> (тип операции <code>"Логистика"</code>). Для бухгалтерского учёта:</p>
+  <ol>
+    <li>Скачайте отчёт за нужный период.</li>
+    <li>Отфильтруйте транзакции по типу <code>"Хранение"</code>, <code>"Приёмка"</code>, <code>"Комиссия за обработку"</code>.</li>
+    <li>Сформируйте в <em>1С</em> документ <code>"Поступление услуг"</code> от поставщика <em>ООО "Озон"</em> (ИНН 7704280371).</li>
+    <li>Укажите статью затрат (например, <code>"Услуги маркетплейсов"</code>) и сумму из отчёта.</li>
+  </ol>
+  <p>Обратите внимание: <em>Ozon</em> списывает плату за хранение ежемесячно, а комиссии за обработку — по факту отгрузки.</p>
+</details>
+
+<details>
+  <summary>Можно ли получить данные об отгрузках за прошлые периоды?</summary>
+  <p>Да, но с ограничениями:</p>
+  <ul>
+    <li>В личном кабинете <em>Ozon Seller</em> доступны отчёты за последние <strong>12 месяцев</strong>.</li>
+    <li>Через <code>API</code> можно запрашивать данные за любой период, но <em>Ozon</em> хранит историю не более <strong>2 лет</strong>.</li>
+    <li>Для более старых данных придётся обращаться в поддержку с обоснованием (например, для налоговой проверки).</li>
+  </ul>
+  <p>Если вам нужны данные за период старше 2 лет, проверьте архивы email (на письма с отчётами) или внутренние бухгалтерские регистры.</p>
+</details>
+
+<details>
+  <summary>Как сверить остатки товаров на складе Ozon с данными 1С?</summary>
+  <p>Для сверки выполните следующие шаги:</p>
+  <ol>
+    <li>Скачайте отчёт <code>"Stock on warehouses"</code> в личном кабинете <em>Ozon Seller</code>.</li>
+    <li>Экспортируйте данные об остатках из <em>1С</em> (отчёт <code>"Остатки товаров"</code>).</li>
+    <li>Сопоставьте остатки по артикулам (<code>sku</code>).</li>
+    <li>Если есть расхождения, проверьте:
+      <ul>
+        <li>Отгрузки, которые ещё не приняты на складе <em>Ozon</em> (статус <code>"В пути"</code>).</li>
+        <li>Возвраты и списания товаров (должны быть отражены в <em>1С</em>).</li>
+        <li>Ошибки в сопоставлении артикулов между <em>1С</em> и <em>Ozon</em>.</li>
+      </ol>
+    </li>
+  </ul>
+  <p>Для удобства используйте сводную таблицу в <em>Excel</em> с формулами <code>VLOOKUP</code> или <code>XLOOKUP</code> для автоматической сверки.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakie-tovary-na-ozon-mogut-prodavat-samozanyatye.html" class="pb-related-card">
+                <span class="pb-related-title">Какие товары на Озон могут продавать самозанятые в 2026 году</span>
+                <span class="pb-related-desc">Полный список разрешенных категорий для самозанятых на Ozon, ограничения, правила и советы по выбору</span>
+            </a><a href="/articles/k/ka/kakoj-tovar-prodavat-letom-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какой товар продавать летом на Озон: Топ ниш 2026</span>
+                <span class="pb-related-desc">Актуальный список товаров для летней торговли на Ozon. Что выгодно продавать в жару, как выбрать ниш</span>
+            </a><a href="/articles/k/ka/kak-nastroit-ozon-ekspress.html" class="pb-related-card">
+                <span class="pb-related-title">Как настроить Озон Экспресс: инструкция для селлера</span>
+                <span class="pb-related-desc">Полный гайд: как подключить Озон Экспресс, требования к складу, настройка остатков и логистика. Секр</span>
+            </a><a href="/articles/k/ka/kak-zaregistrirovat-pochtu-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как зарегистрировать почту Озон: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как зарегистрировать почту Озон и создать аккаунт на Ozon.ru. Полное руководство для покупа</span>
+            </a><a href="/articles/k/ka/kakoj-protsent-na-ozone-platyat-esli-tarif-korporativnyj.html" class="pb-related-card">
+                <span class="pb-related-title">Комиссия Озон для корпоративных тарифов 2026: сколько % берет маркетплейс</span>
+                <span class="pb-related-desc">Подробный разбор комиссий Озон для юридических лиц и ИП: процентные ставки по категориям, скрытые пл</span>
+            </a><a href="/articles/o/oz/ozon-camp-skolko-platyat.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Camp сколько платят: зарплаты и условия 2026</span>
+                <span class="pb-related-desc">Узнайте реальные зарплаты в Ozon Camp 2026 года. Сколько платят сортировщикам, комплектовщикам и кла</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как загрузить товары на Ozon через API: инструкция для разработчиков — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по интеграции с Ozon API. Настройка ключей, работа с JSON, создание карточек и управление остатками через программный код.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzit-tovary-na-ozon-cherez-api.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как загрузить товары на Ozon через API: инструкция для разработчиков">
+    <meta property="og:description" content="Пошаговое руководство по интеграции с Ozon API. Настройка ключей, работа с JSON, создание карточек и управление остатками через программный код.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как загрузить товары на Ozon через API: инструкция для разработчиков</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-к-интеграции-получение-ключей-доступа">Подготовка к интеграции: получение ключей доступа</a></li><li><a href="#структура-запроса-и-формирование-json">Структура запроса и формирование JSON</a></li><li><a href="#методы-создания-и-обновления-карточек">Методы создания и обновления карточек</a></li><li><a href="#работа-с-категориями-и-атрибутами">Работа с категориями и атрибутами</a></li><li><a href="#управление-изображениями-и-медиа-контентом">Управление изображениями и медиа-контентом</a></li><li><a href="#обработка-ошибок-и-отладка">Обработка ошибок и отладка</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-upakovat-tubus-dlya-ozon.html">Как упаковать тубус для Озон: требования 2026 и пошаговая инструкция</a></li><li><a href="/articles/o/oz/ozon-gde-shtrikh-kod-dlya-polucheniya.html">Где найти штрихкод на Ozon: инструкции для FBS и FBO</a></li><li><a href="/articles/k/ka/kak-dobavit-paket-na-ozon.html">Как добавить пакет на Озон: пошаговая инструкция для продавцов 2026</a></li><li><a href="/articles/o/oz/ozon-kak-delat-komplekty.html">Как делать комплекты на Ozon: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-kopirovat-kartochki-s-vb-na-ozon.html">Как копировать карточки с Wildberries на Ozon: пошаговое руководство 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Загрузка товаров на Ozon через API: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-интеграции-получение-ключей-доступа">Подготовка к интеграции: получение ключей доступа</a></li><li><a href="#структура-запроса-и-формирование-json">Структура запроса и формирование JSON</a></li><li><a href="#методы-создания-и-обновления-карточек">Методы создания и обновления карточек</a></li><li><a href="#работа-с-категориями-и-атрибутами">Работа с категориями и атрибутами</a></li><li><a href="#управление-изображениями-и-медиа-контентом">Управление изображениями и медиа-контентом</a></li><li><a href="#обработка-ошибок-и-отладка">Обработка ошибок и отладка</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Автоматизация процессов на маркетплейсах перестала быть опцией для крупных игроков и стала необходимостью для любого серьезного бизнеса. Ручное заполнение карточек через личный кабинет отнимает колоссальное количество времени и чревато человеческими ошибками, которые могут стоить рейтинга или даже блокировки аккаунта. <strong>API (Application Programming Interface)</strong> позволяет наладить прямой обмен данными между вашей учетной системой и серверами Ozon, обеспечивая синхронизацию в реальном времени.</p>
+
+<p>Использование программных интерфейсов дает возможность мгновенно обновлять остатки, цены и описания тысяч позиций без задержек. Это особенно критично в периоды распродаж, когда спрос меняется каждую секунду. В этой статье мы разберем технические аспекты взаимодействия с платформой, начиная от получения ключей доступа и заканчивая нюансами формирования JSON-запросов для массового импорта.</p>
+
+<p>Для работы с API вам потребуются базовые знания структуры данных и умение работать с инструментами отладки, такими как Postman. Однако, даже если вы не являетесь профессиональным программистом, понимание логики процесса поможет вам грамотно поставить задачу разработчикам или настроить интеграцию через готовые плагины. <em>Ozon</em> предоставляет мощный инструментарий, который при грамотном использовании превращает хаос ручного управления в отлаженный механизм.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Работа с API требует осторожности. Частые запросы к серверу могут привести к временному ограничению (throttling) вашего IP-адреса. Всегда соблюдайте лимиты на количество запросов в секунду, указанные в документации.</p>
+</blockquote>
+
+<h2 id="подготовка-к-интеграции-получение-ключей-доступа">Подготовка к интеграции: получение ключей доступа</h2>
+
+<p>Первым шагом на пути к автоматизации является авторизация. Система безопасности Ozon требует использования пары ключей: Client ID и API Key. Эти идентификаторы связывают ваши запросы с конкретным магазином и правами доступа. Получить их можно в личном кабинете продавца в разделе настроек профиля.</p>
+
+<p>Важно различать типы ключей, так как они имеют разные уровни доступа. Для загрузки товаров и управления остатками вам потребуется ключ с правами администратора или соответствующими разрешениями на чтение и запись. <strong>Client ID</strong> — это уникальный номер вашего магазина, который остается неизменным, в то время как <strong>API Key</strong> можно перегенерировать в случае компрометации.</p>
+
+<ul>
+<li>🔑 Перейдите в раздел «Настройки» в личном кабинете Ozon Seller.</li>
+<li>💻 Выберите вкладку «API ключи» и нажмите «Создать новый ключ».</li>
+<li>📝 Дайте понятное имя ключу, например «Integration_Warehouse_1», чтобы легко идентифицировать его в логах.</li>
+<li>🛡️ Скопируйте сгенерированный ключ и сохраните его в надежном месте, так как увидеть его повторно будет невозможно.</li>
+</ul>
+
+<p>Храните полученные данные в переменных окружения или специальных конфигурационных файлах, которые не попадают в репозиторий с кодом. Утечка ключей может привести к несанкционированному доступу к вашему магазину. После получения ключей можно переходить к тестированию соединения.</p>
+
+<details class="pb-accordion"><summary>Где найти Client ID?</summary><div class="pb-accordion-body"><p>Client ID находится в URL-адресе личного кабинета сразу после домена ozon.ru/seller/. Он выглядит как набор цифр, например: https://ozon.ru/seller/123456789/... В данном случае 123456789 — это и есть ваш Client ID.</p></div></details>
+
+<h2 id="структура-запроса-и-формирование-json">Структура запроса и формирование JSON</h2>
+
+<p>Ozon API работает по протоколу REST и принимает данные в формате JSON. Это стандарт обмена информацией, который легко читается как человеком, так и машиной. Каждый запрос должен содержать заголовки, указывающие тип контента и авторизационные данные, а также тело запроса с описанием товара.</p>
+
+<p>При формировании тела запроса необходимо строго соблюдать синтаксис. Любая лишняя запятая или пропущенная кавычка приведут к ошибке валидации, и сервер вернет код ошибки 400. <strong>JSON</strong> (JavaScript Object Notation) чувствителен к регистру букв, поэтому поля <code>name</code> и <code>Name</code> будут восприняты как разные параметры.</p>
+
+<p>Рассмотрим основные поля, которые обязательны для создания карточки товара. Без них система не сможет идентифицировать продукт или разместить его в каталоге.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип данных</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Название товара</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>offer_id</td>
+<td>String</td>
+<td>Артикул продавца</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>price</td>
+<td>String</td>
+<td>Цена товара</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>old_price</td>
+<td>String</td>
+<td>Старая цена (для зачеркивания)</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>Количество на складе</td>
+<td>Да</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Особое внимание стоит уделить полю <code>offer_id</code>. Это ваш внутренний артикул, по которому вы будете управлять товаром в будущем. Он должен быть уникальным в пределах вашего магазина. Если вы попытаетесь отправить товар с уже существующим <code>offer_id</code>, система обновит данные существующей карточки, а не создаст новую.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте префиксы в offer_id для разных поставщиков или складов. Например, WH1_ITEM001 для первого склада и WH2_ITEM001 для второго. Это упростит логистику и аналитику.</p></aside>
+
+<h2 id="методы-создания-и-обновления-карточек">Методы создания и обновления карточек</h2>
+
+<p>Процесс загрузки товаров делится на два основных этапа: создание описания (импорт) и управление остатками/ценами. Для создания новых позиций используется метод <code>/v3/product/import</code>. Он позволяет передавать массив товаров, что значительно ускоряет процесс массовой загрузки.</p>
+
+<p>Если товар с таким артикулом уже существует, метод работает как обновление. Однако для частого изменения только цены или количества рекомендуется использовать специализированные методы, такие как <code>/v1/offer/update</code> или <code>/v1/stock</code>. Они требуют меньше данных в теле запроса и обрабатываются сервером быстрее.</p>
+
+<p>Ниже приведен пример структуры запроса для импорта товара. Обратите внимание на вложенность объектов и типы данных.</p>
+
+<pre><code>{
+<p>"products": [</p>
+<p>{</p>
+<p>"attributes": [],</p>
+<p>"barcode": "",</p>
+<p>"buybox_levelling": false,</p>
+<p>"description_category_id": 123,</p>
+<p>"images": ["string"],</p>
+<p>"name": "Название товара",</p>
+<p>"offer_id": "12345",</p>
+<p>"old_price": "0",</p>
+<p>"price": "1000",</p>
+<p>"quantity": 10,</p>
+<p>"type": "sku",</p>
+<p>"weight": 100,</p>
+<p>"weight_unit": "g"</p>
+<p>}</p>
+<p>],</p>
+<p>"update_existing": true</p>
+<p>}</code></pre></p>
+
+<p>Параметр <code>update_existing</code> играет критическую роль. Если он установлен в <code>true</code>, система попытается найти товар по <code>offer_id</code> и обновить его. Если в <code>false</code> — попытка создать дубль приведет к ошибке. Для первичной загрузки лучше использовать <code>true</code>, чтобы избежать сбоев при повторном запуске скрипта.</p>
+
+<div class="pb-poll" id="poll-0965f0d9"><div class="pb-poll-question">📊 Какой метод интеграции вы предпочитаете?</div><div class="pb-poll-option" data-poll="0965f0d9" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Прямой API (Python/PHP)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0965f0d9" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Готовые плагины для CMS</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0965f0d9" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Мои менеджеры заполняют вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0965f0d9" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel-загрузка через личный кабинет</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="работа-с-категориями-и-атрибутами">Работа с категориями и атрибутами</h2>
+
+<p>Одной из самых сложных частей интеграции является правильное определение категории. В отличие от ручного заполнения, где можно выбрать категорию из дерева, в API необходимо передавать числовой <strong>ID категории</strong> (<code>description_category_id</code>). Найти его можно через метод <code>/v1/description-category/tree</code> или в справочнике категорий на сайте помощи.</p>
+
+<p>Каждая категория имеет свой набор обязательных и опциональных характеристик. Например, для одежды обязательны размер и цвет, а для электроники — напряжение и тип разъема. При отправке товара без обязательных атрибутов вы получите ошибку валидации.</p>
+
+<ul>
+<li>📂 Получите ID категории через API справочника перед загрузкой товаров.</li>
+<li>📋 Сверьте список обязательных атрибутов для выбранной категории.</li>
+<li>🔢 Убедитесь, что значения атрибутов соответствуют справочнику Ozon (например, "Red" вместо "Красный").</li>
+<li>🔄 Для сложных товаров (мультитуры) используйте параметр <code>variants</code>.</li>
+</ul>
+
+<p>Атрибуты передаются в массиве <code>attributes</code>. Каждый атрибут имеет свой ID, который также нужно брать из справочника. Значение атрибута может быть строкой, числом или списком, в зависимости от типа параметра. Ошибка в типе данных (например, строка вместо числа) приведет к отказу в обработке карточки.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не используйте произвольные значения для характеристик с предопределенным списком. Если в справочнике указано "Smartphone", а вы пришлете "Смартфон", товар может не попасть в нужную фильтрованную выдачу или получить штраф за неверные характеристики.</p>
+</blockquote>
+
+<h2 id="управление-изображениями-и-медиа-контентом">Управление изображениями и медиа-контентом</h2>
+
+<p>Визальная составляющая карточки товара напрямую влияет на конверсию. API Ozon позволяет загружать изображения по ссылкам. Это означает, что фото должны быть размещены на публичном сервере с прямым доступом по HTTPS. Загрузка файлов через base64 в теле запроса не поддерживается для стандартных методов импорта.</p>
+
+<p>Система автоматически обработает изображение, создаст миниатюры и оптимизирует его для разных устройств. Однако исходное фото должно соответствовать требованиям: формат JPEG или PNG, размер не менее 900 пикселей по большей стороне. <strong>HTTPS</strong> протокол обязателен, иначе сервер Ozon не сможет скачать изображение.</p>
+
+<p>Порядок изображений в массиве <code>images</code> определяет их очередность на карточке. Первый элемент массива станет главным фото. Рекомендуется всегда проверять доступность ссылок перед отправкой запроса, так как если Ozon не сможет скачать картинку в момент обработки, карточка может быть создана без фото.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка изображений перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Ссылки доступны по HTTPS</span></label><label class="check-item"><input type="checkbox"><span>Размер фото более 900px</span></label><label class="check-item"><input type="checkbox"><span>Формат JPEG или PNG</span></label><label class="check-item"><input type="checkbox"><span>На фото нет водяных знаков и текста</span></label><label class="check-item"><input type="checkbox"><span>Главное фото показывает товар крупным планом</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="обработка-ошибок-и-отладка">Обработка ошибок и отладка</h2>
+
+<p>Даже опытные разработчики сталкиваются с ошибками при интеграции. API Ozon возвращает подробные сообщения об ошибках в теле ответа, если запрос не прошел валидацию. Код ответа 200 означает успех, но внутри JSON может содержаться информация о частичных ошибках, если вы загружали массив товаров.</p>
+
+<p>Частые проблемы включают неверный формат цены (использование запятой вместо точки), отсутствие обязательных полей или превышение лимитов на длину строки. Для отладки удобно использовать инструменты вроде Postman, где можно видеть полные заголовки и тело ответа.</p>
+
+<p>Важно реализовать в своем коде механизм логирования. Сохраняйте все отправленные запросы и полученные ответы. Это поможет быстро найти причину, почему товар не появился на витрине или почему не обновился остаток.</p>
+
+<pre><code>{
+<p>"error": "VALIDATION_ERROR",</p>
+<p>"message": "Field 'price' must be a number",</p>
+<p>"details": [</p>
+<p>{</p>
+<p>"field": "price",</p>
+<p>"message": "Expected type: number, got: string"</p>
+<p>}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>Если вы видите ошибку <code>RATE_LIMIT_EXCEEDED</code>, значит, вы делаете слишком много запросов в секунду. В этом случае необходимо внедрить задержку (sleep) между запросами или использовать механизм повторных попыток с экспоненциальной задержкой.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Логируйте каждый шаг интеграции. История запросов и ответов — ваш главный инструмент при поиске причин отсутствия товаров на витрине.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Как часто можно обновлять остатки через API?</summary>
+<p>Ozon рекомендует обновлять остатки не чаще одного раза в 10-15 минут для стабильности работы системы, если у вас нет резких изменений. Однако технически лимиты позволяют делать запросы чаще, главное — не превышать общее количество запросов в секунду (RPS), которое зависит от тарифа вашего магазина.</p>
+</details>
+
+<details>
+<summary>Можно ли загружать товары без баркодов?</summary>
+<p>Да, для многих категорий баркод не является обязательным полем. Однако для брендовых товаров или электроники наличие штрихкода (EAN, UPC) часто требуется для корректной категоризации и участия в акциях. Если баркода нет, можно сгенерировать внутренний штрихкод.</p>
+</details>
+
+<details>
+<summary>Что делать, если товар загрузился, но не продается?</summary>
+<p>Проверьте статус карточки. Она может быть в статусе «На модерации» или «Ошибка модерации». Также убедитесь, что остаток больше нуля, цена установлена корректно, и товар не скрыт вручную. Часто проблема кроется в неверно заполненных характеристиках, из-за чего товар не попадает в выдачу.</p>
+</details>
+
+<details>
+<summary>Как обновить только цену, не трогая описание?</summary>
+<p>Используйте специализированный метод для обновления цен, например <code>/v1/offer/update</code>. В теле запроса передавайте только <code>offer_id</code> и новую <code>price</code>. Это быстрее и безопаснее, чем отправлять полный импорт карточки, так как снижает риск случайно сбросить другие параметры.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-upakovat-tubus-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать тубус для Озон: требования 2026 и пошаговая инструкция</span>
+                <span class="pb-related-desc">Правильная упаковка тубусов для Озон: размеры, материалы, требования к этикеткам и советы по защите </span>
+            </a><a href="/articles/o/oz/ozon-gde-shtrikh-kod-dlya-polucheniya.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти штрихкод на Ozon: инструкции для FBS и FBO</span>
+                <span class="pb-related-desc">Узнайте, где взять штрихкод для отгрузки товаров на Ozon. Подробные инструкции по генерации кодов ма</span>
+            </a><a href="/articles/k/ka/kak-dobavit-paket-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить пакет на Озон: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению пакетов товаров на маркетплейс Озон: от подготовки данных до пуб</span>
+            </a><a href="/articles/o/oz/ozon-kak-delat-komplekty.html" class="pb-related-card">
+                <span class="pb-related-title">Как делать комплекты на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полное руководство по созданию комплектов на Ozon. Узнайте, как объединять товары, настроить сборку </span>
+            </a><a href="/articles/k/ka/kak-kopirovat-kartochki-s-vb-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как копировать карточки с Wildberries на Ozon: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Узнайте легальные способы переноса товарных карточек с WB на Озон: ручной ввод, парсинг, API-интегра</span>
+            </a><a href="/articles/k/ka/kak-vstavit-foto-360-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить фото 360° на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению 3D-фото товаров на Ozon для продавцов: требования к изображениям</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

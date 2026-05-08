@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Товарная декомпенсация на Озон: как провести в 1С пошагово — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция по оформлению товарной декомпенсации с Озон в 1С: настройка обмена, проводки, документы и типичные ошибки. Актуально для FBS/FBO 2026.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/t/to/tovarnaya-dekompensatsiya-ozon-kak-provesti-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Товарная декомпенсация на Озон: как провести в 1С пошагово">
+    <meta property="og:description" content="Подробная инструкция по оформлению товарной декомпенсации с Озон в 1С: настройка обмена, проводки, документы и типичные ошибки. Актуально для FBS/FBO 2026.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/vozvraty-i-obmen/">Возвраты и Обмен</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Товарная декомпенсация на Озон: как провести в 1С пошагово</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-товарная-декомпенсация-и-когда-она-применяется">Что такое товарная декомпенсация и когда она применяется</a></li><li><a href="#документы-от-озон-что-нужно-для-проведения-декомпенсации-в-1с">Документы от Озон: что нужно для проведения декомпенсации в 1С</a></li><li><a href="#настройка-обмена-данными-между-озон-и-1с">Настройка обмена данными между Озон и 1С</a></li><li><a href="#пошаговая-инструкция-как-провести-декомпенсацию-в-1с">Пошаговая инструкция: как провести декомпенсацию в 1С</a></li><li><a href="#особенности-для-схем-fbs-и-fbo">Особенности для схем FBS и FBO</a></li><li><a href="#типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</a></li><li><a href="#автоматизация-и-контроль-как-упростить-процесс">Автоматизация и контроль: как упростить процесс</a></li><li><a href="#faq-частые-вопросы-по-товарной-декомпенсации">FAQ: Частые вопросы по товарной декомпенсации</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rabotaet-vozvrat-v-ozon.html">Возврат на Ozon в 2026: пошаговый гайд для покупателей и продавцов</a></li><li><a href="/articles/k/ka/kak-vernut-podarochnyj-sertifikat-ozon.html">Как вернуть подарочный сертификат Озон в 2026 году: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-otmenit-zakaz-ozon-iz-za-granitsy.html">Как отменить заказ Озон из-за границы: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-poluchit-dengi-za-vozvrat-tovara-na-ozone.html">Как получить деньги за возврат товара на Ozon: инструкция</a></li><li><a href="/articles/v/v-/v-techenie-skolko-dnej-mozhno-vernut-tovar-na-ozon.html">Сколько дней можно вернуть товар на Озон: сроки и правила</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Товарная декомпенсация от Озон в 1С: полный алгоритм для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-товарная-декомпенсация-и-когда-она-применяется">Что такое товарная декомпенсация и когда она применяется</a></li><li><a href="#документы-от-озон-что-нужно-для-проведения-декомпенсации-в-1с">Документы от Озон: что нужно для проведения декомпенсации в 1С</a></li><li><a href="#настройка-обмена-данными-между-озон-и-1с">Настройка обмена данными между Озон и 1С</a></li><li><a href="#пошаговая-инструкция-как-провести-декомпенсацию-в-1с">Пошаговая инструкция: как провести декомпенсацию в 1С</a></li><li><a href="#особенности-для-схем-fbs-и-fbo">Особенности для схем FBS и FBO</a></li><li><a href="#типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</a></li><li><a href="#автоматизация-и-контроль-как-упростить-процесс">Автоматизация и контроль: как упростить процесс</a></li><li><a href="#faq-частые-вопросы-по-товарной-декомпенсации">FAQ: Частые вопросы по товарной декомпенсации</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Товарная декомпенсация на <em>Ozon</em> — это процедура, при которой маркетплейс компенсирует продавцу стоимость утраченного, повреждённого или невозвращённого товара. Для бухгалтеров и логистов это означает не только возврат денежных средств, но и корректное отражение операции в <strong>1С:Предприятие</strong>. Ошибки здесь чреваты расхождениями с фактическими остатками, искажением финансовой отчётности и даже штрафами от <em>Озон</em> за несвоевременное закрытие претензий.</p>
+
+<p>В этой статье разберём <strong>пошаговый алгоритм</strong> проведения товарной декомпенсации в 1С: от получения уведомления от <em>Ozon</em> до формирования проводок и сверки с маркетплейсом. Особое внимание уделим нюансам для схем <code>FBS</code> и <code>FBO</code>, типичным ошибкам при работе с документами <code>"Возврат товаров от покупателя"</code> и <code>"Корректировка долга"</code>, а также автоматизации обмена данными через <em>EDI</em>.</p>
+
+<h2 id="что-такое-товарная-декомпенсация-и-когда-она-применяется">Что такое товарная декомпенсация и когда она применяется</h2>
+
+<p>Товарная декомпенсация — это механизм возмещения убытков продавцу в случаях, когда товар:</p>
+<ul>
+  <li>📦 <strong>Утерян</strong> на складе <em>Озон</em> (подтверждено актами инвентаризации);</li>
+  <li>🔥 <strong>Повреждён</strong> по вине маркетплейса (например, при транспортировке или хранении);</li>
+  <li>🚫 <strong>Невозвращён</strong> покупателем в рамках гарантийного возврата (если <em>Озон</em> не смог вернуть товар продавцу);</li>
+  <li>📉 <strong>Списан</strong> по истечении срока годности (для категорий с ограниченным сроком хранения).</li>
+</ul>
+
+<p>Важно: декомпенсация <strong>не применяется</strong>, если товар:</p>
+<ul>
+  <li>🛒 Утерян при доставке <strong>курьером продавца</strong> (в схеме <code>FBO</code>);</li>
+  <li>🔄 Возвращён покупателем в ненадлежащем виде <strong>по вине продавца</strong> (например, несоответствие описанию);</li>
+  <li>💸 Списан по инициативе продавца (например, для утилизации).</li>
+</ul>
+
+<p>Сроки компенсации регламентированы договором с <em>Ozon</em>: обычно это <strong>30–45 дней</strong> с момента фиксации инцидента. Задержки часто связаны с необходимостью проведения служебного расследования (например, при подозрении на хищение).</p>
+
+<div class="pb-poll" id="poll-b9c8b3d0"><div class="pb-poll-question">📊 Как часто вы сталкиваетесь с товарной декомпенсацией на Озон?</div><div class="pb-poll-option" data-poll="b9c8b3d0" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежемесячно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b9c8b3d0" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в квартал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b9c8b3d0" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Реже 1 раза в год</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b9c8b3d0" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ни разу не было</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="документы-от-озон-что-нужно-для-проведения-декомпенсации-в-1с">Документы от Озон: что нужно для проведения декомпенсации в 1С</h2>
+
+<p>Прежде чем фиксировать операцию в 1С, продавцу необходимо получить от <em>Озон</em> пакет документов:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Документ</th>
+      <th>Где получить</th>
+      <th>Что проверять</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Акт о расхождениях</code></td>
+      <td>Личный кабинет <em>Ozon Seller</em> → <code>Возвраты → Претензии</code></td>
+      <td>Совпадение артикулов, количества, причины списания</td>
+    </tr>
+    <tr>
+      <td><code>Счёт-фактура на компенсацию</code></td>
+      <td>Электронный документооборот (<em>Диадок</em>, <em>СБИС</em>)</td>
+      <td>НДС (0% или 20%), реквизиты продавца, сумма компенсации</td>
+    </tr>
+    <tr>
+      <td><code>Уведомление о зачёте долга</code></td>
+      <td>Email от <em>Ozon Финансы</em> или в <code>Финансы → Выплаты</code></td>
+      <td>Сумма к зачёту, дата списания, ссылка на акт</td>
+    </tr>
+    <tr>
+      <td><code>Акт инвентаризации</code> (при утрате)</td>
+      <td>Запрос в поддержку <em>Ozon</em> через тикет</td>
+      <td>Подписи ответственных лиц, дата проведения</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если в акте указаны <strong>несколько позиций</strong>, но компенсация пришла только по части из них — это признак ошибки. Необходимо запросить у <em>Озон</em> разъяснения через тикет с темой <code>"Расхождение в акте декомпенсации [№ акта]"</code>.</p>
+
+<p>При работе с <code>FBS</code> дополнительно проверяйте:</p>
+<ul>
+  <li>📌 Соответствие <strong>складского номера</strong> в акте и вашей системе учёта;</li>
+  <li>📅 Дату <strong>приёмки товара</strong> на склад <em>Озон</em> (если списание произошло в первые 30 дней — это подозрительно).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сохраняйте все документы от Озон в отдельной папке с названием "Декомпенсация_[месяц]_[год]". Это упростит поиск при проверках и аудитах.</p></aside>
+
+<h2 id="настройка-обмена-данными-между-озон-и-1с">Настройка обмена данными между Озон и 1С</h2>
+
+<p>Для автоматизации процесса декомпенсации необходимо настроить <strong>обмен данными</strong> между <em>Ozon</em> и 1С. Это позволит избегать ручного ввода и снизит риск ошибок. Используются два основных способа:</p>
+
+<ol>
+  <li><strong>Через EDI (Электронный документооборот)</strong> — для крупных продавцов с большим объёмом возвратов. Требует интеграции с <em>Ozon API</em> и настройки обработок в 1С.</li>
+  <li><strong>Через выгрузку/загрузку Excel</strong> — подходит для небольших компаний. Документы выгружаются из личного кабинета <em>Ozon Seller</em> и импортируются в 1С через <code>Обработки → Универсальный обмен данными</code>.</li>
+</ol>
+
+<p>Для настройки <strong>EDI-обмена</strong> выполните шаги:</p>
+<ol>
+  <li>Получите доступ к <em>Ozon API</em> в личном кабинете (<code>Настройки → API-ключи</code>).</li>
+  <li>Установите в 1С обработку <code>"Обмен с Ozon"</code> (доступна в <em>1С:Битрикс</em> или у партнёров-интеграторов).</li>
+  <li>Настройте правила сопоставления номенклатуры (артикулы в <em>Озон</em> и 1С должны совпадать!).</li>
+  <li>Активируйте автоматическую выгрузку актов декомпенсации в раздел <code>Документы → Возвраты</code>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> При ручном импорте из Excel обязательно проверяйте <strong>кодировку файла</strong> (должна быть <code>UTF-8</code>). Иначе русские символы в артикулах превратятся в кракозябры, и 1С не сможет сопоставить товары.</p>
+
+
+<p>Получить API-ключи в Ozon Seller|</p>
+<p>Установить обработку обмена в 1С|</p>
+<p>Сопоставить артикулы номенклатуры|</p>
+<p>Проверить права доступа пользователя 1С|</p>
+<p>Создать тестовую выгрузку данных--></p>
+
+<h2 id="пошаговая-инструкция-как-провести-декомпенсацию-в-1с">Пошаговая инструкция: как провести декомпенсацию в 1С</h2>
+
+<p>Рассмотрим алгоритм на примере <strong>1С:Управление торговлей 11.5</strong> (аналогично для <em>1С:ERP</em> и <em>1С:Бухгалтерия</em>). Предполагаем, что товар был ранее отгружен на склад <em>Озон</em> через документ <code>"Реализация товаров и услуг"</code>.</p>
+
+<h3>Шаг 1. Создание документа "Возврат товаров от покупателя"</h3>
+<p>Этот документ фиксирует <strong>списание товара</strong> со склада <em>Озон</em> (даже если физически товар утерян).</p>
+<ol>
+  <li>Перейдите в раздел <code>Продажи → Возвраты → Возвраты от покупателей</code>.</li>
+  <li>Нажмите <code>"Создать"</code> и выберите тип операции <code>"Возврат от покупателя"</code>.</li>
+  <li>В поле <code>"Контрагент"</code> укажите <strong>ООО "Озон"</strong> (или вашего партнёра по <code>FBS</code>).</li>
+  <li>В табличной части добавьте товары из акта декомпенсации, указав количество и цену <strong>по себестоимости</strong> (не по продажной!).</li>
+  <li>В поле <code>"Склад"</code> выберите виртуальный склад <code>"Озон (FBS)"</code> или <code>"Товары в пути"</code>.</li>
+  <li>Укажите в комментарии номер акта от <em>Озон</em> (например, <code>"Акт №12345 от 01.06.2026"</code>).</li>
+</ol>
+
+<h3>Шаг 2. Формирование документа "Корректировка долга"</h3>
+<p>Этот документ <strong>закрывает дебиторскую задолженность</strong> <em>Озон</em> перед вами за утраченный товар.</p>
+<ol>
+  <li>Перейдите в <code>Продажи → Расчёты с контрагентами → Корректировка долга</code>.</li>
+  <li>Укажите контрагента <strong>Озон</strong> и договор (обычно <code>"Договор комиссии"</code> для <code>FBS</code>).</li>
+  <li>В табличной части выберите документ реализации, по которому был отгружен утраченный товар.</li>
+  <li>В поле <code>"Сумма корректировки"</code> укажите сумму компенсации <strong>с НДС</strong> (даже если вы на УСН!).</li>
+  <li>В комментарии укажите основание: <code>"Товарная декомпенсация по акту №12345"</code>.</li>
+</ol>
+
+<h3>Шаг 3. Проводки и закрытие операции</h3>
+<p>После проведения документов в 1С должны сформироваться следующие проводки:</p>
+<ul>
+  <li>📉 <code>Дт 94 "Недостачи и потери" — Кт 41.01 "Товары на складах"</code> (списание товара);</li>
+  <li>💰 <code>Дт 62.01 "Расчёты с Озон" — Кт 90.01 "Выручка"</code> (сторно реализации);</li>
+  <li>🔄 <code>Дт 76.02 "Расчёты по претензиям" — Кт 62.01</code> (претензия к Озон);</li>
+  <li>💵 <code>Дт 51 "Расчётный счёт" — Кт 76.02</code> (зачёт компенсации).</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</strong> Если в акте декомпенсации указана сумма <strong>без НДС</strong>, а вы работаете с НДС, необходимо <strong>доначислить налог</strong> через документ <code>"Формирование записей книги покупок"</code> (раздел <code>Налоги → НДС</code>).</p>
+
+<details class="pb-accordion"><summary>Что делать, если компенсация пришла частично?</summary><div class="pb-accordion-body"><p>
+<p>Если Озон компенсировал только часть суммы (например, 80% от стоимости товара), в 1С нужно:</p>
+<p>1. Создать два документа "Корректировка долга": один на компенсированную сумму, второй на остаток (с пометкой "Спорная сумма").</p>
+<p>2. Остаток списать на убытки через документ "Списание задолженности" (Дт 91.02 — Кт 76.02).</p>
+<p>3. Направить претензию в Озон с требованием доплаты, приложив копии актов и проводок.</p></div></details></p>
+
+<h2 id="особенности-для-схем-fbs-и-fbo">Особенности для схем FBS и FBO</h2>
+
+<p>Процедура декомпенсации отличается в зависимости от модели работы с <em>Озон</em>:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>FBS (склад Озон)</th>
+      <th>FBO (склад продавца)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Кто фиксирует утерю</strong></td>
+      <td>Склад <em>Озон</em> (акт инвентаризации)</td>
+      <td>Продавец (акт списания по форме М-7)</td>
+    </tr>
+    <tr>
+      <td><strong>Документ-основание</strong></td>
+      <td><code>Акт о расхождениях</code> от Озон</td>
+      <td><code>Акт списания</code> + претензия курьерской службе</td>
+    </tr>
+    <tr>
+      <td><strong>Склад в 1С</strong></td>
+      <td>Виртуальный склад <code>"Озон FBS"</code></td>
+      <td>Физический склад продавца</td>
+    </tr>
+    <tr>
+      <td><strong>НДС</strong></td>
+      <td>Возмещается Озон (если вы на ОСН)</td>
+      <td>Списывается на убытки (если вина продавца)</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Для <code>FBO</code> декомпенсация от <em>Озон</em> возможна только в случаях:</p>
+<ul>
+  <li>🚚 Товар утерян <strong>курьером Озон</strong> (если доставка оплачена через маркетплейс);</li>
+  <li>📦 Товар повреждён на <strong>сортировочном центре Озон</strong> (до передачи курьеру).</li>
+</ul>
+
+<p>Во всех остальных случаях (например, кража со склада продавца) компенсацию придётся искать у страховой компании или списывать на убытки.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для FBS декомпенсация оформляется на основании актов Озон, для FBO — только при вине маркетплейса в логистике.</p></aside>
+
+<h2 id="типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</h2>
+
+<p>Ошибки при оформлении декомпенсации ведут к <strong>расхождениям с Озон</strong>, задержкам выплат и проблемам при аудите. Вот самые распространённые:</p>
+
+<ol>
+  <li><strong>Несовпадение артикулов</strong> в акте Озон и 1С.
+    <p><em>Как избежать:</em> Используйте обработку <code>"Проверка артикулов"</code> перед выгрузкой номенклатуры в Озон.</p>
+  </li>
+  <li><strong>Неправильная цена списания</strong> (по продажной вместо себестоимости).
+    <p><em>Как избежать:</em> В документе <code>"Возврат товаров"</code> всегда указывайте цену по <code>себестоимости</code> (поле <code>"Цена закупки"</code>).</p>
+  </li>
+  <li><strong>Отсутствие ссылки на акт Озон</strong> в комментариях.
+    <p><em>Как избежать:</em> Введите правило: любой документ по декомпенсации должен содержать номер акта в формате <code>"Акт №XXXX от ДД.ММ.ГГГГ"</code>.</p>
+  </li>
+  <li><strong>Неучтённый НДС</strong> при компенсации.
+    <p><em>Как избежать:</em> Для ОСН проверяйте, что сумма в акте включает НДС, и формируйте <code>"Книгу покупок"</code>.</p>
+  </li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> Если вы списали товар по декомпенсации, но деньги от <em>Озон</em> не поступили в течение <strong>60 дней</strong>, необходимо:</p>
+<ol>
+  <li>Проверить статус претензии в личном кабинете (<code>Финансы → Претензии</code>);</li>
+  <li>Направить повторный запрос в поддержку с темой <code>"Задержка компенсации по акту №XXXX"</code>;</li>
+  <li>Если ответ не получен — списать сумму на убытки через документ <code>"Списание дебиторской задолженности"</code>.</li>
+</ol>
+
+<p><mark>Критическая ошибка: игнорирование актов декомпенсации от Озон приводит к блокировке выплат по другим претензиям. Маркетплейс может приостановить все финансовые операции до урегулирования текущих расхождений.</mark></p>
+
+<h2 id="автоматизация-и-контроль-как-упростить-процесс">Автоматизация и контроль: как упростить процесс</h2>
+
+<p>Ручная обработка декомпенсаций отнимает время и увеличивает риск ошибок. Для оптимизации процесса используйте:</p>
+
+<ul>
+  <li>🤖 <strong>Роботы для 1С</strong> (например, <em>1С:Робот</em> или <em>RPA-решения</em>), которые автоматически:</li>
+  <ul>
+    <li>Скачивают акты из <em>Ozon Seller</em>;</li>
+    <li>Сопоставляют артикулы с номенклатурой 1С;</li>
+    <li>Формируют документы <code>"Возврат"</code> и <code>"Корректировка долга"</code>.</li>
+  </ul>
+  <li>📊 <strong>Отчёты по декомпенсациям</strong> (настройте в 1С отчёт <code>"Анализ претензий по контрагентам"</code> с фильтром по <em>Озон</em>).</li>
+  <li>🔔 <strong>Уведомления</strong> о новых актах (через <em>Telegram-бот</em> или email-рассылку из 1С).</li>
+</ul>
+
+<p>Пример настройки уведомлений:</p>
+<ol>
+  <li>В 1С создайте обработку <code>"Мониторинг актов Озон"</code> (доступна в <em>1С:Битрикс</em>).</li>
+  <li>Настройте расписание запуска (например, ежедневно в 9:00).</li>
+  <li>Укажите email или чат для уведомлений о новых актах.</li>
+  <li>Добавьте фильтр по статусам: <code>"Ожидает обработки"</code>, <code>"Просрочено"</code>.</li>
+</ol>
+
+<p>Для контроля финансового результата ежемесячно формируйте отчёт <code>"Прибыли и убытки по декомпенсациям"</code> с разбивкой по:</p>
+<ul>
+  <li>📦 Категориям товаров;</li>
+  <li>📅 Периодам (квартал/год);</li>
+  <li>🏢 Складам (<code>FBS</code>/<code>FBO</code>).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте шаблон имени для документов декомпенсации: "Декомпенсация_[Дата]_[Номер акта]". Это упростит поиск и связку с платежами от Озон.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-товарной-декомпенсации">FAQ: Частые вопросы по товарной декомпенсации</h2>
+
+<details>
+  <summary>Как проверить, что Озон действительно должен нам компенсацию?</summary>
+  <p>Перейдите в личный кабинет <em>Ozon Seller</em> → <code>Финансы → Претензии</code>. Там отображаются все открытые претензии с статусами. Если статус <code>"На рассмотрении"</code> дольше 30 дней — напишите в поддержку с просьбой ускорить процесс.</p>
+</details>
+
+<details>
+  <summary>Можно ли списать товар на убытки без акта от Озон?</summary>
+  <p>Нет, это нарушение договора с маркетплейсом. Без акта от <em>Озон</em> списание приравнивается к хищению или порче по вине продавца. В этом случае компенсация не выплачивается, а сумма списывается на ваши убытки (Дт 91.02 — Кт 41.01).</p>
+</details>
+
+<details>
+  <summary>Как отразить в 1С частичную компенсацию (например, 50% от стоимости)?</summary>
+  <p>Создайте два документа:
+  <ol>
+    <li><code>"Корректировка долга"</code> на компенсированную сумму (50%) с пометкой <code>"Частичная компенсация"</code>;</li>
+    <li><code>"Списание задолженности"</code> на оставшиеся 50% (Дт 91.02 — Кт 76.02).</li>
+  </ol>
+<p>В комментарии укажите причину неполной компенсации (например, <code>"Истёк срок годности"</code>).</p></p>
+</details>
+
+<details>
+  <summary>Что делать, если в акте декомпенсации ошибка в артикуле?</summary>
+  <p>Не проводите документ в 1С! Сначала:</p>
+  <ol>
+    <li>Создайте тикет в поддержку <em>Озон</em> с темой <code>"Ошибка в акте декомпенсации №XXXX"</code>;</li>
+    <li>Приложите скриншот акта и выписку из 1С с правильным артикулом;</li>
+    <li>Дождитесь исправленного акта (обычно 3–5 дней).</li>
+  </ol>
+  <p>Только после этого оформляйте декомпенсацию в 1С.</p>
+</details>
+
+<details>
+  <summary>Нужно ли платить НДС с компенсации, если мы на УСН?</summary>
+  <p>Нет, если вы на <strong>УСН</strong> или <strong>ЕНВД</strong>, НДС не уплачивается. Однако в акте от <em>Озон</em> сумма может быть указана <strong>с НДС</strong> (это их обязанность как плательщика НДС). В 1С просто указывайте сумму компенсации <strong>без выделения НДС</strong>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-rabotaet-vozvrat-v-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Возврат на Ozon в 2026: пошаговый гайд для покупателей и продавцов</span>
+                <span class="pb-related-desc">Как оформить возврат на Ozon: сроки, условия, инструкция для покупателей и нюансы для продавцов. Раз</span>
+            </a><a href="/articles/k/ka/kak-vernut-podarochnyj-sertifikat-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как вернуть подарочный сертификат Озон в 2026 году: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, можно ли вернуть или обменять подарочный сертификат Озон, условия возврата, сроки и что дел</span>
+            </a><a href="/articles/k/ka/kak-otmenit-zakaz-ozon-iz-za-granitsy.html" class="pb-related-card">
+                <span class="pb-related-title">Как отменить заказ Озон из-за границы: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гид по отмене заказов Ozon для покупателей из Казахстана, Беларуси и Армении. Сроки, прави</span>
+            </a><a href="/articles/k/ka/kak-poluchit-dengi-za-vozvrat-tovara-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить деньги за возврат товара на Ozon: инструкция</span>
+                <span class="pb-related-desc">Узнайте, как быстро получить деньги за возврат товара на Озоне. Сроки, способы компенсации и правила</span>
+            </a><a href="/articles/v/v-/v-techenie-skolko-dnej-mozhno-vernut-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько дней можно вернуть товар на Озон: сроки и правила</span>
+                <span class="pb-related-desc">Узнайте точные сроки возврата товаров на Ozon. Разбор правил для разных категорий, пошаговая инструк</span>
+            </a><a href="/articles/v/v-/v-kakoj-srok-vozvrashchayutsya-dengi-na-kartu-pri-vozvrate-tovara-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сроки возврата денег на карту Ozon: сколько ждать?</span>
+                <span class="pb-related-desc">Узнайте точные сроки возврата средств на карту Ozon. Как быстро банк вернет деньги после отмены зака</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как получается комиссия и доход на Ozon: расчет для селлера — Об Озоне</title>
+    <meta name="description" content="Подробный разбор, как формируется цена на Ozon, из чего складывается комиссия, логистика и налоги. Расчет чистой прибыли для продавца.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-kak-poluchaetsya.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как получается комиссия и доход на Ozon: расчет для селлера">
+    <meta property="og:description" content="Подробный разбор, как формируется цена на Ozon, из чего складывается комиссия, логистика и налоги. Расчет чистой прибыли для продавца.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как получается комиссия и доход на Ozon: расчет для селлера</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#структура-формирования-цены-для-покупателя">Структура формирования цены для покупателя</a></li><li><a href="#из-чего-складываются-расходы-продавца-на-маркетплейсе">Из чего складываются расходы продавца на маркетплейсе</a></li><li><a href="#схемы-работы-fbo-и-fbs-влияние-на-прибыль">Схемы работы FBO и FBS: влияние на прибыль</a></li><li><a href="#расчет-юнит-экономики-пример-в-таблице">Расчет юнит-экономики: пример в таблице</a></li><li><a href="#налоги-и-отчетные-документы">Налоги и отчетные документы</a></li><li><a href="#аналитика-и-оптимизация-расходов">Аналитика и оптимизация расходов</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chem-torgovat-na-ozone-vygodno-2021.html">Чем торговать на Озоне выгодно в 2021: ТОП ниш</a></li><li><a href="/articles/g/gd/gde-bolshe-platyat-yandeks-ili-ozon.html">Где больше платят: Яндекс или Озон — сравнение зарплат 2026</a></li><li><a href="/articles/k/ka/kakie-protsenty-beret-ozon-s-postavshchikov.html">Комиссия Ozon 2026: сколько берет маркетплейс с поставщиков</a></li><li><a href="/articles/k/ka/kak-prodavat-tovar-na-ozon-samozanyatomu.html">Как продавать на Озон самозанятому: полная инструкция 2026</a></li><li><a href="/articles/k/ka/kak-pomenyat-ip-na-ozon-seller.html">Как сменить ИП на Ozon Seller: пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как получается доход на Ozon: математика для селлера</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#структура-формирования-цены-для-покупателя">Структура формирования цены для покупателя</a></li><li><a href="#из-чего-складываются-расходы-продавца-на-маркетплейсе">Из чего складываются расходы продавца на маркетплейсе</a></li><li><a href="#схемы-работы-fbo-и-fbs-влияние-на-прибыль">Схемы работы FBO и FBS: влияние на прибыль</a></li><li><a href="#расчет-юнит-экономики-пример-в-таблице">Расчет юнит-экономики: пример в таблице</a></li><li><a href="#налоги-и-отчетные-документы">Налоги и отчетные документы</a></li><li><a href="#аналитика-и-оптимизация-расходов">Аналитика и оптимизация расходов</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Вопрос «озон как получается» часто возникает у тех, кто только планирует запускать продажи на маркетплейсе или уже торгует, но не до конца понимает структуру формирования итоговой суммы на счете. Для покупателя это просто конечная цена в корзине, но для продавца за этой цифрой скрывается сложная цепочка вычетов, комиссий и логистических расходов. Понимание того, <strong>как получается</strong> финансовый результат, является фундаментом успешного бизнеса на этой площадке.</p>
+
+<p>Многие новички совершают ошибку, считая свою прибыль как разницу между закупочной ценой и стоимостью товара на витрине. На практике <em>Ozon</em> работает по модели, где из выручки вычитаются не только комиссии за продажу, но и расходы на логистику, хранение, эквайринг и налоги. Если не учитывать эти факторы на этапе ценообразования, можно легко уйти в минус, продавая товары с видимой, но не реальной маржинальностью.</p>
+
+<p>В этой статье мы детально разберем механизм формирования цены и дохода. Вы узнаете, какие параметры влияют на итоговую сумму, как избежать кассового разрыва и какие инструменты используют профессионалы для точного расчета юнит-экономики.</p>
+
+<h2 id="структура-формирования-цены-для-покупателя">Структура формирования цены для покупателя</h2>
+
+<p>Чтобы понять, <strong>как получается</strong> итоговая сумма, которую видит клиент, нужно рассмотреть путь товара от склада продавца до корзины пользователя. Цена на витрине — это не просто «хотелка» селлера, это результат баланса между желаемой прибылью и рыночной конкуренцией. Алгоритмы маркетплейса постоянно мониторят цены на других площадках и у других продавцов внутри <em>Ozon</em>, рекомендуя или принудительно устанавливая лимиты.</p>
+
+<p>Основой является себестоимость, к которой добавляется желаемая маржа. Однако, <strong>как получается</strong> финальная цифра, зависит от множества переменных. Продавец должен заложить в цену не только закупку товара, но и все издержки платформы. Если вы поставите цену слишком высоко, товар потеряет видимость в поиске, слишком низко — вы будете работать в убыток.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Не забывайте, что цена на витрине может быть автоматически снижена системой в ходе акций или при изменении курса валют, если вы работаете с импортными товарами. Всегда оставляйте небольшой запас маржинальности.</blockquote>
+
+<p>Важно учитывать и психологический аспект ценообразования. <strong>Как получается</strong> привлекательное предложение? Часто это работа с ценой до и после скидки. Покупатель видит зачеркнутую старую цену и новую, акционную, что стимулирует спрос. Однако для продавца это означает необходимость изначально закладывать более высокую базовую стоимость, чтобы иметь возможность участвовать в распродажах без потери прибыли.</p>
+
+<div class="pb-poll" id="poll-baa472eb"><div class="pb-poll-question">📊 Что для вас важнее при старте на Ozon?</div><div class="pb-poll-option" data-poll="baa472eb" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Высокая маржинальность</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="baa472eb" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Быстрые продажи</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="baa472eb" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Минимальные вложения</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="baa472eb" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Стабильный cash-flow</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="из-чего-складываются-расходы-продавца-на-маркетплейсе">Из чего складываются расходы продавца на маркетплейсе</h2>
+
+<p>Разбираясь, <strong>как получается</strong> чистая прибыль, необходимо детально изучить статьи расходов. Комиссия сервиса — это лишь верхушка айсберга. Основную часть затрат часто составляет логистика, которая рассчитывается индивидуально для каждой единицы товара в зависимости от его габаритов, веса и категории.</p>
+
+<p>Кроме того, существуют расходы на хранение. Если товар залеживается на складе <em>Ozon</em> дольше определенного срока, начинает капать плата за оборачиваемость. Это важный момент: <strong>как получается</strong> так, что товар продан, а денег нет? Часто ответ кроется именно в накопленных штрафафах за хранение и логистические ошибки.</p>
+
+<ul>
+<li>📦 <strong>Комиссия категории:</strong> процент от стоимости товара, который варьируется от 3% до 20% в зависимости от типа продукции.</li>
+<li>🚚 <strong>Логистика:</strong> оплата доставки до клиента и, в некоторых схемах, доставка до склада маркетплейса.</li>
+<li>💳 <strong>Эквайринг:</strong> комиссия за обработку платежей, которая сейчас часто включена в общую комиссию или составляет около 1-1.5%.</li>
+<li>📢 <strong>Реклама:</strong> расходы на продвижение товаров внутри площадки, без которых в современных условиях продавать сложно.</li>
+</ul>
+
+<p>Отдельного внимания заслуживают возвраты. <strong>Как получается</strong> убыток на возврате? Продавец платит за логистику туда и обратно, а также комиссию за обработку возврата, которая может достигать значительных сумм. Поэтому в цену всегда нужно закладывать процент на брак и возвраты.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте калькулятор комиссий и логистики в личном кабинете селлера перед загрузкой первой партии товаров. Это позволит увидеть точную цифру расходов до начала продаж.</p></aside>
+
+<h2 id="схемы-работы-fbo-и-fbs-влияние-на-прибыль">Схемы работы FBO и FBS: влияние на прибыль</h2>
+
+<p>Выбор схемы работы напрямую влияет на то, <strong>как получается</strong> итоговый финансовый результат. <em>FBO</em> (Fulfillment by Ozon) предполагает, что вы отгружаете товар на склад маркетплейса заранее. В этом случае вы платите за хранение и логистику до клиента, но получаете приоритет в выдаче и доставку в более отдаленные регионы.</p>
+
+<p>Схема <em>FBS</em> (Fulfillment by Seller) означает, что товар хранится у вас, и вы сами упаковываете и отгружаете его после поступления заказа. Здесь <strong>как получается</strong> экономия? Вы не платите за длительное хранение на складах Ozon и контролируете качество упаковки. Однако вы несете расходы на собственную логистику до сортировочного центра и рискуете получить штраф за опоздание.</p>
+
+<p>Существует также схема DBS (Delivery by Seller), где вы полностью берете логистику на себя. <strong>Как получается</strong> выгода здесь? Вы сами выбираете курьерскую службу и можете оптимизировать расходы, но теряете маркировку «Доставка Ozon», что снижает конверсию.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Выбор схемы работы</h4><label class="check-item"><input type="checkbox"><span>Рассчитать стоимость хранения на FBO</span></label><label class="check-item"><input type="checkbox"><span>Оценить свои мощности для FBS</span></label><label class="check-item"><input type="checkbox"><span>Проверить географию спроса</span></label><label class="check-item"><input type="checkbox"><span>Сравнить комиссию за логистику в разных регионах</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>При выборе схемы важно учитывать сезонность. Перед праздниками тарифы на логистику могут меняться, и то, <strong>как получается</strong> расчет в спокойное время, может не работать в пик продаж. Гибкость и умение переключаться между схемами или комбинировать их — ключевой навык успешного селлера.</p>
+
+<h2 id="расчет-юнит-экономики-пример-в-таблице">Расчет юнит-экономики: пример в таблице</h2>
+
+<p>Чтобы наглядно показать, <strong>как получается</strong> прибыль, рассмотрим конкретный пример. Допустим, вы продаете беспроводные наушники. Ниже приведена таблица с расчетом юнит-экономики для одной единицы товара при разных сценариях.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение (руб.)</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Цена продажи на витрине</td>
+<td>2 500</td>
+<td>Цена с учетом НДС</td>
+</tr>
+<tr>
+<td>Закупочная стоимость</td>
+<td>1 200</td>
+<td>Цена у поставщика</td>
+</tr>
+<tr>
+<td>Комиссия Ozon (категория)</td>
+<td>375 (15%)</td>
+<td>Зависит от категории</td>
+</tr>
+<tr>
+<td>Логистика и обработка</td>
+<td>250</td>
+<td>Средний тариф FBO</td>
+</tr>
+<tr>
+<td>Налог (УСН 6%)</td>
+<td>150</td>
+<td>От полной суммы продажи</td>
+</tr>
+<tr>
+<td><strong>Итого расходов</strong></td>
+<td><strong>1 975</strong></td>
+<td>Суммарные затраты</td>
+</tr>
+<tr>
+<td><strong>Чистая прибыль</strong></td>
+<td><strong>525</strong></td>
+<td>Маржинальность ~21%</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Из таблицы видно, <strong>как получается</strong> реальная цифра дохода. Если не учесть хотя бы один параметр, например, налог или упаковку, расчет будет неверным. Также стоит помнить, что в таблице не учтена реклама, которая может «съедать» еще 10-20% от оборота.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При расчете юнит-экономики всегда берите максимальные значения расходов. Логистика может подорожать, а комиссия вырасти. Лучше получить меньше, но не уйти в минус.</blockquote>
+
+<details class="pb-accordion"><summary>Как снизить себестоимость логистики?</summary><div class="pb-accordion-body"><p>Оптимизируйте упаковку. Уменьшение габаритов коробки даже на 1 см в каждом измерении может перевести товар в более дешевую категорию логистики, что сэкономит до 30% расходов на доставку.</p></div></details>
+
+<h2 id="налоги-и-отчетные-документы">Налоги и отчетные документы</h2>
+
+<p>Вопрос «озон как получается» часто касается и налоговой отчетности. Маркетплейс выступает налоговым агентом только в редких случаях (например, для самозанятых при определенных условиях или при продаже некоторых категорий товаров), но чаще всего селлер сам несет ответственность за уплату налогов. <strong>Как получается</strong> база для налогообложения?</p>
+
+<p>Налог платится со всей суммы, поступившей от покупателя, а не с вашей чистой прибыли. Это критически важный момент. Если вы продали товар за 1000 рублей, получили на счет 800 рублей (после вычета комиссий), то налог (например, 6% при УСН) вы платите с 1000 рублей. <strong>Как получается</strong> кассовый разрыв? Когда налоговая нагрузка не была заложена в цену.</p>
+
+<p>Для работы необходимо правильно оформлять закрывающие документы. <em>Ozon</em> предоставляет отчеты о продажах, которые нужно корректно импортировать в бухгалтерские сервисы. Ошибки в классификации товаров могут привести к неверному расчету налогов и последующим штрафам от ФНС.</p>
+
+<ul>
+<li>📄 <strong>Отчет о продажах:</strong> основной документ, формируемый ежедневно/ежемесячно.</li>
+<li>💰 <strong>Акт выполненных услуг:</strong> подтверждает сумму комиссий маркетплейса.</li>
+<li>🧾 <strong>Чеки:</strong> данные о пробитых чеках для покупателей (при использовании онлайн-кассы Ozon).</li>
+</ul>
+
+<h2 id="аналитика-и-оптимизация-расходов">Аналитика и оптимизация расходов</h2>
+
+<p>Понимание того, <strong>как получается</strong> прибыль, невозможно без регулярной аналитики. Рынок меняется быстро: поставщики поднимают цены, Ozon меняет тарифы, конкуренты демпингуют. Чтобы оставаться в плюсе, необходимо постоянно мониторить свои показатели.</p>
+
+<p>Используйте встроенные инструменты аналитики в личном кабинете. Раздел «Финансы» показывает детализацию по каждому заказу. <strong>Как получается</strong> оптимизация? Анализируйте, какие товары имеют низкую маржинальность из-за высоких логистических расходов, и либо повышайте на них цену, либо убирайте из ассортимента.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Регулярный пересчет юнит-экономики (хотя бы раз в квартал) — обязательная процедура для сохранения profitability бизнеса на маркетплейсе.</p></aside>
+
+<p>Также стоит обращать внимание на индекс локализации. <strong>Как получается</strong> экономия на логистике? Размещая товары на складах в разных регионах (Москва, Казань, Новосибирск), вы сокращаете плечо доставки до конечного клиента, что снижает стоимость логистики и ускоряет доставку, повышая рейтинг товара.</p>
+
+<details>
+<summary>Как часто нужно пересматривать цены на товары?</summary>
+<p>Цены рекомендуется пересматривать минимум раз в месяц, а в период высокой волатильности курса валют или изменения тарифов Ozon — еженедельно. Автоматизированные системы ценообразования помогают делать это в реальном времени, реагируя на действия конкурентов.</p>
+</details>
+
+<details>
+<summary>Влияет ли рейтинг продавца на комиссию?</summary>
+<p>Прямого влияния на процент комиссии рейтинг не оказывает, но он влияет на ранжирование товаров в поиске. Низкий рейтинг приводит к падению продаж, что увеличивает долю постоянных расходов (хранение, подписка) в себестоимости единицы товара.</p>
+</details>
+
+<details>
+<summary>Можно ли вернуть комиссию Ozon?</summary>
+<p>В некоторых случаях, например, при ошибке со стороны маркетплейса или при отмене заказа покупателем до передачи в доставку, комиссия может не взиматься или возвращаться. Детали всегда нужно проверять в акте сверки.</p>
+</details>
+
+<details>
+<summary>Что делать, если расчетная прибыль отрицательная?</summary>
+<p>Необходимо срочно провести аудит расходов: renegotiate условия с поставщиком, изменить упаковку для снижения класса логистики, поднять цену или отказаться от продажи этого SKU (артикула).</p>
+</details>
+
+<details>
+<summary>Как учитывать рекламу в расчете "как получается"?</summary>
+<p>Рекламные расходы следует распределять на количество проданных единиц. Если вы потратили 10 000 рублей на рекламу и продали 100 штук, добавьте 100 рублей к себестоимости каждой единицы товара.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chem-torgovat-na-ozone-vygodno-2021.html" class="pb-related-card">
+                <span class="pb-related-title">Чем торговать на Озоне выгодно в 2021: ТОП ниш</span>
+                <span class="pb-related-desc">Аналитика 2021 года: чем торговать на Озоне выгодно. Обзор ниш, расчет маржинальности и поиск постав</span>
+            </a><a href="/articles/g/gd/gde-bolshe-platyat-yandeks-ili-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где больше платят: Яндекс или Озон — сравнение зарплат 2026</span>
+                <span class="pb-related-desc">Полное сравнение зарплат в Яндекс и Озон в 2026 году. Анализ доходов курьеров, складских работников </span>
+            </a><a href="/articles/k/ka/kakie-protsenty-beret-ozon-s-postavshchikov.html" class="pb-related-card">
+                <span class="pb-related-title">Комиссия Ozon 2026: сколько берет маркетплейс с поставщиков</span>
+                <span class="pb-related-desc">Актуальные ставки комиссии Ozon на 2026 год. Расчет комиссии по категориям, логистика FBO/FBS, хране</span>
+            </a><a href="/articles/k/ka/kak-prodavat-tovar-na-ozon-samozanyatomu.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Озон самозанятому: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство: как начать продавать на Ozon самозанятому. Сравнение FBO и FBS, расчет налого</span>
+            </a><a href="/articles/k/ka/kak-pomenyat-ip-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как сменить ИП на Ozon Seller: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд по смене реквизитов ИП на Озон. Узнайте, как изменить данные продавца, юридический ад</span>
+            </a><a href="/articles/c/ch/chto-luchshe-vajldberriz-ili-ozon-dlya-postavshchika.html" class="pb-related-card">
+                <span class="pb-related-title">Wildberries или Ozon: что лучше для поставщика в 2026 году?</span>
+                <span class="pb-related-desc">Сравнение маркетплейсов Wildberries и Ozon для продавцов: комиссии, условия работы, логистика и приб</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

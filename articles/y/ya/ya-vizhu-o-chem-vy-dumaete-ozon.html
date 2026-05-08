@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>«Я вижу, о чём вы думаете, Озон»: как работает алгоритм рекомендаций — Об Озоне</title>
+    <meta name="description" content="Разбираем, как Озон анализирует ваши действия, формирует ленту товаров и почему иногда показывает нерелевантные предложения. Советы для покупателей и продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/y/ya/ya-vizhu-o-chem-vy-dumaete-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="«Я вижу, о чём вы думаете, Озон»: как работает алгоритм рекомендаций">
+    <meta property="og:description" content="Разбираем, как Озон анализирует ваши действия, формирует ленту товаров и почему иногда показывает нерелевантные предложения. Советы для покупателей и продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/" class="pb-nav-active">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pokupki-i-oplata/">Покупки и Оплата</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">«Я вижу, о чём вы думаете, Озон»: как работает алгоритм рекомендаций</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#введение-почему-озон-кажется-телепатом">Введение: почему Озон кажется телепатом?</a></li><li><a href="#как-озон-собирает-данные-о-вас-7-скрытых-источников">Как Озон собирает данные о вас: 7 скрытых источников</a></li><li><a href="#почему-озон-показывает-левые-товары-5-причин-нерелевантных-рекомендаций">Почему Озон показывает «левые» товары: 5 причин нерелевантных рекомендаций</a></li><li><a href="#как-натренировать-озон-4-шага-для-точных-рекомендаций">Как «натренировать» Озон: 4 шага для точных рекомендаций</a></li><li><a href="#секреты-для-продавцов-как-попасть-в-рекомендации-озон">Секреты для продавцов: как попасть в рекомендации Озон</a></li><li><a href="#можно-ли-обмануть-алгоритм-озон-3-мифа-и-правда">Можно ли обмануть алгоритм Озон? 3 мифа и правда</a></li><li><a href="#будущее-рекомендаций-что-ждёт-озон-в-20242025-годах">Будущее рекомендаций: что ждёт Озон в 2024–2025 годах</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-рекомендациях-озон">FAQ: ответы на частые вопросы о рекомендациях Озон</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-oplachivat-na-ozone-kartoj-onlajn.html">Как оплатить заказ на Ozon картой онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/o/oz/ozon-dragosta-din-tej-kakoj-yazyk.html">Драгоста дин Тей на Озон: какой язык и где купить</a></li><li><a href="/articles/k/ka/kak-oplachivat-tovar-kartoj-ozon.html">Оплата картой на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-kupit-knigu-na-ozone-bez-registratsii.html">Как купить книгу на Озоне без регистрации в 2026 году</a></li><li><a href="/articles/k/ka/kak-kupit-v-ozon-v-rassrochku.html">Как купить в рассрочку на Ozon: инструкция, банки и условия</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>«Я вижу, о чём вы думаете»: как Озон читает ваши мысли и подбирает товары</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#введение-почему-озон-кажется-телепатом">Введение: почему Озон кажется телепатом?</a></li><li><a href="#как-озон-собирает-данные-о-вас-7-скрытых-источников">Как Озон собирает данные о вас: 7 скрытых источников</a></li><li><a href="#почему-озон-показывает-левые-товары-5-причин-нерелевантных-рекомендаций">Почему Озон показывает «левые» товары: 5 причин нерелевантных рекомендаций</a></li><li><a href="#как-натренировать-озон-4-шага-для-точных-рекомендаций">Как «натренировать» Озон: 4 шага для точных рекомендаций</a></li><li><a href="#секреты-для-продавцов-как-попасть-в-рекомендации-озон">Секреты для продавцов: как попасть в рекомендации Озон</a></li><li><a href="#можно-ли-обмануть-алгоритм-озон-3-мифа-и-правда">Можно ли обмануть алгоритм Озон? 3 мифа и правда</a></li><li><a href="#будущее-рекомендаций-что-ждёт-озон-в-20242025-годах">Будущее рекомендаций: что ждёт Озон в 2024–2025 годах</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-рекомендациях-озон">FAQ: ответы на частые вопросы о рекомендациях Озон</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><h2 id="введение-почему-озон-кажется-телепатом">Введение: почему Озон кажется телепатом?</h2>
+
+<p>Вы только подумали о покупке нового смартфона — и вуаля: на главной странице <em>Ozon</em> уже красуется баннер с акционной моделью. Зашли поискать кофеварку — а через час в рекомендациях появляются кофейные зёрна, молотки для них и даже книги о кофе. Совпадение? Нет, это работа сложнейшего алгоритма персонализации, который анализирует <strong>каждый ваш клик, поисковый запрос и даже время, проведённое на странице товара</strong>.</p>
+
+<p>Но как именно <em>Озон</em> узнаёт о ваших предпочтениях? Почему иногда показывает абсолютно нерелевантные товары? И можно ли «обмануть» систему, чтобы она перестала навязывать ненужные вещи? В этом материале мы разберём <strong>механику работы рекомендаций</strong>, раскроем секреты алгоритмов и дадим практические советы для покупателей и продавцов. Спойлер: телепатии здесь нет — только большие данные и машинное обучение.</p>
+
+<p>А ещё вы узнаете, как <mark>один просмотр товара может изменить вашу ленту рекомендаций на неделю вперёд</mark> — и почему иногда лучше не кликать на случайные карточки, даже если они просто привлекли внимание.</p>
+
+<h2 id="как-озон-собирает-данные-о-вас-7-скрытых-источников">Как Озон собирает данные о вас: 7 скрытых источников</h2>
+
+<p>Алгоритмы <em>Ozon</em> не ограничиваются анализом ваших покупок. Они собирают информацию из десятков точек взаимодействия, многие из которых вы даже не замечаете. Вот ключевые источники данных:</p>
+
+<ul>
+ <li>🔍 <strong>Поисковые запросы</strong> — даже если вы не купили товар, сам факт поиска фиксируется. Например, запрос «купить кроссовки для бега» автоматически добавляет вас в группу пользователей, интересующихся спортивной обувью.</li>
+ <li>⏱️ <strong>Время на странице товара</strong> — если вы провели 5 минут, изучая характеристики смартфона, система решит, что вы заинтересованы в покупке, даже если просто сравнивали модели.</li>
+ <li>🛒 <strong>Корзина и «Избранное»</strong> — товары, добавленные в корзину или сохранённые, имеют больший вес, чем случайные просмотры. Алгоритм будет настойчиво предлагать их снова.</li>
+ <li>📱 <strong>Поведение в мобильном приложении</strong> — как часто вы открываете приложение, какие разделы посещаете, сколько времени проводите в нём. Например, если вы регулярно заходите в раздел «Электроника», система будет подсовывать гаджеты чаще.</li>
+ <li>💳 <strong>История покупок</strong> — не только что вы купили, но и <strong>как часто возвращаете товары</strong>, какие категории предпочитаете, какой средний чек.</li>
+ <li>🌐 <strong>Данные с других сайтов</strong> — через партнёрские сети и пиксели отслеживания (например, если вы смотрели товар на <em>Wildberries</em>, а потом зашли на <em>Ozon</em>).</li>
+ <li>📍 <strong>Геолокация</strong> — ваш регион влияет на ассортимент (например, в Москве и Краснодаре могут показывать разные товары даже при одинаковых запросах).</li>
+</ul>
+
+<p>Интересный факт: алгоритм <em>Ozon</em> учитывает даже <strong>время суток</strong>, в которое вы активны. Если вы часто делаете покупки поздно вечером, система будет подстраивать рекомендации под «ночной» шопинг — например, предлагать товары для дома или развлечений, а не офисные принадлежности.</p>
+
+<div class="pb-poll" id="poll-2dc6a6e8"><div class="pb-poll-question">📊 Как часто Озон угадывает ваши желания?</div><div class="pb-poll-option" data-poll="2dc6a6e8" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Всегда или почти всегда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2dc6a6e8" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Часто, но не всегда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2dc6a6e8" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2dc6a6e8" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="2dc6a6e8" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Затрудняюсь ответить</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="почему-озон-показывает-левые-товары-5-причин-нерелевантных-рекомендаций">Почему Озон показывает «левые» товары: 5 причин нерелевантных рекомендаций</h2>
+
+<p>Иногда алгоритм даёт сбой: вы искали <em>AirPods</em>, а вам предлагают <em>наушники для плавания</em>; или после просмотра детских игрушек внезапно появляются товары для животных. В чём дело?</p>
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Причина</th>
+ <th>Пример</th>
+ <th>Как исправить</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Случайный клик</strong></td>
+ <td>Вы кликнули на товар по ошибке (например, вместо «кофеварка» попали на «кофемашину для офиса»)</td>
+ <td>Удалите товар из истории просмотров в личном кабинете</td>
+ </tr>
+ <tr>
+ <td><strong>Общие категории</strong></td>
+ <td>Вы смотрели <em>iPhone</em>, а алгоритм решил, что вам интересны все «телефоны», включая кнопочные</td>
+ <td>Используйте уточняющие фильтры при поиске</td>
+ </tr>
+ <tr>
+ <td><strong>Данные с других устройств</strong></td>
+ <td>Вы заходили в аккаунт с чужого телефона, где смотрели другие товары</td>
+ <td>Выйдите из аккаунта на чужих устройствах или очистите историю</td>
+ </tr>
+ <tr>
+ <td><strong>Сезонные тренды</strong></td>
+ <td>Летом вам показывают купальники, даже если вы искали книжку</td>
+ <td>Дождитесь окончания сезона или игнорируйте рекомендации</td>
+ </tr>
+ <tr>
+ <td><strong>Технические ошибки</strong></td>
+ <td>Сбой в работе алгоритма (например, после обновления приложения)</td>
+ <td>Перезагрузите приложение или очистите кэш</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Обратите внимание: если вы <strong>длительно рассматривали товар</strong>, но не купили его, алгоритм может решить, что вас интересует <em>альтернативная категория</em>. Например, после просмотра дорогого ноутбука вам начнут предлагать более дешёвые модели или аксессуары к ним (мышки, чехлы).</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: если вы часто просматриваете товары в гостевом режиме (без авторизации), алгоритм будет «сбрасываться» при каждом новом визите. Это может приводить к хаотичным рекомендациям.</blockquote>
+
+<h2 id="как-натренировать-озон-4-шага-для-точных-рекомендаций">Как «натренировать» Озон: 4 шага для точных рекомендаций</h2>
+
+<p>Если вы устали от нерелевантных предложений, можно <strong>вручную скорректировать алгоритм</strong>. Вот что работает:</p>
+
+
+<p>Добавляйте понравившиеся товары в «Избранное»|Удаляйте ненужные просмотры из истории|Используйте фильтры при поиске|Оценивайте товары после покупки (это учит алгоритм)--></p>
+
+<p>1. <strong>Очистка истории просмотров</strong>. Перейдите в <code>Личный кабинет → История просмотров</code> и удалите товары, которые вас не интересуют. Особенно это касается случайных кликов.</p>
+
+<p>2. <strong>Активное использование «Нравится/Не нравится»</strong>. В мобильном приложении под каждой рекомендацией есть кнопки 👍/👎. Нажимайте их — это напрямую влияет на будущие подборки.</p>
+
+<p>3. <strong>Поиск с уточнениями</strong>. Вместо «купить телефон» вводите <code>купить iPhone 15 Pro Max 256GB серый</code>. Чемнее запрос, тем точнее будут рекомендации.</p>
+
+<p>4. <strong>Регулярные покупки в одной категории</strong>. Если вы часто покупаете, например, <em>косметику</em>, алгоритм будет предлагать её чаще. Это работает и в обратную сторону: если перестанете покупать что-то, рекомендации по этой категории сократятся.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы ищете подарок и не хотите, чтобы алгоритм «запомнил» эту категорию, используйте режим инкогнито в браузере или гостевой доступ в приложении.</p></aside>
+
+<h2 id="секреты-для-продавцов-как-попасть-в-рекомендации-озон">Секреты для продавцов: как попасть в рекомендации Озон</h2>
+
+<p>Если вы продавец на <em>Ozon</em>, ваша задача — не просто выложить товар, а <strong>заставить алгоритм рекомендовать его целевой аудитории</strong>. Вот что действительно работает:</p>
+
+<ul>
+ <li>📈 <strong>Высокий рейтинг и отзывы</strong> — товары с оценкой 4.7+ и 100+ отзывами имеют приоритет в рекомендациях. Даже один негативный отзыв может снизить видимость.</li>
+ <li>🔄 <strong>Частые обновления карточки</strong> — алгоритм любит «живые» товары. Регулярно обновляйте фотографии, описания, цены.</li>
+ <li>🛒 <strong>Высокая конверсия в покупку</strong> — если 10% просмотров заканчиваются покупкой, товар будет показываться чаще. Используйте качественные фото и детальные описания.</li>
+ <li>🎯 <strong>Таргетирование по аудитории</strong> — в личном кабинете продавца можно указать пол, возраст и интересы целевых покупателей. Это помогает алгоритму точнее подбирать пользователей.</li>
+ <li>💰 <strong>Участие в акциях</strong> — товары со скидками или в рамках промо (например, «День рождения Ozon») автоматически получают бонус к видимости.</li>
+</ul>
+
+<p>Критический момент: <mark>алгоритм Озон отдаёт предпочтение продавцам с высоким индексом качества (IQS)</mark>. Если ваш IQS ниже 80, шансы на попадание в рекомендации резко падают. Отслеживайте этот показатель в личном кабинете и работайте над его улучшением (своевременная отправка, малое количество возвратов, быстрая обработка заказов).</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: если вы искусственно накручиваете просмотры или отзывы, алгоритм это Detects и может <strong>полностью исключить ваш товар из рекомендаций</strong> на несколько недель.</blockquote>
+
+<h2 id="можно-ли-обмануть-алгоритм-озон-3-мифа-и-правда">Можно ли обмануть алгоритм Озон? 3 мифа и правда</h2>
+
+<p>В сети гуляет масса советов, как «взломать» рекомендации <em>Ozon</em>. Разберём самые популярные:</p>
+
+<details class="pb-accordion"><summary>Миф 1</summary><div class="pb-accordion-body"><p> «Если часто искать один товар, его цена упадёт»:
+<p>На самом деле алгоритм не снижает цены из-за частоты просмотров. Однако продавцы могут увидеть рост интереса к товару и <strong>вручную запустить акцию</strong>, чтобы увеличить конверсию. Но это не правило, а скорее исключение.</p></div></details></p>
+
+<p><strong>Миф 2: «Удаление куки очистит историю рекомендаций»</strong>. На самом деле <em>Ozon</em> хранит данные не только в куки, но и в вашем аккаунте. Чтобы сбросить рекомендации, нужно очищать историю прямо в личном кабинете.</p>
+
+<p><strong>Миф 3: «Алгоритм показывает товары подороже, чтобы увеличить чек»</strong>. Это частично правда, но только для пользователей с высоким <strong>средним чеком</strong>. Если вы обычно покупаете товары до 1 000 ₽, система вряд ли будет навязывать вам вещи за 10 000 ₽.</p>
+
+<p>Единственный более-менее рабочий способ повлиять на рекомендации — <strong>создать второй аккаунт</strong> и использовать его для поиска подарков или нетипичных покупок. Но и тут алгоритм со временем «раскусит» ваши предпочтения.</p>
+
+<h2 id="будущее-рекомендаций-что-ждёт-озон-в-20262026-годах">Будущее рекомендаций: что ждёт Озон в 2026–2026 годах</h2>
+
+<p>По данным внутренних источников <em>Ozon</em>, в ближайшие годы алгоритмы станут ещё «умнее»:</p>
+
+<ul>
+ <li>🤖 <strong>ИИ-помощник для покупок</strong> — бот будет не только подбирать товары, но и объяснять, почему он рекомендует именно их (например: «Вы часто покупаете эко-продукты, поэтому предлагаем этот шампунь»).</li>
+ <li>📹 <strong>Анализ видео-просмотров</strong> — если вы смотрите обзоры на <em>YouTube</em> или <em>TikTok</em>, эти данные могут учитываться при формировании ленты (через интеграцию с соцсетями).</li>
+ <li>🗣️ <strong>Голосовой поиск и рекомендации</strong> — уже тестируется функция, где алгоритм будет предлагать товары на основе голосовых запросов (например, если вы скажете: «Мне нужны кроссовки для бега по асфальту»).</li>
+ <li>🌍 <strong>Глобальная персонализация</strong> — если вы покупаете на <em>Ozon</em> и зарубежных маркетплейсах (например, <em>Amazon</em>), данные могут объединяться для более точных рекомендаций.</li>
+</ul>
+
+<p>Также ожидается, что алгоритмы станут <strong>менее навязчивыми</strong> — пользователи смогут гибко настраивать, какие категории товаров показывать, а какие исключить. Например, если вы не хотите видеть товары для животных, сможете отключить их в настройках.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Чем больше вы взаимодействуете с Озон (лайки, отзывы, покупки), тем точнее становятся рекомендации. Но если вы хотите разнообразия — иногда стоит очищать историю и новые категории.</p></aside>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-рекомендациях-озон">FAQ: ответы на частые вопросы о рекомендациях Озон</h2>
+
+<details>
+ <summary>Почему Озон показывает товары, которые я уже купил?</summary>
+ <p>Алгоритм считает, что если вы купили товар один раз, вам может понадобиться он снова (например, расходные материалы) или аналогичная модель. Чтобы это исправить, нажмите «Не нравится» (👎) под рекомендацией или удалите товар из истории покупок (если он там отображается).</p>
+</details>
+
+<details>
+ <summary>Можно ли полностью отключить рекомендации?</summary>
+ <p>Полностью отключить персонализированные рекомендации нельзя, но можно снизить их точность. Для этого:
+ <ul>
+ <li>Не авторизуйтесь в аккаунте (используйте гостевой режим).</li>
+ <li>Очищайте историю просмотров и корзину после каждого визита.</li>
+ <li>Отключите сбор данных в настройках приложения (раздел «Конфиденциальность»).</li>
+ </ul>
+<p>Однако в этом случае вы будете видеть только общие тренды, без учёта ваших предпочтений.</p></p>
+</details>
+
+<details>
+ <summary>Почему после просмотра товара его цена выросла?</summary>
+ <p>Это совпадение или действие продавца, а не алгоритма. Цены на <em>Ozon</em> динамические и могут меняться в зависимости от спроса, акций или изменений у поставщика. Если цена выросла сразу после вашего просмотра — скорее всего, товар стал популярнее, и продавец поднял цену. Чтобы отслеживать изменения, используйте сервисы мониторинга цен (например, <em>PriceTracker</em>).</p>
+</details>
+
+<details>
+ <summary>Как продавцу понять, почему его товар не попадает в рекомендации?</summary>
+ <p>Проверьте следующие параметры в личном кабинете:
+ <ul>
+ <li>Индекс качества (IQS) — должен быть выше 80.</li>
+ <li>Количество отзывов и рейтинг — меньше 10 отзывов или рейтинг ниже 4.5 снижает видимость.</li>
+ <li>Наличие товара на складе — если товара нет в наличии, он исключается из рекомендаций.</li>
+ <li>Цена относительно конкурентов — если ваш товар дороже аналогичных на 20%+, алгоритм будет реже его показывать.</li>
+ </ul>
+<p>Также обратите внимание на <code>коэффициент конверсии</code> (соотношение просмотров к покупкам). Если он ниже 2–3%, стоит улучшить карточку товара.</p></p>
+</details>
+
+<details>
+ <summary>Правда ли, что Озон подслушивает разговоры через микрофон?</summary>
+ <p>Нет доказательств того, что <em>Ozon</em> (или любой другой маркетплейс) использует микрофон для сбора данных. Технически это возможно, но:
+ <ul>
+ <li>Это нарушает законы о конфиденциальности (включая 152-ФЗ в России).</li>
+ <li>Для персонализации достаточно других данных (поисковые запросы, история просмотров и т. д.).</li>
+ <li>Если бы это было так, подобные скандалы давно стали бы достоянием общественности (как в случае с <em>Facebook</em> и <em>Cambridge Analytica</em>).</li>
+ </ul>
+<p>«Эффект подслушивания» объясняется <strong>подтверждающим смещением</strong>: мы замечаем совпадения (например, поговорили о товаре — и он появился в рекомендациях), но игнорируем тысячи случаев, когда этого не происходит.</p></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-oplachivat-na-ozone-kartoj-onlajn.html" class="pb-related-card">
+                <span class="pb-related-title">Как оплатить заказ на Ozon картой онлайн: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по оплате заказов на Ozon банковской картой: от выбора способа до подтверждени</span>
+            </a><a href="/articles/o/oz/ozon-dragosta-din-tej-kakoj-yazyk.html" class="pb-related-card">
+                <span class="pb-related-title">Драгоста дин Тей на Озон: какой язык и где купить</span>
+                <span class="pb-related-desc">Ищете книгу Драгосте дин Тей на Озон? Узнайте, на каком языке она издается, как найти оригинал и пер</span>
+            </a><a href="/articles/k/ka/kak-oplachivat-tovar-kartoj-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Оплата картой на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как безопасно оплатить товар картой на Ozon: способы приема платежей, комиссии, ограничения и решени</span>
+            </a><a href="/articles/k/ka/kak-kupit-knigu-na-ozone-bez-registratsii.html" class="pb-related-card">
+                <span class="pb-related-title">Как купить книгу на Озоне без регистрации в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция: покупка книг на Ozon.ru без создания аккаунта. Способы оплаты, ограничения и л</span>
+            </a><a href="/articles/k/ka/kak-kupit-v-ozon-v-rassrochku.html" class="pb-related-card">
+                <span class="pb-related-title">Как купить в рассрочку на Ozon: инструкция, банки и условия</span>
+                <span class="pb-related-desc">Полная инструкция: как оформить покупку в рассрочку на Озон. Сравнение условий банков, пошаговый про</span>
+            </a><a href="/articles/k/ka/kak-dejstvuet-ozon-karta.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Карта: как работает, условия и бонусы в 2026 году</span>
+                <span class="pb-related-desc">Разбираем, как действует Озон Карта: механизм кэшбэка, условия начисления бонусов, тарифы и ограниче</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

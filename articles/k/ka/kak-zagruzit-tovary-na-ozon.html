@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как загрузить товары на Озон: инструкция для селлера — Об Озоне</title>
+    <meta name="description" content="Узнайте, как загрузить товары на Озон через Excel, API или вручную. Разбор форматов, заполнение атрибутов и ошибки при импорте.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzit-tovary-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как загрузить товары на Озон: инструкция для селлера">
+    <meta property="og:description" content="Узнайте, как загрузить товары на Озон через Excel, API или вручную. Разбор форматов, заполнение атрибутов и ошибки при импорте.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как загрузить товары на Озон: инструкция для селлера</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#выбор-метода-загрузки-ручной-excel-или-api">Выбор метода загрузки: ручной, Excel или API</a></li><li><a href="#подготовка-данных-и-заполнение-атрибутов">Подготовка данных и заполнение атрибутов</a></li><li><a href="#работа-с-excel-шаблоном-пошаговая-инструкция">Работа с Excel-шаблоном: пошаговая инструкция</a></li><li><a href="#типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</a></li><li><a href="#особенности-загрузки-для-разных-схем-работы">Особенности загрузки для разных схем работы</a></li><li><a href="#модерация-и-публикация-что-дальше">Модерация и публикация: что дальше?</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-razmer-etiketok-nuzhen-dlya-ozona.html">Размер этикеток для Озон: требования к FBO и FBS 2026</a></li><li><a href="/articles/k/ka/kak-rasschitat-obem-v-litrakh-dlya-ozon.html">Как рассчитать объем в литрах для Ozon: габариты и логистика</a></li><li><a href="/articles/k/ka/kak-oformit-zayavku-na-ozon.html">Как оформить заявку на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-razmestit-svoj-tovar-na-ozon-ru.html">Как разместить товар на Ozon.ru: пошаговая инструкция 2026</a></li><li><a href="/articles/t/te/termoetiketki-dlya-ozon-kakie-nuzhny.html">Термоэтикетки для Ozon: размеры, виды и требования 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как загрузить товары на Озон: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-метода-загрузки-ручной-excel-или-api">Выбор метода загрузки: ручной, Excel или API</a></li><li><a href="#подготовка-данных-и-заполнение-атрибутов">Подготовка данных и заполнение атрибутов</a></li><li><a href="#работа-с-excel-шаблоном-пошаговая-инструкция">Работа с Excel-шаблоном: пошаговая инструкция</a></li><li><a href="#типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</a></li><li><a href="#особенности-загрузки-для-разных-схем-работы">Особенности загрузки для разных схем работы</a></li><li><a href="#модерация-и-публикация-что-дальше">Модерация и публикация: что дальше?</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Запуск продаж на крупнейшем маркетплейсе страны начинается с создания карточек товаров. Именно этот этап определяет, как покупатели увидят ваш продукт, найдут ли его в поиске и захотят ли купить. <strong>Процесс загрузки</strong> может показаться сложным новичку, но при правильном подходе он занимает всего несколько часов даже для обширного ассортимента. От того, насколько грамотно вы заполните поля и структурируете данные, зависит скорость модерации и ранжирование в выдаче.</p>
+
+<p>Существует несколько способов добавить позиции в личный кабинет продавца: ручной ввод для единичных экземпляров, загрузка через таблицу Excel для средних партий и использование API для автоматизации тысяч SKU. Выбор метода зависит от объема вашего склада и технических возможностей. В этой статье мы детально разберем каждый из способов, уделив особое внимание нюансам заполнения характеристик, которые чаще всего становятся причиной отклонения модераторами.</p>
+
+<p>Прежде чем приступать к, убедитесь, что у вас уже оформлен договор и активирован аккаунт в разделе для партнеров. <em>Озон</em> предъявляет строгие требования к контенту, поэтому подготовка качественных фотографий и описаний заранее существенно ускорит процесс. Давайте рассмотрим, как правильно подготовить данные и избежать типичных ошибок, которые могут заблокировать ваш товар на этапе проверки.</p>
+
+<h2 id="выбор-метода-загрузки-ручной-excel-или-api">Выбор метода загрузки: ручной, Excel или API</h2>
+
+<p>Первым шагом всегда является определение подходящего инструмента для работы с каталогом. Если вы планируете продавать всего 5–10 позиций, нет смысла настраивать сложные интеграции. В этом случае идеально подойдет <strong>ручное создание</strong> карточек прямо в интерфейсе личного кабинета. Вы просто переходите в раздел"Товары и цены", выбираете категорию и последовательно заполняете все поля. Это долго для больших объемов, но максимально наглядно для старта.</p>
+
+<p>Для продавцов со средним ассортиментом (от 20 до 1000 единиц) оптимальным решением станет загрузка через <strong>XLS-шаблон</strong>. Озон предоставляет готовые формы, куда нужно просто вписать свои данные. Это позволяет редактировать информацию оффлайн, использовать формулы Excel для генерации описаний или артикулов, а затем одним кликом загрузить весь файл. Ошибки в формате данных система подсветит сразу после загрузки, что позволяет быстро их исправить.</p>
+
+<p>Крупные ритейлеры и бренды с тысячами SKU не могут позволить себе ручную работу или постоянную загрузку таблиц. Здесь вступает в силу <strong>API-интеграция</strong>. Этот метод требует участия разработчиков или использования сторонних сервисов-помощников (ERP-систем). Данные о наличии, цене и новых товарах передаются автоматически в реальном времени, что исключает человеческий фактор и расхождения в остатках.</p>
+
+<blockquote>⚠️ Внимание: При выборе метода загрузки через Excel помните, что файл должен быть строго в формате.xlsx или.csv (разделитель — запятая или точка с запятой, в зависимости от настроек региона). Нарушение кодировки приведет к тому, что вместо текста вы увидите набор непонятных символов.</blockquote>
+
+<p>Каждый метод имеет свои преимущества. Ручной ввод хорош для проверки гипотез, Excel — золотая середина, а API — выбор профессионалов. Не стоит сразу бросаться на сложные интеграции, если вы только тестируете нишу.</p>
+
+<div class="pb-poll" id="poll-e2bae65e"><div class="pb-poll-question">📊 Какой метод загрузки вы планируете использовать?</div><div class="pb-poll-option" data-poll="e2bae65e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручной ввод</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e2bae65e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel-файл</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e2bae65e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">API-интеграция</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e2bae65e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сервис-посредник</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="подготовка-данных-и-заполнение-атрибутов">Подготовка данных и заполнение атрибутов</h2>
+
+<p>Качество карточки товара напрямую влияет на конверсию. Покупатель не может потрогать вещь, поэтому он полагается на визуальную и текстовую информацию. Заполнение атрибутов — это не просто бюрократия, а способ помочь алгоритмам ранжирования понять, что именно вы продаете. Ключевым элементом здесь является <strong>артикул</strong>. Придумывайте его логичным, чтобы легко находить товар в складских отчетах. Он должен быть уникальным для вашей компании.</p>
+
+<p>Особое внимание уделите полю"Название". Оно формируется автоматически на основе бренда, модели и ключевых характеристик, но вы можете корректировать его в допустимых пределах. Используйте <strong>описание</strong> для раскрытия преимуществ продукта. Не копируйте сухие характеристики от производителя, а пишите живой текст, отвечающий на вопросы покупателя. В описании важно использовать ключевые слова, по которым ищут товар, но без переспама.</p>
+
+<p>Визуальный контент требует отдельной подготовки. Фотографии должны быть высокого разрешения, на белом или нейтральном фоне (для главной). Инфографика допустима на дополнительных слайдах, но она не должна перекрывать сам товар. Видеообзоры значительно повышают доверие. Все медиафайлы загружаются в соответствующие вкладки перед отправкой на модерацию.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте в описании маркированные списки для перечисления характеристик — это облегчает чтение с мобильных устройств, где покупатели часто совершают покупки.</p></aside>
+
+<p>Не забывайте про габариты и вес. Эти данные критически важны для логистики. Если вы укажете неверный вес, система может рассчитать неправильную стоимость доставки или-storage fees, что приведет к убыткам. Всегда взвешивайте товар в упаковке, в которой он будет отправляться покупат-лю.</p>
+
+<h2 id="работа-с-excel-шаблоном-пошаговая-инструкция">Работа с Excel-шаблоном: пошаговая инструкция</h2>
+
+<p>Загрузка через таблицу — самый популярный способ среди селлеров. Чтобы начать, скачайте актуальный шаблон в разделе"Товары" →"Загрузить товары". Выберите вашу категорию, так как для электроники, одежды и продуктов наборы полей будут отличаться. После скачивания файла откройте его и внимательно изучите структуру.</p>
+
+<p>В шаблоне есть обязательные столбцы, помеченные звездочкой или выделенные цветом. К ним относятся <code>offer_id</code> (ваш артикул), <code>name</code> (название), <code>category_id</code> (идентификатор категории) и цена. Ошибки в этих полях приведут к полному отказу в загрузке файла. Столбцы с техническими параметрами, такими как <code>width</code>, <code>height</code>, <code>depth</code> и <code>weight</code>, также обязательны для расчета логистики.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка файла перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Удалены лишние листы в Excel</span></label><label class="check-item"><input type="checkbox"><span>Нет объединенных ячеек</span></label><label class="check-item"><input type="checkbox"><span>Проверены формулы на ошибки</span></label><label class="check-item"><input type="checkbox"><span>Сохранен формат.xlsx</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>После заполнения всех данных сохраните файл. Перейдите в личный кабинет, выберите"Загрузить товары" и перетащите файл в область загрузки. Система начнет обработку. Если в файле есть ошибки, вы получите отчет с указанием строк и типа проблемы. Чаще всего ошибки связаны с неверным форматом числа (например, запятая вместо точки в цене) или отсутствием обязательного атрибута.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип данных</th>
+<th>Пример значения</th>
+<th>Обязательно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer_id</td>
+<td>Строка</td>
+<td>ART-12345-BLK</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Число</td>
+<td>1500.00</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>old_price</td>
+<td>Число</td>
+<td>2000.00</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Целое число</td>
+<td>50</td>
+<td>Да (для FBO)</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>Число (кг)</td>
+<td>0.5</td>
+<td>Да</td>
+</tr>
+</tbody>
+</table></div>
+
+<p> После успешной загрузки файлу требуется время на обработку и модерацию. Обычно этот процесс занимает от 15 минут до нескольких часов, в зависимости от нагрузки на серверы площадки.</p>
+
+<h2 id="типичные-ошибки-и-как-их-избежать">Типичные ошибки и как их избежать</h2>
+
+<p>Даже опытные селлеры допускают ошибки при заполнении карточек. Одна из самых распространенных — неверное указание категории. Если вы поместите"Чехлы для телефонов" в категорию"Электроника", товар могут не найти целевые покупатели, а комиссия может быть рассчитана неправильно. Всегда проверяйте дерево категорий перед загрузкой.</p>
+
+<p>Вторая частая проблема — дублирование товаров. Если в системе уже существует такая карточка (например, вы продаете известный бренд), система предложит привязаться к ней. Создавать новую карточку для того же самого товара (того же бренда и модели) запрещено правилами. Это приведет к блокировке одной из карточек или штрафным санкциям за дубли.</p>
+
+<blockquote>⚠️ Внимание: Никогда не указывайте в характеристиках ложную информацию. Если товар состоит из полиэстера, не пишите"хлопок". Это приведет к возвратам, негативным отзывам и снижению рейтинга магазина, что критично для продвижения.</blockquote>
+
+<p>Также часто встречаются ошибки в штрихкодах. Для схемы FBO (продажа со склада Озон) наличие корректного штрихкода на каждой единице товара обязательно. Если штрихкод не считывается сканером на складе, товар не примут в продажу. Проверяйте читаемость кодов перед отправкой партии.</p>
+
+<details class="pb-accordion"><summary>Что делать, если товар отклонен модерацией?</summary><div class="pb-accordion-body"><p>В личном кабинете будет указана конкретная причина отказа (например,"некачественное фото" или"неверная категория"). Исправьте ошибку и отправьте товар на повторную проверку. Обычно вторая проверка проходит быстрее.</p></div></details>
+
+<h2 id="особенности-загрузки-для-разных-схем-работы">Особенности загрузки для разных схем работы</h2>
+
+<p>Процесс создания карточки един для всех, но логистические нюансы различаются. При работе по схеме <strong>FBO</strong> (Fulfillment by Ozon), когда вы отгружаете товар на склад маркетплейса, критически важно правильно указать количество мест в коробе и габариты каждой единицы. Ошибка здесь приведет к пересчету стоимости хранения и логистики в сторону увеличения.</p>
+
+<p>Для схемы <strong>FBS</strong> (Fulfillment by Seller), где товар хранится у вас, важнее скорость реакции. Карточка должна быть создана и активирована мгновенно, чтобы товар появился в продаже. Здесь нет жестких требований к упаковке для приемки, но есть требования к срокам сборки заказа. Убедитесь, что остатки в системе всегда актуальны, чтобы не получить штраф за отмену заказа.</p>
+
+<p>Схема <strong>RealFBS</strong> (продажа со своего склада с доставкой силами продавца) требует указания собственных тарифов доставки или интеграции со службами доставки. В карточке товара нужно будет четко прописать сроки доставки, которые вы реально можете обеспечить.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Правильно выбранные габариты и вес — это не просто формальность, а способ сэкономить до 30% на логистических расходах, так как комиссия зависит от объема, занимаемого товаром.</p></aside>
+
+<p>Независимо от схемы, наличие всех необходимых документов (сертификатов, деклараций) в карточке товара обязательно для определенных групп товаров. Без них модерация не пропустит продукт, даже если все остальные поля заполнены идеально.</p>
+
+<h2 id="модерация-и-публикация-что-дальше">Модерация и публикация: что дальше?</h2>
+
+<p>После загрузки товаров они отправляются на модерацию. Это процесс проверки соответствия контента правилам площадки. Модераторы проверяют фотографии на наличие посторонних объектов, тексты на грамотность и соответствие описанию, а также наличие необходимых документов. Статус товара можно отслеивать в разделе"Товары и цены".</p>
+
+<p>Статус"На модерации" означает, что товар проверяется. Обычно это занимает до 4 часов, но в периоды распродаж (например, Черная пятница) время может увеличиться. Если товар получает статус"Опубликовано", он появляется на витрине и становится доступен для покупки. Если"Отклонено" — нужно изучить комментарий и исправить ошибку.</p>
+
+<p>Ускорить модерацию можно, заполняя все поля максимально точно с первого раза и используя только разрешенные форматы файлов. Также стоит избегать использования контактных данных (телефонов, ссылок на внешние сайты) в описаниях и на фото, так как это прямое нарушение правил Озон.</p>
+
+<p>Помните, что карточка товара — это живой организм. После публикации вы можете и должны улучшать её: добавлять новые фото, корректировать описание на основе отзывов, менять цену. Регулярное обновление контента положительно сказывается на поведенческих факторах.</p>
+
+<details>
+<summary>Что делать, если система пишет"Файл поврежден" при загрузке Excel?</summary>
+<p>Чаще всего проблема в макросах или скрытых символах. Попробуйте скопировать данные из вашего файла в чистый, только что скачанный шаблон от Озон. Убедитесь, что в файле нет объединенных ячеек и он сохранен в формате.xlsx, а не.xls.</p>
+</details>
+
+<details>
+<summary>Можно ли загружать товары через мобильное приложение?</summary>
+<p>Полноценная загрузка товаров, особенно массовая через Excel, в мобильном приложении"Oзон для продавцов" недоступна. Приложение предназначено для оперативного управления: изменения цены, остатков и общения с клиентами. Для создания карточек используйте веб-версию личного кабинета с компьютера.</p>
+</details>
+
+<details>
+<summary>Как исправить ошибку"Неверный формат цены"?</summary>
+<p>В Excel разделителем дробной части должна быть запятая (в русской локали) или точка (в английской), но без тысячников. Например, правильно: 1000.50 или 1000,50. Неправильно: 1 000,50 (с пробелом) или 1000 руб. (с валютой). Удалите все лишние символы, оставив только цифры и разделитель.</p>
+</details>
+
+<details>
+<summary>Сколько товаров можно загрузить за один раз?</summary>
+<p>Технических ограничений на количество товаров в одном файле нет, но для стабильности работы рекомендуется разбивать большие загрузки на файлы по 1000–2000 строк. Это позволит быстрее выявить и исправить ошибки в случае сбоя обработки части файла.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-razmer-etiketok-nuzhen-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Размер этикеток для Озон: требования к FBO и FBS 2026</span>
+                <span class="pb-related-desc">Полный гид по размерам этикеток для Ozon. Стандарты термопринтеров, требования к штрихкодам, настрой</span>
+            </a><a href="/articles/k/ka/kak-rasschitat-obem-v-litrakh-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать объем в литрах для Ozon: габариты и логистика</span>
+                <span class="pb-related-desc">Подробная инструкция по расчету объема товара в литрах для Ozon. Формулы, таблицы коэффициентов объе</span>
+            </a><a href="/articles/k/ka/kak-oformit-zayavku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оформить заявку на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно оформить заявку на Ozon. Разбор всех статусов, причин отклонения и способы ре</span>
+            </a><a href="/articles/k/ka/kak-razmestit-svoj-tovar-na-ozon-ru.html" class="pb-related-card">
+                <span class="pb-related-title">Как разместить товар на Ozon.ru: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению товара на Ozon для новых продавцов: от регистрации до модерации.</span>
+            </a><a href="/articles/t/te/termoetiketki-dlya-ozon-kakie-nuzhny.html" class="pb-related-card">
+                <span class="pb-related-title">Термоэтикетки для Ozon: размеры, виды и требования 2026</span>
+                <span class="pb-related-desc">Какие термоэтикетки нужны для Ozon? Полный гид по форматам, принтерам и правилам маркировки для FBO </span>
+            </a><a href="/articles/k/ka/kak-raspechatat-shtrikh-kod-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как распечатать штрихкод Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гид по печати этикеток для Ozon. Узнайте, как сформировать штрихкод в личном кабинете, тре</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

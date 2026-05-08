@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Настройка ЭДО с Озон в 1С: пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Как подключить электронный документооборот с Озон в 1С: от регистрации до обмена данными. Актуальные настройки, ошибки и решения для продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-nastroit-edo-s-ozon-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Настройка ЭДО с Озон в 1С: пошаговая инструкция 2026">
+    <meta property="og:description" content="Как подключить электронный документооборот с Озон в 1С: от регистрации до обмена данными. Актуальные настройки, ошибки и решения для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Настройка ЭДО с Озон в 1С: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-регистрация-в-системе-эдо-озон">1. Регистрация в системе ЭДО Озон</a></li><li><a href="#2-подготовка-1с-к-интеграции-с-ozon">2. Подготовка 1С к интеграции с Ozon</a></li><li><a href="#3-настройка-обмена-данными-между-1с-и-ozon">3. Настройка обмена данными между 1С и Ozon</a></li><li><a href="#4-сопоставление-справочников-и-документов">4. Сопоставление справочников и документов</a></li><li><a href="#5-автоматизация-обработки-заказов-и-документов">5. Автоматизация обработки заказов и документов</a></li><li><a href="#6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</a></li><li><a href="#7-оптимизация-работы-с-эдо-советы-экспертов">7. Оптимизация работы с ЭДО: советы экспертов</a></li><li><a href="#faq-частые-вопросы-по-настройке-эдо-с-ozon-в-1с">FAQ: Частые вопросы по настройке ЭДО с Ozon в 1С</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/p/pl/platformy-kak-ozon.html">Платформы как Озон: лучшие аналоги и стратегии для селлеров в 2026</a></li><li><a href="/articles/o/oz/ozon-seller-kak-upakovat-tovar.html">Как упаковать товар для Ozon Seller: правила и советы 2026</a></li><li><a href="/articles/k/ka/kak-sdelat-brend-na-ozon-svoj-tovar.html">Как сделать бренд на Озон: пошаговое руководство для продавцов 2026</a></li><li><a href="/articles/m/mo/mozhno-li-prodavat-na-ozone-ili-valberiz-to-chto-sam-proizvodish-doma.html">Продажа товаров домашнего производства на Ozon и Wildberries</a></li><li><a href="/articles/g/gd/gde-na-ozone-otslezhivat-oborachivaemost-tovarov.html">Где на Озоне смотреть оборачиваемость товаров: инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как настроить ЭДО с Озон в 1С: полное руководство для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-регистрация-в-системе-эдо-озон">1. Регистрация в системе ЭДО Озон</a></li><li><a href="#2-подготовка-1с-к-интеграции-с-ozon">2. Подготовка 1С к интеграции с Ozon</a></li><li><a href="#3-настройка-обмена-данными-между-1с-и-ozon">3. Настройка обмена данными между 1С и Ozon</a></li><li><a href="#4-сопоставление-справочников-и-документов">4. Сопоставление справочников и документов</a></li><li><a href="#5-автоматизация-обработки-заказов-и-документов">5. Автоматизация обработки заказов и документов</a></li><li><a href="#6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</a></li><li><a href="#7-оптимизация-работы-с-эдо-советы-экспертов">7. Оптимизация работы с ЭДО: советы экспертов</a></li><li><a href="#faq-частые-вопросы-по-настройке-эдо-с-ozon-в-1с">FAQ: Частые вопросы по настройке ЭДО с Ozon в 1С</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Электронный документооборот (ЭДО) с <em>Ozon</em> через <em>1С</em> — обязательное условие для продавцов, работающих по схеме <strong>FBS</strong> (склад маркетплейса) или <strong>FBO</strong> (самостоятельная доставка). Без корректной настройки обмена данными вы не сможете оперативно получать заказы, отправлять накладные и подтверждать отгрузки, что чревато штрафами и блокировками аккаунта. В этой статье разберём весь процесс — от регистрации в системе ЭДО до тонкостей интеграции с <em>1С:Управление торговлей</em> или <em>1С:Бухгалтерия</em>.</p>
+
+<p>Особенность работы с <em>Ozon</em> в том, что маркетплейс требует строгого соблюдения форматов документов и сроков их обработки. Например, накладная на отгрузку должна быть сформирована в течение <strong>2 часов</strong> после получения заказа, иначе система автоматически аннулирует сделку. При этом <em>1С</em> не всегда «из коробки» поддерживает все нюансы взаимодействия с <em>Ozon</em>, поэтому настройка требует внимания к деталям.</p>
+
+<p>Мы рассмотрим два основных способа интеграции: через <strong>встроенный функционал 1С</strong> (для последних версий платформы) и с использованием <strong>дополнительных модулей</strong> от партнёров <em>Ozon</em>. Также разберём типичные ошибки, которые блокируют документооборот, и способы их устранения.</p>
+
+<h2 id="1-регистрация-в-системе-эдо-озон">1. Регистрация в системе ЭДО Озон</h2>
+
+<p>Прежде чем настраивать <em>1С</em>, необходимо зарегистрироваться в системе электронного документооборота <em>Ozon</em>. Это делается через <a href="https://seller.ozon.ru/" target="_blank" rel="noopener noreferrer">личный кабинет продавца</a> в разделе <code>Настройки → Электронный документооборот</code>.</p>
+
+<p>Процесс регистрации включает:</p>
+<ul>
+  <li>📝 Заполнение анкеты с реквизитами компании (ИНН, КПП, юридический адрес).</li>
+  <li>🔑 Получение электронной подписи (если её нет — оформляется через аккредитованный УЦ, например, <em>Контур.Диадок</em> или <em>СКБ Контур</em>).</li>
+  <li>📧 Подтверждение email и телефона для уведомлений о новых документах.</li>
+  <li>🔄 Выбор оператора ЭДО (чаще всего это <em>Диадок</em> или <em>Такском</em>, но <em>Ozon</em> также поддерживает прямой обмен через API).</li>
+</ul>
+
+<p>После регистрации вам придёт письмо с логином и паролем для доступа к личному кабинету ЭДО. <strong>Сохраните эти данные</strong> — они потребуются для настройки <em>1С</em>. Обратите внимание: если вы уже работаете с ЭДО через другого оператора (например, для <em>Wildberries</em>), можно использовать тот же аккаунт, но придётся добавить <em>Ozon</em> как нового контрагента.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваша компания зарегистрирована как ИП без сотрудников, <em>Ozon</em> может потребовать дополнительные документы для подтверждения личности (паспорт, СНИЛС). Без этого доступ к ЭДО не будет открыт.</blockquote>
+
+<h2 id="2-подготовка-1с-к-интеграции-с-ozon">2. Подготовка 1С к интеграции с Ozon</h2>
+
+<p>Перед настройкой обмена проверьте, соответствует ли ваша версия <em>1С</em> требованиям <em>Ozon</em>. На данный момент поддерживаются:</p>
+<ul>
+  <li>📌 <em>1С:Управление торговлей</em> (ред. 11.4 и выше).</li>
+  <li>📌 <em>1С:Бухгалтерия предприятия</em> (ред. 3.0.80 и выше).</li>
+  <li>📌 <em>1С:ERP Управление предприятием</em> (ред. 2.4 и выше).</li>
+</ul>
+
+<p>Если у вас устаревшая версия, обновите платформу через <code>Сервис → Обновление конфигурации</code>. Также убедитесь, что в системе установлены:</p>
+<ul>
+  <li>🔧 Модуль <strong>Электронный документооборот</strong> (включается в <code>Администрирование → Печатные формы, отчёты и обработки</code>).</li>
+  <li>🔧 Подсистема <strong>Обмен данными с маркетплейсами</strong> (для <em>1С:УТ 11.4+</em>).</li>
+  <li>🔧 Сертификат электронной подписи (должен быть загружен в <code>Администрирование → Организации → Сертификаты</code>).</li>
+</ul>
+
+<p>Если ваша конфигурация не поддерживает прямой обмен с <em>Ozon</em>, потребуется установить <strong>дополнительный модуль</strong> от партнёров маркетплейса (например, <em>Атол Онлайн</em> или <em>МойСклад</em>). Стоимость таких решений варьируется от 5 000 до 20 000 рублей в зависимости от функционала.</p>
+
+<div class="pb-poll" id="poll-f199b884"><div class="pb-poll-question">📊 Какую версию 1С вы используете?</div><div class="pb-poll-option" data-poll="f199b884" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">1С:Управление торговлей</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f199b884" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">1С:Бухгалтерия</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f199b884" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">1С:ERP</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f199b884" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Другая конфигурация</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f199b884" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Не знаю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-настройка-обмена-данными-между-1с-и-ozon">3. Настройка обмена данными между 1С и Ozon</h2>
+
+<p>Основной этап — создание <strong>профиля обмена</strong> в <em>1С</em>. Для этого:</p>
+<ol>
+  <li>Перейдите в <code>Администрирование → Обмен данными с маркетплейсами → Настройка обмена</code>.</li>
+  <li>Нажмите <code>Создать</code> и выберите тип обмена — <strong>Ozon (ЭДО)</strong>.</li>
+  <li>Укажите данные для подключения:
+    <ul>
+      <li>🔑 <strong>Логин и пароль</strong> из письма после регистрации в ЭДО.</li>
+      <li>📌 <strong>Идентификатор продавца</strong> (можно найти в личном кабинете <em>Ozon</em> в разделе <code>Профиль → Реквизиты</code>).</li>
+      <li>🔗 <strong>Адрес сервера ЭДО</strong> (обычно <code>https://edo.ozon.ru/api/v1</code>, но может отличаться для тестового режима).</li>
+    </ol>
+  </li>
+  <li>Выберите <strong>формат обмена</strong> — <code>JSON</code> или <code>XML</code> (рекомендуется <code>JSON</code>, так как он быстрее обрабатывается).</li>
+  <li>Установите <strong>расписание синхронизации</strong> (оптимально — каждые 10–15 минут).</li>
+</ul>
+
+<p>После сохранения профиля запустите <strong>тестовое подключение</strong> через кнопку <code>Проверить соединение</code>. Если появится ошибка <code>403 Forbidden</code>, проверьте:</p>
+<ul>
+  <li>🔐 Корректность логина/пароля.</li>
+  <li>📋 Наличие прав у пользователя в личном кабинете <em>Ozon</em> (должна быть роль «Администратор» или «Менеджер ЭДО»).</li>
+  <li>🔄 Состояние серверов <em>Ozon</em> (иногда бывают технические работы — следите за уведомлениями в личном кабинете).</li>
+</ul>
+
+
+<p>Логин и пароль от ЭДО введены верно|</p>
+<p>Сертификат ЭП загружен в 1С|</p>
+<p>Версия 1С соответствует требованиям Ozon|</p>
+<p>Тестовое подключение прошло без ошибок--></p>
+
+<h2 id="4-сопоставление-справочников-и-документов">4. Сопоставление справочников и документов</h2>
+
+<p>Чтобы <em>1С</em> корректно распознавала заказы и формировала ответные документы, необходимо <strong>сопоставить справочники</strong>:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Объект в Ozon</th>
+      <th>Соответствие в 1С</th>
+      <th>Где настроить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Заказ (Order)</td>
+      <td>Документ <code>Заказ покупателя</code></td>
+      <td><code>Обмен данными → Правила сопоставления → Заказы</code></td>
+    </tr>
+    <tr>
+      <td>Накладная (Waybill)</td>
+      <td>Документ <code>Реализация товаров и услуг</code></td>
+      <td><code>Обмен данными → Правила сопоставления → Отгрузки</code></td>
+    </tr>
+    <tr>
+      <td>Товар (Product)</td>
+      <td>Элемент справочника <code>Номенклатура</code></td>
+      <td><code>Номенклатура → Сопоставление с маркетплейсами</code></td>
+    </tr>
+    <tr>
+      <td>Контрагент (Ozon)</td>
+      <td>Элемент справочника <code>Контрагенты</code> (создать отдельную карточку для Ozon)</td>
+      <td><code>Контрагенты → Создать → Указать ИНН Ozon (7736207543)</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Особое внимание уделите <strong>сопоставлению номенклатуры</strong>. В <em>Ozon</em> каждый товар имеет уникальный <code>SKU</code> (артикул продавца) и <code>Ozon ID</code> (идентификатор маркетплейса). В <em>1С</em> эти поля должны быть заполнены в карточке номенклатуры:</p>
+<ul>
+  <li>🏷️ <code>Артикул</code> — ваш внутренний SKU.</li>
+  <li>📦 <code>Код Ozon</code> — идентификатор товара на маркетплейсе (можно найти в личном кабинете в разделе <code>Товары → Каталог</code>).</li>
+</ul>
+
+<p>Если не сопоставить SKU, <em>1С</em> не сможет определить, какой товар пришёл в заказе, и документ не обработается. Для удобства можно использовать <strong>групповое сопоставление</strong> через обработку <code>Загрузка номенклатуры из Ozon</code> (доступна в последних версиях <em>1С:УТ</em>).</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если в заказе от <em>Ozon</em> приходит товар с неизвестным SKU, создайте правило автоматического создания номенклатуры в <code>Администрирование → Настройки номенклатуры → Автосоздание по SKU</code>. Это сэкономит время на ручной ввод.</p></aside>
+
+<h2 id="5-автоматизация-обработки-заказов-и-документов">5. Автоматизация обработки заказов и документов</h2>
+
+<p>Чтобы минимизировать ручную работу, настройте <strong>автоматические бизнес-процессы</strong>:</p>
+
+<p><strong>1. Автозагрузка заказов</strong></p>
+<p>В профиле обмена включите опцию <code>Автоматическое создание заказов</code> и укажите:</p>
+<ul>
+  <li>📥 Папку для новых заказов (например, <code>Ozon → Новые</code>).</li>
+  <li>🔄 Статус заказа в <em>1С</em> после загрузки (обычно <code>На согласовании</code>).</li>
+  <li>⏰ Время задержки перед обработкой (рекомендуется 5–10 минут, чтобы избежать дублей).</li>
+</ul>
+
+<p><strong>2. Автоформирование накладных</strong></p>
+<p>Для схемы <strong>FBS</strong> настройте правило:</p>
+<pre><code>Если СтатусЗаказа = "Готов к отгрузке" Тогда
+<p>СоздатьДокумент("РеализацияТоваровУслуг");</p>
+<p>ЗаполнитьНакладнуюПоШаблону("Шаблон_Ozon_FBS");</p>
+<p>ОтправитьВЭДО();</p>
+<p>КонецЕсли;</code></pre></p>
+<p>Для <strong>FBO</strong> добавьте проверку на наличие трек-номера:</p>
+<pre><code>Если СтатусЗаказа = "Отгружен" И НЕ ПустоеЗначение(ТрекНомер) Тогда
+<p>СоздатьНакладную();</p>
+<p>ПрикрепитьТрекНомер(ТрекНомер);</p>
+<p>ОтправитьВЭДО();</p>
+<p>КонецЕсли;</code></pre></p>
+
+<p><strong>3. Уведомления об ошибках</strong></p>
+<p>Настройте рассылку уведомлений на email или в <em>Telegram</em> при сбоях обмена. Для этого:</p>
+<ol>
+  <li>Перейдите в <code>Администрирование → Подписки на события</code>.</li>
+  <li>Создайте новое правило для события <code>Ошибка обмена с Ozon</code>.</li>
+  <li>Укажите получателей (например, <code>logist@вашакомпания.ru</code>).</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если в накладной указан неверный вес или габариты товара, <em>Ozon</em> может заблокировать отгрузку. Всегда сверяйте данные с карточкой товара в личном кабинете.</blockquote>
+
+<h2 id="6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</h2>
+
+<p>Даже при корректной настройке могут возникать сбои. Рассмотрим самые частые:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Error 401: Unauthorized</code></td>
+      <td>Неверный логин/пароль или истёкший сертификат ЭП.</td>
+      <td>Проверьте данные в профиле обмена и обновите сертификат в <code>Администрирование → Сертификаты</code>.</td>
+    </tr>
+    <tr>
+      <td><code>Error 500: Internal Server Error</code></td>
+      <td>Технические работы на стороне <em>Ozon</em> или некорректный формат JSON/XML.</td>
+      <td>Проверьте лог обмена в <code>Обмен данными → Журнал обмена</code>. Если ошибка повторяется — напишите в поддержку <em>Ozon</em>.</td>
+    </tr>
+    <tr>
+      <td><code>Справочник номенклатуры не найден</code></td>
+      <td>В заказе указан SKU, которого нет в <em>1С</em>.</td>
+      <td>Добавьте товар в справочник или настройте автосоздание номенклатуры.</td>
+    </tr>
+    <tr>
+      <td><code>Некорректный статус заказа</code></td>
+      <td>Заказ уже обработан или аннулирован.</td>
+      <td>Обновите статус вручную в <code>Заказы покупателей</code> или дождитесь синхронизации.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Если ошибка не устраняется, изучите <strong>журнал обмена</strong> (<code>Обмен данными → Журнал</code>). Там указывается точная строка кода или документа, вызвавшая сбой. Например, ошибка <code>Поле "Barcode" не заполнено</code> означает, что в карточке товара не указан штрихкод — его нужно добавить в <code>Номенклатура → Штрихкоды</code>.</p>
+
+<details class="pb-accordion"><summary>Что делать, если Ozon не принимает накладную?</summary><div class="pb-accordion-body"><p>
+<p>Если накладная не проходит валидацию в <em>Ozon</em>, проверьте:</p>
+<p>1. <strong>Сумму документа</strong> — она должна совпадать с суммой заказа (включая скидки и промокоды).</p>
+<p>2. <strong>Количество товаров</strong> — не должно превышать доступный остаток на складе <em>Ozon</em>.</p>
+<p>3. <strong>Реквизиты контрагента</strong> — ИНН и КПП должны совпадать с данными в личном кабинете.</p>
+<p>4. <strong>Формат файла</strong> — <em>Ozon</em> принимает только UTF-8 без BOM.</p>
+
+<p>Если всё верно, но ошибка остаётся, экспортируйте накладную вручную через <code>Файл → Сохранить как XML</code> и загрузите её через личный кабинет <em>Ozon</em> в разделе <code>Документы → Загрузить вручную</code>.</p></div></details></p>
+
+<h2 id="7-оптимизация-работы-с-эдо-советы-экспертов">7. Оптимизация работы с ЭДО: советы экспертов</h2>
+
+<p>Чтобы ускорить обработку документов и избежать штрафов, следуйте этим рекомендациям:</p>
+<ul>
+  <li>⚡ <strong>Используйте облачную 1С</strong> — это снижает нагрузку на локальный сервер и ускоряет обмен данными.</li>
+  <li>📊 <strong>Настройте дашборды</strong> для мониторинга статусов заказов (например, через <em>1С:Аналитика</em> или <em>Power BI</em>).</li>
+  <li>🔄 <strong>Автоматизируйте печать этикеток</strong> — подключите <em>1С</em> к принтеру этикеток (например, <em>Zebra</em> или <em>TSC</em>) через обработку <code>Печать этикеток Ozon</code>.</li>
+  <li>📈 <strong>Анализируйте ошибки</strong> — еженедельно проверяйте журнал обмена и устраняйте повторяющиеся сбои.</li>
+</ul>
+
+<p><mark>Критическая ошибка многих продавцов — игнорирование статуса "Частичная отгрузка". Если в заказе несколько товаров, но один отсутствует на складе, <em>Ozon</em> требует отправить накладную только на доступные позиции, а остальные перенести в отдельный заказ. В <em>1С</em> это делается через документ <code>Корректировка заказа</code>.</mark></p>
+
+<p>Для крупных продавцов (от 100 заказов в день) рекомендуется использовать <strong>специализированные модули</strong>, такие как:</p>
+<ul>
+  <li>🛠️ <em>Атол Онлайн</em> — поддерживает автоматическую отправку этикеток и накладных.</li>
+  <li>🛠️ <em>МойСклад + Ozon</em> — синхронизирует остатки и цены в реальном времени.</li>
+  <li>🛠️ <em>1С-Рарус: Интеграция с маркетплейсами</em> — расширенные отчёты и аналитика.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Самая частая причина штрафов — несвоевременная отгрузка. Настройте в <em>1С</em> уведомления о заказах со статусом "Готов к отгрузке" и обрабатывайте их в течение 2 часов.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-настройке-эдо-с-ozon-в-1с">FAQ: Частые вопросы по настройке ЭДО с Ozon в 1С</h2>
+
+<details>
+  <summary>🔹 Как проверить, что 1С успешно подключилась к ЭДО Ozon?</summary>
+  <p>Запустите тестовое подключение в профиле обмена (<code>Обмен данными → Настройка обмена → Проверить соединение</code>). Если статус <code>Успешно</code>, а в журнале обмена появляются новые заказы — интеграция работает. Также можно отправить тестовую накладную через <code>Документы → Отправить в ЭДО</code>.</p>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если в 1С не загружаются заказы от Ozon?</summary>
+  <p>Проверьте:
+  <ol>
+    <li>Настройки расписания обмена (должно быть включено автоматическое обновление).</li>
+    <li>Правильность логина/пароля в профиле обмена.</li>
+    <li>Наличие интернет-соединения и отсутствие блокировок фаерволом.</li>
+    <li>Статус серверов <em>Ozon</em> (иногда бывают технические работы).</li>
+  </ol>
+<p>Если проблема остаётся, обратитесь в поддержку <em>1С</em> с логом ошибок (<code>Обмен данными → Журнал</code>).</p></p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли настроить ЭДО с Ozon в 1С:Бухгалтерия 8.2?</summary>
+  <p>Нет, <em>1С:Бухгалтерия 8.2</em> не поддерживает прямой обмен с <em>Ozon</em>. Вам потребуется:</p>
+  <ul>
+    <li>Обновиться до версии 3.0.80+.</li>
+    <li>Или использовать промежуточное ПО (например, <em>МойСклад</em> или <em>Атол Онлайн</em>).</li>
+  </ul>
+  <p>Также можно экспортировать/импортировать документы вручную через файлы <code>XML</code>/<code>Excel</code>, но это неудобно при большом количестве заказов.</p>
+</details>
+
+<details>
+  <summary>🔹 Как в 1С увидеть трек-номер от Ozon?</summary>
+  <p>Трек-номер приходит в ответном сообщении от <em>Ozon</em> после подтверждения накладной. Чтобы он отображался в <em>1С</em>:</p>
+  <ol>
+    <li>Настройте правило сопоставления для поля <code>ТрекНомер</code> в документе <code>Реализация товаров и услуг</code>.</li>
+    <li>Включите опцию <code>Обновлять статус по трек-номеру</code> в профиле обмена.</li>
+  </ol>
+  <p>После этого трек-номер будет автоматически подтягиваться в карточку заказа и накладную.</p>
+</details>
+
+<details>
+  <summary>🔹 Какие штрафы грозит за несвоевременную обработку документов?</summary>
+  <p><em>Ozon</em> применяет следующие санкции:</p>
+  <ul>
+    <li>💰 <strong>Задержка накладной более 2 часов</strong> — штраф 500 рублей за заказ.</li>
+    <li>💰 <strong>Некорректные данные в документе</strong> — штраф 300 рублей + блокировка отгрузки.</li>
+    <li>💰 <strong>Отсутствие ответа на претензию более 24 часов</strong> — штраф 1 000 рублей.</li>
+  </ul>
+  <p>При системных нарушениях аккаунт могут заблокировать на 3–7 дней.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/p/pl/platformy-kak-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Платформы как Озон: лучшие аналоги и стратегии для селлеров в 2026</span>
+                <span class="pb-related-desc">Ищете платформы как Озон для развития бизнеса? Полный обзор Wildberries, Яндекс Маркета, Мегамаркета</span>
+            </a><a href="/articles/o/oz/ozon-seller-kak-upakovat-tovar.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать товар для Ozon Seller: правила и советы 2026</span>
+                <span class="pb-related-desc">Полное руководство по упаковке товаров для Ozon: требования маркетплейса, материалы, инструкции по з</span>
+            </a><a href="/articles/k/ka/kak-sdelat-brend-na-ozon-svoj-tovar.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать бренд на Озон: пошаговое руководство для продавцов 2026</span>
+                <span class="pb-related-desc">Хотите вывести свой товар на Озон под собственным брендом? Узнайте, как зарегистрировать ТМ, оформит</span>
+            </a><a href="/articles/m/mo/mozhno-li-prodavat-na-ozone-ili-valberiz-to-chto-sam-proizvodish-doma.html" class="pb-related-card">
+                <span class="pb-related-title">Продажа товаров домашнего производства на Ozon и Wildberries</span>
+                <span class="pb-related-desc">Можно ли продавать хенд-мейд на маркетплейсах? Разбор юридических требований, сертификации, упаковки</span>
+            </a><a href="/articles/g/gd/gde-na-ozone-otslezhivat-oborachivaemost-tovarov.html" class="pb-related-card">
+                <span class="pb-related-title">Где на Озоне смотреть оборачиваемость товаров: инструкция</span>
+                <span class="pb-related-desc">Узнайте, где найти отчеты по оборачиваемости на Ozon. Анализ показателей, расчет коэффициентов и стр</span>
+            </a><a href="/articles/k/ka/kak-platit-nds-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как платить НДС на Ozon: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Полный гид: как платить НДС на Озон. Схемы работы, ставки, расчеты для ОСНО и УСН, сроки уплаты и ню</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

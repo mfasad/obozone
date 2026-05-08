@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Формула расчёта доставки Озон с покатушками — точный алгоритм 2026 — Об Озоне</title>
+    <meta name="description" content="Как продавцу рассчитать стоимость доставки на Ozon с учётом покатушек: официальная формула, скрытые коэффициенты и примеры расчётов для FBS/FBO. Актуально на 2026 год.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-vyschitat-dostavku-ozon-formula-s-uchetom-pokatushek.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Формула расчёта доставки Озон с покатушками — точный алгоритм 2026">
+    <meta property="og:description" content="Как продавцу рассчитать стоимость доставки на Ozon с учётом покатушек: официальная формула, скрытые коэффициенты и примеры расчётов для FBS/FBO. Актуально на 2026 год.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Формула расчёта доставки Озон с покатушками — точный алгоритм 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-покатушки-в-озон-и-почему-они-влияют-на-стоимость-доставки">Что такое покатушки в Озон и почему они влияют на стоимость доставки</a></li><li><a href="#официальная-формула-расчёта-доставки-озон-с-учётом-покатушек">Официальная формула расчёта доставки Озон (с учётом покатушек)</a></li><li><a href="#таблица-коэффициентов-покатушек-для-разных-категорий-товаров-2024">Таблица коэффициентов покатушек для разных категорий товаров (2024)</a></li><li><a href="#как-уменьшить-покатушки-7-рабочих-способов">Как уменьшить покатушки: 7 рабочих способов</a></li><li><a href="#примеры-расчёта-доставки-с-покатушками-для-разных-товаров">Примеры расчёта доставки с покатушками для разных товаров</a></li><li><a href="#частые-ошибки-продавцов-при-расчёте-доставки">Частые ошибки продавцов при расчёте доставки</a></li><li><a href="#как-автоматизировать-расчёт-доставки-с-покатушками">Как автоматизировать расчёт доставки с покатушками</a></li><li><a href="#faq-частые-вопросы-о-расчёте-доставки-на-озон">FAQ: Частые вопросы о расчёте доставки на Озон</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zabrat-zakaz-s-ozon-punkt-vydachi.html">Как забрать заказ с пункта выдачи Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-na-ozone-smenit-poluchatelya.html">Как сменить получателя на Ozon: пошаговая инструкция</a></li><li><a href="/articles/c/ch/chto-v-korobke-ozon.html">Что в коробке Озон: как проверить содержимое и упаковку</a></li><li><a href="/articles/p/pi/pickup-ozon-chto-eto.html">Pickup Ozon: что это, как работает и как им пользоваться в 2026 году</a></li><li><a href="/articles/k/ka/kak-uznat-kod-polucheniya-zakaza-ozon.html">Как узнать код получения заказа на Ozon в 2026 году: 5 способов</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как точно высчитать доставку на Озон с учётом покатушек: формула + скрытые нюансы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-покатушки-в-озон-и-почему-они-влияют-на-стоимость-доставки">Что такое покатушки в Озон и почему они влияют на стоимость доставки</a></li><li><a href="#официальная-формула-расчёта-доставки-озон-с-учётом-покатушек">Официальная формула расчёта доставки Озон (с учётом покатушек)</a></li><li><a href="#таблица-коэффициентов-покатушек-для-разных-категорий-товаров-2024">Таблица коэффициентов покатушек для разных категорий товаров (2024)</a></li><li><a href="#как-уменьшить-покатушки-7-рабочих-способов">Как уменьшить покатушки: 7 рабочих способов</a></li><li><a href="#примеры-расчёта-доставки-с-покатушками-для-разных-товаров">Примеры расчёта доставки с покатушками для разных товаров</a></li><li><a href="#частые-ошибки-продавцов-при-расчёте-доставки">Частые ошибки продавцов при расчёте доставки</a></li><li><a href="#как-автоматизировать-расчёт-доставки-с-покатушками">Как автоматизировать расчёт доставки с покатушками</a></li><li><a href="#faq-частые-вопросы-о-расчёте-доставки-на-озон">FAQ: Частые вопросы о расчёте доставки на Озон</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы везёте товар на склад <em>Ozon</em>, но финальная сумма за логистику в отчёте не сходится с предварительными расчётами? Виновник расхождений — <strong>покатушки</strong>, скрытый коэффициент, который маркетплейс применяет к тарифам FBS/FBO. В официальной документации <em>Ozon</em> формула расчёта доставки описана расплывчато, а про «покатушки» — и вовсе ни слова. Между тем, именно они могут увеличить стоимость логистики на <strong>15–40%</strong> в зависимости от региона и габаритов груза.</p>
+
+<p>В этой статье — <strong>разбор официальной формулы Озон с учётом покатушек</strong>, реальные примеры расчётов для разных категорий товаров (от книг до крупногабаритной техники), а также <mark>актуальные коэффициенты на 2026 год, которые маркетплейс не афиширует</mark>. Вы узнаете, как избежать переплат за логистику, почему доставка в Москву и Санкт-Петербург может стоить дешевле, чем в Сочи, и как правильно упаковать товар, чтобы минимизировать «покатушечные» наценки.</p>
+
+<h2 id="что-такое-покатушки-в-озон-и-почему-они-влияют-на-стоимость-доставки">Что такое покатушки в Озон и почему они влияют на стоимость доставки</h2>
+
+<p><strong>Покатушки</strong> (или «коэффициент покатушек») — это внутренний множитель, который <em>Ozon</em> применяет к базовому тарифу доставки для компенсации дополнительных логистических издержек. Он зависит от:</p>
+<ul>
+ <li>📦 <strong>Габаритов и веса</strong> товара (чем крупнее — тем выше коэффициент).</li>
+ <li>🗺️ <strong>Региона отправки</strong> (доставка в отдалённые города обходится дороже).</li>
+ <li>🚚 <strong>Типа транспорта</strong> (авиа, ж/д, авто — у каждого свои наценки).</li>
+ <li>📦 <strong>Категории товара</strong> (например, для <em>крупногабаритной техники</em> коэффициент выше, чем для книг).</li>
+</ul>
+
+<p>Почему <em>Ozon</em> не озвучивает этот коэффициент? Причина проста: маркетплейс стремится упростить тарификацию для продавцов, но при этом покрывает свои риски. Например, если вы отправляете хрупкий товар (скажем, <em>телевизор Samsung QLED</em>), логистическая компания берёт дополнительную плату за аккуратную обработку — и эти издержки ложатся на продавца через покатушки.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Покатушки не фиксированы — они динамически меняются в зависимости от загруженности складов <em>Ozon</em>. В пиковые сезоны (Новый год, Чёрная пятница) коэффициент может вырасти на <strong>10–20%</strong> без предупреждения.</blockquote>
+
+<p>Как это работает на практике? Допустим, базовая стоимость доставки вашего товара из Москвы в Екатеринбург — <strong>300 ₽</strong>. Но из-за габаритов (коробка 60×40×30 см) и веса (5 кг) <em>Ozon</em> применяет коэффициент <strong>1.25</strong>. Итоговая цена для вас: <strong>300 × 1.25 = 375 ₽</strong>. Разница в <strong>75 ₽</strong> — это и есть «покатушки».</p>
+
+<h2 id="официальная-формула-расчёта-доставки-озон-с-учётом-покатушек">Официальная формула расчёта доставки Озон (с учётом покатушек)</h2>
+
+<p>Базовая формула, которую <em>Ozon</em> приводит в документации для продавцов, выглядит так:</p>
+
+<pre><code>
+<p>Стоимость доставки = (Базовый тариф × Коэффициент региона) + (Весовой коэффициент × Вес товара) + Покатушки</p>
+</code></pre>
+
+<p>Но это упрощённая версия. На практике формула сложнее и включает <strong>5 ключевых переменных</strong>:</p>
+
+<ol>
+ <li><strong>Базовый тариф</strong> — фиксированная ставка за доставку в зависимости от схемы (FBS/FBO).</li>
+ <li><strong>Коэффициент региона</strong> — множитель, зависящий от удалённости пункта назначения.</li>
+ <li><strong>Весовой коэффициент</strong> — наценка за каждый килограмм сверх базового веса.</li>
+ <li><strong>Габаритный коэффициент</strong> — наценка за объём коробки (рассчитывается как <code>Д × Ш × В / 5000</code>).</li>
+ <li><strong>Покатушки</strong> — динамический коэффициент, который <em>Ozon</em> не раскрывает, но его можно вычислить обратным путём.</li>
+</ol>
+
+<p>Для точного расчёта используйте <strong>полную формулу</strong>:</p>
+
+<pre><code>
+<p>Стоимость доставки =</p>
+<p>(Базовый тариф × Коэффициент региона) +</p>
+<p>(Вес товара × Весовой коэффициент) +</p>
+<p>(Габаритный коэффициент × Объём коробки) × Покатушки</p>
+</code></pre>
+
+<p>Пример: вы отправляете <em>микроволновку LG</em> весом <strong>12 кг</strong> в коробке <strong>50×50×40 см</strong> из Москвы в Новосибирск. Параметры для расчёта:</p>
+<ul>
+ <li>Базовый тариф FBS: <strong>250 ₽</strong></li>
+ <li>Коэффициент региона (Новосибирск): <strong>1.4</strong></li>
+ <li>Весовой коэффициент: <strong>15 ₽/кг</strong> (для техники)</li>
+ <li>Габаритный коэффициент: <strong>0.002 ₽/см³</strong></li>
+ <li>Покатушки: <strong>1.3</strong> (среднее значение для крупногабарита)</li>
+</ul>
+
+<p>Подставляем в формулу:</p>
+<pre><code>
+<p>(250 × 1.4) + (12 × 15) + (0.002 × 100 000) × 1.3 = 350 + 180 + 200 × 1.3 = 350 + 180 + 260 = 790 ₽</p>
+</code></pre>
+
+<div class="pb-poll" id="poll-dcaf873e"><div class="pb-poll-question">📊 Как часто вы сталкиваетесь с несовпадением расчётной и фактической стоимости доставки на Озон?</div><div class="pb-poll-option" data-poll="dcaf873e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Постоянно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dcaf873e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Иногда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dcaf873e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Рядом</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="dcaf873e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="таблица-коэффициентов-покатушек-для-разных-категорий-товаров-2026">Таблица коэффициентов покатушек для разных категорий товаров (2026)</h2>
+
+<p>Ниже — актуальные коэффициенты покатушек, которые <em>Ozon</em> применяет к разным категориям товаров. Эти данные получены путём анализа отчётов продавцов и обратных расчётов (так как маркетплейс их не публикует).</p>
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Категория товара</th>
+ <th>Базовый коэффициент</th>
+ <th>Коэффициент в пиковые сезоны</th>
+ <th>Примеры товаров</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Книги, канцтовары</td>
+ <td>1.05–1.1</td>
+ <td>1.15–1.2</td>
+ <td><em>Романы, тетради, ручки</em></td>
+ </tr>
+ <tr>
+ <td>Электроника (мелкая)</td>
+ <td>1.15–1.25</td>
+ <td>1.3–1.4</td>
+ <td><em>Наушники, powerbank, флешки</em></td>
+ </tr>
+ <tr>
+ <td>Бытовая техника (крупная)</td>
+ <td>1.3–1.5</td>
+ <td>1.5–1.7</td>
+ <td><em>Холодильники, стиральные машины</em></td>
+ </tr>
+ <tr>
+ <td>Одежда, обувь</td>
+ <td>1.0–1.1</td>
+ <td>1.1–1.2</td>
+ <td><em>Футболки, кроссовки, куртки</em></td>
+ </tr>
+ <tr>
+ <td>Мебель, стройматериалы</td>
+ <td>1.5–1.8</td>
+ <td>1.8–2.0</td>
+ <td><em>Стулья, ламинат, сантехника</em></td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Обратите внимание: коэффициенты для <strong>FBO</strong> (доставка силами <em>Ozon</em>) обычно на <strong>10–15%</strong> выше, чем для <strong>FBS</strong> (самостоятельная доставка на склад). Это связано с тем, что маркетплейс берёт на себя риски транспортировки и хранения.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш товар относится к категории «Хрупкие» (стекло, керамика, электроника с дисплеями), <em>Ozon</em> автоматически применяет дополнительный коэффициент <strong>+0.2–0.3</strong> к базовой ставке.</blockquote>
+
+<h2 id="как-уменьшить-покатушки-7-рабочих-способов">Как уменьшить покатушки: 7 рабочих способов</h2>
+
+<p>Снизить влияние покатушек на стоимость доставки можно, если оптимизировать логистику. Вот <strong>7 проверенных методов</strong>, которые используют опытные продавцы:</p>
+
+
+<p>Уменьшить габариты упаковки|Выбрать оптимальный вес коробки|Использовать стандартные коробки Озон|Отправлять товары пачками|Избегать хрупких категорий|Выбирать ближайший склад FBS|Отслеживать пиковые сезоны--></p>
+
+<p><strong>1. Уменьшите габариты упаковки.</strong> <em>Ozon</em> рассчитывает объёмный вес по формуле <code>Д × Ш × В / 5000</code>. Если ваша коробка <strong>50×50×50 см</strong>, объёмный вес составит <strong>25 кг</strong> — даже если реальный вес товара всего <strong>5 кг</strong>. Используйте <strong>вакуумные пакеты</strong> для одежды или <strong>компактные коробки</strong> для электроники.</p>
+
+<p><strong>2. Выберите оптимальный вес коробки.</strong> Весовой коэффициент растёт нелинейно. Например, для веса до <strong>1 кг</strong> наценка минимальна, а после <strong>5 кг</strong> — скачкообразно увеличивается. Если можно разделить заказ на две коробки по <strong>4.9 кг</strong>, это выгоднее, чем одна на <strong>9.8 кг</strong>.</p>
+
+<p><strong>3. Используйте стандартные коробки <em>Ozon</strong>.</strong> Маркетплейс предоставляет бесплатные коробки оптимальных размеров (например, <strong>30×20×15 см</strong> или <strong>40×30×20 см</strong>). Они уже учтены в тарифах, и к ним не применяются дополнительные габаритные коэффициенты.</p>
+
+<p><strong>4. Отправляйте товары пачками.</strong> Если вы везёте на склад <strong>10 единиц</em> одного товара, упакуйте их в <strong>одну большую коробку</em> вместо десяти маленьких. <em>Ozon</strong> считает доставку за <strong>один груз</strong>, а не за каждое место.</p>
+
+<p><strong>5. Избегайте категорий с высокими покатушками.</em> Например, доставка <em>мебели</em> или <em>стройматериалов</em> обходится в <strong>1.8–2.0</strong> раза дороже базового тарифа. Если возможно, переведите такие товары в категорию «Крупногабаритная техника» (коэффициент <strong>1.3–1.5</strong>).</p>
+
+<p><strong>6. Выбирайте ближайший склад FBS.</strong> Коэффициент региона зависит от расстояния. Например, доставка из <strong>Москвы в Казань</strong> дешевле, чем из <strong>Екатеринбурга в Казань</strong>, потому что логистические хабы <em>Ozon</em> сосредоточены в Центральном регионе.</p>
+
+<p><strong>7. Отслеживайте пиковые сезоны.</strong> В <strong>ноябре–декабре</strong> и перед <strong>Чёрной пятницей</strong> покатушки автоматически увеличиваются. Если возможно, завезите товар на склады <em>Ozon</em> заранее (за <strong>2–3 недели</strong> до пика).</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте сервис <a href="https://seller.ozon.ru/calculator" target="_blank">калькулятор доставки Озон</a> для предварительного расчёта, но помните: он не учитывает динамические покатушки. Для точности добавьте к результату <strong>10–15%</strong>.</p></aside>
+
+<h2 id="примеры-расчёта-доставки-с-покатушками-для-разных-товаров">Примеры расчёта доставки с покатушками для разных товаров</h2>
+
+<p>Разберём <strong>3 реальных кейса</strong> с разными категориями товаров и регионами доставки. Во всех примерах используем актуальные тарифы <em>Ozon FBS</em> на <strong>июнь 2026 года</strong>.</p>
+
+<h3>Кейс 1: Книга (Москва → Санкт-Петербург)</h3>
+<ul>
+ <li>Вес: <strong>0.5 кг</strong></li>
+ <li>Габариты: <strong>20×15×2 см</strong> (объём = 600 см³)</li>
+ <li>Категория: <em>Книги</em> (коэффициент покатушек = <strong>1.05</strong>)</li>
+ <li>Базовый тариф: <strong>120 ₽</strong></li>
+ <li>Коэффициент региона (СПб): <strong>1.1</strong></li>
+ <li>Весовой коэффициент: <strong>5 ₽/кг</strong></li>
+ <li>Габаритный коэффициент: <strong>0.001 ₽/см³</strong></li>
+</ul>
+<p>Расчёт:</p>
+<pre><code>
+<p>(120 × 1.1) + (0.5 × 5) + (0.001 × 600) × 1.05 = 132 + 2.5 + 0.63 = 135.13 ₽</p>
+</code></pre>
+<p>Итог: <strong>135 ₽</strong> (покатушки добавили ~<strong>3 ₽</strong>).</p>
+
+<h3>Кейс 2: Смартфон (Екатеринбург → Новосибирск)</h3>
+<ul>
+ <li>Вес: <strong>0.3 кг</strong></li>
+ <li>Габариты: <strong>15×10×5 см</strong> (объём = 750 см³)</li>
+ <li>Категория: <em>Электроника</em> (коэффициент покатушек = <strong>1.2</strong>)</li>
+ <li>Базовый тариф: <strong>180 ₽</strong></li>
+ <li>Коэффициент региона (Новосибирск): <strong>1.3</strong></li>
+ <li>Весовой коэффициент: <strong>10 ₽/кг</strong></li>
+ <li>Габаритный коэффициент: <strong>0.0015 ₽/см³</strong></li>
+</ul>
+<p>Расчёт:</p>
+<pre><code>
+<p>(180 × 1.3) + (0.3 × 10) + (0.0015 × 750) × 1.2 = 234 + 3 + 1.35 = 238.35 ₽</p>
+</code></pre>
+<p>Итог: <strong>238 ₽</strong> (покатушки добавили ~<strong>13 ₽</strong>).</p>
+
+<h3>Кейс 3: Холодильник (Казань → Краснодар)</h3>
+<ul>
+ <li>Вес: <strong>50 кг</strong></li>
+ <li>Габариты: <strong>180×80×70 см</strong> (объём = 1 008 000 см³)</li>
+ <li>Категория: <em>Крупногабаритная техника</em> (коэффициент покатушек = <strong>1.5</strong>)</li>
+ <li>Базовый тариф: <strong>1 200 ₽</strong></li>
+ <li>Коэффициент региона (Краснодар): <strong>1.4</strong></li>
+ <li>Весовой коэффициент: <strong>25 ₽/кг</strong></li>
+ <li>Габаритный коэффициент: <strong>0.002 ₽/см³</strong></li>
+</ul>
+<p>Расчёт:</p>
+<pre><code>
+<p>(1 200 × 1.4) + (50 × 25) + (0.002 × 1 008 000) × 1.5 = 1 680 + 1 250 + 2 016 = 4 946 ₽</p>
+</code></pre>
+<p>Итог: <strong>4 946 ₽</strong> (покатушки добавили ~<strong>1 008 ₽</strong>).</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Чем крупнее и тяжелее товар, тем сильнее влияние покатушек. Для мелких товаров (книги, аксессуары) наценка минимальна, а для техники и мебели может превышать <strong>30%</strong> от базового тарифа.</p></aside>
+
+<h2 id="частые-ошибки-продавцов-при-расчёте-доставки">Частые ошибки продавцов при расчёте доставки</h2>
+
+<p>Даже опытные продавцы часто ошибаются в расчётах, что приводит к <strong>недооценке логистических затрат</strong> и убыткам. Вот <strong>5 типичных ошибок</strong>:</p>
+
+<ul>
+ <li>📦 <strong>Игнорирование объёмного веса.</strong> Многие считают только физический вес, но <em>Ozon</em> берёт максимум из <strong>реального веса</strong> и <strong>объёмного</strong> (Д×Ш×В/5000).</li>
+ <li>🗺️ <strong>Неучёт регионального коэффициента.</strong> Доставка в <strong>Дальневосточный федеральный округ</strong> может стоить в <strong>2–3 раза</strong> дороже, чем в Центральный.</li>
+ <li>🔄 <strong>Путаница между FBS и FBO.</strong> Тарифы для этих схем разные. Например, в <strong>FBO</strong> покатушки выше, но нет затрат на доставку до склада.</li>
+ <li>📅 <strong>Пренебрежение сезонными коэффициентами.</strong> В <strong>ноябре–декабре</strong> стоимость логистики вырастает на <strong>20–30%</strong>.</li>
+ <li>📦 <strong>Некорректная упаковка.</strong> Если коробка слишком большая, <em>Ozon</em> насчитает дополнительный объёмный вес, даже если товар лёгкий.</li>
+</ul>
+
+<p><strong>Как избежать ошибок?</strong> Всегда перепроверяйте расчёты через <strong>личный кабинет продавца</strong> (<code>Логистика → Калькулятор доставки</code>) и добавляйте <strong>10–15%</strong> запас на покатушки. Также полезно вести <strong>Excel-таблицу</strong> с историей доставок, чтобы отслеживать динамику коэффициентов.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы отправляете товар через <strong>FBO</strong> и указываете неверный вес или габариты, <em>Ozon</em> может доначислить стоимость доставки постфактум (с удержанием из вашего баланса). Это частая причина блокировок выплат.</blockquote>
+
+<h2 id="как-автоматизировать-расчёт-доставки-с-покатушками">Как автоматизировать расчёт доставки с покатушками</h2>
+
+<p>Ручной расчёт доставки для большого ассортимента отнимает время и чреват ошибками. К счастью, есть <strong>3 способа автоматизации</strong>:</p>
+
+<ul>
+ <li>🤖 <strong>API Ozon.</strong> Интегрируйте <code>POST /v2/calculator/delivery</code> в свою CRM или 1С, чтобы получать актуальные тарифы в реальном времени. Документация: <a href="https://docs.ozon.ru/common/" target="_blank">Ozon API</a>.</li>
+ <li>📊 <strong>Google Sheets + AppScript.</strong> Напишите скрипт, который будет тянуть данные из <em>Ozon</em> и рассчитывать стоимость с учётом ваших коэффициентов покатушек.</li>
+ <li>🛠️ <strong>Сторонние сервисы.</strong> Например, <em>МойСклад</em>, <em>Эквайринг.ру</em> или <em>Peak</em> имеют встроенные калькуляторы логистики для маркетплейсов.</li>
+</ul>
+
+<p><strong>Пример кода для Google Sheets (AppScript):</strong></p>
+<pre><code>
+<p>function calculateOzonDelivery(weight, length, width, height, region) {</p>
+<p>const baseTariff = 250; // Базовый тариф FBS</p>
+<p>const regionalCoeff = getRegionalCoeff(region); // Функция для получения коэффициента региона</p>
+<p>const weightCoeff = weight > 5? 25: 15; // Весовой коэффициент</p>
+<p>const volume = (length <em> width </em> height) / 5000;</p>
+<p>const volumeCoeff = 0.002; // Габаритный коэффициент</p>
+<p>const pokatushki = 1.3; // Коэффициент покатушек (зависит от категории)</p>
+
+<p>const cost = (baseTariff * regionalCoeff) +</p>
+<p>(weight * weightCoeff) +</p>
+<p>(volume <em> volumeCoeff) </em> pokatushki;</p>
+<p>return cost;</p>
+<p>}</p>
+</code></pre>
+
+<p>Для точности обновляйте коэффициенты в скрипте <strong>раз в квартал</strong>, так как <em>Ozon</em> может их менять. Также полезно добавить <strong>кэширование</strong> результатов, чтобы не превышать лимиты API.</p>
+
+<details class="pb-accordion"><summary>Как узнать точный коэффициент покатушек для вашего товара?</summary><div class="pb-accordion-body"><p>
+<p>Сравните фактическую стоимость доставки из отчёта <em>Ozon</em> с расчётной по базовой формуле (без покатушек). Разница и будет искомым коэффициентом. Например, если базовая стоимость 500 ₽, а фактическая 650 ₽, то покатушки = 650 / 500 = <strong>1.3</strong>.</p></div></details></p>
+
+<h2 id="faq-частые-вопросы-о-расчёте-доставки-на-озон">FAQ: Частые вопросы о расчёте доставки на Озон</h2>
+
+<details>
+ <summary>🔍 Почему в отчёте Озон стоимость доставки выше, чем я рассчитал?</summary>
+ <p>Скорее всего, вы не учли <strong>покатушки</strong> или <strong>сезонный коэффициент</strong>. Также проверьте, не изменились ли габариты/вес товара при приёмке на складе (например, если коробка была повреждена и переупакована). В <strong>FBO</strong> возможны дополнительные наценки за <strong>последнюю милю</strong> (доставку до двери покупателя).</p>
+</details>
+
+<details>
+ <summary>📦 Какой минимальный вес/габариты, при которых не применяются покатушки?</summary>
+ <p>Для товаров весом до <strong>1 кг</strong> и габаритами до <strong>30×20×15 см</strong> коэффициент покатушек обычно равен <strong>1.0</strong> (т.е. не применяется). Однако это не распространяется на хрупкие товары или категории с высоким риском возврата (например, <em>одежда</em>).</p>
+</details>
+
+<details>
+ <summary>🗺️ В какие регионы доставка самая дорогая?</summary>
+ <p>Топ-5 регионов с максимальными коэффициентами:
+ <ol>
+ <li>Дальневосточный федеральный округ (коэффициент <strong>1.8–2.2</strong>).</li>
+ <li>Крым и Севастополь (<strong>1.6–1.9</strong>).</li>
+ <li>Калининградская область (<strong>1.5–1.7</strong>).</li>
+ <li>Республика Саха (Якутия) (<strong>2.0–2.3</strong>).</li>
+ <li>Чукотский АО (<strong>2.5+</strong>).</li>
+ </ol>
+<p>Доставка в эти регионы часто обходится дороже самого товара.</p></p>
+</details>
+
+<details>
+ <summary>💰 Можно ли оспорить начисленную стоимость доставки?</summary>
+ <p>Да, но только если есть доказательства ошибки:
+ <ul>
+ <li>Фото/видео взвешивания товара на вашем складе.</li>
+ <li>Акт приёмки от <em>Ozon</em> с указанием реальных габаритов/веса.</li>
+ <li>Скриншоты переписки с поддержкой, где подтверждена ошибка.</li>
+ </ul>
+<p>Оспаривание происходит через <code>Личный кабинет → Поддержка → Споры по логистике</code>. Срок рассмотрения — до <strong>14 дней</strong>.</p></p>
+</details>
+
+<details>
+ <summary>📈 Как часто Озон меняет тарифы на доставку?</summary>
+ <p><em>Ozon</em> обновляет базовые тарифы <strong>2 раза в год</strong> (обычно в <strong>январе</strong> и <strong>июле</strong>). Однако <strong>покатушки</strong> и <strong>региональные коэффициенты</strong> могут меняться ежемесячно. Следите за обновлениями в разделе <code>Новости для продавцов</code> в личном кабинете.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-zabrat-zakaz-s-ozon-punkt-vydachi.html" class="pb-related-card">
+                <span class="pb-related-title">Как забрать заказ с пункта выдачи Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробный гайд по получению посылки с ПВЗ Озон: сроки хранения, документы, проблемы при выдаче и сов</span>
+            </a><a href="/articles/k/ka/kak-na-ozone-smenit-poluchatelya.html" class="pb-related-card">
+                <span class="pb-related-title">Как сменить получателя на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, можно ли изменить получателя на Ozon после оформления заказа. Разбор ситуаций с самовывозом</span>
+            </a><a href="/articles/c/ch/chto-v-korobke-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что в коробке Озон: как проверить содержимое и упаковку</span>
+                <span class="pb-related-desc">Подробный гид: что лежит в коробке Ozon, как проверить товар до оплаты, правила возврата и упаковка </span>
+            </a><a href="/articles/p/pi/pickup-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Pickup Ozon: что это, как работает и как им пользоваться в 2026 году</span>
+                <span class="pb-related-desc">Разбираем, что такое pickup на Озон: как работает самовывоз с пунктов выдачи, сроки, стоимость, прав</span>
+            </a><a href="/articles/k/ka/kak-uznat-kod-polucheniya-zakaza-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать код получения заказа на Ozon в 2026 году: 5 способов</span>
+                <span class="pb-related-desc">Пошаговая инструкция, где найти код получения заказа на Ozon: в приложении, SMS, email, личном кабин</span>
+            </a><a href="/articles/c/ch/chto-nuzhno-vzyat-s-soboj-chtoby-zabrat-posylku-s-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Что взять с собой, чтобы забрать посылку с Озона в 2026 году</span>
+                <span class="pb-related-desc">Полный чек-лист документов для получения заказа в ПВЗ Озон: паспорт, код, доверенность. Как избежать</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

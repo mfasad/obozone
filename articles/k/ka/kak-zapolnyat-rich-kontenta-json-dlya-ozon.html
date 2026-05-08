@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Rich-контент Ozon: инструкция по JSON-коду — Об Озоне</title>
+    <meta name="description" content="Как создать Rich-контент на Ozon через JSON. Готовые схемы, коды блоков и правила оформления карточек товаров для увеличения продаж.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zapolnyat-rich-kontenta-json-dlya-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Rich-контент Ozon: инструкция по JSON-коду">
+    <meta property="og:description" content="Как создать Rich-контент на Ozon через JSON. Готовые схемы, коды блоков и правила оформления карточек товаров для увеличения продаж.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Rich-контент Ozon: инструкция по JSON-коду</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-json-структура-в-rich-контенте-ozon">Что такое JSON-структура в Rich-контенте Ozon</a></li><li><a href="#основные-типы-блоков-и-их-параметры">Основные типы блоков и их параметры</a></li><li><a href="#пошаговая-инструкция-создание-кода-с-нуля">Пошаговая инструкция: создание кода с нуля</a></li><li><a href="#работа-с-изображениями-и-медиафайлами">Работа с изображениями и медиафайлами</a></li><li><a href="#типичные-ошибки-при-ручном-редактировании-кода">Типичные ошибки при ручном редактировании кода</a></li><li><a href="#seo-оптимизация-rich-контента-через-json">SEO-оптимизация Rich-контента через JSON</a></li><li><a href="#проверка-и-публикация-изменений">Проверка и публикация изменений</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-format-dlya-fotografij-dopustim-pri-zagruzke-v-kartochku-tovara-na-ozon.html">Формат фото для Озон: требования 2026 и как оптимизировать картинки</a></li><li><a href="/articles/k/ka/kak-sdelat-plastik-ozon.html">Как сделать пластик Ozon: инструкция по созданию упаковки</a></li><li><a href="/articles/c/ch/chto-takoe-posting-na-ozone-instruktsiya.html">Постинг на Ozon: полная инструкция для продавцов 2026 года</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-zhivota.html">Озон Живот: что это за сервис и как он работает в 2026 году</a></li><li><a href="/articles/k/ka/kak-upakovyvat-kosmetiku-na-ozon.html">Как упаковывать косметику на Ozon: требования 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как заполнять Rich-контент JSON для Ozon</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-json-структура-в-rich-контенте-ozon">Что такое JSON-структура в Rich-контенте Ozon</a></li><li><a href="#основные-типы-блоков-и-их-параметры">Основные типы блоков и их параметры</a></li><li><a href="#пошаговая-инструкция-создание-кода-с-нуля">Пошаговая инструкция: создание кода с нуля</a></li><li><a href="#работа-с-изображениями-и-медиафайлами">Работа с изображениями и медиафайлами</a></li><li><a href="#типичные-ошибки-при-ручном-редактировании-кода">Типичные ошибки при ручном редактировании кода</a></li><li><a href="#seo-оптимизация-rich-контента-через-json">SEO-оптимизация Rich-контента через JSON</a></li><li><a href="#проверка-и-публикация-изменений">Проверка и публикация изменений</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Визуальное оформление карточки товара на маркетплейсе давно перестало быть просто"приятным дополнением" и превратилось в критически важный инструмент продаж. Покупатели принимают решение о покупке за считанные секунды, оценивая внешний вид презентации. Обычного набора фотографий и сухого текста в характеристиках уже недостаточно для того, чтобы выделиться среди тысяч конкурентов. Именно здесь на сцену выходит Rich-контент, который позволяет создавать уникальные лендинги внутри карточки товара.</p>
+
+<p>Стандартный редактор Ozon удобен для базовых задач, но он ограничивает творческий полет селлера. Для тех, кто хочет внедрить сложные дизайнерские решения, анимацию или нестандартную верстку, единственным выходом остается работа с кодом. <strong>Rich-контент JSON</strong> — это именно тот формат, который дает полный контроль над каждым пикселем отображаемой информации. Понимание структуры этого кода открывает доступ к созданию по-настоящему продающих описаний.</p>
+
+<p>Многие продавцы ошибочно полагают, что работа с JSON-кодом требует навыков профессионального программиста. На самом деле, базовое понимание логики построения блоков позволяет успешно модифицировать готовые шаблоны. В этой статье мы детально разберем, как формируется структура кода, какие блоки поддерживает платформа и как избежать типичных ошибок при ручной правке.</p>
+
+<h2 id="что-такое-json-структура-в-rich-контенте-ozon">Что такое JSON-структура в Rich-контенте Ozon</h2>
+
+<p>JSON (JavaScript Object Notation) — это текстовый формат обмена данными, который легко читается как человеком, так и машиной. В контексте Озон, весь ваш богатый контент, будь то галерея изображений, текст с иконками или видео-обложка, описывается набором правил, заключенных в фигурные скобки. Система считывает этот код и рендерит его в красивую витрину на странице товара.</p>
+
+<p>Основным элементом структуры является массив блоков. Каждый блок имеет свой тип (например, <code>image_gallery</code> или <code>text_with_image</code>) и набор свойств (параметров), таких как URL картинки, цвет фона или размер шрифта. <strong>Валидация кода</strong> происходит автоматически при загрузке: если вы допустите синтаксическую ошибку, например, забудете запятую или кавычку, система просто не примет изменения.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте онлайн-форматировщики JSON (JSON beautifiers), чтобы превратить одну длинную строку кода в читаемый список с отступами. Это значительно упростит поиск ошибок.</p></aside>
+
+<p>Важно понимать, что Ozon использует специфическую схему JSON, отличную от стандартных веб-разметок. Здесь нет HTML-тегов в привычном виде (<code>&lt;div&gt;</code>, <code>&lt;img&gt;</code>). Вместо этого используются объекты, описывающие контент. Например, чтобы добавить изображение, вы не пишете тег img, а указываете объект с типом"image" и ссылкой на файл в свойствах.</p>
+
+<h2 id="основные-типы-блоков-и-их-параметры">Основные типы блоков и их параметры</h2>
+
+<p>Экосистема Rich-контента Ozon базируется на ограниченном, но функциональном наборе блоков. Знание их точных названий и параметров — ключ к успешной верстке. Вы не можете inventить свои типы блоков, система распознает только строго определенные значения.</p>
+
+<p>Самым популярным блоком является <code>image_gallery</code>. Он позволяет создавать слайдеры и галереи. Внутри него можно настраивать параметры отображения, такие как <code>width</code> (ширина) и <code>height</code> (высота). Другой востребованный тип — <code>text_with_image_left</code> или <code>text_with_image_right</code>, который комбинирует текстовое описание с визуальным рядом. Для текстовых вставок используется блок <code>text</code>, где можно задавать выравнивание и размер шрифта.</p>
+
+<ul>
+ <li>🖼️ <strong>image_gallery</strong> — создание слайдеров с фотографиями товара, настройка соотношения сторон.</li>
+ <li>📝 <strong>text</strong> — добавление заголовков и основного текста описания с выбором размера шрифта.</li>
+ <li>🎬 <strong>video</strong> — вставка ссылки на видео-обзор (требуется прямая ссылка или ID с YouTube/Vimeo).</li>
+ <li>📊 <strong>features</strong> — блок с иконками и преимуществами, часто используется для USP (уникальных торговых предложений).</li>
+</ul>
+
+<p>Каждый блок имеет обязательные и опциональные параметры. Например, для блока с текстом обязательно указать сам текст, а цвет фона может быть задан по умолчанию. <em>Параметр"id"</em> часто генерируется автоматически, но при ручном создании кода его лучше уникализировать для каждого блока, чтобы избежать конфликтов при рендеринге.</p>
+
+<details class="pb-accordion"><summary>Секретные параметры блоков</summary><div class="pb-accordion-body"><p>Некоторые блоки поддерживают параметр"background_color", который позволяет менять цвет подложки. Это полезно для разделения смысловых зон без использования изображений-разделителей.</p></div></details>
+
+<h2 id="пошаговая-инструкция-создание-кода-с-нуля">Пошаговая инструкция: создание кода с нуля</h2>
+
+<p>Процесс создания JSON-кода для Ozon начинается с планирования структуры. Прежде чем писать код, определите, какие блоки и в какой последовательности будут идти. Стандартная структура начинается с открывающей скобки и объявления переменной блоков.</p>
+
+<p>Первый шаг — создание базового каркаса. Вы должны объявить массив, в который будут добавляться объекты блоков. Синтаксически это выглядит как квадратная скобка, внутри которой через запятую перечисляются объекты. Каждый объект начинается с фигурной скобки и содержит ключ <code>type</code>, указывающий на тип блока.</p>
+
+<pre><code>{
+<p>"blocks": [</p>
+<p>{</p>
+<p>"type":"image_gallery",</p>
+<p>"params": {</p>
+<p>"images": [</p>
+<p>"ссылка_на_фото_1",</p>
+<p>"ссылка_на_фото_2"</p>
+<p>],</p>
+<p>"width":"100%"</p>
+<p>}</p>
+<p>}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>Далее следует наполнение параметрами. В примере выше мы видим блок галереи. Обратите внимание на вложенность: параметры находятся внутри ключа <code>params</code>, а список изображений — это массив строк внутри параметров. Нарушение этой иерархии приведет к ошибке parsing. <strong>Синтаксическая точность</strong> здесь важнее творческого подхода: одна лишняя запятая в конце массива может"сломать" весь код.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка JSON-кода</h4><label class="check-item"><input type="checkbox"><span>Все скобки парные (открытые закрыты)</span></label><label class="check-item"><input type="checkbox"><span>Кавычки используются только прямые ("")</span></label><label class="check-item"><input type="checkbox"><span>Запятые стоят между элементами, но не после последнего</span></label><label class="check-item"><input type="checkbox"><span>Ссылки на изображения доступны по HTTPS</span></label><label class="check-item"><input type="checkbox"><span></span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>После написания кода его необходимо вставить в редактор карточки товара. В интерфейсе Озон есть режим"Код" или"HTML/JSON", куда и вставляется полученная структура. Система попытается визуализировать результат. Если вместо картинки вы видите пустоту или ошибку, значит, структура нарушена.</p>
+
+<h2 id="работа-с-изображениями-и-медиафайлами">Работа с изображениями и медиафайлами</h2>
+
+<p>Качество визуализации напрямую зависит от правильности ссылок на медиафайлы. Ozon требует, чтобы все изображения, используемые в Rich-контенте, были загружены на их сервера или находились на надежном хостинге с поддержкой протокола <code>HTTPS</code>. Использование прямых ссылок на картинки с других сайтов часто приводит к тому, что через некоторое время они перестают отображаться из-за защиты от hotlinking.</p>
+
+<p>Лучшая практика — сначала загрузить все изображения в галерею товара или в медиафайлы личного кабинета селлера, скопировать их URL-адреса и только потом вставлять в JSON-код. Это гарантирует стабильность отображения. Оптимальный размер изображений для десктопной и мобильной версий может отличаться, поэтому рекомендуется использовать адаптивные параметры ширины, например, <code>width:"100%"</code>, чтобы блок растягивался на всю доступную область.</p>
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Параметр</th>
+ <th>Описание</th>
+ <th>Рекомендуемое значение</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>width</td>
+ <td>Ширина блока</td>
+ <td>100% (для адаптивности)</td>
+ </tr>
+ <tr>
+ <td>height</td>
+ <td>Высота блока</td>
+ <td>auto или фиксированная (px)</td>
+ </tr>
+ <tr>
+ <td>alt</td>
+ <td>Альтернативный текст</td>
+ <td>Описание товара (важно для SEO)</td>
+ </tr>
+ <tr>
+ <td>format</td>
+ <td>Формат файла</td>
+ <td>JPG, PNG, WEBP</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Особое внимание стоит уделить весу файлов. Хотя JSON-код сам по себе весит немного, тяжелые изображения могут замедлить загрузку страницы, что негативно скажется на поведенческих факторах. <em>Оптимизация графики</em> перед вставкой ссылок в код — обязательный этап подготовки контента.</p>
+
+<div class="pb-poll" id="poll-0ac7d10e"><div class="pb-poll-question">📊 Какой формат изображений вы используете чаще всего?</div><div class="pb-poll-option" data-poll="0ac7d10e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">JPG</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0ac7d10e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">PNG</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0ac7d10e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">WEBP</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0ac7d10e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">GIF</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="типичные-ошибки-при-ручном-редактировании-кода">Типичные ошибки при ручном редактировании кода</h2>
+
+<p>Ручное внесение правок в JSON чревато рядом специфических ошибок, которые не всегда очевидны с первого взгляда. Самая распространенная проблема — нарушение синтаксиса кавычек. В JSON ключи и строковые значения должны быть обязательно обернуты в двойные кавычки. Использование одинарных кавычек или их отсутствие приведет к тому, что редактор не сможет прочитать код.</p>
+
+<p>Вторая частая ошибка — trailing comma (висячая запятая). В многих языках программирования последняя запятая в списке допустима, но строгий стандарт JSON её запрещает. Если после последнего элемента массива или объекта стоит запятая, парсер выдаст ошибку. Также часто встречается дублирование ключей, когда в одном блоке дважды указывается один и тот же параметр, например, <code>width</code>.</p>
+
+<blockquote>⚠️ Внимание: Никогда не копируйте код из текстовых редакторов с"умным" форматированием (например, Word), так как они могут заменять прямые кавычки на типографские ("ёлочки"), которые система не распознает. Используйте только plain-text редакторы.</blockquote>
+
+<p>Еще одна проблема — некорректные URL. Ссылка должна быть полной, начинаться с <code>https://</code> и не содержать пробелов. Если ссылка битая, блок просто не отрисуется, оставив пустое место на странице товара. Всегда проверяйте доступность изображений в режиме инкогнито перед вставкой в код.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>90% ошибок в JSON-коде связаны с синтаксисом: пропущенными запятыми, незакрытыми скобками или неправильными кавычками. Внимательность важнее знания программирования.</p></aside>
+
+<h2 id="seo-оптимизация-rich-контента-через-json">SEO-оптимизация Rich-контента через JSON</h2>
+
+<p>Хотя Rich-контент в первую очередь ориентирован на визуальное восприятие, он играет важную роль в SEO-продвижении карточки. Поисковые алгоритмы Ozon и внешних поисковиков умеют индексировать текст, заложенный в JSON-структуру. Правильное использование текстовых блоков позволяет внедрить ключевые запросы в тело карточки, повышая её релевантность.</p>
+
+<p>При заполнении текстовых полей в JSON важно соблюдать баланс между читабельностью для человека и насыщенностью ключевыми словами для робота. Не стоит делать"сплошную простыню" текста. Разбивайте информацию на логические абзацы, используйте блоки с заголовками. <strong>Семантическое ядро</strong> должно быть органично вписано в описание преимуществ и характеристик товара.</p>
+
+<p>Кроме того, про атрибут <code>alt</code> для изображений. В JSON-коде для картинок часто можно прописать альтернативное описание. Это помогает поисковикам понимать, что изображено на картинке, если она не загрузится, и улучшает общую индексацию страницы. Грамотно составленный JSON-код делает карточку товара более"весомой" в глазах алгоритмов ранжирования.</p>
+
+<h2 id="проверка-и-публикация-изменений">Проверка и публикация изменений</h2>
+
+<p>После того как код написан и вставлен в редактор, необходимо тщательно проверить результат. Визуальный редактор Ozon может отображать превью, но оно не всегда на 100% соответствует тому, что увидит клиент на мобильном устройстве. Обязательно используйте предпросмотр с разных устройств.</p>
+
+<p>Если после сохранения вы видите сообщение об ошибке, не паникуйте. Часто система указывает примерную строку или просто говорит"Ошибка формата". В этом случае помогает метод исключения: убирайте блоки по одному, пока ошибка не исчезнет, чтобы найти виновника. Также полезно использовать онлайн-валидаторы JSON, куда можно скопировать ваш код и проверить его на наличие синтаксических ошибок перед загрузкой на Озон.</p>
+
+<ul>
+ <li>✅ Сохраните копию рабочего кода в текстовом файле на компьютере.</li>
+ <li>✅ Проверьте отображение на мобильной версии сайта и в приложении.</li>
+ <li>✅ Убедитесь, что все ссылки кликабельны и ведут туда, куда нужно.</li>
+ <li>✅ Проверьте скорость загрузки страницы с новым контентом.</li>
+</ul>
+
+<p>Публикация изменений может занять от нескольких минут до часа. В это время пользователи могут видеть старую версию карточки. Не стоит вносить правки повторно, если изменения не применились мгновенно — дайте системе время на обновление кэша.</p>
+
+<details>
+ <summary>Можно ли использовать сторонние скрипты в JSON для Ozon?</summary>
+ <p>Нет, в целях безопасности платформа Ozon запрещает исполнение произвольного JavaScript кода или подключение внешних скриптов. Rich-контент работает только на основе предустановленных блоков и их параметров. Попытка внедрить скрипт приведет к блокировке контента.</p>
+</details>
+
+<details>
+ <summary>Что делать, если код не принимается системой?</summary>
+ <p>Скорее всего, нарушен синтаксис JSON. Проверьте наличие запятых, кавычек и парность скобок. Также убедитесь, что вы используете правильные названия типов блоков, поддерживаемые текущей версией редактора Ozon.</p>
+</details>
+
+<details>
+ <summary>Влияет ли Rich-контент на ранжирование товара?</summary>
+ <p>Прямого влияния на позицию в поисковой выдаче сам факт наличия Rich-контента может не оказывать, но он значительно улучшает поведенческие факторы (время на странице, конверсию), что косвенно способствует росту карточки в рейтинге.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-format-dlya-fotografij-dopustim-pri-zagruzke-v-kartochku-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Формат фото для Озон: требования 2026 и как оптимизировать картинки</span>
+                <span class="pb-related-desc">Подробный гайд по допустимым форматам изображений для карточки товара на Ozon: размеры, вес, расшире</span>
+            </a><a href="/articles/k/ka/kak-sdelat-plastik-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать пластик Ozon: инструкция по созданию упаковки</span>
+                <span class="pb-related-desc">Узнайте, как сделать пластик на Ozon: выбор FBS, требования к упаковке и маркировке для продавцов. Г</span>
+            </a><a href="/articles/c/ch/chto-takoe-posting-na-ozone-instruktsiya.html" class="pb-related-card">
+                <span class="pb-related-title">Постинг на Ozon: полная инструкция для продавцов 2026 года</span>
+                <span class="pb-related-desc">Что такое постинг на Озоне и как правильно загружать товары: пошаговая инструкция, требования маркет</span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-zhivota.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Живот: что это за сервис и как он работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое Озон Живот — новый сервис от маркетплейса для продажи и покупки живых животны</span>
+            </a><a href="/articles/k/ka/kak-upakovyvat-kosmetiku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковывать косметику на Ozon: требования 2026</span>
+                <span class="pb-related-desc">Полный гайд по упаковке косметики на Озон. Требования к бутылочкам, запрет на стекло, схемы FBO/FBS </span>
+            </a><a href="/articles/p/po/pochemu-ozon-obestsvechivaet-lakmus.html" class="pb-related-card">
+                <span class="pb-related-title">Почему Ozon обесцвечивает лакмус: химия упаковки и pH</span>
+                <span class="pb-related-desc">Разбираем реакцию Ozon на лакмус: влияние кислотности картонных коробок и клеевых составов на индика</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

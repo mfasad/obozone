@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как посчитать CTR в Ozon: формула и анализ для продавцов — Об Озоне</title>
+    <meta name="description" content="Узнайте, как правильно рассчитать CTR в Ozon, какие показатели влияют на рейтинг карточки и как повысить кликабельность товаров. Пошаговая инструкция с примерами и формулами.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-poschitat-ctr-v-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как посчитать CTR в Ozon: формула и анализ для продавцов">
+    <meta property="og:description" content="Узнайте, как правильно рассчитать CTR в Ozon, какие показатели влияют на рейтинг карточки и как повысить кликабельность товаров. Пошаговая инструкция с примерами и формулами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как посчитать CTR в Ozon: формула и анализ для продавцов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-ctr-и-почему-он-важен-для-продавцов-ozon">Что такое CTR и почему он важен для продавцов Ozon</a></li><li><a href="#где-в-ozon-посмотреть-данные-для-расчёта-ctr">Где в Ozon посмотреть данные для расчёта CTR</a></li><li><a href="#формула-расчёта-ctr-в-ozon-с-примерами">Формула расчёта CTR в Ozon с примерами</a></li><li><a href="#как-автоматизировать-расчёт-ctr-в-excel-и-google-sheets">Как автоматизировать расчёт CTR в Excel и Google Sheets</a></li><li><a href="#топ-5-причин-низкого-ctr-и-как-их-исправить">Топ-5 причин низкого CTR и как их исправить</a></li><li><a href="#как-повысить-ctr-практические-советы">Как повысить CTR: практические советы</a></li><li><a href="#частые-ошибки-при-анализе-ctr">Частые ошибки при анализе CTR</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-ctr-в-ozon">FAQ: Ответы на частые вопросы о CTR в Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-tovar-vygodno-prodavat-na-ozon.html">Какой товар выгодно продавать на Озон в 2026: ТОП-10 ниш с высокой прибылью</a></li><li><a href="/articles/k/ka/kak-raspechatat-naklejki-ozon-na-odnom-liste-a4.html">Как распечатать наклейки Ozon на одном листе А4: инструкция</a></li><li><a href="/articles/k/ka/kak-sozdat-pochtu-ozon.html">Как создать почту Ozon: пошаговая инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-vzyat-zakaz-na-ozon.html">Как взять заказ на Озон: пошаговая инструкция для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-prodat-cherez-ozon-svoj-tovar-fizicheskomu-litsu.html">Как продать товар на Ozon физическому лицу: пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>CTR в Ozon: как рассчитать, проанализировать и улучшить показатель</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-ctr-и-почему-он-важен-для-продавцов-ozon">Что такое CTR и почему он важен для продавцов Ozon</a></li><li><a href="#где-в-ozon-посмотреть-данные-для-расчёта-ctr">Где в Ozon посмотреть данные для расчёта CTR</a></li><li><a href="#формула-расчёта-ctr-в-ozon-с-примерами">Формула расчёта CTR в Ozon с примерами</a></li><li><a href="#как-автоматизировать-расчёт-ctr-в-excel-и-google-sheets">Как автоматизировать расчёт CTR в Excel и Google Sheets</a></li><li><a href="#топ-5-причин-низкого-ctr-и-как-их-исправить">Топ-5 причин низкого CTR и как их исправить</a></li><li><a href="#как-повысить-ctr-практические-советы">Как повысить CTR: практические советы</a></li><li><a href="#частые-ошибки-при-анализе-ctr">Частые ошибки при анализе CTR</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-ctr-в-ozon">FAQ: Ответы на частые вопросы о CTR в Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Кликабельность (<strong>CTR</strong>) — один из ключевых показателей эффективности карточки товара на <em>Ozon</em>. От него зависит не только видимость вашего продукта в поиске и рекомендациях, но и общий рейтинг в алгоритмах маркетплейса. Однако многие продавцы до сих пор путают CTR с конверсией или не умеют его правильно интерпретировать. В этой статье разберём, что такое <strong>CTR в Ozon</strong>, как его посчитать вручную и с помощью инструментов платформы, а также какие факторы влияют на этот показатель.</p>
+
+<p>Важно понимать: высокий CTR не гарантирует продажи, но низкий почти всегда сигнализирует о проблемах — будь то некачественные фотографии, нерелевантный заголовок или неправильная цена. Мы покажем, как выявить эти проблемы с помощью анализа кликабельности, и дадим практические советы по оптимизации карточек. А для тех, кто работает с большим ассортиментом, приведём примеры автоматизации расчётов через <em>Excel</em> и <em>Google Sheets</em>.</p>
+
+<h2 id="что-такое-ctr-и-почему-он-важен-для-продавцов-ozon">Что такое CTR и почему он важен для продавцов Ozon</h2>
+
+<p><strong>CTR (Click-Through Rate)</strong> — это процентное соотношение количества кликов на карточку товара к количеству её показов. Формула простая:</p>
+
+<blockquote>
+<p>CTR = (Количество кликов / Количество показов) × 100%</p>
+</blockquote>
+
+<p>Например, если ваш товар показали 1 000 раз, а кликнули на него 50 пользователей, то CTR составит <code>5%</code>. Но почему этот показатель так важен для <em>Ozon</em>?</p>
+
+<ul>
+  <li>📈 <strong>Влияние на ранжирование</strong>: Алгоритмы маркетплейса отдают предпочтение карточкам с высоким CTR, считая их более релевантными запросам пользователей. Это значит, что при прочих равных ваш товар будет показываться выше в поиске.</li>
+  <li>💰 <strong>Снижение стоимости рекламы</strong>: В <em>Ozon Рекламе</em> высокий CTR может уменьшить цену за клик, так как платформа оценивает качество объявления.</li>
+  <li>🔍 <strong>Сигнал о качестве карточки</strong>: Низкий CTR часто указывает на проблемы с визуалами, заголовком или ценой. Это шанс оперативно исправить ошибки.</li>
+</ul>
+
+<p>Однако не стоит гнаться за максимальным CTR любой ценой. Например, завышенные ожидания (как в случае с кликбейтными заголовками) могут привести к росту возвратов, что негативно скажется на других метриках. Оптимальный CTR зависит от категории товара, сезонности и даже устройства, с которого пользователи заходят на <em>Ozon</em>.</p>
+
+<div class="pb-poll" id="poll-fb1d56d4"><div class="pb-poll-question">📊 Как часто вы анализируете CTR своих товаров на Ozon?</div><div class="pb-poll-option" data-poll="fb1d56d4" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Еженедельно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="fb1d56d4" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="fb1d56d4" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только перед акциями</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="fb1d56d4" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не анализировал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="где-в-ozon-посмотреть-данные-для-расчёта-ctr">Где в Ozon посмотреть данные для расчёта CTR</h2>
+
+<p>Чтобы посчитать CTR, нужны две ключевые метрики: <strong>количество показов</strong> и <strong>количество кликов</strong>. В <em>Ozon</em> эти данные доступны в нескольких разделах:</p>
+
+<ol>
+  <li><strong>Аналитика продавца</strong> (<code>Ozon Seller → Аналитика → Товары</code>): Здесь можно увидеть показатели по каждому товару за выбранный период. Обратите внимание на колонки «Показы» и «Клики».</li>
+  <li><strong>Ozon Реклама</strong> (<code>Реклама → Статистика кампаний</code>): Если вы запускаете рекламные кампании, данные по CTR доступны в отчётах по ключевым словам и товарам.</li>
+  <li><strong>Экспорт данных</strong>: Для глубокого анализа можно выгрузить отчёт в <em>Excel</em> через <code>Аналитика → Экспорт</code> и рассчитать CTR для больших выборок.</li>
+</ol>
+
+<p>Важно: данные в <em>Ozon</em> обновляются с задержкой до 24 часов. Если вы вносили изменения в карточку (например, поменяли фотографии), дождитесь накопления статистики хотя бы за 3–5 дней, чтобы оценка CTR была репрезентативной.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сравнивайте CTR по устройствам (мобильные vs десктоп) в отчётах <em>Ozon Рекламы</em>. Часто низкая кликабельность на смартфонах связана с неадаптированными изображениями или длинными заголовками.</p></aside>
+
+<h2 id="формула-расчёта-ctr-в-ozon-с-примерами">Формула расчёта CTR в Ozon с примерами</h2>
+
+<p>Базовая формула CTR универсальна, но в контексте <em>Ozon</em> есть нюансы. Рассмотрим несколько сценариев:</p>
+
+<h3>1. CTR для органического трафика</h3>
+<p>Если товар показывается в поиске или рекомендациях без рекламы, используйте данные из раздела <code>Аналитика → Товары</code>. Например:</p>
+<ul>
+  <li>Показов: 5 000</li>
+  <li>Кликов: 250</li>
+</ul>
+<p>Тогда CTR = (250 / 5 000) × 100% = <strong>5%</strong>.</p>
+
+<h3>2. CTR для рекламных кампаний</h3>
+<p>В <em>Ozon Рекламе</em> CTR рассчитывается отдельно для каждого ключевого слова или группы товаров. Например, если по ключу «кухонный нож» было:</p>
+<ul>
+  <li>Показов: 1 200</li>
+  <li>Кликов: 48</li>
+</ul>
+<p>CTR = (48 / 1 200) × 100% = <strong>4%</strong>. Сравните этот показатель со средним по категории (в <em>Ozon</em> он обычно варьируется от 2% до 8%).</p>
+
+<h3>3. Сводный CTR по нескольким товарам</h3>
+<p>Если нужно оценить кликабельность всей линейки, используйте формулу:</p>
+<blockquote>
+<p>Сводный CTR = (Сумма кликов по всем товарам / Сумма показов по всем товарам) × 100%</p>
+</blockquote>
+<p>Это поможет выявить «слабые» позиции, которые тянут общую статистику вниз.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Категория товара</th>
+      <th>Средний CTR в Ozon</th>
+      <th>Хороший CTR</th>
+      <th>Критически низкий CTR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Электроника</td>
+      <td>3–6%</td>
+      <td>7% и выше</td>
+      <td>Менее 2%</td>
+    </tr>
+    <tr>
+      <td>Одежда и обувь</td>
+      <td>4–8%</td>
+      <td>9% и выше</td>
+      <td>Менее 3%</td>
+    </tr>
+    <tr>
+      <td>Красота и здоровье</td>
+      <td>5–10%</td>
+      <td>11% и выше</td>
+      <td>Менее 4%</td>
+    </tr>
+    <tr>
+      <td>Детские товары</td>
+      <td>6–12%</td>
+      <td>13% и выше</td>
+      <td>Менее 5%</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<details class="pb-accordion"><summary>Почему CTR может резко упасть?</summary><div class="pb-accordion-body"><p>Причины могут быть разные — от технических сбоев (например, ошибка отображения фотографий) до сезонных изменений спроса. Также проверьте, не появились ли новые конкуренты с более агрессивной ценовой политикой или рекламой.</p></div></details>
+
+<h2 id="как-автоматизировать-расчёт-ctr-в-excel-и-google-sheets">Как автоматизировать расчёт CTR в Excel и Google Sheets</h2>
+
+<p>Если у вас сотни или тысячи товаров, считать CTR вручную неэффективно. Автоматизируйте процесс с помощью формул:</p>
+
+<h3>Шаг 1: Выгрузка данных из Ozon</h3>
+<p>Экспортируйте отчёт по товарам в формате <code>.csv</code> или <code>.xlsx</code> через <code>Аналитика → Экспорт</code>. Убедитесь, что в файле есть колонки с показами (<code>impressions</code>) и кликами (<code>clicks</code>).</p>
+
+<h3>Шаг 2: Формула для расчёта</h3>
+<p>В <em>Excel</em> или <em>Google Sheets</em> используйте формулу:</p>
+<pre><code>=IFERROR((B2/C2)*100, 0)</code></pre>
+<p>Где:</p>
+<ul>
+  <li><code>B2</code> — ячейка с количеством кликов;</li>
+  <li><code>C2</code> — ячейка с количеством показов;</li>
+  <li><code>IFERROR</code> — избегает ошибки деления на ноль.</li>
+</ul>
+
+<h3>Шаг 3: Условное форматирование</h3>
+<p>Чтобы быстро выявлять проблемные товары, настройте цветовую индикацию:</p>
+<ul>
+  <li>🟢 Зелёный: CTR выше среднего по категории;</li>
+  <li>🟡 Жёлтый: CTR в пределах нормы;</li>
+  <li>🔴 Красный: CTR ниже критического.</li>
+</ul>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Автоматизация расчёта CTR</h4><label class="check-item"><input type="checkbox"><span>Выгрузить данные из Ozon</span></label><label class="check-item"><input type="checkbox"><span>Создать колонку для формулы CTR</span></label><label class="check-item"><input type="checkbox"><span>Настроить условное форматирование</span></label><label class="check-item"><input type="checkbox"><span>Добавить фильтры по категориям</span></label><label class="check-item"><input type="checkbox"><span>Сохранить шаблон для регулярного анализа</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="топ-5-причин-низкого-ctr-и-как-их-исправить">Топ-5 причин низкого CTR и как их исправить</h2>
+
+<p>Если ваш CTR ниже среднего по категории, скорее всего, проблема кроется в одной из следующих областей:</p>
+
+<ol>
+  <li>
+    <strong>Некачественные фотографии</strong>
+    <p>На <em>Ozon</em> первое впечатление формируется за 0,5 секунды. Если главное изображение размытое, тёмное или не показывает товар в использовании, пользователи прокрутят его дальше. <mark>По статистике Ozon, замена главного фото увеличивает CTR на 15–30% в среднем.</mark></p>
+    <blockquote>⚠️ <strong>Внимание</strong>: Избегайте стоковых изображений — алгоритмы <em>Ozon</em> понижают такие карточки в выдаче.</blockquote>
+  </li>
+  <li>
+    <strong>Нерелевантный заголовок</strong>
+    <p>Если в названии товара нет ключевых слов, по которым его ищут, пользователи не кликнут, даже если товар им подходит. Используйте инструменты подбора ключей (например, <em>Wordstat Ozon</em> или <em>Meralco</em>) и тестируйте разные варианты заголовков.</p>
+  </li>
+  <li>
+    <strong>Неконкурентная цена</strong>
+    <p>CTR может падать, если ваша цена значительно выше средней по категории. Проверьте цены конкурентов с помощью сервисов мониторинга (например, <em>PriceLab</em> или <em>SellerBoard</em>).</p>
+  </li>
+  <li>
+    <strong>Отсутствие отзывов или низкий рейтинг</strong>
+    <p>Товары с рейтингом ниже <code>4,5</code> часто имеют низкий CTR, так как пользователи доверяют социальному доказательству. Запустите программу лояльности для сбора отзывов.</p>
+  </li>
+  <li>
+    <strong>Неправильная категория или атрибуты</strong>
+    <p>Если товар попадает в нерелевантные выдачи из-за ошибок в карточке, показы будут, но кликов — нет. Проверьте соответствие категории и заполненность всех обязательных атрибутов.</p>
+  </li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Перед изменением карточки протестируйте гипотезы: например, замените фото только на 10% товаров и сравните CTR через неделю. Это поможет избежать массовых ошибок.</p></aside>
+
+<h2 id="как-повысить-ctr-практические-советы">Как повысить CTR: практические советы</h2>
+
+<p>Улучшение CTR — это системная работа над карточкой. Вот проверенные методы:</p>
+
+<ul>
+  <li>📸 <strong>Фотографии</strong>:
+    <ul>
+      <li>Главное изображение должно быть на белом фоне (требование <em>Ozon</em>), но остальные можно делать в контексте (например, одежда на модели).</li>
+      <li>Добавьте видео-обзор — это увеличивает CTR на 20–40%.</li>
+      <li>Используйте все 10 слотов для фото, включая инфографику с характеристиками.</li>
+    </ul>
+  </li>
+  <li>🔤 <strong>Заголовок</strong>:
+    <ul>
+      <li>Первые 3–5 слов должны содержать главный ключ (например, «Смартфон <em>Samsung</em> Galaxy S23 256GB» вместо «Новый флагман от Samsung»).</li>
+      <li>Укажите ключевые преимущества: цвет, объём, материал.</li>
+      <li>Избегайте капитализации всего текста — это снижает доверие.</li>
+    </ul>
+  </li>
+  <li>💲 <strong>Цена и акции</strong>:
+    <ul>
+      <li>Если ваша цена выше средней, компенсируйте это бесплатной доставкой или подарком.</li>
+      <li>Участвуйте в акциях <em>Ozon</em> (например, «Товар дня») — это временно повышает CTR за счёт badge’ов.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Не забывайте про A/B-тестирование: меняйте по одному элементу карточки (например, только фотографии или только заголовок) и отслеживайте изменения CTR в течение 7–14 дней. Это поможет выявить, что именно работает для вашей аудитории.</p>
+
+<h2 id="частые-ошибки-при-анализе-ctr">Частые ошибки при анализе CTR</h2>
+
+<p>Даже опытные продавцы иногда допускают ошибки при работе с CTR. Вот что нельзя делать:</p>
+
+<ol>
+  <li>
+    <strong>Сравнивать CTR разных категорий</strong>
+    <p>CTR для электроники и для детских игрушек будет принципиально разным. Всегда ориентируйтесь на средние значения по вашей нише.</p>
+  </li>
+  <li>
+    <strong>Игнорировать сезонность</strong>
+    <p>CTR может падать в несезон (например, для купальников зимой). Не паникуйте — анализируйте динамику в контексте времени года.</p>
+  </li>
+  <li>
+    <strong>Учитывать только органический CTR</strong>
+    <p>Если вы запускаете рекламу, отдельно анализируйте CTR по рекламным кампаниям. Он может отличаться от органического в 2–3 раза.</p>
+  </li>
+  <li>
+    <strong>Менять карточку сразу после падения CTR</strong>
+    <p>Иногда падение кликабельности связано с внешними факторами (например, выходом нового айфона, если вы продаёте чехлы). Дождитесь стабилизации показателей.</p>
+  </li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если CTR резко вырос, проверьте, не попала ли ваша карточка в рекомендации по ошибке (например, из-за неверной категории). Такие «всплески» часто ведут к росту возвратов.</blockquote>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-ctr-в-ozon">FAQ: Ответы на частые вопросы о CTR в Ozon</h2>
+
+<details>
+  <summary>Какой CTR считается нормальным для нового товара?</summary>
+  <p>Для новых товаров без отзывов нормальный CTR — <code>2–4%</code>. После накопления 10–20 отзывов он должен вырасти до среднего по категории. Если через месяц CTR не превышает <code>1–2%</code>, карточку нужно срочно оптимизировать.</p>
+</details>
+
+<details>
+  <summary>Влияет ли CTR на участие в акциях Ozon?</summary>
+  <p>Да, но косвенно. <em>Ozon</em> отбирает товары для акций (например, «Выгодная цена») по комплексу метрик, включая CTR, конверсию и рейтинг. Низкий CTR может стать причиной отказа в участии.</p>
+</details>
+
+<details>
+  <summary>Можно ли искусственно повысить CTR?</summary>
+  <p>Технически да — например, запустив рекламу на широкие ключи с низкой конкуренцией. Но это приведёт к росту нецелевых кликов и ухудшению конверсии. Лучше работать над качеством карточки.</p>
+</details>
+
+<details>
+  <summary>Почему CTR в Ozon Рекламе выше, чем в органике?</summary>
+  <p>Рекламные показы таргетированы на более заинтересованную аудиторию (например, по ключевым словам), тогда как органические показы включают случайных пользователей. Разница в 2–3 раза — это нормально.</p>
+</details>
+
+<details>
+  <summary>Как часто нужно мониторить CTR?</summary>
+  <p>Для активных продавцов — еженедельно. Если ассортимент стабильный и нет рекламных кампаний, достаточно раз в месяц. После изменений в карточке (например, смены фото) проверяйте CTR через 3–5 дней.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-tovar-vygodno-prodavat-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какой товар выгодно продавать на Озон в 2026: ТОП-10 ниш с высокой прибылью</span>
+                <span class="pb-related-desc">Анализ самых прибыльных категорий для продажи на Озон: от электроники до handmade. Реальные кейсы, с</span>
+            </a><a href="/articles/k/ka/kak-raspechatat-naklejki-ozon-na-odnom-liste-a4.html" class="pb-related-card">
+                <span class="pb-related-title">Как распечатать наклейки Ozon на одном листе А4: инструкция</span>
+                <span class="pb-related-desc">Узнайте, как правильно распечатать наклейки Ozon на одном листе А4. Подробная инструкция по настройк</span>
+            </a><a href="/articles/k/ka/kak-sozdat-pochtu-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать почту Ozon: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как создать почту Озон для продавцов. Подробный гид по регистрации аккаунта, входу в Ozon S</span>
+            </a><a href="/articles/k/ka/kak-vzyat-zakaz-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как взять заказ на Озон: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно брать заказы на Ozon: от регистрации до получения первого заказа. Пошаговые с</span>
+            </a><a href="/articles/k/ka/kak-prodat-cherez-ozon-svoj-tovar-fizicheskomu-litsu.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать товар на Ozon физическому лицу: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по продаже товаров через Озон частным покупателям: от регистрации до получения де</span>
+            </a><a href="/articles/c/ch/chto-vygodno-otkryt-ozon-ili-vajldberriz.html" class="pb-related-card">
+                <span class="pb-related-title">Что выгоднее открыть: Ozon или Wildberries в 2026 году?</span>
+                <span class="pb-related-desc">Сравниваем условия Wildberries и Ozon для старта в 2026 году. Анализ комиссий, штрафов и логистики п</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

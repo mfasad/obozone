@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как устроена логистика Ozon: схемы FBO, FBS и логистический оператор — Об Озоне</title>
+    <meta name="description" content="Полный разбор логистических схем Ozon. Сравнение FBO и FBS, работа через логистического оператора, стоимость доставки и хранение на складах маркетплейса.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ustroena-logistika-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как устроена логистика Ozon: схемы FBO, FBS и логистический оператор">
+    <meta property="og:description" content="Полный разбор логистических схем Ozon. Сравнение FBO и FBS, работа через логистического оператора, стоимость доставки и хранение на складах маркетплейса.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как устроена логистика Ozon: схемы FBO, FBS и логистический оператор</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#основные-логистические-схемы-fbo-и-fbs">Основные логистические схемы: FBO и FBS</a></li><li><a href="#модель-работы-через-логистического-оператора">Модель работы через Логистического Оператора</a></li><li><a href="#процесс-приемки-и-хранения-товаров">Процесс приемки и хранения товаров</a></li><li><a href="#доставка-до-клиента-и-постаматы">Доставка до клиента и постаматы</a></li><li><a href="#возвраты-и-работа-с-браком">Возвраты и работа с браком</a></li><li><a href="#тарификация-и-оптимизация-расходов">Тарификация и оптимизация расходов</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-upakovat-tovar-dlya-otpravki-na-ozon.html">Как упаковать товар для Озон: правила и требования 2026</a></li><li><a href="/articles/o/oz/ozon-flex-chto-eto.html">Ozon Flex: что это за программа и как она работает в 2026 году</a></li><li><a href="/articles/k/kr/krupnyj-sklad-ozon-chto-znachit.html">Крупный склад Озон: что это значит для продавцов и покупателей?</a></li><li><a href="/articles/f/fb/fbs-ozon-kak-otgruzhat.html">FBS Озон: как отгружать товары правильно в 2026 году</a></li><li><a href="/articles/c/ch/chto-znachit-ozon-otsrochka.html">Озон Отсрочка: что это, как работает и выгодно ли это в 2026 году?</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как устроена логистика Ozon: полный гид по схемам работы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#основные-логистические-схемы-fbo-и-fbs">Основные логистические схемы: FBO и FBS</a></li><li><a href="#модель-работы-через-логистического-оператора">Модель работы через Логистического Оператора</a></li><li><a href="#процесс-приемки-и-хранения-товаров">Процесс приемки и хранения товаров</a></li><li><a href="#доставка-до-клиента-и-постаматы">Доставка до клиента и постаматы</a></li><li><a href="#возвраты-и-работа-с-браком">Возвраты и работа с браком</a></li><li><a href="#тарификация-и-оптимизация-расходов">Тарификация и оптимизация расходов</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Логистика Ozon представляет собой сложнейшую экосистему, которая связывает миллионы покупателей и продавцов по всей стране. Эффективность этой системы напрямую влияет на скорость получения заказов и, как следствие, на удовлетворенность клиентов. Понимание принципов работы складов, маршрутизации и схем отгрузки является фундаментальным навыком для любого селлера, планирующего масштабироваться на этой площадке.</p>
+
+<p>В основе инфраструктуры лежат гигантские фулфилмент-центры, расположенные в ключевых логистических узлах России. Именно здесь происходит приемка товаров, их сортировка, комплектация и упаковка. <strong>Алгоритмы распределения</strong> автоматически определяют ближайший к покупателю склад, что позволяет доставлять заказы за считанные дни. Без четкой координации этих процессов работа маркетплейса была бы невозможна в современных масштабах.</p>
+
+<p>Для продавца выбор правильной модели взаимодействия с логистикой становится стратегическим решением. От этого зависят операционные расходы, маржинальность бизнеса и необходимость нанимать собственный штат упаковщиков. В этой статье мы детально разберем все доступные инструменты, чтобы вы могли выбрать оптимальный путь развития своего магазина.</p>
+
+<h2 id="основные-логистические-схемы-fbo-и-fbs">Основные логистические схемы: FBO и FBS</h2>
+<p>На сегодняшний день Ozon предлагает две основные модели работы, каждая из которых имеет свои преимущества и недостатки. Выбор между ними зависит от ассортимента, габаритов товаров и готовности продавца делегировать процессы хранения.</p>
+
+<p>Схема <strong>FBO (Fulfillment by Ozon)</strong> подразумевает, что продавец передает товар на склады маркетплейса заранее. После приемки ответственность за хранение, упаковку и доставку полностью переходит к площадке. Это идеальный вариант для товаров с высокой оборачиваемостью, так как они получают приоритет в выдаче и попадают в программу Ozon Premium. <em>Логистический цикл</em> здесь максимально автоматизирован.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Передавая товар на FBO, убедитесь, что маркировка соответствует требованиям системы. Ошибки в штрихкодах могут привести к длительной приемке или потере товара на складе.</p>
+</blockquote>
+
+<p>В отличие от FBO, модель <strong>FBS (Fulfillment by Seller)</strong> требует от продавца самостоятельного хранения товаров. Заказ поступает в личный кабинет, после чего у селлера есть ограниченное время (обычно 24 или 48 часов), чтобы собрать, упаковать и передать груз в сортировочный центр. Это дает гибкость управления остатками, но требует наличия собственного склада и штата сборщиков.</p>
+
+<div class="pb-poll" id="poll-f20aec70"><div class="pb-poll-question">📊 Какую схему логистики вы используете чаще?</div><div class="pb-poll-option" data-poll="f20aec70" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBO</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f20aec70" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBS</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f20aec70" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Комбинирую FBO и FBS</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f20aec70" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Работаю через Логистического Оператора</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Существует также гибридный подход, когда часть ассортимента лежит на складах Ozon, а редкие или крупногабаритные позиции хранятся у продавца. Такой подход позволяет оптимизировать расходы на хранение и избежать штрафов за <strong>негабаритные остатки</strong>, которые долго не продаются на складах маркетплейса.</p>
+
+<h2 id="модель-работы-через-логистического-оператора">Модель работы через Логистического Оператора</h2>
+<p>Относительно новым, но стремительно набирающим популярность инструментом является работа через Логистического Оператора (ЛО). Эта схема создана для тех, кто хочет работать по модели FBO, но не имеет возможности или желания самостоятельно везти товар на удаленные склады Ozon.</p>
+
+<p>Суть процесса заключается в том, что продавец отгружает товар на склад партнера-оператора. Далее ЛО берет на себя все функции по приемке, упаковке, маркировке и транспортировке груза до складов Ozon. <mark>Ключевое отличие</mark> от классического FBO здесь в том, что первичную обработку товара выполняет не сам маркетплейс, а сертифицированный партнер.</p>
+
+<ul>
+<li>📦 <strong>Упрощенная приемка:</strong> Операторы часто лояльнее относятся к упаковке и быстрее проводят проверку качества товара перед отправкой на маркетплейс.</li>
+<li>🚚 <strong>Транспортировка:</strong> Вам не нужно искать транспортную компанию и бояться, что груз не примут из-за очереди на складе Ozon.</li>
+<li>💰 <strong>Прозрачные тарифы:</strong> Стоимость услуг ЛО фиксирована и известна заранее, что облегчает финансовое планирование.</li>
+</ul>
+
+<p>Использование Логистического Оператора особенно актуально для регионов, где нет крупных сортировочных центров Ozon, или для продавцов с небольшим объемом отгрузок, которым невыгодно арендовать целую фуру для доставки на склад маркетплейса.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>При выборе Логистического Оператора обязательно проверяйте его рейтинг в кабинете продавца и читайте актуальные отзывы о скорости обработки грузов.</p></aside>
+
+<h2 id="процесс-приемки-и-хранения-товаров">Процесс приемки и хранения товаров</h2>
+<p>Попадание товара на склад — это лишь начало пути. Система хранения на складах Ozon построена на хаотичном принципе, управляемом искусственным интеллектом. Товар не лежит в одной ячейке постоянно; система размещает его там, где есть свободное место, и там, откуда его будет удобнее всего забрать при сборке заказа.</p>
+
+<p>При приемке осуществляется <strong>штрихкодирование</strong> и взвешивание каждого единицы. Данные вносятся в систему, и товар становится видимым для покупателей. Важно понимать, что сроки приемки могут варьироваться: от 24 часов на крупных хабах до нескольких дней в периоды высокого сезона.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>FBO (Склад Ozon)</th>
+<th>FBS (Склад продавца)</th>
+<th>Логистический Оператор</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ответственность за хранение</td>
+<td>Ozon</td>
+<td>Продавец</td>
+<td>Продавец / Оператор</td>
+</tr>
+<tr>
+<td>Срок приемки</td>
+<td>2-5 дней</td>
+<td>Не применимо</td>
+<td>1-3 дня + доставка</td>
+</tr>
+<tr>
+<td>Требования к упаковке</td>
+<em>Строгие</em></td>
+<td>На усмотрение продавца</td>
+<td>Стандарты Оператора</td>
+</tr>
+<tr>
+<td>Стоимость хранения</td>
+<td>Платно (зависит от габаритов)</td>
+<td>Расходы продавца</td>
+<td>Включено в тариф или отдельно</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Хранение на складах Ozon платное, и тарификация зависит от занимаемого объема и категории товара. Для оптимизации расходов рекомендуется регулярно анализировать отчеты по <strong>оборачиваемости</strong> и выводить неликвидные позиции через акции или утилизацию.</p>
+
+<h2 id="доставка-до-клиента-и-постаматы">Доставка до клиента и постаматы</h2>
+<p>Финальный этап логистической цепочки — доставка до конечного потребителя. Ozon развивает собственную курьерскую службу и сеть пунктов выдачи заказов (ПВЗ), что позволяет контролировать качество сервиса на последнем метре.</p>
+
+<p>Заказы могут доставляться курьером до двери, в постаматы или в пункты выдачи партнеров. Скорость доставки напрямую зависит от того, насколько близко к покупателю находился товар в момент заказа. <em>Кросс-докинг</em> позволяет перемещать товары между регионами без длительного хранения, если спрос в конкретном городе превышает предложение.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы работаете по схеме FBS, сроки передачи товара в сортировочный центр. Опоздание даже на час может привести к отмене заказа и снижению рейтинга магазина.</p>
+</blockquote>
+
+<p>Для покупателей важна возможность отслеживания статуса заказа в реальном времени. Вся эта информация транслируется из внутренней логистической системы Ozon, которая обновляется при каждом сканировании штрихкода курьером или работником пункта выдачи.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Готовность товара к отгрузке</h4><label class="check-item"><input type="checkbox"><span>Проверка целостности упаковки</span></label><label class="check-item"><input type="checkbox"><span>Наличие штрихкода Ozon</span></label><label class="check-item"><input type="checkbox"><span>Соответствие вложения заказу</span></label><label class="check-item"><input type="checkbox"><span>Готовность передать курьеру в срок</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="возвраты-и-работа-с-браком">Возвраты и работа с браком</h2>
+<p>Логистика обратных потоков — одна из самых сложных частей работы маркетплейса. Возвраты могут происходить по разным причинам: отказ клиента при получении, брак, выявленный после вскрытия, или ошибки комплектации.</p>
+
+<p>Если товар возвращается на склад Ozon (в схеме FBO), он проходит повторную проверку. Если состояние товара позволяет, он снова поступает в продажу. В случае брака или потери товарного вида, товар отправляется в утилизацию или возвращается продавцу, если была выбрана соответствующая опция при создании поставки.</p>
+
+<ul>
+<li>🔄 <strong>Автоматический возврат:</strong> Деньги возвращаются покупателю, а товарный остаток корректируется в системе.</li>
+<li>📉 <strong>Влияние на рейтинг:</strong> Частые возвраты по причине"брак" могут негативно сказаться на ранжировании карточки товара.</li>
+<li>📦 <strong>Логистика возвратов FBS:</strong> При схеме FBS возвраты часто приходят напрямую продавцу, минуя склады Ozon, что ускоряет процесс, но увеличивает нагрузку на службу поддержки продавца.</li>
+</ul>
+
+<p>Важно регулярно мониторить отчеты по возвратам и анализировать причины. Это помогает выявлять проблемы с качеством товара или несоответствие описания реальности, что в итоге снижает процент возвратов.</p>
+
+<details class="pb-accordion"><summary>Что происходит с невозвратным товаром?</summary><div class="pb-accordion-body"><p>Если вы не выбрали опцию возврата товара покупателем, он может быть утилизирован или передан на благотворительность в зависимости от категории и состояния.</p></div></details>
+
+<h2 id="тарификация-и-оптимизация-расходов">Тарификация и оптимизация расходов</h2>
+<p>Логистические расходы составляют значительную часть себестоимости товара на Ozon. Тарифы рассчитываются исходя из габаритов (объема), веса и категории товара. Понимание принципов калькуляции позволяет избегать скрытых убытков.</p>
+
+<p>Система автоматически определяет <strong>габаритную группу</strong> товара. Если упаковка слишком велика для самого товара, вы будете платить за хранение и доставку"воздуха". Поэтому оптимизация упаковки — первый шаг к снижению издержек.</p>
+
+<p>Также стоит учитывать сезонные коэффициенты. В периоды распродаж (Черная пятница, 11.11) тарифы на логистику и хранение могут временно повышаться из-за перегруженности складов. Планирование поставок заранее помогает зафиксировать товар на складе до начала пиковых нагрузок.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Оптимальная упаковка — это минимально возможный объем, обеспечивающий сохранность товара. Это снижает стоимость логистики и повышает маржинальность.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Можно ли изменить схему доставки с FBS на FBO в процессе продаж?</summary>
+<p>Да, вы можете в любой момент создать новую поставку по схеме FBO для товаров, которые ранее продавались по FBS. Для этого необходимо создать поставку в личном кабинете, распечатать штрихкоды, промаркировать товар и отвезти его на склад Ozon или передать Логистическому Оператору.</p>
+</details>
+
+<details>
+<summary>Что будет, если товар потеряется на складе Ozon?</summary>
+<p>Ozon несет материальную ответственность за товар, принятый на складе. Если в ходе инвентаризации или в процессе обработки заказ будет утерян по вине маркетплейса, вам будет выплачена компенсация в размере стоимости товара (обычно это цена продажи за вычетом комиссии).</p>
+</details>
+
+<details>
+<summary>Как долго хранится товар на складе FBO?</summary>
+<p>Товар хранится до момента его продажи или вашего решения вывести его. Однако, если товар не продается более 90 дней (срок может меняться), на него могут начисляться повышенные тарифы на хранение как на неликвид, либо Ozon может инициировать его возврат или утилизацию.</p>
+</details>
+
+<details>
+<summary>Нужно ли самому искать транспорт для доставки на склад FBO?</summary>
+<p>Да, доставка товара до склада Ozon или до точки приема Логистического Оператора осуществляется силами и за счет продавца. Ozon предоставляет только инфраструктуру приемки и дальнейшей дистрибуции.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-upakovat-tovar-dlya-otpravki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать товар для Озон: правила и требования 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по упаковке товаров для отправки на Озон: требования FBS/FBO, материалы, маркир</span>
+            </a><a href="/articles/o/oz/ozon-flex-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Flex: что это за программа и как она работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираем Ozon Flex — гибкую схему сотрудничества для продавцов на маркетплейсе. Как подключиться, у</span>
+            </a><a href="/articles/k/kr/krupnyj-sklad-ozon-chto-znachit.html" class="pb-related-card">
+                <span class="pb-related-title">Крупный склад Озон: что это значит для продавцов и покупателей?</span>
+                <span class="pb-related-desc">Разбираемся, что такое крупный склад Ozon (КС), как он влияет на логистику, стоимость хранения и ско</span>
+            </a><a href="/articles/f/fb/fbs-ozon-kak-otgruzhat.html" class="pb-related-card">
+                <span class="pb-related-title">FBS Озон: как отгружать товары правильно в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по отгрузке FBS на Ozon: от подготовки заказа до сдачи на ПВЗ. Схемы, требовани</span>
+            </a><a href="/articles/c/ch/chto-znachit-ozon-otsrochka.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Отсрочка: что это, как работает и выгодно ли это в 2026 году?</span>
+                <span class="pb-related-desc">Разбираем механизм «Озон Отсрочка»: условия, тарифы, плюсы и минусы для продавцов. Как подключить, с</span>
+            </a><a href="/articles/g/gd/gde-raspolagayutsya-sklady-sborki-tovara-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где находятся склады Ozon для сборки заказов: полный гайд 2026</span>
+                <span class="pb-related-desc">Разбираем все локации складов Ozon для FBS/FBO, как узнать адрес сборки вашего товара и почему это в</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

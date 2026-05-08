@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>SRE в Google и Ozon: как обеспечить надежность сайта на уровне гигантов — Об Озоне</title>
+    <meta name="description" content="Разбираем принципы Site Reliability Engineering (SRE), которые используют Google и Ozon для обеспечения безотказной работы платформ. Практические кейсы, метрики SLO/SLI, инструменты мониторинга и культура надежности для маркетплейсов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/s/si/site-reliability-engineering-nadezhnost-i-bezotkaznost-kak-v-google-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SRE в Google и Ozon: как обеспечить надежность сайта на уровне гигантов">
+    <meta property="og:description" content="Разбираем принципы Site Reliability Engineering (SRE), которые используют Google и Ozon для обеспечения безотказной работы платформ. Практические кейсы, метрики SLO/SLI, инструменты мониторинга и культура надежности для маркетплейсов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">SRE в Google и Ozon: как обеспечить надежность сайта на уровне гигантов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-site-reliability-engineering-sre-и-почему-это-не-то-же-самое-что-devops">Что такое Site Reliability Engineering (SRE) и почему это не то же самое, что DevOps</a></li><li><a href="#метрики-slo-sli-и-sla-как-google-и-ozon-измеряют-надежность">Метрики SLO, SLI и SLA: как Google и Ozon измеряют надежность</a></li><li><a href="#error-budget-как-балансировать-между-инновациями-и-стабильностью">Error Budget: как балансировать между инновациями и стабильностью</a></li><li><a href="#инструменты-мониторинга-и-алертинга-чем-пользуются-google-и-ozon">Инструменты мониторинга и алертинга: чем пользуются Google и Ozon</a></li><li><a href="#постмортемы-как-google-и-ozon-учатся-на-ошибках">Постмортемы: как Google и Ozon учатся на ошибках</a></li><li><a href="#автоматизация-и-chaos-engineering-как-ломать-системы-чтобы-они-стали-крепче">Автоматизация и Chaos Engineering: как ломать системы, чтобы они стали крепче</a></li><li><a href="#как-продавцам-на-ozon-применять-принципы-sre">Как продавцам на Ozon применять принципы SRE</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-sre-на-ozon">FAQ: Ответы на частые вопросы о SRE на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/p/po/pochemu-kozha-pakhnet-ozonom.html">Почему кожа пахнет озоном: причины запаха и влияние Ozon-маркетплейса</a></li><li><a href="/articles/v/v-/v-chem-polza-kapelnitsy-s-ozonom.html">Польза капельницы с озоном: лечебные свойства и показания</a></li><li><a href="/articles/c/ch/chto-mogut-prodavat-na-ozone-samozanyatye.html">Что могут продавать самозанятые на Ozon: полный список товаров 2026</a></li><li><a href="/articles/k/ka/kak-stat-regionalnym-menedzherom-ozon.html">Как стать региональным менеджером Озон: пошаговый гайд 2026</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-v-khimii.html">Озон в химии: формула, свойства и применение</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Site Reliability Engineering: как Google и Ozon добиваются 99.99% доступности платформ</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-site-reliability-engineering-sre-и-почему-это-не-то-же-самое-что-devops">Что такое Site Reliability Engineering (SRE) и почему это не то же самое, что DevOps</a></li><li><a href="#метрики-slo-sli-и-sla-как-google-и-ozon-измеряют-надежность">Метрики SLO, SLI и SLA: как Google и Ozon измеряют надежность</a></li><li><a href="#error-budget-как-балансировать-между-инновациями-и-стабильностью">Error Budget: как балансировать между инновациями и стабильностью</a></li><li><a href="#инструменты-мониторинга-и-алертинга-чем-пользуются-google-и-ozon">Инструменты мониторинга и алертинга: чем пользуются Google и Ozon</a></li><li><a href="#постмортемы-как-google-и-ozon-учатся-на-ошибках">Постмортемы: как Google и Ozon учатся на ошибках</a></li><li><a href="#автоматизация-и-chaos-engineering-как-ломать-системы-чтобы-они-стали-крепче">Автоматизация и Chaos Engineering: как ломать системы, чтобы они стали крепче</a></li><li><a href="#как-продавцам-на-ozon-применять-принципы-sre">Как продавцам на Ozon применять принципы SRE</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-sre-на-ozon">FAQ: Ответы на частые вопросы о SRE на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Когда речь заходит о масштабируемых IT-системах, <strong>Site Reliability Engineering (SRE)</strong> становится не просто трендом, а необходимостью. Компании вроде <em>Google</em> и <em>Ozon</em> обрабатывают миллионы запросов в секунду, и даже минимальный простой обходится в миллионы рублей упущенной выручки. Но как именно эти гиганты обеспечивают <strong>надежность на уровне 99.99%</strong>? Спойлер: это не только про серверы и код — это про <mark>культуру ответственности, где каждый инженер понимает, что его ошибка может обрушить платформу для миллионов пользователей</mark>.</p>
+
+<p>В этой статье мы разберём <strong>ключевые принципы SRE</strong>, которые применяют в <em>Google</em> (где концепция и родилась) и <em>Ozon</em> (где её адаптировали под реалии российского e-commerce). Вы узнаете, как работают <strong>метрики SLO/SLI</strong>, почему <code>error budget</code> — это не про деньги, а про баланс между инновациями и стабильностью, и какие инструменты помогают предотвращать сбои до того, как они станут критичными. А ещё — как продавцам на <em>Ozon</em> эти знания помогут избежать простоя витрины в пиковые сезоны.</p>
+
+<p>Если вы думаете, что SRE нужна только гигантам вроде <em>Amazon</em> или <em>AliExpress</em>, то ошибаетесь. Даже небольшой интернет-магазин на <em>Ozon</em> может применять базовые практики — например, настраивать мониторинг критичных метрик или автоматизировать откат неудачных релизов. Главное — понять, что <strong>надежность</strong> не появляется сама собой: это результат системного подхода, где технологии и процессы работают вместе.
+
+<h2 id="что-такое-site-reliability-engineering-sre-и-почему-это-не-то-же-самое-что-devops">Что такое Site Reliability Engineering (SRE) и почему это не то же самое, что DevOps</h2>
+
+<p>Многие путают <strong>SRE</strong> и <strong>DevOps</strong>, но это принципиально разные подходы. DevOps фокусируется на <em>скорости доставки</em> новых фич, в то время как SRE — на <em>надежности системы</em> в долгосрочной перспективе. В <em>Google</em> даже шутят: <em>"DevOps говорит'давай выпустим быстрее!', а SRE спрашивает'а что будет, если это сломается?'"</em>.
+
+<p>Ключевое отличие SRE — это <strong>инженерный подход к надежности</strong>. Вместо того чтобы тушить пожары по мере их возникновения, SRE-инженеры:
+<ul>
+ <li>📊 Определяют <strong>количественные метрики надежности</strong> (например, <code>99.95% доступности</code> для корзины покупок на <em>Ozon</em>).</li>
+ <li>🛠️ Автоматизируют рутинные задачи (скажем, перезапуск упавших микросервисов).</li>
+ <li>🔍 Анализируют инциденты постфактум, чтобы предотвратить их повторение (постмортемы в <em>Google</em> — это целый ритуал).</li>
+ <li>⚖️ Балансируют между скоростью разработки и стабильностью через концепцию <code>error budget</code>.</li>
+</ul>
+
+<p>В <em>Ozon</em>, например, SRE-команды тесно интегрированы с командами разработки. Если в <em>Google</em> SRE часто выступает как отдельная роль, то в <em>Ozon</em> это скорее <em>культура</em>, которую внедряют во все процессы — от деплоя нового функционала до масштабирования инфраструктуры в <strong>Чёрную пятницу</strong>.
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш бизнес на <em>Ozon</em> зависит от API платформы (например, автоматическая выгрузка товаров), то сбои в работе API могут парализовать продажи. SRE-подход поможет заранее выявить слабые места — например, настроить алерты на превышение времени ответа <code>>500 мс</code>.</blockquote>
+
+<div class="pb-poll" id="poll-f64051ef"><div class="pb-poll-question">📊 Как вы обеспечиваете надежность своего бизнеса на Ozon?</div><div class="pb-poll-option" data-poll="f64051ef" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Мониторим метрики вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f64051ef" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Используем автоматизированные алерты</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f64051ef" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Полностью полагаемся на Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="f64051ef" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не задумывались об этом</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="метрики-slo-sli-и-sla-как-google-и-ozon-измеряют-надежность">Метрики SLO, SLI и SLA: как Google и Ozon измеряют надежность</h2>
+
+<p>Без метрик невозможно управлять надежностью. В SRE используют три ключевых понятия:
+<ul>
+ <li><strong>SLI (Service Level Indicator)</strong> — конкретная метрика, которую можно измерить. Например, <code>время ответа API</code> или <code>процент успешных платежей</code>.</li>
+ <li><strong>SLO (Service Level Objective)</strong> — целевое значение SLI. Скажем, <code>99.9% успешных запросов к API Ozon FBO</code>.</li>
+ <li><strong>SLA (Service Level Agreement)</strong> — договорённость с пользователями о штрафах за невыполнение SLO. В <em>Ozon</em> SLA чаще внутренние (между командами), чем внешние.</li>
+</ul>
+
+<p>В <em>Google</em> для поисковой выдачи SLI может быть <code>задержка ответа</code>, а SLO — <code>95-й перцентиль <500 мс</code>. На <em>Ozon</em> критичными SLI для продавцов будут:
+<ul>
+ <li>🛒 <code>Доступность страницы товара</code> (SLO: 99.95%).</li>
+ <li>💳 <code>Успешность обработки заказов</code> (SLO: 99.99%).</li>
+ <li>📦 <code>Время генерации этикеток для FBS</code> (SLO: <2 сек).</li>
+</ul>
+
+<p>Важно: SLO должны быть <strong>реалистичными</strong>. Если задать <code>100% доступность</code>, это приведёт к тому, что команды будут боятся выпускать обновления (страх превысить <code>error budget</code>). В <em>Google</em> считают, что <code>99.95%</code> — это золотой стандарт для большинства сервисов.
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Метрика</th>
+ <th>Пример SLI</th>
+ <th>Типичный SLO (Google)</th>
+ <th>Типичный SLO (Ozon)</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Доступность</td>
+ <td>Доля успешных HTTP-запросов</td>
+ <td>99.95%</td>
+ <td>99.9% (для API продавцов)</td>
+ </tr>
+ <tr>
+ <td>Задержка</td>
+ <td>Время ответа 95-го перцентиля</td>
+ <td>&lt;300 мс</td>
+ <td>&lt;800 мс (для мобильного приложения)</td>
+ </tr>
+ <tr>
+ <td>Качество</td>
+ <td>Доля корректно обработанных платежей</td>
+ <td>99.99%</td>
+ <td>99.98% (для Ozon Банка)</td>
+ </tr>
+ <tr>
+ <td>Ёмкость</td>
+ <td>Максимальная нагрузка без деградации</td>
+ <td>10× от пиковой</td>
+ <td>5× от Чёрной пятницы</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш товар на <em>Ozon</em> внезапно пропал из поиска, это может быть связано с превышением SLI по времени ответа вашего фида. Настройте мониторинг <code>time-to-first-byte (TTFB)</code> для вашего сервера с прайс-листами.</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>SLO должны быть измеримыми, достижимыми и привязанными к бизнес-целям. Например, для продавца на Ozon критичнее SLO по успешности заказов, чем по скорости загрузки картинок.</p></aside>
+
+<h2 id="error-budget-как-балансировать-между-инновациями-и-стабильностью">Error Budget: как балансировать между инновациями и стабильностью</h2>
+
+<p>Концепция <code>error budget</code> (бюджет ошибок) — это то, что делает SRE уникальным. Идея проста: если ваш сервис работает лучше целевого SLO, вы можете позволить себе <strong>рисковать</strong> (выпускать новые фичи, экспериментировать). Если же SLO не выполняется — все силы бросаются на <strong>стабилизацию</strong>.
+
+<p>Формула простая:
+<pre><code>Error Budget = 100% - SLO
+<p>Пример: если SLO = 99.95%, то error budget = 0.05% простоя в месяц (~22 минуты.</code></pre></p>
+
+<p>В <em>Google</em> команды строго следят за <code>error budget</code>:
+<ul>
+ <li>🟢 Если бюджет не исчерпан — можно выпускать новые фичи.</li>
+ <li>🟡 Если бюджет на исходе — приостанавливают релизы и фокусируются на надежности.</li>
+ <li>🔴 Если бюджет превышен — вводятся моратории на изменения.</li>
+</ul>
+
+<p>На <em>Ozon</em> этот подход адаптировали под e-commerce. Например, перед <strong>Новым годом</strong> <code>error budget</code> для систем обработки заказов сокращают до минимума, чтобы избежать сбоев в пиковые дни. А вот для некритичных сервисов (например, рекомендации товаров) бюджет могут увеличить, чтобы тестировать новые алгоритмы.
+
+
+<p>Определите критичные SLI (например, успешность заказов)|Установите реалистичные SLO (например, 99.9%)|Отслеживайте расход error budget в реальном времени|При исчерпании бюджета приостанавливайте некритичные обновления--></p>
+
+<h2 id="инструменты-мониторинга-и-алертинга-чем-пользуются-google-и-ozon">Инструменты мониторинга и алертинга: чем пользуются Google и Ozon</h2>
+
+<p>Без инструментов SRE немыслим. В <em>Google</em> используют собственные решения вроде <em>Borg</em> (для оркестрации контейнеров) и <em>Stackdriver</em> (для мониторинга), но многие принципы универсальны. На <em>Ozon</em> комбинируют открытые инструменты и самописные системы. Вот что можно позаимствовать:
+
+<p><strong>Базовый стек для мониторинга:</strong>
+<ul>
+ <li>📈 <em>Prometheus</em> + <em>Grafana</em> — для сбора метрик и визуализации. Например, отслеживание <code>quantile_95(latency)</code> для API.</li>
+ <li>🚨 <em>Alertmanager</em> — для алертов. Правило: алерты должны быть <strong>действительными</strong> (не спамить по мелочам).</li>
+ <li>🔍 <em>OpenTelemetry</em> — для трассировки запросов (полезно, если ваш сервис интегрирован с <em>Ozon API</em>).</li>
+ <li>🤖 <em>SRE-боты</em> — в <em>Ozon</em> используют чат-ботов в <em>Slack</em>, которые автоматически собирают контекст инцидента.</li>
+</ul>
+
+<p>Для продавцов на <em>Ozon</em> критично мониторить:
+<ul>
+ <li>📦 <code>Статусы заказов</code> (чтобы не пропустить сбои в FBS).</li>
+ <li>💰 <code>Успешность платежей</code> (например, через <em>Ozon Банк</em>).</li>
+ <li>📈 <code>Трафик на страницы товаров</code> (вдруг ваш товар исчез из поиска).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы используете <em>Ozon API</em> для автоматической выгрузки товаров, настройте алерты на ошибки <code>429 (Too Many Requests)</code> и <code>503 (Service Unavailable)</code>. Это сигнал, что ваш лимит запросов превышен или на платформе технические работы.</blockquote>
+
+<details class="pb-accordion"><summary>Пример дашборда для продавца на Ozon</summary><div class="pb-accordion-body"><p>
+<p>В Grafana можно создать дашборд с метриками:</p>
+<p>- Количество заказов в час (с разбивкой по статусам).</p>
+<p>- Время ответа вашего сервера на вебхуки от Ozon.</p>
+<p>- Уровень доступности вашей витрины (через synthetic monitoring).</p>
+<p>Это поможет оперативно реагировать на проблемы до того, как они повлияют на продажи.</p></div></details></p>
+
+<h2 id="постмортемы-как-google-и-ozon-учатся-на-ошибках">Постмортемы: как Google и Ozon учатся на ошибках</h2>
+
+<p>В SRE-культуре <strong>постмортем</strong> (разбор инцидента) — это не наказание, а инструмент обучения. В <em>Google</em> постмортемы публикуют внутренне, а иногда и внешне (например, после крупных сбоев <em>Gmail</em>). На <em>Ozon</em> тоже следят за прозрачностью: после каждого серьезного инцидента команда готовит документ с анализом <strong>причины</strong>, <strong>воздействия</strong> и <strong>плана по предотвращению</strong>.
+
+<p>Структура эффективного постмортема:
+<ol>
+ <li><strong>Что произошло?</strong> (факты без оценок).</li>
+ <li><strong>Почему это произошло?</strong> (коренная причина, а не симптом).</li>
+ <li><strong>Каково было воздействие?</strong> (потери денег, репутации, времени).</li>
+ <li><strong>Как мы это исправили?</strong> (временные меры).</li>
+ <li><strong>Как предотвратим в будущем?</strong> (долгосрочные действия).</li>
+</ol>
+
+<p>Пример из практики <em>Ozon</em>: в 2022 году был сбой в системе логистики, из-за которого заказы FBS задерживались на 6+ часов. В постмортеме выяснилось, что проблема была в <strong>недостаточной ёмкости базы данных</strong> для пиковой нагрузки. Решение: внедрили автоскейлинг и увеличили резервные мощности на 30%.
+
+<p>Для продавцов на <em>Ozon</em> постмортемы тоже полезны. Например, если ваш товар неожиданно исчез из поиска, разберите:
+<ul>
+ <li>🔍 Были ли изменения в вашем фиде?</li>
+ <li>⚡ Не было ли простоя вашего сервера?</li>
+ <li>📉 Не изменились ли правила ранжирования на <em>Ozon</em>?</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Создайте шаблон постмортема для вашего бизнеса. Даже если вы небольшой продавец, фиксирование инцидентов поможет избегать повторных ошибок. Например:"20.11.2023 — пропало 50% трафика на товар X. Причина: ошибка в цене в фиде. Исправлено через 2 часа. Действие: добавить валидацию цен перед выгрузкой."</p></aside>
+
+<h2 id="автоматизация-и-chaos-engineering-как-ломать-системы-чтобы-они-стали-крепче">Автоматизация и Chaos Engineering: как ломать системы, чтобы они стали крепче</h2>
+
+<p>Один из принципов SRE — <strong>"если что-то может сломаться, оно сломается"</strong>. Поэтому в <em>Google</em> и <em>Ozon</em> активно применяют <strong>Chaos Engineering</strong> — контролируемое"ломание" систем, чтобы проверить их устойчивость. Классический пример: <em>Netflix</em> со своим <em>Chaos Monkey</em>, который случайно"убивает" серверы в рабочем окружении.
+
+<p>На <em>Ozon</em> используют похожие практики:
+<ul>
+ <li>🌪️ <strong>Имитация пиковых нагрузок</strong> — перед Чёрной пятницей тестируют систему на 200% от ожидаемого трафика.</li>
+ <li>🔌 <strong>Отключение дата-центров</strong> — проверяют, как быстро переключается трафик на резервные узлы.</li>
+ <li>🐢 <strong>Искусственные задержки</strong> — добавляют <code>latency</code> в API, чтобы проверить, как реагируют клиентские приложения.</li>
+</ul>
+
+<p>Для продавцов на <em>Ozon</em> Chaos Engineering может означать:
+<ul>
+ <li>🛒 Тестирование отмены заказов в пиковые часы.</li>
+ <li>📦 Проверку, что ваша система генерации этикеток FBS работает при потере связи с <em>Ozon API</em>.</li>
+ <li>💰 Имитацию сбоев платежей через <em>Ozon Банк</em>.</li>
+</ul>
+
+<p>Главное правило: <strong>начинайте с малого</strong>. Не ломайте продакшн в разгар распродажи! Начните с тестового окружения или некритичных сервисов.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Chaos Engineering — это не про хаос, а про подготовленность. Цель не сломать систему, а убедиться, что она восстановится автоматически.</p></aside>
+
+<h2 id="как-продавцам-на-ozon-применять-принципы-sre">Как продавцам на Ozon применять принципы SRE</h2>
+
+<p>Вы можете думать: <em>"Мне не нужна SRE, я же не Google!"</em>. Но даже небольшой бизнес на <em>Ozon</em> сталкивается с проблемами надежности:
+<ul>
+ <li>🛑 Витрина недоступна из-за проблем на вашем хостинге.</li>
+ <li>📉 Товары пропадают из поиска из-за ошибок в фиде.</li>
+ <li>💸 Платежи не проходят из-за сбоев в интеграции с <em>Ozon Банком</em>.</li>
+</ul>
+
+<p>Вот <strong>5 практических шагов</strong>, чтобы сделать ваш бизнес надежнее:
+
+<ol>
+ <li><strong>Мониторьте критичные метрики</strong>:
+ <ul>
+ <li>📊 Успешность загрузки фида товаров (цель: 100%).</li>
+ <li>⏱️ Время ответа вашего сервера на вебхуки от <em>Ozon</em> (цель: <code>&lt;500 мс</code>).</li>
+ </ul>
+ </li>
+ <li><strong>Автоматизируйте рутину</strong>:
+ <ul>
+ <li>🤖 Настройте автообновление остатков в <em>Ozon</em> через <code>cron</code> или <em>Airflow</em>.</li>
+ <li>🔄 Автоматизируйте откат неудачных обновлений фида.</li>
+ </ul>
+ </li>
+ <li><strong>Готовьтесь к пиковым нагрузкам</strong>:
+ <ul>
+ <li>📈 Тестируйте ваш сервер на нагрузку в 2-3 раза выше обычной (используйте <em>Locust</em> или <em>JMeter</em>).</li>
+ </ul>
+ </li>
+ <li><strong>Документируйте инциденты</strong>:
+ <ul>
+ <li>📝 Ведите журнал сбоев и их решений (даже если это просто таблица в <em>Google Sheets</em>).</li>
+ </ol>
+ </li>
+ <li><strong>Используйте резервирование</strong>:
+ <ul>
+ <li>🔗 Держите резервный канал выгрузки товаров (например, через <em>Ozon Partner API</em> и резервный <em>CSV</em>).</li>
+ </ol>
+ </li>
+</ul>
+
+<p>Пример: если вы продаёте через <em>Ozon FBS</em>, настройте алерты на:
+<ul>
+ <li>🚨 Задержку генерации этикеток (>10 сек).</li>
+ <li>📦 Расхождение между остатками на вашем складе и в <em>Ozon</em>.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы используете <code>Ozon API</code> для автоматической обработки заказов, убедитесь, что ваш код корректно обрабатывает ошибки <code>429 (Too Many Requests)</code>. Иначе в пиковые часы ваш аккаунт может быть временно заблокирован за превышение лимитов.</blockquote>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-sre-на-ozon">FAQ: Ответы на частые вопросы о SRE на Ozon</h2>
+
+<details>
+ <summary><strong>1. Нужна ли SRE маленькому продавцу на Ozon?</strong></summary>
+ <p>Да, но в упрощённом виде. Вам не нужна отдельная команда SRE-инженеров, но базовые практики помогут избежать простоя витрины. Начните с мониторинга критичных метрик (например, успешности загрузки фида) и автоматизации рутинных задач (обновление остатков).</p>
+</details>
+
+<details>
+ <summary><strong>2. Какие метрики SLI важны для продавца на Ozon?</strong></summary>
+ <p>Ключевые SLI:
+ <ul>
+ <li>📊 <strong>Успешность загрузки фида</strong> (цель: 100%).</li>
+ <li>⏱️ <strong>Время ответа вашего сервера</strong> на вебхуки от <em>Ozon</em> (цель: <code>&lt;500 мс</code>).</li>
+ <li>🛒 <strong>Доля успешных заказов</strong> (цель: 99.9%).</li>
+ <li>💰 <strong>Успешность платежей</strong> через <em>Ozon Банк</em> (цель: 99.95%).</li>
+ </ul>
+ </p>
+</details>
+
+<details>
+ <summary><strong>3. Как рассчитать error budget для своего бизнеса?</strong></summary>
+ <p>Формула:
+ <pre><code>Error Budget = (100% - SLO) × количество запросов/операций в месяц
+<p>Пример: если ваш SLO = 99.9% и вы обрабатываете 100 000 заказов в месяц, то error budget = 0.1% × 100 000 = 100 неудачных заказов.</code></pre></p>
+<p>Превысили бюджет? Приостановите некритичные изменения до стабилизации.</p></p>
+</details>
+
+<details>
+ <summary><strong>4. Какие инструменты мониторинга подойдут для продавца на Ozon?</strong></summary>
+ <p>Бюджетные варианты:
+ <ul>
+ <li>📈 <em>Grafana Cloud</em> (бесплатный тариф) + <em>Prometheus</em> для метрик.</li>
+ <li>🚨 <em>UptimeRobot</em> для мониторинга доступности вашего сайта/фида.</li>
+ <li>🔍 <em>Sentry</em> для отслеживания ошибок в коде (если используете).</li>
+ </ul>
+ </p>
+</details>
+
+<details>
+ <summary><strong>5. Что делать, если мой товар пропал из поиска на Ozon?</strong></summary>
+ <p>Проверьте по шагам:
+ <ol>
+ <li>🔍 Убедитесь, что товар не скрыт в личном кабинете (<code>Статус = Активен</code>).</li>
+ <li>📄 Проверьте фид на ошибки (например, через <em>Ozon Partner API</em>).</li>
+ <li>⏱️ Посмотрите время ответа вашего сервера — если >2 сек, <em>Ozon</em> может понижать ранжирование.</li>
+ <li>📧 Напишите в поддержку <em>Ozon</em> с логами ошибок (если найдёте).</li>
+ </ol>
+ </p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/p/po/pochemu-kozha-pakhnet-ozonom.html" class="pb-related-card">
+                <span class="pb-related-title">Почему кожа пахнет озоном: причины запаха и влияние Ozon-маркетплейса</span>
+                <span class="pb-related-desc">Разбираем, почему от кожи идет запах озона. Влияние маркетплейса Ozon, химия пота и косметики. Гигие</span>
+            </a><a href="/articles/v/v-/v-chem-polza-kapelnitsy-s-ozonom.html" class="pb-related-card">
+                <span class="pb-related-title">Польза капельницы с озоном: лечебные свойства и показания</span>
+                <span class="pb-related-desc">Узнайте, в чем реальная польза капельницы с озоном. Разбор механизма действия, показаний, противопок</span>
+            </a><a href="/articles/c/ch/chto-mogut-prodavat-na-ozone-samozanyatye.html" class="pb-related-card">
+                <span class="pb-related-title">Что могут продавать самозанятые на Ozon: полный список товаров 2026</span>
+                <span class="pb-related-desc">Разбираем, что разрешено продавать самозанятым на Озоне. Список товаров, правила маркировки, огранич</span>
+            </a><a href="/articles/k/ka/kak-stat-regionalnym-menedzherom-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как стать региональным менеджером Озон: пошаговый гайд 2026</span>
+                <span class="pb-related-desc">Узнайте, как устроиться региональным менеджером в Ozon: требования, обязанности, зарплата и советы о</span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-v-khimii.html" class="pb-related-card">
+                <span class="pb-related-title">Озон в химии: формула, свойства и применение</span>
+                <span class="pb-related-desc">Узнайте, что такое озон в химии. Разбор структуры O3, опасных свойств, применения и различий между о</span>
+            </a><a href="/articles/o/oz/ozon-skolko-let-na-rynke.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon: сколько лет на рынке и история развития маркетплейса</span>
+                <span class="pb-related-desc">Узнайте, сколько лет Ozon работает на рынке России. Подробная история компании, ключевые этапы роста</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

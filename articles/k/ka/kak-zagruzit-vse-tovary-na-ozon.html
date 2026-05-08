@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как загрузить все товары на Озон: массовая выгрузка через Excel — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по массовой загрузке товаров на Ozon через Excel. Как заполнить шаблон, избежать ошибок и ускорить создание карточек.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzit-vse-tovary-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как загрузить все товары на Озон: массовая выгрузка через Excel">
+    <meta property="og:description" content="Пошаговая инструкция по массовой загрузке товаров на Ozon через Excel. Как заполнить шаблон, избежать ошибок и ускорить создание карточек.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как загрузить все товары на Озон: массовая выгрузка через Excel</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-к-массовой-загрузке-данных">Подготовка к массовой загрузке данных</a></li><li><a href="#структура-файла-и-ключевые-поля">Структура файла и ключевые поля</a></li><li><a href="#работа-с-вариативными-товарами">Работа с вариативными товарами</a></li><li><a href="#загрузка-изображений-и-медиа-контента">Загрузка изображений и медиа-контента</a></li><li><a href="#процесс-импорта-и-валидация-ошибок">Процесс импорта и валидация ошибок</a></li><li><a href="#обновление-остатков-и-цен-через-excel">Обновление остатков и цен через Excel</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakogo-razmera-etiketki-dlya-ozon.html">Какого размера этикетки для Озон: требования 2026</a></li><li><a href="/articles/k/ko/kod-tn-ved-v-ozon-kakie-tovary-podlezhat-markirovke.html">Код ТН ВЭД на Ozon: маркировка и коды товаров</a></li><li><a href="/articles/k/ka/kak-napechatat-markirovku-dlya-ozon-na-obychnom-printere.html">Как напечатать маркировку для Ozon на обычном принтере</a></li><li><a href="/articles/k/ka/kak-dobavit-tovar-na-ozon-dlya-prodazhi-so-svoego-sklada.html">Как добавить товар на Озон со своего склада: пошаговая инструкция 2026</a></li><li><a href="/articles/k/kt/kto-kleit-shtrikh-kody-na-tovar-ozon.html">Кто клеит штрихкоды на товары для Ozon: правила и ответственность</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как загрузить все товары на Озон: полная инструкция по массовой выгрузке</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-массовой-загрузке-данных">Подготовка к массовой загрузке данных</a></li><li><a href="#структура-файла-и-ключевые-поля">Структура файла и ключевые поля</a></li><li><a href="#работа-с-вариативными-товарами">Работа с вариативными товарами</a></li><li><a href="#загрузка-изображений-и-медиа-контента">Загрузка изображений и медиа-контента</a></li><li><a href="#процесс-импорта-и-валидация-ошибок">Процесс импорта и валидация ошибок</a></li><li><a href="#обновление-остатков-и-цен-через-excel">Обновление остатков и цен через Excel</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Масштабирование бизнеса на маркетплейсах невозможно без автоматизации процессов, и первым серьезным шагом становится <strong>массовая загрузка товаров</strong>. Ручное создание карточек приемлемо для тестирования ниши, но когда ассортимент исчисляется сотнями или тысячами позиций, единственным эффективным решением становится работа с таблицами. Озон предоставляет мощный инструмент для импорта, который позволяет заполнить атрибуты, настроить цены и остатки за считанные минуты.</p>
+<p>Однако, <em>Ozon Seller</em> требует строгого соблюдения формата данных. Малейшая ошибка в структуре файла или неверное указание типа товара приведет к тому, что система отвергнет весь документ. Понимание логики работы с <strong>XLS-шаблонами</strong> и знание нюансов заполнения полей — это критически важные навыки для любого селлера.</p>
+<p>В этом руководстве мы разберем весь процесс от скачивания актуального шаблона до успешного отображения витрины. Вы узнаете, как правильно категоризировать продукцию, работать с вариативностью и избежать распространенных ошибок, которые блокируют импорт.</p>
+
+<h2 id="подготовка-к-массовой-загрузке-данных">Подготовка к массовой загрузке данных</h2>
+<p>Прежде чем приступать к заполнению таблиц, необходимо получить актуальный шаблон, соответствующий выбранной категории. Логика Озон построена на строгой иерархии: сначала вы выбираете тип товара, затем получаете специфичный для него файл со всеми необходимыми атрибутами. Скачивание происходит через личный кабинет в разделе <code>Товары → Добавить товары → Загрузить по XLS-шаблону</code>.</p>
+<p>Важно понимать, что универсального файла "для всего" не существует. Если вы продаете электронику и одежду, вам понадобятся два разных шаблона с абсолютно разным набором полей. Использование неактуальной версии файла, скачанной месяц назад, может привести к ошибкам валидации, так как маркетплейс регулярно обновляет требования к <strong>атрибутам</strong>.</p>
+<p>Для работы вам понадобится программа для работы с электронными таблицами. Хотя Excel является стандартом, многие профессионалы предпочитают использовать Google Таблицы или LibreOffice Calc для предварительной обработки больших массивов данных перед финальной выгрузкой. Главное — сохранить итоговый файл в формате, поддерживаемом платформой.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Всегда используйте "Сохранить как", чтобы создать копию шаблона, оставляя оригинальный файл чистым для будущих загрузок.</p></aside>
+<p>Процесс подготовки также включает сбор всей необходимой документации. У вас должны быть готовы штрихкоды (EAN-13, EAN-8, UPC-A, UPC-E или ISBN), качественные фотографии и точные описания. Наличие этих данных ускоряет заполнение в разы.</p>
+
+<h2 id="структура-файла-и-ключевые-поля">Структура файла и ключевые поля</h2>
+<p>Шаблон Озон — это не просто список названий, а строго структурированная база данных. Первая строка всегда содержит системные названия полей, которые нельзя изменять. Ниже приведена таблица основных колонок, которые встречаются в большинстве категорий и требуют особого внимания.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Название поля</th>
+<th>Описание</th>
+<th>Обязательность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>offer_id</code></td>
+<td>Уникальный артикул товара в вашей системе</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Название товара для витрины</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td><code>category_id</code></td>
+<td>Код категории, к которой относится товар</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>Цена товара в рублях</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td>Остаток на складе</td>
+<td>Обязательно</td>
+</tr>
+</tbody>
+</table></div>
+<p>Особое внимание следует уделить полю <code>offer_id</code>. Это ваш внутренний идентификатор, который связывает карточку на маркетплейсе с вашей учетной системой. Если вы измените его позже, система создаст дубликат товара, а старая карточка потеряет историю продаж и отзывы. <strong>Артикул</strong> должен быть уникальным для каждого варианта товара.</p>
+<p>Еще один критический момент — типы данных. В колонке цены нельзя писать слово "руб" или символы валюты, только цифры. В полях для логических значений (например, "Новый") нельзя писать "Да" или "Нет", нужно использовать <code>true</code> или <code>false</code>, либо 1 и 0, в зависимости от требований конкретного шаблона. Нарушение формата данных — самая частая причина ошибок при импорте.</p>
+<details class="pb-accordion"><summary>Как найти category_id?</summary><div class="pb-accordion-body"><p>Код категории можно найти в URL-адресе страницы категории на сайте Ozon или выгрузив справочник категорий через API.</p></div></details>
+
+<h2 id="работа-с-вариативными-товарами">Работа с вариативными товарами</h2>
+<p>Одной из самых сложных задач является загрузка товаров, имеющих несколько вариантов, например, футболки разных цветов и размеров. Озон позволяет объединять их в одну карточку, создавая так называемые <strong>модели</strong>. Для этого в шаблоне используется поле <code>model_id</code> или аналогичное, в зависимости от категории.</p>
+<p>Логика проста: всем вариациям одного товара (например, красной и синей футболке) присваивается одинаковый идентификатор модели, но разные <code>offer_id</code>. Это позволяет покупателю переключать цвета и размеры в рамках одной страницы товара, не переходя на другие карточки. Это значительно повышает конверсию.</p>
+<ul>
+<li>🟦 <strong>Определите главный признак:</strong> решите, по какому параметру будут отличаться товары (цвет, размер, объем памяти).</li>
+<li>🟦 <strong>Группировка:</strong> в таблице каждому уникальному сочетанию признаков присвойте свой артикул, но объедините их общим ID модели.</li>
+<li>🟦 <strong>Фотографии:</strong> убедитесь, что для каждого варианта загружены соответствующие изображения, чтобы клиент видел именно тот цвет, который выбрал.</li>
+</ul>
+<p>Если вы допустите ошибку в группировке, система может разбить товары на отдельные карточки или, наоборот, склеить разные товары в одну кучу, что запутает покупателей. Внимательно проверяйте соответствие артикулов перед загрузкой.</p>
+<div class="pb-poll" id="poll-7a6434af"><div class="pb-poll-question">📊 С каким типом товаров вы работаете чаще?</div><div class="pb-poll-option" data-poll="7a6434af" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Одновариантные товары:Одежда с размерами:Электроника:Косметика:Другое</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="загрузка-изображений-и-медиа-контента">Загрузка изображений и медиа-контента</h2>
+<p>Качественный визуал — залог продаж, но загрузить тысячи фотографий через интерфейс сложно. Шаблон Excel позволяет указать прямые ссылки на изображения. Поле обычно называется <code>images</code> или <code>photo</code>. Ссылки должны вести на publicly accessible URLs (доступные из интернета без авторизации).</p>
+<p>Вы можете размещать фото на своем сервере, в облачном хранилище или использовать специальные сервисы для хостинга изображений. Важно, чтобы ссылки были прямыми (заканчивались на .jpg, .png) и вели непосредственно на файл, а не на страницу просмотра. В одну ячейку можно вставить несколько ссылок, разделяя их запятой.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не используйте ссылки с временным сроком действия или требующие пароля. Система Озон скачивает изображения в момент обработки файла, и если доступ будет закрыт, карточка останется без фото.</p>
+</blockquote>
+<p>Порядок ссылок также имеет значение. Первая ссылка в списке станет главным изображением товара, которое пользователь увидит в каталоге. Расставьте приоритеты правильно, чтобы наиболее выигрышный ракурс был первым.</p>
+
+<h2 id="процесс-импорта-и-валидация-ошибок">Процесс импорта и валидация ошибок</h2>
+<p>После заполнения всех полей файл необходимо сохранить. Рекомендуется использовать формат <em>.xlsx</em> или <em>.csv</em> (разделитель — запятая или точка с запятой, кодировка UTF-8). Загрузка производится через кнопку "Загрузить" в личном кабинете селлера.</p>
+<p>Система запустит процесс валидации. Это проверка файла на соответствие требованиям. Если ошибок нет, статус изменится на "Обработано", и товары появятся в черновиках или сразу на витрине. Если же обнаружены проблемы, вы получите файл с ошибками.</p>
+<p>В файле ошибок будет указана строка и конкретная проблема, например: "Неверный формат цены" или "Категория не найдена". Вам нужно исправить эти строки в исходном файле и загрузить его снова. Не нужно загружать весь файл заново, если ошибка была в одной строке — исправьте её и загрузите только исправленные данные, либо используйте функцию обновления.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Проверены все обязательные поля:Цены указаны без валюты:Штрихкоды уникальны:Ссылки на фото доступны:Файл сохранен в нужном формате</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+<p>Частая ошибка — игнорирование предупреждений системы. Даже если файл загрузился, проверьте карточки товаров. Иногда система может автоматически заполнить некоторые поля некорректно, если данные были неоднозначными.</p>
+
+<h2 id="обновление-остатков-и-цен-через-excel">Обновление остатков и цен через Excel</h2>
+<p>Массовая загрузка нужна не только для создания новых карточек, но и для оперативного обновления информации. Чтобы изменить цену или остаток, не нужно заполнять все поля заново. Достаточно загрузить файл, в котором будут указаны только <code>offer_id</code>, <code>price</code> и <code>quantity</code>.</p>
+<p>Система найдет товар по артикулу и обновит только указанные параметры. Это идеальный способ синхронизировать остатки на Озон с вашей складской программой. Вы можете выгружать отчеты из 1С или МойСклад, формировать файл для Озон и загружать его раз в час или день.</p>
+<p>При обновлении цен важно учитывать комиссию маркетплейса и логистику. Массовое изменение цен позволяет гибко реагировать на действия конкурентов или изменение курса валют. Однако будьте осторожны: ошибка в формуле может мгновенно сделать цену отрицательной или слишком низкой, что приведет к убыткам.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При обновлении остатков всегда перепроверяйте, что вы не обнулили количество товара ошибочно. Товар с нулевым остатком скроется с витрины или помечается как "нет в наличии".</p>
+</blockquote>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте отдельные файлы для создания товаров и для обновления остатков, чтобы минимизировать риск ошибок и путаницы в данных.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Какой максимальный размер файла для загрузки?</summary>
+<p>Озон не рекомендует загружать файлы объемом более 20 МБ. Если ваш каталог очень велик, лучше разбить его на несколько файлов по категориям или количеству строк (например, по 1000-5000 товаров в файле). Это ускорит обработку и упростит поиск ошибок в случае неудачи.</p>
+</details>
+<details>
+<summary>Что делать, если товар уже есть на Ozon?</summary>
+<p>Если товар уже продается на маркетплейсе, вам не нужно создавать новую карточку. Найдите его в каталоге и привяжитесь к существующей карточке, указав свой <code>offer_id</code> и количество. В шаблоне это обычно делается через поиск по названию или штрихкоду перед заполнением.</p>
+</details>
+<details>
+<summary>Можно ли загружать товары через API вместо Excel?</summary>
+<p>Да, для крупных селлеров и тех, кто использует собственные ERP-системы, рекомендуется использование API Озон. Это позволяет автоматизировать процесс полностью, передавая данные о товарах, ценах и остатках в реальном времени без участия человека и ручного формирования файлов.</p>
+</details>
+<details>
+<summary>Как долго обрабатывается файл с товарами?</summary>
+<p>Обычно процесс занимает от нескольких минут до часа, в зависимости от нагрузки на серверы Ozon и объема файла. Статус обработки можно отслеивать в разделе "История загрузок". Если статус висит слишком долго, возможно, файл поврежден или содержит критические ошибки структуры.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakogo-razmera-etiketki-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какого размера этикетки для Озон: требования 2026</span>
+                <span class="pb-related-desc">Полный гид по размерам этикеток для Озон. Требования к штрихкодам для FBO и FBS. Какой принтер выбра</span>
+            </a><a href="/articles/k/ko/kod-tn-ved-v-ozon-kakie-tovary-podlezhat-markirovke.html" class="pb-related-card">
+                <span class="pb-related-title">Код ТН ВЭД на Ozon: маркировка и коды товаров</span>
+                <span class="pb-related-desc">Как найти код ТН ВЭД для Ozon. Список товаров, подлежащих обязательной маркировке, и инструкция по в</span>
+            </a><a href="/articles/k/ka/kak-napechatat-markirovku-dlya-ozon-na-obychnom-printere.html" class="pb-related-card">
+                <span class="pb-related-title">Как напечатать маркировку для Ozon на обычном принтере</span>
+                <span class="pb-related-desc">Инструкция по печати штрихкодов Ozon на принтере. Настройки масштаба, выбор бумаги и решение проблем</span>
+            </a><a href="/articles/k/ka/kak-dobavit-tovar-na-ozon-dlya-prodazhi-so-svoego-sklada.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить товар на Озон со своего склада: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению товаров на Ozon с FBS (Fulfillment by Seller) — от регистрации д</span>
+            </a><a href="/articles/k/kt/kto-kleit-shtrikh-kody-na-tovar-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Кто клеит штрихкоды на товары для Ozon: правила и ответственность</span>
+                <span class="pb-related-desc">Узнайте, кто отвечает за наклейку штрихкодов на товары для Ozon: продавец, логистика или маркетплейс</span>
+            </a><a href="/articles/k/kl/klyuchevye-slova-ozon-kak-zapolnyat.html" class="pb-related-card">
+                <span class="pb-related-title">Ключевые слова Озон: как заполнять карточку товара</span>
+                <span class="pb-related-desc">Подробная инструкция: как правильно подбирать и заполнять ключевые слова на Ozon. Секреты SEO, синон</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает схема Ozon: FBS vs FBO для продавцов и покупателей — Об Озоне</title>
+    <meta name="description" content="Разбираемся в логистических схемах Ozon: чем отличаются FBS и FBO, как выбрать оптимальную модель для бизнеса, плюсы и минусы каждой системы.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rabotaet-skhema-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает схема Ozon: FBS vs FBO для продавцов и покупателей">
+    <meta property="og:description" content="Разбираемся в логистических схемах Ozon: чем отличаются FBS и FBO, как выбрать оптимальную модель для бизнеса, плюсы и минусы каждой системы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работает схема Ozon: FBS vs FBO для продавцов и покупателей</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-fbs-и-fbo-основные-отличия">Что такое FBS и FBO: основные отличия</a></li><li><a href="#как-работает-fbs-от-приёмки-товара-до-доставки-покупателю">Как работает FBS: от приёмки товара до доставки покупателю</a></li><li><a href="#fbo-как-организовать-доставку-самостоятельно">FBO: как организовать доставку самостоятельно</a></li><li><a href="#скрытые-комиссии-и-штрафы-на-что-не-обращают-внимание-новички">Скрытые комиссии и штрафы: на что не обращают внимание новички</a></li><li><a href="#как-выбрать-между-fbs-и-fbo-чек-лист-для-продавца">Как выбрать между FBS и FBO: чек-лист для продавца</a></li><li><a href="#типичные-ошибки-продавцов-при-работе-с-fbs-и-fbo">Типичные ошибки продавцов при работе с FBS и FBO</a></li><li><a href="#как-перейти-с-fbo-на-fbs-и-обратно-пошаговая-инструкция">Как перейти с FBO на FBS (и обратно): пошаговая инструкция</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-схемах-ozon">FAQ: ответы на частые вопросы о схемах Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otpravit-fbo-ozon.html">Как отправить FBO Ozon: пошаговая инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-otkryt-ozon-fbs.html">Как открыть Ozon FBS: пошаговая инструкция для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-sobrat-tovar-dlya-ozon-cherez-svoj-sklad.html">Как собрать товар для Ozon через свой склад: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-otpravit-gruz-ozonom.html">Как отправить груз Озоном: инструкция по FBO и FBS</a></li><li><a href="/articles/f/fb/fbs-ozon-kak-upakovat.html">ФБС Озон: как правильно упаковать товар по правилам 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как работает схема Ozon: FBS против FBO — полное руководство для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-fbs-и-fbo-основные-отличия">Что такое FBS и FBO: основные отличия</a></li><li><a href="#как-работает-fbs-от-приёмки-товара-до-доставки-покупателю">Как работает FBS: от приёмки товара до доставки покупателю</a></li><li><a href="#fbo-как-организовать-доставку-самостоятельно">FBO: как организовать доставку самостоятельно</a></li><li><a href="#скрытые-комиссии-и-штрафы-на-что-не-обращают-внимание-новички">Скрытые комиссии и штрафы: на что не обращают внимание новички</a></li><li><a href="#как-выбрать-между-fbs-и-fbo-чек-лист-для-продавца">Как выбрать между FBS и FBO: чек-лист для продавца</a></li><li><a href="#типичные-ошибки-продавцов-при-работе-с-fbs-и-fbo">Типичные ошибки продавцов при работе с FBS и FBO</a></li><li><a href="#как-перейти-с-fbo-на-fbs-и-обратно-пошаговая-инструкция">Как перейти с FBO на FBS (и обратно): пошаговая инструкция</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-схемах-ozon">FAQ: ответы на частые вопросы о схемах Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Маркетплейс <em>Ozon</em> предлагает продавцам две основные логистические схемы: <strong>FBS</strong> (Fulfillment by Ozon) и <strong>FBO</strong> (Fulfillment by Operator). От выбора между ними зависит не только скорость доставки и стоимость хранения товаров, но и репутация магазина, уровень возвратов, а в конечном счёте — прибыль. Однако многие новички путают эти модели или выбирают их наугад, не понимая последствий.</p>
+
+<p>В этой статье мы детально разберём, как устроена каждая схема изнутри: от момента размещения товара на складе до передачи заказа курьеру. Вы узнаете, какие <mark>скрытые комиссии и штрафы</mark> таят в себе FBS и FBO, как они влияют на выдачу товаров в поиске <em>Ozon</em>, и в каких случаях гибридная модель (сочетание обеих схем) может стать оптимальным решением. Анализ проведём на основе актуальных тарифов 2026 года и реальных кейсов продавцов.</p>
+
+<h2 id="что-такое-fbs-и-fbo-основные-отличия">Что такое FBS и FBO: основные отличия</h2>
+
+<p>Начнём с определений. <strong>FBS (Fulfillment by Ozon)</strong> — это модель, при которой <em>Ozon</em> берёт на себя хранение, упаковку и доставку товаров. Продавец отправляет партию продукции на склад маркетплейса, а дальше платформа управляет логистикой самостоятельно. <strong>FBO (Fulfillment by Operator)</strong>, напротив, предполагает, что продавец сам контролирует все этапы: от хранения на своём складе до передачи заказа в службу доставки (чаще всего — <em>СДЭК</em> или <em>Boxberry</em>).</p>
+
+<p>Ключевое отличие — в распределении ответственности. В <strong>FBS</strong> <em>Ozon</em> гарантирует скорость доставки (например, "завтра" или "послезавтра" для Premium-клиентов), но берёт комиссию за хранение и обработку. В <strong>FBO</strong> продавец экономит на складских расходах, но рискует потерять преимущества в выдаче из-за медленной отправки.</p>
+
+<ul>
+  <li>📦 <strong>FBS</strong>: <em>Ozon</em> хранит товар, упаковывает и отправляет покупателю. Вы платите за логистику, но получаете приоритет в поиске.</li>
+  <li>🚚 <strong>FBO</strong>: Вы сами храните товар и организуете доставку. Экономите на комиссиях, но теряете в скорости и видимости.</li>
+  <li>⚖️ <strong>Гибридная схема</strong>: Часть товаров отдаёте на <strong>FBS</strong>, часть держите на <strong>FBO</strong> (например, для редких или габаритных позиций).</li>
+</ul>
+
+<p>Важно: с 2023 года <em>Ozon</em> активно продвигает <strong>FBS</strong> как приоритетную схему. Товары на <strong>FBS</strong> получают бейдж "Быстрая доставка" и чаще попадают в топ выдачи, особенно в категориях с высокой конкуренцией (электроника, бытовая техника, детские товары). Однако это не значит, что <strong>FBO</strong> невыгоден — он подходит для нишевых товаров с низким спросом или для продавцов с собственными складами.</p>
+
+<div class="pb-poll" id="poll-62ff7f49"><div class="pb-poll-question">📊 Какую схему вы используете на Ozon?</div><div class="pb-poll-option" data-poll="62ff7f49" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBS</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="62ff7f49" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только FBO</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="62ff7f49" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Гибридную (FBS + FBO)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="62ff7f49" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ещё не определился</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="как-работает-fbs-от-приёмки-товара-до-доставки-покупателю">Как работает FBS: от приёмки товара до доставки покупателю</h2>
+
+<p>Рассмотрим пошагово, что происходит с товаром после того, как вы отправили его на склад <em>Ozon</em>.</p>
+
+<ol>
+  <li><strong>Приёмка на складе</strong>. Товар проходит проверку на соответствие заявленным характеристикам (вес, габариты, штрихкоды). Если обнаружены расхождения, партия может быть заблокирована.</li>
+  <li><strong>Размещение на хранение</strong>. <em>Ozon</em> распределяет товар по складам в зависимости от регионального спроса. Например, электроника чаще хранится в Московской области, а товары для дома — в региональных хабах.</li>
+  <li><strong>Обработка заказа</strong>. При покупке система автоматически резервирует товар, упаковывает его (если нужно — с брендированной лентой) и передаёт курьерской службе.</li>
+  <li><strong>Доставка</strong>. <em>Ozon</em> гарантирует сроки: "завтра" для Premium-пользователей, "2-3 дня" для стандартных заказов. Задержки возможны только при форс-мажорах (погодные условия, проблемы с транспортом).</li>
+</ol>
+
+<p>Стоимость <strong>FBS</strong> включает:</p>
+<ul>
+  <li>💰 <strong>Хранение</strong>: от 0,5 до 2 рублей за куб. дм в день (зависит от категории товара).</li>
+  <li>📦 <strong>Комиссия за обработку</strong>: 10-30 рублей за заказ (включает упаковку и наклейку этикеток).</li>
+  <li>🚛 <strong>Доставка</strong>: тарифы зависят от веса и региона (например, до 1 кг в Москву — 80 рублей).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если товар лежит на складе <em>Ozon</em> более 90 дней без продаж, платформа начинает списывать <strong>штраф за долгое хранение</strong> — до 5 рублей за куб. дм в день. Это актуально для сезонных товаров (например, лыжи летом).</blockquote>
+
+
+<p>Сверить штрихкоды с карточкой товара|Проверить целостность упаковки|Указать правильные габариты в личном кабинете|Оформить транспортную накладную в LK Ozon|Отправить партию на ближайший склад FBS--></p>
+
+<h2 id="fbo-как-организовать-доставку-самостоятельно">FBO: как организовать доставку самостоятельно</h2>
+
+<p>В схеме <strong>FBO</strong> продавец берёт на себя все логистические процессы. Это требует больше усилий, но даёт гибкость. Например, вы можете:</p>
+<ul>
+  <li>📦 Хранить товар на своём складе или у 3PL-провайдера (логистического оператора).</li>
+  <li>🚚 Самостоятельно выбирать службу доставки (<em>СДЭК</em>, <em>Boxberry</em>, <em>Почта России</em> или даже собственные курьеры).</li>
+  <li>⏱ Контролировать сроки отправки (но remember: <em>Ozon</em> штрафует за просрочку!).</li>
+</ul>
+
+<p>Основные требования <em>Ozon</em> к <strong>FBO</strong>:</p>
+<ol>
+  <li>Срок отправки заказа — не позднее <strong>24 часов</strong> с момента оплаты (для Premium-заказов — 12 часов).</li>
+  <li>Трек-номер должен быть загружен в личный кабинет в течение суток после отправки.</li>
+  <li>Упаковка должна соответствовать стандартам (например, для хрупких товаров обязательна воздушная подушка).</li>
+</ol>
+
+<p>Преимущества <strong>FBO</strong>:</p>
+<ul>
+  <li>✅ Нет комиссий за хранение (экономьте на товарах с низкой оборачиваемостью).</li>
+  <li>✅ Можно работать с негабаритными или хрупкими товарами, которые <em>Ozon</em> не принимает на <strong>FBS</strong>.</li>
+  <li>✅ Гибкость в выборе доставки (например, дешёвая <em>Почта России</em> для удалённых регионов).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы регулярно нарушаете сроки отправки в <strong>FBO</strong>, <em>Ozon</em> может <strong>принудительно перевести вас на FBS</strong> или заблокировать аккаунт. В 2026 году порог допустимых просрочек — не более 5% от общего числа заказов.</blockquote>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>FBS</th>
+      <th>FBO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Скорость доставки</td>
+      <td>1-3 дня (приоритет в выдаче)</td>
+      <td>3-14 дней (зависит от службы доставки)</td>
+    </tr>
+    <tr>
+      <td>Стоимость хранения</td>
+      <td>От 0,5 руб/куб. дм в день</td>
+      <td>Нет (или стоимость вашего склада)</td>
+    </tr>
+    <tr>
+      <td>Комиссия за обработку</td>
+      <td>10-30 руб за заказ</td>
+      <td>Нет (или стоимость вашей упаковки)</td>
+    </tr>
+    <tr>
+      <td>Штрафы за просрочку</td>
+      <td>Нет (ответственность <em>Ozon</em>)</td>
+      <td>До 500 руб за заказ</td>
+    </tr>
+    <tr>
+      <td>Подходит для</td>
+      <td>Товаров с высоким спросом, небольших габаритов</td>
+      <td>Нишевых, габаритных или хрупких товаров</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="скрытые-комиссии-и-штрафы-на-что-не-обращают-внимание-новички">Скрытые комиссии и штрафы: на что не обращают внимание новички</h2>
+
+<p>Многие продавцы выбирают <strong>FBS</strong> или <strong>FBO</strong>, ориентируясь только на базовые тарифы, но забывают о дополнительных расходах. Вот что часто упускают:</p>
+
+<ul>
+  <li>📉 <strong>Штраф за отмену заказа</strong>: Если покупатель отменил заказ после того, как товар уже упакован на складе <em>Ozon</em> (<strong>FBS</strong>), с вас спишут 50-200 рублей за "ложную продажу".</li>
+  <li>🔄 <strong>Возврат товара</strong>: При возврате в <strong>FBS</strong> <em>Ozon</em> берёт комиссию за "обратную логистику" — до 150 рублей за позицию. В <strong>FBO</strong> вы сами оплачиваете обратную доставку.</li>
+  <li>📦 <strong>Переупаковка</strong>: Если товар пришёл на склад <em>Ozon</em> в ненадлежащей упаковке, его могут перепаковать за ваш счёт (от 30 рублей за единицу).</li>
+  <li>🚫 <strong>Блокировка товара</strong>: Если товар не продаётся более 6 месяцев, <em>Ozon</em> может списать его как "неликвид" и выставить вам счёт за утилизацию.</li>
+</ul>
+
+<p>Пример из практики: продавец одежды перешёл на <strong>FBS</strong>, не учтя, что в сезон распродаж возвраты составляют до 30% от заказов. В результате комиссии за обратную логистику съели 12% от прибыли. Чтобы избежать таких ситуаций, всегда моделируйте <strong>тотальную стоимость владения (TCO)</strong> для каждой схемы.</p>
+
+<details class="pb-accordion"><summary>Как рассчитать реальную стоимость FBS?</summary><div class="pb-accordion-body"><p>
+<p>1. Возьмите среднюю стоимость хранения вашего товара (например, 1 руб/куб. дм в день).</p>
+<p>2. Умножьте на средний срок хранения (допустим, 30 дней).</p>
+<p>3. Добавьте комиссию за обработку (20 руб) и доставку (100 руб).</p>
+<p>4. Прибавьте 10% на возможные возвраты и штрафы.</p>
+<p>Формула: (Стоимость хранения × Срок) + Комиссия обработки + Доставка + 10% = Итоговая стоимость FBS за один заказ.</p></div></details></p>
+
+<h2 id="как-выбрать-между-fbs-и-fbo-чек-лист-для-продавца">Как выбрать между FBS и FBO: чек-лист для продавца</h2>
+
+<p>Нет универсального ответа, какая схема лучше. Всё зависит от вашего товара, оборотов и целей. Вот критерии для принятия решения:</p>
+
+<ol>
+  <li><strong>Объём продаж</strong>:
+    <ul>
+      <li>Если продаёте <strong>более 100 заказов в день</strong> → <strong>FBS</strong> поможет масштабироваться.</li>
+      <li>Если <strong>менее 20 заказов в день</strong> → <strong>FBO</strong> дешевле.</li>
+    </ul>
+  </li>
+  <li><strong>Категория товара</strong>:
+    <ul>
+      <li>Электроника, косметика, товары для детей → <strong>FBS</strong> (приоритет в выдаче).</li>
+      <li>Мебель, строительные материалы, антикварные вещи → <strong>FBO</strong> (дешевле доставка).</li>
+    </ul>
+  </li>
+  <li><strong>География продаж</strong>:
+    <ul>
+      <li>Продаёте по всей России → <strong>FBS</strong> обеспечит быструю доставку в регионы.</li>
+      <li>Локальный бизнес (например, только Москва) → <strong>FBO</strong> с собственной курьерской службой.</li>
+    </ol>
+  </li>
+  <li><strong>Сезонность</strong>:
+    <ul>
+      <li>Товар продаётся круглый год → <strong>FBS</strong>.</li>
+      <li>Сезонный спрос (например, ёлочные игрушки) → <strong>FBO</strong>, чтобы избежать штрафов за долгое хранение.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Протестируйте обе схемы на части ассортимента. Например, отправьте на <strong>FBS</strong> 20% самых ходовых товаров, а остальные держите на <strong>FBO</strong>. Через месяц сравните:</p>
+<ul>
+  <li>📈 Конверсию в заказы (обычно выше на <strong>FBS</strong> из-за бейджа "Быстрая доставка").</li>
+  <li>💸 Чистую прибыль (вычтите все комиссии и штрафы).</li>
+  <li>⭐ Рейтинг магазина (в <strong>FBS</strong> меньше жалоб на доставку).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Гибридная схема (FBS + FBO) часто оказывается оптимальной: ходовые товары — на FBS для скорости, редкие или габаритные — на FBO для экономии.</p></aside>
+
+<h2 id="типичные-ошибки-продавцов-при-работе-с-fbs-и-fbo">Типичные ошибки продавцов при работе с FBS и FBO</h2>
+
+<p>Даже опытные продавцы иногда допускают просчёты, которые ведут к штрафам или потере прибыли. Вот самые распространённые:</p>
+
+<ul>
+  <li>🔖 <strong>Неправильные штрихкоды</strong>: Если штрихкод в карточке товара не совпадает с реальным, склад <em>Ozon</em> не примет партию, а вы потеряете время на переоформление.</li>
+  <li>⏳ <strong>Задержка с отправкой в FBO</strong>: Многие думают, что 24 часа на отправку — это много, но на практике нужно успеть упаковать, распечатать этикетки и передать курьеру. Используйте автоматизацию (например, интеграцию с <em>МойСклад</em> или <em>1С</em>).</li>
+  <li>📏 <strong>Неверные габариты</strong>: Указываете в личном кабинете одни размеры, а при приёмке выясняется, что товар больше. <em>Ozon</em> пересчитает тарифы задним числом и спишет разницу.</li>
+  <li>🔄 <strong>Игнорирование возвратов</strong>: В <strong>FBS</strong> возвращённые товары автоматически возвращаются на склад, но их нужно проверять на целостность. Если не сделать это вовремя, можно отправить покупателю бракованный товар и получить штраф.</li>
+</ul>
+
+<p>Пример: продавец электроники указал в карточке товара вес 0,5 кг, а реальный вес был 1,2 кг. В результате <em>Ozon</em> доначислил 400 рублей за доставку по фактическому весу за месяц. Чтобы избежать таких ситуаций, всегда взвешивайте товар <strong>в упаковке</strong> (с коробкой, наполнителем и этикетками).</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы работаете по <strong>FBO</strong> и используете <em>Почту России</em> для доставки, обязательно страхуйте посылки. В 2026 году <em>Ozon</em> ужесточил требования: при утрате нестрахованного заказа штраф ложится на продавца (до 5 000 рублей).</blockquote>
+
+<h2 id="как-перейти-с-fbo-на-fbs-и-обратно-пошаговая-инструкция">Как перейти с FBO на FBS (и обратно): пошаговая инструкция</h2>
+
+<p>Если вы решили сменить схему, сделайте это грамотно, чтобы не потерять продажи. Алгоритм действий:</p>
+
+<ol>
+  <li><strong>Подготовка товара</strong>:
+    <ul>
+      <li>Для перехода на <strong>FBS</strong>: проверьте, что все товары соответствуют <a href="https://docs.ozon.ru/common/requirements-for-goods/">требованиям <em>Ozon</em> к упаковке</a> (например, нет скотча на коробках, есть штрихкоды).</li>
+      <li>Для перехода на <strong>FBO</strong>: убедитесь, что у вас есть договор с курьерской службой и место для хранения.</li>
+    </ul>
+  </li>
+  <li><strong>Настройка в личном кабинете</strong>:
+    <pre><code>Личный кабинет → Товары → Выбрать позиции → Изменить схему логистики</code></pre>
+    <p>Выберите <code>FBS</code> или <code>FBO</code> и подтвердите изменения.</p>
+  </li>
+  <li><strong>Отправка товара на склад (для FBS)</strong>:
+    <ul>
+      <li>Сформируйте <code>Заявку на поставку</code> в ЛК.</li>
+      <li>Распечатайте этикетки и наклейте их на коробки.</li>
+      <li>Доставьте товар на выбранный склад (можно через партнёров <em>Ozon</em>, например, <em>Деловые Линии</em>).</li>
+    </ol>
+  </li>
+  <li><strong>Тестовый период</strong>:
+    <ul>
+      <li>Начните с 10-20% ассортимента, чтобы оценить изменения в продажах.</li>
+      <li>Отслеживайте метрики: конверсия, количество возвратов, чистая прибыль.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Важно: при переходе на <strong>FBS</strong> учитывайте, что первые 2-3 недели продажи могут просесть. Это нормально — <em>Ozon</em> перераспределяет товар по складам. Не паникуйте и не отменяйте схему раньше времени.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Перед массовым переводом товаров на FBS проверьте их <strong>индекс оборачиваемости</strong> в личном кабинете. Товары с коэффициентом ниже 0,5 (продаются реже чем раз в 2 месяца) лучше оставить на FBO.</p></aside>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-схемах-ozon">FAQ: ответы на частые вопросы о схемах Ozon</h2>
+
+<details>
+  <summary>Можно ли использовать и FBS, и FBO одновременно для одного товара?</summary>
+  <p>Нет, для одной карточки товара можно выбрать только одну схему. Однако вы можете дублировать товар (создать две карточки: одну на <strong>FBS</strong>, другую на <strong>FBO</strong>), но это нарушает правила <em>Ozon</em> и может привести к блокировке. Лучше распределить ассортимент: часть на <strong>FBS</strong>, часть на <strong>FBO</strong>.</p>
+</details>
+
+<details>
+  <summary>Какой процент продавцов на Ozon использует FBS?</summary>
+  <p>По данным <em>Ozon</em> за 2026 год, около <strong>70% продавцов</strong> работают по схеме <strong>FBS</strong>, 20% — по <strong>FBO</strong>, и 10% комбинируют обе модели. При этом в категориях "Электроника" и "Детские товары" доля <strong>FBS</strong> достигает 90%, так как скорость доставки критически важна для покупателей.</p>
+</details>
+
+<details>
+  <summary>Что будет, если не успеть отправить заказ в FBO в течение 24 часов?</summary>
+  <p>За первую просрочку <em>Ozon</em> штрафует на <strong>100 рублей</strong>. За повторные нарушения штраф grows до <strong>500 рублей за заказ</strong>, а при систематических просрочках (более 5% от общего числа заказов) аккаунт могут заблокировать. Чтобы избежать этого, настройте автоматическую печать этикеток через API или используйте сервисы вроде <em>МойСклад</em> для ускорения обработки.</p>
+</details>
+
+<details>
+  <summary>Как уменьшить комиссию за хранение в FBS?</summary>
+  <p>Есть несколько способов:
+  <ol>
+    <li>Оптимизируйте упаковку: уменьшите габариты коробок (комиссия считается по объёму).</li>
+    <li>Используйте <strong>сезонные акции <em>Ozon</strong></strong>: иногда платформа предлагает скидки на хранение для определённых категорий.</li>
+    <li>Настройте <strong>автоматическое пополнение запасов</strong>: держите на складе только тот товар, который продаётся быстро.</li>
+    <li>Переводите неликвиды на <strong>FBO</em> или выводите их с площадки.</li>
+  </ol>
+  </p>
+</details>
+
+<details>
+  <summary>Можно ли вернуть товар со склада FBS, если он не продаётся?</summary>
+  <p>Да, но это платная услуга. Стоимость возврата — от <strong>50 рублей за позицию</em> плюс доставка до вашего склада. Чтобы инициализировать возврат, нужно:
+  <pre><code>Личный кабинет → Запасы → Выбрать товар → Запросить возврат</code></pre>
+  <p><em>Ozon</em> рассмотрит заявку в течение 3 дней. Учтите, что товар должен быть в оригинальной упаковке и без повреждений.</p>
+  </p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-otpravit-fbo-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отправить FBO Ozon: пошаговая инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, как правильно отправить товары на FBO Ozon. Полное руководство по упаковке, маркировке, соз</span>
+            </a><a href="/articles/k/ka/kak-otkryt-ozon-fbs.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть Ozon FBS: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Подробное руководство по запуску FBS на Озон: от регистрации до первых заказов. Узнайте, как выбрать</span>
+            </a><a href="/articles/k/ka/kak-sobrat-tovar-dlya-ozon-cherez-svoj-sklad.html" class="pb-related-card">
+                <span class="pb-related-title">Как собрать товар для Ozon через свой склад: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как правильно собрать товар на своем складе для Ozon FBS. Инструкция по упаковке, маркировк</span>
+            </a><a href="/articles/k/ka/kak-otpravit-gruz-ozonom.html" class="pb-related-card">
+                <span class="pb-related-title">Как отправить груз Озоном: инструкция по FBO и FBS</span>
+                <span class="pb-related-desc">Полное руководство для селлеров: как отправить груз на склад Ozon через FBO или FBS. Требования к уп</span>
+            </a><a href="/articles/f/fb/fbs-ozon-kak-upakovat.html" class="pb-related-card">
+                <span class="pb-related-title">ФБС Озон: как правильно упаковать товар по правилам 2026</span>
+                <span class="pb-related-desc">Полная инструкция: как упаковать товар для ФБС Озон. Требования к коробкам, скотчу, маркировке и габ</span>
+            </a><a href="/articles/o/oz/ozon-chto-takoe-usluga-po-izmeneniyu-uslovij-otgruzki.html" class="pb-related-card">
+                <span class="pb-related-title">Услуга по изменению условий отгрузки Ozon: что это и как работает</span>
+                <span class="pb-related-desc">Подробный разбор услуги изменения условий отгрузки на Ozon. Как сменить схему FBO на FBS, настроить </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

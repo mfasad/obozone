@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работают алгоритмы Ozon: ранжирование и продвижение товаров — Об Озоне</title>
+    <meta name="description" content="Подробный разбор алгоритмов ранжирования Ozon. Узнайте, как вывести карточку в топ, какие факторы влияют на выдачу и как избежать санкций.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rabotayut-algoritmy-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работают алгоритмы Ozon: ранжирование и продвижение товаров">
+    <meta property="og:description" content="Подробный разбор алгоритмов ранжирования Ozon. Узнайте, как вывести карточку в топ, какие факторы влияют на выдачу и как избежать санкций.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как работают алгоритмы Ozon: ранжирование и продвижение товаров</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#базовые-принципы-ранжирования-карточек-товаров">Базовые принципы ранжирования карточек товаров</a></li><li><a href="#факторы-влияния-на-позицию-в-поисковой-выдаче">Факторы влияния на позицию в поисковой выдаче</a></li><li><a href="#роль-отзывов-и-рейтинга-продавца">Роль отзывов и рейтинга продавца</a></li><li><a href="#логистические-показатели-и-скорость-доставки">Логистические показатели и скорость доставки</a></li><li><a href="#влияние-рекламы-и-промо-инструментов">Влияние рекламы и промо-инструментов</a></li><li><a href="#типичные-ошибки-снижающие-ранг-товара">Типичные ошибки, снижающие ранг товара</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakaya-rabota-na-sklade-ozon.html">Какая работа на складе Ozon: виды, зарплаты и условия</a></li><li><a href="/articles/k/ka/kak-raskrutit-svoj-tovar-na-ozon.html">Как раскрутить товар на Ozon: стратегии продвижения</a></li><li><a href="/articles/k/ka/kak-vyjti-na-ozon-so-svoim.html">Как выйти на Озон со своим товаром: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-zaklyuchit-kontrakt-s-ozon.html">Как заключить контракт с Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-uznat-zaprosy-na-ozon.html">Как узнать запросы на Озон: 5 способов анализа спроса</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как работают алгоритмы Ozon: полный гид по ранжированию</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#базовые-принципы-ранжирования-карточек-товаров">Базовые принципы ранжирования карточек товаров</a></li><li><a href="#факторы-влияния-на-позицию-в-поисковой-выдаче">Факторы влияния на позицию в поисковой выдаче</a></li><li><a href="#роль-отзывов-и-рейтинга-продавца">Роль отзывов и рейтинга продавца</a></li><li><a href="#логистические-показатели-и-скорость-доставки">Логистические показатели и скорость доставки</a></li><li><a href="#влияние-рекламы-и-промо-инструментов">Влияние рекламы и промо-инструментов</a></li><li><a href="#типичные-ошибки-снижающие-ранг-товара">Типичные ошибки, снижающие ранг товара</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Понимание внутренней логики маркетплейса — это фундамент успешной торговли в электронной коммерции. Многие селлеры ошибочно полагают, что достаточно просто загрузить товар и установить низкую цену, чтобы начались продажи, однако реальность гораздо сложнее. <strong>Алгоритмы ранжирования</strong> Ozon — это сложная математическая модель, которая анализирует сотни параметров в реальном времени, чтобы предложить покупателю наиболее релевантные варианты.</p>
+
+<p>Система постоянно обучается на поведении миллионов пользователей, учитывая их клики, добавления в корзину, покупки и даже время, проведенное на странице товара. Если вы хотите, чтобы ваш продукт видели потенциальные клиенты, необходимо глубоко погрузиться в механику работы поисковой выдачи. В этой статье мы разберем ключевые факторы, влияющие на позицию карточки, и способы оптимизации вашего магазина.</p>
+
+<p>Игнорирование правил платформы или попытка «обмануть» систему могут привести к потере позиций или даже блокировке аккаунта. <em>Машинное обучение</em> нейросетей Ozon выявляет аномалии гораздо быстрее, чем человеческий модератор. Поэтому стратегия работы должна строиться на прозрачности и соответствии требованиям площадки.</p>
+
+<h2 id="базовые-принципы-ранжирования-карточек-товаров">Базовые принципы ранжирования карточек товаров</h2>
+
+<p>В основе выдачи лежит принцип релевантности: система сначала ищет товары, максимально точно соответствующие поисковому запросу пользователя. Если покупатель ищет «красное платье», алгоритм в первую очередь покажет карточки, где в названии и характеристиках есть эти слова, а не просто «женская одежда». <strong>Индекс качества</strong> карточки играет здесь решающую роль, определяя, попадет ли товар в топ-100 или затеряется на десятых страницах.</p>
+
+<p>Однако простого совпадения ключевых слов недостаточно. Алгоритм оценивает коммерческую привлекательность предложения, сравнивая его с аналогами. Сюда входят цена, наличие товара на складах, скорость доставки и история продаж. <mark>Совокупность факторов ранжирования динамически меняется в зависимости от категории товара и текущей конкуренции в нише.</mark></p>
+
+<p>Важно понимать, что выдача персонализирована. Два разных пользователя, вводя один и тот же запрос, могут увидеть разные результаты. Система учитывает историю покупок, геолокацию и предпочтения конкретного человека. Это означает, что ваша задача — сделать карточку максимально привлекательной для широкой аудитории, чтобы алгоритм сам нашел ей покупателя.</p>
+
+<div class="pb-poll" id="poll-ae63d184"><div class="pb-poll-question">📊 Что для вас важнее всего в ранжировании?</div><div class="pb-poll-option" data-poll="ae63d184" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Цена</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ae63d184" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Скорость доставки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ae63d184" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Качество фото</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="ae63d184" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Отзывы покупателей</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не пытайтесь использовать «спамные» ключевые слова в названии товара, не относящиеся к продукту. Алгоритм Ozon умеет распознавать семантическую связь и может понизить позицию карточки за нерелевантность.</p>
+</blockquote>
+
+<h2 id="факторы-влияния-на-позицию-в-поисковой-выдаче">Факторы влияния на позицию в поисковой выдаче</h2>
+
+<p>Алгоритм ранжирования Ozon — это «черный ящик», параметры которого регулярно обновляются, но основные столпы остаются неизменными. Первостепенное значение имеет <strong>наличие товара</strong> на складах. Если товара нет в наличии, карточка полностью исчезает из поиска, независимо от количества накопленных отзывов или рейтинга. Система не показывает то, что нельзя купить прямо сейчас.</p>
+
+<p>Второй критически важный параметр — это <strong>цена</strong>. Алгоритм сравнивает вашу стоимость с ценами на аналогичные товары как на самом Ozon, так и за его пределами. Если ваша цена значительно выше рыночной, система может ограничить охваты, посчитав предложение неконкурентным. Однако демпинг также не всегда является решением, так как может привлечь аудиторию, ожидающую низкого качества.</p>
+
+<p>Третий блок факторов — это визуальная составляющая и контент. <em>Rich-контент</em>, качественные фото, видеообзоры и подробные характеристики напрямую влияют на конверсию. Чем выше процент конверсии из просмотра в покупку (CTR и CR), тем охотнее алгоритм поднимает товар выше. Пользовательское поведение — главный сигнал для системы о том, что товар интересен.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте все возможные поля в характеристиках товара. Заполненность карточки на 100% — обязательное условие для попадания в фильтры поиска и умные подборки.</p></aside>
+
+<p>Ниже приведена таблица основных факторов и их веса при ранжировании (вес условный, так как точные формулы):</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Фактор</th>
+<th>Влияние</th>
+<th>Частота обновления данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Наличие на складе</td>
+<td>Критическое</td>
+<td>В реальном времени</td>
+</tr>
+<tr>
+<td>Цена (с учетом скидок)</td>
+<td>Высокое</td>
+<td>Ежечасно</td>
+</tr>
+<tr>
+<td>Отзывы и рейтинг</td>
+<td>Среднее/Высокое</td>
+<td>Ежедневно</td>
+</tr>
+<tr>
+<td>Скорость обработки заказов</td>
+<td>Среднее</td>
+<td>Еженедельно</td>
+</tr>
+<tr>
+<td>Полнота описания</td>
+<td>Базовое</td>
+<td>При изменении</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="роль-отзывов-и-рейтинга-продавца">Роль отзывов и рейтинга продавца</h2>
+
+<p>Социальное доказательство — мощнейший драйвер продаж, и алгоритмы Ozon это прекрасно знают. Рейтинг товара и рейтинг продавца формируют доверие не только у покупателей, но и у системы. Товары с рейтингом ниже 4.0 звезд часто получают меньшее количество показов, так как система предсказывает высокий риск возвратов и недовольства клиентов.</p>
+
+<p>Количество отзывов также имеет значение, но их качество важнее. Алгоритм анализирует текст отзыва, наличие фото и видео от покупателей, а также скорость реакции продавца на негатив. <strong>Ответы на отзывы</strong> показывают, что магазинalive и заботится о клиентах, что косвенно влияет на ранжирование. Молчание в ответ на критику воспринимается как безразличие.</p>
+
+<p>Особое внимание стоит уделить отрицательным отзывам. Резкий всплеск негатива может привести к временному падению карточки в выдаче, пока система не убедится, что проблема решена. Это защитный механизм платформы от некачественных товаров. Регулярный мониторинг обратной связи позволяет оперативно реагировать на дефекты партии или ошибки в описании.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка карточки товара</h4><label class="check-item"><input type="checkbox"><span>Фото соответствуют реальности</span></label><label class="check-item"><input type="checkbox"><span>Цена конкурентна</span></label><label class="check-item"><input type="checkbox"><span>Описание без ошибок</span></label><label class="check-item"><input type="checkbox"><span>Характеристики заполнены полностью</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Заказ «липовых» отзывов или использование сервисов накрутки строго запрещено. Алгоритмы Ozon выявляют такие паттерны и применяют жесткие штрафные санкции вплоть до блокировки аккаунта.</p>
+</blockquote>
+
+<h2 id="логистические-показатели-и-скорость-доставки">Логистические показатели и скорость доставки</h2>
+
+<p>Логистика — это сердце Ozon, и алгоритмы отдают приоритет товарам, которые можно доставить быстро. Товары, лежащие на складах <em>FBO</em> (Fulfillment by Ozon) или отгруженные по схеме <em>FBS</em> с соблюдением всех нормативов, получают маркировку «Доставим завтра» или «Экспресс». Это повышает их видимость в поиске и фильтрах.</p>
+
+<p>Скорость обработки заказа (время от момента поступления заказа до передачи курьеру или отгрузки на склад) напрямую влияет на <strong>индекс локализации</strong>. Если вы часто срываете сроки отгрузки, система начинает реже показывать ваши товары, перераспределяя трафик на более надежных продавцов. Стабильность важнее разовых рекордов.</p>
+
+<p>География складов также имеет значение. Если ваш товар лежит на складе в Москве, а покупатель во Владивостоке, он увидит ваш товар позже, чем продавец, чей товар находится в Новосибирске или Хабаровске. Распределение остатков по региональным складам (мультирегиональность) — один из самых эффективных способов улучшить логистические метрики.</p>
+
+<details class="pb-accordion"><summary>Что такое индекс локализации?</summary><div class="pb-accordion-body"><p>Это показатель, отражающий, насколько равномерно распределены ваши товары по складам Ozon в разных регионах. Высокий индекс дает приоритет в выдаче для покупателей из этих регионов.</p></div></details>
+
+<h2 id="влияние-рекламы-и-промо-инструментов">Влияние рекламы и промо-инструментов</h2>
+
+<p>Органическое продвижение — это хорошо, но в высококонкурентных нишах без рекламы не обойтись. Рекламные инструменты Ozon, такие как «Реклама в поиске» и «Реклама в каталоге», не только приводят трафик, но и косвенно влияют на органическое ранжирование. Увеличение количества продаж через рекламу повышает общий объем продаж, что является позитивным сигналом для алгоритма.</p>
+
+<p>Участие в акциях и распродажах также дает временный буст карточкам. Товары со значком «Акция» или «Ozon Карта» получают специальные плашки и часто попадают в отдельные промо-блоки. Это привлекает дополнительное внимание и повышает кликабельность. Однако важно рассчитывать маржинальность, чтобы участие в акции не стало убыточным.</p>
+
+<p>Существует мнение, что реклама напрямую поднимает органику. Это не совсем так. Реклама дает продажи, продажи улучшают поведенческие факторы и объем, а это уже поднимает органику. Прямой связи «заплатил — получил топ» нет, есть цепочка причинно-следственных связей. Грамотная настройка рекламных кампаний позволяет ускорить этот процесс.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Реклама на Ozon — это способ купить данные и ускорить сбор статистики по товару, что в долгосрочной перспективе улучшает его органические позиции.</p></aside>
+
+<h2 id="типичные-ошибки-снижающие-ранг-товара">Типичные ошибки, снижающие ранг товара</h2>
+
+<p>Многие селлеры совершают одни и те же ошибки, которые сводят на нет все усилия по оптимизации. Одна из самых частых — создание дублей карточек. Вместо того чтобы улучшать существующую, продавец создает новую, размывая историю продаж и отзывы. Алгоритм воспринимает это как спам и может скрыть обе карточки из выдачи.</p>
+
+<p>Другая распространенная ошибка — несоответствие цены. Если вы часто и резко меняете цену (то ставите очень высокую, то очень низкую), система может счесть это манипуляцией. Стабильность ценообразования важна для построения долгосрочной стратегии. Также негативно сказывается частое изменение основных характеристик товара после публикации.</p>
+
+<p>Игнорирование аналитики — путь в никуда. Если вы не отслеживаете, по каким запросам вас находят, каков ваш CTR и конверсия, вы действуете вслепую. Инструменты аналитики в личном кабинете продавца предоставляют все необходимые данные для принятия решений. Слепое копирование стратегий конкурентов без учета специфики своего ассортимента также редко приводит к успеху.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Резкое изменение категории товара или его основных атрибутов может привести к сбросу накопленного рейтинга и истории продаж. Вносите правки аккуратно.</p>
+</blockquote>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Как часто обновляются алгоритмы ранжирования Ozon?</summary>
+<p>Точная частота обновлений не разглашается, но известно, что изменения вносятся постоянно, иногда несколько раз в неделю. Глобальные обновления алгоритмов обычно происходят ежеквартально. Следить за новостями нужно в официальных каналах Ozon для селлеров.</p>
+</details>
+
+<details>
+<summary>Влияет ли дата создания карточки на её ранжирование?</summary>
+<p>Сама по себе дата создания не является прямым фактором ранжирования. Однако новые карточки часто получают временный буст («холодный старт») для тестирования спроса. Если товар показывает хорошую конверсию, он закрепляется в выдаче. Если нет — быстро падает вниз.</p>
+</details>
+
+<details>
+<summary>Правда ли, что товары с Ozon Premium ранжируются выше?</summary>
+<p>Товары, участвующие в программе Ozon Premium (бесплатная доставка для подписчиков), получают специальную метку и часто имеют приоритет в фильтрах для пользователей с подпиской. Это косвенно влияет на общую видимость и конверсию.</p>
+</details>
+
+<details>
+<summary>Можно ли восстановить позиции после падения?</summary>
+<p>Да, можно. Для этого нужно проанализировать причину падения (изменение цены, появление конкурентов, проблемы с логистикой) и устранить её. Часто помогает обновление контента, запуск рекламы или участие в акции.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakaya-rabota-na-sklade-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какая работа на складе Ozon: виды, зарплаты и условия</span>
+                <span class="pb-related-desc">Полный обзор вакансий на складе Озон. Узнайте, какая работа на складе Ozon: обязанности сборщика, уп</span>
+            </a><a href="/articles/k/ka/kak-raskrutit-svoj-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как раскрутить товар на Ozon: стратегии продвижения</span>
+                <span class="pb-related-desc">Узнайте, как эффективно раскрутить товар на Ozon. Полный гид по внутренней рекламе, SEO-оптимизации </span>
+            </a><a href="/articles/k/ka/kak-vyjti-na-ozon-so-svoim.html" class="pb-related-card">
+                <span class="pb-related-title">Как выйти на Озон со своим товаром: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство: как выйти на Озон со своим товаром. Регистрация, выбор схемы FBO/FBS, упаковк</span>
+            </a><a href="/articles/k/ka/kak-zaklyuchit-kontrakt-s-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как заключить контракт с Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по заключению договора с Ozon для продавцов: от регистрации до подписания. Все</span>
+            </a><a href="/articles/k/ka/kak-uznat-zaprosy-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать запросы на Озон: 5 способов анализа спроса</span>
+                <span class="pb-related-desc">Узнайте, как выявить популярные поисковые запросы на Ozon. Разбор Wordstat, аналитических сервисов и</span>
+            </a><a href="/articles/k/ka/kak-vystavit-obyavlenie-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выставить объявление на Озон: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как выставить объявление на Озон, заполнить карточку, настроить FBS/FBO и избе</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

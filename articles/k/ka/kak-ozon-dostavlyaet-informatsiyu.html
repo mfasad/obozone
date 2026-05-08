@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Ozon доставляет информацию: логистика и трекинг — Об Озоне</title>
+    <meta name="description" content="Как Ozon доставляет информацию о заказах? Разбор алгоритмов трекинга, логистических схем FBO/FBS и способов уведомления клиентов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ozon-dostavlyaet-informatsiyu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Ozon доставляет информацию: логистика и трекинг">
+    <meta property="og:description" content="Как Ozon доставляет информацию о заказах? Разбор алгоритмов трекинга, логистических схем FBO/FBS и способов уведомления клиентов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Ozon доставляет информацию: логистика и трекинг</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#архитектура-информационного-потока-заказа">Архитектура информационного потока заказа</a></li><li><a href="#этапы-обработки-данных-от-склада-до-двери">Этапы обработки данных: от склада до двери</a></li><li><a href="#каналы-коммуникации-с-покупателем">Каналы коммуникации с покупателем</a></li><li><a href="#технические-особенности-трекинга">Технические особенности трекинга</a></li><li><a href="#схемы-доставки-и-их-влияние-на-информирование">Схемы доставки и их влияние на информирование</a></li><li><a href="#проблемы-и-решения-в-передаче-данных">Проблемы и решения в передаче данных</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-stat-perevozchikom-ozon-logistika.html">Как стать перевозчиком Озон Логистика в 2026: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-rabotaet-postamat-ozona.html">Как работает постамат Ozon: полный гайд для покупателей в 2026 году</a></li><li><a href="/articles/o/oz/ozon-otpravlenie-zaregistrirovano-chto-eto.html">Озон: «Отправление зарегистрировано» — что это значит и что делать дальше?</a></li><li><a href="/articles/k/ka/kak-rabotayut-punkty-vydachi-ozon-1-yanvarya.html">Режим работы Ozon 1 января: график ПВЗ и доставки</a></li><li><a href="/articles/k/ka/kak-s-ozona-otsledit-posylku.html">Как отследить посылку с Ozon: все способы и нюансы 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как Ozon доставляет информацию: логистика и трекинг</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#архитектура-информационного-потока-заказа">Архитектура информационного потока заказа</a></li><li><a href="#этапы-обработки-данных-от-склада-до-двери">Этапы обработки данных: от склада до двери</a></li><li><a href="#каналы-коммуникации-с-покупателем">Каналы коммуникации с покупателем</a></li><li><a href="#технические-особенности-трекинга">Технические особенности трекинга</a></li><li><a href="#схемы-доставки-и-их-влияние-на-информирование">Схемы доставки и их влияние на информирование</a></li><li><a href="#проблемы-и-решения-в-передаче-данных">Проблемы и решения в передаче данных</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современной электронной коммерции скорость перемещения физических товаров неразрывно связана со скоростью передачи цифровых данных. Когда вы оформляете заказ на <em>Ozon</em>, вы получаете не просто коробку, а постоянный поток информационных уведомлений, которые позволяют контролировать процесс в реальном времени. Понимание того, как именно платформа обрабатывает и транслирует эти данные, помогает избежать лишней тревоги и лучше ориентироваться в статусах доставки.</p>
+
+<p>Система логистики маркетплейса работает как сложный механизм, где каждый этап — от клика по кнопке «Купить» до звонка курьера — сопровождается генерацией и передачей специфических информационных пакетов. Эти данные проходят через множество серверов, сортировочных центров и мобильных приложений, прежде чем попасть на экран вашего смартфона. В этой статье мы детально разберем техническую и организационную стороны того, как <strong>Ozon</strong> обеспечивает прозрачность пути вашего заказа.</p>
+
+<p>Информационное сопровождение заказа начинается задолго до того, как товар покинет склад. Это непрерывный процесс обмена сигналами между базой данных продавца, логистическим алгоритмом платформы и интерфейсом пользователя. Именно этот скрытый от глаз обмен данными создает ощущение магии мгновенного обновления статусов.</p>
+
+<h2 id="архитектура-информационного-потока-заказа">Архитектура информационного потока заказа</h2>
+
+<p>Фундаментом системы является централизованная база данных, которая принимает и обрабатывает миллионы запросов в секунду. Как только происходит оплата, система генерирует уникальный <strong>трек-номер</strong>, который становится ключом ко всей дальнейшей истории перемещения груза. Этот идентификатор привязывается к штрихкоду на упаковке, что позволяет сканерам на складах считывать местоположение товара за доли секунды.</p>
+
+<p>Передача данных происходит по защищенным каналам связи, обеспечивая конфиденциальность персональной информации покупателей. Алгоритмы <em>Ozon</em> автоматически распределяют заказы между ближайшими логистическими хабами, оптимизируя маршруты в реальном времени. Если происходит задержка на одном из участков, система мгновенно пересчитывает прогнозируемое время доставки и отправляет обновленную информацию пользоват</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Статусы в приложении могут обновляться с небольшой задержкой (до 15-20 минут) из-за синхронизации баз данных региональных сортировочных центров. Не паникуйте, если статус не сменился сразу после сканирования.</p>
+</blockquote>
+
+<p>Важно отметить роль <strong>API-интеграций</strong> для продавцов, которые используют сторонние системы управления торговлей. Информация о движении товара передается им также в автоматическом режиме, что позволяет бизнесу планировать закупки и информировать клиентов без участия операторов. Это создает единую информационную экосистему, где все участники процесса видят актуальную картину.</p>
+
+<div class="pb-poll" id="poll-0552aed0"><div class="pb-poll-question">📊 Как вы чаще всего отслеживаете заказ?</div><div class="pb-poll-option" data-poll="0552aed0" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">В мобильном приложении Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0552aed0" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через СМС-уведомления</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0552aed0" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">На сайте в личном кабинете</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0552aed0" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Через трек-номер в сторонних сервисах</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="этапы-обработки-данных-от-склада-до-двери">Этапы обработки данных: от склада до двери</h2>
+
+<p>Путь информационного сообщения начинается в момент сборки заказа. Сотрудник склада, сканируя товар, отправляет сигнал о том, что единица продукции зарезервирована и готова к упаковке. На этом этапе в системе появляется запись о формировании заказа, и покупатель получает первое уведомление. Далее товар попадает в зону упаковки, где присваивается финальный габаритный вес и печатается транспортная накладная.</p>
+
+<p>Следующий критический этап — передача в логистическую службу. В этот момент данные о грузе передаются партнерам-перевозчикам или во внутренний автопарк <em>Ozon Rocket</em>. Система фиксирует время выезда транспорта и его маршрут. Для пользователя это отражается в статусе «В пути», который может обновляться при прохождении ключевых точек маршрута, таких как сортировочные центры или хабы.</p>
+
+<ul>
+<li>📦 <strong>Сборка:</strong> Фиксация сбора всех товаров в заказе и формирование единой посылки.</li>
+<li>🚚 <strong>Транспортировка:</strong> Передача данных перевозчику и отслеживание движения транспорта по GPS.</li>
+<li>🏢 <strong>Сортировка:</strong> Распределение посылок по конкретным пунктам выдачи или районам доставки курьерами.</li>
+<li>🔔 <strong>Уведомление:</strong> Автомический запуск push-уведомления или СМС о готовности к выдаче.</li>
+</ul>
+
+<p>Финальная стадия — доставка «последней мили». Курьерское приложение получает обновленный маршрут и список адресов. В момент вручения происходит финальная цифровая фиксация: курьер вводит код из СМС или делает фото у двери, что мгновенно меняет статус заказа на «Доставлен». Этот цикл замыкает информационную цепочку.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Контроль этапов доставки</h4><label class="check-item"><input type="checkbox"><span>Проверка статуса «Собран»:Проверка статуса «Передан в доставку»:Актуальность номера телефона:Готовность встретить курьера</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<h2 id="каналы-коммуникации-с-покупателем">Каналы коммуникации с покупателем</h2>
+
+<p>Ozon использует многоканальную систему оповещений, чтобы гарантировать доставку информации даже при проблемах с одним из каналов связи. Основным инструментом остаются <strong>Push-уведомления</strong> в мобильном приложении, которые работают быстро и не требуют расхода средств на СМС-сообщения. Однако для критически важных изменений, таких как изменение времени доставки или невозможность вручения, система дублирует информацию через СМС.</p>
+
+<p>Электронная почта используется для передачи детализированных отчетов, чеков и официальных документов. Это канал для длинной и структурированной информации, которую неудобно читать в коротких уведомлениях. Кроме того, все история переписки и статусов сохраняется в личном кабинете на сайте и в приложении, создавая архив, доступный в любое время.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Канал связи</th>
+<th>Тип информации</th>
+<th>Скорость доставки</th>
+<th>Надежность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Push-уведомления</td>
+<td>Смена статусов, акции</td>
+<td>Мгновенно</td>
+<td>Высокая (нужен интернет)</td>
+</tr>
+<tr>
+<td>СМС</td>
+<td>Коды доступа, срочные изменения</td>
+<td>1-5 минут</td>
+<td>Очень высокая</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Чеки, акты, подробности</td>
+<td>До 15 минут</td>
+<td>Средняя (спам-фильтры)</td>
+</tr>
+<tr>
+<td>Личный кабинет</td>
+<td>Полная история, трекинг</td>
+<td>Реальное время</td>
+<td>Максимальная</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Особое внимание уделяется интеграции с мессенджерами. В некоторых регионах и для определенных категорий товаров уведомления могут приходить через популярные мессенджеры, что повышает вероятность того, что клиент увидит сообщение вовремя. Это особенно актуально для товаров, требующих обязательного присутствия покупателя.</p>
+
+<h2 id="технические-особенности-трекинга">Технические особенности трекинга</h2>
+
+<p>В основе системы отслеживания лежит технология штрихкодирования и RFID-меток. Каждая упаковка получает уникальный идентификатор, который считывается на каждом этапе пути. Это позволяет системе знать не просто «где-то в пути», а точно «на складе в Твери» или «в машине курьера». Точность данных зависит от дисциплины персонала и исправности сканирующего оборудования.</p>
+
+<p>Для обработки больших данных используются мощные серверные кластеры, которые анализируют потоки информации в реальном времени. Алгоритмы машинного обучения помогают предсказывать задержки и автоматически корректировать ETA (Estimated Time of Arrival). Если система видит, что курьер не успевает по графику из-за пробок, она может автоматически перенаправить часть заказов другому сотруднику.</p>
+
+<details class="pb-accordion"><summary>Что такое «Сложная логистика» в трекинге?</summary><div class="pb-accordion-body"><p>Это статус, означающий, что заказ состоит из нескольких товаров с разных складов. Система разделяет информационный поток на несколько независимых треков, которые объединяются только в пункте выдачи или у курьера.</p></div></details>
+
+<p>Важным аспектом является защита от мошенничества. Система анализирует паттерны поведения и перемещения товаров. Если данные о трекинге выглядят подозрительно (например, резкая смена геолокации без промежуточных сканирований), заказ может быть временно заблокирован для проверки службой безопасности. Это защищает и покупателя, и продавца от потерь.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не сообщайте коды из СМС посторонним лицам, даже если звонящий представляется сотрудником Ozon. Сотрудники службы доставки никогда не спрашивают коды подтверждения по телефону.</p>
+</blockquote>
+
+<h2 id="схемы-доставки-и-их-влияние-на-информирование">Схемы доставки и их влияние на информирование</h2>
+
+<p>Различные схемы работы с маркетплейсом предполагают разные информационные потоки. При работе по схеме <strong>FBO</strong> (Fulfillment by Ozon), когда товар лежит на складе маркетплейса, покупатель видит максимально детализированный и быстрый трекинг, так как все процессы контролируются внутренней IT-инфраструктурой Ozon. Данные обновляются в режиме реального времени.</p>
+
+<p>В случае схемы <em>FBS</em> (Fulfillment by Seller), продавец самостоятельно доставляет товар на сортировочный центр. В этот период («до передачи Ozon») информирование покупателя может быть менее детальным, зависящим от того, как быстро продавец обновляет статусы в своем личном кабинете. После передачи товара в сортировочный центр Ozon, трекинг становится стандартным и прозрачным.</p>
+
+<ul>
+<li>🏭 <strong>FBO:</strong> Полный контроль Ozon, мгновенное обновление статусов, высокая точность прогноза.</li>
+<li>📦 <strong>FBS:</strong> Зависимость от скорости передачи товара продавцом, возможны задержки в обновлении статуса «Принят».</li>
+<li>🚛 <strong>DBS:</strong> Доставка силами продавца, трекинг полностью зависит от интеграции продавца с API Ozon.</li>
+</ul>
+
+<p>Существует также схема доставки со склада продавца (Real-time FBS), где интеграция настроена так глубоко, что статусы обновляются автоматически при изменении состояния заказа в системе продавца. Однако для конечного пользователя разница стирается: он видит единый интерфейс отслеживания, независимо от того, чей склад физически отгружал товар.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Включите геолокацию в приложении Ozon в день доставки. Это поможет курьеру точнее определить ваш адрес и быстрее найти вас, особенно в больших жилых комплексах.</p></aside>
+
+<h2 id="проблемы-и-решения-в-передаче-данных">Проблемы и решения в передаче данных</h2>
+
+<p>Несмотря на высокую автоматизацию, в системе могут возникать сбои. Чаще всего они связаны с техническими работами на серверах или проблемами связи в удаленных регионах. Если вы заметили, что статус заказа не обновляется более 24 часов, это может свидетельствовать о потере информационного сигнала, хотя физически груз может двигаться.</p>
+
+<p>В таких случаях система обычно автоматически генерирует запрос в службу поддержки или логистам на проверку. Однако покупатель также может инициировать проверку. Важно понимать, что отсутствие обновления статуса не всегда означает потерю груза; часто это просто задержка в синхронизации данных между региональным центром и главной базой.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Стабильность обновления информации напрямую зависит от схемы доставки (FBO надежнее FBS) и качества связи в регионе нахождения сортировочного центра.</p></aside>
+
+<p>Для минимизации ошибок внедряются системы двойного контроля. Например, при сортировке сканирование производится дважды: при приеме в сектор и при отправке. Это позволяет отловить ошибку на раннем этапе и скорректировать информационный трек до того, как товар уедет не в тот город. Такие меры повышают общую надежность системы доставки информации.</p>
+
+<details>
+<summary>Почему статус заказа может не обновляться несколько дней?</summary>
+<p>Это может происходить по нескольким причинам: технические работы на сервере, нахождение груза в пути между хабами без точек сканирования (например, в самолете или на корабле), или человеческий фактор (сотрудник забыл отсканировать штрихкод). В большинстве случаев груз в безопасности.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить адрес доставки после оформления заказа?</summary>
+<p>Изменить адрес можно только до момента передачи заказа в доставку (статус «Собирается» или «Упаковывается»). Как только статус сменился на «В пути» или «Передан в доставку», изменение адреса технически невозможно через личный кабинет, потребуется отмена и новый заказ.</p>
+</details>
+
+<details>
+<summary>Как получить электронный чек, если он не пришел на почту?</summary>
+<p>Электронный чек всегда доступен в личном кабинете. Перейдите в раздел «Заказы», выберите нужный заказ и нажмите «Подробности». Там будет ссылка на скачивание чека. Также чеки часто приходят в push-уведомлениях сразу после доставки.</p>
+</details>
+
+<details>
+<summary>Что делать, если курьер не может дозвониться?</summary>
+<p>Убедитесь, что в профиле указан актуальный номер телефона и включен звук. Если связь отсутствует, курьер оставит уведомление в приложении или попытается связаться через чат поддержки. Важно следить за статусом заказа в день доставки.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-stat-perevozchikom-ozon-logistika.html" class="pb-related-card">
+                <span class="pb-related-title">Как стать перевозчиком Озон Логистика в 2026: пошаговая инструкция</span>
+                <span class="pb-related-desc">Хотите сотрудничать с Ozon как перевозчик? Узнайте требования, процесс регистрации, условия работы и</span>
+            </a><a href="/articles/k/ka/kak-rabotaet-postamat-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Как работает постамат Ozon: полный гайд для покупателей в 2026 году</span>
+                <span class="pb-related-desc">Узнайте, как устроена работа постаматов Озон: от получения уведомления до выдачи заказа. Пошаговая и</span>
+            </a><a href="/articles/o/oz/ozon-otpravlenie-zaregistrirovano-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Озон: «Отправление зарегистрировано» — что это значит и что делать дальше?</span>
+                <span class="pb-related-desc">Разбираем статус «Отправление зарегистрировано» на Озон: что он означает для покупателя и продавца, </span>
+            </a><a href="/articles/k/ka/kak-rabotayut-punkty-vydachi-ozon-1-yanvarya.html" class="pb-related-card">
+                <span class="pb-related-title">Режим работы Ozon 1 января: график ПВЗ и доставки</span>
+                <span class="pb-related-desc">Узнайте, как работают пункты выдачи Ozon 1 января. Актуальный график праздничных дней, особенности с</span>
+            </a><a href="/articles/k/ka/kak-s-ozona-otsledit-posylku.html" class="pb-related-card">
+                <span class="pb-related-title">Как отследить посылку с Ozon: все способы и нюансы 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по отслеживанию заказов на Озоне: через сайт, приложение, трек-номер и СМС. Раз</span>
+            </a><a href="/articles/o/oz/ozon-pomenyat-punkt-vydachi-kogda-zakaz-uzhe-priekhal.html" class="pb-related-card">
+                <span class="pb-related-title">Как поменять ПВЗ в Ozon, если заказ уже приехал — инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция, как изменить пункт выдачи заказов на Ozon после прибытия товара. Сроки, услови</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

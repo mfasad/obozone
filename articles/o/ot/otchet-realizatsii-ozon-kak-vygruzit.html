@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Отчет реализации Озон: как выгрузить и проанализировать — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция, как выгрузить отчет реализации Ozon. Анализ CSV-файлов, настройка сводных таблиц и поиск ошибок в актах.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/ot/otchet-realizatsii-ozon-kak-vygruzit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Отчет реализации Озон: как выгрузить и проанализировать">
+    <meta property="og:description" content="Подробная инструкция, как выгрузить отчет реализации Ozon. Анализ CSV-файлов, настройка сводных таблиц и поиск ошибок в актах.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Отчет реализации Озон: как выгрузить и проанализировать</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#зачем-нужна-детализация-отчета-реализации">Зачем нужна детализация отчета реализации</a></li><li><a href="#пошаговая-инструкция-как-выгрузить-отчет-из-личного-кабинета">Пошаговая инструкция: как выгрузить отчет из личного кабинета</a></li><li><a href="#структура-файла-и-ключевые-столбцы">Структура файла и ключевые столбцы</a></li><li><a href="#анализ-данных-поиск-ошибок-и-оптимизация">Анализ данных: поиск ошибок и оптимизация</a></li><li><a href="#автоматизация-и-сторонние-сервисы">Автоматизация и сторонние сервисы</a></li><li><a href="#частые-проблемы-при-работе-с-отчетами">Частые проблемы при работе с отчетами</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-8-chto-eto.html">Ozon 8 что это: новая схема работы FBO</a></li><li><a href="/articles/k/ku/kuda-kleit-yarlyk-na-korobku-ozon.html">Куда клеить ярлык на коробку Ozon: инструкция 2026</a></li><li><a href="/articles/k/ka/kak-izmenit-sklad-postavki-na-ozon.html">Как изменить склад поставки на Ozon: инструкция для FBO</a></li><li><a href="/articles/k/ka/kak-vygodno-otgruzit-na-sklad-ozon.html">Как выгодно отгрузить на склад Ozon: схемы FBO и FBE</a></li><li><a href="/articles/c/ch/chto-znachit-trekhstoronnij-dogovor-s-ozon.html">Трехсторонний договор с Ozon: что это и зачем нужен в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Отчет реализации Озон: как выгрузить и проанализировать</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужна-детализация-отчета-реализации">Зачем нужна детализация отчета реализации</a></li><li><a href="#пошаговая-инструкция-как-выгрузить-отчет-из-личного-кабинета">Пошаговая инструкция: как выгрузить отчет из личного кабинета</a></li><li><a href="#структура-файла-и-ключевые-столбцы">Структура файла и ключевые столбцы</a></li><li><a href="#анализ-данных-поиск-ошибок-и-оптимизация">Анализ данных: поиск ошибок и оптимизация</a></li><li><a href="#автоматизация-и-сторонние-сервисы">Автоматизация и сторонние сервисы</a></li><li><a href="#частые-проблемы-при-работе-с-отчетами">Частые проблемы при работе с отчетами</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с маркетплейсом невозможна без глубокого понимания того, что происходит с вашими товарами после их отправки на склад. <strong>Отчет реализации</strong> является ключевым документом, который позволяет селлеру увидеть реальную картину продаж, возвратов и уценок. Именно на основе этих данных формируется итоговая сумма к выплате, и именно здесь чаще всего обнаруживаются скрытые комиссии или ошибки в логистике.</p>
+
+<p>Многие новички путают этот документ с простой выгрузкой заказов, однако это фундаментально разные вещи. В отчете содержится информация о фактической <em>продаже</em> товара конечному покупателю, а не просто о перемещении единицы на склад. Без грамотного анализа этого файла невозможно построить корректную финансовую модель или понять, почему реальная прибыль отличается от ожидаемой.</p>
+
+<p>Существует несколько способов получить эти данные: через личный кабинет продавца, API или сторонние сервисы аналитики. <mark>Самый надежный и детализированный вариант — это ручная выгрузка расширенного отчета в формате CSV из раздела «Финансы».</mark> Именно этот метод позволяет получить "сырые" данные, которые можно детально изучить и перепроверить.</p>
+
+<h2 id="зачем-нужна-детализация-отчета-реализации">Зачем нужна детализация отчета реализации</h2>
+
+<p>Поверхностный взгляд на общую выручку в личном кабинете часто скрывает реальные проблемы бизнеса. Когда вы получаете <strong>детальный отчет реализации</strong>, перед вами открывается вся цепочка движения денег. Вы видите не только цену продажи, но и все вычеты: комиссию сервиса, логистику, обработку возвратов и хранение. Это позволяет точно рассчитать <strong>Unit-экономику</strong> каждого товара.</p>
+
+<p>Аналитика этих данных помогает выявлять системные ошибки. Например, вы можете заметить, что определенный товар часто возвращается, и маркетплейс начисляет за это двойную логистику. Или же обнаружите, что на конкретную категорию товаров применяется неверная комиссия. Без выгрузки полного списка транзакций такие нюансы остаются незамеченными до момента сверки с актами.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте отчет реализации для перепроверки актов сверки. Ошибки в начислении комиссий встречаются чаще, чем кажется, и их нужно оспаривать в течение ограниченного времени.</p></aside>
+
+<p>Кроме того, этот документ необходим для корректного ведения бухгалтерского учета. <em>Озон</em> выступает агентом, и для правильного отражения выручки в налоговых отчетах вам нужны точные даты реализации, а не даты отгрузки. В отчете четко прописано, когда именно товар перешел в собственность покупателя.</p>
+
+<ul>
+<li>📊 Позволяет точно рассчитать чистую прибыль по каждой SKU.</li>
+<li>🔍 Помогает находить скрытые комиссии и переплаты за логистику.</li>
+<li>📅 Дает точные даты реализации для налоговой отчетности.</li>
+</ul>
+
+<h2 id="пошаговая-инструкция-как-выгрузить-отчет-из-личного-кабинета">Пошаговая инструкция: как выгрузить отчет из личного кабинета</h2>
+
+<p>Процесс получения данных в интерфейсе продавца стал более удобным, но все еще требует внимательности при выборе параметров. Чтобы начать, перейдите в раздел <code>Финансы → Отчеты → Реализация</code>. Здесь вам будет предложено выбрать период, за который необходимо получить информацию. Система позволяет выгружать данные за любой промежуток времени, но для удобства анализа лучше брать период в один месяц или неделю.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Алгоритм выгрузки отчета</h4><label class="check-item"><input type="checkbox"><span>Выбрать раздел Финансы:Отчеты:Перейти во вкладку Реализация:Указать точный период:Нажать кнопку Скачать</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>Важно правильно выбрать тип отчета. Стандартный вариант может не содержать всех необходимых столбцов для глубокого анализа. Вам нужен <strong>Расширенный отчет</strong> (или отчет с детализацией по транзакциям). При выборе формата отдавайте предпочтение <code>CSV</code>, так как он лучше всего читается программами для работы с таблицами и не искажает данные, в отличие от Excel, который может автоматически преобразовывать артикулы в даты.</p>
+
+<p>После нажатия кнопки скачивания файл будет сформирован системой. Если период большой, процесс может занять несколько минут. Файл будет сохранен в архиве <code>.zip</code> или сразу в формате <code>.csv</code>, в зависимости от настроек вашего браузера. Не пытайтесь открывать его в текстовом редакторе — структура данных будет нечитаемой.</p>
+
+<details class="pb-accordion"><summary>Почему отчет может не скачаться?</summary><div class="pb-accordion-body"><p>Если вы выбрали слишком большой период (например, год), система может не сформировать файл из-за ограничения на объем данных. В этом случае разбейте запрос на месячные периоды.</p></div></details>
+
+<p>Убедитесь, что в выбранном периоде действительно были продажи. Если отчет пустой, проверьте даты и статусы товаров. Также стоит учитывать временную зону: отчетность ведется по московскому времени, что может сдвигать границы суток для регионов Дальнего Востока.</p>
+
+<h2 id="структура-файла-и-ключевые-столбцы">Структура файла и ключевые столбцы</h2>
+
+<p>Открыть скачанный файл лучше всего в Google Таблицах или Excel, используя функцию импорта текста с разделителями. Первым делом вы увидите множество столбцов, названия которых могут сбить с толку. Ключевыми полями являются <strong>type</strong> (тип операции), <strong>product_price</strong> (цена товара) и <strong>commission_percent</strong> (процент комиссии).</p>
+
+<p>Особое внимание стоит уделить столбцу <em>delivery_cost</em>. Именно здесь скрывается стоимость логистики до клиента, которая вычитается из вашей выручки. Также важен столбец <strong>return_cost</strong> — он показывает расходы на возврат товара, если покупатель отказался от покупки. Суммарная стоимость всех вычетов часто превышает 30% от цены товара.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Название столбца</th>
+<th>Описание</th>
+<th>Влияние на финансы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_price</td>
+<td>Цена продажи товара покупателем</td>
+<td>Положительное (доход)</td>
+</tr>
+<tr>
+<td>commission_percent</td>
+<td>Процент комиссии категории</td>
+<td>Отрицательное (расход)</td>
+</tr>
+<tr>
+<td>logistic_cost</td>
+<td>Стоимость доставки до клиента</td>
+<td>Отрицательное (расход)</td>
+</tr>
+<tr>
+<td>return_cost</td>
+<td>Стоимость обработки возврата</td>
+<td>Отрицательное (расход)</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Количество проданных единиц</td>
+<td>Множитель дохода</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Столбец <strong>posting_number</strong> содержит номер заказа, по которому можно отследить всю историю перемещений. Это полезно, если нужно найти конкретную потерю или ошибку в системе. В некоторых отчетах также встречается поле <em>is_return</em>, которое маркирует возвратные операции.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Понимание структуры CSV-файла — 80% успеха в аналитике. Не пытайтесь анализировать данные, пока не разберетесь в значении каждого столбца.</p></aside>
+
+<h2 id="анализ-данных-поиск-ошибок-и-оптимизация">Анализ данных: поиск ошибок и оптимизация</h2>
+
+<p>После выгрузки начинается самая важная часть работы — анализ. Первым шагом должна стать сортировка данных по типу операции. Отфильтруйте только продажи и посмотрите на итоговую сумму. Затем отфильтруйте возвраты. Часто бывает так, что товар продан, деньги за него начислены, а через месяц пришел возврат, и средства списаны. В отчете реализации это видно как отдельная строка с отрицательным значением.</p>
+
+<p>Обращайте внимание на <strong>уценки</strong>. Если товар был поврежден при доставке или просто не понравился покупателю, но его решили продать со скидкой, разница между вашей ценой и ценой продажи ложится на ваши плечи. В отчете это отражается в столбце уценки или через корректировку итоговой суммы. Игнорирование этого параметра приводит к кассовым разрывам.</p>
+
+<div class="pb-poll" id="poll-3ff23546"><div class="pb-poll-question">📊 Что чаще всего теряется в отчетах Озон?</div><div class="pb-poll-option" data-poll="3ff23546" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Комиссия за эквайринг</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="3ff23546" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Логистика возвратов</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="3ff23546" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Уценки товаров</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="3ff23546" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Хранение на складе</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Используйте сводные таблицы для группировки данных по артикулам. Это покажет, какие товары приносят реальную прибыль, а какие работают в ноль или минус. <em>Excel</em> или Google Таблицы позволяют быстро агрегировать тысячи строк отчета в понятную таблицу с итогами по каждой категории.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При анализе обращайте внимание на строки с типом операции "Корректировка". Они могут появляться задним числом и менять финансовый результат прошлых периодов, если маркетплейс пересчитал комиссию или вес товара.</p>
+</blockquote>
+
+<h2 id="автоматизация-и-сторонние-сервисы">Автоматизация и сторонние сервисы</h2>
+
+<p>Ручная выгрузка и анализ в Excel подходят для старта, но при больших объемах продаж это становится неэффективным. Для автоматизации процесса многие селлеры используют API <strong>Ozon Seller</strong>. Через него можно получать отчеты реализации в реальном времени и загружать их сразу в CRM-систему или сервисы сквозной аналитики.</p>
+
+<p>Существует множество сервисов-агрегаторов, которые подключаются к вашему кабинету и строят красивые дашборды. Они умеют автоматически считать <strong>Unit-экономику</strong>, прогнозировать cash-flow и сигнализировать об аномалиях в отчетах. Однако даже используя их, вы должны уметь читать "сырой" отчет, чтобы понимать, откуда берутся цифры на экране.</p>
+
+<p>При настройке автоматической выгрузки важно обеспечить надежное хранение данных. Локальные копии отчетов — это ваша страховка на случай технических сбоев на стороне маркетплейса или проблем с доступом к аккаунту. Регулярно делайте бэкапы архивов.</p>
+
+<h2 id="частые-проблемы-при-работе-с-отчетами">Частые проблемы при работе с отчетами</h2>
+
+<p>Одна из самых распространенных проблем — расхождение сумм в отчете реализации и в акте выполненных работ. Это может происходить из-за разницы во времени проведения операций или курсовых разниц, если вы торгуете в разных валютах (хотя для РФ это менее актуально). Всегда сверяйте периоды: акт может закрывать период с 1 по 30 число, а отчет реализации включать операции, проведенные 1-го числа следующего месяца за прошлый период.</p>
+
+<p>Еще одна сложность — кодировка файла. При открытии CSV в Excel текст может превратиться в "кракозябры". Чтобы этого избежать, используйте функцию "Импорт данных" и выбирайте кодировку <code>UTF-8</code>. Это стандартная процедура, которая решает 99% проблем с отображением текста.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не редактируйте исходный файл отчета напрямую. Все расчеты проводите в новых столбцах или на отдельных листах. Исходник должен оставаться неизменным для возможной перепроверки или обращения в поддержку.</p>
+</blockquote>
+
+<p>Если вы обнаружили критическую ошибку в начислениях, которая видна в отчете, не затягивайте. У маркетплейса есть регламентированные сроки на оспаривание финансовых показателей. Обычно это несколько дней с момента формирования акта, поэтому оперативность выгрузки и анализа критически важна.</p>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>В чем разница между отчетом заказов и отчетом реализации?</summary>
+<p>Отчет заказов показывает все созданные заказы, включая те, которые еще не оплачены или находятся в пути. Отчет реализации отражает только фактически совершенные продажи, когда товар получен покупателем и сделка закрыта. Финансовый учет ведется именно по отчету реализации.</p>
+</details>
+
+<details>
+<summary>Как часто нужно выгружать отчет реализации?</summary>
+<p>Оптимальная частота — еженедельно. Это позволяет оперативно отслеживать изменения в комиссиях и логистике. Ежедневная выгрузка может быть избыточной из-за задержек в обновлении статусов, а ежемесячная не даст возможности быстро среагировать на ошибки.</p>
+</details>
+
+<details>
+<summary>Можно ли восстановить удаленный отчет из личного кабинета?</summary>
+<p>Личный кабинет хранит историю отчетов ограниченное время, и доступ к архивам может быть ограничен. Поэтому настоятельно рекомендуется сохранять все выгруженные файлы на своем компьютере или в облачном хранилище сразу после получения.</p>
+</details>
+
+<details>
+<summary>Почему в отчете реализации сумма меньше, чем цена товара на витрине?</summary>
+<p>Сумма в отчете реализации — это ваша выручка после вычета всех комиссий, логистики, обработки и налогов (если применимо). Цена на витрине — это сумма, которую заплатил покупатель. Разница составляет маржу маркетплейса и операционные расходы.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-8-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon 8 что это: новая схема работы FBO</span>
+                <span class="pb-related-desc">Разбираем, что такое Ozon 8 — новая схема доставки товаров на склад. Тарифы, требования к упаковке и</span>
+            </a><a href="/articles/k/ku/kuda-kleit-yarlyk-na-korobku-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Куда клеить ярлык на коробку Ozon: инструкция 2026</span>
+                <span class="pb-related-desc">Правильная разметка коробок для Ozon: куда клеить штрихкод, отступы, правила упаковки FBO/FBS. Избег</span>
+            </a><a href="/articles/k/ka/kak-izmenit-sklad-postavki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить склад поставки на Ozon: инструкция для FBO</span>
+                <span class="pb-related-desc">Узнайте, как изменить склад Ozon для поставки FBO. Пошаговая инструкция по созданию новой поставки, </span>
+            </a><a href="/articles/k/ka/kak-vygodno-otgruzit-na-sklad-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как выгодно отгрузить на склад Ozon: схемы FBO и FBE</span>
+                <span class="pb-related-desc">Полное руководство: как выгодно отгрузить на склад Ozon в 2026 году. Сравнение схем, расчет логистик</span>
+            </a><a href="/articles/c/ch/chto-znachit-trekhstoronnij-dogovor-s-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Трехсторонний договор с Ozon: что это и зачем нужен в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое трехсторонний договор на Озон, когда он требуется и как правильно его оформит</span>
+            </a><a href="/articles/k/ka/kak-sozdat-sklad-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать склад на Ozon: пошаговая инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Подробное руководство по регистрации и настройке склада на Ozon: требования, документы, стоимость и </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

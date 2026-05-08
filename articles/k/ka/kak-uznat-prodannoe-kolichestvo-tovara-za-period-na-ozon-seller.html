@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как узнать продажи на Ozon Seller за период — 5 проверенных способов — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция, как посмотреть количество проданных товаров на Озон для продавцов: отчёты в личном кабинете, API, Excel-экспорт и скрытые фишки. Актуально для FBS/FBO в 2026 году.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-uznat-prodannoe-kolichestvo-tovara-za-period-na-ozon-seller.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как узнать продажи на Ozon Seller за период — 5 проверенных способов">
+    <meta property="og:description" content="Пошаговая инструкция, как посмотреть количество проданных товаров на Озон для продавцов: отчёты в личном кабинете, API, Excel-экспорт и скрытые фишки. Актуально для FBS/FBO в 2026 году.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как узнать продажи на Ozon Seller за период — 5 проверенных способов</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-стандартный-отчёт-продажи-в-личном-кабинете-ozon-seller">1. Стандартный отчёт «Продажи» в личном кабинете Ozon Seller</a></li><li><a href="#2-детализация-по-товарам-отчёт-товары-и-цены">2. Детализация по товарам: отчёт «Товары и цены»</a></li><li><a href="#3-экспорт-данных-через-архив-заказов">3. Экспорт данных через «Архив заказов»</a></li><li><a href="#4-использование-ozon-api-для-автоматизации">4. Использование Ozon API для автоматизации</a></li><li><a href="#5-скрытые-возможности-отчёт-движение-товаров">5. Скрытые возможности: отчёт «Движение товаров»</a></li><li><a href="#6-альтернативные-способы-google-sheets-ozon-keeper">6. Альтернативные способы: Google Sheets + Ozon Keeper</a></li><li><a href="#7-почему-данные-в-отчётах-могут-не-совпадать">7. Почему данные в отчётах могут не совпадать?</a></li><li><a href="#faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-kak-prodavat-tovary-na-ozon-yutub.html">Как продавать на Ozon через YouTube: стратегия продвижения</a></li><li><a href="/articles/o/oz/ozon-vojti-kak-prodavets.html">Ozon: как войти как продавец в 2026 году — пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-sozdat-lichnyj-kabinet-na-ozone-dlya-prodazh.html">Как создать личный кабинет на Озоне для продаж в 2026 году</a></li><li><a href="/articles/k/ka/kak-platit-nalogi-pri-rabote-s-ozon.html">Как платить налоги при работе с Ozon: схемы и расчеты</a></li><li><a href="/articles/k/ka/kak-uspeshno-prodavat-na-ozon.html">Как успешно продавать на Ozon в 2026: полное руководство для новичков и профи</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как продавцу на Ozon узнать точное количество проданных товаров за период</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-стандартный-отчёт-продажи-в-личном-кабинете-ozon-seller">1. Стандартный отчёт «Продажи» в личном кабинете Ozon Seller</a></li><li><a href="#2-детализация-по-товарам-отчёт-товары-и-цены">2. Детализация по товарам: отчёт «Товары и цены»</a></li><li><a href="#3-экспорт-данных-через-архив-заказов">3. Экспорт данных через «Архив заказов»</a></li><li><a href="#4-использование-ozon-api-для-автоматизации">4. Использование Ozon API для автоматизации</a></li><li><a href="#5-скрытые-возможности-отчёт-движение-товаров">5. Скрытые возможности: отчёт «Движение товаров»</a></li><li><a href="#6-альтернативные-способы-google-sheets-ozon-keeper">6. Альтернативные способы: Google Sheets + Ozon Keeper</a></li><li><a href="#7-почему-данные-в-отчётах-могут-не-совпадать">7. Почему данные в отчётах могут не совпадать?</a></li><li><a href="#faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Продажи на <em>Ozon</em> — это не только прибыль, но и данные, которые помогают принимать стратегические решения. Знание точного количества проданных товаров за день, неделю или месяц позволяет оптимизировать запасы, анализировать спрос и корректировать маркетинговые кампании. Однако многие продавцы сталкиваются с проблемой: где именно в личном кабинете <strong>Ozon Seller</strong> искать эти цифры, особенно если речь идёт о ретроспективе за несколько месяцев?</p>
+
+<p>В этой статье мы разберём все доступные способы получения статистики продаж — от стандартных отчётов до скрытых функций и API. Вы узнаете, как выгрузить данные в <code>Excel</code>, какие фильтры использовать для точного анализа, и почему иногда цифры в разных разделах личного кабинета могут не совпадать. А ещё — как автоматизировать сбор статистики, чтобы не тратить время на ручной экспорт.</p>
+
+<h2 id="1-стандартный-отчёт-продажи-в-личном-кабинете-ozon-seller">1. Стандартный отчёт «Продажи» в личном кабинете Ozon Seller</h2>
+
+<p>Самый очевидный и быстрый способ — использовать встроенный раздел <strong>«Аналитика» → «Продажи»</strong>. Здесь собираются данные о всех заказах, включая количество проданных единиц товара. Чтобы получить точные цифры за нужный период:</p>
+
+<ol>
+  <li><strong>Перейдите</strong> в <code>Личный кабинет → Аналитика → Продажи</code>.</li>
+  <li>Установите диапазон дат в правом верхнем углу (например, <code>01.01.2026 — 31.01.2026</code>).</li>
+  <li>В таблице выберите колонку <code>Количество товаров</code> — здесь отображается суммарное число проданных единиц.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> По умолчанию отчёт показывает данные по <em>FBO</em> и <em>FBS</em> вместе. Если вы работаете только по одной схеме, используйте фильтр <code>Тип логистики</code> в левом сайдбаре.</p>
+
+<div class="pb-poll" id="poll-85aede4f"><div class="pb-poll-question">📊 Как часто вы анализируете продажи на Ozon?</div><div class="pb-poll-option" data-poll="85aede4f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="85aede4f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="85aede4f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в месяц</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="85aede4f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только перед заказом товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>В этом отчёте также доступны дополнительные метрики:</p>
+<ul>
+  <li>📊 <strong>Выручка</strong> — сумма продаж без учёта комиссий.</li>
+  <li>📦 <strong>Количество заказов</strong> — сколько уникальных покупок было совершено.</li>
+  <li>🔄 <strong>Возвраты</strong> — сколько товаров вернули (вычитается из общего количества продаж).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вам нужны данные по конкретному товару, используйте фильтр <code>Артикул</code> или <code>Название товара</code> в этом же отчёте.</p></aside>
+
+<h2 id="2-детализация-по-товарам-отчёт-товары-и-цены">2. Детализация по товарам: отчёт «Товары и цены»</h2>
+
+<p>Если вам важно узнать, сколько именно единиц <em>конкретного</em> товара было продано (например, для анализа хитов и аутсайдеров), перейдите в раздел <code>Аналитика → Товары и цены</code>. Здесь данные группируются по <code>SKU</code> (артикулам), что удобно для:</p>
+<ul>
+  <li>📈 Сравнения продаж разных модификаций одного товара.</li>
+  <li>🛒 Анализа остатков на складе.</li>
+  <li>💰 Корректировки цен на основе спроса.</li>
+</ul>
+
+<p>Чтобы выгрузить данные:</p>
+<ol>
+  <li>Выберите период и примените фильтры (например, по категории или бренду).</li>
+  <li>Нажмите <code>Экспорт в Excel</code> — файл будет содержать колонку <code>Количество проданных единиц</code>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> В этом отчёте не учитываются отменённые заказы. Если вам нужна «чистая» статистика, используйте отчёт <code>Продажи</code> с фильтром <code>Статус заказа = Выполнен</code>.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип отчёта</th>
+      <th>Где находится</th>
+      <th>Что показывает</th>
+      <th>Особенности</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Продажи</td>
+      <td><code>Аналитика → Продажи</code></td>
+      <td>Общее количество товаров и выручка</td>
+      <td>Включает все заказы (в т.ч. отменённые)</td>
+    </tr>
+    <tr>
+      <td>Товары и цены</td>
+      <td><code>Аналитика → Товары и цены</code></td>
+      <td>Продажи по каждому SKU</td>
+      <td>Нет данных по возвратам</td>
+    </tr>
+    <tr>
+      <td>Отчёт по заказам</td>
+      <td><code>Заказы → Архив заказов</code></td>
+      <td>Детализация по каждому заказу</td>
+      <td>Можно фильтровать по статусам</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="3-экспорт-данных-через-архив-заказов">3. Экспорт данных через «Архив заказов»</h2>
+
+<p>Если вам нужна максимально детализированная информация (например, для бухгалтерии или анализа пиковых дней продаж), используйте <code>Архив заказов</code>. Здесь можно выгрузить <strong>полный список заказов</strong> с указанием количества товаров в каждом.</p>
+
+<p>Инструкция:</p>
+<ol>
+  <li>Перейдите в <code>Заказы → Архив заказов</code>.</li>
+  <li>Установите период и фильтры (например, <code>Статус = Выполнен</code>).</li>
+  <li>Нажмите <code>Экспорт → Excel</code>.</li>
+</ol>
+
+<p>В полученном файле будет колонка <code>Количество товаров</code>, которую можно суммировать для расчёта общего объёма продаж. Этот метод подходит, если вам нужны:</p>
+<ul>
+  <li>📅 Данные по дням (например, для анализа сезонности).</li>
+  <li>📌 Информация о покупателях (ID заказа, дата, время).</li>
+  <li>🔍 Детализация по регионам доставки.</li>
+</ul>
+
+
+<p>Установить корректный период|Исключить тестовые заказы|Фильтровать по статусу "Выполнен"|Проверить формат экспорта (Excel/CSV)--></p>
+
+<p>⚠️ <strong>Внимание:</strong> При большом количестве заказов (более 10 000 строк) <em>Ozon</em> может разбить экспорт на несколько файлов. Скачивайте их все и объединяйте в одном документе.</p>
+
+<h2 id="4-использование-ozon-api-для-автоматизации">4. Использование Ozon API для автоматизации</h2>
+
+<p>Если вы ведёте продажи в большом масштабе или хотите интегрировать данные с другими системами (например, <em>1С</em> или <em>Google Sheets</em>), наилучший вариант — <strong>Ozon API</strong>. Через него можно получать статистику продаж в реальном времени без ручного экспорта.</p>
+
+<p>Для этого:</p>
+<ol>
+  <li>Получите <code>API-ключ</code> в настройках личного кабинета (<code>Настройки → Интеграции → API</code>).</li>
+  <li>Используйте метод <code>GET /v2/analytics/sales</code> для получения данных о продажах.</li>
+  <li>Для детализации по товарам используйте <code>GET /v2/analytics/data</code> с параметром <code>metrics=items_sold</code>.</li>
+</ol>
+
+<p>Пример запроса для получения количества проданных товаров за месяц:</p>
+<pre><code>curl -X GET 'https://api-seller.ozon.ru/v2/analytics/sales?date_from=2026-01-01&date_to=2026-01-31' \
+<p>-H 'Client-Id: {ваш_client_id}' \</p>
+<p>-H 'Api-Key: {ваш_api_key}'</code></pre></p>
+
+<p>⚠️ <strong>Внимание:</strong> API имеет ограничения по количеству запросов (обычно 1000 в час). Для крупных продавцов может потребоваться увеличение лимита через поддержку.</p>
+
+<details class="pb-accordion"><summary>Как получить расширенные права на API?</summary><div class="pb-accordion-body"><p>
+<p>Для увеличения лимита запросов или доступа к дополнительным методам (например, отчётам по возвратам) напишите в поддержку Ozon с темой "Запрос на расширение прав API". Приложите обоснование (например, количество товаров в каталоге или объём продаж).</p></div></details></p>
+
+<h2 id="5-скрытые-возможности-отчёт-движение-товаров">5. Скрытые возможности: отчёт «Движение товаров»</h2>
+
+<p>Мало кто знает, но в <em>Ozon Seller</em> есть скрытый отчёт, который показывает не только продажи, но и <strong>все движения товара</strong> (поступления, списания, возвраты). Это полезно, если вам нужно:</p>
+<ul>
+  <li>🔄 Отследить баланс остатков.</li>
+  <li>📉 Понять причины расхождений между фактическими продажами и данными в отчётах.</li>
+  <li>🛠️ Выявить ошибки склада (например, потери или неправильные списания).</li>
+</ul>
+
+<p>Как найти этот отчёт:</p>
+<ol>
+  <li>Перейдите в <code>Склад → Движение товаров</code>.</li>
+  <li>Выберите период и фильтр <code>Тип операции = Продажа</code>.</li>
+  <li>Экспортируйте данные в <code>Excel</code> — колонка <code>Количество</code> покажет проданные единицы.</li>
+</ol>
+
+<p><mark>Важно: Этот отчёт учитывает только фактические списания со склада, поэтому данные могут отличаться от отчёта «Продажи» (например, если заказ был отменён после списания).</mark></p>
+
+<h2 id="6-альтернативные-способы-google-sheets-ozon-keeper">6. Альтернативные способы: Google Sheets + Ozon Keeper</h2>
+
+<p>Если вам нужно автоматизировать сбор данных без программирования, можно использовать:</p>
+
+<p><strong>1. Ozon Keeper</strong> — бесплатный инструмент от <em>Ozon</em> для мониторинга продаж. Он позволяет:</p>
+<ul>
+  <li>📊 Видеть продажи в реальном времени.</li>
+  <li>🔔 Настраивать уведомления о низких остатках.</li>
+  <li>📥 Экспортировать данные в <code>Google Sheets</code>.</li>
+</ul>
+
+<p><strong>2. Интеграция с Google Sheets</strong> через <code>Apps Script</code>:</p>
+<ol>
+  <li>Создайте новый <code>Google Sheet</code>.</li>
+  <li>Перейдите в <code>Extensions → Apps Script</code>.</li>
+  <li>Вставьте скрипт для запроса к <em>Ozon API</em> (примеры есть в документации <em>Ozon</em>).</li>
+  <li>Настройте автоматическое обновление данных (например, раз в день).</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Автоматизация через Google Sheets подходит для продавцов, которые ведут учёт в облаке и хотят видеть актуальные данные без ручного экспорта.</p></aside>
+
+<h2 id="7-почему-данные-в-отчётах-могут-не-совпадать">7. Почему данные в отчётах могут не совпадать?</h2>
+
+<p>Многие продавцы сталкиваются с ситуацией, когда цифры в отчёте <code>Продажи</code> и <code>Архив заказов</code> различаются. Причины могут быть следующими:</p>
+
+<p><strong>1. Учёт отменённых заказов</strong>:</p>
+<ul>
+  <li>Отчёт <code>Продажи</code> по умолчанию показывает все заказы, включая отменённые.</li>
+  <li>В <code>Архиве заказов</code> можно фильтровать по статусу <code>Выполнен</code>.</li>
+</ul>
+
+<p><strong>2. Возвраты и частичные возвраты</strong>:</p>
+<ul>
+  <li>Если покупатель вернул часть заказа, в отчёте <code>Товары и цены</code> это может не отразиться.</li>
+  <li>Для точного учёта используйте отчёт <code>Возвраты</code> (<code>Аналитика → Возвраты</code>).</li>
+</ul>
+
+<p><strong>3. Задержки обновления данных</strong>:</p>
+<ul>
+  <li>Некоторые отчёты (например, <code>Движение товаров</code>) обновляются с задержкой до 24 часов.</li>
+  <li>API даёт данные в реальном времени, но требует настройки.</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</strong> Если расхождения критичны (более 5%), запросите сверку у поддержки <em>Ozon</em> через тикет с темой «Расхождение в данных по продажам». Приложите скриншоты отчётов и укажите период.</p>
+
+<h2 id="faq-частые-вопросы-о-продажах-на-ozon">FAQ: Частые вопросы о продажах на Ozon</h2>
+
+<details>
+  <summary>Можно ли увидеть продажи по конкретному ПВЗ?</summary>
+  <p>Да, в отчёте <code>Архив заказов</code> есть колонка <code>Пункт выдачи</code>. Экспортируйте данные в <code>Excel</code> и фильтруйте по нужному ПВЗ.</p>
+</details>
+
+<details>
+  <summary>Как узнать продажи за прошлый год?</summary>
+  <p>В личном кабинете доступны данные за последние 13 месяцев. Для более ранних периодов запросите архив у поддержки <em>Ozon</em>.</p>
+</details>
+
+<details>
+  <summary>Почему в отчёте «Товары и цены» нет данных по некоторым SKU?</summary>
+  <p>Это может быть связано с:</p>
+  <ul>
+    <li>🔴 Товар удалён из каталога.</li>
+    <li>🔴 SKU был изменён (исторические данные привязаны к старому артикулу).</li>
+    <li>🔴 Продажи были по <em>FBS</em>, а фильтр установлен на <em>FBO</em>.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Можно ли получить данные по продажам в разрезе времени (по часам)?summary>
+  <p>Да, но только через <em>Ozon API</em> с параметром <code>granularity=hour</code>. В личном кабинете детализация доступна только по дням.</p>
+</details>
+
+<details>
+  <summary>Как посчитать продажи по акции (например, во время «Чёрной пятницы»)?</summary>
+  <p>Используйте фильтр <code>Тип заказа = Акционный</code> в отчёте <code>Продажи</code> или экспортируйте данные из <code>Архива заказов</code> с указанием периода акции.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-kak-prodavat-tovary-na-ozon-yutub.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Ozon через YouTube: стратегия продвижения</span>
+                <span class="pb-related-desc">Полный гайд по интеграции YouTube и Ozon. Узнайте, как создавать контент для видеохостинга, привлека</span>
+            </a><a href="/articles/o/oz/ozon-vojti-kak-prodavets.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon: как войти как продавец в 2026 году — пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гайд по входу в личный кабинет продавца Ozon: регистрация, авторизация, восстановление дос</span>
+            </a><a href="/articles/k/ka/kak-sozdat-lichnyj-kabinet-na-ozone-dlya-prodazh.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать личный кабинет на Озоне для продаж в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по регистрации личного кабинета продавца на Ozon: от выбора типа аккаунта до по</span>
+            </a><a href="/articles/k/ka/kak-platit-nalogi-pri-rabote-s-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как платить налоги при работе с Ozon: схемы и расчеты</span>
+                <span class="pb-related-desc">Полный гид по налогообложению для селлеров Ozon. Сравнение УСН и НПД, расчет базы, учет комиссий и ш</span>
+            </a><a href="/articles/k/ka/kak-uspeshno-prodavat-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как успешно продавать на Ozon в 2026: полное руководство для новичков и профи</span>
+                <span class="pb-related-desc">Пошаговые инструкции по запуску продаж на Ozon: от регистрации до продвижения. Разбираем FBO/FBS, ка</span>
+            </a><a href="/articles/k/ka/kak-zaregistrirovat-ip-na-ozone-v-kachestve-prodavtsa-zaregistrirovatsya.html" class="pb-related-card">
+                <span class="pb-related-title">Как зарегистрировать ИП на Ozon для продаж в 2026: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробное руководство по регистрации ИП для торговли на Ozon: от выбора системы налогообложения до п</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

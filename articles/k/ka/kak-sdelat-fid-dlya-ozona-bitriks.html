@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как сделать фид для Ozon в Битрикс: инструкция — Об Озоне</title>
+    <meta name="description" content="Пошаговое руководство по настройке выгрузки товаров на Ozon через CMS Битрикс. Настройка офферов, полей и XML-фидов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sdelat-fid-dlya-ozona-bitriks.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как сделать фид для Ozon в Битрикс: инструкция">
+    <meta property="og:description" content="Пошаговое руководство по настройке выгрузки товаров на Ozon через CMS Битрикс. Настройка офферов, полей и XML-фидов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как сделать фид для Ozon в Битрикс: инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-к-выгрузке-товаров-на-маркетплейс">Подготовка к выгрузке товаров на маркетплейс</a></li><li><a href="#настройка-профиля-экспорта-в-админке-битрикс">Настройка профиля экспорта в админке Битрикс</a></li><li><a href="#маппинг-полей-и-соответствие-характеристик">Маппинг полей и соответствие характеристик</a></li><li><a href="#работа-с-торговыми-предложениями-и-sku">Работа с торговыми предложениями и SKU</a></li><li><a href="#частота-обновления-и-автоматизация-процесса">Частота обновления и автоматизация процесса</a></li><li><a href="#диагностика-ошибок-и-валидация-файла">Диагностика ошибок и валидация файла</a></li><li><a href="#оптимизация-производительности-при-больших-каталогах">Оптимизация производительности при больших каталогах</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakie-razmery-u-kartochki-ozon.html">Размеры карточки Ozon: фото и требования к контенту</a></li><li><a href="/articles/t/ti/tip-knigi-bukinistika-na-ozon-chto-eto.html">Тип книги Букинистика на Озон: что это и как продавать</a></li><li><a href="/articles/k/ka/kak-sdelat-kartochku-tovara-na-ozone.html">Как сделать карточку товара на Ozon: инструкция 2026</a></li><li><a href="/articles/k/ka/kak-prodat-knigu-bu-na-ozone.html">Как продать б/у книгу на Озон: пошаговая инструкция</a></li><li><a href="/articles/u/uk/ukazhite-chto-nazyvaetsya-ozonom.html">Укажите что называется озоном: Справочник по категориям</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как сделать фид для Ozon в Битрикс: пошаговая инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-выгрузке-товаров-на-маркетплейс">Подготовка к выгрузке товаров на маркетплейс</a></li><li><a href="#настройка-профиля-экспорта-в-админке-битрикс">Настройка профиля экспорта в админке Битрикс</a></li><li><a href="#маппинг-полей-и-соответствие-характеристик">Маппинг полей и соответствие характеристик</a></li><li><a href="#работа-с-торговыми-предложениями-и-sku">Работа с торговыми предложениями и SKU</a></li><li><a href="#частота-обновления-и-автоматизация-процесса">Частота обновления и автоматизация процесса</a></li><li><a href="#диагностика-ошибок-и-валидация-файла">Диагностика ошибок и валидация файла</a></li><li><a href="#оптимизация-производительности-при-больших-каталогах">Оптимизация производительности при больших каталогах</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Интеграция интернет-магазина с крупнейшими маркетплейсами становится обязательным условием выживания в современном e-commerce. <strong>Ozon</strong> предлагает продавцам мощный инструмент для автоматизации продаж, и ключевым элементом здесь является корректно настроенный товарный фид. Владельцы сайтов на платформе <em>1С-Битрикс</em> находятся в выгодном положении, так как эта CMS обладает широкими возможностями для организации обмена данными.</p>
+
+<p>Фид представляет собой структурированный файл, содержащий информацию о всех товарах, их остатках, ценах и характеристиках. Именно этот документ позволяет <strong>Ozon</strong> автоматически обновлять данные на витрине маркетплейса без ручного вмешательства менеджера. Ошибки в структуре или содержании файла могут привести к блокировке карточек или отклонению всего предложения.</p>
+
+<p>В этой статье мы детально разберем процесс создания, настройки и оптимизации XML-фида для <em>Ozon</em> непосредственно из административной панели <strong>Битрикс</strong>. Вы узнаете о тонкостях маппинга полей, требованиях к форматам данных и способах избежать распространенных ошибок при первой выгрузке.</p>
+
+<h2 id="подготовка-к-выгрузке-товаров-на-маркетплейс">Подготовка к выгрузке товаров на маркетплейс</h2>
+
+<p>Прежде чем приступать к технической настройке модуля экспорта, необходимо провести аудит имеющейся базы товаров. <strong>Ozon</strong> предъявляет строгие требования к заполненности карточек, и отсутствие обязательных полей в <em>Битрикс</em> приведет к ошибкам валидации. Убедитесь, что у каждого товара, планируемого к выгрузке, заполнены артикул, цена, количество и основные характеристики.</p>
+
+<p>Особое внимание следует уделить изображениям. Маркетплейс требует, чтобы фотографии были высокого качества, без водяных знаков и посторонних объектов. В <strong>Битрикс</strong> рекомендуется настроить отдельный тип изображения для экспорта или убедиться, что первое изображение в галерее товара соответствует стандартам площадки.</p>
+
+<ul>
+<li>📦 Проверьте наличие уникальных артикулов (SKU) для всех товаров и их торговых предложений.</li>
+<li>💰 Убедитесь, что цены в валюте сайта актуальны и включают или исключают НДС согласно вашей учетной политике.</li>
+<li>📸 Проведите выборочную проверку фотографий на соответствие требованиям модерации Ozon.</li>
+</ul>
+
+<p>Важно также определиться с типом интеграции. Вы можете выгружать только остатки и цены, оставив контент на стороне маркетплейса, или же передавать полное описание, характеристики и фото. Для большинства продавцов оптимален второй вариант, позволяющий централизованно управлять контентом.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы используете множественные склады в <em>Битрикс</em>, заранее решите, какие именно остатки будут участвовать в синхронизации. Суммирование остатков разных складов может привести к overselling (продаже отсутствующего товара).</p>
+</blockquote>
+
+<h2 id="настройка-профиля-экспорта-в-админке-битрикс">Настройка профиля экспорта в админке Битрикс</h2>
+
+<p>Процесс создания фида начинается в административной части сайта. Вам необходимо перейти в раздел <code>Магазин</code>, затем выбрать <code>Настройки</code> и найти пункт <code>Профили экспорта</code>. Здесь создается новый профиль, который будет отвечать за генерацию XML-файла в формате, понятном <strong>Ozon</strong>.</p>
+
+<p>При создании нового профиля выберите формат <em>Ozon (XML)</em> или универсальный <em>Yandex Market</em>, если специфичный модуль Ozon не установлен, но требует дополнительной настройки маппинга. Система предложит выбрать каталог товаров, из которого будет производиться выгрузка. Это позволяет сегментировать ассортимент, если вы не хотите выгружать весь каталог сразу.</p>
+
+<p>В настройках профиля критически важно правильно указать URL-адрес, по которому будет доступен файл для внешнего скачивания. Обычно это ссылка вида <code>https://ваш-сайт.ru/ozon.xml</code>. Именно этот адрес нужно будет указать в личном кабинете продавца Ozon в разделе интеграции.</p>
+
+<ul>
+<li>🔗 Укажите корректный URL для доступа к файлу, проверяя его доступность из внешней сети.</li>
+<li>📂 Выберите правильный инфоблок или раздел каталога для экспорта данных.</li>
+<li>⚙️ Настройте кодировку файла (обычно UTF-8) во избежание проблем с кириллическими символами.</li>
+</ul>
+
+<p>Не забудьте активировать профиль и проверить права доступа. Файл должен быть доступен для чтения внешним роботам <strong>Ozon</strong>, иначе автоматическое обновление данных работать не будет.</p>
+
+<h2 id="маппинг-полей-и-соответствие-характеристик">Маппинг полей и соответствие характеристик</h2>
+
+<p>Самым трудоемким этапом является настройка соответствия полей (маппинг). Вам необходимо связать поля информационной базы <em>Битрикс</em> с требуемыми полями XML-схемы <strong>Ozon</strong>. Ошибки на этом этапе приводят к тому, что товары выгружаются с пустыми характеристиками или неверными данными.</p>
+
+<p>Обязательными полями для маппинга являются: <code>offer id</code> (уникальный идентификатор), <code>name</code> (название), <code>price</code> (цена), <code>currencyId</code> (валюта), <code>categoryId</code> (категория) и <code>picture</code> (изображение). В <strong>Битрикс</strong> эти поля обычно соответствуют стандартным свойствам элементов каталога.</p>
+
+<p>Для сложных товаров с модификациями (например, одежда разных размеров или цветов) необходимо правильно настроить выгрузку торговых предложений (SKU). Каждое торговое предложение должно иметь свой уникальный ID, но быть привязано к родительскому товару.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Поле в Ozon</th>
+<th>Аналог в Битрикс</th>
+<th>Тип данных</th>
+<th>Обязательно</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer id</td>
+<td>ID элемента / Торгового предложения</td>
+<td>Число/Строка</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Название элемента (NAME)</td>
+<td>Строка</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Цена (базовая)</td>
+<td>Число</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>picture</td>
+<td>Изображение анонса или детальное</td>
+<td>URL</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>param</td>
+<td>Свойства элемента (Характеристики)</td>
+<td>Разный</td>
+<td>Зависит</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>При маппинге характеристик (параметров) убедитесь, что единицы измерения совпадают. Если в <em>Битрикс</em> вес указан в килограммах, а Ozon ожидает граммы, потребуется настройка преобразования или изменение данных в источнике.</p>
+
+<div class="pb-poll" id="poll-b979ec96"><div class="pb-poll-question">📊 Как вы планируете выгружать товары?</div><div class="pb-poll-option" data-poll="b979ec96" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Полный каталог сразу</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b979ec96" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только новинки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b979ec96" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только товары в наличии</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="b979ec96" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">По отдельным категориям</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="работа-с-торговыми-предложениями-и-sku">Работа с торговыми предложениями и SKU</h2>
+
+<p>Торговые предложения в <strong>Битрикс</strong> — это вариации основного товара. При выгрузке на <em>Ozon</em> важно правильно передать структуру "Родительский товар — Варианты". Ошибка в передаче родительского ID приведет к тому, что варианты "разъедутся" и станут отдельными, несвязанными товарами.</p>
+
+<p>В настройках профиля экспорта выберите опцию "Экспортировать торговые предложения". Система сформирует файл, где для каждого варианта будет указан свой <code>offer id</code>, но в поле группы или родительского элемента будет ссылка на основной товар. Это позволяет покупателю на Ozon выбирать размер или цвет в рамках одной карточки.</p>
+
+<p>Цены и остатки также могут задаваться на уровне торгового предложения. Это особенно актуально для одежды, где цена на размер XXL может отличаться от цены на размер S. <strong>Битрикс</strong> позволяет гибко настраивать типы цен для разных групп пользователей, что также можно учесть при экспорте.</p>
+
+<ul>
+<li>🏷️ Убедитесь, что артикул (SKU) уникален для каждого торгового предложения.</li>
+<li>🔄 Проверьте, что все необходимые свойства (цвет, размер) выгружаются в соответствующие теги XML.</li>
+<li>🖼️ Для каждого варианта можно и нужно задавать отдельное изображение, если оно отличается визуально.</li>
+</ul>
+
+<p>Если товар не имеет вариаций, он выгружается как обычный элемент каталога. Смешивание обычных товаров и товаров с предложениями в одном фиде поддерживается и обрабатывается корректно.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При изменении структуры торговых предложений в <em>Битрикс</em> (добавление новых размеров или цветов) обязательно инициируйте полную перегенерацию фида, чтобы Ozon получил актуальную информацию о новых SKU.</p>
+</blockquote>
+
+<h2 id="частота-обновления-и-автоматизация-процесса">Частота обновления и автоматизация процесса</h2>
+
+<p>Для успешной торговли критически важна актуальность данных. Покупатель не должен видеть товар в наличии на сайте, если его уже купили, или видеть цену, которая изменилась час назад. <strong>Ozon</strong> рекомендует обновлять фид не реже одного раза в час, а в идеале — каждые 15-30 минут.</p>
+
+<p>В <em>Битрикс</em> настройка частоты обновления зависит от тарифа и технических возможностей хостинга. В разделе настройки профиля экспорта можно задать интервал генерации файла. Однако, для высокой частоты обновлений лучше использовать cron-скрипты или агенты системы.</p>
+
+<p>Агент в <strong>Битрикс</strong> — это встроенный механизм для выполнения периодических задач. Вы можете создать агент, который будет запускать скрипт генерации XML-файла через заданные промежутки времени. Это гарантирует, что файл будет обновлен даже при отсутствии действий со стороны администратора.</p>
+
+<pre><code>// Пример вызова агента для обновления экспорта
+<p>CExportProfiles::RunAgent($profileId);</p>
+</code></pre>
+
+<p>Не стоит ставить слишком малый интервал обновления (например, 1 минута), если у вас большой каталог. Это создаст излишнюю нагрузку на сервер и может привести к блокировке IP-адреса хостинга за частые запросы.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Готовность к автообновлению</h4><label class="check-item"><input type="checkbox"><span>Настроен Cron или Агенты в Битрикс</span></label><label class="check-item"><input type="checkbox"><span>Проверена нагрузка на сервер</span></label><label class="check-item"><input type="checkbox"><span>Установлен интервал обновления 30-60 мин</span></label><label class="check-item"><input type="checkbox"><span>Файл доступен по прямой ссылке</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="диагностика-ошибок-и-валидация-файла">Диагностика ошибок и валидация файла</h2>
+
+<p>После первой выгрузки и загрузки файла в личный кабинет Ozon почти всегда появляются ошибки. Это нормальный процесс отладки. Система валидации укажет на отсутствующие обязательные поля, неверный формат данных или несоответствие типов.</p>
+
+<p>Частые ошибки включают: отсутствие категории в классификаторе Ozon, неверный формат цены (например, использование точки вместо запятой или наличие символов валюты), отсутствие изображений или их недоступность по прямой ссылке. <strong>Битрикс</strong> может генерировать относительные пути к картинкам, которые нужно заменить на абсолютные.</p>
+
+<p>Для отладки удобно использовать встроенные логи модуля экспорта в <em>Битрикс</em> и отчеты об ошибках в личном кабинете продавца. Анализируйте логи последовательно: сначала исправьте критические ошибки, блокирующие загрузку, затем переходите к предупреждениям.</p>
+
+<details class="pb-accordion"><summary>Что делать, если файл не читается?</summary><div class="pb-accordion-body"><p>Проверьте кодировку файла (должна быть UTF-8 без BOM). Убедитесь, что XML-структура не нарушена (все теги закрыты). Попробуйте открыть файл в браузере — если вы видите текст ошибки PHP, значит, в коде генерации есть синтаксическая ошибка.</p></div></details>
+
+<p>Также стоит проверить скорость загрузки файла. Если XML весит слишком много (сотни мегабайт), время его скачивания роботом Ozon может превысить таймаут, и обновление прервется. В таких случаях рекомендуется разбивать выгрузку на части или оптимизировать размер изображений.</p>
+
+<h2 id="оптимизация-производительности-при-больших-каталогах">Оптимизация производительности при больших каталогах</h2>
+
+<p>Владельцам магазинов с десятками и сотнями тысяч товаров (SKUs) стоит задуматься об оптимизации процесса генерации фида. Стандартный экспорт в <strong>Битрикс</strong> может занимать значительное время и потреблять много оперативной памяти, что приводит к ошибкам выполнения скрипта (Time Limit Exceeded).</p>
+
+<p>Для решения этой проблемы можно использовать разбиение фида на несколько файлов по категориям или алфавитному принципу. В настройках профиля экспорта часто есть возможность указать лимит товаров на одну генерацию или разбить выгрузку на этапы. Ozon умеет обрабатывать несколько ссылок на файлы в рамках одной интеграции.</p>
+
+<p>Еще один метод — использование серверной кэширующей системы. Если данные в каталоге меняются нечасто, нет смысла перегенерировать весь XML при каждом запросе. Можно настроить сохранение готового файла и его обновление только при изменении данных в базе.</p>
+
+<ul>
+<li>🚀 Используйте кэширование готового XML-файла на уровне файловой системы.</li>
+<li>📉 Разбивайте большой каталог на несколько профилей экспорта по категориям.</li>
+<li>💾 Оптимизируйте базу данных Битрикс (индексы, очистка таблиц) для ускорения выборки.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте CDN для хранения и раздачи изображений товаров. Это снизит нагрузку на основной сервер при генерации фида и ускорит загрузку картинок роботами Ozon.</p></aside>
+
+<p>Регулярный мониторинг логов сервера поможет выявить узкие места. Если вы замечаете, что процесс выгрузки начинает занимать больше времени, возможно, пришло время увеличить ресурсы хостинга или оптимизировать код модуля экспорта.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При разбиении фида на части убедитесь, что идентификаторы товаров (offer id) остаются уникальными во всех файлах. Дублирование ID в разных частях фида приведет к конфликтам и ошибкам загрузки.</p>
+</blockquote>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Как часто нужно обновлять фид, чтобы не было проблем с продажами?</summary>
+<p>Оптимальная частота обновления — раз в 30 минут. Это позволяет балансировать между актуальностью данных и нагрузкой на сервер. Обновление реже раза в час может привести к продаже отсутствующего товара.</p>
+</details>
+
+<details>
+<summary>Можно ли выгружать товары в несколько категорий Ozon одновременно?</summary>
+<p>Да, это возможно. В <em>Битрикс</em> товар может состоять в нескольких разделах, или вы можете настроить несколько профилей экспорта, которые будут передавать одни и те же товары, но с разными параметрами категории для Ozon.</p>
+</details>
+
+<details>
+<summary>Что делать, если Ozon отклоняет изображения из фида?</summary>
+<p>Проверьте, что ссылки ведут напрямую на изображение (заканчиваются на .jpg, .png), доступны из внешней сети без авторизации и имеют достаточное разрешение (обычно не менее 1000px по одной из сторон).</p>
+</details>
+
+<details>
+<summary>Нужен ли отдельный модуль для выгрузки на Ozon в Битрикс?</summary>
+<p>Стандартного модуля "Ozon" в базовой поставке <strong>Битрикс</strong> может не быть, часто используется универсальный экспорт в формате Yandex Market с адаптированными полями, либо устанавливается специальное решение из Маркетплейса Битрикс.</p>
+</details>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Качественно настроенный фид — это фундамент автоматизированных продаж. Одноразовая затрата времени на правильную настройку полей и графиков сэкономит сотни часов ручной работы в будущем.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakie-razmery-u-kartochki-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Размеры карточки Ozon: фото и требования к контенту</span>
+                <span class="pb-related-desc">Какие размеры у карточки Ozon? Полный гид по фото (2000х2000), видео и 3D. Технические требования к </span>
+            </a><a href="/articles/t/ti/tip-knigi-bukinistika-na-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Тип книги Букинистика на Озон: что это и как продавать</span>
+                <span class="pb-related-desc">Разбираем тип товара Букинистика на Озон. Требования к состоянию, правила упаковки, отличия от новых</span>
+            </a><a href="/articles/k/ka/kak-sdelat-kartochku-tovara-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать карточку товара на Ozon: инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство, как создать карточку товара на Озон. Разбор полей, фото, описания и SEO-оптим</span>
+            </a><a href="/articles/k/ka/kak-prodat-knigu-bu-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать б/у книгу на Озон: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полный гайд по продаже бу книг на Ozon. Как оформить карточку, выбрать схему FBS, оценить состояние </span>
+            </a><a href="/articles/u/uk/ukazhite-chto-nazyvaetsya-ozonom.html" class="pb-related-card">
+                <span class="pb-related-title">Укажите что называется озоном: Справочник по категориям</span>
+                <span class="pb-related-desc">Укажите что называется озоном в справочнике маркетплейса. Разбор категорий, кодов и правил заполнени</span>
+            </a><a href="/articles/k/ka/kak-zagruzit-video-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить видео на Ozon: инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство по загрузке видео на карточку товара в Ozon: форматы, требования, оптимизация </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

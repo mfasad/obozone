@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Загрузка товаров на Ozon через фид: полное руководство — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по загрузке товаров на Озон через XML-фид. Настройка автообновления остатков, цен и описание формата файлов для селлеров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzit-tovary-na-ozon-cherez-fid.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Загрузка товаров на Ozon через фид: полное руководство">
+    <meta property="og:description" content="Пошаговая инструкция по загрузке товаров на Озон через XML-фид. Настройка автообновления остатков, цен и описание формата файлов для селлеров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Загрузка товаров на Ozon через фид: полное руководство</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-товарный-фид-и-зачем-он-нужен-селлеру">Что такое товарный фид и зачем он нужен селлеру</a></li><li><a href="#требования-к-структуре-и-форматам-файлов">Требования к структуре и форматам файлов</a></li><li><a href="#подготовка-данных-обязательные-и-рекомендуемые-поля">Подготовка данных: обязательные и рекомендуемые поля</a></li><li><a href="#настройка-автоматической-загрузки-в-личном-кабинете">Настройка автоматической загрузки в личном кабинете</a></li><li><a href="#типичные-ошибки-при-формировании-xml-и-их-решение">Типичные ошибки при формировании XML и их решение</a></li><li><a href="#сравнение-методов-api-против-xml-фида">Сравнение методов: API против XML-фида</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-sdelat-fid-dlya-ozona-bitriks.html">Как сделать фид для Ozon в Битрикс: инструкция</a></li><li><a href="/articles/g/gd/gde-najti-id-tovara-na-ozon-seller.html">Где найти ID товара на Ozon Seller — 5 способов и инструкции</a></li><li><a href="/articles/g/gd/gde-prinimayut-tovar-dlya-ozona.html">Где принимают товар для Озона: полный список пунктов и складов</a></li><li><a href="/articles/k/ka/kak-redaktirovat-shtrikh-kod-na-ozone.html">Как изменить штрихкод товара на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-podnosit-shtrikh-kod-k-skaneru-ozon.html">Как подносить штрихкод к сканеру Ozon: инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Загрузка товаров на Ozon через фид: полная инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-товарный-фид-и-зачем-он-нужен-селлеру">Что такое товарный фид и зачем он нужен селлеру</a></li><li><a href="#требования-к-структуре-и-форматам-файлов">Требования к структуре и форматам файлов</a></li><li><a href="#подготовка-данных-обязательные-и-рекомендуемые-поля">Подготовка данных: обязательные и рекомендуемые поля</a></li><li><a href="#настройка-автоматической-загрузки-в-личном-кабинете">Настройка автоматической загрузки в личном кабинете</a></li><li><a href="#типичные-ошибки-при-формировании-xml-и-их-решение">Типичные ошибки при формировании XML и их решение</a></li><li><a href="#сравнение-методов-api-против-xml-фида">Сравнение методов: API против XML-фида</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Масштабирование бизнеса на маркетплейсах невозможно без автоматизации процессов. Ручное добавление карточек через личный кабинет подходит только на старте, когда ассортимент не превышает нескольких десятков единиц. Однако с ростом количества SKU (Stock Keeping Unit) такой подход становится неэффективным и трудоемким. Именно здесь на сцену выходит <strong>XML-фид</strong> — стандартизированный файл, который передает данные о товарах напрямую в базу данных площадки.</p>
+<p>Использование файла-фида позволяет синхронизировать не только наличие и стоимость, но и обновлять описания, изображения и характеристики в автоматическом режиме. Это критически важно для динамического ценообразования и управления стоками в реальном времени. В этой статье мы разберем техническую сторону вопроса, форматы данных и типичные ошибки, которые могут заблокировать ваш контент.</p>
+<p>Внедрение автоматической выгрузки требует подготовки, но результат того стоит: вы освобождаете время для стратегии, пока система сама обновляет тысячи позиций. Далее мы детально рассмотрим, как подготовить корректный файл и настроить его передачу в личном кабинете продавца.</p>
+
+<h2 id="что-такое-товарный-фид-и-зачем-он-нужен-селлеру">Что такое товарный фид и зачем он нужен селлеру</h2>
+<p>Товарный фид представляет собой структурированный список товаров, составленный по определенным правилам, которые диктует маркетплейс. Чаще всего используется формат <em>XML</em>, хотя некоторые системы поддерживают <em>YML</em> (Yandex Market Language) или <em>CSV</em>. Для Ozon XML является основным и наиболее предпочтительным форматом, так как он позволяет передавать иерархическую структуру данных, включая сложные атрибуты и вариативность товаров.</p>
+<p>Основная цель использования фида — массовое управление контентом. Вместо того чтобы открывать каждую карточку и вручную вбивать изменения, вы загружаете один файл, который полностью обновляет информацию о товарах. Это особенно актуально для <strong>сезонных распродаж</strong>, когда нужно быстро изменить цены на тысячи позиций, или при работе с поставщиками, чьи стоки меняются ежечасно.</p>
+<p>Кроме того, фид минимизирует человеческий фактор. Ошибки при ручном вводе (опечатки в артикулах, неверные цены, забытые остатки) могут стоить денег и рейтинга магазина. Автоматизированная передача данных исключает такие риски, обеспечивая точность информации, которую видит покупатель.</p>
+<blockquote>⚠️ Внимание: Файл фида должен быть доступен по прямой ссылке (URL). Загрузка файла напрямую через интерфейс браузера при настройке автообновления невозможна — серверу Ozon нужен постоянный доступ к источнику данных.</blockquote>
+<p>Важно понимать, что фид не создает новые товары "из воздуха" в вакууме, он работает с уже существующей структурой или создает новые на основе предоставленных данных. <strong>Атрибут offer_id</strong> (уникальный идентификатор предложения) связывает данные в файле с конкретным товаром в вашем кабинете. Если этот идентификатор изменится или будет указан неверно, система воспримет товар как новый или потеряет связь с текущим.</p>
+
+<h2 id="требования-к-структуре-и-форматам-файлов">Требования к структуре и форматам файлов</h2>
+<p>Прежде чем формировать выгрузку, необходимо строго следовать техническим требованиям платформы. Ozon принимает файлы в кодировке <em>UTF-8</em>, что обеспечивает корректное отображение кириллических символов. Нарушение кодировки приведет к появлению "кракозябр" в названиях и описаниях, что сделает карточки нечитаемыми.</p>
+<p>Структура XML-файла должна соответствовать схеме, утвержденной маркетплейсом. Корневой элемент обычно содержит информацию о магазине, а внутри располагаются теги <code>&lt;offer&gt;</code>, каждый из которых описывает отдельный товар. Внутри тега offer обязательно должны присутствовать поля для идентификатора, цены, наличия и ссылки на изображение.</p>
+<p>Размер файла также имеет значение. Если ваш ассортимент исчисляется десятками тысяч позиций, файл может стать слишком большим для обработки за один раз. В таких случаях рекомендуется разбивать выгрузку на несколько частей или использовать сжатие данных, если протокол передачи это позволяет.</p>
+<ul>
+<li>📂 <strong>Формат:</strong> XML версии 1.0 или YML (Yandex Market Language).</li>
+<li>🔗 <strong>Ссылка:</strong> Прямая ссылка на файл должна начинаться с http:// или https:// и вести непосредственно на файл, а не на страницу скачивания.</li>
+<li>⚖️ <strong>Вес:</strong> Рекомендуется, чтобы размер файла не превышал разумных пределов (обычно до 50-100 Мб), иначе время парсинга (обработки) может занять слишком долго.</li>
+</ul>
+<p>Особое внимание стоит уделить валидации XML. Файл должен быть синтаксически правильным: все открытые теги должны быть закрыты, специальные символы (например, амперсанд & или кавычки) в тексте должны быть экранированы. Невалидный файл будет отклонен системой при первой же попытке загрузки.</p>
+<details class="pb-accordion"><summary>Как проверить валидность XML?</summary><div class="pb-accordion-body"><p>Проверить файл на наличие ошибок можно с помощью онлайн-валидаторов XML или через встроенные инструменты в текстовых редакторах (например, Notepad++ с плагинами или VS Code). Ошибка в одном символе может остановить загрузку всего ассортимента.</p></div></details>
+
+<h2 id="подготовка-данных-обязательные-и-рекомендуемые-поля">Подготовка данных: обязательные и рекомендуемые поля</h2>
+<p>Качество заполнения полей в фиде напрямую влияет на ранжирование товаров и конверсию в покупку. Система Ozon делит атрибуты на обязательные (без них товар не будет принят) и рекомендуемые (улучшают видимость и фильтрацию). Игнорирование рекомендуемых полей лишает вас возможности участвовать в некоторых акциях или попадать в фильтры поиска.</p>
+<p>Ключевым элементом является <strong>offer_id</strong>. Это ваш внутренний артикул, который должен быть уникальным для каждого торгового предложения. Не путайте его с <em>product_id</em> (идентификатор товара на Ozon) или штрихкодом. Offer_id — это "якорь", который держит связь между вашей базой данных и карточкой на маркетплейсе.</p>
+<p>Поле <code>price</code> (цена) должно содержать только числовое значение без валюты и пробелов. Разделителем дробной части в XML стандарте обычно выступает точка. Поле <code>stock</code> (остаток) указывает количество единиц товара, доступных к продаже. Важно настроить логику: если товара нет, stock должен быть равен 0, а не пустым.</p>
+<p>Для категорий с вариативностью (например, одежда разных размеров или цветов) критически важно правильно указывать параметр <code>variant</code> или группировать товары по родительскому SKU, чтобы они отображались как единая карточка с выбором опций, а не как разрозненные лоты.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Название тега</th>
+<th>Тип данных</th>
+<th>Описание</th>
+<th>Обязательно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer_id</td>
+<td>String</td>
+<td>Уникальный идентификатор вашего предложения</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>Integer</td>
+<td>ID товара на Ozon (если товар уже создан)</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Float</td>
+<td>Цена товара в рублях</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>stock</td>
+<td>Integer</td>
+<td>Остаток на складе</td>
+<td>Да</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Полное наименование товара</td>
+<td>Да</td>
+</tr>
+</tbody>
+</table></div>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте префиксы в offer_id для разных поставщиков или складов (например, SUPPLIER1_ITEM123), чтобы легко идентифицировать происхождение товара при аналитике.</p></aside>
+
+<h2 id="настройка-автоматической-загрузки-в-личном-кабинете">Настройка автоматической загрузки в личном кабинете</h2>
+<p>Процесс настройки начинается в личном кабинете селлера. Вам необходимо перейти в раздел работы с товарами и найти вкладку, отвечающую за импорт. Здесь система предложит создать новый профиль импорта или выбрать существующий.</p>
+<p>Первым шагом вы выбираете тип импорта. Для работы с XML-фидами выбирается опция "Импорт из XML". Далее потребуется указать ссылку на ваш файл. Убедитесь, что ссылка доступна из внешней сети (не localhost и не закрыта паролями или IP-адресами).</p>
+<p>Следующий этап — маппинг (сопоставление) полей. Система попытается автоматически определить, какой тег в вашем XML соответствует полю на Ozon. Вам нужно проверить эти соответствия. Например, убедиться, что тег <code>&lt;price&gt;</code> в файле действительно сопоставлен с полем "Цена" в системе Ozon.</p>
+<ul>
+<li>🔄 <strong>Периодичность:</strong> Настройте интервал обновления. Ozon позволяет обновлять данные по расписанию (например, раз в час или раз в сутки). Чаще — не всегда значит лучше, учитывайте нагрузку на серверы.</li>
+<li>📦 <strong>Тип контента:</strong> Выберите, что именно обновлять: только цены и остатки или полные данные (названия, описания, фото). Для ежедневной работы обычно достаточно обновлять только стоки и цены.</li>
+<li>🚫 <strong>Архивация:</strong> Решите, что делать с товарами, которых нет в текущем фиде. Можно архивировать их автоматически или оставлять без изменений.</li>
+</ul>
+<p>После сохранения настроек рекомендуется запустить первую загрузку вручную и внимательно изучить отчет. Система выдаст список успешно загруженных товаров и список ошибок, если они возникнут. Игнорирование отчета об ошибках приведет к тому, что часть ассортимента останется неактуальной.</p>
+<div class="pb-poll" id="poll-cc796549"><div class="pb-poll-question">📊 Как часто вы планируете обновлять фид?</div><div class="pb-poll-option" data-poll="cc796549" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Каждый час</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cc796549" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в 4 часа</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cc796549" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в сутки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="cc796549" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только вручную по необходимости</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="типичные-ошибки-при-формировании-xml-и-их-решение">Типичные ошибки при формировании XML и их решение</h2>
+<p>Даже опытные разработчики и селлеры сталкиваются с ошибками при генерации фида. Самая распространенная проблема — некорректная структура XML. Если в файле нарушена иерархия тегов, парсер Ozon не сможет его прочитать, и вы получите ошибку "Невалидный XML".</p>
+<p>Вторая частая ошибка — несоответствие типов данных. Например, попытка записать текст в поле, предназначенное для чисел (цена со словом "руб."), или использование недопустимых символов в URL изображений. Такие строки будут пропущены при импорте.</p>
+<p>Также часто встречается проблема дублирования <strong>offer_id</strong>. В одном файле-фиде каждый идентификатор предложения должен встречаться только один раз. Если в файле два раза указан один и тот же offer_id, система не поймет, какой из вариантов считать актуальным.</p>
+<blockquote>⚠️ Внимание: Ссылки на изображения должны быть прямыми и вести на файлы форматов JPG, PNG или WEBP. Ссылки, ведущие на HTML-страницы или требующие авторизации для просмотра, не будут обработаны, и фото товаров не загрузятся.</blockquote>
+<p>Для решения проблем используйте логи ошибок, которые предоставляет Ozon после каждой попытки импорта. Там указывается номер строки и тип ошибки. Исправив файл, не забудьте сбросить кэш или подождать обновления ссылки, если файл хранится на вашем сервере.</p>
+
+<h2 id="сравнение-методов-api-против-xml-фида">Сравнение методов: API против XML-фида</h2>
+<p>Когда бизнес вырастает до определенных объемов, возможностей стандартного XML-фида может стать недостаточно. На этом этапе селлеры часто задумываются о переходе на <strong>API</strong> (Application Programming Interface). Это более сложный, но и более мощный инструмент интеграции.</p>
+<p>XML-фид работает по принципу "опросного листа": сервер Ozon приходит по ссылке, забирает файл и обновляет данные. Это создает задержку (лаги) между изменением данных у вас и обновлением на сайте. API же позволяет передавать данные мгновенно по событию (push-уведомление).</p>
+<p>API позволяет не только обновлять товары, но и получать заказы, менять статусы отгрузок, управлять рекламными кампаниями и отвечать на вопросы покупателей программно. Однако внедрение API требует квалифицированных разработчиков и поддержки серверной инфраструктуры.</p>
+<ul>
+<li>🐢 <strong>XML-фид:</strong> Подходит для малого и среднего бизнеса. Прост в настройке, не требует программирования, но имеет задержку в обновлении данных.</li>
+<li>🚀 <strong>API:</strong> Выбор для крупного бизнеса и автоматизированных систем. Мгновенная синхронизация, полный контроль, но высокая стоимость разработки и поддержки.</li>
+<li>🤖 <strong>ERP-системы:</strong> Часто выступают посредником, сами формируя фиды или работая через API, что является оптимальным решением для большинства профессиональных селлеров.</li>
+</ul>
+<p>Для старта и работы с ассортиментом до нескольких тысяч позиций XML-фида вполне достаточно. Он бесплатен, понятен и покрывает 95% потребностей по управлению контентом. Переходить на API имеет смысл, когда задержки в обновлении остатков начинают приводить к ощутимым финансовым потерям (оверселлинг).</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>XML-фид — это фундамент автоматизации на Ozon. Пока вы не достигли оборотов, требующих миллисекундной точности, глубокая настройка XML-выгрузки даст максимальный эффект при минимальных затратах.</p></aside>
+
+<details>
+<summary>Можно ли загружать товары через Excel (CSV) вместо XML?</summary>
+<p>Да, Ozon поддерживает загрузку через CSV-файлы. Это упрощенный формат, который можно редактировать в Excel. Однако он менее гибок: в CSV сложнее передавать сложные характеристики, множественные изображения и вариативные товары. Для постоянного автообновления XML надежнее.</p>
+</details>
+
+<details>
+<summary>Что делать, если фид загружается, но товары не обновляются?</summary>
+<p>Проверьте отчет о загрузке в личном кабинете. Часто проблема кроется в несоответствии offer_id (товар не найден) или в том, что товар находится в статусе "Модерация" или "Архив", куда обновления по фиду могут не применяться автоматически без дополнительных настроек.</p>
+</details>
+
+<details>
+<summary>Как часто Ozon обновляет данные из фида?</summary>
+<p>Частота обновления зависит от настроек вашего профиля импорта. Вы можете установить интервал, например, каждые 60 минут. Однако стоит учитывать, что при высокой нагрузке на сервера маркетплейса обработка может занимать больше времени.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-sdelat-fid-dlya-ozona-bitriks.html" class="pb-related-card">
+                <span class="pb-related-title">Как сделать фид для Ozon в Битрикс: инструкция</span>
+                <span class="pb-related-desc">Пошаговое руководство по настройке выгрузки товаров на Ozon через CMS Битрикс. Настройка офферов, по</span>
+            </a><a href="/articles/g/gd/gde-najti-id-tovara-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти ID товара на Ozon Seller — 5 способов и инструкции</span>
+                <span class="pb-related-desc">Пошаговое руководство: как узнать артикул (ID) товара в личном кабинете Ozon для продавцов. Способы </span>
+            </a><a href="/articles/g/gd/gde-prinimayut-tovar-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Где принимают товар для Озона: полный список пунктов и складов</span>
+                <span class="pb-related-desc">Узнайте, где принимают товар для Ozon: адреса ПВЗ, почтоматов и складов. Сравнение схем FBO и FBS дл</span>
+            </a><a href="/articles/k/ka/kak-redaktirovat-shtrikh-kod-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить штрихкод товара на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, можно ли редактировать штрихкод на Озоне, как правильно заменить его в карточке товара и ка</span>
+            </a><a href="/articles/k/ka/kak-podnosit-shtrikh-kod-k-skaneru-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как подносить штрихкод к сканеру Ozon: инструкция</span>
+                <span class="pb-related-desc">Подробный гид для селлеров: как правильно подносить штрихкод к сканеру Ozon, чтобы избежать ошибок п</span>
+            </a><a href="/articles/k/ka/kak-zavesti-tovar-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как завести товар на Озон Селлер: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению товара в личный кабинет Озон для продавцов: от регистрации карто</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

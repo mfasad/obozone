@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Генератор штрихкода Ozon: алгоритм и правила создания — Об Озоне</title>
+    <meta name="description" content="Какой алгоритм генератора штрихкода Ozon используется? Разбор формата Data Matrix, технические требования и ошибки при маркировке.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/g/ge/generator-shtrikhkoda-ozon-kakoj-ispolzuet-algoritm.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Генератор штрихкода Ozon: алгоритм и правила создания">
+    <meta property="og:description" content="Какой алгоритм генератора штрихкода Ozon используется? Разбор формата Data Matrix, технические требования и ошибки при маркировке.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Генератор штрихкода Ozon: алгоритм и правила создания</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#особенности-алгоритма-кодирования-на-ozon">Особенности алгоритма кодирования на Ozon</a></li><li><a href="#технические-требования-к-штрихкодам">Технические требования к штрихкодам</a></li><li><a href="#сравнение-форматов-штрихкодирования">Сравнение форматов штрихкодирования</a></li><li><a href="#процесс-генерации-и-печати-этикеток">Процесс генерации и печати этикеток</a></li><li><a href="#распространенные-ошибки-и-их-решение">Распространенные ошибки и их решение</a></li><li><a href="#интеграция-и-автоматизация-маркировки">Интеграция и автоматизация маркировки</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-kak-zagruzit-video.html">Как загрузить видео на Ozon в 2026: пошаговая инструкция для продавцов</a></li><li><a href="/articles/k/ka/kak-uznat-id-ozon.html">Как узнать ID товара на Ozon: 7 рабочих способов 2026</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-prezentatsiya.html">Что такое презентация на Озон: как создать, правила и примеры 2026</a></li><li><a href="/articles/c/ch/chto-takoe-artikul-na-ozone.html">Артикул на Ozon: что это, где найти и как использовать в 2026 году</a></li><li><a href="/articles/k/ka/kak-obedinit-kartochki-tovara-na-ozon-po-vesu.html">Объединение карточек Озон по весу: инструкция 2026 для продавцов</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Генератор штрихкода Ozon: какой алгоритм использует система</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#особенности-алгоритма-кодирования-на-ozon">Особенности алгоритма кодирования на Ozon</a></li><li><a href="#технические-требования-к-штрихкодам">Технические требования к штрихкодам</a></li><li><a href="#сравнение-форматов-штрихкодирования">Сравнение форматов штрихкодирования</a></li><li><a href="#процесс-генерации-и-печати-этикеток">Процесс генерации и печати этикеток</a></li><li><a href="#распространенные-ошибки-и-их-решение">Распространенные ошибки и их решение</a></li><li><a href="#интеграция-и-автоматизация-маркировки">Интеграция и автоматизация маркировки</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современной электронной коммерции, особенно на таком масштабном маркетплейсе как Ozon, правильная маркировка товаров становится фундаментом успешных продаж. Многие селлеры, сталкиваясь с необходимостью печати этикеток, задаются вопросом о том, какой именно <strong>генератор штрихкода Ozon</strong> использует для кодирования информации. Понимание этого процесса критически важно, так как от корректности считывания кода зависит, попадет ли ваш товар на склад и как быстро он будет принят в оборот.</p>
+
+<p>Система маркировки базируется на международных стандартах, которые обеспечивают совместимость с любым оборудованием для сканирования. В отличие от привычных линейных штрихкодов EAN-13, которые мы видим на продуктах в супермаркетах, маркетплейсы требуют более емких и защищенных форматов. Именно поэтому <em>Ozon</em> перешел на использование двумерных кодов, способных хранить значительно больше данных в компактном виде.</p>
+
+<p>В этой статье мы подробно разберем техническую сторону вопроса, объясним, почему выбран именно этот формат, и как избежать распространенных ошибок при генерации кодов. Вы узнаете, какие алгоритмы лежат в основе создания штрихкодов, и почему использование сторонних генераторов может привести к проблемам с приемкой товара.</p>
+
+<h2 id="особенности-алгоритма-кодирования-на-ozon">Особенности алгоритма кодирования на Ozon</h2>
+
+<p>Основным алгоритмом, который использует <strong>генератор штрихкода Ozon</strong>, является <em>Data Matrix</em>. Это двумерный штрих-код, состоящий из черно-белых модулей, расположенных в квадратной или прямоугольной матрице. В отличие от линейных кодов, где информация считывается по ширине штрихов, Data Matrix считывается по площади, что позволяет закодировать большой объем данных даже в очень маленьком пространстве.</p>
+
+<p>Алгоритм формирования кода включает в себя несколько этапов, обеспечивающих надежность хранения информации. Сначала данные преобразуются в бинарный формат, затем добавляются корректирующие коды <strong>Reed-Solomon</strong>. Эти коды позволяют восстанавливать информацию даже в случае частичного повреждения этикетки, загрязнения или потертости. Именно благодаря этому алгоритму сканеры на складах Ozon могут считывать коды, которые выглядят неидеально.</p>
+
+<p>Важно понимать, что структура данных внутри кода строго регламентирована. <em>Генератор штрихкода Ozon</em> формирует строку, которая содержит уникальный идентификатор товара, информацию о производителе и контрольную сумму. Любое отклонение от формата приведет к тому, что терминал сбора данных (ТСД) просто не распознает товар.</p>
+
+<details class="pb-accordion"><summary>Почему именно Data Matrix?</summary><div class="pb-accordion-body"><p>Data Matrix выбран из-за высокой плотности записи данных и устойчивости к повреждениям. В отличие от QR-кода, который также является двумерным, Data Matrix занимает меньше места и лучше читается промышленными сканерами при высоких скоростях конвейерной ленты.</p></div></details>
+
+<p>Стоит отметить, что алгоритм Reed-Solomon, применяемый в Data Matrix, способен исправить до 30% поврежденной информации. Это означает, что даже если треть вашего штрихкода будет закрашена или оторвана, система все равно сможет считать оставшиеся данные и идентифицировать товар. Такая надежность критична для логистических процессов, где этикетки подвергаются механическим воздействиям.</p>
+
+<h2 id="технические-требования-к-штрихкодам">Технические требования к штрихкодам</h2>
+
+<p>При создании этикеток необходимо соблюдать строгие технические требования, так как <strong>генератор штрихкода Ozon</strong> в личном кабинете настроен именно под эти параметры. Несоблюдение пропорций или плотности печати может привести к тому, что код станет нечитаемым для оборудования склада. Основные требования касаются размера, контрастности и полей вокруг кода.</p>
+
+<p>Минимальный рекомендуемый размер модуля (одного квадратика в сетке кода) составляет 0.25 мм, однако для печати на термопринтерах лучше использовать размер не менее 0.3-0.4 мм. Это обеспечит четкость границ между черными и белыми участками. Если модули будут слишком маленькими, принтер может «смазать» границы, и сканер не сможет различить структуру кода.</p>
+
+<ul>
+<li>📏 Размер кода должен быть не менее 15x15 мм для обеспечения стабильного считывания.</li>
+<li>🖨️ Разрешение печати должно составлять минимум 203 dpi, оптимально — 300 dpi и выше.</li>
+<li>🎨 Контрастность между штрихами и фоном должна быть максимальной (черный на белом).</li>
+<li>📐 Обязательно наличие «тихой зоны» (пустого поля) вокруг кода шириной не менее 2-3 мм.</li>
+</ul>
+
+<p>Еще одним важным параметром является тип шрифта и его размер для текстовой информации, сопровождающей штрихкод. Хотя сам код считывается машиной, текстовая дублирующая информация необходима для визуальной проверки сотрудниками склада. <strong>Генератор штрихкода Ozon</strong> автоматически подбирает оптимальный шрифт, но если вы печатаете этикетки самостоятельно, следите, чтобы текст не перекрывал служебные зоны кода.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте только качественную термо- или термотрансферную бумагу. Обычная офисная бумага быстро выцветает и мнется, что делает штрихкод нечитаемым уже через несколько дней хранения.</p></aside>
+
+<h2 id="сравнение-форматов-штрихкодирования">Сравнение форматов штрихкодирования</h2>
+
+<p>Для понимания преимуществ выбранного алгоритма полезно сравнить его с другими распространенными форматами. На рынке существует множество стандартов, но не все они подходят для логистики маркетплейсов. Ниже приведена таблица, демонстрирующая ключевые различия между форматами.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Data Matrix (Ozon)</th>
+<th>EAN-13</th>
+<th>QR Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Тип кодирования</td>
+<td>Двумерное</td>
+<td>Одномерное (линейное)</td>
+<td>Двумерное</td>
+</tr>
+<tr>
+<td>Вместимость (цифры)</td>
+<td>до 2335</td>
+<td>13</td>
+<td>до 7089</td>
+</tr>
+<tr>
+<td>Устойчивость к повреждениям</td>
+<td>Высокая (до 30%)</td>
+<td>Низкая</td>
+<td>Высокая (до 30%)</td>
+</tr>
+<tr>
+<td>Требуемая площадь</td>
+<td>Минимальная</td>
+<td>Большая (ширина)</td>
+<td>Средняя</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, <strong>Data Matrix</strong> значительно превосходит классический EAN-13 по объему кодируемой информации и занимаемой площади. QR-код, хотя и обладает большей вместимостью, имеет другую структуру позиционирования и реже используется в промышленной логистике из-за особенностей считывания высокоскоростными сканерами.</p>
+
+<p>Линейные коды, такие как EAN-13, требуют непрерывности считывания по всей ширине штриха. Если на этикетке появится вертикальная царапина, пересекающая все штрихи, код станет нечитаемым. В <em>Data Matrix</em> информация распределена по всей площади, поэтому локальные повреждения не фатальны для считывания. Это делает двумерные коды стандартом де-факто для складов с высокой проходимостью товаров.</p>
+
+<div class="pb-poll" id="poll-75f49743"><div class="pb-poll-question">📊 Какой формат штрихкода вы чаще всего встречаете на товарах в магазинах?</div><div class="pb-poll-option" data-poll="75f49743" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">EAN-13</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="75f49743" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Data Matrix</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="75f49743" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">QR Code</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="75f49743" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Code 128</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="процесс-генерации-и-печати-этикеток">Процесс генерации и печати этикеток</h2>
+
+<p>Процесс создания этикетки для Ozon начинается в личном кабинете продавца. Система автоматически генерирует уникальный код для каждой единицы товара, используя встроенный <strong>генератор штрихкода Ozon</strong>. Пользователю не нужно вручную вводить данные или выбирать алгоритм кодирования — все происходит в фоновом режиме согласно внутренним протоколам платформы.</p>
+
+<p>После формирования кода система предлагает скачать файл в формате PDF или PNG. При печати важно выбрать правильные настройки принтера. Если вы используете обычный офисный принтер, убедитесь, что масштабирование установлено на 100%, иначе размеры модулей могут измениться, и код перестанет соответствовать стандартам. Для профессиональной печати лучше использовать специализированные термопринтеры.</p>
+
+<ul>
+<li>🖥️ Скачайте файл этикетки из личного кабинета Ozon Seller.</li>
+<li>⚙️ Проверьте настройки принтера: масштаб 100%, черно-белая печать, высокое качество.</li>
+<li>🏷️ Используйте этикетки стандартного размера (обычно 58x40 мм или 75x120 мм).</li>
+<li>✅ Проверьте считываемость кода с помощью мобильного приложения или сканера перед наклейкой.</li>
+</ul>
+
+<p>Существует также возможность массовой печати этикеток через API или сторонние сервисы, интегрированные с Ozon. В этом случае <em>генератор штрихкода</em> может быть частью вашей ERP-системы. Однако даже в этом случае вы должны гарантировать, что создаваемый код полностью соответствует спецификации Data Matrix, принятой на маркетплейсе.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед печатью</h4><label class="check-item"><input type="checkbox"><span>Проверить уровень заряда принтера</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в наличии термо-ленты</span></label><label class="check-item"><input type="checkbox"><span>Проверить чистоту печатающей головки</span></label><label class="check-item"><input type="checkbox"><span>Сделать тестовую печать одного листа</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="распространенные-ошибки-и-их-решение">Распространенные ошибки и их решение</h2>
+
+<p>Несмотря на автоматизацию процессов, селлеры часто сталкиваются с проблемами при маркировке. Одной из самых частых ошибок является использование некачественной печати, когда чернила растекаются или, наоборот, не пропечатываются полностью. <strong>Генератор штрихкода Ozon</strong> создает идеальный цифровой шаблон, но физический носитель может искажать его.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не используйте цветную печать для штрихкодов, если принтер не настроен на режим «только черный». Красный или желтый цвета могут быть невидимы для сканеров, работающих в определенном спектре, что приведет к браку при приемке.</p>
+</blockquote>
+
+<p>Еще одна ошибка — наклейка этикетки на неровную поверхность или поверх шва упаковки. Код должен лежать на ровной плоскости. Если этикетка пойдет «волной» или перекроет угол коробки, сканер может не считать информацию с первого раза, что замедлит обработку заказа. Также критично важно не заламинировать этикетку глянцевой пленкой, создающей блики — они «слепят» лазерный считыватель.</p>
+
+<p>Если вы используете собственные программы для генерации кодов (что не рекомендуется для основных этикеток Ozon), убедитесь, что в настройках выбран корректный режим кодировки. Ошибка в выборе кодировки ASCII или Binary может привести к тому, что вместо нужного набора символов в коде окажется «каша», которую система не сможет интерпретировать.</p>
+
+<details class="pb-accordion"><summary>Что делать, если сканер не читает код?</summary><div class="pb-accordion-body"><p>В первую очередь протрите печатающую головку принтера спиртовой салфеткой. Часто проблема кроется в загрязнении термо-головки, из-за чего образуются белые полосы на черном фоне кода. Если это не помогло, проверьте контрастность печати в драйвере принтера.</p></div></details>
+
+<h2 id="интеграция-и-автоматизация-маркировки">Интеграция и автоматизация маркировки</h2>
+
+<p>Для крупных продавцов ручная печать тысяч этикеток становится неэффективной. В таких случаях используется автоматическая генерация через API Ozon. Ваш складской софт запрашивает у маркетплейса данные о товаре, получает ответ с уникальным идентификатором и передает его на промышленный принтер. <strong>Генератор штрихкода Ozon</strong> в этой связке выступает как сервис, обеспечивающий уникальность каждого кода.</p>
+
+<p>Автоматизация позволяет исключить человеческий фактор. Система сама контролирует, что код сгенерирован правильно, и сразу же отправляет задание на печать. Это особенно актуально для схем работы FBO, где требуется маркировка большого объема товаров перед отправкой на склад маркетплейса. Ошибка в одном байте данных может привести к тому, что целая коробка будет отправлена на пересортировку.</p>
+
+<ul>
+<li>🚀 API позволяет генерировать этикетки тысячами за несколько секунд.</li>
+<li>🔗 Прямая интеграция с 1С или МойСклад упрощает учет товаров.</li>
+<li>📦 Автоматическое распределение кодов по коробам при сборке.</li>
+<li>📉 Снижение процента брака при приемке на складе Ozon.</li>
+</ul>
+
+<p>При настройке автоматической печати важно учитывать скорость конвейера. Если этикетки клеятся автоматически, клей должен схватываться мгновенно, а сам материал этикетки должен быть устойчив к трению о борта коробок. <em>Data Matrix</em> хорошо справляется с такими условиями, но только при условии качественного нанесения.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Автоматизация процесса генерации и печати штрихкодов через API — ключевой фактор масштабирования бизнеса на Ozon, позволяющий избежать ошибок ручного ввода и ускорить отгрузку.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли использовать обычный лазерный принтер для печати штрихкодов Ozon?</summary>
+<p>Да, можно, но с оговорками. Лазерный принтер дает четкое изображение, но важно, чтобы тонер не осыпался и не создавал бликов. Однако для больших объемов лучше использовать термопринтеры, так как они быстрее, дешевле в эксплуатации (не нужен тонер) ият на самоклеящейся бумаге, что удобнее для логистики.</p>
+</details>
+
+<details>
+<summary>Что делать, если штрихкод не читается на приемке?</summary>
+<p>Если товар вернули с пометкой «не читается штрихкод», вам необходимо перепечатать этикетку. Проверьте, не закончилась ли краска в принтере, не загрязнена ли печатающая головка. Убедитесь, что размер кода соответствует требованиям (не менее 15x15 мм) и вокруг него есть свободное поле. Попробуйте изменить плотность печати в настройках драйвера.</p>
+</details>
+
+<details>
+<summary>Нужно ли регистрировать коды Data Matrix в системе Честный Знак?</summary>
+<p>Для товаров, подлежащих обязательной маркировке (обувь, одежда, шины и т.д.), код Data Matrix на этикетке Ozon должен соответствовать коду из системы «Честный Знак». В этом случае <strong>генератор штрихкода Ozon</strong> должен использовать именно тот код, который вы получили от государства, а не сгенерированный маркетплейсом произвольно. Для остальных товаров Ozon генерирует внутренние коды.</p>
+</details>
+
+<details>
+<summary>Какой срок годности у напечатанной этикетки?</summary>
+<p>Термоэтикетки могут выцветать со временем, особенно под воздействием прямых солнечных лучей или тепла. Рекомендуется не хранить напечатанные этикетки дольше 6-12 месяцев перед наклейкой. Если товар хранится долго, лучше использовать термотрансферную печать (с красящей лентой), которая обеспечивает гораздо более стойкое изображение.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-kak-zagruzit-video.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить видео на Ozon в 2026: пошаговая инструкция для продавцов</span>
+                <span class="pb-related-desc">Подробное руководство по загрузке видео на карточку товара в Ozon: требования к формату, размеру и д</span>
+            </a><a href="/articles/k/ka/kak-uznat-id-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать ID товара на Ozon: 7 рабочих способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: где найти артикул, SKU и ID карточки товара на Озон для продавцов и покупателе</span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-prezentatsiya.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое презентация на Озон: как создать, правила и примеры 2026</span>
+                <span class="pb-related-desc">Подробное руководство по созданию презентаций товаров на Озон: требования, шаблоны, ошибки и советы </span>
+            </a><a href="/articles/c/ch/chto-takoe-artikul-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Артикул на Ozon: что это, где найти и как использовать в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое артикул на Озоне, как он формируется, где его искать в карточке товара и заче</span>
+            </a><a href="/articles/k/ka/kak-obedinit-kartochki-tovara-na-ozon-po-vesu.html" class="pb-related-card">
+                <span class="pb-related-title">Объединение карточек Озон по весу: инструкция 2026 для продавцов</span>
+                <span class="pb-related-desc">Как правильно объединить карточки товара на Ozon по весу: пошаговая инструкция с примерами, ошибками</span>
+            </a><a href="/articles/k/ka/kak-obedinit-tovary-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как объединить товары на Озон Селлер: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как правильно объединить товары на Ozon Seller. Слияние карточек, работа с вариативностью и</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

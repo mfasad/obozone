@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Интерфейс продавца Ozon: что видят при выдаче заказа — Об Озоне</title>
+    <meta name="description" content="Подробный разбор того, что видит продавец Ozon при выдаче заказа. Скриншоты интерфейса, этапы сборки и правила передачи курьеру.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-vidit-prodavets-ozon-pri-vydache-zakaza.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Интерфейс продавца Ozon: что видят при выдаче заказа">
+    <meta property="og:description" content="Подробный разбор того, что видит продавец Ozon при выдаче заказа. Скриншоты интерфейса, этапы сборки и правила передачи курьеру.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Интерфейс продавца Ozon: что видят при выдаче заказа</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#структура-карточки-заказа-в-seller-center">Структура карточки заказа в Seller Center</a></li><li><a href="#этапы-сборки-и-визуальные-маркеры">Этапы сборки и визуальные маркеры</a></li><li><a href="#интерфейс-при-передаче-заказа-курьеру">Интерфейс при передаче заказа курьеру</a></li><li><a href="#работа-с-актами-и-документами-в-цифровом-виде">Работа с актами и документами в цифровом виде</a></li><li><a href="#мобильное-приложение-ozon-seller-особенности-интерфейса">Мобильное приложение Ozon Seller: особенности интерфейса</a></li><li><a href="#типичные-ошибки-и-сообщения-системы">Типичные ошибки и сообщения системы</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-takoe-mbt-na-ozone.html">МБТ на Озоне: что это и как работает в 2026 году</a></li><li><a href="/articles/k/ka/kak-uvelichit-prodazhi-tovara-na-ozon.html">Как увеличить продажи на Озон: стратегии роста</a></li><li><a href="/articles/o/oz/ozon-kak-prodavat-svoj-tovar-samozanyatyj.html">Как самозанятому продавать на Ozon: старт и налоги</a></li><li><a href="/articles/m/mo/mozhno-rabotat-s-ozon-kak-samozanyatyj.html">Работа на Ozon как самозанятый: условия 2026</a></li><li><a href="/articles/k/ka/kak-prodavat-rasteniya-na-ozon.html">Как продавать растения на Ozon: пошаговое руководство 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Интерфейс продавца Ozon: что видят при выдаче заказа</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#структура-карточки-заказа-в-seller-center">Структура карточки заказа в Seller Center</a></li><li><a href="#этапы-сборки-и-визуальные-маркеры">Этапы сборки и визуальные маркеры</a></li><li><a href="#интерфейс-при-передаче-заказа-курьеру">Интерфейс при передаче заказа курьеру</a></li><li><a href="#работа-с-актами-и-документами-в-цифровом-виде">Работа с актами и документами в цифровом виде</a></li><li><a href="#мобильное-приложение-ozon-seller-особенности-интерфейса">Мобильное приложение Ozon Seller: особенности интерфейса</a></li><li><a href="#типичные-ошибки-и-сообщения-системы">Типичные ошибки и сообщения системы</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с маркетплейсами требует максимальной внимательности к деталям, особенно когда речь заходит о логистике. Новички часто теряются в многообразии кнопок и статусов, не понимая, как именно система реагирует на их действия. Понимание того, <strong>что видит продавец Ozon при выдаче заказа</strong>, является фундаментом для избежания штрафов и задержек.</p>
+
+<p>Интерфейс личного кабинета селлера (Seller Center) спроектирован так, чтобы контролировать каждый этап движения товара. От момента поступления заказа в работу до передачи курьеру или сотруднику пункта приема, продавец проходит несколько экранов. На каждом из них отображается специфическая информация, требующая проверки.</p>
+
+<p>В этой статье мы детально разберем визуальную составляющую процесса сборки. Вы узнаете, какие данные скрываются за статусами, как выглядит карточка заказа в разных сценариях и на что обращать внимание в первую очередь. <em>Визуальный контроль</em> — это ваш главный инструмент для поддержания высокого рейтинга.</p>
+
+<h2 id="структура-карточки-заказа-в-seller-center">Структура карточки заказа в Seller Center</h2>
+
+<p>Когда вы открываете список заказов для отгрузки, перед вами предстает таблица с множеством столбцов. Однако ключевой момент наступает при клике на конкретный номер заказа. Именно здесь открывается <strong>карточка заказа</strong>, содержащая всю необходимую информацию для сборщика.</p>
+
+<p>Верхняя часть экрана всегда содержит статусный блок. Здесь крупным шрифтом отображается текущее состояние: «Собираем», «Готов к отгрузке» или «Принят». Цветовая индикация помогает быстро ориентироваться: зеленый означает норму, желтый — ожидание, красный — проблему или истечение сроков.</p>
+
+<p>Непосредственно под статусом расположены данные о покупателе. Однако, в целях безопасности, <strong>персональные данные</strong> скрыты. Вы не увидите полного номера телефона или точного адреса, если работаете по схеме FBO. Для схемы FBS адрес может быть частично виден, но основной упор делается на штрихкоды.</p>
+
+<p>Важнейшим элементом интерфейса является зона со <strong>штрихкодами</strong>. Система Ozon генерирует уникальный код для каждой единицы товара. Именно его считывание подтверждает, что вы взяли в руки правильную вещь. Ошибка на этом этапе ведет к пересорту, что является серьезным нарушением.</p>
+
+<blockquote>⚠️ Внимание: Никогда не пытайтесь угадать товар по фотографии или названию без сканирования штрихкода. Интерфейс может показывать похожие товары, и только считывание кода даст 100% гарантию соответствия.</blockquote>
+
+<p>Для опытных селлеров критически важно понимать разницу между отображением товаров в наборе и одиночных позициях. Если покупатель заказал несколько штук одного товара, система может сгруппировать их или показать списком. Внимательно следите за количеством (<strong>qty</strong>), чтобы не собрать лишнее или недостающее.</p>
+
+<div class="pb-poll" id="poll-4625ea06"><div class="pb-poll-question">📊 С какой схемой работы вы чаще всего сталкиваетесь?</div><div class="pb-poll-option" data-poll="4625ea06" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">FBS (со своего склада)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4625ea06" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">FBO (склад Ozon)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4625ea06" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">RealFBS (доставка своими силами)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4625ea06" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Экспресс-доставка</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="этапы-сборки-и-визуальные-маркеры">Этапы сборки и визуальные маркеры</h2>
+
+<p>Процесс сборки в интерфейсе продавца делится на четкие этапы. Переход от одного этапа к другому сопровождается изменением цветовой гаммы и доступных кнопок действий. Это сделано для того, чтобы минимизировать человеческий фактор.</p>
+
+<p>Первый этап — это формирование задания на сборку. В этот момент продавец видит список товаров, которые необходимо найти на полках. Интерфейс подсвечивает товары, к которым требуется особое внимание, например, хрупкие или скоропортящиеся.</p>
+
+<ul>
+<li>📦 <strong>Список товаров:</strong> отображается название, артикул продавца и количество.</li>
+<li>🏷️ <strong>Штрихкод Ozon:</strong> основной идентификатор, который нужно отклеить и наклеить на товар (если это FBS) или просто считать.</li>
+<li>📍 <strong>Ячейка хранения:</strong> если вы используете адресное хранение на складе Ozon, система укажет точное место.</li>
+</ul>
+
+<p>После того как товар найден, наступает этап маркировки. В интерфейсе появляется кнопка «Распечатать этикетку» или поле для ввода трек-номера, если печать происходит на стороннем устройстве. <em>Термопринтер</em> должен быть настроен корректно, иначе штрихкод может не считаться сканером.</p>
+
+<p>Финальный этап сборки — упаковка. Здесь продавец подтверждает, что товар помещен в коробку или пакет. Система может запросить габариты упаковки. Это необходимо для расчета итоговой стоимости логистики. Вводите размеры честно, так как на сортировочном центре их перепроверят.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте принтеры с разрешением печати не менее 203 dpi. Размытый штрихкод — самая частая причина проблем на сортировочном центре Ozon.</p></aside>
+
+<p>Особое внимание стоит уделить товарам с ограниченным сроком годности. В интерфейсе для них выделено специальное поле, куда нужно вбить дату. Если вы пропустите этот шаг, система не даст перейти к следующему этапу.</p>
+
+<h2 id="интерфейс-при-передаче-заказа-курьеру">Интерфейс при передаче заказа курьеру</h2>
+
+<p>Когда все товары собраны и упакованы, наступает момент передачи заказа. Для схемы FBS (продажа со склада продавца) это означает встречу с курьером Ozon или доставку в пункт приема. Интерфейс в этот момент трансформируется в режим ожидания и фиксации факта передачи.</p>
+
+<p>В разделе «Отгрузки» появляется кнопка «Вызвать курьера» или «Сформировать акт». После вызова вы видите таймер обратного отсчета до прибытия транспортной компании. Это помогает планировать время и не держать курьера в ожидании.</p>
+
+<p>В момент встречи с курьером продавец использует мобильное приложение или веб-версию для подтверждения передачи. На экране отображается QR-код акта приема-передачи. Курьер сканирует его своим терминалом, и статус заказа меняется мгновенно.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Статус в системе</th>
+<th>Визуальное отображение</th>
+</tr>
+<tr>
+<th>Товар собран</th>
+<td>Готов к отгрузке</td>
+<td>Зеленый индикатор, кнопка «Вызвать курьера»</td>
+</tr>
+<tr>
+<th>Курьер прибыл</th>
+<td>Ожидает передачи</td>
+<td>Пульсирующий значок грузовика</td>
+</tr>
+<tr>
+<th>Акт подписан</th>
+<td>Принят курьером</td>
+<td>Серый фон, галочка выполнения</td>
+</tr>
+<tr>
+<th>Товар на сортировке</th>
+<td>На сортировочном центре</td>
+<td>Карта с точкой нахождения груза</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сборка</td>
+<td>В работе</td>
+<td>Желтый цвет</td>
+</tr>
+<tr>
+<td>Передача</td>
+<td>Передача курьеру</td>
+<td>Синий цвет</td>
+</tr>
+<tr>
+<td>Принятие</td>
+<td>Принято</td>
+<td>Зеленый цвет</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Если курьер обнаруживает повреждение упаковки или несоответствие количества мест, он вносит правки в свой терминал. Продавец видит уведомление об этом в режиме реального времени. В такой ситуации может потребоваться переупаковка или досборка missing items.</p>
+
+<p> Поэтому так важно, чтобы на экране продавца статус сменился на «Принято» именно в момент физической передачи.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед передачей курьеру</h4><label class="check-item"><input type="checkbox"><span>Товар надежно упакован</span></label><label class="check-item"><input type="checkbox"><span>Штрихкоды читаются</span></label><label class="check-item"><input type="checkbox"><span>Акт сформирован в 2 экземплярах</span></label><label class="check-item"><input type="checkbox"><span>Коробка не имеет внешних повреждений</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="работа-с-актами-и-документами-в-цифровом-виде">Работа с актами и документами в цифровом виде</h2>
+
+<p>Бумажная эпоха уходит в прошлое, и Ozon активно внедряет электронный документооборот. В интерфейсе продавца все акты формируются автоматически. Продавец видит их в разделе «Документы» или непосредственно в карточке отгрузки.</p>
+
+<p>Основной документ — это <strong>акт приема-передачи</strong>. Он содержит список всех товаров, передаваемых в конкретный рейс. В электронной версии акта каждая строка соответствует отсканированному штрихкоду. Ошибки в количестве мест здесь недопустимы.</p>
+
+<p>При работе через <em>API</em> или сторонние системы управления складом, акты могут формироваться автоматически без ручного вмешательства в интерфейс Ozon. Однако визуальная проверка в личном кабинете все равно рекомендуется хотя бы выборочно.</p>
+
+<p>Если вы работаете по схеме FBO, то вместо акта передачи курьеру вы видите акт приема товаров на склад Ozon. Этот документ подписывается сотрудником сортировочного центра после проверки качества и количества товара. Процесс может занять от нескольких часов до суток.</p>
+
+<blockquote>⚠️ Внимание: Храните электронные копии актов минимум 3 года. В случае расхождений или потери товара именно акт является главным доказательством того, что вы передали груз в надлежащем состоянии.</blockquote>
+
+<p>В случае возникновения расхождений (недовоз, пересорт), система создает акт расхождений. Продавец видит его в разделе «Финансы» или «Отчеты». Там детально расписано, сколько единиц товара было принято фактически, а сколько значилось по документам.</p>
+
+<h2 id="мобильное-приложение-ozon-seller-особенности-интерфейса">Мобильное приложение Ozon Seller: особенности интерфейса</h2>
+
+<p>Многие предприниматели предпочитают управлять заказами через смартфон. Мобильное приложение Ozon Seller имеет упрощенный, но функциональный интерфейс. Что же видит продавец на маленьком экране?</p>
+
+<p>Главный экран приложения — это дашборд с ключевыми метриками: количество новых заказов, рейтинг и баланс. Для работы с выдачей заказа предназначена вкладка «Заказы». Она открывается по умолчанию при запуске, если есть активные задачи.</p>
+
+<p>Интерфейс адаптирован под вертикальное расположение. Список заказов идет сверху вниз. Каждый элемент списка содержит номер заказа, статус и время до дедлайна. Цветовая кодировка сохранена: красный текст предупреждает о срочности.</p>
+
+<ul>
+<li>📱 <strong>Камера:</strong> встроенный сканер штрихкодов позволяет собирать заказы, используя камеру телефона.</li>
+<li>🔔 <strong>Уведомления:</strong> пуш-сообщения напоминают о новых заказах или изменении статуса.</li>
+<li>📄 <strong>Печать:</strong> возможность отправить этикетку на облачную печать или сохранить в PDF.</li>
+</ul>
+
+<p>При передаче заказа курьеру через приложение, продавец открывает QR-код на весь экран. Это удобно, так как курьеру не нужно тянуться к телефону селлера, чтобы считать код. Крупная графика упрощает процесс.</p>
+
+<details class="pb-accordion"><summary>Секреты мобильного интерфейса</summary><div class="pb-accordion-body"><p>В мобильном приложении скрыта функция «Массовая печать». Если зажать палец на одном заказе и потянуть, можно выделить группу заказов для одновременной печати этикеток.</p></div></details>
+
+<p>Однако, для первичной настройки и работы сными случаями (возвраты, споры, аналитика) все же удобнее использовать десктопную версию. Мобильный интерфейс заточен именно на оперативную сборку и передачу.</p>
+
+<h2 id="типичные-ошибки-и-сообщения-системы">Типичные ошибки и сообщения системы</h2>
+
+<p>Интерфейс Ozon не только показывает успешные операции, но и сигнализирует об ошибках. Понимание того, что означают различные сообщения, помогает быстро решать проблемы. Система старается говорить с пользователем понятным языком.</p>
+
+<p>Одна из частых ошибок — «Товар не найден». Это появляется, если отсканированный штрихкод не соответствует заказу. Система блокирует переход дальше, требуя перепроверки. Это защита от пересорта.</p>
+
+<p>Другоеное сообщение — «Истекло время сборки». Если продавец не успел собрать заказ до дедлайна, кнопка вызова курьера блокируется. Интерфейс предлагает отменить заказ или связаться с поддержкой, но рейтинг магазина уже страдает.</p>
+
+<p>Также можно столкнуться с ошибкой «Неверные габариты». Это происходит, если заявленные размеры упаковки сильно отличаются от реальных, выявленных на сортировке. Система попросит перемерить товар и внести корректные данные.</p>
+
+<p>Критической ошибкой является блокировка аккаунта. В этом случае вместо привычного интерфейса продавец видит сообщение о приостановке деятельности с указанием причины. Это может быть связано с подозрительной активностью или нарушением правил площадки.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главная мысль: Интерфейс Ozon — это не просто картинка, а система защиты интересов всех участников сделки. Игнорирование сигналов системы ведет к финансовым потерям.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Что делать, если в интерфейсе пропала кнопка «Вызвать курьера»?</summary>
+<p>Обычно это означает, что не все товары в заказе помечены как собранные, или не сформирован акт. Проверьте, всем ли товарам присвоен статус «Готов», и попробуйте обновить страницу браузера.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить адрес передачи заказа после его создания?</summary>
+<p>Нет, изменить пункт передачи (ПВЗ или склад) для уже созданного заказа нельзя. Придется отменить текущий заказ (если это возможно по правилам) и создать новый с правильными параметрами, либо договориться с курьером индивидуально, если схема позволяет.</p>
+</details>
+
+<details>
+<summary>Как долго хранится история заказов в личном кабинете?</summary>
+<p>Полная детализация доступна за последние 6 месяцев. Архивные данные можно выгрузить в виде отчетов, но визуальный интерфейс показывает только актуальные и недавние операции.</p>
+</details>
+
+<details>
+<summary>Почему статус заказа не меняется сразу после передачи курьеру?</summary>
+<p>Задержка может составлять от 15 минут до 2 часов. Это связано с синхронизацией данных между терминалом курьера и сервером Ozon. Если статус не меняется более 24 часов, обратитесь в поддержку.</p>
+</details>
+
+<details>
+<summary>Видит ли покупатель мои данные при выдаче?</summary>
+<p>Нет, система скрывает контактные данные продавца. Покупатель видит только информацию о товаре и трек-номер для отслеживания. Все коммуникация происходит через чат на платформе.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-takoe-mbt-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">МБТ на Озоне: что это и как работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое МБТ (маркетплейс бизнес-товары) на Ozon: как покупать оптом, условия для прод</span>
+            </a><a href="/articles/k/ka/kak-uvelichit-prodazhi-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как увеличить продажи на Озон: стратегии роста</span>
+                <span class="pb-related-desc">Узнайте, как увеличить продажи на Озон в 2026 году. Эффективные методы продвижения, работа с карточк</span>
+            </a><a href="/articles/o/oz/ozon-kak-prodavat-svoj-tovar-samozanyatyj.html" class="pb-related-card">
+                <span class="pb-related-title">Как самозанятому продавать на Ozon: старт и налоги</span>
+                <span class="pb-related-desc">Подробная инструкция для самозанятых: как продавать свой товар на Ozon. Регистрация, схема FBS, нало</span>
+            </a><a href="/articles/m/mo/mozhno-rabotat-s-ozon-kak-samozanyatyj.html" class="pb-related-card">
+                <span class="pb-related-title">Работа на Ozon как самозанятый: условия 2026</span>
+                <span class="pb-related-desc">Можно ли работать с Озон самозанятым в 2026 году? Полный разбор налогов, комиссий и правил для прода</span>
+            </a><a href="/articles/k/ka/kak-prodavat-rasteniya-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать растения на Ozon: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Полная инструкция для продавцов: как зарегистрировать товары, оформить карточки, выбрать схему доста</span>
+            </a><a href="/articles/k/ka/kak-dobavit-brend-na-ozon-novyj.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить бренд на Ozon: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как добавить свой бренд на Ozon. Создание карточки, проверка документов и реше</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

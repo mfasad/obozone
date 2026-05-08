@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отразить требование о переводе третьему лицу в акте сверки Озон в 1С — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по корректному учету требований о переводе третьим лицам в актах сверки с Ozon в 1С: настройка документов, проводки, типичные ошибки и решения.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/t/tr/trebovanie-o-perevode-tretemu-litsu-v-akte-sverki-ozon-kak-otrazit-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отразить требование о переводе третьему лицу в акте сверки Озон в 1С">
+    <meta property="og:description" content="Пошаговая инструкция по корректному учету требований о переводе третьим лицам в актах сверки с Ozon в 1С: настройка документов, проводки, типичные ошибки и решения.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/" class="pb-nav-active">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pokupki-i-oplata/">Покупки и Оплата</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как отразить требование о переводе третьему лицу в акте сверки Озон в 1С</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-почему-в-акте-сверки-озон-появляется-требование-о-переводе-третьему-лицу">1. Почему в акте сверки Озон появляется требование о переводе третьему лицу</a></li><li><a href="#2-какие-документы-1с-использовать-для-отражения-требования">2. Какие документы 1С использовать для отражения требования</a></li><li><a href="#3-проводки-как-правильно-отразить-операцию-в-бухгалтерском-учёте">3. Проводки: как правильно отразить операцию в бухгалтерском учёте</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-как-автоматизировать-учёт-требований-о-переводе-в-1с">5. Как автоматизировать учёт требований о переводе в 1С</a></li><li><a href="#6-что-делать-если-в-акте-сверки-ошибка">6. Что делать, если в акте сверки ошибка</a></li><li><a href="#7-налоговые-последствия-что-нужно-знать">7. Налоговые последствия: что нужно знать</a></li><li><a href="#faq-частые-вопросы-по-требованиям-о-переводе-третьим-лицам">FAQ: Частые вопросы по требованиям о переводе третьим лицам</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/cherez-skolko-nachislyayutsya-bally-ozon-premium.html">Через сколько начисляются баллы Ozon Premium: сроки и правила</a></li><li><a href="/articles/k/ka/kak-oplatit-na-ozone-pokupku.html">Как оплатить покупку на Ozon: все способы 2026 года</a></li><li><a href="/articles/k/ka/kak-uznat-limit-na-ozone-v-prilozhenii.html">Как проверить лимит на Озоне в приложении — пошаговая инструкция 2026</a></li><li><a href="/articles/p/po/pochemu-na-ozone-deshevaya-parfyumeriya.html">Почему на Озоне дешевая парфюмерия: реальные цены или подделка?</a></li><li><a href="/articles/k/ka/kak-chitat-ozon-rebenku.html">Как читать Озон ребенку: гид по Ozon Kids для родителей</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Требование о переводе третьему лицу в акте сверки Озон: как правильно отразить в 1С</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-почему-в-акте-сверки-озон-появляется-требование-о-переводе-третьему-лицу">1. Почему в акте сверки Озон появляется требование о переводе третьему лицу</a></li><li><a href="#2-какие-документы-1с-использовать-для-отражения-требования">2. Какие документы 1С использовать для отражения требования</a></li><li><a href="#3-проводки-как-правильно-отразить-операцию-в-бухгалтерском-учёте">3. Проводки: как правильно отразить операцию в бухгалтерском учёте</a></li><li><a href="#4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</a></li><li><a href="#5-как-автоматизировать-учёт-требований-о-переводе-в-1с">5. Как автоматизировать учёт требований о переводе в 1С</a></li><li><a href="#6-что-делать-если-в-акте-сверки-ошибка">6. Что делать, если в акте сверки ошибка</a></li><li><a href="#7-налоговые-последствия-что-нужно-знать">7. Налоговые последствия: что нужно знать</a></li><li><a href="#faq-частые-вопросы-по-требованиям-о-переводе-третьим-лицам">FAQ: Частые вопросы по требованиям о переводе третьим лицам</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Работа с маркетплейсом <em>Ozon</em> подразумевает не только продажи, но и регулярное согласование взаимных расчётов. Одним из сложных моментов для продавцов становится <strong>требование о переводе денежных средств третьему лицу</strong>, которое может появиться в акте сверки. Такие ситуации возникают при возвратах, компенсациях логистических расходов или удержаниях в пользу партнёров <em>Ozon</em> (например, логистических операторов или банков).</p>
+
+<p>В <strong>1С</strong> корректное отражение этих операций требует понимания бухгалтерской логики и специфики документооборота с маркетплейсом. Ошибки здесь чреваты не только искажением отчётности, но и проблемами с налоговыми органами или блокировкой счёта на <em>Ozon</em>. В этой статье разберём, как технически оформить такое требование, какие документы использовать, и на что обратить внимание при проводках.</p>
+
+<p>Особенность требований о переводе третьим лицам в том, что они не всегда очевидны: сумма может быть удержана <em>Ozon</em> автоматически, а в акте сверки появится запись типа «Перевод на счёт ООО "Логистик-Партнёр" за услуги доставки». Продавцы часто путают такие операции с обычными комиссиями или штрафами, что приводит к неверному учету. Далее — пошаговый разбор с примерами из реальной практики.
+
+<h2 id="1-почему-в-акте-сверки-озон-появляется-требование-о-переводе-третьему-лицу">1. Почему в акте сверки Озон появляется требование о переводе третьему лицу</h2>
+
+<p>Требование о переводе средств третьей стороне — это не ошибка, а часть договорных отношений между <em>Ozon</em>, продавцом и партнёрами платформы. Основные причины его возникновения:
+
+<ul>
+  <li>📦 <strong>Логистические услуги</strong>: если вы используете схему <code>FBS</code> или <code>FBO</code> с привлечением сторонних перевозчиков, <em>Ozon</em> может удерживать суммы за их услуги и перечислять напрямую партнёру.</li>
+  <li>💳 <strong>Комиссии банков-эквайеров</strong>: при возвратах покупателям средства иногда переводятся через посредников, и их комиссия списывается отдельной строкой.</li>
+  <li>⚖️ <strong>Штрафы или компенсации</strong>: если <em>Ozon</em> взыскивает средства в пользу покупателя или логистической компании (например, за повреждённый товар).</li>
+  <li>🔄 <strong>Возвраты с участием третьих лиц</strong>: когда покупатель вернул товар, но деньги возвращаются через посредника (например, транспортную компанию).</li>
+</ul>
+
+<p>Важно отличать такие требования от обычных удержаний <em>Ozon</em>. Например, если в акте сверки указано «Комиссия за продажу», это внутренний расход платформы. А вот фраза «Перевод ООО "Логист-Экспресс" за доставку» — это как раз требование о переводе третьему лицу, и его нужно учитывать иначе.
+
+<p><strong>Где это прописано?</strong> В договоре с <em>Ozon</em> (обычно в разделе «Порядок расчётов») есть пункт о праве платформы удерживать и перечислять средства третьим лицам по своим обязательствам. Если вы не нашли такой пункт — запросите актуальную версию договора у менеджера.
+
+<div class="pb-poll" id="poll-7e1516b4"><div class="pb-poll-question">📊 Как часто вы сталкиваетесь с требованиями о переводе третьим лицам в актах сверки Ozon?</div><div class="pb-poll-option" data-poll="7e1516b4" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежемесячно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7e1516b4" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в квартал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7e1516b4" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко (1-2 раза в год)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7e1516b4" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не видел</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-какие-документы-1с-использовать-для-отражения-требования">2. Какие документы 1С использовать для отражения требования</h2>
+
+<p>В <strong>1С:Бухгалтерия 8.3</strong> или <strong>1С:Управление торговлей</strong> для корректного учёта таких операций потребуется комбинация документов. Основные варианты:
+
+<ul>
+  <li>📄 <strong>Списание с расчётного счёта</strong>: если средства уже списаны <em>Ozon</em> и нужно зафиксировать удержание.</li>
+  <li>🔄 <strong>Корректировка долга</strong>: для изменения задолженности перед <em>Ozon</em> с учётом перевода третьему лицу.</li>
+  <li>💰 <strong>Платёжное поручение (вручную)</strong>: если требуется отразить перевод как отдельную операцию.</li>
+  <li>📊 <strong>Операция (бухгалтерская)</strong>: для сложных случаев, когда нужны нестандартные проводки.</li>
+</ul>
+
+<p>Самый универсальный способ — использовать документ <strong>«Корректировка долга»</strong> (раздел <code>Покупки и продажи → Корректировка долга</code>). Он позволяет:
+<ol>
+  <li>Указать контрагента (<em>Ozon</em>).</li>
+  <li>Выбрать договор (обычно «Договор комиссии» или «Договор оферты»).</li>
+  <li>Провести взаимозачёт с учётом третьего лица.</li>
+</ol>
+
+<p><strong>Пример:</strong> В акте сверки значится удержание 5 000 руб. в пользу ООО «Логист-Партнёр» за доставку. В <strong>1С</strong> создаём «Корректировку долга»:
+<ol>
+  <li>Контрагент: <em>Ozon</em>.</li>
+  <li>Договор: ваш действующий договор с маркетплейсом.</li>
+  <li>Сумма: 5 000 руб. (со знаком «минус», так как это уменьшение долга <em>Ozon</em> перед вами).</li>
+  <li>Статья движения денежных средств: «Удержания третьих лиц» (создайте её заранее в справочнике).</li>
+  <li>Комментарий: «Перевод ООО "Логист-Партнёр" по акту сверки №123 от 01.06.2026».</li>
+</ol>
+
+
+<p>Скачать акт сверки с личного кабинета Ozon|Проверить реквизиты третьего лица (название, ИНН)|Создать статью ДДС для удержаний|Убедиться, что договор с Ozon актуален--></p>
+
+<h2 id="3-проводки-как-правильно-отразить-операцию-в-бухгалтерском-учёте">3. Проводки: как правильно отразить операцию в бухгалтерском учёте</h2>
+
+<p>Типовые проводки для требования о переводе третьему лицу зависят от того, признаётся ли это расходом вашей компании или это просто техническое удержание. Рассмотрим два сценария:
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Сценарий</th>
+      <th>Дебет</th>
+      <th>Кредит</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Удержание как расход</strong> (например, оплата логистики)</td>
+      <td>91.02</td>
+      <td>60.01 (Ozon)</td>
+      <td>Списание расходов на услуги третьего лица</td>
+    </tr>
+    <tr>
+      <td><strong>Техническое удержание</strong> (не ваш расход)</td>
+      <td>76.05</td>
+      <td>60.01 (Ozon)</td>
+      <td>Уменьшение задолженности Ozon без признания расхода</td>
+    </tr>
+    <tr>
+      <td><strong>НДС с услуг</strong> (если применимо)</td>
+      <td>19.04</td>
+      <td>60.01 (Ozon)</td>
+      <td>Выделение НДС по услугам третьего лица</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если третье лицо — это логистический партнёр <em>Ozon</em> (например, <em>СДЭК</em> или <em>ПЭК</em>), проверьте, есть ли у вас с ними прямой договор. Если нет, то расход списывается через <em>Ozon</em> как посредника. Если договор есть — оформляйте отдельное списание на этого контрагента.
+
+<p>Для наглядности рассмотрим пример с реальными цифрами:
+<blockquote>
+  <strong>Ситуация:</strong> В акте сверки от <em>Ozon</em> за май 2026 года указано удержание 12 000 руб. в пользу ООО «ТрансЛогистика» за доставку по схеме <code>FBS</code>. У вас нет прямого договора с «ТрансЛогистикой».
+  <br><strong>Проводки:</strong>
+  <ol>
+    <li>Дт 91.02 — Кт 60.01 (Ozon) — 10 000 руб. (услуги доставки без НДС).</li>
+    <li>Дт 19.04 — Кт 60.01 (Ozon) — 2 000 руб. (НДС 20%).</li>
+    <li>Дт 68.02 — Кт 19.04 — 2 000 руб. (принят НДС к вычету, если есть счёт-фактура).</li>
+  </ol>
+</blockquote>
+
+<p><mark>Критическая деталь: если в акте сверки не указан НДС по услугам третьего лица, запросите у <em>Ozon</em> разъяснения или счёт-фактуру. Без неё вычет по НДС будет невозможен.</mark>
+
+<h2 id="4-типичные-ошибки-и-как-их-избежать">4. Типичные ошибки и как их избежать</h2>
+
+<p>Продавцы часто допускают ошибки при отражении требований о переводе третьим лицам. Вот самые распространённые:
+
+<ul>
+  <li>🔴 <strong>Игнорирование операции</strong>: некоторые просто не учитывают удержания, списывая их на «рассогласование». Это приводит к несовпадению баланса с <em>Ozon</em>.</li>
+  <li>🔴 <strong>Неверный контрагент</strong>: указывают в документах не <em>Ozon</em>, а третье лицо, с которым нет прямого договора.</li>
+  <li>🔴 <strong>Отсутствие аналитики</strong>: не прописывают статью ДДС или комментарий, из-за чегоlater невозможно идентифицировать операцию.</li>
+  <li>🔴 <strong>Некорректный НДС</strong>: забывают выделить НДС или оформляют его не на ту сумму.</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</strong> Если вы не отразите требование о переводе третьему лицу, то при сверке с <em>Ozon</em> у вас будет «висеть» неоплаченная задолженность, которую платформа может списать принудительно. Это чревато блокировкой выплат или штрафами за несвоевременное погашение долга.
+
+<p>Как избежать ошибок:
+<ol>
+  <li>Всегда сверяйте суммы в акте с выпиской по расчётному счёту.</li>
+  <li>Создайте отдельную статью ДДС для удержаний третьих лиц (например, «Удержания Ozon в пользу партнёров»).</li>
+  <li>Если сумма значительная, запросите у <em>Ozon</em> подтверждающие документы (акт, счёт-фактуру).</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Настройте в 1С автоматическое создание документов по актам сверки с Ozon. Для этого используйте обработку «Загрузка выписок из клиент-банка» с шаблоном для маркетплейсов. Это сэкономит время и уменьшит риск ошибок.</p></aside>
+
+<h2 id="5-как-автоматизировать-учёт-требований-о-переводе-в-1с">5. Как автоматизировать учёт требований о переводе в 1С</h2>
+
+<p>Ручной ввод каждого удержания отнимает время, особенно если вы работаете с большими объёмами. Автоматизировать процесс можно несколькими способами:
+
+<ul>
+  <li>🤖 <strong>Загрузка актов сверки из Excel</strong>: <em>Ozon</em> позволяет выгружать акты в формате <code>.xlsx</code>. В <strong>1С</strong> настройте обработку для импорта этих файлов с автоматической генерацией документов.</li>
+  <li>🔄 <strong>Обмен данными через API</strong>: если у вас <strong>1С:Управление торговлей</strong>, подключите интеграцию с <em>Ozon</em> по API для автоматического создания корректировок долга.</li>
+  <li>📊 <strong>Шаблоны проводок</strong>: создайте типовой шаблон операции для удержаний третьих лиц и используйте его как основу.</li>
+</ul>
+
+<p>Для настройки загрузки из Excel:
+<ol>
+  <li>Скачайте акт сверки из личного кабинета <em>Ozon</em> (раздел <code>Финансы → Акты сверки</code>).</li>
+  <li>В <strong>1С</strong> перейдите в <code>Администрирование → Обмен данными → Загрузка данных из файлов</code>.</li>
+  <li>Выберите шаблон для загрузки банковских выписок (или создайте новый для <em>Ozon</em>).</li>
+  <li>Настройте правила сопоставления колонок (например, «Контрагент» = <em>Ozon</em>, «Сумма» = колонка с удержанием).</li>
+  <li>Запустите загрузку и проверьте сформированные документы.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> При автоматической загрузке всегда проверяйте:
+<ul>
+  <li>Корректность распознавания контрагента (должен быть <em>Ozon</em>, а не третье лицо).</li>
+  <li>Наличие комментария с номером акта сверки.</li>
+  <li>Правильность статей ДДС.</li>
+</ul>
+
+<details class="pb-accordion"><summary>Пример настройки шаблона загрузки для Ozon</summary><div class="pb-accordion-body"><p>
+<p>1. Создайте новый шаблон в разделе «Обмен данными».</p>
+<p>2. Укажите формат файла: Excel (.xlsx).</p>
+<p>3. В правилах сопоставления добавьте:</p>
+<p>- Колонка «Дата» → Поле «Дата документа».</p>
+<p>- Колонка «Сумма» → Поле «Сумма операции» (со знаком «-» для удержаний).</p>
+<p>- Колонка «Назначение платежа» → Поле «Комментарий».</p>
+<p>4. В настройках документа выберите тип «Корректировка долга».</p>
+<p>5. Сохраните шаблон и протестируйте на одном акте.</p></div></details></p>
+
+<h2 id="6-что-делать-если-в-акте-сверки-ошибка">6. Что делать, если в акте сверки ошибка</h2>
+
+<p>Иногда <em>Ozon</em> ошибается в актах сверки: дублирует удержания, указывает неверные суммы или третьих лиц. В таких случаях действуйте по алгоритму:
+
+<ol>
+  <li><strong>Проверьте выписку по счёту</strong>: сравните суммы в акте с реальными списаниями. Если деньги не списаны — это явная ошибка.</li>
+  <li><strong>Напишите в поддержку <em>Ozon</strong></strong>:
+    <ul>
+      <li>Укажите номер акта сверки и дату.</li>
+      <li>Опишите ошибку (например, «Удержание 10 000 руб. в пользу ООО "Рога и Копыта" некорректно, так как у нас нет договора с этой компанией»).</li>
+      <li>Приложите скриншоты выписки и акта.</li>
+    </ol>
+  </li>
+  <li><strong>Не отражайте ошибочные операции в 1С</em>, пока <em>Ozon</em> не подтвердит корректировку.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> Если ошибка в акте сверки приведёт к несовпадению баланса, <em>Ozon</em> может заблокировать выплаты до урегулирования. Поэтому реагируйте оперативно — в течение 3 рабочих дней после получения акта.
+
+<p>Типичные ошибки <em>Ozon</em> и как их распознать:
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Признаки</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Двойное удержание</td>
+      <td>Одинаковая сумма и назначение платежа дублируются в акте.</td>
+      <td>Запросить пересчёт акта.</td>
+    </tr>
+    <tr>
+      <td>Неверное третье лицо</td>
+      <td>Название компании не совпадает с вашими контрагентами.</td>
+      <td>Уточнить у <em>Ozon</em>, кому перечислены средства.</td>
+    </tr>
+    <tr>
+      <td>Несоответствие сумм</td>
+      <td>Сумма удержания в акте не совпадает с выпиской.</td>
+      <td>Проверить даты и запросить корректировку.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="7-налоговые-последствия-что-нужно-знать">7. Налоговые последствия: что нужно знать</h2>
+
+<p>Удержания в пользу третьих лиц могут повлиять на налоговую базу. Основные моменты:
+
+<ul>
+  <li>📌 <strong>НДС</strong>: если услуги третьего лица облагаются НДС, вы имеете право на вычет при наличии счёта-фактуры. Запросите её у <em>Ozon</em> или напрямую у партнёра.</li>
+  <li>📌 <strong>Налог на прибыль</strong>: если удержание признаётся вашим расходом (например, оплата логистики), оно уменьшает налогооблагаемую базу.</li>
+  <li>📌 <strong>УСН</strong>: для «упрощенцев» важно, чтобы расход был экономически обоснован. Удержания за логистику обычно принимаются, а вот штрафы — нет.</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</strong> Если третье лицо — иностранная компания (например, зарубежный логистический оператор), могут возникнуть вопросы по налогу на прибыль у источника выплаты. Уточните у <em>Ozon</em>, не являются ли они налоговым агентом в этом случае.
+
+<p>Пример для <strong>УСН (доходы минус расходы)</strong>:
+<blockquote>
+<p>Вы работаете на УСН 15% и в акте сверки увидели удержание 15 000 руб. за услуги <em>СДЭК</em>. Чтобы включить эту сумму в расходы:</p>
+  <ol>
+    <li>Убедитесь, что в договоре с <em>Ozon</em> прописано, что логистические услуги оплачиваются через удержания.</li>
+    <li>Получите от <em>Ozon</em> или <em>СДЭК</em> акт выполненных работ.</li>
+    <li>Отразите расход в книге учёта доходов и расходов (КУДиР) с привязкой к акту.</li>
+  </ol>
+<p>Без подтверждающих документов налоговая может исключить этот расход при проверке.</p>
+</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Все удержания третьих лиц должны быть подтверждены первичными документами (акты, счета-фактуры). Без них налоговые органы могут не принять расходы, даже если они отражены в акте сверки Ozon.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-требованиям-о-переводе-третьим-лицам">FAQ: Частые вопросы по требованиям о переводе третьим лицам</h2>
+
+<details>
+  <summary>❓ Что делать, если в акте сверки нет реквизитов третьего лица?</summary>
+  <p>Напишите в поддержку <em>Ozon</em> с просьбой уточнить наименование, ИНН и основание для удержания. Без этих данных вы не сможете корректно отразить операцию в 1С и подтвердить расходы для налоговой.</p>
+</details>
+
+<details>
+  <summary>❓ Можно ли оспорить удержание в пользу третьего лица?</summary>
+  <p>Да, если удержание необоснованно (например, за услуги, которые вы не заказывали). Для этого:
+  <ol>
+    <li>Напишите претензию в поддержку <em>Ozon</em> с обоснованием.</li>
+    <li>Приложите доказательства (скриншоты переписки, договоры).</li>
+    <li>Если <em>Ozon</em> откажется корректировать акт, обратитесь в арбитраж (для крупных сумм).</li>
+  </ol>
+  </p>
+</details>
+
+<details>
+  <summary>❓ Нужно ли заключать договор с третьим лицом, если Ozon перечисляет ему деньги?</summary>
+  <p>Нет, если в вашем договоре с <em>Ozon</em> прописано, что платформа вправе удерживать средства в пользу партнёров. Договор нужен только при прямом взаимодействии. Однако для налогового учёта лучше запросить у <em>Ozon</em> копию договора между ними и третьим лицом.</p>
+</details>
+
+<details>
+  <summary>❓ Как отразить удержание, если третье лицо — иностранная компания?</summary>
+  <p>В этом случае:
+  <ol>
+    <li>Создайте в 1С контрагента с типом «Иностранное лицо».</li>
+    <li>Отразите удержание как расход с указанием валюты (если сумма в иностранной валюте).</li>
+    <li>Уточните у <em>Ozon</em>, не являются ли они налоговым агентом по НДФЛ/налогу на прибыль.</li>
+  </ol>
+  </p>
+</details>
+
+<details>
+  <summary>❓ Может ли Ozon удерживать средства в пользу третьих лиц без предупреждения?</summary>
+  <p>Да, если это прописано в договоре. Однако по закону «О защите прав предпринимателей» (ст. 3) <em>Ozon</em> обязан уведомлять о таких удержаниях в акте сверки. Если удержание не отражено в акте, это нарушение — требуйте разъяснений.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/cherez-skolko-nachislyayutsya-bally-ozon-premium.html" class="pb-related-card">
+                <span class="pb-related-title">Через сколько начисляются баллы Ozon Premium: сроки и правила</span>
+                <span class="pb-related-desc">Узнайте точные сроки начисления баллов Ozon Premium. Разбор задержек, условий подписки и причин, поч</span>
+            </a><a href="/articles/k/ka/kak-oplatit-na-ozone-pokupku.html" class="pb-related-card">
+                <span class="pb-related-title">Как оплатить покупку на Ozon: все способы 2026 года</span>
+                <span class="pb-related-desc">Пошаговая инструкция по оплате заказов на Ozon: карты, наличные, кредиты, Ozon Карта и бонусы. Разби</span>
+            </a><a href="/articles/k/ka/kak-uznat-limit-na-ozone-v-prilozhenii.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить лимит на Озоне в приложении — пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, где посмотреть лимит покупок на Озоне в мобильном приложении: для новых и постоянных клиент</span>
+            </a><a href="/articles/p/po/pochemu-na-ozone-deshevaya-parfyumeriya.html" class="pb-related-card">
+                <span class="pb-related-title">Почему на Озоне дешевая парфюмерия: реальные цены или подделка?</span>
+                <span class="pb-related-desc">Анализируем причины низких цен на духи на Ozon. Разбираем схемы FBO, параллельный импорт и риски. Уз</span>
+            </a><a href="/articles/k/ka/kak-chitat-ozon-rebenku.html" class="pb-related-card">
+                <span class="pb-related-title">Как читать Озон ребенку: гид по Ozon Kids для родителей</span>
+                <span class="pb-related-desc">Полный гид по Ozon Kids: как настроить профиль, фильтровать контент и безопасно покупать книги для д</span>
+            </a><a href="/articles/k/ka/kak-oplatit-pri-dostavke-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оплатить при доставке на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гид по оплате товара при получении на Ozon. Разбор ограничений, лимитов и способов внесени</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

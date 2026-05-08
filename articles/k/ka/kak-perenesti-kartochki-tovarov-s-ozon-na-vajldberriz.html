@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как перенести карточки товаров с Ozon на Wildberries: пошаговая инструкция — Об Озоне</title>
+    <meta name="description" content="Полный гайд по переносу товаров с Озон на Вайлдберриз. Разбор выгрузки CSV, заполнения атрибутов и настройки SEO для успешного старта на WB.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-perenesti-kartochki-tovarov-s-ozon-na-vajldberriz.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как перенести карточки товаров с Ozon на Wildberries: пошаговая инструкция">
+    <meta property="og:description" content="Полный гайд по переносу товаров с Озон на Вайлдберриз. Разбор выгрузки CSV, заполнения атрибутов и настройки SEO для успешного старта на WB.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как перенести карточки товаров с Ozon на Wildberries: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#анализ-структуры-карточек-ozon-против-wildberries">Анализ структуры карточек: Ozon против Wildberries</a></li><li><a href="#подготовка-данных-выгрузка-с-ozon">Подготовка данных: выгрузка с Ozon</a></li><li><a href="#трансформация-данных-адаптация-под-требования-wb">Трансформация данных: адаптация под требования WB</a></li><li><a href="#загрузка-товаров-на-wildberries">Загрузка товаров на Wildberries</a></li><li><a href="#seo-оптимизация-при-переносе-нюансы-поиска">SEO-оптимизация при переносе: нюансы поиска</a></li><li><a href="#решение-типичных-проблем-и-ошибок">Решение типичных проблем и ошибок</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-delat-trafarety-ozon.html">Как делать трафареты для Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-najti-ajdi-tovara-na-ozon.html">Как найти ID товара на Ozon: 6 способов для покупателей и продавцов</a></li><li><a href="/articles/g/gd/gde-vzyat-nakladnuyu-dlya-ozon.html">Где взять накладную для Озон: инструкция для FBO и FBS</a></li><li><a href="/articles/k/ka/kak-zagruzit-tovar-na-ozon.html">Как загрузить товар на Ozon: пошаговая инструкция для селлера</a></li><li><a href="/articles/k/ka/kak-otpravit-tovary-na-ozon.html">Как отправить товары на Озон: инструкция для продавцов 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как перенести карточки товаров с Ozon на Wildberries</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#анализ-структуры-карточек-ozon-против-wildberries">Анализ структуры карточек: Ozon против Wildberries</a></li><li><a href="#подготовка-данных-выгрузка-с-ozon">Подготовка данных: выгрузка с Ozon</a></li><li><a href="#трансформация-данных-адаптация-под-требования-wb">Трансформация данных: адаптация под требования WB</a></li><li><a href="#загрузка-товаров-на-wildberries">Загрузка товаров на Wildberries</a></li><li><a href="#seo-оптимизация-при-переносе-нюансы-поиска">SEO-оптимизация при переносе: нюансы поиска</a></li><li><a href="#решение-типичных-проблем-и-ошибок">Решение типичных проблем и ошибок</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Масштабирование бизнеса на маркетплейсах сегодня не просто тренд, а необходимость для выживания селлера. Когда продажи на одной площадке стабилизировались, логичным шагом становится расширение географии присутствия, и чаще всего взгляд устремляется на <strong>Wildberries</strong>. Однако перед новичками встает непростая задача: как быстро и без ошибок перенести уже существующие карточки с Ozon, сохранив все характеристики и описания.</p>
+
+<p>Процесс этот требует внимательности, так как платформы имеют разную структуру баз данных и требования к заполнению атрибутов. Простое копирование текста описания здесь не поможет, ведь технические параметры на <em>WB</em> могут требовать иного формата или иметь другие обязательные поля. Ошибки на этапе загрузки могут привести к блокировке карточек или их некорректному отображению в поиске.</p>
+
+<p>В этой статье мы разберем детальный алгоритм действий, который позволит вам эффективно мигрировать с одной площадки на другую. Вы узнаете, какие инструменты использовать для выгрузки, как правильно подготовить Excel-файл и какие нюансы SEO учесть, чтобы новые товары сразу начали продавать.</p>
+
+<h2 id="анализ-структуры-карточек-ozon-против-wildberries">Анализ структуры карточек: Ozon против Wildberries</h2>
+
+<p>Первое, с чем сталкивается селлер при попытке миграции — это фундаментальное различие в архитектуре каталогов. <strong>Ozon</strong> использует гибкую систему атрибутов, где многие поля можно оставить пустыми или заполнить произвольно, тогда как <em>Wildberries</em> славится своей строгой категоризацией. Если на Озоне вы могли создать карточку с минимальным набором данных, то на WB система потребует заполнить все обязательные поля, помеченные красной звездочкой.</p>
+
+<p>Особое внимание стоит уделить <strong>характеристикам</strong>. На Ozon они часто имеют свободный формат ввода, в то время как на Wildberries для многих категорий доступен только выбор из предустановленного списка. Это означает, что автоматический перенос"в лоб" часто приводит к потере части данных или их некорректному отображению. Вам придется вручную или через сложные формулы в Excel сопоставлять значения.</p>
+
+<p>Также различается подход к <strong>мультимодальности</strong>. Ozon позволяет загружать до 30 фото и видео в любом порядке, акцентируя внимание на инфографике в начале ленты. Wildberries, в свою очередь, имеет свои требования к обложке (первому фото), которая должна четко демонстрировать товар без лишних надписей, хотя практика показывает, что селлеры часто игнорируют это правило ради кликабельности.</p>
+
+<details class="pb-accordion"><summary>В чем главная опасность игнорирования атрибутов?</summary><div class="pb-accordion-body"><p>Игнорирование заполнения специфических атрибутов Wildberries (например,"сезонность" или"назначение") лишает ваш товар попадания в фильтры поиска. Покупатель, выбирая"платье летнее", просто не увидит вашу карточку, если атрибут"сезон" не заполнен соответствующим значением, даже если в названии это слово есть.</p></div></details>
+
+<p>Важно понимать, что <mark>ID категории на Ozon и артикул категории на Wildberries — это разные идентификаторы</mark>, и они не конвертируются автоматически. Вам придется заново проходить путь классификации товара, выбирая наиболее подходящую ветку в дереве категорий WB.</p>
+
+<h2 id="подготовка-данных-выгрузка-с-ozon">Подготовка данных: выгрузка с Ozon</h2>
+
+<p>Прежде чем начинать загрузку на новую площадку, необходимо получить актуальный снимок ваших данных с Ozon. Это можно сделать через личный кабинет продавца, используя встроенные инструменты экспорта. Такой подход гарантирует, что вы работаете с последними остатками, ценами и актуальными описаниями.</p>
+
+<p>Для начала войдите в личный кабинет Ozon Seller и перейдите в раздел <code>Товры и цены → Список товаров</code>. Здесь вам нужно выбрать все товары, которые вы планируете перенести. Обратите внимание, что массовые операции имеют лимиты, поэтому если у вас тысячи позиций, лучше разбить выгрузку на несколько файлов по категориям.</p>
+
+<p>После выделения товаров нажмите кнопку"Экспорт" и выберите формат <code>XLSX</code> или <code>CSV</code>. В настройках экспорта убедитесь, что выбраны все необходимые поля: название, описание, характеристики, габариты и вес. Именно вес и габариты критически важны для расчета логистики на Wildberries.</p>
+
+<ul>
+<li>📂 Откройте личный кабинет Ozon Seller и перейдите в раздел управления товарами.</li>
+<li>🔍 Используйте фильтры для отбора товаров, которые вы планируете переносить на WB.</li>
+<li>💾 Нажмите кнопку"Экспорт" и выберите формат Excel (XLSX) для сохранения структуры.</li>
+<li>✅ Проверьте выгруженный файл на наличие всех колонок с характеристиками и фото.</li>
+</ul>
+
+<div class="pb-poll" id="poll-21eececf"><div class="pb-poll-question">📊 Каким способом вы обычно выгружаете товары?</div><div class="pb-poll-option" data-poll="21eececf" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через стандартный экспорт Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="21eececf" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сторонние сервисы аналитики</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="21eececf" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную копирую данные</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="21eececf" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую API для выгрузки</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Полученный файл станет вашей основной рабочей базой. Рекомендуется создать его копию перед началом любых манипуляций, чтобы в случае ошибки не пришлось заново выгружать данные с Ozon. В этом файле содержатся все <strong>артикулы</strong> и <strong>баркоды</strong>, которые послужат ключами для идентификации товаров.</p>
+
+<h2 id="трансформация-данных-адаптация-под-требования-wb">Трансформация данных: адаптация под требования WB</h2>
+
+<p>Самый трудоемкий этап — это приведение выгруженного файла к шаблону Wildberries. Вы не можете просто загрузить файл с Ozon, так как названия колонок и структура данных не совпадут с требованиями приемщика файлов WB. Вам потребуется скачать актуальный шаблон заполнения из личного кабинета Wildberries.</p>
+
+<p>Зайдите в раздел <code>Товары → Добавить по XLSX</code> на Wildberries и скачайте пример заполнения. Сравните колонки в файле Ozon и шаблоне WB. Вам нужно будет переименовать заголовки столбцов и, самое главное, адаптировать данные внутри ячеек. Например, формат описания или перечисление характеристик могут требовать разделения запятыми или точками с запятой.</p>
+
+<p>Особую сложность представляет работа с <strong>фотографиями</strong>. Ссылки на изображения в файле Ozon могут быть временными или иметь защиту от хотлинка. Лучше всего скачать все изображения локально и загрузить их заново через интерфейс WB или использовать облачное хранилище с прямыми ссылками, если шаблон это позволяет. Однако чаще всего фото приходится перепривязывать вручную или через специализированный софт.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка файла перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Сопоставлены все обязательные атрибуты</span></label><label class="check-item"><input type="checkbox"><span>Проверен формат размеров и веса</span></label><label class="check-item"><input type="checkbox"><span>Удалены лишние пробелы в названиях</span></label><label class="check-item"><input type="checkbox"><span>Проверены ссылки на изображения</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>При трансформации данных используйте функции Excel, такие как <code>ВПР (VLOOKUP)</code> или <code>СЦЕПИТЬ</code>, для автоматического заполнения повторяющихся полей. Это значительно ускорит процесс. Не забудьте проверить <strong>баркоды</strong>: если вы используете ту же упаковку, штрихкод можно оставить прежним, но если товар будет переупаковываться, лучше сгенерировать новые коды маркировки.</p>
+
+<h2 id="загрузка-товаров-на-wildberries">Загрузка товаров на Wildberries</h2>
+
+<p>После того как файл приведен в соответствие с требованиями, можно приступать к загрузке. Wildberries предоставляет удобный инструмент для массовой загрузки, который проверяет данные на наличие ошибок еще до создания карточек. Если в файле будут найдены критические ошибки, система выдаст отчет, который необходимо исправить.</p>
+
+<p>Загрузите подготовленный XLSX-файл в разделе <code>Товары → Добавить по XLSX</code>. Система обработает файл, и вы увидите статусы по каждой позиции. Зеленый цвет означает успешное создание или обновление карточки, красный — наличие ошибок. Внимательно изучите отчет об ошибках: часто система указывает на несоответствие типа данных (например, текст вместо числа в поле размера).</p>
+
+<p>Для товаров, которые создаются впервые, важно правильно заполнить поле <strong>subjectID</strong> (ID категории). Ошибка в выборе категории приведет к тому, что товар попадет в неправильный раздел или комиссия площадки будет рассчитана неверно. В таблице ниже приведено сравнение основных параметров загрузки.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ozon (Исходные данные)</th>
+<th>Wildberries (Целевой формат)</th>
+<th>Действия при переносе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Артикул</td>
+<td>Уникальный код продавца</td>
+<td>Уникальный код продавца</td>
+<td>Копировать без изменений</td>
+</tr>
+<tr>
+<td>Баркод</td>
+<td>Штрихкод (EAN-13)</td>
+<td>Штрихкод (EAN-13)</td>
+<td>Проверить читаемость сканером</td>
+</tr>
+<tr>
+<td>Цена</td>
+<td>Цена до скидок</td>
+<td>Цена без скидки</td>
+<td>Установить цену с учетом комиссии WB</td>
+</tr>
+<tr>
+<td>Габариты</td>
+<td>ДхШхВ (см)</td>
+<td>Длина, Ширина, Высота (см)</td>
+<td>Разделить одну ячейку на три</td>
+</tr>
+<tr>
+<td>Описание</td>
+<td>HTML-теги разрешены</td>
+<td>Только текст или ограниченные теги</td>
+<td>Очистить от сложных тегов</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>После успешной загрузки не забудьте активировать товары. По умолчанию они могут попасть в архив или иметь статус"Черновик". Перейдите в карточку товара и нажмите кнопку <code>Активировать</code> или <code>Вывести в продажу</code>.</p>
+
+<h2 id="seo-оптимизация-при-переносе-нюансы-поиска">SEO-оптимизация при переносе: нюансы поиска</h2>
+
+<p>Просто скопировать название и описание с Ozon на Wildberries — стратегически неверное решение. Алгоритмы ранжирования у площадок отличаются. На Ozon огромную роль играет полнота характеристик и наличие ключевых слов в названии, тогда как Wildberries historically больше внимания уделял <strong>названию</strong> и <strong>арткульному запросу</strong>, хотя в последнее время смещается в сторону семантического ядра в описании.</p>
+
+<p>При переносе необходимо провести <strong>семантический анализ</strong> заново. Ключевые слова, которые хорошо работают на Ozon, могут быть менее популярны на WB, и наоборот. Используйте инструменты аналитики (MPStats, Moneyplace или встроенную аналитику), чтобы выявить частотные запросы именно для аудитории Wildberries.</p>
+
+<p>В названии товара на Wildberries старайтесь соблюдать структуру: <em>Тип товара + Бренд + Модель + Ключевые характеристики</em>. Избегайте"спама" ключевыми словами, за который WB может понизить карточку в выдаче. Описание должно быть читабельным для человека, но содержать вписанные органично поисковые запросы.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте Rich-контент. На Wildberries описания с Rich-контентом (текст + фото внутри описания) ранжируются лучше и повышают конверсию, так как покупатель дольше задерживается на карточке.</p></aside>
+
+<p>Не забывайте про <strong>SEO-теги</strong> (если ваша категория их поддерживает) и характеристики. Заполнение всех возможных полей, даже необязательных, увеличивает вероятность попадания товара в различные фильтрационные выборки, что является мощным источником бесплатного трафика.</p>
+
+<h2 id="решение-типичных-проблем-и-ошибок">Решение типичных проблем и ошибок</h2>
+
+<p>В процессе переноса вы неизбежно столкнетесь с техническими трудностями. Одна из самых частых проблем — <strong>слияние карточек</strong>. Если на Wildberries уже существует похожий товар, система может предложить объединить вашу карточку с существующей. Это опасно, так как вы потеряете контроль над контентом и отзывами. Всегда проверяйте, не привязался ли ваш товар к чужой карточке.</p>
+
+<p>Еще одна проблема — <strong>блокировка за бренд</strong>. Если вы продаете брендовые товары, на Wildberries могут запросить документы на торговую марку или доверенность. На Ozon требования могли быть мягче, поэтому подготовьте сканы сертификатов и договоров заранее. Отсутствие документов может привести к блокировке всего ассортимента бренда.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не используйте один и тот же артикул для разных товаров или цветов, если они не объединены в одну карточку с вариативностью. На Wildberries это приведет к путанице в остатках и штрафам за пересорт.</p>
+</blockquote>
+
+<p>Также стоит упомянуть проблему <strong>дублей</strong>. Если вы создадите карточку, которая алгоритмически будет признана полным дублем уже существующей (даже вашей собственной), одна из них может быть скрыта из поиска. Следите за уникальностью артикулов и баркодов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный риск переноса — потеря SEO-позиций. Новые карточки на WB проходят период"обкатки", поэтому не ждите мгновенных продаж, как на прогретых карточках Ozon.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли автоматически перенести товары с Ozon на Wildberries без Excel?</summary>
+<p>Да, существуют сервисы-агрегаторы (например, Tilda, Moysklad, Excel-конвертеры), которые позволяют синхронизировать остатки и карточки между площадками. Однако первичное заполнение атрибутов и адаптацию характеристик все равно придется контролировать вручную, так как полной автоматической магии не существует.</p>
+</details>
+
+<details>
+<summary>Что делать, если Wildberries требует документы на товар, которых не было на Ozon?</summary>
+<p>Wildberries более строг к сертификации. Вам придется оформить декларацию соответствия или отказное письмо, даже если на Ozon вы торговали без них. Без загрузки документов в раздел"Сертификаты" карточку могут не активировать или заблокировать позже.</p>
+</details>
+
+<details>
+<summary>Нужно ли менять баркоды при переносе товаров?</summary>
+<p>Если вы используете схему FBO (склад маркетплейса) и товар уже промаркирован, баркод можно оставить тем же. Если же вы меняете упаковку или маркируете товар заново для WB, лучше создать новый баркод, чтобы избежать путаницы в логистике.</p>
+</details>
+
+<details>
+<summary>Как быстро появятся товары в поиске после загрузки?</summary>
+<p>Обычно модерация на Wildberries занимает от 15 минут до нескольких часов. Однако индексация для поисковой выдачи может занять до 24-48 часов. В этот период товар может не отображаться по запросам.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-delat-trafarety-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как делать трафареты для Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно создавать трафареты для упаковки товаров на Ozon: требования, шаблоны, програ</span>
+            </a><a href="/articles/k/ka/kak-najti-ajdi-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как найти ID товара на Ozon: 6 способов для покупателей и продавцов</span>
+                <span class="pb-related-desc">Полная инструкция, как узнать ID товара на Озон. Коды из URL, карточки товара, Excel-отчетов и API. </span>
+            </a><a href="/articles/g/gd/gde-vzyat-nakladnuyu-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять накладную для Озон: инструкция для FBO и FBS</span>
+                <span class="pb-related-desc">Узнайте, где найти накладную для Ozon. Подробный гид по генерации документов в личном кабинете прода</span>
+            </a><a href="/articles/k/ka/kak-zagruzit-tovar-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить товар на Ozon: пошаговая инструкция для селлера</span>
+                <span class="pb-related-desc">Узнайте, как загрузить товар на Ozon через Excel, API или вручную. Подробный гайд по заполнению карт</span>
+            </a><a href="/articles/k/ka/kak-otpravit-tovary-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как отправить товары на Озон: инструкция для продавцов 2026</span>
+                <span class="pb-related-desc">Пошаговое руководство по отправке товаров на Озон: от регистрации заказа до передачи на склад. Схемы</span>
+            </a><a href="/articles/k/ka/kakoj-tip-shtrikh-koda-ispolzuet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какой штрихкод использует Ozon: типы, различия и правила для продавцов</span>
+                <span class="pb-related-desc">Разбираемся, какие штрихкоды применяет Ozon для товаров: EAN-13, DataMatrix, GS1 и внутренние коды. </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

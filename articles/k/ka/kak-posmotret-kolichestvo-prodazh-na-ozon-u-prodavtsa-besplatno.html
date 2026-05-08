@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как посмотреть продажи на Ozon бесплатно: все способы — Об Озоне</title>
+    <meta name="description" content="Узнайте, как посмотреть количество продаж у продавца на Ozon бесплатно. Разбор методов через API, сервисы аналитики и ручные расчеты.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-posmotret-kolichestvo-prodazh-na-ozon-u-prodavtsa-besplatno.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как посмотреть продажи на Ozon бесплатно: все способы">
+    <meta property="og:description" content="Узнайте, как посмотреть количество продаж у продавца на Ozon бесплатно. Разбор методов через API, сервисы аналитики и ручные расчеты.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как посмотреть продажи на Ozon бесплатно: все способы</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#использование-встроенных-счетчиков-продаж-в-карточке-товара">Использование встроенных счетчиков продаж в карточке товара</a></li><li><a href="#метод-ручного-отслеживания-остатков-складской-метод">Метод ручного отслеживания остатков (Складской метод)</a></li><li><a href="#анализ-через-ozon-seller-api-для-продвинутых-пользователей">Анализ через Ozon Seller API для продвинутых пользователей</a></li><li><a href="#сравнение-методов-оценки-продаж-в-таблице">Сравнение методов оценки продаж в таблице</a></li><li><a href="#ограничения-и-погрешности-бесплатных-методов">Ограничения и погрешности бесплатных методов</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-ozon-schet.html">Как настроить Ozon счет: инструкция для продавца</a></li><li><a href="/articles/s/sk/skolko-dlitsya-moderatsiya-ozon.html">Сколько длится модерация на Ozon в 2026: сроки для товаров и карточек</a></li><li><a href="/articles/k/ka/kak-prodavat-elektronnuyu-knigu-na-ozone.html">Как продавать электронные книги на Ozon: пошаговое руководство 2026</a></li><li><a href="/articles/o/oz/ozon-marketplejs-eto-chto.html">Ozon Marketplace — что это такое и как работает в 2026 году</a></li><li><a href="/articles/k/ka/kak-zarabotat-na-ozon-zapolnyaya-kartochki.html">Как заработать на Ozon, заполняя карточки: старт без вложений</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как посмотреть количество продаж на Ozon у продавца бесплатно</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#использование-встроенных-счетчиков-продаж-в-карточке-товара">Использование встроенных счетчиков продаж в карточке товара</a></li><li><a href="#метод-ручного-отслеживания-остатков-складской-метод">Метод ручного отслеживания остатков (Складской метод)</a></li><li><a href="#анализ-через-ozon-seller-api-для-продвинутых-пользователей">Анализ через Ozon Seller API для продвинутых пользователей</a></li><li><a href="#сравнение-методов-оценки-продаж-в-таблице">Сравнение методов оценки продаж в таблице</a></li><li><a href="#ограничения-и-погрешности-бесплатных-методов">Ограничения и погрешности бесплатных методов</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Аналитика конкурентов — это фундамент успешной торговли на маркетплейсах, и умение оценить реальный объем выручки соперника становится критически важным навыком. Многие начинающие селлеры ошибочно полагают, что точные цифры доступны только владельцам аккаунтов или пользователям платных подписок. Однако существует ряд легальных и эффективных методов, позволяющих получить приблизительные, но достоверные данные о <strong>количестве проданных товаров</strong> без финансовых вложений.</p>
+
+<p>В этой статье мы разберем механизмы работы открытой статистики площадки, использование API Ozon и применение сторонних инструментов для сбора данных. Понимание того, как формируется цифра проданных единиц, поможет вам точнее прогнозировать спрос и корректировать свою ценовую политику.</p>
+
+<p>Стоит сразу отметить, что <em>Ozon</em> не показывает точную сумму в рублях в карточке товара для посторонних пользователей, но скрывать динамику спроса площадка не заинтересована. <mark>Точность ручных расчетов составляет около 85-90% при правильном подходе к сбору данных.</mark> Давайте рассмотрим доступные инструменты подробнее.</p>
+
+<h2 id="использование-встроенных-счетчиков-продаж-в-карточке-товара">Использование встроенных счетчиков продаж в карточке товара</h2>
+
+<p>Самый простой и доступный способ получить первичное представление об успехе товара — это анализ видимых метрик в карточке. Ozon внедряет различные бейджи и индикаторы, которые сигнализируют о высокой оборачиваемости. Например, метка "Хит" или "Товар дня" уже говорит о том, что продажи идут активно, хотя точную цифру не называет.</p>
+
+<p>Однако основным инструментом остается счетчик проданных единиц за определенный период. Он отображается под ценой или в блоке характеристик и показывает, сколько штук товара было выкуплено покупателями за последние 30 дней или за все время. Для быстрой оценки ниши этого часто бывает достаточно, чтобы понять, есть ли там деньги.</p>
+
+<p>Важно различать количество оставленных отзывов и реальное количество продаж. Статистика показывает, что лишь малый процент покупателей (обычно от 3% до 7%) оставляет комментарии. Поэтому, если вы видите товар с 100 отзывами, смело умножайте эту цифру на 15-20, чтобы получить примерное количество реализованных единиц.</p>
+
+<ul>
+<li>📊 Обращайте внимание на динамику изменения счетчика: фиксируйте его утром и вечером в течение 3-5 дней.</li>
+<li>🔍 Сравнивайте количество проданных единиц у товаров-лидеров и аутсайдеров в вашей нише.</li>
+<li>📉 Учитывайте сезонность: данные за прошлый месяц могут не соответствовать текущему спросу.</li>
+<li>🏷️ Анализируйте товары с разными цветовыми или размерными вариантами отдельно.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Счетчик продаж может обновляться с задержкой или округляться в большую сторону для создания эффекта популярности. Не используйте эти данные для точного бухгалтерского учета, только для маркетингового анализа.</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-4ac38c05"><div class="pb-poll-question">📊 Как часто вы анализируете конкурентов на Ozon?</div><div class="pb-poll-option" data-poll="4ac38c05" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ежедневно</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ac38c05" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Раз в неделю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ac38c05" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Только перед запуском нового товара</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ac38c05" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не анализировал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="метод-ручного-отслеживания-остатков-складской-метод">Метод ручного отслеживания остатков (Складской метод)</h2>
+
+<p>Один из самых надежных способов, которым пользуются опытные аналитики, — это метод "контрольной закупки" или отслеживания изменения остатков. Суть метода заключается в том, что вы фиксируете доступное количество товара на складе продавца в момент времени Т1, а затем проверяете его снова в момент времени Т2. Разница между этими значениями и будет количеством проданных единиц.</p>
+
+<p>Для реализации этого способа вам не нужны сложные программы. Достаточно создать фейковый аккаунт или использовать режим инкогнито, добавить товар в корзину, но не оплачивать его. В корзине система зарезервирует товар, и вы увидите точное количество доступных единиц для покупки. Запишите эту цифру в таблицу.</p>
+
+<p>Через 24 часа повторите процедуру. Если утром было 100 штук, а через сутки стало 95, значит, за этот период продавец реализовал 5 единиц товара. Этот метод дает наиболее точную картину, так как опирается на реальные складские остатки, а не на косвенные признаки.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист для ручного мониторинга</h4><label class="check-item"><input type="checkbox"><span>Создать таблицу Excel для фиксации данных</span></label><label class="check-item"><input type="checkbox"><span>Выбрать 5-10 ключевых товаров конкурента</span></label><label class="check-item"><input type="checkbox"><span>Зафиксировать остатки в 09:00 утра</span></label><label class="check-item"><input type="checkbox"><span>Зафиксировать остатки в 09:00 следующего дня</span></label><label class="check-item"><input type="checkbox"><span>Вычесть разницу и рассчитать среднее значение</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Следует учитывать, что продавец может самостоятельно менять остатки, проводя инвентаризацию или получая новые поставки. Чтобы минимизировать погрешность, отслеживание нужно вести в течение недели. Также стоит обращать внимание на товары, которые имеют статус "скоро закончится" — их динамика обычно наиболее показательна.</p>
+
+<h2 id="анализ-через-ozon-seller-api-для-продвинутых-пользователей">Анализ через Ozon Seller API для продвинутых пользователей</h2>
+
+<p>Для тех, кто дружит с технологиями, отличным бесплатным инструментом становится официальный API Ozon. Хотя этот инструмент в первую очередь предназначен для управления собственным магазином, существуют способы получения обезличенной статистики по категориям и поисковой выдаче через публичные эндпоинты.</p>
+
+<p>Использование API требует базовых знаний программирования или наличия готовых скриптов, которые можно найти в открытом доступе на GitHub. Запрос к API позволяет получать данные о ранжировании товаров, что косвенно указывает на их продаваемость, так как алгоритмы маркетплейса продвигают товары с высокой конверсией.</p>
+
+<pre><code>POST /v1/analytics/search
+<p>Content-Type: application/json</p>
+<p>Client-Id: YOUR_CLIENT_ID</p>
+<p>Api-Key: YOUR_API_KEY</p>
+<p>{</p>
+<p>"dimension": "day",</p>
+<p>"date_from": "2026-01-01",</p>
+<p>"date_to": "2026-01-31",</p>
+<p>"category_id": "electronics"</p>
+<p>}</code></pre></p>
+
+<p>Полученные данные можно экспортировать в формате JSON или CSV и обрабатывать в Excel или Google Таблицах. Это позволяет строить собственные графики динамики спроса без привязки к платным сервисам аналитики. Главное преимущество метода — получение "сырых" данных напрямую от источника.</p>
+
+<details class="pb-accordion"><summary>Где взять Client ID и API Key?</summary><div class="pb-accordion-body"><p>Ключи генерируются в личном кабинете продавца Ozon в разделе Настройки → API ключи. Даже если у вас нет активного магазина, можно зарегистрировать тестовый аккаунт для получения доступа к документации и тестовым ключам.</p></div></details>
+
+<h2 id="сравнение-методов-оценки-продаж-в-таблице">Сравнение методов оценки продаж в таблице</h2>
+
+<p>Каждый из рассмотренных методов имеет свои преимущества и ограничения. Выбор конкретного способа зависит от ваших целей: нужна ли вам мгновенная прикидка или глубокий аналитический отчет для стратегии развития.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Точность данных</th>
+<th>Трудоемкость</th>
+<th>Необходимые навыки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Счетчик в карточке</td>
+<td>Низкая (округленные данные)</td>
+<td>Минимальная</td>
+<td>Базовые</td>
+</tr>
+<tr>
+<td>Отслеживание остатков</td>
+<td>Высокая (реальные цифры)</td>
+<td>Средняя (требует времени)</td>
+<td>Базовые</td>
+</tr>
+<tr>
+<td>Анализ отзывов</td>
+<td>Средняя (требует коэффициента)</td>
+<td>Низкая</td>
+<td>Базовые</td>
+</tr>
+<tr>
+<td>Ozon API</td>
+<td>Высокая (прямые данные)</td>
+<td>Высокая</td>
+<td>Технические</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Как видно из таблицы, для разового анализа вполне достаточно счетчика и отзывов. Но если вы планируете серьезную работу с нишей, комбинация метода остатков и API даст наилучший результат. Не стоит полагаться только на один источник информации.</p>
+
+<h2 id="ограничения-и-погрешности-бесплатных-методов">Ограничения и погрешности бесплатных методов</h2>
+
+<p>Используя бесплатные инструменты, важно понимать их природу и возможные искажения. <strong>Алгоритмы маркетплейса</strong> постоянно меняются, и то, что работало полгода назад, сегодня может давать сбой. Например, Ozon может скрывать точное количество остатков для товаров с высоким спросом, показывая просто "много" или "заканчивается".</p>
+
+<p>Также стоит учитывать фактор возвратов. Метод отслеживания остатков показывает количество выкупленных товаров, но не учитывает возвраты, которые могут составлять до 30-40% в категории одежды. Реальная продажа (финализация сделки) происходит позже, после истечения срока возврата.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не используйте полученные данные для агрессивного демпинга. Резкое снижение цены на основе чужих показателей может запустить ценовую войну, которая навредит всей нише и приведет к блокировке со стороны алгоритмов ценообразования Ozon.</p>
+</blockquote>
+
+<p>Еще один важный нюанс — <em>схема работы продавца</em> (FBO или FBS). Товары на складах Ozon (FBO) продаются быстрее и имеют приоритет в выдаче, поэтому их оборачиваемость будет выше, чем у товаров, которые продаются со склада продавца (FBS). Сравнивать их напрямую без поправочных коэффициентов некорректно.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Совет: Для повышения точности анализа создайте отдельный проект в Google Таблицах, куда будете вносить данные по топ-10 конкурентам ежедневно в одно и то же время. Автоматизируйте расчеты с помощью простых формул.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли узнать точную выручку продавца в рублях бесплатно?</summary>
+<p>Нет, точную финансовую выручку в денежном выражении узнать невозможно без доступа к личному кабинету продавца. Все бесплатные методы дают лишь оценку количества проданных единиц (штук), которую вы можете самостоятельно умножить на текущую цену товара.</p>
+</details>
+
+<details>
+<summary>Насколько точен счетчик "продано за 30 дней"?</summary>
+<p>Этот счетчик показывает округленные данные и обновляется не в реальном времени. Он предназначен для создания социального доказательства, а не для точной аналитики. Погрешность может составлять до 15-20%.</p>
+</details>
+
+<details>
+<summary>Зачем конкурентам скрывать свои продажи?</summary>
+<p>Ozon не скрывает продажи намеренно, но и не афиширует их детально для посторонних, чтобы защитить коммерческую тайну селлеров. Открытая статистика позволяет оценить общую емкость рынка, но скрывает детали бизнес-модели конкретного игрока.</p>
+</details>
+
+<details>
+<summary>Влияет ли накрутка отзывов на оценку продаж?</summary>
+<p>Да, накрученные отзывы создают ложное впечатление о популярности товара. Именно поэтому метод проверки остатков (складской метод) считается более надежным, так как его сложнее подделать массово без реальных движений товара.</p>
+</details>
+
+<details>
+<summary>Какой коэффициент конверсии в отзыв использовать для расчетов?</summary>
+<p>Средним безопасным значением считается 5%. Однако для дешевых товаров масс-маркета он может быть ниже (2-3%), а для сложных технических товаров — выше (10-15%). Лучше брать среднее по вашей конкретной категории.</p>
+</details>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Комплексный подход, сочетающий проверку остатков и анализ видимой статистики, дает наиболее полную картину рынка без необходимости покупки дорогих подписок.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-nastroit-ozon-schet.html" class="pb-related-card">
+                <span class="pb-related-title">Как настроить Ozon счет: инструкция для продавца</span>
+                <span class="pb-related-desc">Полное руководство по настройке Ozon счета продавца. Как подключить эквайринг, настроить финансовую </span>
+            </a><a href="/articles/s/sk/skolko-dlitsya-moderatsiya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько длится модерация на Ozon в 2026: сроки для товаров и карточек</span>
+                <span class="pb-related-desc">Актуальные сроки проверки товаров на Озон: от 1 часа до 72 дней. Как ускорить модерацию, причины зад</span>
+            </a><a href="/articles/k/ka/kak-prodavat-elektronnuyu-knigu-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать электронные книги на Ozon: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Полная инструкция по размещению и продвижению электронных книг на Ozon: от регистрации до оптимизаци</span>
+            </a><a href="/articles/o/oz/ozon-marketplejs-eto-chto.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Marketplace — что это такое и как работает в 2026 году</span>
+                <span class="pb-related-desc">Разбираем, что такое Ozon Marketplace: как работает для покупателей и продавцов, чем отличается от о</span>
+            </a><a href="/articles/k/ka/kak-zarabotat-na-ozon-zapolnyaya-kartochki.html" class="pb-related-card">
+                <span class="pb-related-title">Как заработать на Ozon, заполняя карточки: старт без вложений</span>
+                <span class="pb-related-desc">Узнайте, как заработать на Ozon, заполняя карточки товаров. Реальные способы, оплата за контент и ст</span>
+            </a><a href="/articles/s/sk/skolko-postavshchikov-u-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько поставщиков у Озона: актуальная статистика и данные</span>
+                <span class="pb-related-desc">Узнайте точное количество поставщиков на Озоне, динамику роста селлеров и условия входа на маркетпле</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

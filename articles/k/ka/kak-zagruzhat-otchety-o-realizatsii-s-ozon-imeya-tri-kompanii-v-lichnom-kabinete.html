@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как выгрузить отчеты по 3 компаниям на Ozon: инструкция — Об Озоне</title>
+    <meta name="description" content="Пошаговый алгоритм выгрузки отчетов реализации для нескольких юридических лиц. Как настроить сводный Excel и избежать ошибок в Ozon Seller.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzhat-otchety-o-realizatsii-s-ozon-imeya-tri-kompanii-v-lichnom-kabinete.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выгрузить отчеты по 3 компаниям на Ozon: инструкция">
+    <meta property="og:description" content="Пошаговый алгоритм выгрузки отчетов реализации для нескольких юридических лиц. Как настроить сводный Excel и избежать ошибок в Ozon Seller.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как выгрузить отчеты по 3 компаниям на Ozon: инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#особенности-навигации-в-разделе-отчеты-при-мультикомпании">Особенности навигации в разделе Отчеты при мультикомпании</a></li><li><a href="#пошаговая-инструкция-ручная-выгрузка-файлов">Пошаговая инструкция: ручная выгрузка файлов</a></li><li><a href="#автоматизация-сбора-данных-через-api-и-сервисы">Автоматизация сбора данных через API и сервисы</a></li><li><a href="#сводная-аналитика-объединение-данных-трех-компаний">Сводная аналитика: объединение данных трех компаний</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#оптимизация-работы-с-excel-и-google-таблицами">Оптимизация работы с Excel и Google Таблицами</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prinyat-fbo-na-pvz-ozon.html">Как принять FBO на ПВЗ Озон: инструкция для селлеров</a></li><li><a href="/articles/k/ka/kak-vyvezti-tovar-so-sklada-ozon.html">Как вывезти товар со склада Озон: инструкции FBO, FBS и EDBS</a></li><li><a href="/articles/c/ch/chto-znachit-sklad-ozon-rfts.html">Склад Ozon РФЦ: что это значит и как работает</a></li><li><a href="/articles/o/oz/ozon-skolko.html">Ozon: сколько стоит доставка, комиссия и штрафы в 2026 году</a></li><li><a href="/articles/f/fs/fsb-ozon-chto-eto.html">FBS Ozon: что это, как работает и чем отличается от FBO</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Выгрузка отчетов реализации для трех компаний в Ozon Seller</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#особенности-навигации-в-разделе-отчеты-при-мультикомпании">Особенности навигации в разделе Отчеты при мультикомпании</a></li><li><a href="#пошаговая-инструкция-ручная-выгрузка-файлов">Пошаговая инструкция: ручная выгрузка файлов</a></li><li><a href="#автоматизация-сбора-данных-через-api-и-сервисы">Автоматизация сбора данных через API и сервисы</a></li><li><a href="#сводная-аналитика-объединение-данных-трех-компаний">Сводная аналитика: объединение данных трех компаний</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#оптимизация-работы-с-excel-и-google-таблицами">Оптимизация работы с Excel и Google Таблицами</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Работа с несколькими юридическими лицами на одном аккаунте маркетплейса — это стандартная практика для масштабируемого бизнеса, которая, однако, вносит существенные коррективы в процесс аналитики и бухгалтерии. Когда в личном кабинете продавца объединены три разные компании, простая выгрузка отчетов о реализации превращается в сложный логистический процесс, требующий четкого понимания структуры папок и форматов файлов. Ошибки на этом этапе могут привести к путанице в налоговых отчетах и проблемам с актированием закрывающих документов.</p>
+<p>Главная сложность заключается в том, что система Ozon Seller по умолчанию стремится унифицировать данные, но при работе с мультикомпанейной структурой вам придется вручную сегментировать потоки информации. Вам необходимо не просто скачать файл, а убедиться, что <strong>отчетность</strong> разбита именно по тем <em>юридическим лицам</em>, которые указаны в договоре. Игнорирование этого нюанса часто приводит к тому, что бухгалтеры получают "кашу" из продаж, где невозможно отделить НДС одной компании от другой.</p>
+<p>В этой статье мы разберем детальный алгоритм действий, который позволит вам наладить стабильный сбор данных. Мы рассмотрим, как правильно использовать фильтры в интерфейсе, зачем нужен <code>API</code> для автоматизации и как избежать типичных ошибок при формировании сводных таблиц. Понимание этих процессов критически важно для тех, кто планирует расширять свой бизнес на маркетплейсе.</p>
+
+<h2 id="особенности-навигации-в-разделе-отчеты-при-мультикомпании">Особенности навигации в разделе Отчеты при мультикомпании</h2>
+<p>Интерфейс личного кабинета продавца Ozon спроектирован так, чтобы скрывать лишнюю информацию, но при наличии трех компаний в профиле навигация становится менее очевидной. Стандартный путь <code>Финансы → Отчеты → Реализация</code> открывает доступ к общим данным, однако ключевым моментом здесь является правильный выбор периода и типа документа. Система позволяет переключаться между юридическими лицами через верхнее меню или фильтры, но часто по умолчанию отображается агрегированная информация.</p>
+<p>Вам следует обратить внимание на то, как именно помечаются документы в списке выгрузки. Каждая компания имеет свой уникальный идентификатор, который должен фигурировать в итоговом файле. Если вы видите, что в столбце "Компания" или аналогичном поле данные смешиваются, значит, вы работаете с общим видом, который требует дополнительной обработки. Для корректной работы важно использовать <strong>детализацию</strong> до уровня конкретного <em>договора поставки</em>.</p>
+<p>Опытные селлеры знают, что слепое доверие к автоматической сортировке опасно. Лучше потратить время на ручную проверку первых строк выгруженного файла, чем потом исправлять бухгалтерские проводки. Структура папок, куда сохраняются файлы, также должна быть продумана заранее, чтобы файлы разных юрлиц не перетирали друг друга.</p>
+<ul>
+<li> 📁 Всегда проверяйте, какой именно договор выбран в фильтре перед началом выгрузки.</li>
+<li> 📅 Убеждайтесь, что период отчетность совпадает для всех трех компаний, если вы делаете сверку.</li>
+<li> 🔍 Используйте поиск по названию компании в списке отчетов, если их слишком много.</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При выгрузке отчетов убедитесь, что вы не перепутали документы "Реализация" и "Возвраты", так как для разных юридических лиц эти потоки могут идти с разной периодичностью.</p>
+</blockquote>
+
+<h2 id="пошаговая-инструкция-ручная-выгрузка-файлов">Пошаговая инструкция: ручная выгрузка файлов</h2>
+<p>Процесс ручной выгрузки требует дисциплины и последовательности действий. Сначала вам необходимо авторизоваться в личном кабинете и перейти в раздел финансов. Здесь, в меню <code>Отчеты о реализации</code>, перед вами откроется таблица со всеми доступными документами. Первым шагом будет установка фильтров: выберите нужное юридическое лицо из выпадающего списка, если такая опция доступна в текущей версии интерфейса, или ориентируйтесь на префиксы в номерах документов.</p>
+<p>Далее следует выбрать период. Для трех компаний лучше всего выгружать данные помесячно, чтобы не создавать файлы гигантского размера, которые браузер может обрабатывать медленно. После выбора периода нажмите кнопку "Скачать". Файл сохранится в формате <code>XLSX</code> или <code>CSV</code>. Повторите эту процедуру для каждой из трех компаний отдельно, не пытаясь скачать "все сразу", если система не гарантирует разделение по юрлицам внутри одного файла.</p>
+<p>Важно сохранять файлы с понятными именами. Сразу при сохранении добавляйте в название файла код компании или дату, например: <code>Ozon_Report_CompanyA_Oct2026.xlsx</code>. Это сэкономит вам часы работы при сведении итогов в конце квартала. Автоматизированные системы именования в браузере часто дублируют названия, что приводит к хаосу на рабочем столе.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист выгрузки отчетов</h4><label class="check-item"><input type="checkbox"><span>Выбрать нужное юрлицо в фильтре</span></label><label class="check-item"><input type="checkbox"><span>Установить точный период (с 1 по 30 число)</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку "Скачать"</span></label><label class="check-item"><input type="checkbox"><span>Переименовать файл по шаблону</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>После того как файлы для всех трех компаний получены, рекомендуется сразу же открыть их и проверить наличие всех столбцов. Иногда при выгрузке больших массивов данных некоторые колонки могут обрезаться или форматироваться как текст, что потребует дополнительной обработки в Excel.</p>
+
+<h2 id="автоматизация-сбора-данных-через-api-и-сервисы">Автоматизация сбора данных через API и сервисы</h2>
+<p>Для бизнеса с тремя и более компаниями ручная выгрузка быстро становится узким горлышком. Использование <strong>API Ozon</strong> позволяет автоматизировать этот процесс, получая данные напрямую в вашу <em>ERP-систему</em> или таблицу. Это требует технических знаний или привлечения разработчика, но результат того стоит: вы получаете данные в реальном времени без участия человека.</p>
+<p>Суть метода заключается в создании запроса к эндпоинту <code>/v1/finance/transaction/list</code>, где можно указать параметры фильтрации по компании. Вам нужно будет сгенерировать API-ключи с правами доступа к финансам для каждого из юридических лиц или использовать мастер-ключ, если архитектура аккаунта это позволяет. Запрос возвращает массив транзакций, которые затем парсятся и распределяются по нужным таблицам.</p>
+<p>Если программирование — не ваш конек, существуют сторонние сервисы-агрегаторы, которые уже настроили интеграцию с Ozon. Они позволяют подключить все три компании в один интерфейс и выгружать сводные отчеты одним кликом. Однако здесь важно помнить о безопасности передачи данных.</p>
+<details class="pb-accordion"><summary>Риски использования сторонних сервисов</summary><div class="pb-accordion-body"><p>Передавая API-ключи сторонним сервисам, вы делегируете права на управление данными. Убедитесь, что сервис имеет сертификаты безопасности и не хранит ваши ключи в открытом виде. Лучше использовать ключи с ограниченным доступом (только чтение).</p></div></details>
+<p>При настройке автоматической выгрузки важно заложить логику обработки ошибок. Если один из запросов к API для третьей компании вернет ошибку, система должна уведомить об этом, а не просто пропустить данные.</p>
+
+<h2 id="сводная-аналитика-объединение-данных-трех-компаний">Сводная аналитика: объединение данных трех компаний</h2>
+<p>После получения трех отдельных файлов перед вами встает задача их объединения. Простое копирование данных друг под друга в Excel может привести к ошибкам, если в файлах различается структура или порядок столбцов. Для надежного сведения данных лучше всего использовать функцию <code>Power Query</code> в Excel или аналогичные инструменты в <em>Google Таблицах</em>.</p>
+<p>Создайте мастер-файл, куда будут подгружаться данные из трех источников. Добавьте столбец "Юридическое лицо" и заполните его соответствующими значениями для каждой группы данных. Это позволит вам в дальнейшем строить сводные таблицы (<strong>Pivot Tables</strong>), где можно будет мгновенно переключаться между общей картиной и детализацией по конкретной компании.</p>
+<p>Особое внимание уделите форматам дат и чисел. В разных выгрузках разделители могут отличаться (запятая против точки), что приведет к некорректному суммированию. Приведение всех данных к единому стандарту — обязательный этап перед началом анализа.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Компания А (ООО "Вектор")</th>
+<th>Компания Б (ИП Иванов)</th>
+<th>Компания В (ООО "Торг")</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Система налогообложения</td>
+<td>УСН 6%</td>
+<td>Патент</td>
+<td>ОСНО (НДС 20%)</td>
+</tr>
+<tr>
+<td>Валюта расчетов</td>
+<td>RUB</td>
+<td>RUB</td>
+<td>RUB</td>
+</tr>
+<tr>
+<td>Тип отчета</td>
+<td>Реализация</td>
+<td>Реализация</td>
+<td>Реализация</td>
+</tr>
+<tr>
+<td>Периодичность</td>
+<td>Ежемесячно</td>
+<td>Ежемесячно</td>
+<td>Ежемесячно</td>
+</tr>
+</tbody>
+</table></div>
+<div class="pb-poll" id="poll-d39266bf"><div class="pb-poll-question">📊 Как вы сводите отчетность?</div><div class="pb-poll-option" data-poll="d39266bf" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="d39266bf" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через API и скрипты</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="d39266bf" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">С помощью платных сервисов аналитики</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="d39266bf" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Отдаю бухгалтеру "как есть"</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+<p>Использование единой мастер-таблицы позволяет не только упростить работу бухгалтера, но и быстрее выявлять аномалии в продажах или комиссиях маркетплейса across all entities.</p>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+<p>Одной из самых распространенных ошибок является игнирование часовых поясов. Ozon может формировать отчеты по московскому времени, в то время как ваши продажи шли в разных регионах. При стыковке данных за сутки это может привести к смещению продаж на один день, что критично для ежедневной отчетности.</p>
+<p>Еще одна проблема — некорректная обработка возвратов. В отчетах о реализации возвраты могут отражаться не в день фактического возврата товара, а в день оформления заявки или принятия решения. Для трех компаний это может выглядеть по-разному, если товары отгружались с разных складов. Вам нужно четко понимать <strong>методологию</strong> учета, которую использует ваш <em>бухгалтер</em>.</p>
+<p>Также часто встречается ошибка дублирования строк при объединении файлов. Если вы несколько раз выгрузили отчет за один период и склеили их, суммы будут неверными. Всегда проверяйте уникальность идентификаторов транзакций.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не используйте функцию "Сохранить как PDF" для дальнейшей работы с данными. Для аналитики нужны только исходные форматы XLSX или CSV, так как PDF не позволит сделать фильтрацию и суммирование.</p>
+</blockquote>
+<p>Регулярная проверка логики выгрузки поможет избежать накопления ошибок. Если вы заметили расхождение в копейках, не игнорируйте его — в масштабах года это может вылиться в существенные суммы.</p>
+
+<h2 id="оптимизация-работы-с-excel-и-google-таблицами">Оптимизация работы с Excel и Google Таблицами</h2>
+<p>Работа с большими объемами данных от трех компаний требует оптимизации вычислительных мощностей вашего табличного редактора. Если файл становится слишком тяжелым и тормозит, попробуйте отключить автоматический пересчет формул. В Excel это делается через вкладку <code>Формулы → Параметры вычислений → Вручную</code>.</p>
+<p>Используйте "Умные таблицы" (Format as Table), которые автоматически расширяют диапазон данных при добавлении новых строк. Это особенно удобно, когда вы догружаете отчеты за новый месяц. Формулы, завязанные на такие таблицы, не придется переписывать.</p>
+<p>Для визуализации данных создайте отдельный дашборд. Выведите на него ключевые метрики: общую выручку, комиссию Ozon, логистику и чистую прибыль по каждой из трех компаний. Это позволит видеть общую картину бизнеса, не погружаясь в "сырые" данные каждый раз.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сохраняйте резервные копии исходных файлов выгрузки отдельно от обработанных таблиц. Никогда не редактируйте оригиналы, полученные с Ozon, работайте только с копиями.</p></aside>
+<p>Владение продвинутыми функциями таблиц, такими как <code>VLOOKUP</code> (ВПР) или <code>SUMIFS</code> (СУММЕСЛИМН), станет вашим главным преимуществом. Эти инструменты позволяют быстро сопоставлять данные из разных источников.</p>
+
+<h2 id="вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</h2>
+<details>
+<summary>Можно ли выгрузить один отчет сразу за все три компании?</summary>
+<p>В стандартном интерфейсе Ozon Seller такой функции нет. Вам придется выгружать отчеты отдельно для каждого юридического лица или использовать API для получения агрегированных данных, если ваша интеграция это поддерживает.</p>
+</details>
+<details>
+<summary>Что делать, если в отчете не видно продаж одной из компаний?</summary>
+<p>Проверьте фильтры в верхней части страницы отчетов. Убедитесь, что выбран правильный период и что продажи действительно были в это время. Также проверьте, не закрыт ли доступ к финансовым отчетам для конкретного договора.</p>
+</details>
+<details>
+<summary>Как часто обновляются отчеты о реализации?</summary>
+<p>Отчеты формируются ежедневно, но итоговые суммы могут корректироваться в течение нескольких дней после окончания периода из-за обработки возвратов и отмен. Для бухгалтерии рекомендуется ждать финализации отчетов.</p>
+</details>
+<details>
+<summary>Нужно ли скачивать отчеты каждый день?</summary>
+<p>Для оперативного управления — желательно. Для бухгалтерии достаточно выгрузки раз в месяц, но регулярный контроль поможет быстрее выявить ошибки в начислении комиссий или логистики.</p>
+</details>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный вывод: Системный подход к выгрузке и именрованию файлов для трех компаний сэкономит вам десятки часов работы с бухгалтерией в конце каждого квартала.</p></aside></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-prinyat-fbo-na-pvz-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как принять FBO на ПВЗ Озон: инструкция для селлеров</span>
+                <span class="pb-related-desc">Полный гид по приемке FBO на пункте выдачи Ozon. Правила оформления, сроки, коды приемок и решение п</span>
+            </a><a href="/articles/k/ka/kak-vyvezti-tovar-so-sklada-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как вывезти товар со склада Озон: инструкции FBO, FBS и EDBS</span>
+                <span class="pb-related-desc">Полный гайд: как забрать товар со склада Ozon. Схемы FBO, FBS, EDBS, платное хранение и утилизация. </span>
+            </a><a href="/articles/c/ch/chto-znachit-sklad-ozon-rfts.html" class="pb-related-card">
+                <span class="pb-related-title">Склад Ozon РФЦ: что это значит и как работает</span>
+                <span class="pb-related-desc">Подробный разбор аббревиатуры РФЦ на Озон. Узнайте, чем склад РФЦ отличается от регионального, как о</span>
+            </a><a href="/articles/o/oz/ozon-skolko.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon: сколько стоит доставка, комиссия и штрафы в 2026 году</span>
+                <span class="pb-related-desc">Актуальные тарифы Озон для продавцов и покупателей: комиссии, стоимость доставки, штрафы за возвраты</span>
+            </a><a href="/articles/f/fs/fsb-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">FBS Ozon: что это, как работает и чем отличается от FBO</span>
+                <span class="pb-related-desc">Разбираем схему FBS на Озон: плюсы и минусы для продавцов, как подключиться, тарифы 2026 года и срав</span>
+            </a><a href="/articles/o/ot/otchet-komissionera-ozon-gde-skachat.html" class="pb-related-card">
+                <span class="pb-related-title">Отчет комиссионера Озон 2026: где скачать и как заполнить</span>
+                <span class="pb-related-desc">Где найти бланк отчета комиссионера для Озон, как его правильно оформить и сдать без ошибок. Актуаль</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

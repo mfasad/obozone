@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как спарсить Ozon: методы и инструменты для селлеров — Об Озоне</title>
+    <meta name="description" content="Подробный гид по парсингу данных с Ozon. Разбор Python-скриптов, сервисов и API. Как легально собрать данные для аналитики и ценообразования.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sparsit-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как спарсить Ozon: методы и инструменты для селлеров">
+    <meta property="og:description" content="Подробный гид по парсингу данных с Ozon. Разбор Python-скриптов, сервисов и API. Как легально собрать данные для аналитики и ценообразования.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как спарсить Ozon: методы и инструменты для селлеров</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#зачем-нужен-парсинг-данных-с-маркетплейса">Зачем нужен парсинг данных с маркетплейса</a></li><li><a href="#официальный-api-ozon-легальный-путь-к-данным">Официальный API Ozon: легальный путь к данным</a></li><li><a href="#технический-парсинг-python-и-библиотеки">Технический парсинг: Python и библиотеки</a></li><li><a href="#проблемы-защиты-и-обход-блокировок">Проблемы защиты и обход блокировок</a></li><li><a href="#сравнение-методов-сбора-информации">Сравнение методов сбора информации</a></li><li><a href="#готовые-решения-и-аналитические-платформы">Готовые решения и аналитические платформы</a></li><li><a href="#юридические-аспекты-и-правила-площадки">Юридические аспекты и правила площадки</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-znachit-ozon-v-vode.html">Озон в воде: что это значит и как влияет на здоровье?</a></li><li><a href="/articles/g/gr/gruppa-ozon-otkuda-oni.html">Группа Озон: откуда они и как стали лидером рынка в России</a></li><li><a href="/articles/c/ch/chto-luchshe-ozon-ili-valdberies.html">Озон или Вайлдберриз: что лучше для покупок и продаж в 2026 году</a></li><li><a href="/articles/k/ka/kak-ustroitsya-v-ofis-ozon.html">Как устроиться в офис Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-zabirat-zakaz-iz-ozon-boks.html">Как забирать заказ из Ozon Box: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как спарсить Ozon: профессиональные методы сбора данных</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужен-парсинг-данных-с-маркетплейса">Зачем нужен парсинг данных с маркетплейса</a></li><li><a href="#официальный-api-ozon-легальный-путь-к-данным">Официальный API Ozon: легальный путь к данным</a></li><li><a href="#технический-парсинг-python-и-библиотеки">Технический парсинг: Python и библиотеки</a></li><li><a href="#проблемы-защиты-и-обход-блокировок">Проблемы защиты и обход блокировок</a></li><li><a href="#сравнение-методов-сбора-информации">Сравнение методов сбора информации</a></li><li><a href="#готовые-решения-и-аналитические-платформы">Готовые решения и аналитические платформы</a></li><li><a href="#юридические-аспекты-и-правила-площадки">Юридические аспекты и правила площадки</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Сбор данных с крупнейших маркетплейсов является критически важной задачей для аналитиков, селлеров и разработчиков, стремящихся оптимизировать свои продажи. Вопрос о том, как спарсить Ozon, возникает у тех, кто хочет автоматизировать мониторинг цен конкурентов, отслеживать наличие товаров на складах или анализировать динамику рейтингов. <strong>Парсинг</strong> позволяет получать огромные массивы структурированной информации, которую невозможно эффективно обработать вручную.</p>
+<p>В этой статье мы разберем технические и организационные аспекты взаимодействия с платформой. Вы узнаете о методах обхода защиты, использовании официальных инструментов API и специализированного софта. Понимание этих процессов поможет вам принимать более взвешенные решения в управлении ассортиментом.</p>
+
+<h2 id="зачем-нужен-парсинг-данных-с-маркетплейса">Зачем нужен парсинг данных с маркетплейса</h2>
+<p>Основная цель сбора информации — получение конкурентного преимущества. Анализируя цены других продавцов, вы можете гибко настраивать свою стратегию ценообразования. <em>Динамическое ценообразование</em> требует постоянного мониторинга, который невозможен без автоматизации. Кроме того, парсинг позволяет выявлять трендовые товары еще до того, как они станут очевидными для широкой аудитории.</p>
+<p>Селлеры часто используют выгрузку данных для проверки своих карточек товаров. Это помогает находить ошибки в описаниях, отслеживать изменения в категориях и контролировать индекс качества. <strong>Аналитика</strong> становится фундаментом для принятия решений по закупкам и логистике.</p>
+<p>Однако стоит понимать, что Ozon, как и любая крупная платформа, защищает свои данные. Частые запросы могут привести к временной блокировке IP-адреса. Поэтому важно подходить к процессу сбора информации грамотно, используя правильные инструменты и интервалы запросов.</p>
+<div class="pb-poll" id="poll-69f8166f"><div class="pb-poll-question">📊 Что для вас важнее в аналитике Ozon?</div><div class="pb-poll-option" data-poll="69f8166f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Мониторинг цен конкурентов</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="69f8166f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Анализ трендов ниши</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="69f8166f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Контроль своих карточек</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="69f8166f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Поиск новых поставщиков</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="официальный-api-ozon-легальный-путь-к-данным">Официальный API Ozon: легальный путь к данным</h2>
+<p>Самым надежным и безопасным способом получения информации является использование официального <strong>Ozon Seller API</strong>. Этот метод предоставляет доступ к данным вашего собственного магазина, а также к некоторым общим справочникам. Для работы с API вам потребуется получить API-ключ и Client ID в личном кабинете продавца.</p>
+<p>Использование официальных методов гарантирует стабильность работы и отсутствие риска блокировки со стороны платформы. Вы можете получать информацию о заказах, остатках на складах, ценах и статусах отгрузок. Все запросы отправляются в формате JSON, что удобно для дальнейшей обработки.</p>
+<p>Для выполнения запросов можно использовать различные инструменты, от Postman до написания собственных скриптов. Ниже приведен пример структуры запроса для получения списка товаров:</p>
+<pre><code>POST https://api-seller.ozon.ru/v3/product/list
+<p>Client-Id: ваш_client_id</p>
+<p>Api-Key: ваш_api_key</p>
+<p>Content-Type: application/json</p>
+
+<p>{</p>
+<p>"filter": {</p>
+<p>"visibility": "ALL"</p>
+<p>},</p>
+<p>"last_id": "",</p>
+<p>"limit": 100</p>
+<p>}</code></pre></p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте разные API-ключи для тестирования и продакшена, чтобы не рисковать основным доступом при отладке кода.</p></aside>
+<p>Важно отметить, что API имеет ограничения по количеству запросов в секунду (RPS). Превышение лимитов может привести к временному ограничению доступа. <mark>Лимиты зависят от типа запроса и статуса продавца.</mark></p>
+
+<h2 id="технический-парсинг-python-и-библиотеки">Технический парсинг: Python и библиотеки</h2>
+<p>Для сбора открытых данных с сайта (витрины) разработчики часто используют язык программирования Python. Это мощный инструмент, обладающий богатой экосистемой библиотек для веб-скрапинга. Основными инструментами являются <em>BeautifulSoup</em> для разбора HTML-кода и <em>Selenium</em> или <em>Playwright</em> для эмуляции действий реального пользователя.</p>
+<p>Проблема статического парсинга заключается в том, что Ozon активно использует JavaScript для рендеринга контента. Простой запрос через библиотеку <code>requests</code> может вернуть пустую страницу или код ошибки. Поэтому необходимо использовать headless-браузеры, которые способны исполнять JS-скрипты.</p>
+<p>При написании скрипта важно учитывать защиту от ботов. Платформа анализирует поведенческие факторы, такие как движение мыши, скорость кликов и наличие заголовков браузера. Использование стандартных User-Agent может привести к быстрому бану.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Подготовка к написанию парсера</h4><label class="check-item"><input type="checkbox"><span>Изучить структуру HTML-кода страницы</span></label><label class="check-item"><input type="checkbox"><span>Выбрать библиотеку для работы с браузером</span></label><label class="check-item"><input type="checkbox"><span>Настроить ротацию User-Agent</span></label><label class="check-item"><input type="checkbox"><span>Продумать логику обхода капчи</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>Ниже приведен пример простейшего скрипта на Python с использованием библиотеки <code>requests</code> для проверки доступности страницы:</p>
+<pre><code>import requests
+
+<p>url = 'https://www.ozon.ru/'</p>
+<p>headers = {'User-Agent': 'Mozilla/5.0'}</p>
+
+<p>response = requests.get(url, headers=headers)</p>
+<p>if response.status_code == 200:</p>
+<p>print("Страница доступна")</p>
+<p>else:</p>
+<p>print(f"Ошибка доступа: {response.status_code}")</code></pre></p>
+
+<h2 id="проблемы-защиты-и-обход-блокировок">Проблемы защиты и обход блокировок</h2>
+<p>Ozon использует сложные системы защиты, такие как WAF (Web Application Firewall), которые отслеживают подозрительную активность. Если ваш IP-адрес совершает слишком много запросов за короткое время, он будет заблокирован. Для решения этой проблемы необходимо использовать пулы <strong>прокси-серверов</strong>.</p>
+<blockquote>⚠️ Внимание: Использование бесплатных прокси-серверов для парсинга коммерческих данных крайне не рекомендуется. Они часто бывают нестабильными, медленными и могут перехватывать передаваемые данные.</blockquote>
+<p>Кроме IP-адресов, защита анализирует цифровые отпечатки браузера (fingerprinting). Сюда входят разрешение экрана, установленные шрифты, версия браузера и другие параметры. Для успешного парсинга необходимо эмулировать уникальное окружение для каждого запроса.</p>
+<p>Также стоит упомянуть про капчу. При подозрении на автоматизированный доступ система может потребовать решение графической задачи. Автоматическое решение капчи — сложная техническая задача, часто требующая подключения сторонних сервисов-распознавателей.</p>
+<details class="pb-accordion"><summary>Что такое резидентные прокси?</summary><div class="pb-accordion-body"><p>Резидентные прокси — это IP-адреса реальных пользователей, которые предоставляют свой трафик добровольно или через зараженные устройства. Они выглядят для сайта как обычные посетители, что значительно повышает доверие к запросам.</p></div></details>
+
+<h2 id="сравнение-методов-сбора-информации">Сравнение методов сбора информации</h2>
+<p>Выбор метода зависит от ваших технических навыков, бюджета и объема необходимых данных. Рассмотрим основные подходы в сравнительной таблице.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Сложность внедрения</th>
+<th>Риск блокировки</th>
+<th>Стоимость</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Официальный API</td>
+<td>Средняя</td>
+<td>Низкий</td>
+<td>Бесплатно (в рамках лимитов)</td>
+</tr>
+<tr>
+<td>Python скрипты</td>
+<td>Высокая</td>
+<td>Высокий</td>
+<td>Затраты на прокси и сервер</td>
+</tr>
+<tr>
+<td>Готовые сервисы</td>
+<td>Низкая</td>
+<td>Отсутствует</td>
+<td>Ежемесячная подписка</td>
+</tr>
+<tr>
+<td>Браузерные расширения</td>
+<td>Низкая</td>
+<td>Средний</td>
+<td>Freemium / Подписка</td>
+</tr>
+</tbody>
+</table></div>
+<p>Как видно из таблицы, готовые сервисы и расширения предлагают наиболее простой путь для тех, кто не хочет погружаться в программирование. Однако они могут иметь ограничения по функционалу в бесплатных версиях.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для разовых задач проще использовать расширения, а для постоянного мониторинга лучше настроить собственный скрипт или купить подписку на аналитический сервис.</p></aside>
+
+<h2 id="готовые-решения-и-аналитические-платформы">Готовые решения и аналитические платформы</h2>
+<p>Если самостоятельная разработка парсера кажется вам слишком сложной или рискованной, обратите внимание на специализированные сервисы. Платформы вроде MPStats, Moneyplace или Ozon Stat предоставляют уже готовые данные, собранные легальными методами.</p>
+<p>Эти сервисы берут на себя всю техническую часть: поддержку инфраструктуры, обход блокировок и хранение истории. Вы получаете доступ к удобному интерфейсу с графиками, отчетами и инструментами для поиска ниш. <strong>Экономия времени</strong> в данном случае часто перевешивает стоимость подписки.</p>
+<p>Использование таких платформ особенно актуально для селлеров, которые фокусируются на продажах, а не на IT-разработке. Они позволяют быстро оценить емкость рынка и потенциал товара.</p>
+<p>При выборе сервиса обращайте внимание на актуальность данных и частоту их обновления. Некоторые инструменты могут предоставлять информацию с задержкой, что критично для динамичного ценообразования.</p>
+
+<h2 id="юридические-аспекты-и-правила-площадки">Юридические аспекты и правила площадки</h2>
+<p> С одной стороны, данные на витрине являются общедоступными. С другой стороны, правила использования Ozon (User Agreement) могут запрещать автоматизированный сбор данных без письменного согласия.</p>
+<blockquote>⚠️ Внимание: Нарушение правил площадки может привести не только к блокировке IP, но и к бану аккаунта продавца. Всегда взвешивайте риски перед запуском агрессивного парсинга.</blockquote>
+<p>Использование официальных API полностью безопасно с точки зрения правил платформы. Если вы решите использовать сторонние методы, убедитесь, что ваши запросы не создают излишнюю нагрузку на сервера Ozon. <em>Этичное скрапирование</em> подразумевает соблюдение задержек между запросами.</p>
+<p>В заключение, выбор метода зависит от ваших целей. Для глубокой аналитики и масштабирования бизнеса рекомендуется комбинировать официальные инструменты API с данными из проверенных аналитических сервисов.</p>
+
+<details>
+<summary>Можно ли получить бан аккаунта за парсинг?</summary>
+<p>Да, если парсинг осуществляется с аккаунта продавца и создает высокую нагрузку на сервера или нарушает пользовательское соглашение. Использование сторонних IP-адресов снижает риски, но не гарантирует полную безопасность.</p>
+</details>
+<details>
+<summary>Какой язык программирования лучше для парсинга Ozon?</summary>
+<p>Наиболее популярным и эффективным языком является Python благодаря библиотекам Selenium, Playwright и Scrapy. Однако для простых задач можно использовать JavaScript (Node.js) или даже специализированные no-code инструменты.</p>
+</details>
+<details>
+<summary>Нужно ли платить за использование API Ozon?</summary>
+<p>Использование API для продавцов бесплатно. Однако вам потребуется собственная инфраструктура (сервер, домен, прокси) для размещения и запуска ваших скриптов, что может повлечь расходы.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-znachit-ozon-v-vode.html" class="pb-related-card">
+                <span class="pb-related-title">Озон в воде: что это значит и как влияет на здоровье?</span>
+                <span class="pb-related-desc">Разбираемся, что такое озон в воде, его польза и вред, как проверить содержание и очистить воду от и</span>
+            </a><a href="/articles/g/gr/gruppa-ozon-otkuda-oni.html" class="pb-related-card">
+                <span class="pb-related-title">Группа Озон: откуда они и как стали лидером рынка в России</span>
+                <span class="pb-related-desc">Узнайте историю создания группы компаний Озон: от первых шагов до лидерства на рынке e-commerce. Кто</span>
+            </a><a href="/articles/c/ch/chto-luchshe-ozon-ili-valdberies.html" class="pb-related-card">
+                <span class="pb-related-title">Озон или Вайлдберриз: что лучше для покупок и продаж в 2026 году</span>
+                <span class="pb-related-desc">Подробное сравнение Ozon и Wildberries. Анализ комиссий, логистики и условий для селлеров. Узнайте, </span>
+            </a><a href="/articles/k/ka/kak-ustroitsya-v-ofis-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как устроиться в офис Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Все способы трудоустройства в Ozon: вакансии, требования, этапы отбора и советы для успешного собесе</span>
+            </a><a href="/articles/k/ka/kak-zabirat-zakaz-iz-ozon-boks.html" class="pb-related-card">
+                <span class="pb-related-title">Как забирать заказ из Ozon Box: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полная инструкция, как забирать заказ из Озон Бокс 24/7. Коды, сроки хранения, правила получения пос</span>
+            </a><a href="/articles/k/ka/kakie-uslugi-okazyvaet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие услуги оказывает Ozon: полный гид для покупателей и продавцов</span>
+                <span class="pb-related-desc">Подробный обзор экосистемы Ozon: от FBO и FBS до Ozon Банка и рекламы. Узнайте, какие услуги доступн</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

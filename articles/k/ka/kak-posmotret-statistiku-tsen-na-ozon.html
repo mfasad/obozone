@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как посмотреть статистику цен на Ozon: 5 способов для продавцов и покупателей — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция по анализу цен на Ozon: официальные инструменты, парсеры, Excel-шаблоны и лайфхаки для мониторинга динамики стоимости товаров. Актуально на 2026 год.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-posmotret-statistiku-tsen-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как посмотреть статистику цен на Ozon: 5 способов для продавцов и покупателей">
+    <meta property="og:description" content="Пошаговая инструкция по анализу цен на Ozon: официальные инструменты, парсеры, Excel-шаблоны и лайфхаки для мониторинга динамики стоимости товаров. Актуально на 2026 год.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как посмотреть статистику цен на Ozon: 5 способов для продавцов и покупателей</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-официальная-статистика-цен-в-личном-кабинете-ozon-seller">1. Официальная статистика цен в личном кабинете Ozon Seller</a></li><li><a href="#2-парсеры-и-сервисы-для-мониторинга-цен-конкурентов">2. Парсеры и сервисы для мониторинга цен конкурентов</a></li><li><a href="#3-ручное-отслеживание-цен-через-excel-и-google-таблицы">3. Ручное отслеживание цен через Excel и Google Таблицы</a></li><li><a href="#4-как-покупателю-отследить-историю-цен-на-ozon">4. Как покупателю отследить историю цен на Ozon</a></li><li><a href="#5-api-ozon-для-автоматизированного-сбора-данных">5. API Ozon для автоматизированного сбора данных</a></li><li><a href="#6-анализ-цен-через-ozon-travel-и-акционные-механики">6. Анализ цен через Ozon Travel и акционные механики</a></li><li><a href="#7-скрытые-фишки-как-увидеть-цены-удалённых-товаров">7. Скрытые фишки: как увидеть цены удалённых товаров</a></li><li><a href="#faq-частые-вопросы-о-статистике-цен-на-ozon">FAQ: Частые вопросы о статистике цен на Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-stat-v-moem-naloge-partnerom-ozon-job.html">Партнер Озон Джоб: как стать агентом по найму</a></li><li><a href="/articles/k/ka/kak-rabotat-na-ozon-dzhob.html">Как работать на Ozon Job: поиск подработки и вакансии</a></li><li><a href="/articles/o/ot/otchet-ob-ispolnenii-poruchenij-ozon-kak-provesti-v-1s.html">Отчет об исполнении поручений Ozon в 1С: Пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-postavlyat-produkty-na-ozon.html">Как поставлять продукты на Ozon: инструкция для поставщиков</a></li><li><a href="/articles/k/ka/kak-pravilno-chitat-otchet-o-realizatsii-ozon.html">Как читать отчет о реализации на Ozon: подробный гайд 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как посмотреть статистику цен на Ozon: официальные и скрытые методы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-официальная-статистика-цен-в-личном-кабинете-ozon-seller">1. Официальная статистика цен в личном кабинете Ozon Seller</a></li><li><a href="#2-парсеры-и-сервисы-для-мониторинга-цен-конкурентов">2. Парсеры и сервисы для мониторинга цен конкурентов</a></li><li><a href="#3-ручное-отслеживание-цен-через-excel-и-google-таблицы">3. Ручное отслеживание цен через Excel и Google Таблицы</a></li><li><a href="#4-как-покупателю-отследить-историю-цен-на-ozon">4. Как покупателю отследить историю цен на Ozon</a></li><li><a href="#5-api-ozon-для-автоматизированного-сбора-данных">5. API Ozon для автоматизированного сбора данных</a></li><li><a href="#6-анализ-цен-через-ozon-travel-и-акционные-механики">6. Анализ цен через Ozon Travel и акционные механики</a></li><li><a href="#7-скрытые-фишки-как-увидеть-цены-удалённых-товаров">7. Скрытые фишки: как увидеть цены удалённых товаров</a></li><li><a href="#faq-частые-вопросы-о-статистике-цен-на-ozon">FAQ: Частые вопросы о статистике цен на Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Анализ цен на <em>Ozon</em> — ключевой навык как для продавцов, так и для покупателей. Продавцы следят за динамикой, чтобы корректировать свою ценовую стратегию и не терять конкурентоспособность, а покупатели ищут лучшие моменты для покупок по минимальным ценам. Но где взять эти данные? Официальные инструменты маркетплейса дают лишь часть информации, а для глубокого анализа требуются дополнительные сервисы и приёмы.</p>
+
+<p>В этой статье разберём <strong>все доступные способы</strong> — от встроенных отчётов в личном кабинете <em>Ozon Seller</em> до сторонних парсеров и ручных методов сбора данных. Особое внимание уделим <strong>бесплатным инструментам</strong>, которые работают без подписок, и раскроем нюансы, о которых молчат даже опытные продавцы. Например, как отследить цены конкурентов по конкретному <code>SKU</code> или выгрузить историю изменений за последний год.</p>
+
+<p>Если вы покупатель, вас ждёт раздел о том, как использовать <em>Ozon Travel</em> и <em>Ozon Карту</em> для отслеживания скидок, а если продавец — узнаете, как автоматизировать мониторинг через <code>API</code> и <em>Google Таблицы</em>. Начнём с самого простого — официальных инструментов маркетплейса.
+
+<h2 id="1-официальная-статистика-цен-в-личном-кабинете-ozon-seller">1. Официальная статистика цен в личном кабинете Ozon Seller</h2>
+
+<p>Для продавцов основной источник данных — раздел <strong>«Аналитика»</strong> в личном кабинете <em>Ozon Seller</em>. Здесь доступны отчёты по ценам, но с важными ограничениями. Например, вы увидите динамику <strong>своих</strong> товаров, но не конкурентов. Чтобы открыть статистику:
+
+<p>
+<ol>
+  <li>Авторизуйтесь на <a href="https://seller.ozon.ru" target="_blank" rel="nofollow">seller.ozon.ru</a>.</li>
+  <li>Перейдите в <code>Аналитика → Отчёты → Цены и скидки</code>.</li>
+  <li>Выберите период (максимум — 90 дней).</li>
+  <li>Отфильтруйте по категориям или конкретным <code>SKU</code>.</li>
+</ol>
+
+<p>В отчёте отобразятся:
+<ul>
+  <li>📊 <strong>Средняя цена</strong> по вашему товару за период.</li>
+  <li>📉 <strong>Минимальная и максимальная цена</strong> (полезно для анализа акций).</li>
+  <li>🛒 <strong>Цена конкурентов</strong> — но только если они продают идентичный товар по тому же <code>SKU</code>.</li>
+  <li>💰 <strong>Рекомендуемая цена</strong> от <em>Ozon</em> (алгоритм учитывает спрос и предложение).</li>
+</ul>
+
+<p>⚠️ <blockquote><strong>Внимание:</strong> Данные обновляются с задержкой до 24 часов. Если вы изменили цену сегодня, в отчёте это отразится только завтра. Также <em>Ozon</em> не показывает историю цен конкурентов по товарам, которых нет в вашем ассортименте.</blockquote>
+
+<p><aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Скачивайте отчёты в <code>Excel</code> через кнопку «Экспорт» — так удобнее строить графики в <em>Google Sheets</em> или <em>Power BI</em>.</p></aside>
+
+<h2 id="2-парсеры-и-сервисы-для-мониторинга-цен-конкурентов">2. Парсеры и сервисы для мониторинга цен конкурентов</h2>
+
+<p>Официальные отчёты <em>Ozon</em> не дают полной картины, особенно если нужно отслеживать цены по товарам, которых у вас нет в продаже. Здесь помогут сторонние сервисы:
+
+<p><strong>Топ-5 инструментов для парсинга цен на <em>Ozon</strong>:</strong>
+<ul>
+  <li>🔍 <strong>PriceMonitor</em> — отслеживает цены по <code>SKU</code> или ключевым словам, есть бесплатный тариф на 10 товаров.</li>
+  <li>📈 <strong>Ozon Parser</em> (от <em>TopParser</em>) — выгружает историю цен за год, интегрируется с <em>Google Таблицами</strong>.</li>
+  <li>🤖 <strong>Zennoposter</strong> — для продвинутых пользователей (требует настройки скриптов).</li>
+  <li>📊 <strong>Data360</strong> — анализирует не только цены, но и отзывы, рейтинг конкурентов.</li>
+  <li>💰 <strong>Pricer24</strong> — платный сервис с пробным периодом, подходит для крупных продавцов.</li>
+</ul>
+
+<p>Пример работы с <strong>Ozon Parser</em>:
+<ol>
+  <li>Установите расширение для <em>Chrome</em>.</li>
+  <li>Введите <code>SKU</code> или ссылку на товар (например, <code>https://ozon.ru/product/abc123</code>).</li>
+  <li>Запустите сбор данных — сервис покажет график цен за выбранный период.</li>
+</ol>
+
+<p><details class="pb-accordion"><summary>Как обойти блокировку парсеров?</summary><div class="pb-accordion-body"><p>Ozon активно блокирует автоматизированные запросы. Чтобы избежать бана, используйте прокси (например, <em>Luminati</em>) и имитируйте поведение реального пользователя: случайные задержки между запросами (3-5 секунд), клики по элементам страницы.</p></div></details>
+
+<p><div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Сервис</th>
+      <th>Бесплатный тариф</th>
+      <th>Макс. период истории</th>
+      <th>Экспорт данных</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PriceMonitor</td>
+      <td>10 товаров</td>
+      <td>3 месяца</td>
+      <td>CSV, Excel</td>
+    </tr>
+    <tr>
+      <td>Ozon Parser</td>
+      <td>30 запросов/день</td>
+      <td>1 год</td>
+      <td>Google Sheets</td>
+    </tr>
+    <tr>
+      <td>Data360</td>
+      <td>Нет</td>
+      <td>2 года</td>
+      <td>API, Excel</td>
+    </tr>
+    <tr>
+      <td>Pricer24</td>
+      <td>7 дней триала</td>
+      <td>6 месяцев</td>
+      <td>CSV, JSON</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><div class="pb-poll" id="poll-9a7d33fe"><div class="pb-poll-question">📊 Какой инструмент вы используете для мониторинга цен?</div><div class="pb-poll-option" data-poll="9a7d33fe" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Официальная аналитика Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9a7d33fe" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние парсеры</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9a7d33fe" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel + ручной сбор</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9a7d33fe" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не отслеживаю цены</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-ручное-отслеживание-цен-через-excel-и-google-таблицы">3. Ручное отслеживание цен через Excel и Google Таблицы</h2>
+
+<p>Если вам нужно отслеживать цены по 5-10 товарам, можно обойтись без парсеров. Достаточно <em>Google Таблиц</em> и функции <code>IMPORTXML</code>. Вот пошаговая инструкция:
+
+<p>
+<ol>
+  <li>Создайте таблицу с колонками: <code>Дата | SKU | Цена | Ссылка</code>.</li>
+  <li>В ячейку с ценой введите формулу:
+    <pre><code>=IMPORTXML("https://ozon.ru/product/ваш-sku"; "//span[@class='tsBody500 medium']")</code></pre>
+    <em>Обратите внимание:</em> <em>Ozon</em> часто меняет классы элементов, поэтому формулу может потребоваться обновлять.</li>
+  <li>Добавьте триггер (через <code>Скрипты → Редактор скриптов</code>), чтобы данные обновлялись раз в день.</li>
+</ol>
+
+<p>
+<p>Добавить формулу IMPORTXML для каждого товара|</p>
+<p>Создать скрипт с триггером на ежедневное обновление|</p>
+<p>Проверить корректность парсинга (иногда Ozon блокирует запросы)|</p>
+<p>Настроить уведомления при изменении цены на 10% и более--></p>
+
+<p>⚠️ <blockquote><strong>Внимание:</strong> <em>Ozon</em> может заблокировать ваш IP, если слишком часто отправлять запросы. Ограничьтесь 1-2 обновлениями в день и используйте прокси при работе с большим количеством товаров.</blockquote>
+
+<p><mark>Критический нюанс: функция IMPORTXML перестаёт работать, если Ozon меняет структуру страницы. Альтернатива — использовать API сервисов вроде <em>RapidAPI</em> с готовыми коннекторами для <em>Ozon</em>.</mark>
+
+<h2 id="4-как-покупателю-отследить-историю-цен-на-ozon">4. Как покупателю отследить историю цен на Ozon</h2>
+
+<p>Покупателям сложнее — <em>Ozon</em> не предоставляет инструменты для анализа цен, но есть обходные пути:
+
+<p><strong>Способы для покупателей:</strong>
+<ul>
+  <li>📱 <strong>Мобильное приложение <em>Ozon</strong></strong> — в карточке товара иногда отображается график цен за последние 30 дней (не для всех категорий).</li>
+  <li>🛒 <strong><em>Ozon Карта</strong> + кэшбэк</em> — при покупке по карте вы получаете уведомления о снижении цены на купленные товары (до 90 дней).</li>
+  <li>🔔 <strong>Уведомления о снижении цены</em> — нажмите на колокольчик в карточке товара, чтобы получать оповещения.</li>
+  <li>🌐 <strong>Сервисы вроде <em>Keepa</strong> или <em>CamelCamelCamel</em></em> — хоть они и заточены под <em>Amazon</em>, некоторые поддерживают <em>Ozon</em> через расширения.</li>
+</ul>
+
+<p>Пример: если вы добавили товар в <strong>«Избранное»</strong>, <em>Ozon</em> может прислать push-уведомление о снижении цены. Однако это работает нестабильно — алгоритм маркетплейса решает, кому показывать такие оповещения.
+
+<p><aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Самый надёжный способ для покупателя — использовать <em>Ozon Карту</em> и включать уведомления о снижении цен. Это не даст полную историю, но поможет не пропустить акции.</p></aside>
+
+<h2 id="5-api-ozon-для-автоматизированного-сбора-данных">5. API Ozon для автоматизированного сбора данных</h2>
+
+<p>Для продавцов с техническими навыками оптимальный вариант — работа через <strong><code>API Ozon</code></strong>. Это позволяет выгружать данные о ценах в реальном времени и строить собственные дашборды.
+
+<p><strong>Как подключиться к API:</strong>
+<ol>
+  <li>Получите <code>Client-ID</code> и <code>API-Key</code> в личном кабинете <em>Ozon Seller</em> (<code>Настройки → API</code>).</li>
+  <li>Используйте эндпоинт <code>/v2/product/info</code> для получения текущих цен или <code>/v1/analytics/data</code> для исторических данных.</li>
+  <li>Обработайте ответ в формате <code>JSON</code> (пример ниже).
+</ol>
+
+<p>Пример запроса на <code>Python</code>:
+<pre><code>import requests
+
+<p>url = "https://api-seller.ozon.ru/v2/product/info"</p>
+<p>headers = {</p>
+<p>"Client-Id": "ваш_client_id",</p>
+<p>"Api-Key": "ваш_api_key"</p>
+<p>}</p>
+<p>params = {</p>
+<p>"product_id": 12345678,  # SKU товара</p>
+<p>"offer_id": "offer123"</p>
+<p>}</p>
+
+<p>response = requests.get(url, headers=headers, params=params)</p>
+<p>print(response.json())</code></pre></p>
+
+<p>В ответе вы получите текущую цену, скидки и наличие товара. Для истории цен нужен отдельный запрос к эндпоинту аналитики.
+
+<p>⚠️ <blockquote><strong>Внимание:</strong> <em>Ozon</em> ограничивает количество запросов к API — 1000 в час для стандартного тарифа. Превышение лимита ведёт к временной блокировке. Используйте кэширование данных.</blockquote>
+
+<h2 id="6-анализ-цен-через-ozon-travel-и-акционные-механики">6. Анализ цен через Ozon Travel и акционные механики</h2>
+
+<p>Мало кто знает, но <strong><em>Ozon Travel</em></em> (сервис для бронирования отелей и билетов) косвенно помогает анализировать ценовые тренды. Дело в том, что алгоритмы <em>Ozon</em> учитывают сезонность при формировании рекомендуемых цен. Например:
+
+<ul>
+  <li>🎄 <strong>Новогодние товары</strong> — цены растут с октября, пик в декабре.</li>
+  <li>🏖️ <strong>Летние категории</strong> (велосипеды, купальники) — дешевеют к августу.</li>
+  <li>🎒 <strong>Школьные товары</strong> — максимальные цены в июле-августе.</li>
+</ul>
+
+<p>Как использовать эту информацию:
+<ol>
+  <li>Откройте <a href="https://travel.ozon.ru" target="_blank" rel="nofollow">Ozon Travel</a> и посмотрите пиковые даты бронирований (они коррелируют с ростом цен на сопутствующие товары).</li>
+  <li>Сравните с графиками цен в вашей категории — если видите аналогичную динамику, готовьтесь к изменению цен заранее.</li>
+</ol>
+
+<p><aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте <em>Google Trends</em> для анализа сезонности. Например, запрос «купить лыжи» растёт в ноябре — значит, цены на них тоже будут повышаться.</p></aside>
+
+<h2 id="7-скрытые-фишки-как-увидеть-цены-удалённых-товаров">7. Скрытые фишки: как увидеть цены удалённых товаров</h2>
+
+<p>Иногда нужно проанализировать цены на товары, которые уже сняты с продажи. Официальные инструменты <em>Ozon</em> этого не позволяют, но есть обходные пути:
+
+<p><strong>Методы восстановления исторических данных:</strong>
+<ul>
+  <li>🔄 <strong>Архив страниц</strong> — используйте <a href="https://web.archive.org" target="_blank" rel="nofollow">Wayback Machine</a>, чтобы найти сохранённые версии карточек товаров.</li>
+  <li>📧 <strong>Письма от <em>Ozon</strong></em> — если товар был в заказах, проверьте старые уведомления о покупках (там указывалась цена).</li>
+  <li>📊 <strong>Скриншоты</em> — если вы вели мониторинг ранее, поищите сохранённые графики в <em>Google Диске</em> или на компьютере.</li>
+</ul>
+
+<p>Пример: введите в <em>Wayback Machine</em> ссылку на товар (например, <code>https://ozon.ru/product/old-sku-123</code>) и выберите дату, когда товар был в продаже. Система покажет сохранённую версию страницы с ценой.
+
+<p><aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Данные из архивов не всегда точные — <em>Ozon</em> может блокировать сохранение динамического контента. Но это единственный способ увидеть цены на удалённые товары.</p></aside>
+
+<h2 id="faq-частые-вопросы-о-статистике-цен-на-ozon">FAQ: Частые вопросы о статистике цен на Ozon</h2>
+
+<details>
+  <summary>Можно ли увидеть цены конкурентов по моему товару, если у них другой SKU?</summary>
+  <p>Нет, <em>Ozon</em> показывает цены конкурентов только если они продают товар с тем же <code>SKU</code>. Для анализа конкурентов с другими артикулами используйте парсеры или ручной мониторинг.</p>
+</details>
+
+<details>
+  <summary>Как часто обновляются данные в отчётах Ozon Seller?</summary>
+  <p>Статистика цен обновляется раз в сутки, обычно утром по московскому времени. Реальные изменения цен могут отображаться с задержкой до 24 часов.</p>
+</details>
+
+<details>
+  <summary>Можно ли экспортировать историю цен за год?</summary>
+  <p>Официальный экспорт из <em>Ozon Seller</em> ограничен 90 днями. Для более длинных периодов используйте сторонние сервисы вроде <em>Ozon Parser</em> или <em>Data360</em>.</p>
+</details>
+
+<details>
+  <summary>Что делать, если парсер перестал работать?</summary>
+  <p>Скорее всего, <em>Ozon</em> изменил структуру страницы. Обновите селекторы в парсере или свяжитесь с поддержкой сервиса. Альтернатива — перейти на API.</p>
+</details>
+
+<details>
+  <summary>Как отследить цены на Ozon без регистрации?</summary>
+  <p>Без регистрации доступны только текущие цены на сайте. Для истории используйте архивы страниц (<em>Wayback Machine</em>) или расширения для браузера (например, <em>PriceTracker</em>).</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-stat-v-moem-naloge-partnerom-ozon-job.html" class="pb-related-card">
+                <span class="pb-related-title">Партнер Озон Джоб: как стать агентом по найму</span>
+                <span class="pb-related-desc">Полная инструкция: как стать партнером Ozon Job в личном кабинете. Требования к агентам, схема работ</span>
+            </a><a href="/articles/k/ka/kak-rabotat-na-ozon-dzhob.html" class="pb-related-card">
+                <span class="pb-related-title">Как работать на Ozon Job: поиск подработки и вакансии</span>
+                <span class="pb-related-desc">Полный гид по сервису Ozon Job. Как найти подработку, вакансии курьера, сборщика или продавца, услов</span>
+            </a><a href="/articles/o/ot/otchet-ob-ispolnenii-poruchenij-ozon-kak-provesti-v-1s.html" class="pb-related-card">
+                <span class="pb-related-title">Отчет об исполнении поручений Ozon в 1С: Пошаговая инструкция</span>
+                <span class="pb-related-desc">Как правильно провести отчет об исполнении поручений Озон в 1С. Настройка обмена, обработка статусов</span>
+            </a><a href="/articles/k/ka/kak-postavlyat-produkty-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как поставлять продукты на Ozon: инструкция для поставщиков</span>
+                <span class="pb-related-desc">Полное руководство по поставкам продуктов питания на Ozon. Требования к упаковке, сертификация, схем</span>
+            </a><a href="/articles/k/ka/kak-pravilno-chitat-otchet-o-realizatsii-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как читать отчет о реализации на Ozon: подробный гайд 2026</span>
+                <span class="pb-related-desc">Разбираем структуру отчета о реализации на Ozon: что означают ключевые показатели, как анализировать</span>
+            </a><a href="/articles/k/ka/kakie-zakryvayushchie-dokumenty-predostavlyaet-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Закрывающие документы Озон: какие нужны и как получить</span>
+                <span class="pb-related-desc">Полный гид по закрывающим документам Ozon. Узнайте, какие формы (УПД, акты) предоставляет маркетплей</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Озон считает медиану цены: алгоритм и секреты 2026 — Об Озоне</title>
+    <meta name="description" content="Разбираемся, как Ozon рассчитывает медианную цену для товаров, почему она важна для продавцов и как влияет на позиции в поиске. Пошаговый разбор с примерами и лайфхаками.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-ozon-schitaet-medianu-tseny.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Озон считает медиану цены: алгоритм и секреты 2026">
+    <meta property="og:description" content="Разбираемся, как Ozon рассчитывает медианную цену для товаров, почему она важна для продавцов и как влияет на позиции в поиске. Пошаговый разбор с примерами и лайфхаками.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Озон считает медиану цены: алгоритм и секреты 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#почему-медиана-цены-на-озоне-ключевой-показатель-для-продавцов">Почему медиана цены на Озоне — ключевой показатель для продавцов</a></li><li><a href="#что-такое-медиана-цены-и-чем-она-отличается-от-средней">Что такое медиана цены и чем она отличается от средней</a></li><li><a href="#как-озон-рассчитывает-медиану-цены-официальный-алгоритм">Как Озон рассчитывает медиану цены: официальный алгоритм</a></li><li><a href="#где-продавцы-видят-медиану-цены-на-озоне">Где продавцы видят медиану цены на Озоне</a></li><li><a href="#как-медиана-цены-влияет-на-продажи-5-ключевых-эффектов">Как медиана цены влияет на продажи: 5 ключевых эффектов</a></li><li><a href="#как-работать-с-медианой-цены-стратегии-для-продавцов">Как работать с медианой цены: стратегии для продавцов</a></li><li><a href="#частые-ошибки-продавцов-при-работе-с-медианой-цены">Частые ошибки продавцов при работе с медианой цены</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-медиане-цены-на-озоне">FAQ: Ответы на частые вопросы о медиане цены на Озоне</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vozmeshchaetsya-nds-na-ozone.html">Возмещение НДС на Ozon: инструкция для селлеров в 2026 году</a></li><li><a href="/articles/c/ch/chto-takoe-vrts-u-ozona.html">ВРЦ у Озона: что это, как работает и зачем нужен в 2026 году</a></li><li><a href="/articles/k/ka/kak-analizirovat-tovary-na-ozon.html">Анализ товаров на Озон: полный гайд для продавцов 2026</a></li><li><a href="/articles/k/ka/kak-rasschitat-pribyl-tovara-na-ozon.html">Как рассчитать прибыль товара на Ozon: формулы и примеры</a></li><li><a href="/articles/k/ka/kak-zaregistrirovatsya-na-ozon-kak-samozanyatyj.html">Регистрация на Озон как самозанятый в 2026: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Медиана цены на Озоне: как рассчитывается и почему это важно для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#почему-медиана-цены-на-озоне-ключевой-показатель-для-продавцов">Почему медиана цены на Озоне — ключевой показатель для продавцов</a></li><li><a href="#что-такое-медиана-цены-и-чем-она-отличается-от-средней">Что такое медиана цены и чем она отличается от средней</a></li><li><a href="#как-озон-рассчитывает-медиану-цены-официальный-алгоритм">Как Озон рассчитывает медиану цены: официальный алгоритм</a></li><li><a href="#где-продавцы-видят-медиану-цены-на-озоне">Где продавцы видят медиану цены на Озоне</a></li><li><a href="#как-медиана-цены-влияет-на-продажи-5-ключевых-эффектов">Как медиана цены влияет на продажи: 5 ключевых эффектов</a></li><li><a href="#как-работать-с-медианой-цены-стратегии-для-продавцов">Как работать с медианой цены: стратегии для продавцов</a></li><li><a href="#частые-ошибки-продавцов-при-работе-с-медианой-цены">Частые ошибки продавцов при работе с медианой цены</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-медиане-цены-на-озоне">FAQ: Ответы на частые вопросы о медиане цены на Озоне</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><h2 id="почему-медиана-цены-на-озоне-ключевой-показатель-для-продавцов">Почему медиана цены на Озоне — ключевой показатель для продавцов</h2>
+
+<p>Если вы продаёте на <em>Ozon</em>, то наверняка сталкивались с термином <strong>«медиана цены»</strong> — загадочным числом, от которого зависят ваши позиции в поиске, участие в акциях и даже штрафы за завышение стоимости. Но как именно маркетплейс рассчитывает этот показатель? Почему у двух одинаковых товаров медиана может отличаться в разы? И главное — как её использовать, чтобы увеличить продажи?</p>
+
+<p>В этой статье мы <strong>разберём алгоритм расчёта медианы цены на Озоне</strong> по официальным данным и опыту топовых продавцов, покажем реальные примеры с цифрами, а также дадим практические советы, как работать с этим показателем. Вы узнаете, почему медиана — это не просто «средняя цена», а сложный динамический индикатор, который маркетплейс обновляет ежедневно.</p>
+
+<p>Спойлер: медиана цены напрямую влияет на:</p>
+<ul>
+  <li>📈 <strong>Позиции в поиске</strong> — товары с ценой ниже медианы часто ранжируются выше.</li>
+  <li>🎯 <strong>Участие в акциях</strong> — Озон блокирует завышенные цены перед скидками.</li>
+  <li>⚠️ <strong>Штрафы за недобросовестное ценообразование</strong> — если ваша цена резко выросла перед акцией.</li>
+  <li>🛒 <strong>Конверсию</strong> — покупатели видят, насколько ваша цена выгоднее «рыночной».</li>
+</ul>
+
+<h2 id="что-такое-медиана-цены-и-чем-она-отличается-от-средней">Что такое медиана цены и чем она отличается от средней</h2>
+
+<p>Многие продавцы путают <strong>медиану</strong> и <strong>среднюю цену</strong>, но это принципиально разные понятия. Средняя цена — это сумма всех цен на аналогичные товары, делённая на их количество. А медиана — это цена «середины рынка», которая делит все предложения на две равные части: 50% товаров дешевле неё, и 50% — дороже.</p>
+
+<p>Например, если на Озоне продаётся 100 смартфонов <em>Xiaomi Redmi Note 12</em> по таким ценам:</p>
+<ul>
+  <li>10 товаров — по 15 000 ₽</li>
+  <li>80 товаров — по 16 500 ₽</li>
+  <li>10 товаров — по 20 000 ₽</li>
+</ul>
+<p>То <strong>средняя цена</strong> будет ~16 800 ₽, а <strong>медиана</strong> — ровно 16 500 ₽. Почему? Потому что 50-й и 51-й по порядку товары (середина выборки) стоят именно столько.</p>
+
+<p>Озон использует медиану, а не среднюю цену, потому что она:</p>
+<ul>
+  <li>🔹 <strong>Устойчива к выбросам</strong> — не искажается из-за нескольких завышенных или заниженных цен.</li>
+  <li>🔹 <strong>Отражает реальный спрос</strong> — показывает, по какой цене продаётся большинство товаров.</li>
+  <li>🔹 <strong>Сложнее манипулировать</strong> — нельзя искусственно «поднять» медиану парой дорогих предложений.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Озон обновляет медиану цены <strong>ежедневно</strong>, но для расчётов использует данные за последние <em>30 дней</em>. Это значит, что резкое изменение цены сегодня повлияет на медиану только через месяц.</blockquote>
+
+<div class="pb-poll" id="poll-36f33fcd"><div class="pb-poll-question">📊 Как вы обычно устанавливаете цену на товар?</div><div class="pb-poll-option" data-poll="36f33fcd" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ориентируюсь на медиану Озона</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="36f33fcd" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Смотрю на конкурентов вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="36f33fcd" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую автоматические сервисы репрайсинга</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="36f33fcd" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ставлю цену «от сердца»</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="как-озон-рассчитывает-медиану-цены-официальный-алгоритм">Как Озон рассчитывает медиану цены: официальный алгоритм</h2>
+
+<p>Маркетплейс не раскрывает все детали алгоритма, но из документов для продавцов и тестов известно, что медиана цены формируется так:</p>
+
+<ol>
+  <li><strong>Отбор аналогичных товаров</strong> — Озон группирует предложения по <code>артикулу</code>, <code>бренду</code>, <code>модели</code> и ключевым характеристикам (например, для смартфонов — объём памяти, цвет).</li>
+  <li><strong>Фильтрация аномалий</strong> — исключаются цены, которые сильно выбиваются из общего ряда (например, 1 ₽ или 1 000 000 ₽ за один и тот же товар).</li>
+  <li><strong>Сортировка по цене</strong> — все оставшиеся предложения выстраиваются по возрастанию стоимости.</li>
+  <li><strong>Определение середины</strong> — если товаров нечётное количество, медиана = цена среднего предложения. Если чётное — среднее арифметическое двух центральных цен.</li>
+</ol>
+
+<p><mark>Критически важный нюанс: Озон учитывает не только текущие цены, но и исторические данные за 30 дней.</mark> Это значит, что если вы резко подняли цену перед акцией, маркетплейс сравнит её с вашей же историей и может заблокировать участие в промо.</p>
+
+<p>Пример расчёта медианы для <em>наушников Sony WH-1000XM5</em> (упрощённо):</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Продавец</th>
+      <th>Текущая цена, ₽</th>
+      <th>Средняя цена за 30 дней, ₽</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Продавец A</td>
+      <td>22 000</td>
+      <td>21 500</td>
+    </tr>
+    <tr>
+      <td>Продавец B</td>
+      <td>23 000</td>
+      <td>22 800</td>
+    </tr>
+    <tr>
+      <td>Продавец C</td>
+      <td>21 500</td>
+      <td>21 000</td>
+    </tr>
+    <tr>
+      <td>Продавец D</td>
+      <td>24 000</td>
+      <td>23 500</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>После сортировки по средней цене за 30 дней медиана будет <strong>22 800 ₽</strong> (среднее между 21 500 и 23 500).</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Озон может игнорировать цены продавцов с низким рейтингом или подозрительной активностью при расчёте медианы.</p></aside>
+
+<h2 id="где-продавцы-видят-медиану-цены-на-озоне">Где продавцы видят медиану цены на Озоне</h2>
+
+<p>Медиану цены можно найти в нескольких разделах личного кабинета <em>Ozon Seller</em>:</p>
+
+<ol>
+  <li><strong>Карточка товара</strong> → вкладка «Аналитика» → блок «Цена и спрос». Здесь отображается текущая медиана и ваше отклонение от неё в процентах.</li>
+  <li><strong>Отчёты</strong> → «Цены и акции» → «Мониторинг цен». Здесь можно экспортировать данные по медиане за любой период.</li>
+  <li><strong>API Ozon</strong> — если вы используете автоматические сервисы репрайсинга (например, <em>Pricer24</em> или <em>Competera</em>), медиана передаётся в ответ на запрос <code>product info</code>.</li>
+</ol>
+
+<p>Также медиану можно увидеть в мобильном приложении <em>Ozon Seller</em> (раздел «Товары» → выберите продукт → «Аналитика»).</p>
+
+<p>Важно: если медиана не отображается, это может означать:</p>
+<ul>
+  <li>🔴 На товар слишком мало предложений (менее 5–10 продавцов).</li>
+  <li>🔴 Ваш товар не привязан к правильной карточке (ошибка в артикуле или характеристиках).</li>
+  <li>🔴 Озон ещё не успела рассчитать медиану (актуально для новых товаров).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если медиана цены резко изменилась без видимых причин, проверьте, не появилось ли на рынке много новых продавцов с демпинговыми ценами (например, после распродажи остатков у дистрибьютора).</p></aside>
+
+<h2 id="как-медиана-цены-влияет-на-продажи-5-ключевых-эффектов">Как медиана цены влияет на продажи: 5 ключевых эффектов</h2>
+
+<p>Медиана цены — это не просто цифра в отчёте. Она напрямую влияет на видимость вашего товара и прибыль. Разберём основные последствия:</p>
+
+<h3>1. Ранжирование в поиске и категориях</h3>
+<p>Озон использует медиану как один из факторов ранжирования. Товары с ценой <strong>ниже медианы на 5–15%</strong> часто получают приоритет в выдаче, особенно если у них высокий рейтинг и хорошие отзывы. Однако слишком низкая цена (более чем на 30% ниже медианы) может сработать против вас — маркетплейс посчитает её подозрительной.</p>
+
+<h3>2. Участие в акциях и распродажах</h3>
+<p>Перед запуском любой акции (например, «Чёрная пятница» или «День рождения Озона») маркетплейс проверяет историю цен продавцов. Если ваша текущая цена <strong>выше медианы за последние 30 дней</strong>, вас могут <strong>исключить из акции</strong> или принудительно снизить цену до медианного уровня.</p>
+
+<h3>3. Штрафы за недобросовестное ценообразование</h3>
+<p>Если Озон заметит, что вы резко подняли цену перед акцией, а затем объявили «скидку» до медианного уровня, это расценивается как обман покупателей. За такое могут:</p>
+<ul>
+  <li>❌ Заблокировать участие в акциях на 3–6 месяцев.</li>
+  <li>❌ Понизить позиции в поиске.</li>
+  <li>❌ Наложить штраф в виде комиссии до 15% от продаж.</li>
+</ul>
+
+<h3>4. Восприятие покупателями</h3>
+<p>На карточке товара Озон показывает, насколько ваша цена отличается от «рыночной» (т.е. медианы). Например, если у вас цена 18 000 ₽, а медиана — 20 000 ₽, покупатель увидит надпись «<strong>Выгоднее на 10%</strong>». Это увеличивает конверсию на 20–40% по данным продавцов.</p>
+
+<h3>5. Автоматическое ценообразование (репрайсинг)</h3>
+<p>Многие продавцы используют сервисы автоматического изменения цен (например, <em>Pricer24</em> или <em>PriceVA</em>). Эти инструменты часто настраиваются на отслеживание медианы с отклонением в ±5–10%. Например, можно настроить правило: «Всегда держать цену на 8% ниже медианы, но не ниже 15 000 ₽».</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваша цена стабильно ниже медианы на 20% и более, Озон может заподозрить демпинг и запросить документы о себестоимости товара. Будьте готовы подтвердить легальность такой цены.</blockquote>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка цены перед акцией</h4><label class="check-item"><input type="checkbox"><span>Сравнить текущую цену с медианой за 30 дней</span></label><label class="check-item"><input type="checkbox"><span>Убедиться, что отклонение не превышает ±15%</span></label><label class="check-item"><input type="checkbox"><span>Проверить историю изменений цены в отчётах</span></label><label class="check-item"><input type="checkbox"><span>Настроить автоматический репрайсинг (если используете)</span></label><label class="check-item"><input type="checkbox"><span>Подготовить документы о себестоимости (на случай проверки)</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="как-работать-с-медианой-цены-стратегии-для-продавцов">Как работать с медианой цены: стратегии для продавцов</h2>
+
+<p>Теперь перейдём к практике. Вот <strong>5 проверенных стратегий</strong>, которые используют топовые продавцы на Озоне:</p>
+
+<h3>1. Держите цену на 5–15% ниже медианы</h3>
+<p>Это «золотая середина», которая даёт максимальную видимость без риска штрафов. Например, если медиана — 10 000 ₽, оптимальная цена — <strong>8 500–9 500 ₽</strong>. Так вы попадёте в топ поиска и избежите подозрений в демпинге.</p>
+
+<h3>2. Используйте «ступенчатое» снижение перед акциями</h3>
+<p>Чтобы избежать блокировки в акциях, не поднимайте цену резко. Лучше делать это заранее, небольшими шагами. Пример:</p>
+<ul>
+  <li>📅 За 30 дней до акции: цена = медиана.</li>
+  <li>📅 За 15 дней: +5% к медиане.</li>
+  <li>📅 За 7 дней: ещё +5%.</li>
+  <li>📅 В день акции: «скидка» до медианного уровня.</li>
+</ul>
+<p>Так Озон не заметит манипуляций.</p>
+
+<h3>3. Сегментируйте товары по медиане</h3>
+<p>Разделите ассортимент на три группы:</p>
+<ul>
+  <li>🟢 <strong>Лидеры продаж</strong> — цена на 10–15% ниже медианы (максимальная видимость).</li>
+  <li>🟡 <strong>Средний чек</strong> — цена около медианы (стабильный спрос).</li>
+  <li>🔴 <strong>Премиум</strong> — цена выше медианы на 10–20% (для лояльных клиентов).</li>
+</ul>
+
+<h3>4. Отслеживайте медиану конкурентов вручную</h3>
+<p>Иногда автоматических данных Озона недостаточно. Используйте сервисы вроде <em>Competera</em> или <em>PriceVA</em>, чтобы:</p>
+<ul>
+  <li>🔍 Видеть медиану не только по Озону, но и по другим маркетплейсам (<em>Wildberries</em>, <em>Яндекс Маркет</em>).</li>
+  <li>🔍 Анализировать динамику медианы по дням/неделям.</li>
+  <li>🔍 Настраивать уведомления о резких изменениях.</li>
+</ul>
+
+<h3>5. Проверяйте привязку товара к правильной карточке</h3>
+<p>Если медиана кажется неадекватно высокой или низкой, возможно, ваш товар привязан к неправильной карточке. Например, <em>iPhone 13 128GB</em> может быть прикреплён к карточке <em>iPhone 13 256GB</em>, из-за чего медиана будет завышена. Проверяйте это в разделе «Карточка товара» → «Характеристики».</p>
+
+<details class="pb-accordion"><summary>Как обмануть алгоритм медианы?</summary><div class="pb-accordion-body"><p>Некоторые продавцы пытаются «накачать» медиану, создавая подставные аккаунты с завышенными ценами. Однако Озон быстро detects такие схемы и блокирует всех участников. Риск не стоит потенциальной выгоды.</p></div></details>
+
+<h2 id="частые-ошибки-продавцов-при-работе-с-медианой-цены">Частые ошибки продавцов при работе с медианой цены</h2>
+
+<p>Даже опытные продавцы иногда допускают ошибки, которые ведут к потере позиций или штрафам. Вот <strong>TOP-5 промахов</strong> и как их избежать:</p>
+
+<h3>1. Резкое изменение цены перед акцией</h3>
+<p>Как мы уже говорили, Озон отслеживает историю цен за 30 дней. Если вы поднимете цену с 10 000 ₽ до 15 000 ₽ за неделю до «Чёрной пятницы», а затем объявите «скидку» до 12 000 ₽, маркетплейс посчитает это обманом и исключит вас из акции.</p>
+
+<h3>2. Игнорирование региональных медиан</h3>
+<p>Медиана цены может отличаться в разных регионах. Например, в Москве она выше, чем в регионах. Если вы продаёте по всей России, настройте разные цены для разных складов (это можно сделать в <code>Личном кабинете → Товары → Настройки цен по регионам</code>).</p>
+
+<h3>3. Демпинг без обоснования</h3>
+<p>Цена ниже медианы на 30% и более вызывает подозрения. Озон может запросить документы о себестоимости или даже заблокировать товар. Если вы действительно можете продавать так дёшево (например, за счёт оптовых закупок), заранее подготовьте подтверждающие документы.</p>
+
+<h3>4. Неучёт комиссии Озона</h3>
+<p>Медиана учитывает <strong>цену для покупателя</strong> (включая комиссию маркетплейса). Если вы ориентируетесь только на свою «чистую» цену, можете ошибиться. Например:</p>
+<ul>
+  <li>Ваша цена: 10 000 ₽.</li>
+  <li>Комиссия Озона (15%): 1 500 ₽.</li>
+  <li>Цена для покупателя: 11 500 ₽.</li>
+</ul>
+<p>Если медиана — 11 000 ₽, то ваш товар будет <strong>дороже рынка</strong>, хотя вам кажется, что дешевле.</p>
+
+<h3>5. Пренебрежение отзывами при ценообразовании</h3>
+<p>Медиана — не единственный фактор ранжирования. Если у вас цена на 10% ниже медианы, но рейтинг 3.5 (а у конкурентов — 4.8), вы всё равно будете ниже в поиске. Сочетание <strong>цена + рейтинг + отзывы</strong> даёт максимальный эффект.</p>
+
+<p>Пример из практики:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Продавец</th>
+      <th>Цена, ₽</th>
+      <th>Отклонение от медианы</th>
+      <th>Рейтинг</th>
+      <th>Позиция в поиске</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Продавец A</td>
+      <td>9 500</td>
+      <td>-5%</td>
+      <td>4.9</td>
+      <td>1–3</td>
+    </tr>
+    <tr>
+      <td>Продавец B</td>
+      <td>9 000</td>
+      <td>-10%</td>
+      <td>3.8</td>
+      <td>10–15</td>
+    </tr>
+    <tr>
+      <td>Продавец C</td>
+      <td>10 500</td>
+      <td>+5%</td>
+      <td>4.7</td>
+      <td>4–6</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Как видно, <strong>Продавец A</strong> с ценой близкой к медиане, но высоким рейтингом, занимает топовые позиции, несмотря на то, что <strong>Продавец B</strong> дешевле.</p>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-медиане-цены-на-озоне">FAQ: Ответы на частые вопросы о медиане цены на Озоне</h2>
+
+<details>
+  <summary>Можно ли искусственно завысить медиану, чтобы моя цена выглядела выгоднее?</summary>
+  <p>Технически — да, если договориться с другими продавцами. Но Озон активно борется с такими схемами: блокирует аккаунты, сбрасывает медиану до реального уровня и накладывает штрафы. Риск не оправдан.</p>
+</details>
+
+<details>
+  <summary>Что делать, если медиана цены резко упала из-за демпинга конкурентов?</summary>
+  <p>Варианты действий:</p>
+  <ol>
+    <li>Подождать 1–2 недели — часто демпинг краткосрочный (например, распродажа остатков).</li>
+    <li>Пожаловаться в поддержку Озона, если подозреваете недобросовестную конкуренцию.</li>
+    <li>Переориентироваться на другие товары с более стабильной медианой.</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Как медиана цены связана с программой «Топ продавцов»?</summary>
+  <p>Одно из требований программы «Топ продавцов» — <strong>цена не выше медианы</strong> для большинства товаров в ассортименте. Если вы постоянно завышаете цены, вас могут исключить из программы.</p>
+</details>
+
+<details>
+  <summary>Почему у меня не отображается медиана цены для товара?</summary>
+  <p>Возможные причины:</p>
+  <ul>
+    <li>На товар меньше 5–10 предложений от разных продавцов.</li>
+    <li>Ваш товар не привязан к правильной карточке (ошибка в артикуле).</li>
+    <li>Озон ещё не успела рассчитать медиану (актуально для новых товаров).</li>
+    <li>Ваш аккаунт находится под санкциями за нарушение правил.</li>
+  </ul>
+  <p>Проверьте привязку товара в разделе «Карточка товара» → «Характеристики».</p>
+</details>
+
+<details>
+  <summary>Как часто обновляется медиана цены?</summary>
+  <p>Озон пересчитывает медиану <strong>ежедневно</strong>, но учитывает данные за последние <strong>30 дней</strong>. Это значит, что резкие изменения цен сегодня повлияют на медиану только через месяц.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-vozmeshchaetsya-nds-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Возмещение НДС на Ozon: инструкция для селлеров в 2026 году</span>
+                <span class="pb-related-desc">Полный гид по возврату НДС на Ozon. Разбор ставок для разных схем работы, порядок выставления счетов</span>
+            </a><a href="/articles/c/ch/chto-takoe-vrts-u-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">ВРЦ у Озона: что это, как работает и зачем нужен в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое ВРЦ (внутренний регистрационный код) у Озона, как его найти, для чего использ</span>
+            </a><a href="/articles/k/ka/kak-analizirovat-tovary-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Анализ товаров на Озон: полный гайд для продавцов 2026</span>
+                <span class="pb-related-desc">Как правильно анализировать товары на Озон: инструменты, метрики и стратегии для увеличения продаж. </span>
+            </a><a href="/articles/k/ka/kak-rasschitat-pribyl-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать прибыль товара на Ozon: формулы и примеры</span>
+                <span class="pb-related-desc">Узнайте, как правильно рассчитать прибыль на Ozon с учетом всех комиссий, логистики и налогов. Подро</span>
+            </a><a href="/articles/k/ka/kak-zaregistrirovatsya-na-ozon-kak-samozanyatyj.html" class="pb-related-card">
+                <span class="pb-related-title">Регистрация на Озон как самозанятый в 2026: пошаговая инструкция</span>
+                <span class="pb-related-desc">Как самозанятому зарегистрироваться на Ozon: подробный гайд с требованиями, документами, пошаговой и</span>
+            </a><a href="/articles/o/oz/ozon-kak-dobavit-menedzhera.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить менеджера в Озон: пошаговая инструкция для продавцов</span>
+                <span class="pb-related-desc">Подробное руководство по добавлению менеджера в личный кабинет Озон: права доступа, шаги для FBO/FBS</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

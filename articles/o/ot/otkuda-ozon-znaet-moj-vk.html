@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Озон узнаёт ваш ВК: механизмы и безопасность данных — Об Озоне</title>
+    <meta name="description" content="Разбираемся, почему Озон может знать ваш профиль ВКонтакте: официальные интеграции, трекинг и как защитить личную информацию. Полный гайд для покупателей и продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/ot/otkuda-ozon-znaet-moj-vk.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Озон узнаёт ваш ВК: механизмы и безопасность данных">
+    <meta property="og:description" content="Разбираемся, почему Озон может знать ваш профиль ВКонтакте: официальные интеграции, трекинг и как защитить личную информацию. Полный гайд для покупателей и продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/bezopasnost/">Безопасность</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Озон узнаёт ваш ВК: механизмы и безопасность данных</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-официальная-авторизация-через-вконтакте-что-именно-передаётся-озону">1. Официальная авторизация через ВКонтакте: что именно передаётся Озону</a></li><li><a href="#2-трекеры-и-пиксели-как-озон-отслеживает-вашу-активность-вне-сайта">2. Трекеры и пиксели: как Озон отслеживает вашу активность вне сайта</a></li><li><a href="#3-утечки-данных-когда-озон-узнаёт-ваш-вк-без-вашего-ведома">3. Утечки данных: когда Озон «узнаёт» ваш ВК без вашего ведома</a></li><li><a href="#4-как-озон-использует-данные-из-вк-персонализация-vs-манипуляция">4. Как Озон использует данные из ВК: персонализация vs. манипуляция</a></li><li><a href="#5-как-защитить-свой-вк-от-утечки-на-озон-пошаговая-инструкция">5. Как защитить свой ВК от «утечки» на Озон: пошаговая инструкция</a></li><li><a href="#6-альтернативные-способы-авторизации-что-безопаснее-вк">6. Альтернативные способы авторизации: что безопаснее ВК</a></li><li><a href="#7-юридические-аспекты-что-говорит-закон-о-передаче-данных">7. Юридические аспекты: что говорит закон о передаче данных</a></li><li><a href="#faq-частые-вопросы-о-связи-озона-и-вк">FAQ: Частые вопросы о связи Озона и ВК</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-znachit-slovo-kirillitsej-kodovoe-v-ozon-primer.html">Кодовое слово кириллицей на Озон: примеры и правила</a></li><li><a href="/articles/k/ka/kak-udalit-kabinet-na-ozone.html">Как удалить кабинет на Озоне: полная инструкция по закрытию</a></li><li><a href="/articles/v/v-/v-chem-zaklyuchaetsya-rol-ozona-bzhd.html">Роль озона в БЖД на Ozon: как защитить товары и бизнес</a></li><li><a href="/articles/k/ka/kak-smenit-akkaunt-v-prilozhenii-ozon.html">Как сменить аккаунт в приложении Озон: пошаговая инструкция</a></li><li><a href="/articles/p/pr/prishlo-soobshchenie-ot-ozona-o-rozygryshe-russkoe-loto-lotereya-po-nomeru-bileta-chto-eto-znachit.html">Сообщение от Озона о розыгрыше «Русское Лото»: что это значит и как проверить?</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Откуда Озон знает мой ВК: все способы получения данных и как это работает</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-официальная-авторизация-через-вконтакте-что-именно-передаётся-озону">1. Официальная авторизация через ВКонтакте: что именно передаётся Озону</a></li><li><a href="#2-трекеры-и-пиксели-как-озон-отслеживает-вашу-активность-вне-сайта">2. Трекеры и пиксели: как Озон отслеживает вашу активность вне сайта</a></li><li><a href="#3-утечки-данных-когда-озон-узнаёт-ваш-вк-без-вашего-ведома">3. Утечки данных: когда Озон «узнаёт» ваш ВК без вашего ведома</a></li><li><a href="#4-как-озон-использует-данные-из-вк-персонализация-vs-манипуляция">4. Как Озон использует данные из ВК: персонализация vs. манипуляция</a></li><li><a href="#5-как-защитить-свой-вк-от-утечки-на-озон-пошаговая-инструкция">5. Как защитить свой ВК от «утечки» на Озон: пошаговая инструкция</a></li><li><a href="#6-альтернативные-способы-авторизации-что-безопаснее-вк">6. Альтернативные способы авторизации: что безопаснее ВК</a></li><li><a href="#7-юридические-аспекты-что-говорит-закон-о-передаче-данных">7. Юридические аспекты: что говорит закон о передаче данных</a></li><li><a href="#faq-частые-вопросы-о-связи-озона-и-вк">FAQ: Частые вопросы о связи Озона и ВК</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы когда-нибудь замечали, что после авторизации на Озоне через ВКонтакте или при оформлении заказа система вдруг «узнаёт» ваш профиль в соцсети? Или может быть видели таргетированную рекламу в ленте ВК с товарами, которые недавно просматривали на маркетплейсе? Это не случайность и не магия — за этим стоят сложные механизмы обмена данными, официальные интеграции и иногда даже утечки информации. В этой статье мы разберём <strong>все возможные способы</strong>, которыми Озон может получать доступ к вашему ВК, — от легальных до сомнительных, а также объясним, как это влияет на вашу конфиденциальность и что с этим делать.</p>
+
+<p>Важно понимать: Озон как платформа заинтересован в максимальной персонализации услуг. Чем больше данных о вас есть в системе, тем точнее подбираются товары, акции и даже условия доставки. Но где грань между удобством и нарушением приватности? Например, <em>авторизация через ВК</em> — это удобно, но что именно передаётся маркетплейсу при этом? А как быть с <strong>трекерами</strong>, которые следят за вашим поведением на разных сайтах? Мы проанализировали документы Озона, технические нюансы интеграций и отзывы пользователей, чтобы дать исчерпывающий ответ.</p>
+
+<h2 id="1-официальная-авторизация-через-вконтакте-что-именно-передаётся-озону">1. Официальная авторизация через ВКонтакте: что именно передаётся Озону</h2>
+
+<p>Самый очевидный и легальный способ — это <strong>вход на Озон через аккаунт ВК</strong>. Когда вы выбираете этот вариант, маркетплейс запрашивает у соцсети доступ к определённым данным. Но какие именно?</p>
+
+<p>Согласно <a href="https://vk.com/dev/auth_sites" target="_blank" rel="nofollow noopener">документации ВКонтакте</a>, при авторизации через <em>VK Login</em> Озон может получить:</p>
+<ul>
+  <li>🆔 <strong>ID вашего профиля</strong> (уникальный номер аккаунта)</li>
+  <li>👤 <strong>Имя и фамилию</strong> (как указано в профиле)</li>
+  <li>📧 <strong>Email</strong> (если вы дали на это разрешение)</li>
+  <li>📅 <strong>Дата рождения</strong> (если открыта в настройках приватности)</li>
+  <li>📷 <strong>Аватарка</strong> (ссылка на фотографию профиля)</li>
+  <li>🌍 <strong>Город</strong> (если указан в профиле)</li>
+</ul>
+
+<p>При этом Озон <strong>не получает</strong> доступ к вашим:</p>
+<ul>
+  <li>💬 Личным сообщениям</li>
+  <li>📝 Списку друзей</li>
+  <li>📸 Фотоальбомам</li>
+  <li>🎵 Музыке или видео</li>
+</ul>
+
+<p>Однако есть нюанс: если вы ранее давали разрешение на доступ к дополнительным данным (например, при установке приложений), ВК может передавать и их. Проверить, какие именно разрешения выдали, можно в настройках ВКонтакте: <code>Настройки → Безопасность → Приложения</code>.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>После авторизации через ВК удалите ненужные разрешения в настройках соцсети. Это снизит риск утечки данных при изменении политики приложений.</p></aside>
+
+<h2 id="2-трекеры-и-пиксели-как-озон-отслеживает-вашу-активность-вне-сайта">2. Трекеры и пиксели: как Озон отслеживает вашу активность вне сайта</h2>
+
+<p>Даже если вы не логинились через ВК, Озон может «узнавать» ваш профиль благодаря <strong>трекингу</strong>. Это работает через:</p>
+
+<ol>
+  <li><strong>Пиксель ВКонтакте</strong> — специальный код, который Озон устанавливает на своих страницах. Он отправляет данные о ваших действиях (просмотры товаров, добавление в корзину) обратно в ВК, который затем показывает вам таргетированную рекламу.</li>
+  <li><strong>Cookie-файлы</strong> — когда вы заходите на Озон, сайт сохраняет в вашем браузере уникальные метки. Если вы затем заходите в ВК, соцсеть может «узнать», что вы посещали маркетплейс, и связать это с вашим профилем.</li>
+  <li><strong>SDK ВКонтакте</strong> — если вы пользуетесь мобильным приложением Озона, оно может содержать инструменты ВК для сбора данных о вашей активности.</li>
+</ol>
+
+<p>Пример: вы посмотрели на Озоне смартфон <em>Xiaomi Redmi Note 12</em>, но не купили его. Через час в ленте ВК вам показывают рекламу этого же телефона со скидкой. Это результат работы трекеров.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Метод трекинга</th>
+      <th>Какие данные собирает</th>
+      <th>Можно ли отключить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Пиксель ВК</td>
+      <td>Просмотренные товары, время на сайте, добавление в корзину</td>
+      <td>Да (через настройки рекламы в ВК)</td>
+    </tr>
+    <tr>
+      <td>Cookie</td>
+      <td>Уникальный идентификатор сессии, история посещений</td>
+      <td>Частично (очистка cookie, режим инкогнито)</td>
+    </tr>
+    <tr>
+      <td>SDK в приложении</td>
+      <td>Модель телефона, местоположение, активность в приложении</td>
+      <td>Да (отказаться от персонализированной рекламы в настройках телефона)</td>
+    </tr>
+    <tr>
+      <td>UTM-метки</td>
+      <td>Источник перехода (например, из рекламы ВК на Озон)</td>
+      <td>Нет</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><mark>Озон может связывать ваш аккаунт ВК с данными о покупках даже без явной авторизации через соцсеть, если вы используете один и тот же email или телефон для регистрации на обеих платформах.</mark> Это называется <em>кросс-платформенная идентификация</em>.</p>
+
+<div class="pb-poll" id="poll-4ab11511"><div class="pb-poll-question">📊 Вы замечали таргетированную рекламу Озона в ВК после просмотра товаров?</div><div class="pb-poll-option" data-poll="4ab11511" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Да, часто</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ab11511" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Иногда</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ab11511" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Нет, не замечал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="4ab11511" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Затрудняюсь ответить</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-утечки-данных-когда-озон-узнаёт-ваш-вк-без-вашего-ведома">3. Утечки данных: когда Озон «узнаёт» ваш ВК без вашего ведома</h2>
+
+<p>Не всегда получение данных происходит легально. Бывают случаи, когда информация о вашем профиле ВК попадает к Озону через:</p>
+
+<ul>
+  <li>🔓 <strong>Утечки баз данных</strong> — если ваш email или телефон были скомпрометированы в других сервисах, злоумышленники могут связать их с аккаунтом ВК и продать Озону (или другим платформам) для таргетинга.</li>
+  <li>🤝 <strong>Партнёрские программы</strong> — Озон сотрудничает с банками, операторами связи и другими сервисами, которые могут передавать данные о клиентах (включая привязанные соцсети).</li>
+  <li>📱 <strong>Мобильные приложения</strong> — некоторые приложения (например, для кэшбэка) запрашивают доступ к контактам или соцсетям и затем передают эти данные маркетплейсам.</li>
+</ul>
+
+<p>Пример: в 2021 году произошла <a href="https://vc.ru/services/236723-vk-obnaruzhila-utechku-dannyh-54-milliona-polzovateley" target="_blank" rel="nofollow noopener">утечка данных 54 млн пользователей ВК</a>. Если ваш аккаунт попал в эту базу, его могли связать с покупками на Озоне через общий email или телефон.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы используете один и тот же пароль для ВК и Озона, при утечке данных злоумышленники могут получить доступ к обоим аккаунтам. Всегда используйте <strong>уникальные пароли</strong> и двухфакторную аутентификацию.</blockquote>
+
+<p>Проверить, попали ли ваши данные в утечки, можно на сервисах вроде <a href="https://haveibeenpwned.com/" target="_blank" rel="nofollow noopener">Have I Been Pwned</a> или <a href="https://2ip.ru/leaks/" target="_blank" rel="nofollow noopener">2ip.ru/leaks</a>. Если ваш email или телефон обнаружен в базах, немедленно смените пароли на всех сервисах.</p>
+
+<h2 id="4-как-озон-использует-данные-из-вк-персонализация-vs-манипуляция">4. Как Озон использует данные из ВК: персонализация vs. манипуляция</h2>
+
+<p>Зачем Озону знать ваш ВК? Основные цели:</p>
+
+<ol>
+  <li><strong>Персонализированные рекомендации</strong> — анализируя ваши интересы в ВК (группы, лайки, репосты), Озон подбирает товары, которые могут вам понравиться. Например, если вы состоите в группе «Любители кошек», вам чаще будут показывать товары для питомцев.</li>
+  <li><strong>Таргетированная реклама</strong> — данные из ВК помогают точнее настраивать рекламные кампании. Если вы часто смотрите видео о фитнесе, Озон будет рекламировать вам спортивные товары.</li>
+  <li><strong>Проверка надёжности покупателя</strong> — для продавцов на Озоне доступна опция проверки покупателя через соцсети. Если ваш профиль ВК выглядит подозрительно (мало друзей, свежая регистрация), продавец может отказать в продаже.</li>
+  <li><strong>Борьба с мошенниками</strong> — связывая аккаунты ВК и Озона, платформа может выявлять многократные регистрации или подозрительную активность.</li>
+</ol>
+
+<p>Однако есть и обратная сторона:</p>
+<ul>
+  <li>🎭 <strong>Манипуляция ценами</strong> — некоторые пользователи утверждают, что Озон показывает разные цены на один и тот же товар в зависимости от данных из соцсетей (например, более высокие цены для пользователей с высоким доходом).</li>
+  <li>🔄 <strong>Привязка к аккаунту</strong> — если ваш ВК заблокируют, вы можете потерять доступ к некоторым функциям Озона (например, к истории заказов, если авторизовались через соцсеть).</li>
+</ul>
+
+<p>Озон официально отрицает использование персональных данных для динамического ценообразования, но независимые исследования (например, от <a href="https://www.kaspersky.ru/" target="_blank" rel="nofollow noopener">«Лаборатории Касперского»</a>) показывают, что такие практики встречаются на других маркетплейсах.</p>
+
+<details class="pb-accordion"><summary>Как проверить, влияет ли ваш профиль ВК на цены в Озоне?</summary><div class="pb-accordion-body"><p>Сравните цены на один и тот же товар в обычном режиме и в режиме инкогнито (или с другого аккаунта). Если разница значительная, возможно, используется персонализированное ценообразование.</p></div></details>
+
+<h2 id="5-как-защитить-свой-вк-от-утечки-на-озон-пошаговая-инструкция">5. Как защитить свой ВК от «утечки» на Озон: пошаговая инструкция</h2>
+
+<p>Если вас беспокоит, что Озон знает слишком много о вашем профиле ВК, следуйте этим шагам:</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Защита данных от трекинга Озоном</h4><label class="check-item"><input type="checkbox"><span>Отключите авторизацию через ВК в настройках Озона</span></label><label class="check-item"><input type="checkbox"><span>Очистите cookie в браузере</span></label><label class="check-item"><input type="checkbox"><span>Откажитесь от персонализированной рекламы в ВК</span></label><label class="check-item"><input type="checkbox"><span>Проверьте разрешения приложений в настройках ВК</span></label><label class="check-item"><input type="checkbox"><span>Используйте разные email для Озона и ВК</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Подробнее о каждом пункте:</p>
+
+<ol>
+  <li><strong>Отключите привязку ВК к Озону</strong>:
+    <p>Перейдите в <code>Личный кабинет Озона → Настройки → Социальные сети</code> и удалите привязку к ВКонтакте. Если такой опции нет, создайте новый аккаунт на Озоне с другим email.</p>
+  </li>
+  <li><strong>Ограничьте доступ приложений в ВК</strong>:
+    <p>В настройках ВКонтакте (<code>Настройки → Безопасность → Приложения</code>) удалите все подозрительные приложения, особенно те, которые запрашивали доступ к друзьям или сообщениям.</p>
+  </li>
+  <li><strong>Используйте режим инкогнито</strong>:
+    <p>При просмотре товаров на Озоне открывайте сайт в режиме инкогнито (или через <em>Tor Browser</em>), чтобы избежать трекинга через cookie.</p>
+  </li>
+  <li><strong>Настройте рекламные предпочтения</strong>:
+    <p>В ВК перейдите в <code>Настройки → Реклама → Персональные рекомендации</code> и отключите опцию «Показывать рекламу на основе моих интересов».</p>
+  </li>
+</ol>
+
+<p>Для максимальной анонимности можно создать отдельный аккаунт ВК специально для авторизации на маркетплейсах, не указывая в нём реальные данные.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы продавец на Озоне, отключение трекинга может снизить эффективность вашей рекламы. Взвесьте риски: конфиденциальность vs. конверсия.</blockquote>
+
+<h2 id="6-альтернативные-способы-авторизации-что-безопаснее-вк">6. Альтернативные способы авторизации: что безопаснее ВК</h2>
+
+<p>Если вас беспокоит привязка ВК к Озону, рассмотрите другие варианты входа:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Способ авторизации</th>
+      <th>Плюсы</th>
+      <th>Минусы</th>
+      <th>Уровень безопасности</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email + пароль</td>
+      <td>Минимальная передача данных, легко создать уникальный аккаунт</td>
+      <td>Нужно запоминать ещё один пароль</td>
+      <td>⭐⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Телефон</td>
+      <td>Быстро, удобно для восстановления доступа</td>
+      <td>Озон может связать номер с другими сервисами</td>
+      <td>⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Google Аккаунт</td>
+      <td>Надёжная двухфакторная аутентификация</td>
+      <td>Google тоже собирает данные о вашей активности</td>
+      <td>⭐⭐⭐⭐</td>
+    </tr>
+    <tr>
+      <td>Apple ID</td>
+      <td>Минимальный сбор данных (если включена функция «Скрыть email»)</td>
+      <td>Только для пользователей устройств Apple</td>
+      <td>⭐⭐⭐⭐⭐</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Самый безопасный вариант — <strong>авторизация через email</strong> с уникальным паролем и включённой двухфакторной аутентификацией. Если используете Google или Apple ID, проверьте настройки конфиденциальности в этих аккаунтах.</p>
+
+<p>Для продавцов на Озоне рекомендуем создать отдельный <em>рабочий аккаунт</em> ВК или Google, не связанный с личными данными, и использовать его только для бизнеса.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Авторизация через Apple ID с функцией «Скрыть email» — самый анонимный способ входа на Озон, так как платформа не получает ваш реальный адрес электронной почты.</p></aside>
+
+<h2 id="7-юридические-аспекты-что-говорит-закон-о-передаче-данных">7. Юридические аспекты: что говорит закон о передаче данных</h2>
+
+<p>В России сбор и обработка персональных данных регулируются <strong>Федеральным законом № 152-ФЗ «О персональных данных»</strong>. Согласно ему:</p>
+
+<ul>
+  <li>📜 Озон обязан <strong>получать ваше согласие</strong> на обработку данных (обычно это галочка при регистрации, которую мало кто читает).</li>
+  <li>🔒 Вы имеете право <strong>отозвать согласие</strong> и потребовать удаления своих данных.</li>
+  <li>📋 Озон должен <strong>сообщать</strong>, какие именно данные собираются и для чего.</li>
+</ul>
+
+<p>Однако на практике:</p>
+<ul>
+  <li>Согласие часто даётся «по умолчанию» (галочка уже стоит при регистрации).</li>
+  <li>Отозвать согласие можно, но это может ограничить доступ к некоторым функциям (например, персональным скидкам).</li>
+  <li>Озон может передавать данные третьим лицам (партнёрам, рекламным сетям), если это прописано в пользовательском соглашении.</li>
+</ul>
+
+<p>Если вы считаете, что ваши данные были переданы незаконно, вы можете:</p>
+<ol>
+  <li>Написать жалобу в <a href="https://pd.rkn.gov.ru/" target="_blank" rel="nofollow noopener">Роскомнадзор</a>.</li>
+  <li>Обратиться в поддержку Озона с требованием удалить ваши данные.</li>
+  <li>Подать иск в суд (если докажете, что передача данных нанесла вам ущерб).</li>
+</ol>
+
+<p>Пример из практики: в 2022 году пользователь из Санкт-Петербурга <a href="https://www.kommersant.ru/doc/5523644" target="_blank" rel="nofollow noopener">выиграл суд у Озона</a> за незаконную передачу его данных рекламным партнёрам. Суд обязал маркетплейс удалить информацию и выплатить компенсацию.</p>
+
+<h2 id="faq-частые-вопросы-о-связи-озона-и-вк">FAQ: Частые вопросы о связи Озона и ВК</h2>
+
+<details>
+  <summary>Может ли Озон увидеть мои личные сообщения в ВК?</summary>
+  <p>Нет, Озон не имеет доступа к вашим сообщениям в ВК. При авторизации через соцсеть передаются только базовые данные (имя, email, аватарка), но не история переписки или частные данные. Однако если вы давали разрешение на доступ к сообщениям каким-либо приложениям, теоретически эти данные могли быть переданы третьим лицам.</p>
+</details>
+
+<details>
+  <summary>Почему после регистрации на Озоне мне начали приходить друзья из ВК?</summary>
+  <p>Это не связано напрямую с Озоном. Скорее всего, вы дали разрешение на доступ к списку друзей какому-либо приложению (например, игре или сервису кэшбэка), которое затем использовало эти данные для спама. Проверьте настройки приложений в ВК и удалите подозрительные.</p>
+</details>
+
+<details>
+  <summary>Как полностью удалить свои данные из Озона?</summary>
+  <p>Чтобы удалить аккаунт и связанные данные:
+  <ol>
+    <li>Перейдите в <code>Личный кабинет → Настройки → Удаление аккаунта</code>.</li>
+    <li>Подтвердите действие по email или SMS.</li>
+    <li>Напишите в поддержку Озона с требованием удалить все персональные данные (ссылка на закон 152-ФЗ ускорит процесс).</li>
+  </ol>
+<p>Учтите, что некоторые данные (например, история заказов) могут храниться до 5 лет по закону о бухгалтерском учёте.</p></p>
+</details>
+
+<details>
+  <summary>Может ли продавец на Озоне увидеть мой профиль ВК?</summary>
+  <p>Продавцы на Озоне не имеют прямого доступа к вашему профилю ВК. Однако они могут видеть:
+  <ul>
+    <li>Имя и фамилию (если они совпадают с данными в ВК).</li>
+    <li>Город (если указан в профиле Озона).</li>
+    <li>Оценку надёжности покупателя (формируется на основе разных данных, включая привязанные соцсети).</li>
+  </ul>
+<p>Чтобы скрыть эту информацию, используйте псевдоним при регистрации на Озоне.</p></p>
+</details>
+
+<details>
+  <summary>Почему Озон предлагает мне товары, которые я искал в ВК?</summary>
+  <p>Это работает через <strong>кросс-платформенный трекинг</strong>. Например:
+  <ol>
+    <li>Вы ищете в ВК информацию о <em>беговых кроссовках Nike</em>.</li>
+    <li>ВК передаёт эту информацию рекламным сетям (включая партнёров Озона).</li>
+    <li>Озон показывает вам таргетированную рекламу этих кроссовок.</li>
+  </ol>
+<p>Чтобы избежать этого, отключите персонализированную рекламу в настройках ВК и очищайте историю поиска.</p></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-znachit-slovo-kirillitsej-kodovoe-v-ozon-primer.html" class="pb-related-card">
+                <span class="pb-related-title">Кодовое слово кириллицей на Озон: примеры и правила</span>
+                <span class="pb-related-desc">Узнайте, как использовать кириллицу в кодовых словах на Озон. Примеры заполнения, правила безопаснос</span>
+            </a><a href="/articles/k/ka/kak-udalit-kabinet-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как удалить кабинет на Озоне: полная инструкция по закрытию</span>
+                <span class="pb-related-desc">Узнайте, как удалить личный кабинет на Ozon покупателю или продавцу. Пошаговая инструкция, нюансы за</span>
+            </a><a href="/articles/v/v-/v-chem-zaklyuchaetsya-rol-ozona-bzhd.html" class="pb-related-card">
+                <span class="pb-related-title">Роль озона в БЖД на Ozon: как защитить товары и бизнес</span>
+                <span class="pb-related-desc">Разбираемся, что такое озон в безопасности жизнедеятельности на маркетплейсе Ozon, как он влияет на </span>
+            </a><a href="/articles/k/ka/kak-smenit-akkaunt-v-prilozhenii-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как сменить аккаунт в приложении Озон: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как быстро сменить аккаунт в приложении Озон. Подробная инструкция по переключению профилей</span>
+            </a><a href="/articles/p/pr/prishlo-soobshchenie-ot-ozona-o-rozygryshe-russkoe-loto-lotereya-po-nomeru-bileta-chto-eto-znachit.html" class="pb-related-card">
+                <span class="pb-related-title">Сообщение от Озона о розыгрыше «Русское Лото»: что это значит и как проверить?</span>
+                <span class="pb-related-desc">Получили SMS от Ozon о выигрыше в лотерее «Русское Лото» по номеру билета? Разбираемся, что это: реа</span>
+            </a><a href="/articles/1/13/135-ppm-ozona-skolko-v-mg.html" class="pb-related-card">
+                <span class="pb-related-title">135 ppm озона: перевод в мг/м³ и нормы безопасности</span>
+                <span class="pb-related-desc">Сколько мг в 135 ppm озона? Полный расчет концентрации, нормы ПДК, влияние на здоровье и правила без</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить Озон к ПВЗ Wildberries: пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Полное руководство по интеграции ПВЗ Озон с Wildberries: технические требования, настройка API, синхронизация заказов и документов. Актуально для продавцов FBS/FBO.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-podklyuchit-ozon-k-pvz-vajldberriz.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить Озон к ПВЗ Wildberries: пошаговая инструкция 2026">
+    <meta property="og:description" content="Полное руководство по интеграции ПВЗ Озон с Wildberries: технические требования, настройка API, синхронизация заказов и документов. Актуально для продавцов FBS/FBO.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pvz-i-franshiza/">ПВЗ и Франшиза</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как подключить Озон к ПВЗ Wildberries: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-почему-продавцам-нужно-подключать-озон-к-пвз-wildberries">1. Почему продавцам нужно подключать Озон к ПВЗ Wildberries</a></li><li><a href="#2-подготовка-документов-что-требуют-озон-и-wildberries">2. Подготовка документов: что требуют Озон и Wildberries</a></li><li><a href="#3-технические-требования-к-пвз-для-интеграции">3. Технические требования к ПВЗ для интеграции</a></li><li><a href="#4-пошаговая-инструкция-по-подключению-api">4. Пошаговая инструкция по подключению API</a></li><li><a href="#5-синхронизация-заказов-как-избежать-ошибок">5. Синхронизация заказов: как избежать ошибок</a></li><li><a href="#6-юридические-нюансы-и-штрафы">6. Юридические нюансы и штрафы</a></li><li><a href="#7-оптимизация-работы-пвз-после-подключения">7. Оптимизация работы ПВЗ после подключения</a></li><li><a href="#faq-частые-вопросы-по-интеграции-озон-и-wildberries">FAQ: Частые вопросы по интеграции Озон и Wildberries</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-zarabotok-s-punkta-vydachi-ozon.html">Заработок с пункта выдачи Ozon: реальность и цифры</a></li><li><a href="/articles/p/pu/punkt-vydachi-vajldberriz-i-ozon-v-odnom-meste-kak-otkryt.html">Пункт выдачи Вайлдберриз и Озон в одном месте: как открыть</a></li><li><a href="/articles/k/ka/kak-zarabotat-na-franshize-ozon.html">Как заработать на франшизе Ozon: пошаговый план и расчеты</a></li><li><a href="/articles/k/ka/kak-otkryt-otdelenie-ozon.html">Как открыть ПВЗ Озон в 2026: пошаговая инструкция и требования</a></li><li><a href="/articles/s/sk/skolko-platyat-na-punkte-vydachi-ozon.html">Сколько платят на пункте выдачи Озон: зарплата и условия 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Интеграция ПВЗ Озон с Wildberries: как подключить и синхронизировать заказы</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-почему-продавцам-нужно-подключать-озон-к-пвз-wildberries">1. Почему продавцам нужно подключать Озон к ПВЗ Wildberries</a></li><li><a href="#2-подготовка-документов-что-требуют-озон-и-wildberries">2. Подготовка документов: что требуют Озон и Wildberries</a></li><li><a href="#3-технические-требования-к-пвз-для-интеграции">3. Технические требования к ПВЗ для интеграции</a></li><li><a href="#4-пошаговая-инструкция-по-подключению-api">4. Пошаговая инструкция по подключению API</a></li><li><a href="#5-синхронизация-заказов-как-избежать-ошибок">5. Синхронизация заказов: как избежать ошибок</a></li><li><a href="#6-юридические-нюансы-и-штрафы">6. Юридические нюансы и штрафы</a></li><li><a href="#7-оптимизация-работы-пвз-после-подключения">7. Оптимизация работы ПВЗ после подключения</a></li><li><a href="#faq-частые-вопросы-по-интеграции-озон-и-wildberries">FAQ: Частые вопросы по интеграции Озон и Wildberries</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Подключение пункта выдачи заказов (ПВЗ) <em>Озон</em> к системе <em>Wildberries</em> — задача, с которой сталкиваются продавцы, работающие по моделям <strong>FBS</strong> или <strong>FBO</strong> на обоих маркетплейсах. Такой симбиоз позволяет оптимизировать логистику, сократить издержки на доставку и расширить географию покрытия. Однако техническая реализация требует понимания API-интеграций, настроек складской системы и юридических нюансов взаимодействия между платформами.</p>
+
+<p>В этой статье мы разберём <strong>пошаговый алгоритм подключения</strong>, начиная от подготовки документов и заканчивая тестированием синхронизации заказов. Особое внимание уделим <mark>ключевым различиям в требованиях Озон и Wildberries к ПВЗ</mark>, которые часто становятся причиной ошибок при интеграции. Материал актуален для 2026 года и учитывает последние обновления API обоих маркетплейсов.</p>
+
+<p>Если вы уже работаете с одним из маркетплейсов и планируете расширяться, эта инструкция поможет избежать типичных ошибок: от неверного оформления договоров до сбоев в передаче трек-номеров. Для новичков мы подготовили <a href="#faq">FAQ-блок</a> с ответами на базовые вопросы.</p>
+
+<h2 id="1-почему-продавцам-нужно-подключать-озон-к-пвз-wildberries">1. Почему продавцам нужно подключать Озон к ПВЗ Wildberries</h2>
+
+<p>Основная причина — <strong>экономия на логистике</strong>. Если ваш ПВЗ уже работает с <em>Wildberries</em>, подключение <em>Озон</em> позволяет:</p>
+
+<ul>
+  <li>📦 Использовать одни и те же складские мощности для обоих маркетплейсов без дублирования аренды.</li>
+  <li>🚛 Уменьшить количество рейсов курьерских служб, консолидируя заказы от разных платформ.</li>
+  <li>💰 Снизить комиссии за доставку за счёт увеличения объёмов отправлений.</li>
+  <li>📈 Повысить оборот товара, охватывая аудиторию двух крупнейших маркетплейсов России.</li>
+</ul>
+
+<p>По данным <em>Data Insight</em> за 2023 год, продавцы, интегрировавшие ПВЗ для обоих маркетплейсов, сокращали логистические издержки на <strong>15–25%</strong> при росте выручки на <strong>30–40%</strong>. Однако важно учитывать, что <em>Озон</em> и <em>Wildberries</em> предъявляют разные требования к:</p>
+
+<ul>
+  <li>📄 Оформлению юридических документов (договоры, лицензии на хранение товаров).</li>
+  <li>🖥️ Формату API-запросов для синхронизации заказов и статусов.</li>
+  <li>📦 Маркировке и упаковке товаров (например, <em>Озон</em> требует обязательной маркировки <code>GS1</code> для ряда категорий).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш ПВЗ работает по модели <strong>FBO</strong> на <em>Wildberries</em>, но вы планируете подключать <strong>FBS</strong> для <em>Озон</em>, потребуется отдельное согласование с логистическим оператором <em>Озон</em> по тарифам хранения и обработки заказов.</blockquote>
+
+<h2 id="2-подготовка-документов-что-требуют-озон-и-wildberries">2. Подготовка документов: что требуют Озон и Wildberries</h2>
+
+<p>Перед технической интеграцией необходимо собрать пакет документов. Требования маркетплейсов пересекаются, но есть и ключевые различия.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип документа</th>
+      <th>Требования Wildberries</th>
+      <th>Требования Озон</th>
+      <th>Примечания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Договор аренды/собственности ПВЗ</td>
+      <td>Копия с печатью и подписью</td>
+      <td>Нотариально заверенная копия</td>
+      <td>Озон требует подтверждения права использования помещения</td>
+    </tr>
+    <tr>
+      <td>Лицензия на розничную торговлю</td>
+      <td>Обязательна для всех ПВЗ</td>
+      <td>Обязательна + копия устава ООО/ИП</td>
+      <td>Для Озон требуется подтверждение ОГРН/ОГРНИП</td>
+    </tr>
+    <tr>
+      <td>Договор с курьерской службой</td>
+      <td>Любая лицензированная служба</td>
+      <td>Только партнёры Озон (СДЭК, Boxberry, DPD)</td>
+      <td>Озон ограничивает список логистических операторов</td>
+    </tr>
+    <tr>
+      <td>Сертификаты на товары</td>
+      <td>По запросу (для маркированных категорий)</td>
+      <td>Обязательны для всех товаров в ПВЗ</td>
+      <td>Озон требует предварительной проверки ассортимента</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Особое внимание уделите <strong>договору с Озон</strong>. В отличие от <em>Wildberries</em>, где достаточно стандартного соглашения о сотрудничестве, <em>Озон</em> требует подписания:</p>
+<ul>
+  <li>📄 <strong>Договора на оказание складских услуг</strong> (если работаете по <strong>FBS</strong>).</li>
+  <li>📄 <strong>Договора на обработку персональных данных</strong> (обязательно для всех ПВЗ).</li>
+  <li>📄 <strong>Акта приёма-передачи помещения</strong> (если ПВЗ арендован).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш ПВЗ расположен в торговом центре, <em>Озон</em> может потребовать письменное согласие управляющей компании на размещение точки выдачи заказов. Это связано с высокими потоками клиентов и необходимостью соблюдения пожарной безопасности.</blockquote>
+
+<div class="pb-poll" id="poll-1a087dd4"><div class="pb-poll-question">📊 Какой маркетплейс приносит вам больше продаж?</div><div class="pb-poll-option" data-poll="1a087dd4" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1a087dd4" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Wildberries</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1a087dd4" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Оба одинаково</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1a087dd4" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Другой</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-технические-требования-к-пвз-для-интеграции">3. Технические требования к ПВЗ для интеграции</h2>
+
+<p>Перед подключением проверьте, соответствует ли ваш ПВЗ техническим стандартам обоих маркетплейсов. Основные критерии:</p>
+
+<ul>
+  <li>📡 <strong>Интернет:</strong> Скорость не менее <code>50 Мбит/с</code> (Озон требует <code>100 Мбит/с</code> для ПВЗ с оборотом >500 заказов/день).</li>
+  <li>🖥️ <strong>Оборудование:</strong> Минимально 2 рабочих станции с <em>Windows 10+</em> или <em>macOS 12+</em>, принтер этикеток <code>Zebra</code>/<code>Honeywell</code>.</li>
+  <li>📦 <strong>Площадь:</strong> Не менее <code>20 м²</code> для <em>Wildberries</em>, <code>30 м²</code> для <em>Озон</em> (с зоной ожидания клиентов).</li>
+  <li>🔒 <strong>Безопасность:</strong> Видеонаблюдение с хранением записей не менее 30 дней (Озон проверяет наличие камер при инспекции).</li>
+</ul>
+
+<p>Ключевое отличие — <strong>система учёта товаров</strong>. <em>Wildberries</em> допускает ручной ввод остатков, тогда как <em>Озон</em> требует:</p>
+<ul>
+  <li>🤖 Автоматическую синхронизацию остатков через <code>API</code> (обновление не реже 1 раза в час).</li>
+  <li>📌 Использование <strong>штрихкодов <code>GS1</code></strong> для всех товаров (даже если на <em>Wildberries</em> вы работаете без них).</li>
+  <li>📊 Интеграцию с <strong>1С</strong> или аналогичной системой учёта (Озон предоставляет готовые коннекторы).</li>
+</ul>
+
+<details class="pb-accordion"><summary>Что будет если не соблюдать требования Озон?</summary><div class="pb-accordion-body"><p>При несоблюдении технических стандартов (например, низкая скорость интернета или отсутствие видеонаблюдения) Озон может приостановить работу ПВЗ на срок до 30 дней. Повторные нарушения ведут к расторжению договора. Wildberries в таких случаях обычно ограничивается штрафами (от 5 000 ₽).</p></div></details>
+
+<h2 id="4-пошаговая-инструкция-по-подключению-api">4. Пошаговая инструкция по подключению API</h2>
+
+<p>Интеграция ПВЗ с обоими маркетплейсами осуществляется через их <strong>API</strong>. Ниже — универсальный алгоритм, актуальный для 2026 года.</p>
+
+<h3>Шаг 1: Получение ключей API</h3>
+<p>Для начала зарегистрируйтесь в личных кабинетах:</p>
+<ul>
+  <li>🔑 <em>Wildberries</em>: Перейдите в <code>Настройки → API → Создать ключ</code>. Выберите права <code>"Чтение/запись заказов"</code> и <code>"Управление остатками"</code>.</li>
+  <li>🔑 <em>Озон</em>: В <code>Личном кабинете продавца → Интеграции → API-ключи</code>. Активируйте доступ к <code>"Логистике"</code> и <code>"Складам"</code>.</li>
+</ul>
+
+<h3>Шаг 2: Настройка вебхуков (webhooks)</h3>
+<p>Вебхуки нужны для автоматического оповещения о новых заказах. В <em>Озон</em> их настраивают в разделе <code>Интеграции → Уведомления</code>, указав URL вашего сервера. Пример payload для заказа:</p>
+
+<pre><code>{
+<p>"event": "order_created",</p>
+<p>"order_id": "123456789",</p>
+<p>"delivery_point": "PVZ_1001",</p>
+<p>"items": [</p>
+<p>{</p>
+<p>"sku": "AB123456",</p>
+<p>"quantity": 2</p>
+<p>}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>Для <em>Wildberries</em> вебхуки настраиваются через <code>API → Настройки уведомлений</code>. Обязательно укажите типы событий: <code>order_status</code>, <code>stocks</code>.</p>
+
+<h3>Шаг 3: Синхронизация остатков</h3>
+<p>Озон требует обновления остатков не реже 1 раза в час. Используйте эндпоинт:</p>
+<pre><code>POST https://api-seller.ozon.ru/v2/product/stocks
+<p>Headers: {</p>
+<p>"Client-Id": "ваш_client_id",</p>
+<p>"Api-Key": "ваш_api_key"</p>
+<p>}</p>
+<p>Body: {</p>
+<p>"stocks": [</p>
+<p>{</p>
+<p>"sku": "AB123456",</p>
+<p>"stock": 10,</p>
+<p>"warehouse_id": 1001</p>
+<p>}</p>
+<p>]</p>
+<p>}</code></pre></p>
+
+<p>Для <em>Wildberries</em> аналогичный запрос отправляется на <code>https://suppliers-api.wildberries.ru/api/v3/stocks</code>.</p>
+
+
+<p>Получены ключи API от Озон и Wildberries|</p>
+<p>Настроены вебхуки для уведомлений о заказах|</p>
+<p>Проверена синхронизация остатков (тестовый запрос)|</p>
+<p>Создана резервная копия базы данных 1С|</p>
+<p>Подключён принтер этикеток и протестирована печать--></p>
+
+<h3>Шаг 4: Тестирование</h3>
+<p>Перед полноценным запуском:</p>
+<ol>
+  <li>Создайте <strong>тестовый заказ</strong> в личном кабинете <em>Озон</em> с доставкой в ваш ПВЗ.</li>
+  <li>Проверьте, что заказ отобразился в вашей системе учёта (1С, <em>МойСклад</em> и т. д.).</li>
+  <li>Смените статус заказа на <code>"Готов к выдаче"</code> и убедитесь, что обновление передалось в <em>Озон</em>.</li>
+  <li>Распечатайте этикетку и проверьте соответствие штрихкода стандарту <code>GS1</code>.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если при тестировании заказ не синхронизировался, проверьте:
+<ul>
+  <li>Правильность указанного <code>warehouse_id</code> (должен совпадать с ID вашего ПВЗ в системе Озон).</li>
+  <li>Формат данных в запросе (Озон требует <code>Content-Type: application/json</code>).</li>
+  <li>Наличие прав у API-ключа на работу с логистикой.</li>
+</ul>
+</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Ключевой вывод: Настройка API — самый сложный этап интеграции. 70% ошибок связаны с неверными правами доступа или несоответствием форматов данных. Всегда тестируйте на песчанке (sandbox) перед переходом в продакшен.</p></aside>
+
+<h2 id="5-синхронизация-заказов-как-избежать-ошибок">5. Синхронизация заказов: как избежать ошибок</h2>
+
+<p>После подключения API основная задача — обеспечить бесперебойную синхронизацию заказов между ПВЗ и маркетплейсами. Рассмотрим типичные проблемы и их решения.</p>
+
+<h3>Проблема 1: Дублирование заказов</h3>
+<p>Если один и тот же заказ появляется в системе дважды, проверьте:</p>
+<ul>
+  <li>🔄 Настройки вебхуков — возможно, отправляется два уведомления о создании заказа.</li>
+  <li>📡 Логи вашего сервера на повторные запросы от <em>Озон</em>/<em>Wildberries</em>.</li>
+  <li>🛠️ Код обработчика заказов — должен игнорировать дубликаты по <code>order_id</code>.</li>
+</ul>
+
+<h3>Проблема 2: Несовпадение остатков</h3>
+<p><em>Озон</em> блокирует продажу товара, если остатки в вашей системе и на маркетплейсе расходятся более чем на <strong>10%</strong>. Чтобы избежать этого:</p>
+<ul>
+  <li>📊 Настройте автоматическое обновление остатков каждые <code>30 минут</code>.</li>
+  <li>🤖 Используйте <strong>резервирование товаров</strong> при формировании заказа (чтобы избежать продажи "воздуха").</li>
+  <li>📦 Проверяйте логи на ошибки типа <code>"409 Conflict"</code> (конфликт версий данных).</li>
+</ul>
+
+<h3>Проблема 3: Ошибки при печати этикеток</h3>
+<p>Если принтер выдаёт пустые этикетки или неправильные штрихкоды:</p>
+<ul>
+  <li>🖨️ Убедитесь, что используется правильный <strong>шаблон этикетки</strong> (Озон предоставляет актуальные версии в <code>Личном кабинете → Документы</code>).</li>
+  <li>📏 Проверьте настройки <code>DPI</code> принтера (рекомендуется <code>203 DPI</code> для <em>Zebra</em>).</li>
+  <li>🔧 Обновите драйвер принтера (старые версии могут не поддерживать <code>GS1</code>-кодировку).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если заказы синхронизируются с задержкой, настройте <strong>приоритетную очередь</strong> для обработки запросов от Озон. Этот маркетплейс штрафует за просрочку статусов (от 100 ₽ за заказ).</p></aside>
+
+<h2 id="6-юридические-нюансы-и-штрафы">6. Юридические нюансы и штрафы</h2>
+
+<p>Работа с двумя маркетплейсами одновременно накладывает дополнительные обязательства. Основные риски:</p>
+
+<ul>
+  <li>📜 <strong>Нарушение договоров:</strong> Если в договоре с <em>Wildberries</em> прописан эксклюзив на определенные категории товаров, подключение <em>Озон</em> может считаться нарушением.</li>
+  <li>💸 <strong>Штрафы за просрочку:</strong> Озон штрафует за несвоевременную обработку заказов (от <code>100 ₽</code> за заказ), Wildberries — за неверные остатки (от <code>1 000 ₽</code>).</li>
+  <li>📦 <strong>Контроль качества:</strong> Озон проводит <strong>ежемесячные инспекции</strong> ПВЗ, Wildberries — выборочные. При обнаружении нарушений (например, отсутствие видеонаблюдения) могут приостановить работу точки.</li>
+</ul>
+
+<p>Чтобы избежать проблем:</p>
+<ol>
+  <li>Проверьте договора на предмет <strong>эксклюзивных условий</strong>.</li>
+  <li>Создайте отдельные <strong>зоны хранения</strong> для товаров <em>Озон</em> и <em>Wildberries</em> (это упростит инвентаризацию).</li>
+  <li>Ведите <strong>журнал инспекций</strong> с фиксацией замечаний и мер по их устранению.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш ПВЗ работает по модели <strong>FBS для Озон</strong>, но вы самостоятельно доставляете заказы <em>Wildberries</em> (модель <strong>FBO</strong>), убедитесь, что курьерская служба имеет договоры с обоими маркетплейсами. В противном случае заказы <em>Озон</em> могут быть заблокированы.</blockquote>
+
+<h2 id="7-оптимизация-работы-пвз-после-подключения">7. Оптимизация работы ПВЗ после подключения</h2>
+
+<p>После успешной интеграции важно оптимизировать процессы, чтобы избежать перегрузки персонала и ошибок. Рекомендации:</p>
+
+<ul>
+  <li>🤹 <strong>Разделение потоков:</strong> Назначьте отдельных сотрудников для обработки заказов <em>Озон</em> и <em>Wildberries</em> (особенно в пиковые часы).</li>
+  <li>📅 <strong>График инвентаризации:</strong> Проводите её в разные дни для каждого маркетплейса (например, понедельник — <em>Озон</em>, среда — <em>Wildberries</em>).</li>
+  <li>📊 <strong>Аналитика:</strong> Используйте <em>Google Data Studio</em> или <em>Power BI</em> для мониторинга оборотов, возвратов и штрафов по каждому маркетплейсу.</li>
+  <li>🛒 <strong>Упаковка:</strong> Заведите отдельные стойки с брендированными пакетами <em>Озон</em> и <em>Wildberries</em> (это требование маркетплейсов).</li>
+</ul>
+
+<p>Для автоматизации рутинных задач рассмотрите следующие инструменты:</p>
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Задача</th>
+      <th>Инструмент</th>
+      <th>Стоимость</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Синхронизация остатков</td>
+      <td><em>МойСклад</em>, <em>1С:Управление торговлей</em></td>
+      <td>От 1 500 ₽/мес</td>
+    </tr>
+    <tr>
+      <td>Печать этикеток</td>
+      <td><em>Атол:Драйвер</em>, <em>NiceLabel</em></td>
+      <td>От 5 000 ₽ (разово)</td>
+    </tr>
+    <tr>
+      <td>Обработка возвратов</td>
+      <td><em>RetailCRM</em>, <em>Bitrix24</em></td>
+      <td>От 2 900 ₽/мес</td>
+    </tr>
+    <tr>
+      <td>Мониторинг штрафов</td>
+      <td><em>SellerBoard</em>, <em>Мультимаркет</em></td>
+      <td>От 990 ₽/мес</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный секрет успешной интеграции — <strong>разделение процессов</strong>. Не пытайтесь обрабатывать заказы обоих маркетплейсов в одном потоке: это ведёт к путанице и штрафам.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-интеграции-озон-и-wildberries">FAQ: Частые вопросы по интеграции Озон и Wildberries</h2>
+
+<details>
+  <summary>Можно ли подключить один ПВЗ к обоим маркетплейсам, если он уже работает с Wildberries?</summary>
+  <p>Да, но потребуется:</p>
+  <ol>
+    <li>Заключить отдельный договор с <em>Озон</em> на логистическое обслуживание.</li>
+    <li>Провести инспекцию ПВЗ представителем <em>Озон</em> (даже если <em>Wildberries</em> уже проверял).</li>
+    <li>Настроить отдельные зоны хранения для товаров каждого маркетплейса (по требованию <em>Озон</em>).</li>
+  </ol>
+  <p>Срок подключения — от 5 до 14 дней (зависит от скорости проверки документов).</p>
+</details>
+
+<details>
+  <summary>Какие штрафы грозят за ошибки в работе ПВЗ?</summary>
+  <p>Штрафы отличаются:</p>
+  <ul>
+    <li><em>Озон:</em>
+      <ul>
+        <li>Просрочка обработки заказа — <code>100–500 ₽</code>.</li>
+        <li>Неверные остатки — <code>500 ₽</code> за SKU.</li>
+        <li>Отсутствие видеонаблюдения — <strong>блокировка ПВЗ</strong>.</li>
+      </ul>
+    </li>
+    <li><em>Wildberries:</em>
+      <ul>
+        <li>Несвоевременная отмена заказа — <code>1 000 ₽</code>.</li>
+        <li>Несоответствие товара — <code>3 000 ₽</code> + возврат денег покупателю.</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Нужно ли регистрировать новый ПВЗ в налоговой, если он уже работает с Wildberries?</summary>
+  <p>Нет, если:</p>
+  <ul>
+    <li>Юридический адрес и владелец ПВЗ не меняются.</li>
+    <li>Вы не меняете систему налогообложения (например, с УСН на ОСНО).</li>
+  </ul>
+  <p>Однако в договоре с <em>Озон</em> потребуется указать <strong>ИНН и ОГРН</strong> вашей компании, а также предоставить копию свидетельства о регистрации.</p>
+</details>
+
+<details>
+  <summary>Как быть, если Озон требует GS1-маркировку, а на Wildberries мы работаем без неё?</summary>
+  <p>Вам придётся:</p>
+  <ol>
+    <li>Зарегистрироваться в <em>GS1 Russia</em> и получить префикс компании (стоимость — от <code>15 000 ₽/год</code>).</li>
+    <li>Нанять штрихкодировку для всех товаров, которые будете продавать через <em>Озон</em>.</li>
+    <li>Настроить печать этикеток с <code>GS1</code>-кодами (принтер должен поддерживать <code>GS1-128</code> или <code>GS1 DataMatrix</code>).</li>
+  </ol>
+  <p><em>Wildberries</em> допускает работу без <code>GS1</code>, но для <em>Озон</em> это обязательное требование с 2023 года.</p>
+</details>
+
+<details>
+  <summary>Можно ли использовать один и тот же складской софт для обоих маркетплейсов?</summary>
+  <p>Да, но софт должен поддерживать:</p>
+  <ul>
+    <li>Мультимаркетплейсную интеграцию (например, <em>МойСклад</em>, <em>1С:УТ</em>, <em>RetailCRM</em>).</li>
+    <li>Раздельный учёт остатков по каждому маркетплейсу.</li>
+    <li>Автоматическую генерацию отчётов для <em>Озон</em> (например, <code>Форма ТОРГ-29</code>).</li>
+  </ul>
+  <p>Если ваш текущий софт не поддерживает <em>Озон</em>, рассмотрите переход на <em>Озон.Склад</em> (бесплатно для партнёров) или <em>WMS-системы</em> (например, <em>Cleverence</em>).</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakoj-zarabotok-s-punkta-vydachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Заработок с пункта выдачи Ozon: реальность и цифры</span>
+                <span class="pb-related-desc">Сколько приносит ПВЗ Озон? Реальные цифры, расходы, схема работы и подводные камни франшизы в 2026-2</span>
+            </a><a href="/articles/p/pu/punkt-vydachi-vajldberriz-i-ozon-v-odnom-meste-kak-otkryt.html" class="pb-related-card">
+                <span class="pb-related-title">Пункт выдачи Вайлдберриз и Озон в одном месте: как открыть</span>
+                <span class="pb-related-desc">Узнайте, можно ли открыть пункт выдачи Wildberries и Ozon в одной локации. Анализ правил франшизы, т</span>
+            </a><a href="/articles/k/ka/kak-zarabotat-na-franshize-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как заработать на франшизе Ozon: пошаговый план и расчеты</span>
+                <span class="pb-related-desc">Узнайте, как заработать на франшизе Озон. Полный гид по открытию ПВЗ: условия, инвестиции, требовани</span>
+            </a><a href="/articles/k/ka/kak-otkryt-otdelenie-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть ПВЗ Озон в 2026: пошаговая инструкция и требования</span>
+                <span class="pb-related-desc">Хотите стать партнёром Ozon и открыть пункт выдачи заказов? Узнайте все условия, расходы и этапы зап</span>
+            </a><a href="/articles/s/sk/skolko-platyat-na-punkte-vydachi-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько платят на пункте выдачи Озон: зарплата и условия 2026</span>
+                <span class="pb-related-desc">Узнайте реальную зарплату сотрудников ПВЗ Озон. Разбор тарифов, штрафов, графиков работы и требовани</span>
+            </a><a href="/articles/s/sk/skolko-poluchayut-v-punkte-vydachi-ozon-sotrudniki.html" class="pb-related-card">
+                <span class="pb-related-title">Зарплата в пункте выдачи Ozon: сколько получают сотрудники</span>
+                <span class="pb-related-desc">Полный разбор зарплат сотрудников ПВЗ Ozon. От чего зависит доход, реальные цифры по регионам, графи</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

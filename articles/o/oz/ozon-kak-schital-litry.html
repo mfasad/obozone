@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как Ozon считает литры: правила расчета объема — Об Озоне</title>
+    <meta name="description" content="Узнайте, как Ozon рассчитывает литры для товаров. Формулы перевода из кг, правила округления и влияние на логистику для продавцов.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-kak-schital-litry.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как Ozon считает литры: правила расчета объема">
+    <meta property="og:description" content="Узнайте, как Ozon рассчитывает литры для товаров. Формулы перевода из кг, правила округления и влияние на логистику для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как Ozon считает литры: правила расчета объема</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#базовые-принципы-перевода-веса-в-объем-на-маркетплейсе">Базовые принципы перевода веса в объем на маркетплейсе</a></li><li><a href="#формула-расчета-и-коэффициенты-плотности">Формула расчета и коэффициенты плотности</a></li><li><a href="#влияние-упаковки-и-габаритов-на-расчет-литров">Влияние упаковки и габаритов на расчет литров</a></li><li><a href="#автоматическая-классификация-товаров-в-литрах">Автоматическая классификация товаров в литрах</a></li><li><a href="#ошибки-при-заполнении-карточки-товара">Ошибки при заполнении карточки товара</a></li><li><a href="#как-исправить-неверный-расчет-объема">Как исправить неверный расчет объема</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-brat-artikul-dlya-tovara-na-ozon.html">Где взять артикул товара на Ozon: инструкция для селлеров</a></li><li><a href="/articles/p/po/pochemu-ne-poluchaetsya-primenit-rich-kontent-na-ozon.html">Почему не получается применить Рич-контент на Озон: причины и решение</a></li><li><a href="/articles/s/sh/shtrikh-kod-ozon-kak.html">Штрихкод Ozon: как получить, наклеить и не получить штраф</a></li><li><a href="/articles/k/ka/kak-zavesti-kartochku-tovara-na-ozon-odezhda.html">Как завести карточку товара на Озон: Одежда и обувь</a></li><li><a href="/articles/o/oz/ozon-priroda-chto-eto.html">Озон Природа: что это и как работает экосистема маркетплейса</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как Ozon считает литры: правила расчета объема и веса</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#базовые-принципы-перевода-веса-в-объем-на-маркетплейсе">Базовые принципы перевода веса в объем на маркетплейсе</a></li><li><a href="#формула-расчета-и-коэффициенты-плотности">Формула расчета и коэффициенты плотности</a></li><li><a href="#влияние-упаковки-и-габаритов-на-расчет-литров">Влияние упаковки и габаритов на расчет литров</a></li><li><a href="#автоматическая-классификация-товаров-в-литрах">Автоматическая классификация товаров в литрах</a></li><li><a href="#ошибки-при-заполнении-карточки-товара">Ошибки при заполнении карточки товара</a></li><li><a href="#как-исправить-неверный-расчет-объема">Как исправить неверный расчет объема</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Для успешной торговли на маркетплейсе критически важно понимать, как именно платформа обрабатывает физические параметры товаров. <strong>Объемные характеристики</strong> играют ключевую роль не только в логистике, но и в формировании итоговой стоимости доставки для покупателя и комиссии для продавца. Многие селлеры сталкиваются с ситуацией, когда система автоматически пересчитывает вес в литры, что может вызвать вопросы.</p>
+
+<p>Алгоритмы площадки опираются на строгие математические формулы и справочные данные плотности веществ. <em>Ozon</em> использует эти вычисления для оптимизации складского хранения и транспортировки. Если вы торгуете жидкостями или сыпучими веществами, вам необходимо четко представлять механизм конвертации единиц измерения. Это позволит избежать ошибок при создании карточек и проблем с приемкой груза.</p>
+
+<p>В этой статье мы детально разберем технические аспекты того, как происходит <strong>конвертация единиц</strong> внутри системы. Вы узнаете о коэффициентах плотности, которые применяются по умолчанию, и о том, как вручную корректировать данные, если автоматика ошибается. Понимание этих нюансов поможет вам более точно прогнозировать расходы на логистику.</p>
+
+<h2 id="базовые-принципы-перевода-веса-в-объем-на-маркетплейсе">Базовые принципы перевода веса в объем на маркетплейсе</h2>
+
+<p>Основой для всех расчетов служит физическая величина, известная как плотность. Для большинства жидких и сыпучих товаров система использует стандартное значение плотности воды, которое составляет 1 кг/дм³. Это означает, что <strong>один килограмм</strong> жидкого товара часто приравнивается к одному литру объема. Такой подход упрощает первичную обработку данных, когда селлер указывает только вес.</p>
+
+<p>Однако не все вещества имеют одинаковую плотность. Масла, спирты, сиропы и различные химические растворы могут быть легче или тяжелее воды. Если вы укажете вес товара, система применит базовый коэффициент. В некоторых случаях это приводит к погрешностям в расчетах габаритов упаковки. Именно поэтому <em>алгоритмы Ozon</em> позволяют уточнять параметры, но стартовая точка всегда базируется на усредненных значениях.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы торгуете товарами с высокой плотностью (например, глицерин или тяжелые сиропы), автоматический пересчет 1 кг = 1 л может занизить реальный объем, занимаемый товаром на складе, что приведет к штрафам за несоответствие габаритов.</p>
+</blockquote>
+
+<p>Важно различать физический объем самого вещества и объем упаковки. Система в первую очередь интересуется тем, сколько места товар займет на полке или в коробке. Поэтому даже если жидкость легкая, <strong> tara и упаковка</strong> добавляют существенный объем, который учитывается при логистических расчетах. Игнорирование этого факта — частая ошибка новичков.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Всегда измеряйте товар в собранном виде, вместе с заводской упаковкой, так как именно эти габариты будут использоваться для расчета стоимости хранения.</p></aside>
+
+<h2 id="формула-расчета-и-коэффициенты-плотности">Формула расчета и коэффициенты плотности</h2>
+
+<p>Чтобы понять, откуда берутся цифры в личном кабинете, нужно обратиться к базовой формуле. Объем (V) рассчитывается как отношение массы (m) к плотности (ρ): V = m / ρ. В интерфейсе для селлеров этот процесс часто скрыт, но результат напрямую влияет на категорию габаритности. Для стандартных товаров <strong>коэффициент пересчета</strong> принят за единицу, если не задано иное.</p>
+
+<p>Рассмотрим, как это работает на практике для различных групп товаров. Если вы продаете моторное масло, его плотность будет около 0,85 кг/л. При весе 1 кг система, используя стандартный коэффициент, может ошибочно посчитать это как 1 литр, хотя физически это около 1,17 литра. Разница кажется небольшой, но в масштабах крупного заказа она влияет на <strong>заполняемость коробов</strong>.</p>
+
+<p>Ниже приведена таблица с примерными значениями плотности для популярных категорий товаров, торгуемых на Ozon. Эти данные помогут вам понять, насколько автоматический расчет может отличаться от реальности.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип товара</th>
+<th>Примерная плотность (кг/л)</th>
+<th>Соотношение 1 кг к литрам</th>
+<th>Влияние на логистику</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Вода / Напитки</td>
+<td>1.00</td>
+<td>1.00 л</td>
+<td>Стандартный расчет</td>
+</tr>
+<tr>
+<td>Масло растительное</td>
+<td>0.92</td>
+<td>1.08 л</td>
+<p>></p>
+<td>Небольшое превышение объема</td>
+</tr>
+<tr>
+<td>Спирт этиловый</td>
+<td>0.79</td>
+<td>1.26 л</td>
+<td>Значительное превышение объема</td>
+</tr>
+<tr>
+<td>Глицерин</td>
+<td>1.26</td>
+<td>0.79 л</td>
+<td>Меньший объем при том же весе</td>
+</tr>
+<tr>
+<td>Мед натуральный</td>
+<td>1.40</td>
+<td>0.71 л</td>
+<td>Высокая плотность упаковки</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Используя эти данные, вы можете предварительно оценить, насколько корректно система классифицирует ваш товар. Если расхождение между фактическим объемом и расчетным велико, это повод проверить настройки карточки. <strong>Точность данных</strong> — залог отсутствия претензий со стороны логистического центра.</p>
+
+<div class="pb-poll" id="poll-1f1348f6"><div class="pb-poll-question">📊 С каким типом товаров вы работаете чаще всего?</div><div class="pb-poll-option" data-poll="1f1348f6" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Жидкости (вода, напитки)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1f1348f6" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Химия (бытовая, косметика)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1f1348f6" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Сыпучие продукты</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1f1348f6" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Твердые товары</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="1f1348f6" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Другое</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="влияние-упаковки-и-габаритов-на-расчет-литров">Влияние упаковки и габаритов на расчет литров</h2>
+
+<p>Одной из самых распространенных проблем является путаница между объемом содержимого и объемом упаковки. Когда вы указываете товар, система Ozon требует ввести габариты короба. Именно эти размеры (длина, ширина, высота) используются для расчета <strong>объемного веса</strong>. Литраж, указанный на этикетке (например, "5 л"), может не совпадать с тем пространством, которое займет канистра на складе.</p>
+
+<p>Логистический алгоритм считает объем по внешней границе упаковки. Если вы продаете набор из 12 бутылок по 1 литру, суммарный объем жидкости составит 12 литров. Однако коробка, в которой они лежат, будет иметь объем, например, 15-16 литров из-за пустот, картона и формы бутылок. Система будет считать стоимость доставки и хранения исходя из <strong>габаритов короба</strong>, а не суммы литров внутри.</p>
+
+<p>Особое внимание стоит уделить деформируемой таре. Пластиковые бутылки или пакеты могут менять форму, но для расчета берется их максимальное возможное занимаемое пространство. Если товар приходит в мягкой упаковке, специалисты склада могут измерить его в расправленном виде. Это приводит к тому, что <em>фактический объем</em> в системе может быть больше заявленного вами при создании карточки.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не указывайте габариты только самого товара без упаковки. Это приведет к тому, что при приемке товар будет переквалифицирован, и вы получите штраф за неверные габариты.</p>
+</blockquote>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка упаковки перед отправкой</h4><label class="check-item"><input type="checkbox"><span>Измерить длину, ширину и высоту короба</span></label><label class="check-item"><input type="checkbox"><span>Убедиться, что коробка не деформирована</span></label><label class="check-item"><input type="checkbox"><span>Проверить вес упаковки с товаром</span></label><label class="check-item"><input type="checkbox"><span>Сравнить с данными в карточке товара</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="автоматическая-классификация-товаров-в-литрах">Автоматическая классификация товаров в литрах</h2>
+
+<p>Система маркетплейса автоматически определяет категорию товара на основе введенных данных и штрихкода. Если товар относится к категории "Бытовая химия" или "Продукты", алгоритм может предложить указать объем в литрах. Это необходимо для корректного отображения <strong>характеристик</strong> в карточке для покупателя. Покупатель видит именно то значение, которое было внесено в атрибуты или рассчитано системой.</p>
+
+<p>При загрузке товаров через Excel-шаблон или API существует поле "Объем". Если вы оставляете его пустым, система попытается вычислить его на основе веса. Однако для товаров, которые продаются именно объемом (например, шампунь 400 мл), критически важно заполнить это поле вручную. Автоматика может округлить 400 мл до 0.4 л или, наоборот, интерпретировать вес 400 г как 0.4 л, что для густого крема будет неверно.</p>
+
+<p>В некоторых случаях <em>Ozon</em> использует справочники производителей. Если вы работаете с известным брендом, в базе уже могут быть данные о том, сколько литров в упаковке данного артикула. Проверка этих данных перед публикацией поможет избежать ситуации, когда у товара указано "1 л", а по факту это спрей объемом 200 мл.</p>
+
+<details class="pb-accordion"><summary>Что делать, если объем в карточке неверен?</summary><div class="pb-accordion-body"><p>Если вы обнаружили ошибку в расчете литров или объема, необходимо создать заявку в поддержку селлера. Приложите фото товара с линейкой и весами. После проверки модераторами данные будут обновлены, и перерасчет комиссии произойдет в следующем периоде.</p></div></details>
+
+<h2 id="ошибки-при-заполнении-карточки-товара">Ошибки при заполнении карточки товара</h2>
+
+<p>Наиболее частая ошибка — указание нетто-веса вместо веса брутто в сочетании с автоматическим расчетом объема. Селлер пишет вес товара 1 кг, система считает 1 литр. Но если товар тяжелый (например, густой гель), реальный объем может быть 0.8 литра. Или наоборот, товар легкий (пенка), и 1 кг занимает 2-3 литра. В обоих случаях <strong>логистический плечо</strong> рассчитывается неверно.</p>
+
+<p>Вторая распространенная проблема — игнорирование единиц измерения. В разных полях личного кабинета могут требоваться миллилитры, литры или кубические сантиметры. Путаница между мл и л приводит к катастрофическим искажениям: товар объемом 500 мл может быть воспринят как 500 литров, что технически невозможно для обычной полки. Внимательно следите за <strong>размерностью</strong> вводимых данных.</p>
+
+<p>Также встречаются ошибки при работе с составными наборами. Если вы продаете набор "Шампунь + Кондиционер" по 500 мл каждый, общий объем жидкости 1 литр. Но в поле объема набора некоторые указывают 500 мл (объем одной единицы) или 2 литра (с учетом воздуха в бутылках). Правильнее указывать суммарный объем содержимого или габариты общей коробки, в зависимости от того, как сформирован <strong>SKU (артикул)</strong>.</p>
+
+<p>Не забывайте, что за неверно указанные габариты и вес, которые влияют на расчет литров и стоимости, предусмотрены штрафы. Разница между фактическими и заявленными параметрами не должна превышать определенные допуски. Если система видит систематическое расхождение, она может ограничить приемку товаров от этого продавца.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Точное указание объема и веса в карточке товара — это не просто формальность, а способ избежать финансовых потерь на логистике и штрафах.</p></aside>
+
+<h2 id="как-исправить-неверный-расчет-объема">Как исправить неверный расчет объема</h2>
+
+<p>Если вы заметили, что Ozon считает литры или объем вашего товара некорректно, необходимо действовать promptly. Первый шаг — проверка карточки товара. Зайдите в раздел "Товры и цены", найдите нужный артикул и проверьте поля "Вес", "Габариты" и "Объем". Часто ошибка кроется именно там, в опечатке или неверно выбранной единице измерения.</p>
+
+<p>Если данные в карточке верны, но на складе товар измерили иначе, потребуется процедура пересмотра габаритов. Для этого создается обращение в службу поддержки с приложением фотографий процесса измерения. Вы должны предоставить доказательства того, что <strong>реальные размеры</strong> соответствуют вашим данным. Это может быть фото товара на весах и с рулеткой, где видны показания приборов.</p>
+
+<p>В случае, если товар изменил упаковку (например, производитель уменьшил объем бутылки с 1 л до 0.9 л, оставив вес этикетки прежним), нужно обязательно обновить информацию в системе. Старые данные приведут к тому, что покупатель получит не то, что ожидает, а логистика будет работать с ошибочными <strong>параметрами плотности</strong>. Актуализация данных — ответственность продавца.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не пытайтесь обмануть систему, занижая габариты, чтобы платить меньше за хранение. Сканеры на сортировочных центрах Ozon автоматически фиксируют реальные размеры, и расхождение вскроется при первой же приемке.</p>
+</blockquote>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Как Ozon переводит килограммы в литры для шампуней?</summary>
+<p>Для шампуней и гелей обычно применяется коэффициент, близкий к плотности воды (1.0 - 1.1), но система приоритетно использует габариты упаковки. Если указан вес 1 кг, система может условно принять объем за 1 литр для предварительного расчета, но финальная стоимость зависит от размеров короба.</p>
+</details>
+
+<details>
+<summary>Влияет ли объем в литрах на комиссию маркетплейса?</summary>
+<p>Прямо на процент комиссии объем в литрах не влияет, комиссия зависит от категории товара. Однако объем влияет на стоимость логистики и хранения, что является расходом продавца. Больший объем означает более высокую стоимость доставки до клиента и хранения на складе.</p>
+</details>
+
+<details>
+<summary>Что будет, если я укажу 5 литров, а по факту товар занимает 7 литров?</summary>
+<p>При приемке на складе Ozon проведет контрольное взвешивание и измерение. Если фактический объем превысит заявленный более чем на допустимый порог (обычно несколько сантиметров или процентов), товар могут переквалифицировать. Вам выставят счет на доплату за логистику и возможно штраф за неверные габариты.</p>
+</details>
+
+<details>
+<summary>Можно ли указать объем в миллилитрах вместо литров?</summary>
+<p>Да, в большинстве полей для заполнения характеристик можно использовать миллилитры (мл). Система автоматически конвертирует их в литры для внутренней логики. Главное — соблюдать размерность, указанную в подсказке поля (например, не писать 500 в поле Литры, если имеется в виду 500 мл).</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-brat-artikul-dlya-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где взять артикул товара на Ozon: инструкция для селлеров</span>
+                <span class="pb-related-desc">Узнайте, где найти артикул на Ozon. Подробная инструкция по поиску SKU, штрихкода и созданию карточк</span>
+            </a><a href="/articles/p/po/pochemu-ne-poluchaetsya-primenit-rich-kontent-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Почему не получается применить Рич-контент на Озон: причины и решение</span>
+                <span class="pb-related-desc">Не применяется Рич-контент на Ozon? Разбираем технические ошибки, требования к коду HTML и правила м</span>
+            </a><a href="/articles/s/sh/shtrikh-kod-ozon-kak.html" class="pb-related-card">
+                <span class="pb-related-title">Штрихкод Ozon: как получить, наклеить и не получить штраф</span>
+                <span class="pb-related-desc">Полная инструкция: как создать штрихкод товара для Ozon. Правила генерации этикеток FBS и FBO, разме</span>
+            </a><a href="/articles/k/ka/kak-zavesti-kartochku-tovara-na-ozon-odezhda.html" class="pb-related-card">
+                <span class="pb-related-title">Как завести карточку товара на Озон: Одежда и обувь</span>
+                <span class="pb-related-desc">Подробная инструкция по созданию карточки товара на Ozon. Узнайте, как заполнить характеристики одеж</span>
+            </a><a href="/articles/o/oz/ozon-priroda-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Озон Природа: что это и как работает экосистема маркетплейса</span>
+                <span class="pb-related-desc">Разбираемся, что такое Озон Природа: особенности категории экотоваров, требования к продавцам и преи</span>
+            </a><a href="/articles/k/ka/kakie-veshchi-portit-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие вещи портит Озон: полный список запрещенки</span>
+                <span class="pb-related-desc">Узнайте, какие товары запрещены на Ozon. Полный список того, что портит статистику магазина и ведет </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

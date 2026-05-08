@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить Wildberries к Ozon: инструкция по интеграции — Об Озоне</title>
+    <meta name="description" content="Узнайте, как подключить Wildberries к Ozon через API и сторонние сервисы. Полная инструкция по настройке кросспостинга товаров для селлеров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-podklyuchit-velberis-k-ozonu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить Wildberries к Ozon: инструкция по интеграции">
+    <meta property="og:description" content="Узнайте, как подключить Wildberries к Ozon через API и сторонние сервисы. Полная инструкция по настройке кросспостинга товаров для селлеров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как подключить Wildberries к Ozon: инструкция по интеграции</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#почему-прямая-интеграция-невозможна-без-посредников">Почему прямая интеграция невозможна без посредников</a></li><li><a href="#выбор-инструмента-для-кросспостинга-товаров">Выбор инструмента для кросспостинга товаров</a></li><li><a href="#пошаговая-инструкция-по-настройке-через-api">Пошаговая инструкция по настройке через API</a></li><li><a href="#настройка-правил-ценообразования-и-остатков">Настройка правил ценообразования и остатков</a></li><li><a href="#работа-с-карточками-товаров-и-контентом">Работа с карточками товаров и контентом</a></li><li><a href="#решение-типичных-проблем-при-синхронизации">Решение типичных проблем при синхронизации</a></li><li><a href="#экономическая-эффективность-автоматизации">Экономическая эффективность автоматизации</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zagruzit-ostatki-na-ozon.html">Как загрузить остатки на Озон: 3 способа и решение ошибок</a></li><li><a href="/articles/k/ka/kak-zagruzit-tovar-na-ozon-na-svoj-sklad.html">Как загрузить товар на Озон на свой склад: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kakoj-format-infografiki-na-ozon.html">Какой формат инфографики на Озон: требования 2026</a></li><li><a href="/articles/k/ka/kak-izmenit-foto-3-4-dlya-ozon.html">Как изменить фото 3:4 для Ozon — требования и пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-pridumat-artikul-na-tovar-na-ozone.html">Артикул для Озон: как придумать правильно в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как подключить Wildberries к Ozon: инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#почему-прямая-интеграция-невозможна-без-посредников">Почему прямая интеграция невозможна без посредников</a></li><li><a href="#выбор-инструмента-для-кросспостинга-товаров">Выбор инструмента для кросспостинга товаров</a></li><li><a href="#пошаговая-инструкция-по-настройке-через-api">Пошаговая инструкция по настройке через API</a></li><li><a href="#настройка-правил-ценообразования-и-остатков">Настройка правил ценообразования и остатков</a></li><li><a href="#работа-с-карточками-товаров-и-контентом">Работа с карточками товаров и контентом</a></li><li><a href="#решение-типичных-проблем-при-синхронизации">Решение типичных проблем при синхронизации</a></li><li><a href="#экономическая-эффективность-автоматизации">Экономическая эффективность автоматизации</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Современные маркетплейсы предлагают селлерам колоссальные возможности для масштабирования бизнеса, однако работа одновременно с несколькими площадками часто превращается в логистический хаос. Многие предприниматели задаются вопросом, как подключить Wildberries к Ozon, чтобы автоматизировать процессы и не терять продажи из-за ручного управления остатками. Прямой технической кнопки "Синхронизировать" внутри личных кабинетов этих гигантов не существует, так как они являются прямыми конкурентами и не заинтересованы в обмене данными.</p>
+<p>Тем не менее, решение этой задачи лежит в плоскости использования специализированного программного обеспечения, которое выступает посредником между двумя системами. <strong>Интеграция</strong> позволяет передавать данные о наличии товаров, изменении цен и новых заказах в режиме реального времени. Без использования таких инструментов селлер рискует столкнуться с ситуацией, когда товар продан на одной площадке, а на второй остался активным, что ведет к штрафам за <strong>отмену заказа</strong>.</p>
+<p>В этой статье мы подробно разберем все доступные способы наладить взаимодействие между этими площадками. Вы узнаете о роли <strong>API</strong> (Application Programming Interface) в этом процессе и поймете, почему ручное ведение учета при больших объемах продаж становится экономически нецелесообразным.</p>
+
+<h2 id="почему-прямая-интеграция-невозможна-без-посредников">Почему прямая интеграция невозможна без посредников</h2>
+<p>Первое, что нужно понять при попытке связать эти две платформы — они работают в изолированных экосистемах. Wildberries и Ozon используют разные протоколы передачи данных, различные алгоритмы ранжирования и абсолютно непохожие интерфейсы для селлеров. Попытка найти нативную функцию для кросспостинга внутри настроек личного кабинета обречена на провал, так как бизнес-модели площадок предполагают удержание продавца внутри своего контура.</p>
+<p>Основной проблемой при ручной работе является рассинхронизация <strong>остатков</strong>. Если вы продаете популярный товар, который есть в наличии в количестве 5 штук, и его одновременно купили на WB и Ozon, один из покупателей гарантированно получит отмену. Это напрямую влияет на рейтинг продавца и может привести к блокировке аккаунта за низкий процент выполнения заказов.</p>
+<p>Именно здесь на сцену выходят сторонние сервисы-агрегаторы. Они используют официальные <em>API-ключи</em>, предоставляемые самими маркетплейсами для разработчиков, чтобы создать единое информационное пространство. <strong>Автоматизация</strong> через такие сервисы берет на себя рутинную работу по обновлению цифр, освобождая время предпринимателя для стратегии развития.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не передавайте свои логин и пароль от личного кабинета маркетплейса сомнительным сервисам или частным лицам. Для безопасной интеграции используются только специальные токены доступа (API-ключи), которые можно сгенерировать и отозвать в любой момент.</p>
+</blockquote>
+
+<p>Использование промежуточного софта позволяет не только синхронизировать остатки, но и централизованно управлять ценообразованием. Вы можете задать правило, по которому цена на Ozon будет автоматически становиться на 5% ниже, чем на Wildberries, или наоборот, в зависимости от вашей <strong>маржинальности</strong> и комиссии площадки.</p>
+
+<h2 id="выбор-инструмента-для-кросспостинга-товаров">Выбор инструмента для кросспостинга товаров</h2>
+<p>Рынок решений для автоматизации торговли на маркетплейсах в России сейчас перенасыщен предложениями. Чтобы выбрать подходящий инструмент, необходимо проанализировать функционал, стоимость и отзывы других селлеров. Все решения можно разделить на три основные категории: облачные сервисы (SaaS), десктопные программы и самописные скрипты.</p>
+<p>Облачные сервисы, такие как <em>MPStats, Stat4Market, Moysklad</em> или специализированные коннекторы, являются наиболее популярным выбором. Они не требуют установки на компьютер, работают через браузер и обновляются разработчиками автоматически при изменениях в API маркетплейсов. Это идеальный вариант для малого и среднего бизнеса.</p>
+<ul>
+<li>🚀 <strong>Облачные сервисы:</strong> доступны с любого устройства, оплата по подписке, быстрый старт работы без программистов.</li>
+<li>💻 <strong>Десктопные программы:</strong> требуют установки, часто имеют единоразовую оплату, но могут быть менее гибкими при обновлении интерфейсов площадок.</li>
+<li>⚙️ <strong>Самописные решения:</strong> создаются программистами под конкретные нужды, требуют постоянного обслуживания и доработки при изменении API.</li>
+</ul>
+<p>При выборе стоит обратить внимание на наличие функции <strong>картирования категорий</strong>. Поскольку рубрикаторы на Wildberries и Ozon отличаются, система должна уметь правильно сопоставлять товары, чтобы характеристики не терялись при выгрузке. Также важна поддержка работы с <em>баркодами</em> и составными товарами.</p>
+
+<div class="pb-poll" id="poll-14a44fc2"><div class="pb-poll-question">📊 Какой способ учета вы используете сейчас?</div><div class="pb-poll-option" data-poll="14a44fc2" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Excel/Google Таблицы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="14a44fc2" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Личные кабинеты вручную</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="14a44fc2" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонний сервис автоматизации</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="14a44fc2" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">1С или МойСклад</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="пошаговая-инструкция-по-настройке-через-api">Пошаговая инструкция по настройке через API</h2>
+<p>Процесс подключения начинается с получения доступа к данным на самих площадках. Вам необходимо сгенерировать ключи доступа в личных кабинетах селлера. На Wildberries это делается в разделе "Профиль" -> "Настройки" -> "Доступ к API". На Ozon путь лежит через "Настройки" -> "API и ключи" -> "Создать новый ключ".</p>
+<p>После получения ключей (обычно это длинная строка символов) вы переходите в выбранный сервис автоматизации. Там нужно добавить оба магазина, вставив соответствующие токены. Система проверит их валидность и начнет первичную загрузку данных. Этот процесс может занять от нескольких минут до нескольких часов в зависимости от объема вашего <strong>ассортимента</strong>.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Чек-лист подготовки к интеграции</h4><label class="check-item"><input type="checkbox"><span>Получить API-ключ на Wildberries:Получить API-ключ на Ozon:Зарегистрироваться в сервисе-агрегаторе:Проверить соответствие артикулов товаров</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+<p>Критически важным этапом является настройка правил синхронизации. Вы должны четко указать, какой магазин является мастер-источником для остатков, или настроить двустороннюю синхронизацию. Например, если товар продается на WB, система должна мгновенно вычесть единицу из остатка на Ozon. Ошибка в настройке <strong>логистики</strong> может привести к тому, что система будет считать остатки неверно.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Wildberries API</th>
+<th>Ozon API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Тип ключа</td>
+<td>Статический токен</td>
+<td>Ключ клиента и секретный ключ</td>
+</tr>
+<tr>
+<td>Частота обновления</td>
+<p>Зависит от тарифа сервиса</p>
+<p>Лимиты запросов в секунду</p>
+</tr>
+<tr>
+<td>Документация</td>
+<p>openapi.wb.ru</p>
+<p>api-seller.ozon.ru</p>
+</tr>
+<tr>
+<td>Сложность</td>
+<p>Средняя</td></p>
+<p>Высокая</td></p>
+</tr>
+</tbody>
+</table></div>
+
+<p>После первичной настройки обязательно проведите тестовую продажу или искусственное изменение остатка, чтобы убедиться, что данные передаются корректно. <strong>Тестирование</strong> помогает избежать фатальных ошибок в разгар сезона распродаж.</p>
+
+<h2 id="настройка-правил-ценообразования-и-остатков">Настройка правил ценообразования и остатков</h2>
+<p>Одной из главных функций интеграции является динамическое ценообразование. Рынок меняется ежеминутно, и держать руку на пульсе вручную невозможно. Сервисы позволяют устанавливать формулы, например: "Цена на Ozon = Цена на WB * 0.98". Это помогает выигрывать <strong>Buy Box</strong> или просто оставаться конкурентоспособным.</p>
+<p>Важно учитывать комиссии площадок при настройке цен. Комиссия Wildberries может отличаться от комиссии Ozon для одной и той же категории товаров. Если не заложить эту разницу в формулу, вы можете торговать в ноль или даже в убыток на одной из площадок, думая, что держите единую цену.</p>
+
+<p>Также следует настроить правила для ситуаций, когда товар заканчивается. Можно задать автоматическое скрытие карточки товара или установку цены в "999999", чтобы покупатели не могли сделать заказ. <strong>Алгоритмы</strong> маркетплейсов могут по-разному реагировать на отсутствие товара, поэтому лучше уточнить актуальные требования в справке.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Будьте осторожны с агрессивным занижением цен через ботов. Маркетплейсы могут расценить это как демпинг и искусственное манипулирование рынком, что грозит санкциями. Всегда оставляйте разумную маржу.</p>
+</blockquote>
+
+<h2 id="работа-с-карточками-товаров-и-контентом">Работа с карточками товаров и контентом</h2>
+<p>Интеграция касается не только цифр, но и визуальной части. Многие сервисы позволяют загружать контент (фото, описания, характеристики) сразу на обе площадки из одного окна. Это экономит огромное количество времени при запуске новых позиций.</p>
+<p>Однако здесь есть нюанс: требования к контенту на площадках различаются. На Ozon богатый контент (Rich Content) играет огромную роль в конверсии, тогда как на Wildberries важнее инфографика на фото. Слепое копирование описания может привести к тому, что текст не пройдет модерацию или будет выглядеть неуместно.</p>
+<ul>
+<li>📸 <strong>Изображения:</strong> проверяйте требования к размеру и формату файлов для каждой площадки отдельно.</li>
+<li>📝 <strong>Описания:</strong> используйте HTML-теги для Ozon (если сервис позволяет), для WB пишите чистый текст с ключевыми словами.</li>
+<li>🏷 <strong>Характеристики:</strong> заполняйте максимально полный список, так как фильтры поиска работают именно по ним.</li>
+</ul>
+<p>Используйте функцию <strong>клонирования</strong> карточек с умом. Лучше создать шаблон для каждой категории товаров, чем копировать карточку зубной пасты в категорию электроники. Это приведет к ошибкам в атрибутах и проблемам с поиском.</p>
+
+
+
+<h2 id="решение-типичных-проблем-при-синхронизации">Решение типичных проблем при синхронизации</h2>
+<p>В процессе работы вы можете столкнуться с ошибками. Самая частая из них — "Товар не найден" или рассинхронизация артикулов. Это происходит, если вы изменили артикул на одной площадке вручную, не уведомив сервис-агрегатор. Система перестает понимать, какой товар какому соответствует, и прекращает передачу данных.</p>
+<p>Другая проблема — лимиты API. Маркетплейсы ограничивают количество запросов в минуту. Если у вас десятки тысяч товаров и сервис пытается обновить их все одновременно, он может получить временный бан по IP. Хорошие сервисы имеют очередь задач и распределяют нагрузку, но знать об этом ограничении <strong>трафика</strong> данных необходимо.</p>
+<p>Если вы заметили, что остатки перестали обновляться, первым делом проверьте статус API-ключей. Они могли истечь или быть отозваны. Также стоит проверить логи ошибок в самом сервисе автоматизации — там обычно пишется конкретная причина сбоя, будь то технический сбой на стороне Ozon или ошибка в формате передаваемых данных.</p>
+
+
+
+<h2 id="экономическая-эффективность-автоматизации">Экономическая эффективность автоматизации</h2>
+<p>Многие селлеры колеблются, стоит ли платить ежемесячную подписку за сервис интеграции. Ответ кроется в масштабировании. Если вы продаете 5-10 товаров в день, можно справиться и вручную. Но при выходе на 50-100 заказов в сутки риск ошибки становится слишком дорогим.</p>
+<p>Штрафы за отмену заказа, потеря рейтинга, время менеджера, которое можно потратить на закупку или маркетинг — все это скрытые издержки ручной работы. Автоматизация окупается уже за счет предотвращения нескольких критических ошибок в месяц. Кроме того, она позволяет одному человеку управлять объемами, которые раньше требовали целого отдела.</p>
+<p>В долгосрочной перспективе наличие единой системы учета становится фундаментом для подключения новых каналов продаж, таких как Яндекс.Маркет, СберМегаМаркет или собственная <strong>витрина</strong>. Выстраивая процессы сейчас, вы готовите почву для будущего роста.</p>
+
+<details>
+<summary>Нужно ли программистское образование для настройки?</summary>
+<p>Нет, современные сервисы заточены под обычных пользователей. Вам не нужно знать языки программирования. Достаточно уметь пользоваться компьютером на уровне уверенного пользователя и внимательно читать инструкции по получению API-ключей.</p>
+</details>
+
+<details>
+<summary>Что делать, если сервис "упал" во время распродажи?</summary>
+<p>Имейте под рукой план Б. На время крупных акций (Черная пятница, 11.11) некоторые сервисы могут не справляться с нагрузкой. Имейте возможность быстро отключить синхронизацию и перейти на ручное управление или использовать резервный канал связи.</p>
+</details>
+
+<details>
+<summary>Можно ли интегрировать складскую программу (1С)?</summary>
+<p>Да, многие сервисы-агрегаторы умеют работать связкой: 1С (или МойСклад) -> Сервис интеграции -> Маркетплейсы. В этом случае остатки обновляются от учетной системы, что является наиболее надежной схемой для крупного бизнеса.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-zagruzit-ostatki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить остатки на Озон: 3 способа и решение ошибок</span>
+                <span class="pb-related-desc">Подробная инструкция по загрузке остатков на Ozon через Excel, API и складской учет. Как избежать ош</span>
+            </a><a href="/articles/k/ka/kak-zagruzit-tovar-na-ozon-na-svoj-sklad.html" class="pb-related-card">
+                <span class="pb-related-title">Как загрузить товар на Озон на свой склад: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по загрузке товаров на склад Озон FBS: от подготовки карточки до отправки парт</span>
+            </a><a href="/articles/k/ka/kakoj-format-infografiki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какой формат инфографики на Озон: требования 2026</span>
+                <span class="pb-related-desc">Узнайте идеальный формат инфографики для Ozon. Размеры, вес, разрешение и правила оформления карточе</span>
+            </a><a href="/articles/k/ka/kak-izmenit-foto-3-4-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как изменить фото 3:4 для Ozon — требования и пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по изменению фото 3:4 для карточки товара на Ozon: форматы, размеры, инструмен</span>
+            </a><a href="/articles/k/ka/kak-pridumat-artikul-na-tovar-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Артикул для Озон: как придумать правильно в 2026 году</span>
+                <span class="pb-related-desc">Пошаговая инструкция по созданию артикулов для товаров на Ozon: требования маркетплейса, примеры, ош</span>
+            </a><a href="/articles/s/sk/sku-id-tovara-na-ozon-chto-eto-takoe.html" class="pb-related-card">
+                <span class="pb-related-title">SKU ID товара на Ozon: что это, как найти и изменить</span>
+                <span class="pb-related-desc">Подробный гид по SKU артикулу на Озон. Узнайте, чем он отличается от баркода, как найти ID товара в </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

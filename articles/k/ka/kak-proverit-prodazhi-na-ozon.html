@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как проверить продажи на Озон: отчеты, аналитика и API — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция для селлеров: как проверить продажи на Озон через Ozon Seller, Excel и API. Разбор отчетов по дням, месяцам и статусам.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-proverit-prodazhi-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как проверить продажи на Озон: отчеты, аналитика и API">
+    <meta property="og:description" content="Подробная инструкция для селлеров: как проверить продажи на Озон через Ozon Seller, Excel и API. Разбор отчетов по дням, месяцам и статусам.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как проверить продажи на Озон: отчеты, аналитика и API</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#работа-с-дашбордом-в-личном-кабинете-ozon-seller">Работа с дашбордом в личном кабинете Ozon Seller</a></li><li><a href="#раздел-аналитика-детальный-отчет-по-продажам">Раздел Аналитика: детальный отчет по продажам</a></li><li><a href="#финансовые-отчеты-и-сверка-взаиморасчетов">Финансовые отчеты и сверка взаиморасчетов</a></li><li><a href="#сравнение-отчетов-excel-против-api">Сравнение отчетов: Excel против API</a></li><li><a href="#мобильное-приложение-для-контроля-бизнеса">Мобильное приложение для контроля бизнеса</a></li><li><a href="#типичные-ошибки-при-анализе-данных">Типичные ошибки при анализе данных</a></li><li><a href="#использование-сторонних-сервисов-аналитики">Использование сторонних сервисов аналитики</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/v/v-/v-kakoj-programme-pechatat-etiketki-dlya-ozona.html">Топ-7 программ для печати этикеток Ozon: сравнение 2026 года</a></li><li><a href="/articles/k/ka/kak-torgovat-na-ozone-avito.html">Как торговать на Ozon и Авито: стратегии, схемы и сравнение</a></li><li><a href="/articles/r/ra/rabota-na-ozon-zapolnenie-kartochek-chto-eto.html">Работа на Озон: заполнение карточек товаров — что это и как заработать</a></li><li><a href="/articles/p/po/pochemu-net-prodazh-na-ozon.html">Нет продаж на Ozon? 15 причин и решений для продавцов в 2026</a></li><li><a href="/articles/k/ka/kak-provesti-analitiku-tovarov-na-ozon.html">Как провести аналитику товаров на Ozon: полное руководство</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как проверить продажи на Озон: полный гид по аналитике для продавца</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#работа-с-дашбордом-в-личном-кабинете-ozon-seller">Работа с дашбордом в личном кабинете Ozon Seller</a></li><li><a href="#раздел-аналитика-детальный-отчет-по-продажам">Раздел Аналитика: детальный отчет по продажам</a></li><li><a href="#финансовые-отчеты-и-сверка-взаиморасчетов">Финансовые отчеты и сверка взаиморасчетов</a></li><li><a href="#сравнение-отчетов-excel-против-api">Сравнение отчетов: Excel против API</a></li><li><a href="#мобильное-приложение-для-контроля-бизнеса">Мобильное приложение для контроля бизнеса</a></li><li><a href="#типичные-ошибки-при-анализе-данных">Типичные ошибки при анализе данных</a></li><li><a href="#использование-сторонних-сервисов-аналитики">Использование сторонних сервисов аналитики</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Управление продажами на крупнейшем маркетплейсе страны требует постоянного мониторинга финансовых потоков и движения товаров. Каждый продавец сталкивается с необходимостью оперативно оценивать эффективность своей деятельности, чтобы корректировать стратегию ценообразования и рекламных кампаний. <strong>Проверка продаж</strong> становится фундаментом, на котором строится успешное развитие бизнеса в электронной коммерции.</p>
+
+<p>Существует множество инструментов для отслеживания показателей, от встроенных дашбордов до сложных аналитических систем. Новички часто теряются в обилии цифр, не понимая, где искать реальную выручку, а где — лишь зарезервированные средства. Важно сразу определить, какие именно данные вам нужны: количество проданных единиц, сумма выручки или чистая прибыль после всех комиссий.</p>
+
+<p>В этой статье мы детально разберем все доступные способы получения отчетности. Вы научитесь работать с основными разделами личного кабинета, поймете разницу между заказами и реализацией, а также узнаете о скрытых функциях, которые упрощают учет. Правильная интерпретация данных поможет избежать кассовых разрывов и ошибок в планировании закупок.</p>
+
+<h2 id="работа-с-дашбордом-в-личном-кабинете-ozon-seller">Работа с дашбордом в личном кабинете Ozon Seller</h2>
+
+<p>Первое место, куда заходит продавец для оценки текущей ситуации — это главная страница личного кабинета. <strong>Дашборд</strong> предоставляет сводную информацию в режиме реального времени, отображая ключевые метрики за сегодня, вчера или выбранный период. Здесь можно быстро увидеть количество новых заказов, сумму в рублях и статусы их обработки.</p>
+
+<p>Однако стоит учитывать, что данные на главной странице носят ознакомительный характер. Они обновляются с небольшой задержкой и не содержат детализации по каждому артикулу. Для глубокого анализа необходимо переходить в специализированные разделы аналитики, где информация структурирована более подробно.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте виджет "Продажи" на главной странице для быстрой оценки динамики, но никогда не полагайтесь на него для финальной сверки бухгалтерии, так как он может не учитывать последние отмены или возвраты.</p></aside>
+
+<p>Интерфейс дашборда настраивается индивидуально. Вы можете добавлять или убирать виджеты, меняя их расположение для своего удобства. Это особенно актуально для тех, кто отслеживает конкретные <em>KPI</em>, такие как конверсия в покупку или процент отмен.</p>
+
+<h2 id="раздел-аналитика-детальный-отчет-по-продажам">Раздел Аналитика: детальный отчет по продажам</h2>
+
+<p>Наиболее полным источником информации является раздел <code>Аналитика → Продажи</code>. Именно здесь формируется картина реального движения товаров. Система позволяет фильтровать данные по датам, складам, категориям и брендам, что дает возможность проводить сегментированный анализ.</p>
+
+<p>В этом разделе важно различать понятия "Заказы" и "Реализация". Заказы — это оформленные покупателями позиции, которые еще могут быть отменены или возвращены. Реализация же фиксирует факт успешной передачи товара клиенту, когда деньги фактически поступают на счет продавца. <strong>Финансовый учет</strong> должен вестись именно по realized sales (реализации).</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Анализ раздела Продажи</h4><label class="check-item"><input type="checkbox"><span>Выбрать корректный период</span></label><label class="check-item"><input type="checkbox"><span>Отфильтровать по нужному складу</span></label><label class="check-item"><input type="checkbox"><span>Сравнить количество заказов и реализаций</span></label><label class="check-item"><input type="checkbox"><span>Проверить процент отмен</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Данные в отчете можно выгружать в форматах CSV или Excel для дальнейшей обработки. Это стандартная процедура для ведения управленческого учета. При выгрузке больших массивов данных система может формировать файл несколько минут, поэтому стоит набраться терпения.</p>
+
+<h2 id="финансовые-отчеты-и-сверка-взаиморасчетов">Финансовые отчеты и сверка взаиморасчетов</h2>
+
+<p>Для понимания реальной прибыли недостаточно смотреть только на количество проданных товаров. Необходимо учитывать все издержки: комиссии маркетплейса, логистику, хранение и участие в акциях. Все эти данные аккумулируются в разделе <code>Финансы → Отчеты</code>.</p>
+
+<p>Здесь представлены документы, которые формируются ежедневно. В них отражается движение денежных средств по каждому заказу. <strong>Акт выполненных работ</strong> является юридическим документом, подтверждающим оказанные услуги площадки. Сверка с этими отчетами обязательна перед планированием вывода средств.</p>
+
+<blockquote>⚠️ Внимание: В финансовых отчетах суммы могут отображаться с НДС или без него в зависимости от вашей системы налогообложения. Всегда проверяйте настройки отображения, чтобы не занизить или не завысить расчетную прибыль.</blockquote>
+
+<p>Особое внимание стоит уделить разделу "Корректировки". Иногда маркетплейс пересчитывает комиссии или начисляет штрафы постфактум. Эти суммы отражаются отдельными строками и могут существенно влиять на итоговый баланс за месяц.</p>
+
+<h2 id="сравнение-отчетов-excel-против-api">Сравнение отчетов: Excel против API</h2>
+
+<p>При масштабировании бизнеса ручная выгрузка отчетов становится неэффективной. Вступает в игру вопрос выбора метода интеграции: использовать стандартные CSV-файлы или настраивать <strong>API-интеграцию</strong>. У каждого метода есть свои преимущества и недостатки.</p>
+
+<p>Excel-файлы удобны для разового анализа или работы небольших команд. Они понятны человеку, но требуют времени на скачивание и обработку. API позволяет автоматизировать процесс, передавая данные напрямую в CRM или ERP-систему компании в режиме реального времени.</p>
+
+<p>Ниже представлена сравнительная таблица методов получения данных о продажах:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ручная выгрузка (Excel)</th>
+<th>API Интеграция</th>
+<th>Сторонние сервисы</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скорость получения</td>
+<td>Низкая (вручную)</td>
+<td>Мгновенная</td>
+<td>Высокая (авто)</td>
+</tr>
+<tr>
+<td>Точность данных</td>
+<td>Высокая</td>
+<td>Максимальная</td>
+<td>Зависит от сервиса</td>
+</tr>
+<tr>
+<td>Сложность настройки</td>
+<td>Отсутствует</td>
+<td>Требует разработчика</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>Стоимость</td>
+<td>Бесплатно</td>
+<td>Затраты на разработку</td>
+<td>Ежемесячная подписка</td>
+</tr>
+</tbody>
+</table></div>
+
+<div class="pb-poll" id="poll-7b50faa0"><div class="pb-poll-question">📊 Каким способом вы проверяете продажи чаще всего?</div><div class="pb-poll-option" data-poll="7b50faa0" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручная выгрузка в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7b50faa0" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">API интеграция</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7b50faa0" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Сторонние сервисы аналитики</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7b50faa0" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только дашборд в ЛК</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Выбор зависит от объемов вашего бизнеса. Если вы делаете менее 10 заказов в день, вполне достаточно ручных отчетов. При сотнях заказов в сутки автоматизация через <em>API</em> становится необходимостью для выживания на рынке.</p>
+
+<h2 id="мобильное-приложение-для-контроля-бизнеса">Мобильное приложение для контроля бизнеса</h2>
+
+<p>Современный ритм жизни диктует свои правила, и продавец должен быть на связи 24/7. Мобильное приложение <em>Ozon Seller</em> позволяет проверять продажи, находясь в любой точке мира. Функционал приложения постоянно расширяется, приближаясь к возможностям десктопной версии.</p>
+
+<p>Через смартфон можно отслеживать поступления новых заказов, отвечать на вопросы покупателей и смотреть краткую статистику. push-уведомления мгновенно сообщают о важных событиях, например, о снижении остатков или появлении негативного отзыва.</p>
+
+<p>Однако для глубокой аналитики мобильное приложение подходит меньше. Экран телефона физически не может вместить все столбцы сложного отчета. Поэтому приложение идеально для оперативного контроля, но не для стратегического планирования.</p>
+
+<h2 id="типичные-ошибки-при-анализе-данных">Типичные ошибки при анализе данных</h2>
+
+<p>Даже опытные предприниматели иногда допускают ошибки при интерпретации статистики маркетплейса. Одна из самых распространенных — учет продаж по дате заказа, а не по дате реализации. Это приводит к кассовым разрывам, так как деньги за заказ поступят только после вручения товара.</p>
+
+<p>Еще одна ошибка — игнорирование возвратов в текущем периоде. Товар могли заказать в прошлом месяце, а вернуть в этом. Если не учитывать этот фактор, прибыль будет рассчитана неверно. <strong>Управленческий учет</strong> должен быть построен на методе начисления, а не кассовом методе.</p>
+
+<blockquote>⚠️ Внимание: Не забывайте про "плечо доставки". Товар, заказанный 30-го числа, может быть реализован 5-го числа следующего месяца. В отчете за прошлый месяц он будет висеть как "в пути", а не как продажа.</blockquote>
+
+<p>Также часто встречается путаница с акциями. Продавец видит цену продажи, но забывает, что часть скидки оплачивает он сам. В итоге маржинальность оказывается ниже расчетной, или даже уходит в минус. Всегда проверяйте условия участия в промо-акциях.</p>
+
+<details class="pb-accordion"><summary>Как учесть сезонность в отчетах?</summary><div class="pb-accordion-body"><p>При анализе продаж всегда сравнивайте показатели с аналогичным периодом прошлого года (YoY), а не с предыд-ущим месяцем. Это позволит исключить сезонный фактор и увидеть реальный рост или падение бизнеса.</p></div></details>
+
+<h2 id="использование-сторонних-сервисов-аналитики">Использование сторонних сервисов аналитики</h2>
+
+<p>Рынок e-commerce породил множество сервисов-агрегаторов, таких как <em>Ozon Stat</em>, <em>Moneyplace</em> или <em>MPStats</em>. Они подключаются к вашему аккаунту по API и предоставляют расширенную аналитику, которой нет в стандартном кабинете.</p>
+
+<p>Такие инструменты умеют рассчитывать юнит-экономику, прогнозировать остатки и анализировать нишу конкурентов. Они собирают данные со всех маркетплейсов в одном окне, что удобно для мультиканальных продавцов. Стоимость подписки обычно окупается за счет оптимизации рекламных расходов.</p>
+
+<p>Главное преимущество сторонних решений — визуализация. Данные представляются в виде удобных графиков и диаграмм, тренды отслеживаются автоматически. Это экономит время аналитиков и позволяет быстрее принимать решения.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Комплексный подход к проверке продаж, сочетающий автоматизацию через API и глубокий ручной анализ отчетов, является единственным способом обеспечить прозрачность бизнеса на Ozon.</p></aside>
+
+<details>
+<summary>Почему данные в дашборде и в отчете могут отличаться?</summary>
+<p>Различия возникают из-за времени обновления данных. Дашборд показывает оперативную информацию, которая может корректироваться. Финансовые отчеты формируются по итогам дня и являются финальными. Также может отличаться методология: дашборд часто считает заказы, а отчет — реализации.</p>
+</details>
+
+<details>
+<summary>Как часто обновляется статистика продаж?</summary>
+<p>В личном кабинете данные обновляются практически в реальном времени, но с задержкой в 15-30 минут. Финансовые отчеты формируются раз в сутки, обычно ночью. API может отдавать данные с разной периодичностью в зависимости от нагрузки на сервера.</p>
+</details>
+
+<details>
+<summary>Можно ли восстановить удаленный отчет?</summary>
+<p>В стандартном интерфейсе Ozon Seller удаленные пользователем файлы выгрузок не восстанавливаются. Однако исходные данные хранятся в системе. Вы можете сформировать отчет заново, выбрав тот же период и параметры фильтрации.</p>
+</details>
+
+<details>
+<summary>Что делать, если сумма в акте не сходится с расчетами?</summary>
+<p>Необходимо провести детализированную сверку по каждому заказу в периоде расхождения. Часто discrepancy возникает из-за изменений в тарифах логистики или ретро-бонусов. Если ошибка не найдена, создайте обращение в поддержку с приложением скриншотов.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/v/v-/v-kakoj-programme-pechatat-etiketki-dlya-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Топ-7 программ для печати этикеток Ozon: сравнение 2026 года</span>
+                <span class="pb-related-desc">Какую программу выбрать для печати этикеток Ozon? Сравниваем бесплатные и платные решения для FBS/FB</span>
+            </a><a href="/articles/k/ka/kak-torgovat-na-ozone-avito.html" class="pb-related-card">
+                <span class="pb-related-title">Как торговать на Ozon и Авито: стратегии, схемы и сравнение</span>
+                <span class="pb-related-desc">Узнайте, как торговать на Ozon и Авито одновременно. Сравнение схем FBO/FBS и прямых продаж, налоги,</span>
+            </a><a href="/articles/r/ra/rabota-na-ozon-zapolnenie-kartochek-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Работа на Озон: заполнение карточек товаров — что это и как заработать</span>
+                <span class="pb-related-desc">Подробный гайд по профессии заполнения карточек на Озон: обязанности, требования, зарплата, где иска</span>
+            </a><a href="/articles/p/po/pochemu-net-prodazh-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Нет продаж на Ozon? 15 причин и решений для продавцов в 2026</span>
+                <span class="pb-related-desc">Разбираем почему не идут заказы на Ozon: от ошибок в карточках до алгоритмов маркетплейса. Чек-лист </span>
+            </a><a href="/articles/k/ka/kak-provesti-analitiku-tovarov-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как провести аналитику товаров на Ozon: полное руководство</span>
+                <span class="pb-related-desc">Узнайте, как сделать аналитику товаров на Озон. Разбор ниши, конкурентов и спроса. Инструменты для с</span>
+            </a><a href="/articles/k/ka/kak-nachat-prodavat-na-ozon-samozanyatomu.html" class="pb-related-card">
+                <span class="pb-related-title">Как самозанятому начать продавать на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Регистрация, настройка профиля и первые продажи на Ozon для самозанятых: требования, комиссии, налог</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

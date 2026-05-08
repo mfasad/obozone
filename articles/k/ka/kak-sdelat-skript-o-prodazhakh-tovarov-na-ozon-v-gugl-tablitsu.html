@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как выгрузить продажи с Ozon в Google Таблицы: пошаговый скрипт — Об Озоне</title>
+    <meta name="description" content="Автоматизируйте учёт продаж на Ozon с помощью Google Apps Script. Пошаговая инструкция по созданию скрипта для выгрузки данных в Google Таблицу с примерами кода и настройками API.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sdelat-skript-o-prodazhakh-tovarov-na-ozon-v-gugl-tablitsu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выгрузить продажи с Ozon в Google Таблицы: пошаговый скрипт">
+    <meta property="og:description" content="Автоматизируйте учёт продаж на Ozon с помощью Google Apps Script. Пошаговая инструкция по созданию скрипта для выгрузки данных в Google Таблицу с примерами кода и настройками API.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как выгрузить продажи с Ozon в Google Таблицы: пошаговый скрипт</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-какие-данные-можно-выгружать-из-ozon-в-google-таблицу">1. Какие данные можно выгружать из Ozon в Google Таблицу</a></li><li><a href="#2-подготовка-регистрация-приложения-и-получение-api-ключей">2. Подготовка: регистрация приложения и получение API-ключей</a></li><li><a href="#3-создание-google-таблицы-и-базовой-структуры">3. Создание Google Таблицы и базовой структуры</a></li><li><a href="#4-написание-скрипта-для-выгрузки-данных">4. Написание скрипта для выгрузки данных</a></li><li><a href="#5-настройка-автоматического-обновления-данных">5. Настройка автоматического обновления данных</a></li><li><a href="#6-расширенные-возможности-аналитика-и-интеграции">6. Расширенные возможности: аналитика и интеграции</a></li><li><a href="#7-типичные-ошибки-и-их-решение">7. Типичные ошибки и их решение</a></li><li><a href="#8-альтернативные-способы-выгрузки-данных">8. Альтернативные способы выгрузки данных</a></li><li><a href="#faq-частые-вопросы-о-выгрузке-данных-с-ozon">FAQ: Частые вопросы о выгрузке данных с Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-takoe-lna-ozon.html">ЛНА на Ozon: что это, как работает и зачем нужен в 2026 году</a></li><li><a href="/articles/k/ka/kak-prodavat-na-ozon-bez-ip-fizicheskomu-litsu.html">Как продавать на Озон физлицу: старт без ИП в 2026</a></li><li><a href="/articles/k/ka/kak-poluchit-dannye-po-api-ozon.html">Как получить данные через API Ozon: полное руководство 2026</a></li><li><a href="/articles/k/ka/kak-torgovat-produktami-na-ozon.html">Как торговать продуктами на Озон: старт, документы и логистика</a></li><li><a href="/articles/k/ka/kak-prodavat-kosmetiku-ruchnoj-raboty-na-ozon.html">Как продавать косметику ручной работы на Ozon: пошаговая инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Скрипт для автоматической выгрузки продаж с Ozon в Google Таблицу: инструкция 2026</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-какие-данные-можно-выгружать-из-ozon-в-google-таблицу">1. Какие данные можно выгружать из Ozon в Google Таблицу</a></li><li><a href="#2-подготовка-регистрация-приложения-и-получение-api-ключей">2. Подготовка: регистрация приложения и получение API-ключей</a></li><li><a href="#3-создание-google-таблицы-и-базовой-структуры">3. Создание Google Таблицы и базовой структуры</a></li><li><a href="#4-написание-скрипта-для-выгрузки-данных">4. Написание скрипта для выгрузки данных</a></li><li><a href="#5-настройка-автоматического-обновления-данных">5. Настройка автоматического обновления данных</a></li><li><a href="#6-расширенные-возможности-аналитика-и-интеграции">6. Расширенные возможности: аналитика и интеграции</a></li><li><a href="#7-типичные-ошибки-и-их-решение">7. Типичные ошибки и их решение</a></li><li><a href="#8-альтернативные-способы-выгрузки-данных">8. Альтернативные способы выгрузки данных</a></li><li><a href="#faq-частые-вопросы-о-выгрузке-данных-с-ozon">FAQ: Частые вопросы о выгрузке данных с Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Автоматизация рутинных процессов — ключевой фактор успеха для продавцов на <em>Ozon</em>. Ежедневная выгрузка данных о заказах, статусах доставки и финансовых транзакциях вручную отнимает часы рабочего времени, увеличивает риск ошибок и мешает оперативно анализировать продажи. Решение проблемы лежит на поверхности: <strong>Google Apps Script</strong> позволяет создать скрипт, который будет автоматически pulling данные из личного кабинета <em>Ozon Seller</em> и записывать их в <em>Google Таблицу</em> по расписанию.</p>
+
+<p>Но как это работает на практике? Многие продавцы ошибочно считают, что для такой автоматизации нужны глубокие знания программирования или дорогостоящие CRM-системы. На самом деле достаточно базовых навыков работы с <code>JavaScript</code> и понимания структуры <em>API Ozon</em>. В этой статье мы разберём весь процесс — от получения API-ключей до настройки триггеров для автоматического обновления данных. Вы узнаете, как выгружать не только основные параметры заказов, но и дополнительные метрики: время обработки, причины отмен, данные по возвратам и даже аналитику по категориям товаров.</p>
+
+<p>Важно: скрипт, описанный ниже, подходит для продавцов на моделях <strong>FBS</strong> и <strong>FBO</strong>. Он не требует установки дополнительного ПО — всё работает в браузере через <em>Google Таблицы</em>. Если вы используете <em>Ozon Global</em> или другие международные платформы маркетплейса, потребуются дополнительные настройки API, которые мы также кратко рассмотрим.
+
+<p>Прежде чем приступить к технической части, давайте разберёмся, какие именно данные можно выгружать и зачем это нужно. Например, автоматизация выгрузки статусов заказов поможет оперативно реагировать на задержки логистики, а анализ причин отмен позволит снизить их количество. А если подключить к таблице <em>Google Data Studio</em>, вы получите интерактивную дашборд с визуализацией ключевых метрик в реальном времени.
+
+<h2 id="1-какие-данные-можно-выгружать-из-ozon-в-google-таблицу">1. Какие данные можно выгружать из Ozon в Google Таблицу</h2>
+
+<p>Скрипт для выгрузки продаж может работать с несколькими типами данных, доступными через <em>API Ozon</em>. Основные категории, которые чаще всего запрашивают продавцы:
+
+<ul>
+ <li>📦 <strong>Информация о заказах</strong>: номер заказа, дата создания, статус (<code>awaiting_packaging</code>, <code>shipped</code>, <code>delivered</code> и др.), сумма, количество товаров, данные покупателя (с учётом ограничений конфиденциальности).</li>
+ <li>💰 <strong>Финансовые транзакции</strong>: суммы выплат, комиссии <em>Ozon</em>, удержанные налоги, даты зачислений на счёт. Эти данные помогают сверять выручку с бухгалтерскими отчётами.</li>
+ <li>🚚 <strong>Логистические метрики</strong>: время обработки заказа, даты передачи курьеру, статус доставки, причины задержек. Особенно актуально для продавцов на <strong>FBS</strong>, где логистика управляется маркетплейсом.</li>
+ <li>🔄 <strong>Возвраты и отмены</strong>: причины возвратов (несоответствие описанию, брак, передумал и т.д.), суммы возмещений, статус обработки возврата. Эти данные критичны для улучшения качества товаров и описаний.</li>
+ <li>📊 <strong>Аналитика по товарам</strong>: какие позиции продаются лучше, средний чек по категориям, динамика продаж по дням/неделям. Это основа для принятия решений о закупках и маркетинговых акциях.</li>
+</ul>
+
+<p>Пример структуры данных, которые можно выгрузить в таблицу:
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Поле</th>
+ <th>Описание</th>
+ <th>Пример значения</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><code>order_id</code></td>
+ <td>Уникальный идентификатор заказа</td>
+ <td><code>23456789012345</code></td>
+ </tr>
+ <tr>
+ <td><code>status</code></td>
+ <td>Текущий статус заказа</td>
+ <td><code>delivered</code></td>
+ </tr>
+ <tr>
+ <td><code>items.price</code></td>
+ <td>Цена товара в заказе</td>
+ <td><code>1299.90</code></td>
+ </tr>
+ <tr>
+ <td><code>cancel_reason</code></td>
+ <td>Причина отмены (если применимо)</td>
+ <td><code>customer_change_of_mind</code></td>
+ </tr>
+ <tr>
+ <td><code>shipping_date</code></td>
+ <td>Дата передачи заказа логистике</td>
+ <td><code>2026-05-15T14:30:00Z</code></td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Обратите внимание: не все поля доступны через стандартное <em>API</em>. Например, персональные данные покупателей (ФИО, адрес) могут быть скрыты из-за политики конфиденциальности <em>Ozon</em>. Однако даже без этой информации выгруженные данные позволяют строить эффективную аналитику.
+
+<div class="pb-poll" id="poll-9cbeea2a"><div class="pb-poll-question">📊 Какой тип данных вы выгружаете чаще всего?</div><div class="pb-poll-option" data-poll="9cbeea2a" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Заказы и статусы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9cbeea2a" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Финансовые транзакции</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9cbeea2a" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Логистические метрики</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9cbeea2a" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Возвраты и отмены</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="9cbeea2a" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Не выгружаю данные</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-подготовка-регистрация-приложения-и-получение-api-ключей">2. Подготовка: регистрация приложения и получение API-ключей</h2>
+
+<p>Прежде чем писать скрипт, необходимо получить доступ к <em>API Ozon</em>. Для этого нужно зарегистрировать приложение в личном кабинете продавца. Вот пошаговая инструкция:
+
+<ol>
+ <li>Перейдите в <a href="https://seller.ozon.ru/" target="_blank">личный кабинет Ozon Seller</a> и авторизуйтесь.</li>
+ <li>Откройте раздел <code>Настройки → API-ключи</code>.</li>
+ <li>Нажмите кнопку <strong>«Создать ключ»</strong> и заполните форму:
+ <ul>
+ <li>📌 Укажите название приложения (например, <code>Выгрузка заказов в Google Sheets</code>).</li>
+ <li>🔗 В поле <strong>«Redirect URI»</strong> введите <code>https://script.google.com/macros/d</code> (это временный URL, его можно будет изменить позже).</li>
+ <li>✅ Выберите необходимые разрешения (scope). Для выгрузки заказов достаточно галочек напротив <code>orders</code> и <code>finance</code>.</li>
+ </ol>
+ </li>
+ <li>После сохранения вы получите два ключа: <code>Client ID</code> и <code>Client Secret</code>. Сохраните их в надёжном месте — они понадобятся для авторизации скрипта.</li>
+</ul>
+
+<p>⚠️ <strong>Внимание:</strong> Никогда не делитесь <code>Client Secret</code> с третьими лицами и не публикуйте его в открытых репозиториях (например, на <em>GitHub</em>). Это может привести к компрометации вашего аккаунта на <em>Ozon</em>. Если ключи случайно стали известны посторонним, немедленно отзовите их в личном кабинете и сгенерируйте новые.
+
+<p>Также обратите внимание на ограничения <em>API Ozon</em>:
+<ul>
+ <li>🔄 Лимит запросов: до <strong>60 запросов в минуту</strong> для большинства методов.</li>
+ <li>⏳ Время жизни токена: <strong>1 час</strong> (после истечения нужно повторно авторизоваться).</li>
+ <li>📅 Данные о заказах доступны за последние <strong>90 дней</strong> (для более ранних периодов потребуется архивная выгрузка).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы планируете выгружать данные чаще чем раз в час, настройте в скрипте автоматическое обновление токена доступа. Для этого используйте функцию <code>refreshToken</code> с сохранением нового токена в <em>Properties Service</em> Google Apps Script.</p></aside>
+
+<h2 id="3-создание-google-таблицы-и-базовой-структуры">3. Создание Google Таблицы и базовой структуры</h2>
+
+<p>Теперь подготовим <em>Google Таблицу</em>, в которую будут записываться данные. Создайте новую таблицу и назовите её, например, <code>Ozon Sales Data 2026</code>. Рекомендуемая структура листов:
+
+<ul>
+ <li>📄 <strong>«Заказы»</strong> — основные данные о заказах (ID, дата, статус, сумма).</li>
+ <li>📄 <strong>«Товары»</strong> — детализация по товарам в заказах (артикул, количество, цена).</li>
+ <li>📄 <strong>«Финансы»</strong> — транзакции, комиссии, выплаты.</li>
+ <li>📄 <strong>«Возвраты»</strong> — информация об отменах и возвратах.</li>
+</ul>
+
+<p>Пример заголовков для листа <strong>«Заказы»</strong>:
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>A1</th>
+ <th>B1</th>
+ <th>C1</th>
+ <th>D1</th>
+ <th>E1</th>
+ <th>F1</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>order_id</strong></td>
+ <td><strong>order_date</strong></td>
+ <td><strong>status</strong></td>
+ <td><strong>total_amount</strong></td>
+ <td><strong>items_count</strong></td>
+ <td><strong>shipping_date</strong></td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Чтобы избежать ошибок при записи данных, зафиксируйте первую строку (заголовки) и настройте форматирование:
+<ol>
+ <li>Выделите первую строку → <code>Вид → Заморозить → 1 строка</code>.</li>
+ <li>Для столбцов с датами (<code>order_date</code>, <code>shipping_date</code>) установите формат <code>Дата</code>.</li>
+ <li>Для столбцов с денежными суммами (<code>total_amount</code>) выберите формат <code>Финансовый</code>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> Если в таблице уже есть данные, скрипт по умолчанию будет дописывать новые строки в конец. Чтобы избежать дублирования, добавьте в скрипт проверку на уникальность <code>order_id</code> перед записью. Альтернативный вариант — создавать новый лист для каждого дня (например, <code>Заказы_2026-05-20</code>).
+
+
+<p>Создать новую таблицу с 4 листами|Заморозить заголовки на каждом листе|Настроить форматы даты и денежных значений|Записать ID таблицы (из URL)|Проверить права доступа (редактирование для скрипта)--></p>
+
+<h2 id="4-написание-скрипта-для-выгрузки-данных">4. Написание скрипта для выгрузки данных</h2>
+
+<p>Переходим к самому техническому этапу — созданию скрипта. Откройте вашу <em>Google Таблицу</em>, затем выберите <code>Расширения → Apps Script</code>. Откроется редактор кода, где мы будем писать скрипт.
+
+<p>Ниже приведён базовый код для авторизации и выгрузки заказов. <mark>Обратите внимание: этот код использует OAuth 2.0 для аутентификации, поэтому потребуется одноразовая авторизация через браузер.</mark>
+
+<pre><code>
+<p>// Конфигурация API Ozon</p>
+<p>const CLIENT_ID ='ВАШ_CLIENT_ID'; // Замените на ваш Client ID</p>
+<p>const CLIENT_SECRET ='ВАШ_CLIENT_SECRET'; // Замените на ваш Client Secret</p>
+<p>const REDIRECT_URI ='https://script.google.com/macros/d'; // Можно оставить без изменений</p>
+
+<p>// ID вашей Google Таблицы (возьмите из URL таблицы)</p>
+<p>const SPREADSHEET_ID ='ВАШ_SPREADSHEET_ID';</p>
+
+<p>// Функция для получения токена доступа</p>
+<p>function getOzonToken {</p>
+<p>const service = getOzonService;</p>
+<p>if (!service.hasAccess) {</p>
+<p>const authorizationUrl = service.getAuthorizationUrl;</p>
+<p>Logger.log('Откройте эту ссылку для авторизации:' + authorizationUrl);</p>
+<p>throw new Error('Требуется авторизация. Ссылка в логах.');</p>
+<p>}</p>
+<p>return service.getAccessToken;</p>
+<p>}</p>
+
+<p>// Функция для выгрузки заказов</p>
+<p>function fetchOrders {</p>
+<p>const token = getOzonToken;</p>
+<p>const url ='https://api-seller.ozon.ru/v3/orders/list';</p>
+
+<p>const headers = {</p>
+<p>'Client-Id': CLIENT_ID,</p>
+<p>'Api-Key': token,</p>
+<p>'Content-Type':'application/json'</p>
+<p>};</p>
+
+<p>const params = {</p>
+<p>'method':'POST',</p>
+<p>'headers': headers,</p>
+<p>'payload': JSON.stringify({</p>
+<p>"dir":"ASC",</p>
+<p>"filter": {</p>
+<p>"since":"2026-05-01T00:00:00Z", // Дата начала периода</p>
+<p>"to":"2026-05-20T23:59:59Z" // Дата конца периода</p>
+<p>},</p>
+<p>"limit": 1000,</p>
+<p>"offset": 0,</p>
+<p>"translit": true,</p>
+<p>"with": {</p>
+<p>"analytics_data": true,</p>
+<p>"financial_data": true</p>
+<p>}</p>
+<p>})</p>
+<p>};</p>
+
+<p>const response = UrlFetchApp.fetch(url, params);</p>
+<p>const data = JSON.parse(response.getContentText);</p>
+<p>return data.result.orders;</p>
+<p>}</p>
+
+<p>// Функция для записи данных в таблицу</p>
+<p>function writeOrdersToSheet(orders) {</p>
+<p>const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Заказы');</p>
+<p>const rows = orders.map(order => [</p>
+<p>order.order_id,</p>
+<p>new Date(order.created_at),</p>
+<p>order.status,</p>
+<p>order.total_amount,</p>
+<p>order.products.length,</p>
+<p>order.shipping_date? new Date(order.shipping_date): null</p>
+<p>]);</p>
+
+<p>// Дописываем данные в конец таблицы</p>
+<p>sheet.getRange(sheet.getLastRow + 1, 1, rows.length, rows[0].length).setValues(rows);</p>
+<p>}</p>
+
+<p>// Основная функция для запуска</p>
+<p>function updateOzonOrders {</p>
+<p>const orders = fetchOrders;</p>
+<p>writeOrdersToSheet(orders);</p>
+<p>Logger.log(`Выгружено ${orders.length} заказов.`);</p>
+<p>}</p>
+
+<p>// Служебная функция для OAuth</p>
+<p>function getOzonService {</p>
+<p>return OAuth2.createService('Ozon')</p>
+<p>.setAuthorizationBaseUrl('https://id.ozon.ru/oauth/authorize')</p>
+<p>.setTokenUrl('https://id.ozon.ru/oauth/token')</p>
+<p>.setClientId(CLIENT_ID)</p>
+<p>.setClientSecret(CLIENT_SECRET)</p>
+<p>.setScope('orders')</p>
+<p>.setRedirectUri(REDIRECT_URI)</p>
+<p>.setPropertyStore(PropertiesService.getUserProperties);</p>
+<p>}</p>
+</code></pre>
+
+<p>Этот скрипт выполняет следующие действия:
+<ol>
+ <li>Авторизуется в <em>API Ozon</em> через <code>OAuth 2.0</code>.</li>
+ <li>Запрашивает список заказов за указанный период (в примере — с 1 по 20 мая 2026 года).</li>
+ <li>Преобразует данные в удобный формат и записывает их в лист <strong>«Заказы»</strong>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание:</strong> При первом запуске скрипт запросит авторизацию. Следуйте инструкциям в логах (откройте ссылку для авторизации и разрешите доступ). После успешной авторизации токен сохранится, и повторный ввод данных не потребуется (до истечения срока действия токена).
+
+<details class="pb-accordion"><summary>Как изменить период выгрузки?</summary><div class="pb-accordion-body"><p>
+<p>Чтобы выгрузить данные за другой период, измените параметры <code>since</code> и <code>to</code> в функции <code>fetchOrders</code>. Формат даты должен соответствовать <code>YYYY-MM-DDTHH:MM:SSZ</code> (например, <code>2026-01-01T00:00:00Z</code> для 1 января 2026 года).</p></div></details></p>
+
+<h2 id="5-настройка-автоматического-обновления-данных">5. Настройка автоматического обновления данных</h2>
+
+<p>Чтобы скрипт работал без вашего участия, настройте триггеры (автоматические запуски) в <em>Google Apps Script</em>. Для этого:
+<ol>
+ <li>В редакторе скрипта нажмите на иконку ⏰ <strong>«Триггеры»</strong> (слева в меню).</li>
+ <li>В правом нижнем углу нажмите <strong>«Добавить триггер»</strong>.</li>
+ <li>Настройте параметры:
+ <ul>
+ <li>🔄 <strong>Выбираем функцию:</strong> <code>updateOzonOrders</code>.</li>
+ <li>🕒 <strong>Выбираем тип триггера:</strong> <code>По времени</code>.</li>
+ <li>⏰ <strong>Выбираем расписание:</strong> например, <code>Каждый день в 9:00</code>.</li>
+ </ol>
+ </li>
+ <li>Сохраните триггер.</li>
+</ul>
+
+<p>Рекомендуемые настройки триггеров в зависимости от задач:
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Задача</th>
+ <th>Частота запуска</th>
+ <th>Оптимальное время</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Выгрузка новых заказов</td>
+ <td>Каждые 6 часов</td>
+ <td>9:00, 15:00, 21:00</td>
+ </tr>
+ <tr>
+ <td>Обновление статусов доставки</td>
+ <td>Каждые 3 часа</td>
+ <td>8:00, 11:00, 14:00, 17:00, 20:00</td>
+ </tr>
+ <tr>
+ <td>Выгрузка финансовых транзакций</td>
+ <td>1 раз в день</td>
+ <td>10:00 (после обновления данных в ЛК)</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Частые запросы к <em>API Ozon</em> (чаще чем раз в 10 минут) могут привести к блокировке вашего <code>Client ID</code> из-за превышения лимитов. Если вам нужна выгрузка в реальном времени, рассмотрите альтернативные решения, например, вебхуки (<em>webhooks</em>), которые отправляют уведомления о новых заказах сразу после их создания.
+
+
+<pre><code>
+<p>} catch (e) {</p>
+<p>MailApp.sendEmail('ваш@email.com','Ошибка выгрузки Ozon', e.toString);</p>
+<p>}</p>
+</code></pre>
+<p>--></p>
+
+<h2 id="6-расширенные-возможности-аналитика-и-интеграции">6. Расширенные возможности: аналитика и интеграции</h2>
+
+<p>Базовая выгрузка данных — только первый шаг. Чтобы превратить сырые данные в полезную аналитику, можно расширить функционал скрипта:
+
+<ul>
+ <li>📈 <strong>Автоматическое построение графиков:</strong> Используйте <code>=QUERY</code> или <em>Google Data Studio</em> для визуализации динамики продаж, среднего чека, конверсии.</li>
+ <li>🔔 <strong>Уведомления о проблемах:</strong> Настройте отправку email или сообщений в <em>Telegram</em>, если статус заказа долго не меняется (например, более 24 часов в статусе <code>awaiting_packaging</code>).</li>
+ <li>🔄 <strong>Синхронизация с 1С или CRM:</strong> Экспортируйте данные из <em>Google Таблицы</em> в другие системы через <em>API</em> или <code>CSV</code>-выгрузку.</li>
+ <li>🛒 <strong>Анализ ассортимента:</strong> Добавьте в скрипт расчёт <strong>ABC-анализа</strong> для определения самых и наименее продаваемых товаров.</li>
+</ul>
+
+<p>Пример кода для отправки уведомления в <em>Telegram</em> при задержке обработки заказа:
+
+<pre><code>
+<p>function checkDelayedOrders {</p>
+<p>const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Заказы');</p>
+<p>const data = sheet.getDataRange.getValues;</p>
+<p>const now = new Date;</p>
+<p>const delayedOrders =;</p>
+
+<p>// Проверяем заказы в статусе awaiting_packaging старше 24 часов</p>
+<p>for (let i = 1; i < data.length; i++) {</p>
+<p>if (data[i][2] ==='awaiting_packaging') {</p>
+<p>const orderDate = new Date(data[i][1]);</p>
+<p>const hoursDiff = (now - orderDate) / (1000 <em> 60 </em> 60);</p>
+<p>if (hoursDiff > 24) {</p>
+<p>delayedOrders.push({</p>
+<p>order_id: data[i][0],</p>
+<p>hours: Math.round(hoursDiff)</p>
+<p>});</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+
+<p>if (delayedOrders.length > 0) {</p>
+<p>const message = `⚠️ Задержка обработки заказов:\n${delayedOrders.map(o => `#${o.order_id}: ${o.hours} часов`).join('\n')}`;</p>
+<p>sendTelegramMessage(message); // Функция для отправки в Telegram</p>
+<p>}</p>
+<p>}</p>
+</code></pre>
+
+<p>Для интеграции с <em>Telegram</em> потребуется создать бота через <code>@BotFather</code> и получить <code>chat_id</code> и <code>token</code>. Эти данные используются в функции <code>sendTelegramMessage</code>, которую можно найти в документации <em>Telegram API</em>.
+
+<h2 id="7-типичные-ошибки-и-их-решение">7. Типичные ошибки и их решение</h2>
+
+<p>При работе со скриптом вы можете столкнуться с следующими проблемами:
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Ошибка</th>
+ <th>Причина</th>
+ <th>Решение</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><code>Invalid Client ID or Secret</code></td>
+ <td>Неверные учётные данные <em>API</em>.</td>
+ <td>Проверьте <code>CLIENT_ID</code> и <code>CLIENT_SECRET</code> в скрипте. При необходимости сгенерируйте новые ключи в ЛК <em>Ozon</em>.</td>
+ </tr>
+ <tr>
+ <td><code>Token expired</code></td>
+ <td>Истёк срок действия токена (1 час).</td>
+ <td>Добавьте в скрипт автоматическое обновление токена (см. раздел 4).</td>
+ </tr>
+ <tr>
+ <td><code>Exceeded rate limit</code></td>
+ <td>Превышен лимит запросов (60 в минуту).</td>
+ <td>Уменьшите частоту запуска скрипта или разбейте выгрузку на части с задержкой <code>Utilities.sleep(1000)</code>.</td>
+ </tr>
+ <tr>
+ <td><code>Sheet not found</code></td>
+ <td>Лист с указанным именем не найден.</td>
+ <td>Проверьте название листа в таблице и в скрипте (регистр важен!).</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если скрипт перестал работать после обновления <em>API Ozon</em>, проверьте актуальность используемых эндпоинтов (<code>url</code>) и структуру ответа. Маркетплейс периодически вносит изменения в <em>API</em>, что может приводить к ошибкам. Следите за обновлениями в <a href="https://docs.ozon.ru/api/seller/" target="_blank">документации Ozon API</a>.
+
+<p>Ещё одна частая проблема — дублирование данных при повторных запусках скрипта. Чтобы этого избежать, модифицируйте функцию <code>writeOrdersToSheet</code>, добавив проверку на существование <code>order_id</code> в таблице:
+
+<pre><code>
+<p>function writeOrdersToSheet(orders) {</p>
+<p>const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Заказы');</p>
+<p>const existingOrders = sheet.getRange('A:A').getValues.flat;</p>
+<p>const newRows =;</p>
+
+<p>orders.forEach(order => {</p>
+<p>if (!existingOrders.includes(order.order_id)) {</p>
+<p>newRows.push([</p>
+<p>order.order_id,</p>
+<p>new Date(order.created_at),</p>
+<p>order.status,</p>
+<p>order.total_amount,</p>
+<p>order.products.length,</p>
+<p>order.shipping_date? new Date(order.shipping_date): null</p>
+<p>]);</p>
+<p>}</p>
+<p>});</p>
+
+<p>if (newRows.length > 0) {</p>
+<p>sheet.getRange(sheet.getLastRow + 1, 1, newRows.length, newRows[0].length).setValues(newRows);</p>
+<p>}</p>
+<p>}</p>
+</code></pre>
+
+<h2 id="8-альтернативные-способы-выгрузки-данных">8. Альтернативные способы выгрузки данных</h2>
+
+<p>Если работа с <em>Google Apps Script</em> кажется сложной, рассмотрите альтернативные варианты автоматизации:
+
+<ul>
+ <li>🔗 <strong>Сервисы-коннекторы:</strong> <em>Zapier</em>, <em>Make (ex-Integromat)</em>, <em>Albato</em> предлагают готовые интеграции между <em>Ozon</em> и <em>Google Sheets</em> без программирования. Минус — платные тарифы при большом объёме данных.</li>
+ <li>📥 <strong>Экспорт в CSV:</strong> В личном кабинете <em>Ozon Seller</em> можно вручную выгружать отчёты в <code>CSV</code>/<code>Excel</code>, а затем импортировать их в <em>Google Таблицы</em> через <code>Файл → Импорт</code>.</li>
+ <li>🖥️ <strong>Локальные скрипты на Python:</strong> Если вы знакомы с <code>Python</code>, можно использовать библиотеку <code>requests</code> для работы с <em>API Ozon</em> и <code>gspread</code> для записи в <em>Google Sheets</code>.</li>
+ <li>📊 <strong>CRM-системы:</em> Сервисы вроде <em>МойСклад</em>, <em>Битрикс24</em> или <em>RetailCRM</em> имеют готовые интеграции с <em>Ozon</em> и могут автоматически синхронизировать данные.</li>
+</ul>
+
+<p>Сравнение методов выгрузки:
+
+<div class="pb-table-wrap"><table>
+ <thead>
+ <tr>
+ <th>Метод</th>
+ <th>Сложность</th>
+ <th>Стоимость</th>
+ <th>Автоматизация</th>
+ <th>Гибкость</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Google Apps Script</td>
+ <td>Средняя</td>
+ <td>Бесплатно</td>
+ <td>Да</td>
+ <td>Высокая</td>
+ </tr>
+ <tr>
+ <td>Zapier/Make</td>
+ <td>Низкая</td>
+ <td>От $20/мес</td>
+ <td>Да</td>
+ <td>Средняя</td>
+ </tr>
+ <tr>
+ <td>Ручной экспорт CSV</td>
+ <td>Низкая</td>
+ <td>Бесплатно</td>
+ <td>Нет</td>
+ <td>Низкая</td>
+ </tr>
+ <tr>
+ <td>Python-скрипт</td>
+ <td>Высокая</td>
+ <td>Бесплатно</td>
+ <td>Да</td>
+ <td>Максимальная</td>
+ </tr>
+ </tbody>
+</table></div>
+
+<p>Если вы выбираете <em>Google Apps Script</em>, но сталкиваетесь с трудностями, воспользуйтесь готовыми шаблонами. Например, в <a href="https://github.com/" target="_blank">GitHub</a> можно найти открытые репозитории с готовыми скриптами для <em>Ozon</em>. Обратите внимание на лицензию и отзывы других пользователей перед использованием.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Для продавцов с большим объёмом заказов (1000+ в день) рекомендуется комбинировать несколько методов: использовать <em>Google Apps Script</em> для оперативной аналитики и еженедельно выгружать архивные данные через <em>CSV</em> для долгосрочного хранения.</p></aside>
+
+<h2 id="faq-частые-вопросы-о-выгрузке-данных-с-ozon">FAQ: Частые вопросы о выгрузке данных с Ozon</h2>
+
+<details>
+ <summary>❓ Как выгрузить данные за период больше 90 дней?</summary>
+ <p>Стандартное <em>API Ozon</em> предоставляет данные только за последние 90 дней. Для выгрузки более ранних заказов:</p>
+ <ol>
+ <li>Используйте ручной экспорт через личный кабинет (<code>Аналитика → Отчёты → История заказов</code>).</li>
+ <li>Обратитесь в поддержку <em>Ozon</em> с запросом на архивную выгрузку (платно, от 1000 ₽ за запрос).</li>
+ <li>Если у вас сохранены старые <code>CSV</code>-файлы, импортируйте их в <em>Google Таблицу</em> через <code>Файл → Импорт</code>.</li>
+ </ol>
+ <p>Для автоматизации архивной выгрузки можно настроить ежемесячное сохранение данных в отдельные листы таблицы.</p>
+</details>
+
+<details>
+ <summary>❓ Можно ли выгрузить персональные данные покупателей (ФИО, телефон, адрес)?</summary>
+ <p>Нет, <em>API Ozon</em> не предоставляет персональные данные покупателей из-за политики конфиденциальности. Доступны только:</p>
+ <ul>
+ <li>ID заказа;</li>
+ <li>Статус;</li>
+ <li>Сумма;</li>
+ <li>Дата создания;</li>
+ <li>Город доставки (без точного адреса).</li>
+ </ul>
+ <p</div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/c/ch/chto-takoe-lna-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">ЛНА на Ozon: что это, как работает и зачем нужен в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое ЛНА (личный номер аккаунта) на Ozon, как его найти, для чего используется и п</span>
+            </a><a href="/articles/k/ka/kak-prodavat-na-ozon-bez-ip-fizicheskomu-litsu.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Озон физлицу: старт без ИП в 2026</span>
+                <span class="pb-related-desc">Полный гайд для физлиц: как открыть магазин на Ozon без ИП, сравнение налогов, самозанятость и пошаг</span>
+            </a><a href="/articles/k/ka/kak-poluchit-dannye-po-api-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить данные через API Ozon: полное руководство 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция по работе с API Ozon для продавцов: регистрация, аутентификация, запросы и обра</span>
+            </a><a href="/articles/k/ka/kak-torgovat-produktami-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как торговать продуктами на Озон: старт, документы и логистика</span>
+                <span class="pb-related-desc">Полный гайд: как продавать продукты питания на Ozon. Требования к сертификатам, сроки годности, схем</span>
+            </a><a href="/articles/k/ka/kak-prodavat-kosmetiku-ruchnoj-raboty-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать косметику ручной работы на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полный гид по запуску продаж handmade-косметики на Ozon. Разбор сертификатов, маркировки Честный ЗНА</span>
+            </a><a href="/articles/k/ka/kak-zajti-na-ozon-so-svoim-tovarom-poshagovaya-instruktsiya.html" class="pb-related-card">
+                <span class="pb-related-title">Как зайти на Ozon со своим товаром: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как зайти на Ozon со своим товаром за 5 шагов. Полная инструкция по регистрации продавца, в</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

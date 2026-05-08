@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как создать приложение Ozon: пошаговая инструкция для бизнеса — Об Озоне</title>
+    <meta name="description" content="Узнайте, как создать приложение Ozon для вашего бизнеса. Разбор API, Ozon Seller, мобильных SDK и технических требований для интеграции.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sozdat-prilozhenie-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как создать приложение Ozon: пошаговая инструкция для бизнеса">
+    <meta property="og:description" content="Узнайте, как создать приложение Ozon для вашего бизнеса. Разбор API, Ozon Seller, мобильных SDK и технических требований для интеграции.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как создать приложение Ozon: пошаговая инструкция для бизнеса</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#выбор-стратегии-разработки-api-или-готовое-решение">Выбор стратегии разработки: API или готовое решение</a></li><li><a href="#регистрация-разработчика-и-получение-доступа-к-api">Регистрация разработчика и получение доступа к API</a></li><li><a href="#технические-требования-и-архитектура-взаимодействия">Технические требования и архитектура взаимодействия</a></li><li><a href="#основные-методы-api-для-управления-товарами-и-заказами">Основные методы API для управления товарами и заказами</a></li><li><a href="#работа-с-схемами-fbs-и-fbo-через-приложение">Работа с схемами FBS и FBO через приложение</a></li><li><a href="#тестирование-отладка-и-запуск-в-продакшн">Тестирование, отладка и запуск в продакшн</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-sotrudnichat-s-ozon-samozanyatym.html">Как сотрудничать с Озон самозанятым: регистрация и условия</a></li><li><a href="/articles/k/ka/kakie-tovary-na-ozon-samye-prodavaemye.html">Самые продаваемые товары на Ozon: ТОП ниши для старта в 2026 году</a></li><li><a href="/articles/k/ka/kak-otkryt-biznes-na-ozon.html">Как открыть бизнес на Ozon: пошаговый старт 2026</a></li><li><a href="/articles/k/ka/kak-prodavat-na-ozone-tovary-s-sadovoda.html">Как продавать на Ozon товары с Садовода: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-oformit-ozon.html">Как оформить Ozon: пошаговая инструкция для продавцов и покупателей</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как создать приложение Ozon: полное руководство по интеграции</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-стратегии-разработки-api-или-готовое-решение">Выбор стратегии разработки: API или готовое решение</a></li><li><a href="#регистрация-разработчика-и-получение-доступа-к-api">Регистрация разработчика и получение доступа к API</a></li><li><a href="#технические-требования-и-архитектура-взаимодействия">Технические требования и архитектура взаимодействия</a></li><li><a href="#основные-методы-api-для-управления-товарами-и-заказами">Основные методы API для управления товарами и заказами</a></li><li><a href="#работа-с-схемами-fbs-и-fbo-через-приложение">Работа с схемами FBS и FBO через приложение</a></li><li><a href="#тестирование-отладка-и-запуск-в-продакшн">Тестирование, отладка и запуск в продакшн</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Разработка собственного программного решения для работы с крупнейшим маркетплейсом страны — это амбиозная задача, которая открывает перед бизнесом новые горизонты автоматизации. Когда предприниматель задается вопросом, как создать приложение Ozon, он чаще всего имеет в виду не разработку аналога самого магазина, а создание инструмента для управления продажами, аналитикой или логистикой. <strong>Интеграция</strong> с платформой позволяет синхронизировать остатки, оперативно обрабатывать заказы и выгружать трек-номера без ручного ввода данных.</p>
+
+<p>Существует несколько путей реализации этой идеи в зависимости от масштаба бизнеса и технических компетенций команды. Можно использовать готовое решение <em>Ozon Seller</em>, которое доступно в App Store и Google Play, либо разработать <strong>кастомное приложение</strong>, использующее мощное API маркетплейса. Выбор правильного вектора развития определит скорость внедрения и стоимость поддержки проекта в будущем.</p>
+
+<p>В этой статье мы детально разберем технические аспекты подключения, требования к безопасности данных и пошаговый алгоритм действий для разработчиков. Вы узнаете, где получить необходимые ключи доступа, как настроить тестовое окружение и какие существуют ограничения при работе с <strong>API Ozon</strong>. Правильная настройка канала связи между вашим софтом и серверами маркетплейса — фундамент стабильной торговли.</p>
+
+<h2 id="выбор-стратегии-разработки-api-или-готовое-решение">Выбор стратегии разработки: API или готовое решение</h2>
+
+<p>Первым шагом на пути к автоматизации является определение типа приложения, которое необходимо вашему бизнесу. Если вам требуется стандартный функционал для управления карточками товаров и ответами на отзывы, достаточно установить официальное приложение <em>Ozon Seller</em>. Однако для крупных селлеров, использующих <strong>ERP-системы</strong> или собственные CRM, требуется глубокая интеграция через программный интерфейс.</p>
+
+<p>Разработка собственного приложения целесообразна, когда стандартные инструменты не покрывают специфические бизнес-процессы. Например, если необходима сложная логика ценообразования, зависящая от множества внешних факторов, или уникальная система складского учета. В этом случае создается <strong>middleware</strong> — промежуточный слой, который обменивается данными с Ozon.</p>
+
+<ul>
+<li>🚀 <strong>Скорость:</strong> Готовое приложение работает сразу, разработка своего решения занимает от 2 недель до нескольких месяцев.</li>
+<li>⚙️ <strong>Гибкость:</strong> Собственное приложение позволяет внедрить любой функционал, ограниченный только возможностями API.</li>
+<li>💰 <strong>Бюджет:</strong> Официальный клиент бесплатен, кастомная разработка требует затрат на программистов и серверы.</li>
+</ul>
+
+<div class="pb-poll" id="poll-a2d4a4de"><div class="pb-poll-question">📊 Какой способ интеграции вы планируете использовать?</div><div class="pb-poll-option" data-poll="a2d4a4de" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Официальное приложение Ozon Seller</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a2d4a4de" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Готовые сервисы-агрегаторы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a2d4a4de" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Собственная разработка через API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="a2d4a4de" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Пока не решил</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Важно понимать, что создание приложения не означает копирование интерфейса маркетплейса. Вы создаете инструмент управления, который берет данные из Ozon и трансформирует их в удобный для вас вид. <strong>API (Application Programming Interface)</strong> выступает в роли переводчика между вашим софтом и базой данных площадки.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При разработке собственного приложения вы берете на себя ответственность за хранение клиентских данных и соблюдение правил безопасности. Утечка API-ключей может привести к блокировке магазина.</p>
+</blockquote>
+
+<h2 id="регистрация-разработчика-и-получение-доступа-к-api">Регистрация разработчика и получение доступа к API</h2>
+
+<p>Для начала работы с программным интерфейсом необходимо авторизоваться в личном кабинете продавца. Доступ к техническим настройкам ограничен, поэтому убедитесь, что у вас есть права <strong>администратора</strong> или главного бухгалтера. В меню профиля следует перейти в раздел настроек, где находится вкладка, посвященная внешним интеграциям.</p>
+
+<p>Здесь создается новый API-ключ, который представляет собой длинную строку символов. Этот ключ (<em>Client ID</em> и <em>API Key</em>) будет использоваться для авторизации всех запросов от вашего приложения. Рекомендуется создавать отдельные ключи для разных сервисов, чтобы в случае компрометации одного из них не пришлось перевыпускать все доступы.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Подготовка к получению ключей</h4><label class="check-item"><input type="checkbox"><span>Войти в Ozon Seller как администратор</span></label><label class="check-item"><input type="checkbox"><span>Перейти в Настройки → Настройки API</span></label><label class="check-item"><input type="checkbox"><span>Создать новый ключ</span></label><label class="check-item"><input type="checkbox"><span>Скопировать Client ID и API Key</span></label><label class="check-item"><input type="checkbox"><span>Сохранить данные в безопасном месте</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Существует два типа ключей: постоянные и временные. Для фоновой работы серверного приложения, которое обновляет остатки 24/7, необходимы <strong>постоянные ключи</strong>. Временные используются для отладки или одноразовых скриптов. В поле "Имя ключа" укажите понятное название, например, "Production Server" или "Dev Test", чтобы легко идентифицировать источник запросов в логах.</p>
+
+<p>После генерации ключей система покажет их только один раз. Сохраните <em>Client ID</em> и <em>API Key</em> в надежном хранилище паролей. Повторно увидеть полный ключ в интерфейсе Ozon будет нельзя, только перевыпустить новый. Это стандартная процедура <strong>безопасности</strong>, защищающая аккаунт продавца.</p>
+
+<h2 id="технические-требования-и-архитектура-взаимодействия">Технические требования и архитектура взаимодействия</h2>
+
+<p>Взаимодействие с платформой происходит по протоколу <strong>HTTPS</strong> с использованием метода POST для большинства запросов. Все данные передаются в формате JSON, что делает их легкими для парсинга и обработки современными языками программирования. Ваш сервер должен корректно обрабатывать ответы API, включая коды ошибок и лимиты запросов.</p>
+
+<p>Ozon использует систему токенов и заголовков для идентификации запросов. В каждый запрос необходимо добавлять заголовки <code>Client-Id</code> и <code>Api-Key</code>. Без них сервер вернет ошибку авторизации <code>401 Unauthorized</code>. Также важно учитывать, что все запросы должны идти с белых IP-адресов, если в настройках API включена фильтрация по IP.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base URL</td>
+<td><code>https://api-seller.ozon.ru</code></td>
+<td>Основной адрес для продакшн-среды</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>JSON</td>
+<td>Формат передачи данных</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>HTTPS (TLS 1.2+)</td>
+<td>Безопасный протокол соединения</td>
+</tr>
+<tr>
+<td>Rate Limit</td>
+<td>Зависит от метода</td>
+<td>Ограничение количества запросов в секунду</td>
+</tr>
+</tbody>
+</table></div>
+
+<details class="pb-accordion"><summary>Что такое Rate Limit?</summary><div class="pb-accordion-body"><p>Rate Limit — это ограничение на количество запросов, которые ваше приложение может отправить за определенное время. Превышение лимита приведет к временной блокировке доступа (ошибка 429). Для разных методов API лимиты могут отличаться: например, получение списка товаров менее ограничено, чем обновление остатков.</p></div></details>
+
+<p>При проектировании архитектуры следует предусмотреть механизм очередей. Если вы обновляете тысячи товаров, нельзя отправлять запросы в лоб в одном потоке. Необходимо реализовать <strong>асинхронную обработку</strong>, чтобы не "уронить" свой сервер и не получить бан от Ozon за спам запросами.</p>
+
+<h2 id="основные-методы-api-для-управления-товарами-и-заказами">Основные методы API для управления товарами и заказами</h2>
+
+<p>Функционал API Ozon обширен и покрывает практически все аспекты работы селлера. Для создания полноценного приложения вам потребуется реализовать работу с несколькими ключевыми эндпоинтами. Наиболее востребованными являются методы для работы с номенклатурой, ценами и заказами.</p>
+
+<p>Для загрузки товаров используется метод <code>/v1/product/import</code>. Он позволяет создавать новые карточки или обновлять существующие. Важно правильно формировать структуру JSON-объекта, указывая все обязательные поля, такие как <em>name</em>, <em>description</em>, <em>price</em> и <em>images</em>. Ошибка в типе данных приведет к отказу в обработке всего пакета.</p>
+
+<ul>
+<li>📦 <strong>Склад:</strong> Методы для обновления остатков (<code>/v1/stocks</code>) и создания поставок.</li>
+<li>💸 <strong>Финансы:</strong> Получение отчетов о реализации и финансовых операциях.</li>
+<li>🚚 <strong>Логистика:</strong> Генерация штрихкодов и этикеток для отгрузки товаров на склад Ozon.</li>
+</ul>
+
+<p>Отдельного внимания заслуживает работа с заказами. Приложение должно регулярно опрашивать сервер на наличие новых заказов (<code>/v2/posting/fbs/unpaid</code> или <code>/v3/posting/fbs/unpaid</code>). Как только новый заказ обнаружен, система должна зарезервировать товар на вашем складе и сформировать задание для сборщика.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Методы API могут обновляться. Следите за версионностью в документации, так как старые версии эндпоинтов (например, v1) могут быть отключены, что приведет к остановке работы вашего приложения.</p>
+</blockquote>
+
+<h2 id="работа-с-схемами-fbs-и-fbo-через-приложение">Работа с схемами FBS и FBO через приложение</h2>
+
+<p>Разработка приложения должна учитывать специфику выбранной схемы работы. Для схемы <strong>FBS</strong> (Fulfillment by Seller) критически важна скорость реакции. Приложение должно мгновенно уведомлять о новом заказе, чтобы вы успели собрать и передать его в сортировочный центр в отведенное время.</p>
+
+<p>В случае работы по схеме <strong>FBO</strong> (Fulfillment by Ozon) акцент смещается на управление поставками. Ваше приложение должно уметь формировать транспортные накладные, рассчитывать количество коробов и генерировать правильную маркировку. Ошибка в количестве мест при приемке на складе Ozon может привести к расхождениям и долгому поиску товара.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте веб-хуки (если доступны для вашего тарифа или через сторонние шлюзы) для мгновенного получения уведомлений о заказах, вместо постоянного опроса (polling) сервера. Это снизит нагрузку и ускорит реакцию.</p></aside>
+
+<p>Для FBS также важна интеграция со службами доставки, если вы используете доставку силами продавца. Приложение должно автоматически передавать трек-номер в Ozon сразу после отгрузки. Это делается через метод <code>/v1/posting/fbs/ship</code>. Без этого шаг не будет выполнен, и заказ получит статус "Не отправлен".</p>
+
+<h2 id="тестирование-отладка-и-запуск-в-продакшн">Тестирование, отладка и запуск в продакшн</h2>
+
+<p>Прежде чем запускать приложение для реальных продаж, необходимо провести тщательное тестирование на тестовом контуре или на одном неактивном магазине. Ozon предоставляет возможность работы в "песочнице" для некоторых сценариев, но чаще всего разработчики используют тестовые SKU на реальном аккаунте с нулевыми остатками.</p>
+
+<p>Проверьте сценарии обработки ошибок: что будет, если интернет пропадет в момент отправки заказа? Что если API вернет ошибку 500? Ваше приложение не должно "падать", а должно ставить задачу в очередь повторной отправки с экспоненциальной задержкой. <strong>Логирование</strong> всех действий — обязательное требование для успешной отладки.</p>
+
+<pre><code>
+<p>// Пример логики повторной попытки (псевдокод)</p>
+<p>function sendOrder(orderData) {</p>
+<p>try {</p>
+<p>api.post('/v1/posting/fbs/ship', orderData);</p>
+<p>} catch (error) {</p>
+<p>if (error.code === 429) {</p>
+<p>sleep(60); // Ждем минуту при лимите</p>
+<p>sendOrder(orderData);</p>
+<p>} else {</p>
+<p>logError(error);</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+</code></pre>
+
+<p>После успешного прохождения тестов можно запускать приложение в промышленную эксплуатацию. Рекомендуется начинать с небольшого процента заказов или товаров, постепенно наращивая нагрузку. Мониторинг работы приложения в первые дни должен вестись в режиме реального времени.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Успешный запуск приложения зависит не только от кода, но и от правильной настройки мониторинга и обработки ошибок. Система должна уметь восстанавливаться после сбоев без вмешательства человека.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Нужно ли платить за использование API Ozon?</summary>
+<p>Использование API Ozon для селлеров бесплатно. Однако вы несете расходы на разработку, хостинг сервера, где будет работать ваше приложение, и оплату труда разработчиков.</p>
+</details>
+
+<details>
+<summary>Можно ли создать приложение для Ozon на Python или Node.js?</summary>
+<p>Да, язык программирования не имеет значения, так как взаимодействие происходит через HTTP-запросы. Python, Node.js, PHP, Go — вы можете выбрать любой стек, с которым комфортно работать вашей команде.</p>
+</details>
+
+<details>
+<summary>Как часто обновляется документация API?</summary>
+<p>Ozon регулярно обновляет API, добавляя новые методы и улучшая старые. Рекомендуется подписаться на рассылку для разработчиков или следить за разделом "Changelog" в документации, чтобы вовремя вносить правки в свое приложение.</p>
+</details>
+
+<details>
+<summary>Что делать, если API перестал отвечать?</summary>
+<p>Сначала проверьте статус сервисов Ozon в личном кабинете или их Telegram-канале для разработчиков. Если проблем на стороне площадки нет, проверьте свои API-ключи, IP-адреса и лимиты запросов.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-sotrudnichat-s-ozon-samozanyatym.html" class="pb-related-card">
+                <span class="pb-related-title">Как сотрудничать с Озон самозанятым: регистрация и условия</span>
+                <span class="pb-related-desc">Полный гайд для самозанятых: как начать работать с Озон, условия договоров, налоги и нюансы FBS. Узн</span>
+            </a><a href="/articles/k/ka/kakie-tovary-na-ozon-samye-prodavaemye.html" class="pb-related-card">
+                <span class="pb-related-title">Самые продаваемые товары на Ozon: ТОП ниши для старта в 2026 году</span>
+                <span class="pb-related-desc">Аналитика рынка маркетплейсов: какие товары самые продаваемые на Ozon. Рейтинг категорий, тренды спр</span>
+            </a><a href="/articles/k/ka/kak-otkryt-biznes-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как открыть бизнес на Ozon: пошаговый старт 2026</span>
+                <span class="pb-related-desc">Полная инструкция: как открыть бизнес на Ozon в 2026 году. Регистрация, выбор схемы FBO/FBS, налоги </span>
+            </a><a href="/articles/k/ka/kak-prodavat-na-ozone-tovary-s-sadovoda.html" class="pb-related-card">
+                <span class="pb-related-title">Как продавать на Ozon товары с Садовода: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полный гайд для селлеров: как легально и выгодно продавать одежду и обувь с оптовых рынков Москвы на</span>
+            </a><a href="/articles/k/ka/kak-oformit-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оформить Ozon: пошаговая инструкция для продавцов и покупателей</span>
+                <span class="pb-related-desc">Узнайте, как оформить Ozon для бизнеса или личного кабинета. Полное руководство по регистрации, вери</span>
+            </a><a href="/articles/k/ka/kak-obnulit-ostatki-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как обнулить остатки на Ozon Seller: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство для продавцов Ozon: как правильно обнулить остатки товаров в личном кабинете, </span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

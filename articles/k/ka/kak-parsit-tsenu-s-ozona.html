@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как парсить цену с Озона: методы, коды и ошибки — Об Озоне</title>
+    <meta name="description" content="Подробный гид: как парсить цену с Озона легально. Python, API, библиотеки, обход блокировок и анализ динамики стоимости товаров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-parsit-tsenu-s-ozona.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как парсить цену с Озона: методы, коды и ошибки">
+    <meta property="og:description" content="Подробный гид: как парсить цену с Озона легально. Python, API, библиотеки, обход блокировок и анализ динамики стоимости товаров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/drugoe/">Другое</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как парсить цену с Озона: методы, коды и ошибки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#легальность-и-правила-использования-данных">Легальность и правила использования данных</a></li><li><a href="#официальные-источники-данных-api-ozon">Официальные источники данных: API Ozon</a></li><li><a href="#технический-парсинг-с-помощью-python">Технический парсинг с помощью Python</a></li><li><a href="#поиск-цены-по-классу-классы-могут-меняться">Поиск цены по классу (классы могут меняться)</a></li><li><a href="#обход-защиты-и-работа-с-прокси">Обход защиты и работа с прокси</a></li><li><a href="#анализ-структуры-данных-и-извлечение-цены">Анализ структуры данных и извлечение цены</a></li><li><a href="#альтернативные-решения-и-готовые-сервисы">Альтернативные решения и готовые сервисы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/o/oz/ozon-pyat-travm-kotorye-meshayut-byt-samim-soboj.html">5 психологических травм, мешающих селлеру Ozon</a></li><li><a href="/articles/s/sk/skolko-vsego-aktsij-ozon.html">Сколько всего акций Озон: структура капитала и дробление</a></li><li><a href="/articles/k/ka/kapelnitsa-ozonom-vnutrivenno-dlya-chego-naznachayut-otzyvy.html">Внутривенная капельница с озоном: показания, отзывы, риски</a></li><li><a href="/articles/c/ch/chto-takoe-ozon-8-klass-khimiya.html">Озон 8 класс химия: программа, баллы и отзывы о курсе</a></li><li><a href="/articles/c/ch/chto-takoe-disbalans-ozona-chto-vyzyvaet-eto.html">Дисбаланс озона: причины, последствия и как защититься в 2026 году</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как парсить цену с Озона: методы и инструменты</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#легальность-и-правила-использования-данных">Легальность и правила использования данных</a></li><li><a href="#официальные-источники-данных-api-ozon">Официальные источники данных: API Ozon</a></li><li><a href="#технический-парсинг-с-помощью-python">Технический парсинг с помощью Python</a></li><li><a href="#поиск-цены-по-классу-классы-могут-меняться">Поиск цены по классу (классы могут меняться)</a></li><li><a href="#обход-защиты-и-работа-с-прокси">Обход защиты и работа с прокси</a></li><li><a href="#анализ-структуры-данных-и-извлечение-цены">Анализ структуры данных и извлечение цены</a></li><li><a href="#альтернативные-решения-и-готовые-сервисы">Альтернативные решения и готовые сервисы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Сбор актуальных данных о стоимости товаров на крупнейших маркетплейсах является критически важной задачей для аналитиков, конкурентных разведчиков и самих селлеров, стремящихся удержать лидерство в нише. <strong>Парсинг цен</strong> позволяет не только отслеживать изменения в реальном времени, но и строить сложные ценовые стратегии, реагируя на демпинг или рост спроса быстрее конкурентов. Однако техническая реализация этого процесса сопряжена с рядом сложностей, связанных с защитой сайта от автоматизированных запросов.</p>
+
+<p>Владельцы интернет-магазинов часто задаются вопросом: как получить массив данных о тысячах товаров, не нарушая при этом правила платформы и не получив блокировку по IP-адресу? Современные методы <em>веб-скрейпинга</em> предлагают множество решений, от использования официальных API до написания сложных скриптов на языке Python с применением эмуляции поведения реального пользователя. Понимание архитектуры запросов и структуры HTML-кода страницы товара — это первый шаг к успешной автоматизации сбора данных.</p>
+
+<p>В этой статье мы детально разберем различные подходы к извлечению ценовой информации, оценим риски каждого метода и рассмотрим конкретные инструменты, которые помогут вам наладить стабильный поток данных. <mark>Использование официальных API Ozon Seller является единственным 100% легальным способом получения данных о собственных товарах, тогда как сбор данных о конкурентах требует обходных путей.</mark> Выбор правильной стратегии зависит от масштаба вашей задачи и доступных технических ресурсов.</p>
+
+<h2 id="легальность-и-правила-использования-данных">Легальность и правила использования данных</h2>
+
+<p>Прежде чем приступать к технической реализации, необходимо четко понимать правовые границы и условия использования платформы. <strong>Публичная оферта</strong> Ozon, как и любого крупного маркетплейса, обычно запрещает автоматизированный сбор данных (скрейпинг) без предварительного письменного согласия администрации. Это делается для защиты серверной инфраструктуры от перегрузок и сохранения конкурентного преимущества самой площадки.</p>
+
+<p>Нарушение этих правил может привести к техническим санкциям, таким как блокировка IP-адресов, капча или даже юридические последствия в случае нанесения ущерба бизнесу. Поэтому при планировании проекта важно взвесить риски и выбрать метод, который минимизирует нагрузку на серверы целевого сайта. <em>Этичный парсинг</em> подразумевает соблюдение задержек между запросами и уважение к файлу robots.txt, хотя в конкурентной разведке эти правила часто игнорируются ради полноты данных.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Частые запросы с одного IP-адреса без использования прокси-серверов приведут к мгновенной блокировке. Ваш адрес может быть внесен в черный список навсегда.</p>
+</blockquote>
+
+<p>Существует тонкая грань между сбором данных для личного анализа и коммерческим использованием спарсенной базы. Если вы планируете продавать собранные данные или использовать их в коммерческом продукте, риски значительно возрастают. В то же время, мониторинг цен конкурентов для корректировки собственной стратегии является стандартной практикой в e-commerce, и многие компании ищут способы делать это максимально незаметно.</p>
+
+<h2 id="официальные-источники-данных-api-ozon">Официальные источники данных: API Ozon</h2>
+
+<p>Самый надежный и стабильный способ получения информации о товарах — это использование <strong>Ozon Seller API</strong>. Этот инструмент предназначен в первую очередь для продавцов, торгующих на площадке, и предоставляет доступ к широкому спектру данных о собственных товарах, остатках, ценах и статусах заказов. Для работы с API требуется получить ключи доступа в личном кабинете продавца.</p>
+
+<p>API позволяет запрашивать информацию в формате JSON, что значительно упрощает дальнейшую обработку данных программными методами. Вы можете получать актуальные цены, скидки, наличие на складах и даже информацию о том, как ваш товар отображается в поисковой выдаче. Это <em>официальный канал</em>, который гарантирует получение точных данных без риска блокировки со стороны платформы.</p>
+
+<div class="pb-poll" id="poll-e0753daf"><div class="pb-poll-question">📊 Какой метод сбора данных вы планируете использовать?</div><div class="pb-poll-option" data-poll="e0753daf" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">API Ozon Seller</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e0753daf" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Python скрипты (BeautifulSoup)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e0753daf" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Готовые парсер-сервисы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="e0753daf" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Ручной сбор в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Однако у этого метода есть существенное ограничение: через API продавца можно получить данные только о <strong>своих товарах</strong>. Если ваша цель — анализировать цены конкурентов или отслеживать динамику рынка в целом, официальные инструменты вам не помогут. Для сбора данных о сторонних продавцах приходится прибегать к методам веб-скрейпинга, которые требуют более глубоких технических знаний.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте API для мониторинга своих цен, чтобы автоматически реагировать на изменения спроса и управлять акциями без ручного вмешательства.</p></aside>
+
+<h2 id="технический-парсинг-с-помощью-python">Технический парсинг с помощью Python</h2>
+
+<p>Для тех, кто нуждается в данных о конкурентах, единственным вариантом остается написане собственного скрипта. Язык <strong>Python</strong> является стандартом де-факто в области парсинга благодаря богатой экосистеме библиотек. Наиболее популярными инструментами являются <em>BeautifulSoup</em> для разбора статического HTML и <em>Selenium</em> или <em>Playwright</em> для работы с динамическим контентом, который загружается через JavaScript.</p>
+
+<p>Ozon активно использует динамическую подгрузку элементов, поэтому простого GET-запроса через библиотеку <code>requests</code> часто бывает недостаточно. Скрипт должен уметь исполнять JavaScript, эмулировать движения мыши и ждать загрузки необходимых блоков. Это делает процесс сбора данных более ресурсоемким, но позволяет получать информацию так, как её видит обычный пользователь в браузере.</p>
+
+<pre><code>import requests
+<p>from bs4 import BeautifulSoup</p>
+
+<p>url = 'https://www.ozon.ru/product/example-12345/'</p>
+<p>headers = {'User-Agent': 'Mozilla/5.0'}</p>
+<p>response = requests.get(url, headers=headers)</p>
+<p>soup = BeautifulSoup(response.text, 'html.parser')</p>
+<h2 id="поиск-цены-по-классу-классы-могут-меняться">Поиск цены по классу (классы могут меняться)</h2>
+<p>price = soup.find('span', {'data-testid': 'price-value'})</p>
+<p>print(price)</code></pre></p>
+
+<p>Ключевым моментом в техническом парсинге является правильная идентификация элементов на странице. Классы CSS на Ozon часто генерируются автоматически и могут меняться при каждом обновлении верстки, что ломает старые скрипты. Поэтому в коде рекомендуется использовать более устойчивые селекторы, такие как <code>data-testid</code> или структуру DOM-дерева, хотя и они не дают 100% гарантии стабильности.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Подготовка к запуску парсера</h4><label class="check-item"><input type="checkbox"><span>Установить Python и pip</span></label><label class="check-item"><input type="checkbox"><span>Настроить виртуальное окружение</span></label><label class="check-item"><input type="checkbox"><span>Установить библиотеки requests, bs4, selenium</span></label><label class="check-item"><input type="checkbox"><span>Проверить работу скрипта на одном товаре</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="обход-защиты-и-работа-с-прокси">Обход защиты и работа с прокси</h2>
+
+<p>Ozon employs sophisticated anti-bot systems that analyze request patterns, browser fingerprints, and IP reputation. If your script sends requests too quickly or lacks realistic browser headers, you will be served a CAPTCHA or a 403 Forbidden error. To bypass these protections, you need to rotate your <strong>IP addresses</strong> using proxy servers.</p>
+
+<p>Using residential proxies is often more effective than datacenter proxies because their IP addresses belong to real ISPs and look more like regular user traffic. Additionally, you must configure your script to randomize the time between requests, mimicking human behavior. A fixed delay of exactly 5 seconds is suspicious; a random delay between 3 and 7 seconds is much better.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Тип прокси</th>
+<th>Скорость</th>
+<th>Анонимность</th>
+<th>Риск блокировки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datacenter</td>
+<td>Высокая</td>
+<td>Низкая</td>
+<td>Высокий</td>
+</tr>
+<tr>
+<td>Residential</td>
+<td>Средняя</td>
+<td>Высокая</td>
+<td>Низкий</td>
+</tr>
+<tr>
+<td>Mobile 4G/5G</td>
+<td>Средняя</td>
+<td>Очень высокая</td>
+<td>Минимальный</td>
+</tr>
+<tr>
+<td>Public Free</td>
+<td>Низкая</td>
+<td>Нулевая</td>
+<td>Критический</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Another crucial aspect is the <em>User-Agent</em> string. Your script must send headers that match a real, up-to-date browser. Using default headers from Python libraries is a dead giveaway. You should maintain a pool of valid User-Agent strings and rotate them with every request or session.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Использование бесплатных публичных прокси для парсинга коммерческих данных недопустимо — они медленно, нестабильны и часто уже занесены в черные списки Ozon.</p>
+</blockquote>
+
+<details class="pb-accordion"><summary>Почему капча появляется даже с прокси?</summary><div class="pb-accordion-body"><p>Капча может появляться не только из-за IP, но и из-за "цифрового отпечатка" браузера (fingerprint). Если ваш скрипт не поддерживает WebGL, имеет нестандартное разрешение экрана или некорректные часовые пояса, система защиты это заметит.</p></div></details>
+
+<h2 id="анализ-структуры-данных-и-извлечение-цены">Анализ структуры данных и извлечение цены</h2>
+
+<p>После успешного получения HTML-кода страницы следующей задачей является точное извлечение цены. На Ozon цена может отображаться по-разному: может быть указана цена с Ozon Картой, цена без карты, цена со скидкой и цена "до скидок". Важно понимать, какую именно метрику вы парсите, так как <strong>алгоритмы ценообразования</strong> платформы сложны и многофакторны.</p>
+
+<p>Часто цена не является простым текстом внутри тега, а зашита в JSON-объект внутри скрипта страницы или передается через API-запросы, которые браузер делает в фоне. Использование инструментов разработчика в браузере (вкладка Network) позволяет увидеть эти запросы и, возможно, парсить напрямую JSON-ответы, что гораздо быстрее и надежнее, чем разбирать HTML.</p>
+
+<ul>
+<li> 🏷️ <strong>Цена до скидок:</strong> Зачеркнутая стоимость, которая часто является завышенной для создания иллюзии выгодной покупки.</li>
+<li> 💳 <strong>Цена с Ozon Картой:</strong> Специальная цена, доступная только держателям виртуальной карты лояльности маркетплейса.</li>
+<li> 🏷️ <strong>Базовая цена:</strong> Стандартная стоимость товара для всех покупателей без дополнительных условий.</li>
+<li> 🚚 <strong>Цена с учетом доставки:</strong> В некоторых случаях итоговая стоимость формируется с учетом логистики, что важно для сравнения.</li>
+</ul>
+
+<p>При анализе структуры обратите внимание на то, что цены могут быть разделены на рубли и копейки в разных HTML-элементах. Ваш парсер должен уметь корректно объединять эти значения и преобразовывать их в числовой формат (float или decimal) для дальнейших математических операций. Ошибки в парсинге разделителей (точка vs запятая) могут привести к неверным расчетам.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Наиболее ценной для аналитики является "Цена с Ozon Картой", так как именно она часто является реальной рыночной ценой для конечного потребителя.</p></aside>
+
+<h2 id="альтернативные-решения-и-готовые-сервисы">Альтернативные решения и готовые сервисы</h2>
+
+<p>Если разработка и поддержка собственного парсера кажется вам слишком сложной или затратной по времени, существуют готовые <strong>SaaS-решения</strong> и сервисы мониторинга. Такие платформы, как Moneyplace, Stat4Market или Jungle Scout (для Amazon, но есть аналоги), берут на себя всю техническую часть: прокси, обход капчи, хранение истории и аналитику.</p>
+
+<p>Использование таких сервисов позволяет сосредоточиться на бизнес-аналитике, а не на техническом обслуживании скриптов. Они предоставляют удобные дашборды, графики изменения цен и уведомления о действиях конкурентов. Однако за удобство приходится платить ежемесячную подписку, которая может быть существенной для малого бизнеса.</p>
+
+<p>Выбор между самописным решением и готовым сервисом зависит от ваших ресурсов. Если вам нужно мониторить 10 товаров раз в неделю — проще сделать это вручную или купить подписку. Если же вы анализируете тысячи SKU ежедневно и строите на этом автоматизированную систему repricingа, то свой <em>парсер на Python</em> станет более гибким и экономически эффективным решением в долгосрочной перспективе.</p>
+
+<details>
+<summary>Какие библиотеки Python лучше всего подходят для новичка?</summary>
+<p>Для начала изучите связку <code>requests</code> + <code>BeautifulSoup</code>. Они просты в освоении и позволяют парсить статические страницы. Когда столкнетесь с ограничениями, переходите на <code>Selenium</code> или <code>Playwright</code> для эмуляции браузера.</p>
+</details>
+
+<details>
+<summary>Как часто можно делать запросы, чтобы не заблокировали?</summary>
+<p>Безопасного интервала не существует, так как алгоритмы защиты меняются. Рекомендуется делать не более 1 запроса в 5-10 секунд с одного IP и обязательно использовать рандомизацию задержек.</p>
+</details>
+
+<details>
+<summary>Можно ли парсить Ozon через мобильное приложение?</summary>
+<p>Технически можно перехватывать трафик приложения, но это требует сложной настройки эмулятора Android (например, BlueStacks) и анализа SSL-трафика, что значительно сложнее веб-парсинга.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/o/oz/ozon-pyat-travm-kotorye-meshayut-byt-samim-soboj.html" class="pb-related-card">
+                <span class="pb-related-title">5 психологических травм, мешающих селлеру Ozon</span>
+                <span class="pb-related-desc">Как психологические травмы мешают бизнесу на Озон. Разбор страхов, мешающих быть собой, и стратегии </span>
+            </a><a href="/articles/s/sk/skolko-vsego-aktsij-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько всего акций Озон: структура капитала и дробление</span>
+                <span class="pb-related-desc">Узнайте, сколько всего акций у Озон сегодня. Анализ влияния дробления на цену лота, структуру капита</span>
+            </a><a href="/articles/k/ka/kapelnitsa-ozonom-vnutrivenno-dlya-chego-naznachayut-otzyvy.html" class="pb-related-card">
+                <span class="pb-related-title">Внутривенная капельница с озоном: показания, отзывы, риски</span>
+                <span class="pb-related-desc">Для чего назначают внутривенную капельницу с озоном? Разбор показаний, механизма действия, рисков и </span>
+            </a><a href="/articles/c/ch/chto-takoe-ozon-8-klass-khimiya.html" class="pb-related-card">
+                <span class="pb-related-title">Озон 8 класс химия: программа, баллы и отзывы о курсе</span>
+                <span class="pb-related-desc">Подробный разбор курса Озон для 8 класса по химии. Узнайте про баллы, структуру программы, стоимость</span>
+            </a><a href="/articles/c/ch/chto-takoe-disbalans-ozona-chto-vyzyvaet-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Дисбаланс озона: причины, последствия и как защититься в 2026 году</span>
+                <span class="pb-related-desc">Что такое дисбаланс озонового слоя, какие факторы его вызывают и как это влияет на здоровье и эколог</span>
+            </a><a href="/articles/s/sk/skolko-poluchayut-rabotniki-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Зарплаты в Озон 2026: сколько зарабатывают сотрудники маркетплейса</span>
+                <span class="pb-related-desc">Актуальные данные о зарплатах в Ozon: от курьеров до топ-менеджеров. Разбираем оклады, бонусы и реал</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

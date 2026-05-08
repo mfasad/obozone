@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>API Key на Ozon: что это, где взять и как настроить — Об Озоне</title>
+    <meta name="description" content="Полное руководство по API ключу Ozon для селлеров. Узнайте, что это, чем отличаются ключи X-Ozon и Client-Key, как их создать в личном кабинете и настроить для безопасной торговли.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/a/ap/api-key-chto-eto-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="API Key на Ozon: что это, где взять и как настроить">
+    <meta property="og:description" content="Полное руководство по API ключу Ozon для селлеров. Узнайте, что это, чем отличаются ключи X-Ozon и Client-Key, как их создать в личном кабинете и настроить для безопасной торговли.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">API Key на Ozon: что это, где взять и как настроить</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#понятие-api-и-его-роль-в-автоматизации-продаж">Понятие API и его роль в автоматизации продаж</a></li><li><a href="#типы-ключей-доступа-в-личном-кабинете-селлера">Типы ключей доступа в личном кабинете селлера</a></li><li><a href="#пошаговая-инструкция-как-создать-api-ключ">Пошаговая инструкция: как создать API ключ</a></li><li><a href="#настройка-прав-доступа-и-безопасность">Настройка прав доступа и безопасность</a></li><li><a href="#решение-типичных-проблем-при-подключении">Решение типичных проблем при подключении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-podklyuchit-ozon.html">Как подключить Озон: регистрация и запуск для селлеров</a></li><li><a href="/articles/v/vs/vszh-ozon-chto.html">ВСЖ Озон: что это, как работает и зачем нужен в 2026 году</a></li><li><a href="/articles/o/oz/ozon-nazvanie-kotoroe-uvidyat-pokupateli.html">Озон: название, которое увидят покупатели — как правильно заполнить</a></li><li><a href="/articles/k/ka/kak-vzyat-otpusk-na-ozon-seller.html">Отпуск на Ozon Seller: как уйти и не получить штрафы</a></li><li><a href="/articles/s/sk/skolko-ozon-prinosit-pribyli.html">Сколько можно заработать на Ozon: реальные цифры и расчёты 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>API Key на Ozon: полное руководство для селлеров</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#понятие-api-и-его-роль-в-автоматизации-продаж">Понятие API и его роль в автоматизации продаж</a></li><li><a href="#типы-ключей-доступа-в-личном-кабинете-селлера">Типы ключей доступа в личном кабинете селлера</a></li><li><a href="#пошаговая-инструкция-как-создать-api-ключ">Пошаговая инструкция: как создать API ключ</a></li><li><a href="#настройка-прав-доступа-и-безопасность">Настройка прав доступа и безопасность</a></li><li><a href="#решение-типичных-проблем-при-подключении">Решение типичных проблем при подключении</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современной электронной коммерции скорость реакции на изменения рынка часто определяет успех всего бизнеса. Для продавцов на маркетплейсах, таких как <em>Ozon</em>, критически важно иметь возможность автоматизировать процессы управления товарами, заказами и логистикой. Ручная работа через веб-интерфейс личного кабинета становится неэффективной, когда ассортимент насчитывает тысячи позиций, а заказы поступают каждую минуту. Именно здесь на сцену выходит технология API, требующая для своей работы специальный цифровой ключ.</p>
+
+<p><strong>API Key на Ozon</strong> — это уникальный идентификатор, который позволяет вашему программному обеспечению (например, системе управления складом или сервису аналитики) безопасно обмениваться данными с серверами маркетплейса. Без этого ключа внешние программы не смогут «видеть» ваши остатки, менять цены или получать информацию о новых заказах. Понимание принципов работы этого инструмента является фундаментом для масштабирования бизнеса на площадке.</p>
+
+<p>В этой статье мы подробно разберем, что представляет собой этот ключ, чем отличаются его типы и как правильно настроить доступы, чтобы обеспечить безопасность вашего аккаунта. Вы узнаете, где найти необходимые настройки в личном кабинете и какие меры предосторожности стоит соблюдать при работе с конфиденциальными данными.</p>
+
+<div class="pb-poll" id="poll-825eeb42"><div class="pb-poll-question">📊 Как вы сейчас управляете товарами на Ozon?</div><div class="pb-poll-option" data-poll="825eeb42" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через сайт</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="825eeb42" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через Excel-таблицы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="825eeb42" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую API и сторонние сервисы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="825eeb42" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Только планирую начать продажи</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="понятие-api-и-его-роль-в-автоматизации-продаж">Понятие API и его роль в автоматизации продаж</h2>
+
+<p>Аббревиатура <strong>API</strong> (Application Programming Interface) обозначает интерфейс программирования приложений. Простыми словами, это набор правил и протоколов, которые позволяют различным программным продуктам взаимодействовать друг с другом. В контексте маркетплейса <em>Ozon</em> API выступает мостом между вашей учетной системой (например, <em>1C</em>, <em>МойСклад</em> или <em>Bitrix</em>) и серверами торговой площадки. Когда вы меняете цену в своей программе, через API этот сигнал мгновенно передается на сайт Ozon, и покупатель видит актуальную стоимость.</p>
+
+<p>Ключевым элементом этой связки является <strong>API Key</strong>. Это своего рода цифровой пропуск или пароль, который подтверждает права доступа. Без него сервер Ozon просто не примет запросы от вашего софта, считая их посторонними. Важно понимать, что ключей может быть несколько, и они могут иметь разные уровни доступа. Это сделано для безопасности: вы можете выдать одному сервису право только читать заказы, а другому — право менять остатки, но не видеть финансовые отчеты.</p>
+
+<blockquote>⚠️ Внимание: Никогда не передавайте свои API-ключи третьим лицам без проверки их надежности. Владелец ключа получает полный доступ к управлению вашим магазином в рамках выданных прав, включая возможность удалять товары или менять цены на символические.</blockquote>
+
+<p>Использование API позволяет селлерам решать сложные задачи, недоступные при ручном управлении. Например, можно настроить автоматическую выгрузку товаров из базы поставщика сразу после их появления на складе. Также возможна синхронизация остатков между несколькими каналами продаж, что предотвращает ситуацию овербукинга, когда товар продан на Ozon, но физически его уже забрал клиент с Wildberries.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте разные API-ключи для разных сервисов. Если один сервис будет скомпрометирован, вам не придется перевыпускать ключи для всех остальных интеграций.</p></aside>
+
+<h2 id="типы-ключей-доступа-в-личном-кабинете-селлера">Типы ключей доступа в личном кабинете селлера</h2>
+
+<p>В экосистеме Ozon существует несколько разновидностей ключей, и путаница между ними может привести к ошибкам при настройке интеграции. Основное различие кроется в том, для каких именно операций предназначен конкретный ключ. Разработчики платформы разделили доступы на логические группы, чтобы минимизировать риски утечки данных и упростить управление правами.</p>
+
+<p>Первый и самый распространенный тип — это ключи для работы с APISeller (торговая часть). Они используются для управления товарами, заказами, схемами работы (FBO, FBS) и финансовыми отчетами. Второй тип — ключи для работы с Chat API, которые позволяют подключать чат-ботов для общения с покупателями. Третий тип — ключи для доступа к аналитике и маркетинговым инструментам. При создании ключа система всегда предложит выбрать тип доступа.</p>
+
+<ul>
+<li>🔑 <strong>X-Ozon</strong> — основной ключ, используемый для авторизации большинства запросов к API, содержит информацию о владельце и правах доступа.</li>
+<li>🆔 <strong>Client-ID</strong> — уникальный идентификатор клиента (вашего магазина), который всегда передается в паре с ключом для идентификации запроса.</li>
+<li>🛡️ <strong>API Key (Token)</strong> — секретная строка символов, которая выступает в роли пароля при каждом обращении к серверу.</li>
+<li>📊 <strong>Analytics Key</strong> — специализированный ключ, часто используемый сторонними сервисами аналитики для выгрузки данных без права внесения изменений.</li>
+</ul>
+
+<p>Важно различать понятия <strong>Client-ID</strong> и самого секретного ключа. Client-ID — это ваш публичный номер, его не нужно скрывать так тщательно, как сам ключ доступа. Однако связка этих двух параметров обязательна для успешной авторизации. В некоторых старых интеграциях или сторонних сервисах может запрашиваться «Token», что по сути является синонимом API Key в текущей терминологии платформы.</p>
+
+<details class="pb-accordion"><summary>Чем отличается V1 от V2 API?</summary><div class="pb-accordion-body"><p>Версия V1 является устаревшей и постепенно выводится из эксплуатации. Она имеет ограниченный функционал и меньшую скорость обработки запросов. Версия V2 (и новее) поддерживает работу со сложными схемами логистики, реальное время обновления остатков и расширенные методы фильтрации данных. При создании нового ключа всегда выбирайте актуальную версию API.</p></div></details>
+
+<h2 id="пошаговая-инструкция-как-создать-api-ключ">Пошаговая инструкция: как создать API ключ</h2>
+
+<p>Процесс генерации ключа доступа занимает всего несколько минут, но требует внимательности. Все действия выполняются в личном кабинете селлера через веб-браузер. Перед началом процедуры убедитесь, что у вас есть доступ к аккаунту с правами администратора или владельца бизнеса, так как обычные пользователи могут не иметь права создавать новые ключи.</p>
+
+<p>Для начала необходимо перейти в раздел настроек профиля. В левом меню найдите пункт <code>Настройки</code>, а затем выберите подраздел <code>API ключи</code>. В некоторых версиях интерфейса этот пункт может называться «Ключи доступа» или находиться внутри раздела «Интеграции». Именно здесь хранится список всех активных и заблокированных ключей вашего магазина.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Создание API ключа</h4><label class="check-item"><input type="checkbox"><span>Войти в ЛК Ozon Seller:Перейти в Настройки → API ключи:Выбрать тип ключа (например, для работы с товарами):Придумать понятное имя ключу:Скопировать Client ID и Secret Key</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>Нажмите кнопку <code>Создать ключ</code>. Система предложит вам выбрать тип ключа. Для стандартной работы с товарами и заказами обычно выбирается опция «Работа с API» или аналогичная. Далее вам нужно будет дать ключу имя — это может быть название вашей CRM-системы или сервиса, например, «Integration_MoySklad_2026». Это поможет вам в будущем понять, для чего используется конкретная связка ключей.</p>
+
+<p>После подтверждения действий на экране появятся две критически важные строки символов: <strong>Client-ID</strong> и сам <strong>API Key</strong> (секретный ключ). <mark>Скопируйте их немедленно и сохраните в надежном месте</mark>. Ozon показывает секретный ключ только один раз при создании. Если вы закроете окно, не сохранив данные, создать новый ключ придется заново, а старый (если он уже был активирован) может потребовать перевыпуска.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Где используется</th>
+<th>Нужно ли скрывать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client-ID</td>
+<td>Идентификатор магазина</td>
+<td>Заголовок запроса</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>API Key</td>
+<td>Секретный токен доступа</td>
+<td>Заголовок запроса</td>
+<td>Да, строго</td>
+</tr>
+<tr>
+<td>Имя ключа</td>
+<td>Название для вас</td>
+<td>Список ключей в ЛК</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>Дата создания</td>
+<td>Время генерации</td>
+<td>Аудит безопасности</td>
+<td>Нет</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>После получения данных их необходимо ввести в настройки вашего программного обеспечения. Обычно это поля <code>Client ID</code> и <code>API Key</code>. Убедитесь, что при копировании не добавились лишние пробелы в начале или конце строки — это частая причина ошибок подключения. После ввода настроек в стороннем сервисе рекомендуется выполнить тестовый запрос, чтобы проверить соединение.</p>
+
+<h2 id="настройка-прав-доступа-и-безопасность">Настройка прав доступа и безопасность</h2>
+
+<p>Безопасность вашего магазина напрямую зависит от того, как вы управляете правами доступа API. Современные интерфейсы Ozon позволяют детально настраивать, какие именно операции может выполнять тот или иной ключ. Не стоит выдавать полные права доступа всем подключенным сервисам без необходимости.</p>
+
+<p>При создании ключа обратите внимание на чек-боксы с правами. Если вы подключаете сервис аналитики, ему не нужно право на «Изменение товаров» или «Управление заказами». Ему достаточно права «Чтение». Это означает, что даже в случае утечки ключа злоумышленники не смогут навредить вашему бизнесу, а только получат доступ к статистике.</p>
+
+<ul>
+<li>📦 <strong>Товары</strong> — позволяет создавать, редактировать и удалять карточки товаров, управлять остатками и ценами.</li>
+<li>🚚 <strong>Заказы</strong> — дает право видеть новые заказы, менять их статусы и формировать поставки.</li>
+<li>💰 <strong>Финансы</strong> — доступ к отчетам о продажах, актах и финансовым операциям.</li>
+<li>📢 <strong>Маркетинг</strong> — возможность создавать рекламные кампании и управлять акциями.</li>
+</ul>
+
+<p>Регулярно проводите аудит активных ключей. Зайдите в раздел <code>Настройки → API ключи</code> и посмотрите список. Если вы видите ключ с названием «Test» или ключ от сервиса, которым вы больше не пользуетесь, немедленно заблокируйте или удалите его. Это стандартная процедура гигиены безопасности, которую следует выполнять раз в квартал.</p>
+
+<blockquote>⚠️ Внимание: Если вы заметили подозрительную активность, например, резкое изменение цен или массовое удаление товаров, первым делом заблокируйте все активные API ключи в личном кабинете. Это мгновенно прекратит любое внешнее воздействие на ваш магазин.</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Принцип минимальных привилегий: всегда давайте сервису ровно столько прав, сколько ему нужно для работы, и ни байтом больше. Это лучшая защита от ошибок и взломов.</p></aside>
+
+<h2 id="решение-типичных-проблем-при-подключении">Решение типичных проблем при подключении</h2>
+
+<p>Даже при правильном выполнении инструкции могут возникнуть технические сложности. Чаще всего они связаны с человеческим фактором или особенностями работы сетевого оборудования. Понимание природы ошибок поможет вам быстрее диагностировать проблему и обратиться в поддержку с конкретикой, если своими силами решить вопрос не удастся.</p>
+
+<p>Одна из самых частых ошибок — <strong>Invalid API Key</strong> или <strong>401 Unauthorized</strong>. Это означает, что сервер Ozon не принимает ваши учетные данные. Проверьте, не перепутали ли вы Client-ID и Secret Key местами. Также убедитесь, что ключ активен в личном кабинете и не был заблокирован системой безопасности из-за подозрительных попыток входа.</p>
+
+<p>Другая распространенная проблема — <strong>403 Forbidden</strong>. Эта ошибка говорит о том, что ключ верный, но у него нет прав на выполнение конкретного действия. Например, вы пытаетесь изменить цену товара, используя ключ, у которого стоит галочка только на «Чтение товаров». В этом случае нужно вернуться в настройки ключа и расширить права.</p>
+
+<pre><code>Пример ответа сервера при ошибке:
+<p>{</p>
+<p>"code": "UNAUTHORIZED",</p>
+<p>"message": "Invalid client-id or api-key"</p>
+<p>}</code></pre></p>
+
+<p>Также стоит учитывать ограничения по количеству запросов в секунду (Rate Limit). Если ваш софт отправляет слишком много запросов одновременно, Ozon может временно заблокировать доступ, выдав ошибку <strong>429 Too Many Requests</strong>. В этом случае необходимо настроить в вашей системе очереди запросов или увеличить интервалы между ними.</p>
+
+<details class="pb-accordion"><summary>Почему ключ не работает сразу после создания?</summary><div class="pb-accordion-body"><p>Иногда системе требуется от 1 до 5 минут для репликации данных на все сервера. Если вы создали ключ и сразу пытаетесь его использовать, может возникнуть ошибка. Подождите несколько минут и попробуйте снова.</p></div></details>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли восстановить API ключ, если я его потерял?</summary>
+<p>Нет, восстановить саму строку символов секретного ключа невозможно. В целях безопасности система не хранит его в открытом виде даже для администраторов. Если вы потеряли ключ, вам необходимо создать новый в личном кабинете и заменить данные в настройках вашего программного обеспечения.</p>
+</details>
+
+<details>
+<summary>Сколько API ключей можно создать для одного магазина?</summary>
+<p>Озон не устанавливает жесткого лимита на количество ключей, но разумным пределом считается создание отдельных ключей для каждого подключаемого сервиса. Если у вас 5 разных программ, создайте 5 ключей с понятными именами. Это упростит управление доступами.</p>
+</details>
+
+<details>
+<summary>Нужно ли обновлять API ключи периодически?</summary>
+<p>Технически ключи не имеют срока годности и действуют бессрочно, пока вы их не удалите. Однако в целях безопасности рекомендуется периодически (раз в 6-12 месяцев) перевыпускать ключи, особенно если к магазину имели доступ бывшие сотрудники или подрядчики.</p>
+</details>
+
+<details>
+<summary>Работает ли API ключ для разных стран (Ozon Россия, Беларусь, Казахстан)?</summary>
+<p>Нет, у каждого домена Ozon (ozon.ru, ozon.by, ozon.kz) своя отдельная инфраструктура. Для работы с разными странами вам потребуется создавать отдельные API ключи в соответствующих личных кабинетах селлера.</p>
+</details>
+
+<details>
+<summary>Что делать, если сторонний сервис просит права администратора?</summary>
+<p>Будьте осторожны. Сервисам для работы обычно не нужны полные права администратора аккаунта Ozon, им нужны права API. Если сервис просит логин и пароль от личного кабинета, это нарушение правил безопасности. Используйте только API ключи.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-podklyuchit-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как подключить Озон: регистрация и запуск для селлеров</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как подключить Ozon, выбрать схему работы (FBO/FBS), оформить документы и запу</span>
+            </a><a href="/articles/v/vs/vszh-ozon-chto.html" class="pb-related-card">
+                <span class="pb-related-title">ВСЖ Озон: что это, как работает и зачем нужен в 2026 году</span>
+                <span class="pb-related-desc">Разбираемся, что такое ВСЖ на Озоне: расшифровка, как влияет на продажи, как проверить и повысить. П</span>
+            </a><a href="/articles/o/oz/ozon-nazvanie-kotoroe-uvidyat-pokupateli.html" class="pb-related-card">
+                <span class="pb-related-title">Озон: название, которое увидят покупатели — как правильно заполнить</span>
+                <span class="pb-related-desc">Как настроить название, видимое покупателям на Ozon. Инструкция по смене имени продавца, брендирован</span>
+            </a><a href="/articles/k/ka/kak-vzyat-otpusk-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Отпуск на Ozon Seller: как уйти и не получить штрафы</span>
+                <span class="pb-related-desc">Полная инструкция: как поставить отпуск на Озон селлер. Влияние на рейтинг, настройка FBO/FBS, сохра</span>
+            </a><a href="/articles/s/sk/skolko-ozon-prinosit-pribyli.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько можно заработать на Ozon: реальные цифры и расчёты 2026</span>
+                <span class="pb-related-desc">Разбираем доходы продавцов на Ozon: от минимальных прибылей до миллионных оборотов. Формулы расчёта,</span>
+            </a><a href="/articles/c/ch/chto-znachit-klaster-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Кластер на Ozon: что это, как работает и зачем нужен продавцам</span>
+                <span class="pb-related-desc">Разбираемся, что такое кластер на Ozon, как он влияет на продажи и как правильно его использовать дл</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

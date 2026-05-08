@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>ID аккаунта Ozon: как узнать свой номер продавца или покупателя — Об Озоне</title>
+    <meta name="description" content="Пошаговая инструкция, где найти ID в личном кабинете Ozon для продавцов и покупателей. Способы через приложение, сайт и API. Разница между ClientID и SellerID.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-uznat-id-v-ozone-svoj-akkaunt.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ID аккаунта Ozon: как узнать свой номер продавца или покупателя">
+    <meta property="og:description" content="Пошаговая инструкция, где найти ID в личном кабинете Ozon для продавцов и покупателей. Способы через приложение, сайт и API. Разница между ClientID и SellerID.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">ID аккаунта Ozon: как узнать свой номер продавца или покупателя</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#чем-отличаются-clientid-и-sellerid-в-ozon">Чем отличаются ClientID и SellerID в Ozon</a></li><li><a href="#способ-1-как-узнать-clientid-для-покупателей">Способ 1: Как узнать ClientID (для покупателей)</a></li><li><a href="#способ-2-где-найти-sellerid-в-кабинете-продавца">Способ 2: Где найти SellerID в кабинете продавца</a></li><li><a href="#способ-3-получение-id-через-api-для-разработчиков">Способ 3: Получение ID через API (для разработчиков)</a></li><li><a href="#способ-4-id-в-письмах-от-ozon-скрытый-источник">Способ 4: ID в письмах от Ozon (скрытый источник)</a></li><li><a href="#способ-5-альтернативные-методы-если-ничего-не-работает">Способ 5: Альтернативные методы (если ничего не работает)</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nachat-prodavat-na-ozon-i-vajldberriz-s-nulya.html">Как начать продавать на Озон и Wildberries с нуля: пошаговый план 2026</a></li><li><a href="/articles/g/gd/gde-lichnom-kabinete-ozon-dogovor-oferty.html">Где найти договор оферты в личном кабинете Ozon: инструкция</a></li><li><a href="/articles/k/ka/kak-dobavit-brend-na-ozon-novyj.html">Как добавить бренд на Ozon: полная инструкция 2026</a></li><li><a href="/articles/a/ap/api-key-ozon-kak-sgenerirovat.html">API Key Ozon: как сгенерировать ключ за 5 минут</a></li><li><a href="/articles/k/ka/kak-vesti-uchet-ozon-v-1s-bukhgalteriya.html">Учет Озон в 1С Бухгалтерия: пошаговая инструкция 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как узнать ID своего аккаунта в Ozon: 5 рабочих способов для продавцов и покупателей</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#чем-отличаются-clientid-и-sellerid-в-ozon">Чем отличаются ClientID и SellerID в Ozon</a></li><li><a href="#способ-1-как-узнать-clientid-для-покупателей">Способ 1: Как узнать ClientID (для покупателей)</a></li><li><a href="#способ-2-где-найти-sellerid-в-кабинете-продавца">Способ 2: Где найти SellerID в кабинете продавца</a></li><li><a href="#способ-3-получение-id-через-api-для-разработчиков">Способ 3: Получение ID через API (для разработчиков)</a></li><li><a href="#способ-4-id-в-письмах-от-ozon-скрытый-источник">Способ 4: ID в письмах от Ozon (скрытый источник)</a></li><li><a href="#способ-5-альтернативные-методы-если-ничего-не-работает">Способ 5: Альтернативные методы (если ничего не работает)</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Вы зарегистрировались на <em>Ozon</em> как продавец или активно покупаете на маркетплейсе, но вдруг потребовался уникальный идентификатор вашего аккаунта? Без паники: <strong>ID в Ozon</strong> — это не мифический код, а вполне конкретный номер, который присваивается каждому пользователю. Его могут запросить поддержка маркетплейса, сервисы интеграции (например, <em>МойСклад</em> или <em>1С</em>), партнёрские программы или даже банк при оформлении <em>Ozon Банк</em> для бизнеса.</p>
+
+<p>Проблема в том, что интерфейс <em>Ozon</em> не всегда демонстрирует ID на видном месте — его приходится «выковыривать» из ссылок, API-запросов или скрытых разделов. В этой статье мы разберём <strong>все актуальные способы</strong> получения ID для двух типов аккаунтов: <strong>ClientID</strong> (для покупателей) и <strong>SellerID</strong> (для продавцов), включая редкие методы, о которых не пишут в официальной справке. Также выясним, почему иногда один и тот же пользователь может иметь <mark>два разных ID в зависимости от роли</mark> (покупатель/продавец) и как это влияет на работу с маркетплейсом.</p>
+
+<h2 id="чем-отличаются-clientid-и-sellerid-в-ozon">Чем отличаются ClientID и SellerID в Ozon</h2>
+
+<p>Прежде чем искать свой идентификатор, важно понять, какой именно вам нужен. <em>Ozon</em> присваивает пользователям два типа ID в зависимости от их роли:</p>
+
+<ul>
+  <li>🛒 <strong>ClientID</strong> — уникальный номер вашего аккаунта как <em>покупателя</em>. Нужен для участия в бонусных программах, обращений в поддержку по заказам, интеграции с сервисами кешбэка (например, <em>СберСпасибо</em> или <em>Тинькофф Блэк</em>).</li>
+  <li>📦 <strong>SellerID</strong> — идентификатор вашего <em>продавца</em> (магазина). Требуется для настройки API, подключения систем аналитики (<em>Ozon Statistics</em>, <em>Google Analytics</em>), работы с <em>Ozon FBS/FBO</em> и оформления юридических документов.</li>
+</ul>
+
+<p>Ключевое отличие: <strong>один человек может иметь оба ID одновременно</strong>, если он зарегистрирован и как покупатель, и как продавец. При этом <mark>ClientID и SellerID не связаны между собой</mark> — это независимые числовые коды, которые не пересекаются. Например, ваш <code>ClientID=12345678</code> никак не поможет найти ваш <code>SellerID=87654321</code>, и наоборот.</p>
+
+<blockquote>⚠️ Внимание: Если вы продавец и пытаетесь подключить <em>Ozon API</em>, всегда используйте <strong>SellerID</strong>, даже если в документации упомянут просто «ID». <strong>ClientID в API не работает</strong> — это частая ошибка новичков, из-за которой интеграция падает с ошибкой <code>403 Forbidden</code>.</blockquote>
+
+<h2 id="способ-1-как-узнать-clientid-для-покупателей">Способ 1: Как узнать ClientID (для покупателей)</h2>
+
+<p>Если вам нужен идентификатор аккаунта покупателя, самый простой способ — извлечь его из ссылки в личном кабинете. Этот метод работает и на <em>десктопной версии сайта</em>, и в <em>мобильном приложении</em>.</p>
+
+<ol>
+  <li>Авторизуйтесь на сайте <a href="https://www.ozon.ru/" target="_blank" rel="noopener noreferrer">Ozon.ru</a> или в приложении.</li>
+  <li>Перейдите в раздел <code>Личный кабинет → Мои заказы</code>.</li>
+  <li>Откройте <strong>любой заказ</strong> (даже завершённый).</li>
+  <li>В адресной строке браузера найдите часть URL вида <code>/order/{число}/</code>. Например:
+    <pre><code>https://www.ozon.ru/account/orders/12345678-9012-3456/</code></pre>
+<p>Здесь <code>12345678</code> — это ваш <strong>ClientID</strong> (до первого дефиса).</p>
+  </li>
+</ol>
+
+<p>В мобильном приложении алгоритм аналогичный: откройте заказ → нажмите «Поделиться» → скопируйте ссылку и найдите в ней числовой идентификатор. Если ссылка короткая (например, через <em>ozon.ru/short/...</em>), разверните её с помощью сервисов вроде <em>unshorten.it</em>.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка корректности ClientID</h4><label class="check-item"><input type="checkbox"><span>Число состоит из 8 цифр</span></label><label class="check-item"><input type="checkbox"><span>Нет букв и символов</span></label><label class="check-item"><input type="checkbox"><span>Совпадает во всех заказах</span></label><label class="check-item"><input type="checkbox"><span>Не меняется после смены пароля</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="способ-2-где-найти-sellerid-в-кабинете-продавца">Способ 2: Где найти SellerID в кабинете продавца</h2>
+
+<p>Для продавцов <strong>SellerID</strong> — это ключ ко всем инструментам маркетплейса. Его можно найти несколькими путями, но самый надёжный — через раздел <code>Настройки магазина</code>.</p>
+
+<ul>
+  <li>🖥️ <strong>Через веб-версию:</strong>
+    <ol>
+      <li>Зайдите в <a href="https://seller.ozon.ru/" target="_blank" rel="noopener noreferrer">seller.ozon.ru</a>.</li>
+      <li>Перейдите в <code>Настройки → Общие настройки</code>.</li>
+      <li>В блоке «Информация о магазине» найдите строку <code>ID магазина</code>.</li>
+    </ul>
+  </li>
+  <li>📱 <strong>Через мобильное приложение <em>Ozon Seller</strong>:</strong>
+    <ol>
+      <li>Откройте приложение и авторизуйтесь.</li>
+      <li>Тапните на иконку профиля (правый верхний угол).</li>
+      <li>Выберите <code>Настройки магазина → Основная информация</code>.</li>
+      <li><strong>SellerID</em> будет указан под названием магазина.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если по какой-то причине ID не отображается в настройках (такое бывает у новых аккаунтов), используйте альтернативный метод:</p>
+
+<ol>
+  <li>Создайте <strong>тестовый заказ</em> на свой товар (можно отменить его позже).</li>
+  <li>В деталях заказа найдите блок <code>Продавец: [Название вашего магазина]</code>.</li>
+  <li>Нажмите на название магазина — в открывшейся вкладке URL будет содержать <code>sellerId={число}</code>.</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы работаете с несколькими магазинами на Ozon, у каждого будет свой уникальный SellerID. Чтобы не путать их, добавьте в название магазина префикс (например, "Магазин1_Одежда", "Магазин2_Электроника")</p></aside>
+
+<h2 id="способ-3-получение-id-через-api-для-разработчиков">Способ 3: Получение ID через API (для разработчиков)</h2>
+
+<p>Если вы настраиваете автоматизированную интеграцию (например, через <em>Ozon API</em> или <em>1С</strong>), то <strong>SellerID</strong> можно получить программно. Для этого:</p>
+
+<ol>
+  <li>Авторизуйтесь в <a href="https://api-seller.ozon.ru/" target="_blank" rel="noopener noreferrer">личном кабинете API</a>.</li>
+  <li>Перейдите в раздел <code>Ключи API</code>.</li>
+  <li>В блоке «Общая информация» будет указан ваш <strong>SellerID</strong> и <strong>ClientID</strong> (если вы также покупатель).</li>
+</ol>
+
+<p>Для проверки корректности ID можно выполнить тестовый запрос к API. Например, чтобы получить информацию о магазине:</p>
+
+<pre><code>GET https://api-seller.ozon.ru/v1/shop/info
+<p>Headers:</p>
+<p>Client-Id: {ваш_ClientID}</p>
+<p>Api-Key: {ваш_API_ключ}</code></pre></p>
+
+<p>Если в ответе приходит данные о магазине, значит <strong>SellerID</strong> указан верно. Ошибка <code>401 Unauthorized</code> обычно означает, что перепутаны <code>ClientID</code> и <code>SellerID</code>.</p>
+
+<details class="pb-accordion"><summary>Что делать, если API возвращает ошибку 403?</summary><div class="pb-accordion-body"><p>Ошибка 403 при корректных ключах часто означает, что ваш SellerID заблокирован за нарушение правил Ozon (например, за спам в карточках товаров или частые отмены заказов). Проверьте письма от поддержки на почте, привязанной к аккаунту.</p></div></details>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Тип ID</th>
+      <th>Где используется</th>
+      <th>Как выглядит</th>
+      <th>Можно ли изменить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ClientID</strong></td>
+      <td>Заказы, кешбэк, поддержка покупателей</td>
+      <td>8-значное число (пример: <code>12345678</code>)</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <td><strong>SellerID</strong></td>
+      <td>API, FBS/FBO, аналитика, документы</td>
+      <td>7-9 знаков (пример: <code>9876543</code>)</td>
+      <td>Нет</td>
+    </tr>
+    <tr>
+      <td><strong>ProductID</em></td>
+      <td>Идентификатор товара (не путайте!)</td>
+      <td>10+ знаков (пример: <code>1357924680</code>)</td>
+      <td>Да (при редактировании карточки)</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="способ-4-id-в-письмах-от-ozon-скрытый-источник">Способ 4: ID в письмах от Ozon (скрытый источник)</h2>
+
+<p>Мало кто знает, но <em>Ozon</em> часто указывает ваш идентификатор в автоматически сгенерированных письмах. Это касается как покупателей, так и продавцов. Где искать:</p>
+
+<ul>
+  <li>📧 <strong>Для покупателей:</strong> в письмах с чеками или уведомлениями о заказах ищите ссылки вида <code>ozon.ru/account/orders/{ClientID}-...</code>.</li>
+  <li>📊 <strong>Для продавцов:</strong> в отчётах по продажам (например, <code>ecommerce-sales-report.xlsx</code>) в колонке <code>SellerID</code>.</li>
+  <li>🔧 <strong>Для обоих:</strong> в письмах от поддержки с темой «Ваш запрос №XXXX» — ID может быть указан в подвале письма рядом с данными аккаунта.</li>
+</ul>
+
+<p>Если вы не можете найти письма, проверьте папку «Спам» или используйте поиск по ключевым словам:
+<ul>
+  <li><code>orderId</code> или <code>order_id</code> — для покупателей;</li>
+  <li><code>sellerId</code> или <code>shopId</code> — для продавцов.</li>
+</ul>
+</p>
+
+<blockquote>⚠️ Внимание: Никогда не делитесь своим <strong>SellerID</strong> или <strong>ClientID</strong> с третьими лицами, кроме официальных партнёров <em>Ozon</em> (например, логистических операторов или сервисов интеграции). Мошенники могут использовать эти данные для доступа к вашему аккаунту через уязвимости в API.</blockquote>
+
+<h2 id="способ-5-альтернативные-методы-если-ничего-не-работает">Способ 5: Альтернативные методы (если ничего не работает)</h2>
+
+<p>Если стандартные способы не сработали, попробуйте эти редкие приёмы:</p>
+
+<ul>
+  <li>🔍 <strong>Через URL карточки товара (для продавцов):</strong>
+    <ol>
+      <li>Откройте <a href="https://www.ozon.ru/" target="_blank" rel="noopener noreferrer">Ozon.ru</a> и найдите свой товар.</li>
+      <li>В адресной строке будет ссылка вида <code>ozon.ru/product/{ProductID}/</code>.</li>
+      <li>Нажмите на имя продавца под кнопкой «Купить» — в новом URL будет <code>sellerId={ваш_ID}</code>.</li>
+    </ol>
+  </li>
+  <li>📱 <strong>Через мобильное приложение (Android):</strong>
+    <ol>
+      <li>Установите <em>Packet Capture</em> или <em>HTTP Toolkit</em> для перехвата трафика.</li>
+      <li>Авторизуйтесь в приложении <em>Ozon</em>.</li>
+      <li>Найдите в логах запросы к <code>api-seller.ozon.ru</code> — в заголовках будет <code>Client-Id</code> или <code>Seller-Id</code>.</li>
+    </ul>
+  </li>
+  <li>💬 <strong>Через поддержку:</strong>
+    <ol>
+      <li>Напишите в чат поддержки (<code>seller.ozon.ru → Помощь</code>).</li>
+      <li>Задайте вопрос: «Подскажите, пожалуйста, мой SellerID для настройки API».</li>
+      <li>Обычно ответ приходит в течение 10–30 минут.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если вы продавец и подозреваете, что ваш <strong>SellerID</strong> был скомпрометирован (например, после утечки данных), немедленно:</p>
+<ol>
+  <li>Смените пароль от <a href="https://seller.ozon.ru/" target="_blank" rel="noopener noreferrer">seller.ozon.ru</a>.</li>
+  <li>Отзовите все активные <code>API-ключи</code> в разделе <code>Настройки → API</code>.</li>
+  <li>Сгенерируйте новые ключи и обновите их в своих интеграциях.</li>
+</ol>
+
+<div class="pb-poll" id="poll-8e83335f"><div class="pb-poll-question">📊 Какой способ поиска ID вам помог?</div><div class="pb-poll-option" data-poll="8e83335f" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Через личный кабинет</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e83335f" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Из ссылки на заказ</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e83335f" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через API</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e83335f" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">В письмах от Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="8e83335f" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Другой способ</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</h2>
+
+<p>Даже опытные продавцы иногда путают идентификаторы или используют их не по назначению. Вот самые распространённые ошибки:</p>
+
+<ul>
+  <li>🔄 <strong>Путаница между ClientID и SellerID:</strong> например, пытаются подключить <em>Ozon API</em> с <code>ClientID</code> вместо <code>SellerID</code>. Результат — ошибка <code>403</code>.</li>
+  <li>🔢 <strong>Копирование неполного ID:</strong> в URL заказа <code>12345678-9012-3456</code> некоторые копируют только <code>12345678</code>, игнорируя остальное. На самом деле <strong>ClientID</strong> — это только первая часть (до дефиса).</li>
+  <li>📱 <strong>Использование ID из тестового магазина:</strong> если вы регистрировали <em>песочницу</em> (тестовый аккаунт), её <strong>SellerID</strong> не будет работать в боевом API.</li>
+  <li>🔒 <strong>Передача ID третьим лицам:</strong> мошенники могут через API получить доступ к вашим заказам или финансовым данным.</li>
+</ul>
+
+<p>Чтобы избежать проблем:</p>
+<ol>
+  <li>Всегда проверяйте, какой именно ID запросили (спросите у поддержки сервиса, если не уверены).</li>
+  <li>Для API используйте только <strong>SellerID</strong> из раздела <code>Настройки → API</code>.</li>
+  <li>Если вам нужен <strong>ClientID</strong> для кешбэк-сервиса, уточните, требуется ли им <strong>полный</strong> идентификатор (иногда нужна вся строка из URL заказа).</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>ClientID и SellerID — это не взаимозаменяемые значения. Использование не того идентификатора приведёт к ошибкам в API или отказу сервисов в интеграции.</p></aside>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</h2>
+
+<details>
+  <summary>Можно ли узнать SellerID другого продавца?</summary>
+  <p>Да, но только если он не скрыл эту информацию. Для этого:</p>
+  <ol>
+    <li>Найдите товар этого продавца на <em>Ozon</em>.</li>
+    <li>Кликните на имя продавца под кнопкой «Купить».</li>
+    <li>В URL новой страницы будет параметр <code>sellerId={число}</code>.</li>
+  </ol>
+  <p>Однако некоторые продавцы скрывают этот параметр через настройки магазина.</p>
+</details>
+
+<details>
+  <summary>Почему мой SellerID изменился?</summary>
+  <p><strong>SellerID не меняется</strong> — он присваивается один раз при регистрации магазина. Если вы видите другой номер, возможно:</p>
+  <ul>
+    <li>Вы авторизовались под другим аккаунтом (например, тестовым).</li>
+    <li>Вы перешли на другой магазин в мультиаккаунте.</li>
+    <li><em>Ozon</em> объединил ваши аккаунты (редко, но бывает при смене юридического лица).</li>
+  </ul>
+  <p>Проверьте, не изменилось ли название вашего магазина в настройках.</p>
+</details>
+
+<details>
+  <summary>Можно ли по ClientID найти информацию о покупателе?</summary>
+  <p>Нет, <strong>ClientID</strong> — это анонимный идентификатор. Даже поддержка <em>Ozon</em> не раскроет по нему личные данные (ФИО, телефон, адрес) без официального запроса от правоохранительных органов. Однако по <strong>ClientID</strong> можно:</p>
+  <ul>
+    <li>Просмотреть историю заказов <strong>в своём</strong> аккаунте.</li>
+    <li>Получить статистику покупок (если вы продавец и покупатель совпадаете).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Что делать, если не могу найти свой ID?</summary>
+  <p>Если ни один из способов не сработал:</p>
+  <ol>
+    <li>Очистите кэш браузера или переустановите приложение <em>Ozon</em>.</li>
+    <li>Попробуйте авторизоваться с другого устройства.</li>
+    <li>Напишите в поддержку <em>Ozon</em> с темой «Запрос на предоставление SellerID/ClientID» — они обязаны ответить в течение 24 часов.</li>
+  </ol>
+  <p>Если вы продавец и не видите <strong>SellerID</strong> в настройках, возможно, ваш аккаунт ещё не прошёл модерацию (проверьте статус в разделе <code>Мой магазин</code>).</p>
+</details>
+
+<details>
+  <summary>Нужно ли платить за получение ID?</summary>
+  <p>Нет, <strong>ClientID</strong> и <strong>SellerID</strong> предоставляются бесплатно. Если вам предлагают заплатить за «уникальный идентификатор» или «доступ к API», это мошенники. Официальные партнёры <em>Ozon</em> (например, <em>МойСклад</em> или <em>1С</em>) также не взимают плату за сам ID — оплачиваются только их услуги по интеграции.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-nachat-prodavat-na-ozon-i-vajldberriz-s-nulya.html" class="pb-related-card">
+                <span class="pb-related-title">Как начать продавать на Озон и Wildberries с нуля: пошаговый план 2026</span>
+                <span class="pb-related-desc">Полная инструкция для новичков: как начать продавать на Озон и Вайлдберриз с нуля. Сравнение схем FB</span>
+            </a><a href="/articles/g/gd/gde-lichnom-kabinete-ozon-dogovor-oferty.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти договор оферты в личном кабинете Ozon: инструкция</span>
+                <span class="pb-related-desc">Подробный гид по поиску оферты на Ozon для продавцов и покупателей. Разбираем разделы настроек, юрид</span>
+            </a><a href="/articles/k/ka/kak-dobavit-brend-na-ozon-novyj.html" class="pb-related-card">
+                <span class="pb-related-title">Как добавить бренд на Ozon: полная инструкция 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как добавить свой бренд на Ozon. Создание карточки, проверка документов и реше</span>
+            </a><a href="/articles/a/ap/api-key-ozon-kak-sgenerirovat.html" class="pb-related-card">
+                <span class="pb-related-title">API Key Ozon: как сгенерировать ключ за 5 минут</span>
+                <span class="pb-related-desc">Подробная инструкция: как создать API Key на Ozon Seller. Настройка доступа, права пользователей и б</span>
+            </a><a href="/articles/k/ka/kak-vesti-uchet-ozon-v-1s-bukhgalteriya.html" class="pb-related-card">
+                <span class="pb-related-title">Учет Озон в 1С Бухгалтерия: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Как настроить учет продаж Ozon в 1С Бухгалтерия 8.3: синхронизация, документы, отчетность и автомати</span>
+            </a><a href="/articles/c/ch/chto-takoe-tochka-rosta-v-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Точка роста на Озон: что это, как работает и как использовать в 2026</span>
+                <span class="pb-related-desc">Разбираемся, что такое точка роста на Ozon, как она влияет на продажи, какие условия нужно выполнить</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

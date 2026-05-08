@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Расчет магистральной доставки Ozon: тарифы, формулы и нюансы — Об Озоне</title>
+    <meta name="description" content="Узнайте, как рассчитать магистраль в Озон для FBO и FBS. Формулы, тарифы и факторы, влияющие на стоимость логистики. Полное руководство для селлеров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-rasschitat-magistral-v-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Расчет магистральной доставки Ozon: тарифы, формулы и нюансы">
+    <meta property="og:description" content="Узнайте, как рассчитать магистраль в Озон для FBO и FBS. Формулы, тарифы и факторы, влияющие на стоимость логистики. Полное руководство для селлеров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/skhemy-fbs-i-fbo/">Схемы FBS и FBO</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Расчет магистральной доставки Ozon: тарифы, формулы и нюансы</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-магистраль-и-как-она-влияет-на-стоимость-логистики">Что такое магистраль и как она влияет на стоимость логистики</a></li><li><a href="#формула-расчета-и-ключевые-параметры">Формула расчета и ключевые параметры</a></li><li><a href="#тарифы-на-магистраль-для-разных-схем-работы">Тарифы на магистраль для разных схем работы</a></li><li><a href="#факторы-увеличивающие-стоимость-доставки">Факторы, увеличивающие стоимость доставки</a></li><li><a href="#как-использовать-калькулятор-логистики-ozon">Как использовать калькулятор логистики Ozon</a></li><li><a href="#оптимизация-расходов-на-магистральную-логистику">Оптимизация расходов на магистральную логистику</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prinimat-fbs-instruktsiya-ozon.html">Как принимать FBS на Ozon: полная инструкция для селлеров</a></li><li><a href="/articles/c/ch/chto-takoe-disbalans-ozona.html">Дисбаланс озона: что это такое и как влияет на продажи</a></li><li><a href="/articles/s/sk/skolko-khranit-tovar-na-ozone.html">Сколько хранить товар на Озоне: сроки и лимиты FBO</a></li><li><a href="/articles/k/ka/kak-dostavit-tovary-na-sklad-ozon.html">Как доставить товары на склад Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/p/po/postavka-na-rts-ozon-chto-eto.html">Поставка на РЦ Озон: что это, как работает и почему важно для продавцов</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как рассчитать магистраль в Озон: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-магистраль-и-как-она-влияет-на-стоимость-логистики">Что такое магистраль и как она влияет на стоимость логистики</a></li><li><a href="#формула-расчета-и-ключевые-параметры">Формула расчета и ключевые параметры</a></li><li><a href="#тарифы-на-магистраль-для-разных-схем-работы">Тарифы на магистраль для разных схем работы</a></li><li><a href="#факторы-увеличивающие-стоимость-доставки">Факторы, увеличивающие стоимость доставки</a></li><li><a href="#как-использовать-калькулятор-логистики-ozon">Как использовать калькулятор логистики Ozon</a></li><li><a href="#оптимизация-расходов-на-магистральную-логистику">Оптимизация расходов на магистральную логистику</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Планирование логистических расходов — это фундамент финансовой устойчивости любого селлера на маркетплейсах. Вопрос о том, как рассчитать магистраль в Озон, становится критически важным для продавцов, работающих по схемам FBO (Fulfillment by Ozon) и FBS (Fulfillment by Seller). Неправильный расчет может привести к тому, что комиссия за логистику «съест» всю маржинальность товара, превратив успешную сделку в убыточную.</p>
+
+<p>Магистраль — это расстояние от склада продавца или сортировочного центра до склада Ozon, на котором товар будет храниться или откуда он поедет к покупателю. Стоимость этой услуги не фиксирована и зависит от множества переменных: веса, габаритов, категории товара и, конечно же, региона назначения. Понимание механики расчета позволяет оптимизировать цепочки поставок и выбирать наиболее выгодные склады для отгрузки.</p>
+
+<p>В этой статье мы детально разберем алгоритмы расчета, актуальные тарифы и скрытые факторы, влияющие на итоговую сумму. Вы научитесь самостоятельно прогнозировать расходы, используя официальные калькуляторы и таблицы, а также узнаете, как избежать распространенных ошибок при планировании поставок.</p>
+
+<h2 id="что-такое-магистраль-и-как-она-влияет-на-стоимость-логистики">Что такое магистраль и как она влияет на стоимость логистики</h2>
+
+<p><strong>Магистраль</strong> в терминологии Ozon — это плечо доставки, которое преодолевает товар для попадания на склад маркетплейса. Для схемы FBO это путь от вашего склада (или пункта приема) до выбранного склада Ozon. Для схемы FBS это путь от вашего склада до сортировочного центра, откуда товар отправится покупателю. Именно этот этап часто составляет львиную долю логистических издержек.</p>
+
+<p>Озон использует сложную систему тарификации, где базовая стоимость умножается на различные коэффициенты. <em>Габаритный вес</em> — один из ключевых параметров. Если ваш товар легкий, но объемный (например, подушки или пластиковые контейнеры), платить придется именно за занимаемое пространство, а не за фактическую массу. Это часто становится сюрпризом для новичков.</p>
+
+<p>Важно понимать разницу между «последней милей» (доставка до клиента) и магистралью. Магистраль оплачивается селлером в момент приемки товара на склад или при отгрузке по FBS. Тарифы пересматриваются ежегодно, а иногда и чаще, поэтому опираться на данные прошлого года нельзя.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При расчете стоимости всегда учитывайте упаковку. Если вы не заложите вес коробки и паллеты в расчеты, реальная стоимость магистральная может превысить ожидаемую на 10-15%.</p>
+</blockquote>
+
+<p>Стоимость также напрямую зависит от удаленности склада Ozon. Отгрузка в Подмосковье (Хоругвино, Электросталь) обойдется дешевле, чем доставка в Казань, Краснодар или Новосибирск. Однако хранение на региональных складах может быть выгоднее из-заения пути до конечного покупателя, что ускоряет доставку и повышает конверсию.</p>
+
+<h2 id="формула-расчета-и-ключевые-параметры">Формула расчета и ключевые параметры</h2>
+
+<p>Чтобы самостоятельно прикинуть расходы, необходимо знать базовую формулу, которую использует алгоритм маркетплейса. Хотя точный расчет производит система, понимание составляющих поможет вам управлять расходами. Основная формула выглядит следующим образом:</p>
+
+<p><code>Стоимость = (Базовый тариф за кг × Вес) × Коэффициент категории × Коэффициент удаленности</code></p>
+
+<p>Здесь <strong>базовый тариф</strong> — это цена за килограмм, установленная для конкретного типа товара. <em>Коэффициент категории</em> может повышать стоимость для хрупких, крупногабаритных или скоропортящихся товаров. <em>Коэффициент удаленности</em> зависит от выбранного склада Ozon.</p>
+
+<p>Особое внимание стоит уделить расчету объема. Система переводит физические размеры в литры, а затем в килограммы для сравнения. Если габаритный вес больше фактического, оплата производится по габаритному.</p>
+
+<details class="pb-accordion"><summary>Как считается габаритный вес?</summary><div class="pb-accordion-body"><p>Формула расчета: (Длина × Ширина × Высота в см) / 5000. Полученное значение округляется до целого числа в большую сторону. Именно с этой цифры будет браться тариф, если она превышает реальный вес товара.</p></div></details>
+
+<p>Для точного расчета необходимо знать не только параметры одной единицы товара, но и параметры транспортной упаковки (короба), если вы сдаете товар моноблоком. Озон учитывает и вес паллеты, если отгрузка идет паллетами.</p>
+
+<h2 id="тарифы-на-магистраль-для-разных-схем-работы">Тарифы на магистраль для разных схем работы</h2>
+
+<p>Условия расчета магистральная логистики существенно различаются для схем FBO и FBS. Для FBO селлер сам везет товар на склад Ozon или заказывает вывоз, оплачивая доставку до склада назначения. Для FBS селлер хранит товар у себя, но оплачивает доставку до сортировочного центра Ozon, когда поступает заказ.</p>
+
+<p>В таблице ниже приведены сравнительные характеристики затрат на магистраль для разных сценариев (цифры условные, так как тарифы динамичны):</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>FBO (Склад Ozon)</th>
+<th>FBS (Сортировочный центр)</th>
+<th>FBO (Региональный склад)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Базовая ставка</td>
+<td>Высокая</td>
+<td>Средняя</td>
+<td>Высокая + коэффициент</td>
+</tr>
+<tr>
+<td>Оплата</td>
+<td>При приемке на склад</td>
+<td>Ежедневно/еженедельно</td>
+<td>При приемке на склад</td>
+</tr>
+<tr>
+<td>Влияние габаритов</td>
+<td>Критично</td>
+<td>Важно</td>
+<td>Критично</td>
+</tr>
+<tr>
+<td>Скорость доставки</td>
+<td>1-3 дня до клиента</td>
+<td>Зависит от скорости селлера</td>
+<td>1-2 дня до клиента</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Для схемы FBS существует понятие «магистраль до сортировочного центра». Здесь важно выбрать ближайший СЦ, чтобы минимизировать расходы. Однако, если ваш товар пользуется спросом по всей стране, логистика до удаленных СЦ может быть оправдана скоростью доставки до конечных клиентов в тех регионах.</p>
+
+<p><strong>Крупногабаритные товары</strong> тарифицируются отдельно. Для них часто используется не вес, а объем в кубических метрах или фиксированная ставка за место. Это актуально для мебели, бытовой техники и строительных материалов.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Выбор схемы FBO с отгрузкой на региональный склад может увеличить стоимость магистральная логистики на 30-50%, но ускорить доставку до клиента, что повышает рейтинг карточки товара.</p></aside>
+
+<h2 id="факторы-увеличивающие-стоимость-доставки">Факторы, увеличивающие стоимость доставки</h2>
+
+<p>Существует ряд нюансов, которые могут неожиданно увеличить итоговый чек. Первый и самый важный — это <em>негабарит</em>. Если длина, ширина или высота упаковки превышает установленные нормы (обычно более 1,5 метров в одном из измерений), применяется повышающий коэффициент.</p>
+
+<p>Второй фактор — это хрупкость. Товары, требующие специальной маркировки «Хрупкое» или особой упаковки, могут стоить дороже в перевозке. Третий фактор — сезонность. В периоды высокого спроса (Черная пятница, Новый год) тарифы на логистику могут временно расти из-за перегруженности сетей.</p>
+
+<ul>
+<li>📦 <strong>Неверное указание габаритов:</strong> Если при приемке выяснится, что товар больше, чем указано в карточке, пересчет пойдет по фактическим (большим) размерам с штрафом за ошибку.</li>
+<li>🚛 <strong>Паллетная отгрузка:</strong> Использование европаллет требует учета их веса (около 20 кг) и высоты. Нестандартные паллеты могут быть не приняты или стоить дороже.</li>
+<li>🏷️ <strong>Отсутствие маркировки:</strong> Товары без правильной маркировки Ozon могут быть отправлены на переупаковку за ваш счет, что включает в себя и логистические расходы.</li>
+</ul>
+
+<p>Также стоит упомянуть <strong>обратную логистику</strong>. Если товар не продался и вы решили вернуть его себе, стоимость обратной магистрали также ляжет на ваши плечи. Иногда дешевле утилизировать товар на месте, чем везти его обратно.</p>
+
+<div class="pb-poll" id="poll-c9c517b7"><div class="pb-poll-question">📊 Какая схема работы для вас приоритетна?</div><div class="pb-poll-option" data-poll="c9c517b7" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">FBO (склад Ozon)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c9c517b7" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">FBS (склад продавца)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c9c517b7" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">RealFBS (своими силами)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c9c517b7" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Работаю со всеми схемами</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="как-использовать-калькулятор-логистики-ozon">Как использовать калькулятор логистики Ozon</h2>
+
+<p>Самый надежный способ получить точную цифру — воспользоваться официальным инструментарием платформы. В личном кабинете селлера есть раздел «Калькулятор логистики», который позволяет рассчитать стоимость для конкретного товара.</p>
+
+<p>Для работы с калькулятором вам понадобятся точные данные: вес, длина, ширина, высота товара в упаковке. Также нужно выбрать схему работы (FBO/FBS) и склад отправления/назначения.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед расчетом в калькуляторе</h4><label class="check-item"><input type="checkbox"><span>Измерить товар в упаковке рулеткой</span></label><label class="check-item"><input type="checkbox"><span>Взвесить товар на точных весах</span></label><label class="check-item"><input type="checkbox"><span>Узнать код категории товара</span></label><label class="check-item"><input type="checkbox"><span>Выбрать целевой склад Ozon</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Интерфейс калькулятора позволяет варьировать параметры. Вы можете «поиграть» с размерами упаковки, чтобы увидеть, как уменьшение коробки на 1 см может снизить стоимость доставки. Это отличный инструмент для оптимизации упаковки.</p>
+
+<p>Обратите внимание, что калькулятор показывает ориентировочную стоимость. Итоговая сумма списывается после фактической приемки товара сотрудниками склада, которые проводят контрольные замеры. Разница между расчетной и фактической стоимостью обычно минимальна, если данные в карточке внесены верно.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Калькулятор не учитывает возможные акции на логистику, которые Ozon периодически запускает для новых складов или категорий товаров. Следите за новостями в разделе «Уведомления».</p>
+</blockquote>
+
+<h2 id="оптимизация-расходов-на-магистральную-логистику">Оптимизация расходов на магистральную логистику</h2>
+
+<p>Снижение затрат на логистику — прямой путь к увеличению прибыли. Первый шаг — <strong>оптимизация упаковки</strong>. Убирайте лишние пустоты, используйте пакеты вместо коробок там, где это возможно, и компактно складывайте товар. Каждый сохраненный сантиметр и грамм работает на вас.</p>
+
+<p>Второй шаг — грамотный выбор склада для FBO. Проанализируйте, где находятся ваши покупатели. Если 60% заказов идет из Москвы и области, нет смысла везти товар в Новосибирск, даже если тарифы там кажутся привлекательными. Доставка до клиента из Москвы будет быстрой и дешевой, а магистраль до Новосибирска — лишней тратой.</p>
+
+<p>Третий шаг — консолидация поставок. Отгрузка полной паллеты или фуры часто обходится дешевле в пересчете на единицу товара, чем отгрузка мелких партий. Планируйте поставки заранее, чтобы набирать оптимальный объем.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте «Умную упаковку» в личном кабинете, если она доступна для вашей категории. Алгоритм сам подскажет оптимальные размеры короба, которые минимизируют логистические расходы.</p></aside>
+
+<p>Не забывайте про аналитику. Регулярно проверяйте отчеты по логистике в разделе «Финансы». Если вы видите, что стоимость доставки конкретной модели товара превышает 20-25% от его цены, стоит пересмотреть закупочную цену, розничную стоимость или вовсе отказаться от этой позиции.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Входит ли НДС в стоимость магистральная логистики?</summary>
+<p>Да, если вы работаете с НДС, то в отчетах будет выделена сумма налога. Для плательщиков УСН стоимость указывается с учетом налога, но вычет невозможен. Всегда проверяйте документы в разделе «Документы».</p>
+</details>
+
+<details>
+<summary>Можно ли вернуть деньги, если товар потерялся на магистрали?</summary>
+<p>Да, Ozon несет ответственность за товар с момента его приемки. Если товар потерян или поврежден по вине маркетплейса во время магистральная перевозки, вам будет выплачена компенсация в размере стоимости товара.</p>
+</details>
+
+<details>
+<summary>Как часто меняются тарифы на магистраль?</summary>
+<p>Озон пересматривает тарифную сетку обычно раз в год, с 1 января. Однако в течение года могут вводиться временные коэффициенты или изменения для отдельных категорий. Следите за рассылками от маркетплейса.</p>
+</details>
+
+<details>
+<summary>Что будет, если вес товара при приемке окажется больше указанного?</summary>
+<p>С вас спишут разницу в стоимости логистики. Кроме того, если расхождение значительное, товар могут отправить на переупаковку за ваш счет, что также повлечет дополнительные расходы.</p>
+</details>
+
+<details>
+<summary>Зависит ли стоимость магистрали от стоимости самого товара?</summary>
+<p>Нет, стоимость магистральная логистики зависит от физико-технических характеристик (вес, габариты, категория) и расстояния. Цена, за которую вы продаете товар, на расчет стоимости доставки до склада не влияет.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-prinimat-fbs-instruktsiya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как принимать FBS на Ozon: полная инструкция для селлеров</span>
+                <span class="pb-related-desc">Подробная инструкция: как принимать товары по схеме FBS на Озон. Подготовка, упаковка, маркировка и </span>
+            </a><a href="/articles/c/ch/chto-takoe-disbalans-ozona.html" class="pb-related-card">
+                <span class="pb-related-title">Дисбаланс озона: что это такое и как влияет на продажи</span>
+                <span class="pb-related-desc">Полный разбор термина дисбаланс озона. Узнайте, как неравномерное распределение спроса влияет на лог</span>
+            </a><a href="/articles/s/sk/skolko-khranit-tovar-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько хранить товар на Озоне: сроки и лимиты FBO</span>
+                <span class="pb-related-desc">Узнайте, сколько времени можно хранить товар на складах Озон бесплатно. Актуальные лимиты для FBO, т</span>
+            </a><a href="/articles/k/ka/kak-dostavit-tovary-na-sklad-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как доставить товары на склад Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Полное руководство по доставке товаров на склады Ozon для продавцов: FBS, FBO, требования к упаковке</span>
+            </a><a href="/articles/p/po/postavka-na-rts-ozon-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Поставка на РЦ Озон: что это, как работает и почему важно для продавцов</span>
+                <span class="pb-related-desc">Разбираемся, что такое поставка на распределительный центр (РЦ) Озон, как она организована, сколько </span>
+            </a><a href="/articles/k/ka/kak-prodlit-srok-khraneniya-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как продлить срок хранения на Озон: 7 проверенных способов 2026</span>
+                <span class="pb-related-desc">Узнайте, как увеличить срок хранения товаров на складах Ozon для FBS/FBO, избежать штрафов и оптимиз</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

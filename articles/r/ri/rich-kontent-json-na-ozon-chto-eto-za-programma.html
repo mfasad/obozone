@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Rich-контент и JSON на Ozon: что это и как работает — Об Озоне</title>
+    <meta name="description" content="Разбираем, что такое Rich-контент на Ozon, причем тут JSON-код и как это влияет на продажи. Инструкция для селлеров по созданию карточек.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/r/ri/rich-kontent-json-na-ozon-chto-eto-za-programma.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Rich-контент и JSON на Ozon: что это и как работает">
+    <meta property="og:description" content="Разбираем, что такое Rich-контент на Ozon, причем тут JSON-код и как это влияет на продажи. Инструкция для селлеров по созданию карточек.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Rich-контент и JSON на Ozon: что это и как работает</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-rich-контент-на-ozon-и-зачем-он-нужен">Что такое Rich-контент на Ozon и зачем он нужен</a></li><li><a href="#json-мифы-о-программе-и-реальность-формата">JSON: мифы о программе и реальность формата</a></li><li><a href="#как-создать-rich-контент-через-редактор-и-код">Как создать Rich-контент через редактор и код</a></li><li><a href="#структура-данных-из-чего-состоит-описание">Структура данных: из чего состоит описание</a></li><li><a href="#типичные-ошибки-при-работе-с-кодом-и-контентом">Типичные ошибки при работе с кодом и контентом</a></li><li><a href="#влияние-rich-контента-на-ранжирование-и-продажи">Влияние Rich-контента на ранжирование и продажи</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zapolnyat-kartochki-na-ozon-poshagovo-dlya-nachinayushchikh.html">Как заполнить карточку товара на Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kakikh-sroki-godnosti-tovarov-dopuskaetsya-dlya-postavki-na-sklad-ozon.html">Срок годности для Ozon: правила поставки товаров</a></li><li><a href="/articles/k/ka/kak-dobavit-kolichestvo-tovara-na-ozon-seller.html">Как увеличить количество товара на Ozon Seller: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-udalit-tovar-s-ozona-iz-arkhiva.html">Как удалить товар с Озона из архива: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-sozdat-artikul-na-ozon.html">Как создать артикул на Озон: пошаговая инструкция для селлера</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Rich-контент и JSON на Ozon: полная инструкция</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-rich-контент-на-ozon-и-зачем-он-нужен">Что такое Rich-контент на Ozon и зачем он нужен</a></li><li><a href="#json-мифы-о-программе-и-реальность-формата">JSON: мифы о программе и реальность формата</a></li><li><a href="#как-создать-rich-контент-через-редактор-и-код">Как создать Rich-контент через редактор и код</a></li><li><a href="#структура-данных-из-чего-состоит-описание">Структура данных: из чего состоит описание</a></li><li><a href="#типичные-ошибки-при-работе-с-кодом-и-контентом">Типичные ошибки при работе с кодом и контентом</a></li><li><a href="#влияние-rich-контента-на-ранжирование-и-продажи">Влияние Rich-контента на ранжирование и продажи</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>В современной электронной коммерции стандартного описания товара с парой фотографий уже недостаточно. Покупатели на маркетплейсах привыкли к качественному визуальному контенту, который помогает принять решение о покупке за считанные секунды. Именно здесь на сцену выходит <strong>Rich-контент</strong> — инструмент, позволяющий создавать уникальные, визуально насыщенные страницы товаров с текстом, изображениями, таблицами и акцентными блоками.</p>
+
+<p>Многие селлеры, пытаясь автоматизировать процесс или используя сторонние сервисы, сталкиваются с упоминанием формата <em>JSON</em>. Возникает вопрос: является ли это отдельной программой или сложным кодом, который нужно учить? На самом деле все гораздо проще и логичнее. <strong>JSON</strong> (JavaScript Object Notation) — это всего лишь текстовый формат обмена данными, который служит «языком общения» между вашим компьютером и серверами Ozon при массовой загрузке или редактировании карточек.</p>
+
+<p>В этой статье мы подробно разберем, как работает связка Rich-контента и JSON-структур, почему это не отдельная программа, а мощный инструмент, и как его использование может кратно повысить конверсию в покупку. Вы поймете, что скрывается за техническими терминами, и научитесь применять их для улучшения своих карточек.</p>
+
+<p>Использование продвинутых инструментов оформления — это не просто дань моде, а необходимость в условиях высокой конкуренции. <strong>Визуализация</strong> характеристик и преимуществ товара помогает покупателю быстрее найти нужную информацию, не листая бесконечные простыни текста. Платформа Ozon предоставляет встроенные редакторы, но понимание структуры данных открывает двери к более гибкому управлению ассортиментом.</p>
+
+<h2 id="что-такое-rich-контент-на-ozon-и-зачем-он-нужен">Что такое Rich-контент на Ozon и зачем он нужен</h2>
+
+<p>Rich-контент (от англ. rich — богатый) — это способ оформления описания товара, выходящий за рамки обычного текста. Вместо скучного перечисления характеристик, селлер получает возможность создавать полноценные лендинги внутри карточки товара. Это могут быть <strong>инфографика</strong>, выделенные блоки с преимуществами, таблицы сравнения и пошаговые инструкции. Все это делает страницу товара живой и понятной.</p>
+
+<p>Главная цель такого подхода — удержать внимание покупателя. Статистика показывает, что карточки с Rich-контентом конвертируют просмотры в покупки значительно лучше, чем стандартные описания. Покупатель видит <em>уникальное торговое предложение</em> сразу, без необходимости вчитываться в технические детали. Это особенно важно для сложных товаров, электроники, одежды и товаров для дома.</p>
+
+<p>Озон постоянно совершенствует свои инструменты, делая их доступными даже для новичков. Однако, чтобы управлять большим количеством карточек или создавать сложные структуры, часто требуется понимание того, как данные хранятся «под капотом». Именно здесь мы подходим к вопросу о JSON.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Rich-контент должен быть адаптирован под мобильные устройства. Более 70% покупок на Ozon совершается со смартфонов, поэтому убедитесь, что ваши таблицы и крупные изображения не «ломают» верстку на маленьком экране.</p>
+</blockquote>
+
+<p>Создание качественного контента требует времени, но окупается ростом продаж. Вы можете рассказывать истории бренда, показывать товар в использовании и отвечать на частые вопросы прямо в описании. Это снижает нагрузку на службу поддержки и уменьшает количество возвратов из-за «неподошло» или «не то ожидал».</p>
+
+<h2 id="json-мифы-о-программе-и-реальность-формата">JSON: мифы о программе и реальность формата</h2>
+
+<p>Часто новички ищут «программу JSON для Ozon», полагая, что это какое-то специальное приложение, которое нужно скачать и установить. Это распространенное заблуждение. <strong>JSON</strong> — это не программа, а формат данных. Это просто текст, структурированный по определенным правилам, который компьютеры понимают лучше, чем люди. В контексте Ozon JSON используется для передачи информации о товаре, включая его Rich-описание.</p>
+
+<p>Когда вы загружаете товары через Excel (XLSX) или через API, система может требовать предоставления описания в виде JSON-кода, если вы хотите использовать сложные элементы Rich-контента, которые не поддерживаются простым текстовым полем. Фактически, вы создаете «инструкцию» для сервера: «здесь должна быть картинка, здесь заголовок, а здесь таблица».</p>
+
+<p>Для работы с JSON не нужны сложные IDE (среды разработки). Достаточно обычного <strong>текстового редактора</strong>, хотя для удобства лучше использовать специализированные, которые подсвечивают синтаксис и помогают избежать ошибок. Примерами таких редакторов могут служить Notepad++, Visual Studio Code или даже онлайн-валидаторы JSON.</p>
+
+<details class="pb-accordion"><summary>Почему JSON так важен для API?</summary><div class="pb-accordion-body"><p>Если вы планируете автоматизировать выгрузку тысяч товаров, API — единственный путь. API передает данные в формате JSON. Понимание структуры этого формата позволит вам настроить корректную передачу Rich-контента без ручного редактирования каждой карточки в личном кабинете.</p></div></details>
+
+<p>Важно понимать разницу: вы не «программируете» в классическом смысле, вы структурируете данные. Озон предоставляет документацию, где описано, какие теги и поля нужно использовать, чтобы ваш JSON-код превратился в красивую картинку на сайте.</p>
+
+<h2 id="как-создать-rich-контент-через-редактор-и-код">Как создать Rich-контент через редактор и код</h2>
+
+<p>Существует два основных пути создания Rich-контента на Ozon: через визуальный редактор в личном кабинете и через загрузку кода (JSON) при массовой выгрузке. Для большинства селлеров, работающих с небольшим или средним ассортиментом, идеально подходит <strong>визуальный редактор</strong>.</p>
+
+<p>Чтобы воспользоваться встроенным инструментом, перейдите в редактирование карточки товара. В поле описания вы увидите кнопку для переключения в режим Rich-контента. Здесь можно добавлять блоки, менять шрифты, вставлять изображения и таблицы перетаскиванием элементов. Это работает по принципу конструктора.</p>
+
+<p>Однако, если вы загружаете товары через XLSX-файл, ситуация меняется. В колонке, отвечающей за описание, вам может потребоваться вставить готовый JSON-код, если вы хотите, чтобы Rich-контент сохранился при обновлении прайса. Генерировать этот код можно через сторонние сервисы или, при наличии навыков, писать вручную.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка Rich-контента перед публикацией</h4><label class="check-item"><input type="checkbox"><span>Все изображения оптимизированы и весят менее 1 Мб:Текст не содержит ошибок и опечаток:Таблицы читаемы на мобильных устройствах:Код JSON прошел валидацию (не содержит синтаксических ошибок)</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>При работе с кодом критически важно соблюдать синтаксис. Каждая открывающая скобка должна иметь закрывающую, все ключи должны быть в кавычках. Одна пропущенная запятая может привести к тому, что описание не загрузится или отобразится как «каша» из символов.</p>
+
+<h2 id="структура-данных-из-чего-состоит-описание">Структура данных: из чего состоит описание</h2>
+
+<p>Разбираясь, что такое JSON в контексте Ozon, стоит заглянуть в структуру данных. Описание товара в этом формате представляет собой набор объектов и массивов. Каждый элемент Rich-контента (заголовок, текст, картинка) описывается своим блоком кода.</p>
+
+<p>Например, чтобы добавить изображение, в коде будет указано его URL-адрес, ширина и выравнивание. Для текста задаются параметры шрифта, цвет и отступы. Понимание этой логики помогает быстрее находить ошибки, если контент не отображается корректно.</p>
+
+<p>Ниже приведена таблица, демонстрирующая основные элементы, которые можно закодировать, и их влияние на восприятие:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Функция в JSON</th>
+<th>Влияние на покупателя</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Заголовок (Header)</td>
+<td>Выделение ключевых блоков</td>
+<td>Позволяет сканировать текст глазами, находя главное</td>
+</tr>
+<tr>
+<td>Изображение (Image)</td>
+<td>Вставка фото в тело описания</td>
+<td>Визуализирует детали, которые не видны на главных фото</td>
+</tr>
+<tr>
+<td>Таблица (Table)</td>
+<td>Структурирование характеристик</td>
+<td>Упрощает сравнение параметров, повышает доверие</td>
+</tr>
+<tr>
+<td>Список (List)</td>
+<td>Перечисление преимуществ</td>
+<td>Делает информацию легкой для восприятия</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Использование <strong>тегов</strong> в JSON строго регламентировано. Вы не можете просто написать «здесь будет жирный текст», нужно использовать соответствующую конструкцию, понятную парсеру Ozon. Ошибки в тегах — самая частая причина проблем с отображением.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте валидаторы JSON онлайн перед загрузкой файла. Они мгновенно подсветят синтаксические ошибки, сэкономив время на поиске лишней запятой или кавычки.</p></aside>
+
+<h2 id="типичные-ошибки-при-работе-с-кодом-и-контентом">Типичные ошибки при работе с кодом и контентом</h2>
+
+<p>Даже опытные селлеры допускают ошибки при работе с Rich-контентом и JSON. Одна из самых частых — нарушение весовых ограничений. Изображения в описании не должны быть слишком «тяжелыми», иначе страница будет грузиться долго, что негативно скажется на поведенческих факторах и ранжировании.</p>
+
+<p>Другая распространенная проблема — некорректное кодирование символов. Если в тексте описания (особенно если он генерируется автоматически) встречаются спецсимволы, они должны быть правильно экранированы в JSON. В противном случае вместо текста покупатель увидит набор непонятных знаков.</p>
+
+<p>Также стоит избегать «перегруженности». Желание запихнуть в описание все возможные блоки Rich-контента может сыграть злую шутку. Страница станет тяжелой, а пользователь запутается в обилии информации. <strong>Лакон</strong> и ясность всегда выигрывают у хаоса.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не копируйте описания с сайтов производителей один в один. Ozon может понизить карточку в выдаче за неуникальный контент. Адаптируйте текст и структуру под свою аудиторию.</p>
+</blockquote>
+
+<p>Проверка отображения на разных устройствах — обязательный этап. То, что идеально смотрится на мониторе компьютера, на экране смартфона может «поехать». Всегда тестируйте карточку с мобильного телефона перед тем, как запускать рекламу.</p>
+
+<h2 id="влияние-rich-контента-на-ранжирование-и-продажи">Влияние Rich-контента на ранжирование и продажи</h2>
+
+<p>Сам по себе факт использования Rich-контента или JSON-кода не является прямым фактором ранжирования в поисковой выдаче Ozon. Алгоритмы маркетплейса в первую очередь смотрят на продажи, наличие товара на складах и отзывы. Однако, косвенное влияние огромно.</p>
+
+<p>Качественное описание повышает конверсию (CR). Если из 100 зашедших на карточку покупают 10 человек вместо 3-х, алгоритм видит, что товар интересен покупателям, и начинает показывать его выше. Таким образом, работа над контентом — это работа над ростом продаж в долгосрочной перспективе.</p>
+
+<p>Кроме того, подробные описания снижают количество вопросов продавцу и возвратов. Покупатель получает полную информацию и меньше рискует разочароваться. Это ведет к росту рейтинга продавца, что также является важным фактором для попадания в различные промо-акции и получения «Продающего ранга».</p>
+
+<div class="pb-poll" id="poll-3596edda"><div class="pb-poll-question">📊 Что для вас важнее всего в описании товара на Ozon?</div><div class="pb-poll-option" data-poll="3596edda" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Наличие крупных фото:Таблица с характеристиками:Видео-обзор:Отзывы других покупателей</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Инвестиции в качественный контент окупаются. Это ваш продавец, который работает 24/7, отвечая на вопросы и убеждая клиента в правильности выбора. В условиях, когда конкуренция растет, именно детали решают, достанется ли заказ вам или конкуренту.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Нужно ли знать программирование, чтобы сделать Rich-контент?</summary>
+<p>Нет, знать программирование не обязательно. Для единичных товаров достаточно встроенного визуального редактора в личном кабинете Ozon. JSON-код требуется только при массовой загрузке через файлы или API, но даже тогда можно использовать готовые шаблоны или генераторы.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить Rich-контент после публикации?</summary>
+<p>Да, вы можете в любой момент отредактировать описание товара. Изменения могут занимать некоторое время на модерацию (обычно от нескольких минут до нескольких часов), после чего обновленная версия отобразится на витрине.</p>
+</details>
+
+<details>
+<summary>Есть ли ограничения на количество картинок в Rich-контенте?</summary>
+<p>Озон не устанавливает жесткого лимита на количество блоков, но существуют ограничения на общий вес страницы и размер отдельных файлов. Рекомендуется не превышать 3-5 Мб на все изображения в описании, чтобы не замедлять загрузку.</p>
+</details>
+
+<details>
+<summary>Работает ли Rich-контент в мобильном приложении?</summary>
+<p>Да, Rich-контент адаптируется под мобильные устройства. Однако важно проверять верстку, так как сложные таблицы или широкие изображения могут требовать горизонтальной прокрутки, что не всегда удобно для пользователя.</p>
+</details>
+
+<details>
+<summary>Где взять JSON-шаблон для Ozon?</summary>
+<p>Официальные шаблоны и документацию по структуре JSON для API можно найти в разделе «Помощь» для селлеров или в документации для разработчиков API Ozon. Также примеры кода можно получить, создав товар через визуальный редактор и посмотрев его исходный код (если такая опция доступна в вашем инструментарии) или обратившись в поддержку.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-zapolnyat-kartochki-na-ozon-poshagovo-dlya-nachinayushchikh.html" class="pb-related-card">
+                <span class="pb-related-title">Как заполнить карточку товара на Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство для начинающих: как правильно заполнить карточку товара на Ozon, чтобы увеличи</span>
+            </a><a href="/articles/k/ka/kakikh-sroki-godnosti-tovarov-dopuskaetsya-dlya-postavki-na-sklad-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Срок годности для Ozon: правила поставки товаров</span>
+                <span class="pb-related-desc">Полный гид по срокам годности на Ozon. Требования к категориям, таблица остаточного срока, правила м</span>
+            </a><a href="/articles/k/ka/kak-dobavit-kolichestvo-tovara-na-ozon-seller.html" class="pb-related-card">
+                <span class="pb-related-title">Как увеличить количество товара на Ozon Seller: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство для продавцов Ozon: как добавить остатки товара через личный кабинет, API и ма</span>
+            </a><a href="/articles/k/ka/kak-udalit-tovar-s-ozona-iz-arkhiva.html" class="pb-related-card">
+                <span class="pb-related-title">Как удалить товар с Озона из архива: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как удалить товар с Озона из архива. Полное руководство по работе с карточками, скрытыми ар</span>
+            </a><a href="/articles/k/ka/kak-sozdat-artikul-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как создать артикул на Озон: пошаговая инструкция для селлера</span>
+                <span class="pb-related-desc">Узнайте, как создать артикул на Озон. Подробный гайд по добавлению карточек, настройке характеристик</span>
+            </a><a href="/articles/k/ko/kod-tovara-ozon-eto-chto.html" class="pb-related-card">
+                <span class="pb-related-title">Код товара Озон: что это, где найти и как использовать</span>
+                <span class="pb-related-desc">Узнайте, что такое код товара на Озон, чем он отличается от артикула, где его найти в личном кабинет</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

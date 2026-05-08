@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как узнать SKU ID на Ozon: способы для селлеров — Об Озоне</title>
+    <meta name="description" content="Подробная инструкция, как найти SKU (SKU ID) товара в личном кабинете Ozon. Методы поиска через карточку, Excel и API для селлеров.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-uznat-ozon-sku-id.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как узнать SKU ID на Ozon: способы для селлеров">
+    <meta property="og:description" content="Подробная инструкция, как найти SKU (SKU ID) товара в личном кабинете Ozon. Методы поиска через карточку, Excel и API для селлеров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как узнать SKU ID на Ozon: способы для селлеров</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#что-такое-sku-и-чем-он-отличается-от-артикула">Что такое SKU и чем он отличается от артикула</a></li><li><a href="#поиск-идентификатора-в-карточке-товара-через-браузер">Поиск идентификатора в карточке товара через браузер</a></li><li><a href="#выгрузка-данных-через-excel-отчеты">Выгрузка данных через Excel-отчеты</a></li><li><a href="#использование-api-для-получения-данных">Использование API для получения данных</a></li><li><a href="#типичные-ошибки-при-идентификации-товаров">Типичные ошибки при идентификации товаров</a></li><li><a href="#зачем-знать-sku-для-аналитики-и-рекламы">Зачем знать SKU для аналитики и рекламы</a></li><li><a href="#вопросы-и-ответы">Вопросы и ответы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-razmeshchat-tovary-na-ozon.html">Как размещать товары на Озон: инструкция для селлеров 2026</a></li><li><a href="/articles/k/ka/kak-pravilno-obedinit-kartochki-na-ozon.html">Как объединить карточки на Ozon: пошаговая инструкция 2026</a></li><li><a href="/articles/t/to/tovar-byl-ubran-iz-prodazhi-ozon-chto-eto-znachit.html">Товар убран из продажи на Ozon: причины и решения</a></li><li><a href="/articles/k/ka/kak-v-ozone-uvelichit-kolichestvo-tovara.html">Как увеличить количество товара на Ozon: 7 работающих способов 2026</a></li><li><a href="/articles/k/ka/kak-delat-fotografii-dlya-ozon.html">Как фотографировать товары для Озон: требования 2026 и лайфхаки</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как узнать SKU ID на Ozon: способы для селлеров</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-sku-и-чем-он-отличается-от-артикула">Что такое SKU и чем он отличается от артикула</a></li><li><a href="#поиск-идентификатора-в-карточке-товара-через-браузер">Поиск идентификатора в карточке товара через браузер</a></li><li><a href="#выгрузка-данных-через-excel-отчеты">Выгрузка данных через Excel-отчеты</a></li><li><a href="#использование-api-для-получения-данных">Использование API для получения данных</a></li><li><a href="#типичные-ошибки-при-идентификации-товаров">Типичные ошибки при идентификации товаров</a></li><li><a href="#зачем-знать-sku-для-аналитики-и-рекламы">Зачем знать SKU для аналитики и рекламы</a></li><li><a href="#вопросы-и-ответы">Вопросы и ответы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Работа с каталогом на маркетплейсе требует точности, особенно когда речь идет об управлении остатками и аналитике. Новички часто путают артикул продавца, ID товара и технический идентификатор, известный как SKU. Понимание разницы между этими параметрами критически важно для корректной работы с API, выгрузки отчетов и настройки рекламных кампаний.</p>
+<p>В этой статье мы разберем, где именно искать этот идентификатор в интерфейсе продавца. Вы научитесь быстро находить нужные данные, чтобы избежать ошибок при интеграции или массовом редактировании карточек.</p>
+<p>Разберем несколько проверенных методов, которые помогут вам получить доступ к техническим данным за считанные минуты. Это знание сэкономит время при работе с большими объемами номенклатуры.</p>
+<h2 id="что-такое-sku-и-чем-он-отличается-от-артикула">Что такое SKU и чем он отличается от артикула</h2>
+<p><strong>SKU</strong> (Stock Keeping Unit) — это уникальный идентификатор товарной позиции в системе складского учета. На Ozon этот параметр часто путают с артикулом продавца, который вы придумываете сами при создании карточки. Однако технический SKU — это внутренний код платформы, присваиваемый автоматически или формируемый по специфическому алгоритму.</p>
+<p>Артикул продавца (offer_id) — это ваше уникальное обозначение, которое помогает вам ориентироваться в собственном каталоге. В то время как <em>Ozon SKU ID</em> используется системой для трекинга конкретной физической единицы товара на складе. Если у вас один и тот же товар в разных цветах, артикул может быть общим, а SKU у каждой вариации будет свой.</p>
+<p>Знание точного идентификатора необходимо для:</p>
+<ul>
+<li>🔍 Корректной настройки интеграции через API или сторонние сервисы (MySeller, Stat4Market и др.).</li>
+<li>📦 Формирования правильных отчетов по продажам и логистике в Excel.</li>
+<li>📉 Точечного управления ценами и остатками через внешние системы.</li>
+</ul>
+<p>Игнорирование различий между этими полями может привести к тому, что вы измените цену не на тот товар или получите некорректную статистику по конкретному цветовому варианту.</p>
+<blockquote>
+<p>⚠️ Внимание: Не путайте SKU с barcode (штрихкодом). Штрихкод может быть одинаковым у товаров разных продавцов, если это один и тот же продукт от производителя, а SKU уникален для вашей учетной записи.</p>
+</blockquote>
+<h2 id="поиск-идентификатора-в-карточке-товара-через-браузер">Поиск идентификатора в карточке товара через браузер</h2>
+<p>Самый быстрый способ найти нужный код — воспользоваться стандартным интерфейсом личного кабинета селлера. Этот метод удобен, если вам нужно проверить данные для одного или нескольких товаров вручную.</p>
+<p>Перейдите в раздел <code>Товары и цены → Список товаров</code>. Здесь отображается основная таблица вашего ассортимента. По умолчанию нужного столбца может не быть, поэтому его необходимо добавить через настройки отображения. Нажмите на кнопку "Настроить поля" или иконку шестеренки в правом верхнем углу таблицы.</p>
+<p>В открывшемся меню найдите пункт, отвечающий за отображение технических идентификаторов. В зависимости от версии интерфейса, он может называться "SKU" или "ID товара". После активации этого поля в таблице появится колонка с числовым значением.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы не видите нужной колонки, попробуйте обновить страницу (F5) после сохранения настроек отображения полей. Кэш браузера иногда мешает применить изменения мгновенно.</p></aside>
+<p>Для получения более детальной информации можно перейти внутрь карточки конкретного товара. В адресной строке браузера часто содержится ID, но для SKU лучше смотреть именно в табличные данные или использовать экспорт, о котором пойдет речь ниже.</p>
+<p>Основные шаги для поиска:</p>
+<ul>
+<li>🖱️ Откройте список товаров в личном кабинете Ozon.</li>
+<li>⚙️ Нажмите на иконку настроек таблицы (шестеренка).</li>
+<li>✅ Поставьте галочку напротив поля "SKU" или "ID".</li>
+</ul>
+<p>Теперь вы видите искомые значения прямо в интерфейсе. Это позволяет быстро скопировать код для дальнейших операций.</p>
+<h2 id="выгрузка-данных-через-excel-отчеты">Выгрузка данных через Excel-отчеты</h2>
+<p>При работе с большим ассортиментом ручной поиск становится неэффективным. В таких случаях оптимальным решением является выгрузка полного списка товаров в формате Excel или CSV. Этот метод позволяет получить доступ ко всем техническим полям сразу.</p>
+<p>В меню управления товарами найдите кнопку "Скачать" или "Экспорт". Выберите опцию выгрузки актуальных остатков и цен. Система сформирует файл, в котором будут содержаться все необходимые столбцы, включая <strong>offer_id</strong>, <strong>product_id</strong> и <strong>sku</strong>.</p>
+<p>Открыв файл в Excel, вы сможете использовать фильтр или поиск (Ctrl+F) для нахождения конкретного товара. Структура файла обычно выглядит логично: первая колонка — это ваш артикул, вторая — ID товара на Ozon, третья — SKU.</p>
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка выгрузки данных</h4><label class="check-item"><input type="checkbox"><span>Зайти в раздел Товары и цены</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку Скачать/Экспорт</span></label><label class="check-item"><input type="checkbox"><span>Выбрать формат XLSX или CSV</span></label><label class="check-item"><input type="checkbox"><span>Открыть файл и найти столбец SKU</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p> Внимательно проверяйте статус товара перед тем, как использовать данные из файла для массовых операций.</p>
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Где используется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offer_id</td>
+<td>Артикул продавца</td>
+<td>Внутренний учет, API создания товаров</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>Уникальный ID карточки</td>
+<td>Привязка вариативности, аналитика</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>Идентификатор единицы хранения</td>
+<td>Складской учет, логистика, остатки</td>
+</tr>
+</tbody>
+</table></div>
+<p>Использование Excel-отчетов — это наиболее надежный способ получить полную картину по вашему каталогу без риска пропустить скрытые поля.</p>
+<h2 id="использование-api-для-получения-данных">Использование API для получения данных</h2>
+<p>Для продвинутых пользователей и разработчиков, интегрирующих свои системы с маркетплейсом, актуален вопрос получения SKU программным путем. API Ozon предоставляет мощные инструменты для работы с каталогом.</p>
+<p>Чтобы получить информацию о товаре, используется метод <code>/v2/product/info</code> или <code>/v3/product/info</code>. В запросе необходимо передать либо <em>product_id</em>, либо <em>offer_id</em>. В ответе сервер вернет объект товара, содержащий поле <code>sku</code>.</p>
+<pre><code>{
+<p>"product_id": 12345678,</p>
+<p>"offer_id": "MY-ARTICUL-001",</p>
+<p>"sku": 987654321,</p>
+<p>..</p>
+<p>}</code></pre></p>
+<p>Этот метод позволяет автоматизировать процесс синхронизации. Вы можете запрограммировать скрипт, который раз в час будет запрашивать актуальные SKU и обновлять их в вашей базе данных.</p>
+<details class="pb-accordion"><summary>Ограничения API</summary><div class="pb-accordion-body"><p>Помните о лимитах запросов (RPS). При частых обращениях без соблюдения интервалов ваш ключ доступа может быть временно заблокирован системой защиты Ozon.</p></div></details>
+<p>При работе с API важно правильно обрабатывать ошибки. Если товар не найден или доступ к нему ограничен, сервер вернет соответствующий код ошибки, который нужно предусмотреть в логике вашего приложения.</p>
+<p>Ключевые преимущества API-метода:</p>
+<ul>
+<li>⚡ Мгновенное получение актуальных данных в реальном времени.</li>
+<li>🤖 Полная автоматизация процессов без участия человека.</li>
+<li>🔒 Высокая точность передачи числовых значений без опечаток.</li>
+</ul>
+<p>Использование API требует технических знаний, но для крупных селлеров это единственно возможный путь эффективного управления.</p>
+<h2 id="типичные-ошибки-при-идентификации-товаров">Типичные ошибки при идентификации товаров</h2>
+<p>В процессе работы селлеры часто допускают ошибки, которые приводят к путанице. Самая распространенная из них — попытка использовать артикул производителя вместо SKU Ozon. Это особенно актуально для электроники и брендовых вещей.</p>
+<p>Еще одна частая ошибка возникает при работе с вариативными товарами. Селлер может скопировать SKU у "материнской" карточки, забыв, что у каждого размера или цвета свой уникальный код. Это приводит к тому, что остатки начисляются не на тот товар, который был продан.</p>
+<blockquote>
+<p>⚠️ Внимание: При создании поставок на FBO использование неверного SKU приведет к тому, что товар будет принят на склад как "негабарит" или "без маркировки", что повлечет дополнительные штрафы.</p>
+</blockquote>
+<p>Также стоит быть внимательным при копировании данных из буфера обмена. Лишние пробелы или скрытые символы могут сделать код невалидным для системы.</p>
+<p>Чтобы избежать проблем, всегда проводите сверку:</p>
+<ul>
+<li>🧐 Визуально сравните название товара и его характеристики с данными в системе.</li>
+<li>📝 Используйте поиск по каталогу перед отправкой поставок.</li>
+<li>🔄 Регулярно обновляйте справочники SKU в своих учетных системах.</li>
+</ul>
+<p>Внимательность на этапе подготовки данных спасет вас от долгих разбирательств с поддержкой и потерь финансов.</p>
+<h2 id="зачем-знать-sku-для-аналитики-и-рекламы">Зачем знать SKU для аналитики и рекламы</h2>
+<p>Понимание структуры идентификаторов необходимо не только для логистики, но и для маркетинга. Инструменты аналитики Ozon, такие как "Аналитика продаж" или внешние сервисы, часто оперируют именно SKU.</p>
+<p>При настройке рекламных кампаний вы можете выбирать конкретные товары для продвижения. Если в списке товаров перепутаны SKU, бюджет может уходить на продвижение ходового размера, когда на складе остался только непопулярный цвет.</p>
+<p>Кроме того, при расчете юнит-экономики важно понимать, какой именно SKU принес прибыль. Разные модификации одного товара могут иметь разную себестоимость или логистические габариты, что напрямую влияет на маржинальность.</p>
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Точное знание SKU позволяет сегментировать рекламу и аналитику до уровня конкретной модификации товара, повышая эффективность вложений.</p></aside>
+<p>Используйте эти данные для формирования умных стратегий ценообразования. Вы сможете гибко управлять скидками на конкретные остатки, опираясь на точные данные системы.</p>
+<h2 id="вопросы-и-ответы">Вопросы и ответы</h2>
+<details>
+<summary>Можно ли изменить SKU товара после его создания?</summary>
+<p>Нет, технический SKU на Ozon присваивается системе автоматически и является неизменяемым идентификатором. Если вам нужно изменить артикул, вы создаете новую карточку или меняете поле offer_id, но внутренний SKU останется прежним для данной единицы хранения.</p>
+</details>
+<details>
+<summary>Где найти SKU в мобильном приложении Ozon Seller?</summary>
+<p>В мобильном приложении функционал ограничен. Полную таблицу со столбцом SKU там увидеть нельзя. Рекомендуется использовать браузерную версию сайта через режим "Версия для ПК" или работать с десктопом для получения этих данных.</p>
+</details>
+<details>
+<summary>Совпадает ли SKU на Ozon и Wildberries?</summary>
+<p>Нет, у каждого маркетплейса своя система нумерации. SKU на Ozon — это внутренний идентификатор Ozon. На Wildberries он называется артикул WB и имеет другую структуру. Универсального SKU для всех площадок не существует.</p>
+</details>
+<details>
+<summary>Что делать, если SKU не отображается в отчете?</summary>
+<p>Проверьте настройки полей при выгрузке. Убедитесь, что вы выбрали формат, поддерживающий технические поля (обычно это XLS или CSV, а не PDF). Если проблема сохраняется, попробуйте сформировать отчет заново.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-razmeshchat-tovary-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как размещать товары на Озон: инструкция для селлеров 2026</span>
+                <span class="pb-related-desc">Полное руководство по размещению товаров на Ozon. Создайте карточки, заполните атрибуты и запустите </span>
+            </a><a href="/articles/k/ka/kak-pravilno-obedinit-kartochki-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как объединить карточки на Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство по объединению карточек товаров на Ozon: когда нужно объединять, как избежать </span>
+            </a><a href="/articles/t/to/tovar-byl-ubran-iz-prodazhi-ozon-chto-eto-znachit.html" class="pb-related-card">
+                <span class="pb-related-title">Товар убран из продажи на Ozon: причины и решения</span>
+                <span class="pb-related-desc">Почему Ozon убрал товар из продажи? Разбираем причины блокировок карточек, статусы архивации и пошаг</span>
+            </a><a href="/articles/k/ka/kak-v-ozone-uvelichit-kolichestvo-tovara.html" class="pb-related-card">
+                <span class="pb-related-title">Как увеличить количество товара на Ozon: 7 работающих способов 2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция для продавцов Озон: как быстро масштабировать ассортимент, избежать ошибок при </span>
+            </a><a href="/articles/k/ka/kak-delat-fotografii-dlya-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как фотографировать товары для Озон: требования 2026 и лайфхаки</span>
+                <span class="pb-related-desc">Полное руководство по созданию фотографий для карточек Озон: технические требования, оборудование, о</span>
+            </a><a href="/articles/k/ka/kak-uznat-kategoriyu-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как узнать категорию товара на Озон: полное руководство</span>
+                <span class="pb-related-desc">Узнайте, как определить категорию товара на Ozon для покупателей и продавцов. Точные инструкции, раб</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Перенос карточек на Ozon: пошаговая инструкция и инструменты — Об Озоне</title>
+    <meta name="description" content="Как выполнить перенос карточек на Ozon без ошибок. Готовим Excel-файл, используем API или сервисы, устраняем ошибки при загрузке и сохраняем рейтинг.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/c/ch/chto-vkhodit-v-perenos-kartochek-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Перенос карточек на Ozon: пошаговая инструкция и инструменты">
+    <meta property="og:description" content="Как выполнить перенос карточек на Ozon без ошибок. Готовим Excel-файл, используем API или сервисы, устраняем ошибки при загрузке и сохраняем рейтинг.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Перенос карточек на Ozon: пошаговая инструкция и инструменты</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовительный-этап-и-анализ-текущего-состояния">Подготовительный этап и анализ текущего состояния</a></li><li><a href="#работа-с-excel-файлами-и-шаблонами-ozon">Работа с Excel-файлами и шаблонами Ozon</a></li><li><a href="#технические-нюансы-при-использовании-api">Технические нюансы при использовании API</a></li><li><a href="#сохранение-рейтинга-и-отзывов-при-миграции">Сохранение рейтинга и отзывов при миграции</a></li><li><a href="#логистические-аспекты-и-складская-программа">Логистические аспекты и складская программа</a></li><li><a href="#устранение-ошибок-и-модерация">Устранение ошибок и модерация</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakie-shtrikh-kody-na-ozon.html">Какие штрих-коды нужны для Ozon: виды и требования 2026</a></li><li><a href="/articles/k/ka/kakoj-razmer-etiketki-mozhno-raspechatat-dlya-postavki-na-ozon-sklad.html">Размер этикетки для поставки на Ozon: требования 2026</a></li><li><a href="/articles/k/ka/kak-upakovat-chasy-na-ozon.html">Как упаковать часы на Ozon: правила 2026-2026</a></li><li><a href="/articles/k/ka/kak-rasschitat-tovar-v-litrakh-ozon.html">Как рассчитать объём товара в литрах на Ozon: формулы и калькулятор</a></li><li><a href="/articles/s/sh/shtrikh-kod-ozon-kak.html">Штрихкод Ozon: как получить, наклеить и не получить штраф</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Что входит в перенос карточек на Ozon: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовительный-этап-и-анализ-текущего-состояния">Подготовительный этап и анализ текущего состояния</a></li><li><a href="#работа-с-excel-файлами-и-шаблонами-ozon">Работа с Excel-файлами и шаблонами Ozon</a></li><li><a href="#технические-нюансы-при-использовании-api">Технические нюансы при использовании API</a></li><li><a href="#сохранение-рейтинга-и-отзывов-при-миграции">Сохранение рейтинга и отзывов при миграции</a></li><li><a href="#логистические-аспекты-и-складская-программа">Логистические аспекты и складская программа</a></li><li><a href="#устранение-ошибок-и-модерация">Устранение ошибок и модерация</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Процесс масштабирования бизнеса на маркетплейсах часто требует перемещения или клонирования товарных позиций. <strong>Перенос карточек на Ozon</strong> становится необходимостью, когда продавец переходит с личного кабинета на API, меняет стратегию логистики или просто оптимизирует структуру своего каталога. Это не просто копирование текста, а сложная процедура, требующая точности в атрибутах и штрихкодах.</p>
+
+<p>Ошибки на этом этапе могут привести к тому, что товары потеряют свои отзывы, рейтинг или вовсе не появятся в продаже из-за блокировок. Важно понимать, что <em>Ozon Seller</em> имеет строгие алгоритмы модерации, которые проверяют уникальность описаний и соответствие категорий. Поэтому подход "скопировать и вставить" здесь работает плохо и часто ведет к техническим штрафам.</p>
+
+<p>В этой статье мы детально разберем, что именно входит в технический процесс переноса. Мы рассмотрим подготовку файлов, работу с <strong>XLS-шаблонами</strong>, нюансы API и методы сохранения накопленного социального доказательства. Вы узнаете, как избежать дублей и правильно настроить складскую логистику после миграции.</p>
+
+<h2 id="подготовительный-этап-и-анализ-текущего-состояния">Подготовительный этап и анализ текущего состояния</h2>
+<p>Прежде чем начинать активные действия, необходимо провести полную <strong>аудит-ревизию</strong> текущего ассортимента. Это критически важный этап, так как переносить "мусор" или неликвидные товары на новый аккаунт или в новую структуру не имеет экономического смысла. Вам нужно четко понимать, какие позиции вы переносите: активные продажи, архивные товары или только новинки.</p>
+
+<p>Особое внимание следует уделить проверке <em>штрихкодов (баркодов)</em>. Если вы планируете переносить карточки в рамках одного аккаунта (например, с FBS на FBO), система может потребовать уникальности идентификаторов. В случае переноса между разными аккаунтами, важно убедиться, что права на бренд подтверждены, иначе модерация отклонит новые карточки.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Перед началом массовых операций обязательно сделайте резервную копию всех данных через раздел "Отчеты" или API. Потеря данных при сбое системы может стоить вам дней работы по восстановлению контента.</p>
+</blockquote>
+
+<p>Также на этом этапе определяется метод переноса. Для малого количества товаров (до 50 штук) подойдет ручной ввод или копирование. Для среднего и крупного бизнеса единственно верным решением является использование <strong>XLS-форм</strong> или сторонних сервисов автоматизации (ERP-систем). Выбор инструмента напрямую влияет на скорость и вероятность возникновения ошибок.</p>
+
+<div class="pb-poll" id="poll-0342650e"><div class="pb-poll-question">📊 Какой метод переноса вы планируете использовать?</div><div class="pb-poll-option" data-poll="0342650e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную (до 20 товаров)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0342650e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Через Excel-файл</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0342650e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через API/ERP-систему</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="0342650e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">С помощью менеджера Ozon</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="работа-с-excel-файлами-и-шаблонами-ozon">Работа с Excel-файлами и шаблонами Ozon</h2>
+<p>Основным инструментом для массового переноса является табличный редактор. Вам потребуется скачать актуальный шаблон в личном кабинете селлера. Никогда не используйте старые файлы, так как <em>Ozon</em> регулярно обновляет требования к атрибутам и названиям колонок. Структура файла должна строго соответствовать категории товара.</p>
+
+<p>В файле необходимо заполнить все обязательные поля, помеченные звездочкой. Особую сложность представляет раздел "Габариты и вес". Здесь часто возникают расхождения, которые ведут к incorrect расчету логистики. Указывайте точные размеры упаковки, а не самого товара, чтобы избежать штрафов за пересорт на складе.</p>
+
+<p>При заполнении полей с текстовым описанием используйте <strong>HTML-теги</strong> для форматирования, если это разрешено в вашей категории, но не переусердствуйте. Текст должен быть читаемым и содержать ключевые слова для SEO. Избегайте копирования описаний один в один с других площадок, чтобы не получить блокировку за неуникальный контент.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка Excel-файла перед загрузкой</h4><label class="check-item"><input type="checkbox"><span>Скачан актуальный шаблон из ЛК</span></label><label class="check-item"><input type="checkbox"><span>Заполнены все обязательные поля (*)</span></label><label class="check-item"><input type="checkbox"><span>Проверены штрихкоды на дубли</span></label><label class="check-item"><input type="checkbox"><span>Указаны корректные габары</span></label><label class="check-item"><input type="checkbox"><span>Сохранен файл в формате XLSX</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="технические-нюансы-при-использовании-api">Технические нюансы при использовании API</h2>
+<p>Для крупных селлеров, использующих <strong>API Ozon</strong>, процесс переноса выглядит иначе. Здесь важна правильная настройка запросов. Вам необходимо сформировать JSON-структуру, которая будет отправляться на сервер маркетплейса. Ошибка в синтаксисе даже одного запроса может остановить весь процесс выгрузки.</p>
+
+<p>Ключевым моментом является работа с <code>offer_id</code> и <code>product_id</code>. При переносе важно правильно мапить (сопоставлять) эти идентификаторы, чтобы система поняла, что вы обновляете существующий товар или создаете новый. Неправильное использование <code>product_id</code> может привести к созданию дублей карточек, что негативно скажется на ранжировании.</p>
+
+<p>Не забывайте про лимиты запросов (Rate Limits). Если вы отправите слишком много запросов в секунду, сервер вернет ошибку <code>429 Too Many Requests</code>. Ваша система должна иметь механизм очередей и повторных попыток (retry logic) для обработки таких ситуаций без потери данных.</p>
+
+<details class="pb-accordion"><summary>Что такое Rate Limit и как его обойти?</summary><div class="pb-accordion-body"><p>Rate Limit — это ограничение количества запросов к API за определенный промежуток времени. Чтобы избежать блокировки, используйте экспоненциальную задержку между повторными попытками отправки данных. Не пытайтесь "пробить" лимит частыми запросами, это приведет к временному бану вашего IP или ключа доступа.</p></div></details>
+
+<h2 id="сохранение-рейтинга-и-отзывов-при-миграции">Сохранение рейтинга и отзывов при миграции</h2>
+<p>Один из самых болезненных вопросов: как перенести карточку и не потерять <strong>рейтинг и отзывы</strong>? К сожалению, при создании полностью новой карточки (нового <em>product_id</em>) история не переносится автоматически. Отзывы привязаны именно к уникальному идентификатору продукта в базе Ozon.</p>
+
+<p>Существует метод "склеивания" карточек, но он работает только в определенных случаях и часто требует вмешательства поддержки. Если вы просто создаете копию товара с новым штрихкодом, вы начинаете с нуля. Именно поэтому, если товар продается давно и имеет хорошую репутацию, лучше использовать метод обновления остатков и цен на существующей карточке, меняя лишь логистическую схему.</p>
+
+<p>В некоторых случаях, при переходе между схемами работы (например, FBS на FBO), карточка может временно исчезнуть из поиска или потерять часть видимых характеристик. Это нормально для процесса синхронизации. Главное — не удалять старую карточку до момента, пока новая полностью не активируется и не уйдет в продажу.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>При ручном переносе</th>
+<th>При использовании API</th>
+<th>Риск потери данных</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скорость</td>
+<td>Низкая</td>
+<td>Высокая</td>
+<td>Средний</td>
+</tr>
+<tr>
+<td>Точность атрибутов</td>
+<td>Зависит от человека</td>
+<td>Высокая (автоматически)</td>
+<td>Низкий</td>
+</tr>
+<tr>
+<td>Сохранение отзывов</td>
+<td>Возможно (при обновлении)</td>
+<td>Возможно (при обновлении)</td>
+<td>Высокий (при создании дубля)</td>
+</tr>
+<tr>
+<td>Масштабируемость</td>
+<td>До 50 товаров</td>
+<td>Без ограничений</td>
+<td>-</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="логистические-аспекты-и-складская-программа">Логистические аспекты и складская программа</h2>
+<p>Перенос карточек часто связан с изменением склада отгрузки. Если вы переводите товар с FBS (со своего склада) на FBO (на склад Ozon), в карточке товара изменится доступное количество и сроки доставки. Покупатели увидят маркировку "Доставка Ozon", что может повысить конверсию.</p>
+
+<p>Важно правильно настроить <strong>складскую программу</strong> в момент перехода. Убедитесь, что в новой карточке или в обновленных настройках старой карточки выбран правильный склад приема. Ошибка в выборе склада приведет к тому, что груз поедет не туда, а товар на сайте будет недоступен для заказа.</p>
+
+<p>Также проверьте настройки цен. При смене логистической схемы меняются комиссии и стоимость логистики. Пересчитайте маржинальность и обновите цену в карточке. Не забудьте про акции: если товар участвовал в акциях, при переносе или создании новой карточки условия участия нужно будет активировать заново.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При переносе товаров на склад Ozon (FBO) обязательно проверьте требования к упаковке. Если новая карточка будет создана с неверными габаритами, товар могут не принять на складе или начислить штраф за пересорт.</p>
+</blockquote>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте функцию "Клонировать товар" в личном кабинете Ozon, если вам нужно создать вариативность (например, другой цвет или размер) у существующего товара. Это сохранит часть связей и упростит заполнение атрибутов.</p></aside>
+
+<h2 id="устранение-ошибок-и-модерация">Устранение ошибок и модерация</h2>
+<p>После загрузки файла или отправки запроса через API начинается этап модерации. Система автоматически проверяет данные на соответствие правилам. Наиболее частые ошибки: неверный формат штрихкода, отсутствие сертификата для категории, неверно указанная страна производства.</p>
+
+<p>Если карточка получила статус "На модерации" на длительное время, проверьте раздел "Диагностика". Там могут быть скрытые ошибки, блокирующие публикацию. Часто проблема кроется в изображениях: наличие водяных знаков, текста на фото или несоответствие главному фото требованиям (белый фон, товар занимает 80% кадра).</p>
+
+<p>В случае получения отказа ("Отклонено") внимательно читайте комментарий модератора. Исправьте указанную ошибку и отправьте товар на повторную проверку. Не пытайтесь обойти систему, загружая товар в неправильную категорию ("Категорийность") — это приведет к блокировке всего аккаунта.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Главный секрет успешного переноса — идеальная подготовка данных до загрузки. 90% ошибок решаются на этапе проверки Excel-файла, а не в процессе модерации.</p></aside>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Можно ли перенести отзывы с одной карточки на другую при смене штрихкода?</summary>
+<p>Автоматически — нет. Отзывы привязаны к <em>product_id</em>. При смене штрихкода создается новая карточка. Объединить отзывы можно только через обращение в поддержку, если это один и тот же товар, и система позволит связать их, но гарантий нет.</p>
+</details>
+
+<details>
+<summary>Что делать, если после переноса пропали скидки?</summary>
+<p>При создании новой карточки или изменении ключевых параметров акции могут слететь. Вам необходимо заново создать акцию в разделе "Акции и скидки" и добавить туда новые ID товаров или обновленные карточки.</p>
+</details>
+
+<details>
+<summary>Сколько времени занимает модерация после переноса?</summary>
+<p>Обычно модерация занимает от 1 часа до 24 часов. В периоды высоких нагрузок (Черная пятница, распродажи) время может увеличиться до 3 суток. Статус можно отслеиваться в разделе "Товары и цены" → "Список товаров".</p>
+</details>
+
+<details>
+<summary>Нужно ли заново проходить проверку документов на бренд?</summary>
+<p>Если вы переносите товар в рамках одного аккаунта — нет. Если вы переходите на новый аккаунт или меняете владельца бренда, процедуру подтверждения прав на бренд (Brand Owner) придется проходить заново.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kakie-shtrikh-kody-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие штрих-коды нужны для Ozon: виды и требования 2026</span>
+                <span class="pb-related-desc">Полный гид по штрих-кодам для Ozon. Узнайте, какие коды нужны для FBO и FBS, как маркировать товар и</span>
+            </a><a href="/articles/k/ka/kakoj-razmer-etiketki-mozhno-raspechatat-dlya-postavki-na-ozon-sklad.html" class="pb-related-card">
+                <span class="pb-related-title">Размер этикетки для поставки на Ozon: требования 2026</span>
+                <span class="pb-related-desc">Какой размер этикетки нужен для Ozon? Точные параметры, штрихкоды, отступы и правила печати. Полный </span>
+            </a><a href="/articles/k/ka/kak-upakovat-chasy-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как упаковать часы на Ozon: правила 2026-2026</span>
+                <span class="pb-related-desc">Пошаговая инструкция: как правильно упаковать часы на Озон. Требования к коробам, пупырчатой пленке </span>
+            </a><a href="/articles/k/ka/kak-rasschitat-tovar-v-litrakh-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как рассчитать объём товара в литрах на Ozon: формулы и калькулятор</span>
+                <span class="pb-related-desc">Пошаговая инструкция по расчёту объёма товара в литрах для карточки Ozon: формулы, примеры, ошибки и</span>
+            </a><a href="/articles/s/sh/shtrikh-kod-ozon-kak.html" class="pb-related-card">
+                <span class="pb-related-title">Штрихкод Ozon: как получить, наклеить и не получить штраф</span>
+                <span class="pb-related-desc">Полная инструкция: как создать штрихкод товара для Ozon. Правила генерации этикеток FBS и FBO, разме</span>
+            </a><a href="/articles/k/ka/kak-kopirovat-kartochku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как копировать карточку товара на Ozon: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, как быстро скопировать карточку товара на Ozon через Excel или API. Инструкция для селлеров</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

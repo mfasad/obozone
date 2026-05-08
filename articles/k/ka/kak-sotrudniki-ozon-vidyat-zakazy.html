@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как сотрудники Ozon видят заказы: интерфейс и детали — Об Озоне</title>
+    <meta name="description" content="Подробный разбор того, как сотрудники Ozon видят заказы. Интерфейс сборщика, статусы, маршруты и логика работы приложения для персонала.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-sotrudniki-ozon-vidyat-zakazy.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как сотрудники Ozon видят заказы: интерфейс и детали">
+    <meta property="og:description" content="Подробный разбор того, как сотрудники Ozon видят заказы. Интерфейс сборщика, статусы, маршруты и логика работы приложения для персонала.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как сотрудники Ozon видят заказы: интерфейс и детали</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#логика-распределения-задач-и-маршрутизация">Логика распределения задач и маршрутизация</a></li><li><a href="#статусы-заказа-что-видит-сотрудник-на-каждом-этапе">Статусы заказа: что видит сотрудник на каждом этапе</a></li><li><a href="#специфика-работы-с-разными-типами-товаров">Специфика работы с разными типами товаров</a></li><li><a href="#контроль-качества-и-упаковка">Контроль качества и упаковка</a></li><li><a href="#работа-курьера-мобильное-приложение">Работа курьера: мобильное приложение</a></li><li><a href="#аналитика-и-эффективность-работы-персонала">Аналитика и эффективность работы персонала</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-raspolozhen-sklad-ozon-v-moskve.html">Где находится склад Ozon в Москве: адреса, схемы проезда и нюансы 2026</a></li><li><a href="/articles/s/sk/skolko-mozhno-khranit-posylku-na-ozon.html">Сколько можно хранить посылку на Ozon: сроки и правила</a></li><li><a href="/articles/c/ch/chto-budet-esli-ne-zabrat-posylku-s-ozona-iz-postamata.html">Что будет, если не забрать посылку с Озона из постамата: сроки и штрафы</a></li><li><a href="/articles/k/ka/kak-poluchit-zakaz-v-ozone-po-shtrikhkodu.html">Как получить заказ в Озоне по штрихкоду: инструкция</a></li><li><a href="/articles/k/ka/kak-posmotret-prishla-li-posylka-na-ozon.html">Как проверить статус посылки на Ozon: все способы</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как сотрудники Ozon видят заказы: полный разбор интерфейса</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#логика-распределения-задач-и-маршрутизация">Логика распределения задач и маршрутизация</a></li><li><a href="#статусы-заказа-что-видит-сотрудник-на-каждом-этапе">Статусы заказа: что видит сотрудник на каждом этапе</a></li><li><a href="#специфика-работы-с-разными-типами-товаров">Специфика работы с разными типами товаров</a></li><li><a href="#контроль-качества-и-упаковка">Контроль качества и упаковка</a></li><li><a href="#работа-курьера-мобильное-приложение">Работа курьера: мобильное приложение</a></li><li><a href="#аналитика-и-эффективность-работы-персонала">Аналитика и эффективность работы персонала</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+<p>Внутренняя логистическая система маркетплейса представляет собой сложнейший механизм, где каждый элемент, от приёмки товара до вручения его клиенту, строго регламентирован. Для сотрудника склада или курьера <strong>заказ</strong> — это не просто номер в базе данных, а набор конкретных действий, которые необходимо выполнить с максимальной точностью и скоростью. Именно так формируется положительный опыт покупателя, а для компании это означает соблюдение стандартов качества.</p>
+
+<p>Интерфейс, который видят работники, кардинально отличается от того, что отображается в личном кабинете продавца или в приложении клиента. Здесь нет ярких баннеров и маркетинговых акций. <em>Ozon</em> предоставляет персоналу специализированные инструменты, заточенные под эффективность. Визуализация данных строится вокруг минимизации лишних движений и исключения ошибок при сборке.</p>
+
+<p>Понимание того, как именно устроена эта система изнутри, полезно не только для потенциальных сотрудников, но и для продавцов. Зная, как сотрудники Ozon видят заказы и обрабатывают информацию, можно лучше прогнозировать время обработки, понимать причины возможных задержек и избегать ошибок при упаковке.</p>
+
+<h2>Интерфейс терминала сбора данных (ТСД)</
+<p>2></p>
+<p>Основным инструментом в руках сборщика является терминал сбора данных, часто называемый просто сканером. Экран этого устройства отображает информацию в максимально сжатом виде, чтобы человек мог считывать её за доли секунды. <strong>Интерфейс ТСД</strong> лишен любых отвлекающих факторов: здесь нет лишних кнопок или графических украшений.</p>
+
+<p>На экране отображается ячейка, из которой нужно взять товар, и его штрихкод. Сотрудник видит крупным шрифтом количество единиц, которые необходимо поместить в коробку. Если заказ сложный и содержит хрупкие предметы, система может вывести специальное предупреждение. Визуальный акцент всегда сделан на <em>штрихкоде</em>, так как именно сканирование является подтверждением правильности действий.</p>
+
+<details class="pb-accordion"><summary>Секреты скорости работы на ТСД</summary><div class="pb-accordion-body"><p>Сотрудники складов используют специальные приемы для ускорения работы. Например, они заранее сканируют несколько товаров, если уверены в их наличии, или держат палец на кнопке подтверждения, чтобы сократить время между операциями. Однако система строго контролирует такие действия и может заблокировать терминал при частых ошибках.</p></div></details>
+
+<p>Цветовая кодировка играет важную роль. Зеленым цветом обычно подсвечивается успешное действие, красным — ошибка или отсутствие товара в ячейке. Желтый цвет может означать, что товар находится на дополнительной проверке или требует особого внимания, например, если это <strong>габаритный груз</strong>.</p>
+
+<h2 id="логика-распределения-задач-и-маршрутизация">Логика распределения задач и маршрутизация</h2>
+<p>Сотрудник не выбирает заказы самостоятельно. Алгоритмическая система сама распределяет задачи, формируя оптимальный маршрут движения по складу. Это исключает хаотичное перемещение людей и снижает риск столкновений в узких проходах. Заказы группируются в так называемые <strong>волны</strong>, которые обрабатываются последовательно.</p>
+
+<p>Когда сборщик завершает одну задачу, терминал мгновенно направляет его к следующей точке. Система учитывает текущее местоположение работника, загруженность зон и приоритетность заказов. Например, экспресс-доставки всегда имеют более высокий приоритет и формируются в отдельные маршрутные листы.</p>
+
+<ul>
+<li>📦 <strong>Приоритетность:</strong> Срочные заказы помечаются специальными метками и выдаются в работу первыми.</li>
+<li>🗺️ <strong>Оптимизация пути:</strong> Маршрут строится так, чтобы минимизировать холостой пробег между ячейками.</li>
+<li>⏱️ <strong>Нормирование:</strong> На каждую операцию отводится строго определенное время, которое отображается на экране.</li>
+</ul>
+
+<p>Важно понимать, что система динамически перестраивается. Если в одной зоне возникает очередь или техническая проблема, новые задачи могут перенаправляться в другие сектора склада. Это обеспечивает бесперебойность работы всего логистического центра.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Знаете ли вы, что система может автоматически изменить маршрут сборщика в реальном времени, если датчики покажут заженность в определенном проходе? Это часть системы управления потоками людей.</p></aside>
+
+<h2 id="статусы-заказа-что-видит-сотрудник-на-каждом-этапе">Статусы заказа: что видит сотрудник на каждом этапе</h2>
+<p>Жизненный цикл заказа внутри системы персонала насыщен множеством статусов, большинство из которых скрыто от глаз покупателя. Для сотрудника каждый статус — это триггер к действию. Переход из одного состояния в другое фиксируется сканированием и подтверждением.</p>
+
+<p>В таблице ниже приведены основные статусы, которые видит сотрудник при обработке заказа, и их значение для внутреннего процесса:</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Статус в системе</th>
+<th>Действие сотрудника</th>
+<th>Визуальное обозначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Новый (New)</td>
+<td>Получение задания на ТСД</td>
+<td>Синий индикатор</td>
+</tr>
+<tr>
+<td>В сборке (Picking)</td>
+<td>Сканирование ячеек и товара</td>
+<td>Мигающий зеленый</td>
+</tr>
+<tr>
+<td>На упаковке (Packing)</td>
+<td>Укладка в короб, запечатка</td>
+<td>Желтый индикатор</td>
+</tr>
+<tr>
+<td>Готов к отгрузке</td>
+<td>Сортировка по направлениям</td>
+<td>Оранжевый цвет</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>Если товар поврежден или его нет на месте, сотрудник переводит заказ в статус <strong>"Брак"</strong> или"Отсутствует". Это требует вмешательства супервайзера или создания задачи для инвентаризации. Такие случаи фиксируются в системе и влияют на показатели качества работы сотрудника.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Сотрудник не может самостоятельно изменить статус заказа на"Отменен". Это действие доступно только администраторам системы или автоматически при истечении таймера ожидания оплаты клиентом.</p>
+</blockquote>
+
+<h2 id="специфика-работы-с-разными-типами-товаров">Специфика работы с разными типами товаров</h2>
+<p>Интерфейс терминала адаптируется под категорию товара. Для электроники, например, требуется обязательное сканирование серийных номеров (IMEI, S/N). Система не пропустит этап упаковки, пока не будут считаны все уникальные идентификаторы. Это критически важно для <strong>гарантийного обслуживания</strong> и предотвращения краж.</p>
+
+<p>Для товаров с ограниченным сроком годности, таких как продукты питания или косметика, на экране терминала появляется требование проверить дату производства. Сотрудник должен ввести или отсканировать дату, и если она не соответствует требованиям (остаточный срок менее нормы), система заблокирует отгрузку.</p>
+
+<div class="pb-poll" id="poll-bfa14c10"><div class="pb-poll-question">📊 Какой тип товаров сложнее всего собирать?</div><div class="pb-poll-option" data-poll="bfa14c10" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Электроника (много серийников)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="bfa14c10" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Одежда (размеры и цвета)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="bfa14c10" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Продукты (сроки годности)</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="bfa14c10" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Габаритные грузы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<p>Габаритные товары требуют особого подхода. Они часто не хранятся в стандартных ячейках, а располагаются в специальных зонах. На экране ТСД в таком случае отображается схема проезда к зоне хранения крупногабарита и инструкция по использованию погрузочной техники.</p>
+
+<h2 id="контроль-качества-и-упаковка">Контроль качества и упаковка</h2>
+<p>После того как товар собран, он попадает на участок упаковки. Здесь сотрудник видит на мониторе изображение товара, который должен лежать перед ним. Это нужно для визуальной сверки. Система также подсказывает, какой размер коробки и сколько наполнителя (пупырчатой пленки) необходимо использовать.</p>
+
+<p><strong>Контроль веса</strong> — еще один важный этап. Короб с товаром взвешивается, и если вес отличается от эталонного более чем на допустимую погрешность, система подает сигнал. Это помогает выявить пересорт или недовложку. Сотрудник видит на экране требование перепроверить содержимое.</p>
+
+<ul>
+<li>📸 <strong>Фотофиксация:</strong> Для дорогих товаров часто требуется сделать фото содержимого коробки перед запечаткой.</li>
+<li>🏷️ <strong>Печать этикеток:</strong> Автоматическая печать транспортной накладной происходит сразу после успешной упаковки.</li>
+<li>🔒 <strong>Пломбировка:</strong> Для определенных категорий товаров требуется установка контрольной пломбы, номер которой вносится в систему.</li>
+</ul>
+
+<p>Ошибки на этапе упаковки фиксируются строго. Если сотрудник пропускает проверку или неправильно упаковывает хрупкий предмет, это может привести к бою товара при доставке. В таком случае система может временно ограничить доступ работника к сложным операциям для прохождения повторного обучения.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Проверка перед отправкой</h4><label class="check-item"><input type="checkbox"><span>Совпадение артикулов</span></label><label class="check-item"><input type="checkbox"><span>Целостность упаковки</span></label><label class="check-item"><input type="checkbox"><span>Наличие всех единиц</span></label><label class="check-item"><input type="checkbox"><span>Корректность адреса на этикетке</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="работа-курьера-мобильное-приложение">Работа курьера: мобильное приложение</h2>
+<p>Когда заказ покидает склад, эстафету принимают курьеры. Их интерфейс — это мобильное приложение на смартфоне. Здесь карта играет главную роль. Курьер видит оптимальный маршрут, порядок объезда точек и статус каждого заказа в своей смене.</p>
+
+<p>Прибыв к точке выдачи (ПВЗ) или к клиенту, курьер должен подтвердить вручение. Для этого используется <strong>QR-код</strong> или код из SMS, который клиент называет курьеру. В приложении также отображаются специальные инструкции: например,"не звонить в дверь" или"оставить у консьержа".</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Курьер не видит полные персональные данные клиента (например, полный номер телефона скрывается), чтобы обеспечить безопасность и конфиденциальность. Связь осуществляется через защищенный канал приложения.</p>
+</blockquote>
+
+<p>Если клиент отказывается от заказа, курьер в приложении выбирает причину отказа из списка. Товар возвращается в оборот, а система автоматически обновляет статусы, уведомляя продавца и логистический центр. Этот процесс полностью цифровизирован и занимает несколько секунд.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Мобильное приложение курьера работает в офлайн-режиме для ключевых функций, что позволяет выполнять доставку даже в зонах с плохим покрытием сети, синхизируя данные при появлении сигнала.</p></aside>
+
+<h2 id="аналитика-и-эффективность-работы-персонала">Аналитика и эффективность работы персонала</h2>
+<p>Все действия сотрудников фиксируются и анализируются. Руководство складов и логистических центров видит сводные дашборды, где отображается производительность в реальном времени. Это позволяет оперативно реагировать на"узкие места" и перераспределять ресурсы.</p>
+
+<p>Для каждого сотрудника формируется рейтинг эффективности, основанный на скорости работы, количестве ошибок и соблюдении стандартов. Эти данные влияют на премиальную часть заработной платы. Прозрачность системы мотивирует работников соблюдать дисциплину и внимательно относиться к <strong>качеству сборки</strong>.</p>
+
+<p>Система также прогнозирует нагрузку. Если алгоритм видит, что через два часа ожидается пик заказов, он заранее сигнализирует менеджерам о необходимости вывести дополнительных сотрудников или открыть новые линии упаковки. Это обеспечивает стабильность работы в периоды высоких нагрузок, таких как распродажи.</p>
+
+<details>
+<summary>Может ли сотрудник увидеть личные данные клиента?</summary>
+<p>Сотрудники склада видят только адрес доставки и имя (часто частично скрытое). Полные данные, включая телефон и точный адрес, доступны только курьеру в момент доставки и тоже в ограниченном формате. Доступ к полной базе данных клиентов имеют только сотрудники службы безопасности и поддержки в рамках инцидентов.</p>
+</details>
+
+<details>
+<summary>Что будет, если сотрудник ошибется со статусом?</summary>
+<p>Система имеет несколько уровней защиты. Если ошибка критическая (например, отгрузка не того товара), она выявляется на этапе взвешивания или сканирования на sortie. Сотрудник получит уведомление об ошибке и должен будет исправить ситуацию. Повторяющиеся ошибки ведут к автоматической блокировке доступа к терминалу и разбору ситуации с супервайзером.</p>
+</details>
+
+<details>
+<summary>Как быстро обновляется информация о заказе?</summary>
+<p>Обновление статусов происходит в реальном времени (Real-time). Как только сканер считывает штрикод, информация мгновенно передается на сервер и становится visible для всех смежных систем. Задержка составляет менее секунды, что позволяет клиенту видеть актуальное положение заказа в приложении.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-raspolozhen-sklad-ozon-v-moskve.html" class="pb-related-card">
+                <span class="pb-related-title">Где находится склад Ozon в Москве: адреса, схемы проезда и нюансы 2026</span>
+                <span class="pb-related-desc">Актуальные адреса складов Озон в Москве и области: как найти ПВЗ, отличия FBS/FBO, карты проезда и с</span>
+            </a><a href="/articles/s/sk/skolko-mozhno-khranit-posylku-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько можно хранить посылку на Ozon: сроки и правила</span>
+                <span class="pb-related-desc">Узнайте, сколько дней хранится посылка на Ozon в пункте выдачи. Что будет при просрочке, как продлит</span>
+            </a><a href="/articles/c/ch/chto-budet-esli-ne-zabrat-posylku-s-ozona-iz-postamata.html" class="pb-related-card">
+                <span class="pb-related-title">Что будет, если не забрать посылку с Озона из постамата: сроки и штрафы</span>
+                <span class="pb-related-desc">Узнайте, какие последствия ждут, если не забрать заказ с постамата Озон: сроки хранения, возвраты, ш</span>
+            </a><a href="/articles/k/ka/kak-poluchit-zakaz-v-ozone-po-shtrikhkodu.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить заказ в Озоне по штрихкоду: инструкция</span>
+                <span class="pb-related-desc">Подробная инструкция: как забрать заказ в Озоне по штрихкоду. Что делать, если нет приложения или ин</span>
+            </a><a href="/articles/k/ka/kak-posmotret-prishla-li-posylka-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить статус посылки на Ozon: все способы</span>
+                <span class="pb-related-desc">Узнайте, как посмотреть, пришла ли посылка на Ozon. Подробные инструкции по отслеживанию, статусам и</span>
+            </a><a href="/articles/o/oz/ozon-pochemu-nevozmozhno-dostavit-tovary.html" class="pb-related-card">
+                <span class="pb-related-title">Почему Ozon не доставляет: причины и решения 2026</span>
+                <span class="pb-related-desc">Ozon невозможно доставить товары? Разбираем коды ошибок, блокировки, проблемы логистики и действия п</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

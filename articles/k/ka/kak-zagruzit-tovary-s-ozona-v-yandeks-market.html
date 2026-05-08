@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как перенести товары с Ozon в Яндекс Маркет — пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Подробное руководство по синхронизации каталога Ozon с Яндекс Маркет: способы выгрузки, настройки фида, ошибки и решения. Актуально для продавцов FBS/FBO.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-zagruzit-tovary-s-ozona-v-yandeks-market.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как перенести товары с Ozon в Яндекс Маркет — пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по синхронизации каталога Ozon с Яндекс Маркет: способы выгрузки, настройки фида, ошибки и решения. Актуально для продавцов FBS/FBO.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-nav-active">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/zagruzka-tovarov/">Загрузка Товаров</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как перенести товары с Ozon в Яндекс Маркет — пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-подготовка-данных-что-нужно-сделать-до-выгрузки">1. Подготовка данных: что нужно сделать до выгрузки</a></li><li><a href="#2-способ-1-ручная-выгрузка-через-excelcsv">2. Способ 1: Ручная выгрузка через Excel/CSV</a></li><li><a href="#3-способ-2-автоматическая-выгрузка-через-yml-фид">3. Способ 2: Автоматическая выгрузка через YML-фид</a></li><li><a href="#4-способ-3-синхронизация-через-api-для-опытных-пользователей">4. Способ 3: Синхронизация через API (для опытных пользователей)</a></li><li><a href="#получение-товаров-из-ozon">Получение товаров из Ozon</a></li><li><a href="#преобразование-и-отправка-в-яндекс-маркет">Преобразование и отправка в Яндекс Маркет</a></li><li><a href="#5-таблица-соответствия-атрибутов-ozon-яндекс-маркет">5. Таблица соответствия атрибутов Ozon → Яндекс Маркет</a></li><li><a href="#6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</a></li><li><a href="#7-особенности-для-продавцов-fbs-и-fbo">7. Особенности для продавцов FBS и FBO</a></li><li><a href="#8-альтернативные-сервисы-для-синхронизации">8. Альтернативные сервисы для синхронизации</a></li><li><a href="#faq-частые-вопросы-по-переносу-товаров">FAQ: Частые вопросы по переносу товаров</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-vzyat-nomer-gtd-na-tovar-ozon.html">Где найти номер ГТД на Ozon: инструкция для продавца</a></li><li><a href="/articles/a/ar/artikul-tovara-na-ozone-kak-posmotret.html">Как найти артикул товара на Ozon: 5 способов для покупателей и продавцов</a></li><li><a href="/articles/k/ka/kak-na-etiketki-ozon-napechatat-srok-godnosti.html">Срок годности на этикетке Ozon: как напечатать и оформить</a></li><li><a href="/articles/k/ka/kak-sdelat-fotografii-dlya-ozona-samostoyatelno.html">Фото для Озона: как сделать снимки самостоятельно</a></li><li><a href="/articles/t/te/termoetiketki-dlya-ozon-kakie-nuzhny.html">Термоэтикетки для Ozon: размеры, виды и требования 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как загрузить товары с Ozon в Яндекс Маркет: 3 рабочих способа + инструкции по настройке</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-подготовка-данных-что-нужно-сделать-до-выгрузки">1. Подготовка данных: что нужно сделать до выгрузки</a></li><li><a href="#2-способ-1-ручная-выгрузка-через-excelcsv">2. Способ 1: Ручная выгрузка через Excel/CSV</a></li><li><a href="#3-способ-2-автоматическая-выгрузка-через-yml-фид">3. Способ 2: Автоматическая выгрузка через YML-фид</a></li><li><a href="#4-способ-3-синхронизация-через-api-для-опытных-пользователей">4. Способ 3: Синхронизация через API (для опытных пользователей)</a></li><li><a href="#получение-товаров-из-ozon">Получение товаров из Ozon</a></li><li><a href="#преобразование-и-отправка-в-яндекс-маркет">Преобразование и отправка в Яндекс Маркет</a></li><li><a href="#5-таблица-соответствия-атрибутов-ozon-яндекс-маркет">5. Таблица соответствия атрибутов Ozon → Яндекс Маркет</a></li><li><a href="#6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</a></li><li><a href="#7-особенности-для-продавцов-fbs-и-fbo">7. Особенности для продавцов FBS и FBO</a></li><li><a href="#8-альтернативные-сервисы-для-синхронизации">8. Альтернативные сервисы для синхронизации</a></li><li><a href="#faq-частые-вопросы-по-переносу-товаров">FAQ: Частые вопросы по переносу товаров</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Если вы продаёте на <strong>Ozon</strong> и хотите расширить охват через <strong>Яндекс Маркет</strong>, перенос товарного каталога — логичный шаг. Однако прямая синхронизация между платформами отсутствует: у каждой свои форматы данных, требования к карточкам и правила модерации. В этой статье разберём <strong>все актуальные способы выгрузки товаров</strong> — от ручного экспорта до автоматизации через API, — а также типичные ошибки, которые блокируют публикацию на Маркете.</p>
+
+<p>Перенос каталога между маркетплейсами кажется простой задачей, но на практике продавцы сталкиваются с проблемами: несовпадение атрибутов (<em>например, "цвет" на Ozon vs "color" на Маркете</em>), ограничения по категориям или требования к фотографиям. <strong>Ключевой момент</strong> — Яндекс Маркет строже относится к качеству контента: если на Ozon проходит карточка с минимальным описанием, то здесь её могут отклонить. Мы покажем, как подготовить данные, чтобы избежать отказов.</p>
+
+<p>В статье вы найдёте:</p>
+<ul>
+  <li>🔹 <strong>3 способа выгрузки</strong> (вручную, через фид, API) с плюсами и минусами каждого;</li>
+  <li>🔹 <strong>Пошаговые инструкции</strong> для продавцов на FBS и FBO;</li>
+  <li>🔹 <strong>Таблицу соответствия атрибутов</strong> Ozon → Яндекс Маркет;</li>
+  <li>🔹 <strong>Список типичных ошибок</strong> и как их исправить до модерации.</li>
+</ul>
+
+<h2 id="1-подготовка-данных-что-нужно-сделать-до-выгрузки">1. Подготовка данных: что нужно сделать до выгрузки</h2>
+
+<p>Перед тем как переносить товары, проверьте их на соответствие требованиям <strong>Яндекс Маркета</strong>. Даже если карточки успешно продаются на Ozon, это не гарантирует автоматическую публикацию на другой платформе. Вот ключевые моменты:</p>
+
+<p><strong>1. Категории товаров.</strong> Яндекс Маркет использует свою иерархию категорий, которая может не совпадать с Ozon. Например, <em>"Смартфоны"</em> на Ozon относятся к категории <code>Электроника → Телефоны</code>, а на Маркете это <code>Электроника → Мобильные телефоны → Смартфоны</code>. Несоответствие категорий — одна из главных причин отклонения фида.</p>
+
+<p><strong>2. Атрибуты и характеристики.</strong> Яндекс Маркет требует заполнения обязательных полей, которых может не быть на Ozon. Например, для одежды обязательны <code>размерная сетка</code>, <code>материал</code> и <code>страна-производитель</code>, а для электроники — <code>гарантия</code> и <code>технические параметры</code> (например, <em>разрешение экрана для телевизоров</em>).</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Яндекс Маркет блокирует товары без штрихкодов (EAN/UPC) в большинстве категорий. Если на Ozon вы продавали без них, придётся добавить.</blockquote>
+
+<p><strong>3. Фотографии.</strong> Требования к изображениям строже:</p>
+<ul>
+  <li>📌 Минимальное разрешение — <code>800×800 px</code> (на Ozon достаточно <code>500×500 px</code>);</li>
+  <li>📌 Фон должен быть <strong>белым</strong> (RGB 255,255,255) без теней и посторонних объектов;</li>
+  <li>📌 На главном изображении товар должен занимать <strong>не менее 80% площади</strong>.</li>
+</ul>
+
+<p>Если ваши фотографии не соответствуют стандартам, их придётся доработать. Для этого можно использовать <em>Фотошоп</em>, <em>Canva</em> или сервисы вроде <em>Remove.bg</em> (для удаления фона).</p>
+
+<div class="pb-poll" id="poll-308b4b4e"><div class="pb-poll-question">📊 Как вы обычно готовите изображения для маркетплейсов?</div><div class="pb-poll-option" data-poll="308b4b4e" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Самостоятельно обрабатываю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="308b4b4e" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Заказываю у дизайнера</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="308b4b4e" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Использую автоматические сервисы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="308b4b4e" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не обрабатываю, загружаю как есть</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="2-способ-1-ручная-выгрузка-через-excelcsv">2. Способ 1: Ручная выгрузка через Excel/CSV</h2>
+
+<p>Это самый простой, но и самый трудоёмкий метод. Подходит для небольших каталогов (до 500 товаров). Суть: вы экспортируете данные из Ozon, приводите их в соответствие с требованиями Яндекс Маркета, а затем загружаете через личный кабинет.</p>
+
+<p><strong>Шаг 1. Экспорт данных из Ozon.</strong></p>
+<ol>
+  <li>Перейдите в <code>Личный кабинет Ozon → Товары → Экспорт</code>.</li>
+  <li>Выберите формат <code>CSV</code> или <code>XLSX</code>.</li>
+  <li>Укажите нужные поля: <code>артикул</code>, <code>название</code>, <code>описание</code>, <code>цена</code>, <code>остатки</code>, <code>фото</code> (ссылки), <code>характеристики</code>.</li>
+  <li>Нажмите <code>Экспортировать</code> и сохраните файл.</li>
+</ol>
+
+<p><strong>Шаг 2. Преобразование файла под Яндекс Маркет.</strong></p>
+<p>Скачанный файл нужно отредактировать:</p>
+<ul>
+  <li>🔄 Переименуйте столбцы согласно <a href="#table-attributes">таблице соответствия атрибутов</a>;</li>
+  <li>🔄 Добавьте обязательные поля (например, <code>vendor</code> — бренд, <code>barcode</code> — штрихкод);</li>
+  <li>🔄 Приведите описания к формату Яндекс Маркета: без HTML-тегов, с чёткой структурой (заголовки, списки, абзацы).</li>
+</ul>
+
+<p><strong>Шаг 3. Загрузка в Яндекс Маркет.</strong></p>
+<ol>
+  <li>В личном кабинете Маркета перейдите в <code>Товары → Импорт</code>.</li>
+  <li>Выберите тип файла (<code>YML</code> или <code>CSV</code>).</li>
+  <li>Загрузите отредактированный файл и дождитесь обработки.</li>
+  <li>Проверьте ошибки в отчёте и исправьте их.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При ручной выгрузке высока вероятность ошибок в атрибутах. Яндекс Маркет может отклонить до 30% товаров из-за несоответствия форматов. Всегда проверяйте отчёт после загрузки!</blockquote>
+
+
+<p>Проверены все обязательные атрибуты</p>
+<p>Фотографии соответствуют требованиям (размер, фон)</p>
+<p>Описания без HTML-тегов и спецсимволов</p>
+<p>Категории товаров сопоставлены с Яндекс Маркетом</p>
+<p>Цены и остатки актуальны--></p>
+
+<h2 id="3-способ-2-автоматическая-выгрузка-через-yml-фид">3. Способ 2: Автоматическая выгрузка через YML-фид</h2>
+
+<p>Для средних и крупных каталогов (от 500 товаров) лучше использовать <strong>YML-фид</strong> — специальный XML-файл, который автоматически обновляет данные на Яндекс Маркете. Его можно сгенерировать через <em>Ozon API</em> или сторонние сервисы (<em>например, <strong>МойСклад</strong>, <strong>1С</em>, <strong>Pulse</em></strong>).</p>
+
+<p><strong>Преимущества метода:</strong></p>
+<ul>
+  <li>⚡ <strong>Автоматическое обновление</strong> цен и остатков (синхронизация раз в сутки);</li>
+  <li>⚡ Поддержка <strong>динамических параметров</strong> (например, скидки, акции);</li>
+  <li>⚡ Минимальный риск ошибок при правильной настройке.</li>
+</ul>
+
+<p><strong>Как настроить YML-фид:</strong></p>
+
+<p><strong>Шаг 1. Получите данные из Ozon через API.</strong></p>
+<p>Используйте метод <code>POST /v2/product/info/list</code> для экспорта каталога. Пример запроса:</p>
+<pre><code>{
+<p>"filter": {</p>
+<p>"visibility": "ALL"</p>
+<p>},</p>
+<p>"limit": 1000</p>
+<p>}</code></pre></p>
+<p>В ответе вы получите JSON с данными товаров, которые нужно преобразовать в YML.</p>
+
+<p><strong>Шаг 2. Сопоставьте поля с требованиями Яндекс Маркета.</strong></p>
+<p>Пример структуры YML-фида для Маркета:</p>
+<pre><code>&lt;offer id="12345" available="true"&gt;
+<p>&lt;url&gt;https://ваш-сайт.ru/tovar1&lt;/url&gt;</p>
+<p>&lt;price&gt;9990&lt;/price&gt;</p>
+<p>&lt;currencyId&gt;RUB&lt;/currencyId&gt;</p>
+<p>&lt;categoryId&gt;15&lt;/categoryId&gt;</p>
+<p>&lt;picture&gt;https://ваш-сайт.ru/image1.jpg&lt;/picture&gt;</p>
+<p>&lt;name&gt;Смартфон Xiaomi Redmi Note 12&lt;/name&gt;</p>
+<p>&lt;vendor&gt;Xiaomi&lt;/vendor&gt;</p>
+<p>&lt;barcode&gt;6942555500378&lt;/barcode&gt;</p>
+<p>&lt;param name="Цвет"&gt;Чёрный&lt;/param&gt;</p>
+<p>&lt;/offer&gt;</code></pre></p>
+
+<p><strong>Шаг 3. Загрузите фид в Яндекс Маркет.</strong></p>
+<ol>
+  <li>В личном кабинете перейдите в <code>Товары → Настройки фида</code>.</li>
+  <li>Укажите URL вашего YML-файла (он должен быть доступен по прямой ссылке).</li>
+  <li>Настройте расписание обновлений (рекомендуется <code>раз в 24 часа</code>).</li>
+  <li>Запустите проверку фида и исправьте ошибки.</li>
+</ol>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если вы не умеете работать с API, используйте сервисы-посредники вроде <em>Pulse</em> или <em>Shopolog</em>. Они автоматически преобразуют данные из Ozon в YML для Яндекс Маркета.</p></aside>
+
+<h2 id="4-способ-3-синхронизация-через-api-для-опытных-пользователей">4. Способ 3: Синхронизация через API (для опытных пользователей)</h2>
+
+<p>Самый продвинутый метод — прямая интеграция через <strong>API Ozon и Яндекс Маркета</strong>. Подходит для крупных продавцов с техническими ресурсами (или разработчиком в штате). Преимущества:</p>
+<ul>
+  <li>🤖 <strong>Мгновенная синхронизация</strong> цен, остатков и статусов;</li>
+  <li>🤖 Возможность <strong>кастомизации</strong> (например, разные цены для разных платформ);</li>
+  <li>🤖 Автоматическая обработка заказов (если используете <code>FBS</code>).</li>
+</ul>
+
+<p><strong>Как настроить:</strong></p>
+
+<p><strong>Шаг 1. Получите API-ключи.</strong></p>
+<ul>
+  <li>В <strong>Ozon Seller</strong>: перейдите в <code>Настройки → API-ключи</code> и сгенерируйте новый ключ с правами на чтение товаров.</li>
+  <li>В <strong>Яндекс Маркете</strong>: в личном кабинете найдите раздел <code>API → Ключи доступа</code>.</li>
+</ul>
+
+<p><strong>Шаг 2. Напишите скрипт для обмена данными.</strong></p>
+<p>Пример логики работы:</p>
+<ol>
+  <li>Скрипт запрашивает список товаров из Ozon через <code>GET /v2/product/info/list</code>;</li>
+  <li>Преобразует данные в формат Яндекс Маркета;</li>
+  <li>Отправляет их через <code>POST /api/v2/offers</code> (документация: <a href="https://yandex.ru/dev/market/partner-marketplace/doc/dg/concepts/about.html" target="_blank">API Яндекс Маркета</a>);</li>
+  <li>Обрабатывает ответ и логирует ошибки.</li>
+</ol>
+
+<p><strong>Шаг 3. Настройте автоматическое обновление.</strong></p>
+<p>Используйте <em>cron</em> (для Linux-серверов) или <em>Задачи в Планировщике Windows</em>, чтобы скрипт запускался каждые 6–12 часов.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При работе через API следите за <strong>лимитами запросов</strong>:
+<ul>
+  <li>Ozon: <code>100 запросов в минуту</code>;</li>
+  <li>Яндекс Маркет: <code>5000 запросов в час</code>.</li>
+</ul>
+<p>Превышение лимитов ведёт к блокировке API-ключа!</blockquote></p>
+
+<details class="pb-accordion"><summary>Пример кода для синхронизации на Python</summary><div class="pb-accordion-body"><p>
+<p>```python</p>
+<p>import requests</p>
+
+<h2 id="получение-товаров-из-ozon">Получение товаров из Ozon</h2>
+<p>ozon_url = "https://api-seller.ozon.ru/v2/product/info/list"</p>
+<p>headers = {"Client-Id": "Ваш_Client_ID", "Api-Key": "Ваш_API_ключ"}</p>
+<p>response = requests.post(ozon_url, headers=headers, json={"filter": {"visibility": "ALL"}})</p>
+<p>ozon_products = response.json()["result"]["items"]</p>
+
+<h2 id="преобразование-и-отправка-в-яндекс-маркет">Преобразование и отправка в Яндекс Маркет</h2>
+<p>yandex_url = "https://api.partner.market.yandex.ru/v2/offers"</p>
+<p>yandex_headers = {"Authorization": "Bearer Ваш_токен_Яндекса"}</p>
+<p>for product in ozon_products:</p>
+<p>transformed = {</p>
+<p>"offer": {</p>
+<p>"id": product["offer_id"],</p>
+<p>"price": product["price"],</p>
+<p>"name": product["name"],</p>
+<p># ... другие поля</p>
+<p>}</p>
+<p>}</p>
+<p>requests.post(yandex_url, headers=yandex_headers, json=transformed)</p>
+<p>```</p></div></details></p>
+
+<h2 id="5-таблица-соответствия-атрибутов-ozon-яндекс-маркет">5. Таблица соответствия атрибутов Ozon → Яндекс Маркет</h2>
+
+<p>Одна из главных сложностей при переносе товаров — несовпадение названий полей. Ниже приведена таблица соответствия ключевых атрибутов. <strong>Обратите внимание:</strong> некоторые поля на Яндекс Маркете обязательны, даже если они не требуются на Ozon.</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th><strong>Атрибут на Ozon</strong></th>
+      <th><strong>Атрибут на Яндекс Маркете</strong></th>
+      <th><strong>Обязательный?</strong></th>
+      <th><strong>Примечания</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>offer_id</code></td>
+      <td><code>offer id</code></td>
+      <td>Да</td>
+      <td>Уникальный идентификатор товара</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td><code>name</code></td>
+      <td>Да</td>
+      <td>Название товара (макс. 255 символов)</td>
+    </tr>
+    <tr>
+      <td><code>price</code></td>
+      <td><code>price</code></td>
+      <td>Да</td>
+      <td>Цена в рублях (целое число)</td>
+    </tr>
+    <tr>
+      <td><code>images</code></td>
+      <td><code>picture</code></td>
+      <td>Да</td>
+      <td>Ссылка на главное изображение (JPG/PNG, мин. 800×800)</td>
+    </tr>
+    <tr>
+      <td><code>category_id</code></td>
+      <td><code>categoryId</code></td>
+      <td>Да</td>
+      <td>ID категории Яндекс Маркета (см. <a href="https://yandex.ru/dev/market/partner-marketplace/doc/dg/reference/category.html" target="_blank">справочник</a>)</td>
+    </tr>
+    <tr>
+      <td><code>barcode</code></td>
+      <td><code>barcode</code></td>
+      <td>Для большинства категорий</td>
+      <td>Штрихкод EAN/UPC (13 цифр)</td>
+    </tr>
+    <tr>
+      <td><code>attributes.color</code></td>
+      <td><code>param name="Цвет"</code></td>
+      <td>Для одежды/обуви</td>
+      <td>Значение на русском языке</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><mark>Важно: Яндекс Маркет требует указания бренда (<code>vendor</code>) для всех товаров, кроме handmade. Если на Ozon бренд не указан, добавьте его вручную или используйте значение "Без бренда" (но это может снизить видимость товара).</mark></p>
+
+<h2 id="6-типичные-ошибки-и-как-их-избежать">6. Типичные ошибки и как их избежать</h2>
+
+<p>Даже при правильной настройке фида товары могут не публиковаться. Вот самые частые причины и решения:</p>
+
+<p><strong>1. Ошибка: "Недопустимая категория".</strong></p>
+<ul>
+  <li><strong>Причина:</strong> ID категории в фиде не соответствует справочнику Яндекс Маркета.</li>
+  <li><strong>Решение:</strong> Проверьте категорию через <a href="https://partner.market.yandex.ru/help/TAXONOMY" target="_blank">таксономию Яндекс Маркета</a>.</li>
+</ul>
+
+<p><strong>2. Ошибка: "Отсутствует обязательный атрибут".</strong></p>
+<ul>
+  <li><strong>Причина:</strong> Не заполнены поля <code>vendor</code>, <code>barcode</code> или <code>description</code>.</li>
+  <li><strong>Решение:</strong> Добавьте недостающие данные в фид. Для штрихкодов можно использовать сервисы вроде <em>GS1 Russia</em>.</li>
+</ul>
+
+<p><strong>3. Ошибка: "Невалидное изображение".</strong></p>
+<ul>
+  <li><strong>Причина:</strong> Фото слишком маленькое, с водяными знаками или не по формату.</li>
+  <li><strong>Решение:</strong> Пересохраните изображения в формате <code>JPG/PNG</code>, размером не менее <code>800×800 px</code>.</li>
+</ul>
+
+<p><strong>4. Ошибка: "Цена слишком низкая/высокая".</strong></p>
+<ul>
+  <li><strong>Причина:</strong> Яндекс Маркет блокирует цены, выходящие за пределы рыночных (например, смартфон за 1 рубль).</li>
+  <li><strong>Решение:</strong> Проверьте среднюю цену по категории на Маркете и скорректируйте свою.</li>
+</ul>
+
+<p><strong>5. Ошибка: "Товар дублирует существующий".</strong></p>
+<ul>
+  <li><strong>Причина:</strong> В фиде указан тот же <code>barcode</code> или <code>vendor + name</code>, что и у другого продавца.</li>
+  <li><strong>Решение:</strong> Измените название или добавьте уникальные характеристики (например, комплектацию).</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Перед первой выгрузкой всегда тестируйте фид на 5–10 товарах. Это поможет выявить ошибки без риска для всего каталога.</p></aside>
+
+<h2 id="7-особенности-для-продавцов-fbs-и-fbo">7. Особенности для продавцов FBS и FBO</h2>
+
+<p>Схема работы (<code>FBS</code> или <code>FBO</code>) влияет на процесс выгрузки товаров:</p>
+
+<p><strong>Для FBS (доставка со своего склада):</strong></p>
+<ul>
+  <li>📦 Выгружайте <strong>реальные остатки</strong> — Яндекс Маркет штрафует за несоответствие;</li>
+  <li>📦 Указывайте <strong>сроки доставки</strong> по регионам (обязательно для Маркета);</li>
+  <li>📦 Настройте автоматическую синхронизацию заказов, чтобы избежать ошибок при резервировании товаров.</li>
+</ul>
+
+<p><strong>Для FBO (доставка через Ozon):</strong></p>
+<ul>
+  <li>🚚 В фиде для Яндекс Маркета укажите, что товар <strong>отправляется со склада Ozon</strong> (используйте параметр <code>delivery-options</code>);</li>
+  <li>🚚 Цены на Маркете должны учитывать <strong>комиссию Ozon</strong> (иначе продажа будет убыточной);</li>
+  <li>🚚 Отслеживайте <strong>лимиты на количество заказов</strong> — Яндекс Маркет может приостановить продажи при превышении.</li>
+</ul>
+
+<p><strong>Важно для FBO:</strong> Яндекс Маркет не работает напрямую с складами Ozon, поэтому вам придётся вручную или через API синхронизировать статусы заказов. Например, если товар продался на Маркете, его нужно резервировать на Ozon, чтобы избежать оверселинга.</p>
+
+<h2 id="8-альтернативные-сервисы-для-синхронизации">8. Альтернативные сервисы для синхронизации</h2>
+
+<p>Если вам не хочется возиться с ручными настройками, можно использовать сторонние сервисы. Они автоматизируют перенос товаров, но берут комиссию (от 500 руб./мес.). Популярные решения:</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th><strong>Сервис</strong></th>
+      <th><strong>Стоимость</strong></th>
+      <th><strong>Особенности</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Pulse</em></td>
+      <td>От 990 руб./мес.</td>
+      <td>Поддерживает Ozon, Яндекс Маркет, Wildberries. Есть бесплатный тариф на 50 товаров.</td>
+    </tr>
+    <tr>
+      <td><em>Shopolog</em></td>
+      <td>От 1 500 руб./мес.</td>
+      <td>Автоматическая синхронизация цен и остатков, интеграция с 1С.</td>
+    </tr>
+    <tr>
+      <td><em>МойСклад</em></td>
+      <td>От 2 990 руб./мес.</td>
+      <td>Подходит для крупных каталогов, есть CRM и аналитика.</td>
+    </tr>
+    <tr>
+      <td><em>LitCommerce</em></td>
+      <td>От 29$/мес.</td>
+      <td>Международный сервис, поддерживает eBay, Amazon, Etsy.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Прежде чем платить за сервис, проверьте:</p>
+<ul>
+  <li>🔍 Есть ли <strong>бесплатный пробный период</strong>;</li>
+  <li>🔍 Поддерживает ли сервис вашу <strong>схему работы</strong> (FBS/FBO);</li>
+  <li>🔍 Можно ли <strong>кастомизировать</strong> цены и описания для разных платформ.</li>
+</ul>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Сервисы-посредники удобны, но добавляют задержку в синхронизации (обычно 1–2 часа). Если вам нужна мгновенная актуализация цен, лучше использовать прямое API.</p></aside>
+
+<h2 id="faq-частые-вопросы-по-переносу-товаров">FAQ: Частые вопросы по переносу товаров</h2>
+
+<details>
+  <summary>Можно ли перенести отзывы с Ozon на Яндекс Маркет?</summary>
+  <p>Нет, Яндекс Маркет не поддерживает импорт отзывов с других платформ. Все отзывы накапливаются органически после продаж на Маркете. Однако вы можете добавить цитаты из отзывов Ozon в <strong>описание товара</strong> (с пометкой "Отзыв с Ozon").</p>
+</details>
+
+<details>
+  <summary>Сколько времени занимает модерация товаров на Яндекс Маркете?</summary>
+  <p>Срок модерации зависит от категории:
+  <ul>
+    <li>📦 <strong>Электроника, бытовая техника:</strong> 1–3 дня;</li>
+    <li>📦 <strong>Одежда, обувь:</strong> 3–7 дней;</li>
+    <li>📦 <strong>Продукты питания, косметика:</strong> до 14 дней (требуются сертификаты).</li>
+  </ul>
+<p>Ускорить процесс можно, если заранее подготовить все документы (сертификаты, декларации).</p></p>
+</details>
+
+<details>
+  <summary>Что делать, если Яндекс Маркет отклонил товар из-за "недостоверного описания"?</summary>
+  <p>Эта ошибка возникает, если:
+  <ul>
+    <li>Описание скопировано с другого сайта (Яндекс проверяет на уникальность);</li>
+    <li>Указаны неверные характеристики (например, <em>"диагональ 55 дюймов"</em> для телевизора, который на самом деле 50");</li>
+    <li>Отсутствуют ключевые параметры (например, <code>страна-производитель</code> для одежды).</li>
+  </ul>
+  <strong>Решение:</strong> Перепишите описание своими словами, добавьте фотографии с разных ракурсов и уточните технические характеристики.</p>
+</details>
+
+<details>
+  <summary>Можно ли выгружать товары с Ozon на Яндекс Маркет, если они уже есть у других продавцов?</summary>
+  <p>Да, но с оговорками:
+  <ul>
+    <li>Если товар <strong>уникальный</strong> (например, handmade), проблем не будет;</li>
+    <li>Если товар <strong>серийный</strong> (например, <em>iPhone 15</em>), ваша карточка будет конкурировать с другими. Яндекс Маркет может понизить её в выдаче, если ваша цена выше или рейтинг продавца ниже;</li>
+    <li>Если у товара есть <strong>штрихкод</strong>, ваша карточка будет привязана к общей странице товара на Маркете (как на Ozon).</li>
+  </ul>
+<p>Чтобы выделиться, добавьте <strong>расширенное описание</strong>, уникальные фото и конкурентную цену.</p></p>
+</details>
+
+<details>
+  <summary>Как часто нужно обновлять фид на Яндекс Маркете?</summary>
+  <p>Рекомендуемая частота обновлений:
+  <ul>
+    <li>🔄 <strong>Цены и остатки:</strong> каждые 6–12 часов (особенно в период акций);</li>
+    <li>🔄 <strong>Описания и фото:</strong> раз в 1–2 недели (если были изменения);</li>
+    <li>🔄 <strong>Категории и атрибуты:</strong> раз в месяц (на случай обновлений таксономии Яндекс Маркета).</li>
+  </ul>
+<p>Слишком частые обновления (например, раз в час) могут привести к временной блокировке фида.</p></p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-vzyat-nomer-gtd-na-tovar-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти номер ГТД на Ozon: инструкция для продавца</span>
+                <span class="pb-related-desc">Узнайте, где взять номер ГТД для товаров на Ozon. Инструкция по поиску в документах, правила заполне</span>
+            </a><a href="/articles/a/ar/artikul-tovara-na-ozone-kak-posmotret.html" class="pb-related-card">
+                <span class="pb-related-title">Как найти артикул товара на Ozon: 5 способов для покупателей и продавцов</span>
+                <span class="pb-related-desc">Пошаговая инструкция, где искать артикул на Озоне в карточке товара, заказе, мобильном приложении и </span>
+            </a><a href="/articles/k/ka/kak-na-etiketki-ozon-napechatat-srok-godnosti.html" class="pb-related-card">
+                <span class="pb-related-title">Срок годности на этикетке Ozon: как напечатать и оформить</span>
+                <span class="pb-related-desc">Полная инструкция по маркировке товаров с ограниченным сроком годности для Ozon. Правила, штрихкоды </span>
+            </a><a href="/articles/k/ka/kak-sdelat-fotografii-dlya-ozona-samostoyatelno.html" class="pb-related-card">
+                <span class="pb-related-title">Фото для Озона: как сделать снимки самостоятельно</span>
+                <span class="pb-related-desc">Узнайте, как сделать качественные фото для Ozon своими руками. Советы по свету, ракурсам, требования</span>
+            </a><a href="/articles/t/te/termoetiketki-dlya-ozon-kakie-nuzhny.html" class="pb-related-card">
+                <span class="pb-related-title">Термоэтикетки для Ozon: размеры, виды и требования 2026</span>
+                <span class="pb-related-desc">Какие термоэтикетки нужны для Ozon? Полный гид по форматам, принтерам и правилам маркировки для FBO </span>
+            </a><a href="/articles/c/ch/chto-znachit-plokhoe-opisanie-tovara-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Плохое описание товара на Ozon: причины и последствия</span>
+                <span class="pb-related-desc">Узнайте, что значит плохое описание товара на Ozon. Как ошибки в карточке влияют на ранжирование, пр</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

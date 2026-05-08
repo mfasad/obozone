@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Выгрузка отчетов Ozon в 1С: пошаговая инструкция — Об Озоне</title>
+    <meta name="description" content="Узнайте, как правильно загружать отчеты Ozon в 1С для автоматизации учета. Настройка обмена, работа с CSV и XML, решение типичных ошибок синхронизации.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/ot/otchety-ozon-kak-vvodit-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Выгрузка отчетов Ozon в 1С: пошаговая инструкция">
+    <meta property="og:description" content="Узнайте, как правильно загружать отчеты Ozon в 1С для автоматизации учета. Настройка обмена, работа с CSV и XML, решение типичных ошибок синхронизации.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Выгрузка отчетов Ozon в 1С: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#подготовка-личного-кабинета-продавца-ozon">Подготовка личного кабинета продавца Ozon</a></li><li><a href="#выбор-формата-данных-csv-или-xml">Выбор формата данных: CSV или XML</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-отчетов">Пошаговая инструкция по выгрузке отчетов</a></li><li><a href="#настройка-импорта-данных-в-1с">Настройка импорта данных в 1С</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#автоматизация-процесса-обмена-данными">Автоматизация процесса обмена данными</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-v-analitike-ozon-seller-posmotret-kak-tovar-prodavalsya-v-techenie-goda.html">Где в Ozon Seller посмотреть продажи товара за год: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-ustroitsya-na-ozon-na-sklad-tatarstan.html">Как устроиться на Ozon склад Татарстан: вакансии и зарплата</a></li><li><a href="/articles/c/ch/chto-mozhno-prodavat-v-pvz-ozon.html">Что можно продавать в ПВЗ Озон: полный список товаров</a></li><li><a href="/articles/k/ka/kak-poluchit-pervye-zakazy-na-ozon.html">Как получить первые заказы на Ozon: 7 рабочих способов для новичков</a></li><li><a href="/articles/k/ka/kak-prodat-na-ozone-samozanyatym.html">Как самозанятому продавать на Ozon: пошаговое руководство 2026</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как загружать отчеты Ozon в 1С: полное руководство</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-личного-кабинета-продавца-ozon">Подготовка личного кабинета продавца Ozon</a></li><li><a href="#выбор-формата-данных-csv-или-xml">Выбор формата данных: CSV или XML</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-отчетов">Пошаговая инструкция по выгрузке отчетов</a></li><li><a href="#настройка-импорта-данных-в-1с">Настройка импорта данных в 1С</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#автоматизация-процесса-обмена-данными">Автоматизация процесса обмена данными</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Эффективное управление продажами на маркетплейсах невозможно без автоматизации учета. <strong>Интеграция Ozon с 1С</strong> позволяет селлерам экономить десятки часов ручной работы, исключать человеческий фактор при подсчете остатков и оперативно формировать финансовую отчетность. Однако процесс настройки и регулярной выгрузки данных часто вызывает сложности у предпринимателей, особенно при столкновении с форматами файлов и ошибками обмена.</p>
+
+<p>В этой статье мы детально разберем, как правильно <em>скачивать отчеты</em> из личного кабинета продавца, какие форматы данных (CSV или XML) предпочтительнее для различных конфигураций 1С, и как избежать критических ошибок при импорте. Вы узнаете о нюансах работы с модулями обмена и получите проверенные алгоритмы действий для актуализации складских остатков и финансовых показателей.</p>
+
+<p>Своевременная <strong>синхронизация данных</strong> — это фундамент стабильной торговли. Неправильно загруженный отчет может привести к тому, что в 1С "уедут" остатки, товар будет продан повторно или, наоборот, не попадет в реализацию. Понимание механики процесса защитит ваш бизнес от кассовых разрывов и штрафов со стороны площадки.</p>
+
+<h2 id="подготовка-личного-кабинета-продавца-ozon">Подготовка личного кабинета продавца Ozon</h2>
+
+<p>Прежде чем приступить к работе с бухгалтерским софтом, необходимо убедиться, что в личном кабинете селлера настроены все необходимые параметры для корректного экспорта. <strong>Отчеты Ozon</strong> формируются на основе данных, которые система аккумулирует в реальном времени, но доступ к ним требует определенных прав и настроек в разделе "Аналитика" или "Финансы".</p>
+
+<p>В первую очередь проверьте, активирована ли у вас возможность выгрузки детализированных отчетов по продажам и возвратам. Для этого перейдите в профиль и убедитесь, что ваш аккаунт имеет статус продавца с полным доступом. <em>API-ключи</em>, если вы используете сторонние модули или облачные сервисы-посредники, также генерируются именно в этом разделе настроек.</p>
+
+<p>Обратите внимание на периодичность формирования документов. Система Ozon обновляет финансовые отчеты (акты) обычно раз в месяц или по факту закрытия периода, в то время как отчеты по заказам доступны практически мгновенно. Для корректной работы 1С важно понимать эту разницу: <strong>оперативный учет</strong> ведется по заказам, а бухгалтерский — по закрывающим документам.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Убедитесь, что в настройках профиля указана верная валюта и формат дат. Несоответствие региональных настроек в личном кабинете и в 1С может привести к некорректному отображению сумм и дат транзакций при импорте.</p>
+</blockquote>
+
+<div class="pb-poll" id="poll-7c0a46a0"><div class="pb-poll-question">📊 Как вы сейчас загружаете отчеты Ozon в 1С?</div><div class="pb-poll-option" data-poll="7c0a46a0" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Вручную через CSV</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7c0a46a0" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Автоматически через модуль</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7c0a46a0" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Через сторонние сервисы</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="7c0a46a0" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не загружаю, веду в Excel</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="выбор-формата-данных-csv-или-xml">Выбор формата данных: CSV или XML</h2>
+
+<p>Одной из первых задач, с которой сталкивается пользователь, является выбор формата выгружаемого файла. Ozon предоставляет возможность экспорта данных в различных форматах, но для интеграции с платформами <em>1С:Предприятие</em> наиболее актуальны два из них: CSV и XML. Каждый из них имеет свои преимущества и сценарии использования.</p>
+
+<p>Формат <strong>CSV (Comma Separated Values)</strong> представляет собой текстовый файл, где данные разделены запятыми или точкой с запятой. Это универсальный формат, который читается практически любым табличным редактором и поддерживается большинством типовых конфигураций 1С. Он идеально подходит для загрузки списков товаров, остатков и простых отчетов о продажах.</p>
+
+<p>В отличие от него, <strong>XML</strong> является структурированным форматом, содержащим не только данные, но и метаданные, описывающие их структуру. XML чаще используется для сложного обмена, где важна иерархия товаров, варианты комплектации и детальные характеристики. Если ваша конфигурация 1С поддерживает прямой импорт XML-схем Ozon, это может значительно упростить процесс.</p>
+
+<details class="pb-accordion"><summary>В чем разница между кодировками UTF-8 и Windows-1251?</summary><div class="pb-accordion-body"><p>При выгрузке CSV файла critically важно выбрать правильную кодировку. Если 1С ожидает Windows-1251, а файл сохранен в UTF-8, вместо букв вы увидите «кракозябры». В современных версиях 1С и Excel предпочтительнее использовать UTF-8 с BOM, что позволяет автоматически определять кодировку при открытии.</p></div></details>
+
+<p>При выборе формата ориентируйтесь на возможности вашего модуля обмена. Некоторые сторонние решения требуют строгого соответствия шаблону, который может быть реализован только в одном из форматов. Проверьте документацию к вашему плагину или consulte с разработчиком вашей конфигурации 1С.</p>
+
+<h2 id="пошаговая-инструкция-по-выгрузке-отчетов">Пошаговая инструкция по выгрузке отчетов</h2>
+
+<p>Процесс получения данных из системы Ozon для последующей обработки в 1С требует последовательного выполнения ряда действий. Ошибка на любом из этапов может привести к тому, что файл будет содержать неактуальную информацию или окажется поврежденным. Ниже приведена пошаговая инструкция, актуальная для большинства стандартных сценариев.</p>
+
+<p>Сначала авторизуйтесь в личном кабинете селлера и перейдите в раздел <code>Финансы → Документы</code> (или <code>Аналитика → Отчеты</code>, в зависимости от типа нужных данных). Здесь вы увидите список доступных периодов. Выберите интересующий вас месяц или дату для формирования отчета.</p>
+
+<p>После выбора периода нажмите кнопку "Сформировать" или "Скачать". Система предложит выбрать формат файла. Для стандартной 1С чаще всего рекомендуется выбирать <strong>CSV (для Excel)</strong> или специфический формат <em>1C Import</em>, если такой пункт выделен отдельно. Сохраните файл в папку, доступную для вашей учетной системы.</p>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Алгоритм выгрузки отчета</h4><label class="check-item"><input type="checkbox"><span>Выбрать раздел Финансы/Аналитика</span></label><label class="check-item"><input type="checkbox"><span>Указать период отчета</span></label><label class="check-item"><input type="checkbox"><span>Выбрать формат CSV или XML</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку Скачать</span></label><label class="check-item"><input type="checkbox"><span>Проверить файл на наличие данных</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Важно проверять размер полученного файла. Если отчет за месяц весит несколько килобайт, а у вас были тысячи заказов, скорее всего, выгрузка прошла некорректно или фильтр был настроен слишком узко. В таком случае процедуру необходимо повторить, расширив параметры выборки.</p>
+
+<h2 id="настройка-импорта-данных-в-1с">Настройка импорта данных в 1С</h2>
+
+<p>После того как файл получен, наступает этап его загрузки в учетную систему. Интерфейс 1С может отличаться в зависимости от версии конфигурации (УТ, КА, Розница или специализированные решения для маркетплейсов), но логика процесса остается единой. Вам необходимо найти обработку, предназначенную для <strong>загрузки внешних отчетов</strong>.</p>
+
+<p>Обычно путь к нужной функции выглядит как <code>Администрирование → Обмен данными → Загрузка данных из CSV/XML</code>. В открывшемся окне укажите путь к сохраненному файлу отчета Ozon. Система предложит настроить соответствие полей (колонок) из файла полям справочников 1С.</p>
+
+<p>На этом этапе критически важно правильно сопоставить колонки. Например, колонка "Цена продажи" из отчета Ozon должна соответствовать полю "Цена" в документе 1С, а "Количество" — полю "Кол-во". Если вы используете <strong>автоматизированный модуль</strong>, эта настройка выполняется один раз и сохраняется в профиле обмена.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Поле в отчете Ozon</th>
+<th>Соответствующее поле в 1С</th>
+<th>Тип данных</th>
+<th>Важность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order Number</td>
+<td>Номер заказа</td>
+<td>Строка</td>
+<td>Высокая (Ключ)</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>Цена товара</td>
+<td>Число</td>
+<td>Высокая</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>Количество</td>
+<td>Число</td>
+<td>Высокая</td>
+</tr>
+<tr>
+<td>Delivery Date</td>
+<td>Дата отгрузки</td>
+<td>Дата</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>Артикул</td>
+<td>Строка</td>
+<td>Высокая (Поиск)</td>
+</tr>
+</tbody>
+</table></div>
+
+<p>После настройки соответствий запустите процесс загрузки. 1С считает файл, проанализирует данные и создаст соответствующие документы (заказы покупателей, поступления товаров или движения денег). В конце процесса система выдаст протокол, в котором будет указано количество обработанных и ошибочных строк.</p>
+
+<h2 id="типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</h2>
+
+<p>В процессе автоматизации пользователи часто сталкиваются с повторяющимися проблемами. Понимание природы этих ошибок позволяет устранять их за минуты, не прибегая к помощи программистов. Самая распространенная проблема — <strong>несоответствие артикулов</strong>.</p>
+
+<p>Если артикул товара в 1С отличается от артикула в карточке Ozon хотя бы на один символ (регистр букв, наличие пробелов), система не сможет найти товар и создаст новый или выдаст ошибку. Решается это проверкой справочника номенклатуры и приведением артикулов к единому стандарту.</p>
+
+<p>Другая частая ошибка связана с форматами чисел и дат. В русскоязычной 1С разделителем дробной части обычно является запятая, а в CSV-файлах из-за границы может использоваться точка. Это приводит к тому, что цена 100.50 превращается в 10050 или 100, что искажает финансовый результат.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Используйте промежуточные обработки для нормализации данных. Перед загрузкой в 1С можно прогнать CSV-файл через простой скрипт или макрос Excel, который приведет формат чисел и дат к требованиям вашей версии 1С.</p></aside>
+
+<p>Также встречаются ошибки дублирования документов. Если один и тот же отчет загрузить дважды, в базе появятся дубли заказов. Чтобы избежать этого, в настройках обмена следует включить опцию <em>контроля уникальности</em> по номеру заказа или хеш-сумме файла.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не удаляйте ошибочно загруженные документы вручную, если не уверены в последствиях. Лучше создать документ корректурной реализации или сторно, чтобы сохранить целостность бухгалтерского учета и аудиторского следа.</p>
+</blockquote>
+
+<h2 id="автоматизация-процесса-обмена-данными">Автоматизация процесса обмена данными</h2>
+
+<p>Ручная загрузка отчетов подходит для старта или малых объемов продаж, но с ростом бизнеса она становится узким горлышком. Для полноценной работы необходимо внедрять <strong>автоматический обмен</strong>. Это может быть реализовано через стандартные средства 1С (если конфигурация поддерживает прямой API Ozon) или через специализированные модули-коннекторы.</p>
+
+<p>Автоматизация позволяет не только загружать отчеты, но и выгружать остатки и цены на маркетплейс в режиме реального времени. Это предотвращает ситуации овербукинга (продажи товара, которого нет в наличии) и позволяет гибко управлять ценообразованием. Настройка такого режима требует внимательного изучения документации к конкретному модулю.</p>
+
+<p>При использовании облачных сервисов-агрегаторов (например, Omnidesk, ApiShopper и аналоги) процесс еще более упрощается: сервис сам забирает данные с Ozon, трансформирует их и передает в вашу 1С по расписанию. Вам остается только контролировать статусы синхронизации.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Переход на автоматический обмен данными окупается за счет сокращения времени менеджера на 80% и исключения ошибок ручного ввода, что напрямую влияет на маржинальность бизнеса.</p></aside>
+
+<p>Не забывайте, что даже при полной автоматизации необходим периодический аудит. Раз в месяц рекомендуется выборочно сверять данные в 1С с данными в личном кабинете Ozon, чтобы убедиться в корректности работы алгоритмов и отсутствии скрытых сбоев в канале передачи данных.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Как часто нужно загружать отчеты из Ozon в 1С?</summary>
+<p>Оперативные отчеты по заказам рекомендуется загружать ежедневно или в режиме реального времени для актуализации складских остатков. Финансовые отчеты (акты выполненных работ) загружаются после их формирования площадкой, обычно в начале следующего месяца за отчетным периодом.</p>
+</details>
+
+<details>
+<summary>Что делать, если 1С не видит файл отчета?</summary>
+<p>Проверьте формат файла (расширение), кодировку (должна быть совместима с 1С, обычно UTF-8 или Windows-1251) и путь к файлу (не используйте слишком длинные пути или специальные символы в имени папки). Также убедитесь, что файл не открыт в другой программе, например, в Excel.</p>
+</details>
+
+<details>
+<summary>Можно ли загружать отчеты Ozon в 1С 7.7?</summary>
+<p>Прямая загрузка современных форматов отчетов Ozon в устаревшие версии 1С (7.7) технически невозможна без сложных доработок. Рекомендуется использовать промежуточные конвертеры данных или переход на актуальные платформы (1С 8.2, 8.3), поддерживающие работу с HTTP-запросами и современными кодировками.</p>
+</details>
+
+<details>
+<summary>Как учитываются возвраты при загрузке отчетов?</summary>
+<p>В отчетах Ozon возвраты обычно помечаются отдельным статусом или выделены в отдельный раздел. При настройке импорта в 1С необходимо маппить эти строки на документ "Возврат от покупателя" или создавать отрицательную реализацию, чтобы корректно уменьшить выручку и восстановить остатки на складе.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-v-analitike-ozon-seller-posmotret-kak-tovar-prodavalsya-v-techenie-goda.html" class="pb-related-card">
+                <span class="pb-related-title">Где в Ozon Seller посмотреть продажи товара за год: пошаговая инструкция</span>
+                <span class="pb-related-desc">Подробный гайд, как найти и проанализировать динамику продаж товара на Ozon за 12 месяцев через анал</span>
+            </a><a href="/articles/k/ka/kak-ustroitsya-na-ozon-na-sklad-tatarstan.html" class="pb-related-card">
+                <span class="pb-related-title">Как устроиться на Ozon склад Татарстан: вакансии и зарплата</span>
+                <span class="pb-related-desc">Полный гид по трудоустройству на склад Озон в Татарстане (Казань, Иннополис). Зарплаты, график, треб</span>
+            </a><a href="/articles/c/ch/chto-mozhno-prodavat-v-pvz-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Что можно продавать в ПВЗ Озон: полный список товаров</span>
+                <span class="pb-related-desc">Узнайте, какие товары разрешено продавать через пункт выдачи Ozon. Актуальные категории, требования </span>
+            </a><a href="/articles/k/ka/kak-poluchit-pervye-zakazy-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как получить первые заказы на Ozon: 7 рабочих способов для новичков</span>
+                <span class="pb-related-desc">Пошаговое руководство для новых продавцов: как быстро получить первые заказы на Ozon в 2026 году. Ре</span>
+            </a><a href="/articles/k/ka/kak-prodat-na-ozone-samozanyatym.html" class="pb-related-card">
+                <span class="pb-related-title">Как самозанятому продавать на Ozon: пошаговое руководство 2026</span>
+                <span class="pb-related-desc">Полная инструкция для самозанятых: как зарегистрироваться на Ozon, выбрать схему работы, оформить то</span>
+            </a><a href="/articles/s/sk/skolko-mozhno-zarabotat-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Сколько можно заработать на Ozon: честный расчет прибыли</span>
+                <span class="pb-related-desc">Узнайте реальную математику заработка на Ozon. Анализ маржинальности, схем FBO/FBS и скрытых расходо</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

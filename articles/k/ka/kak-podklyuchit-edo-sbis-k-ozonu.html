@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Подключение ЭДО СБИС к Озон: пошаговая инструкция 2026 — Об Озоне</title>
+    <meta name="description" content="Как настроить электронный документооборот между СБИС и Ozon: регистрация, настройки, тестирование и решение ошибок. Актуально для продавцов FBS/FBO.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-podklyuchit-edo-sbis-k-ozonu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Подключение ЭДО СБИС к Озон: пошаговая инструкция 2026">
+    <meta property="og:description" content="Как настроить электронный документооборот между СБИС и Ozon: регистрация, настройки, тестирование и решение ошибок. Актуально для продавцов FBS/FBO.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-nav-active">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/start-dlya-sellera/">Старт для Селлера</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Подключение ЭДО СБИС к Озон: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-требования-к-подключению-эдо-между-сбис-и-ozon">1. Требования к подключению ЭДО между СБИС и Ozon</a></li><li><a href="#2-регистрация-в-сбис-и-получение-доступа-к-эдо">2. Регистрация в СБИС и получение доступа к ЭДО</a></li><li><a href="#3-настройка-эдо-в-личном-кабинете-ozon-seller">3. Настройка ЭДО в Личном кабинете Ozon Seller</a></li><li><a href="#4-тестирование-обмена-документами">4. Тестирование обмена документами</a></li><li><a href="#5-автоматизация-обмена-интеграция-с-1с-и-другими-системами">5. Автоматизация обмена: интеграция с 1С и другими системами</a></li><li><a href="#6-типичные-проблемы-и-их-решения">6. Типичные проблемы и их решения</a></li><li><a href="#7-обновление-реквизитов-и-переподключение-эдо">7. Обновление реквизитов и переподключение ЭДО</a></li><li><a href="#faq-частые-вопросы-о-подключении-сбис-к-ozon">FAQ: Частые вопросы о подключении СБИС к Ozon</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-najti-spravku-seller-na-ozon.html">Где найти справку селлер на Озон: пошаговая инструкция</a></li><li><a href="/articles/f/fs/fss-sertifikat-chto-takoe-na-ozone.html">ФСС сертификат на Озоне: что это, как получить и зачем нужен</a></li><li><a href="/articles/k/ka/kak-stat-menedzherom-na-ozone.html">Как стать менеджером на Ozon в 2026: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-podklyuchitsya-k-ozon-ekspress.html">Как подключиться к Ozon Express: пошаговая инструкция</a></li><li><a href="/articles/o/oz/ozon-product-id-chto-eto.html">Ozon Product ID: что это, где найти и как использовать</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как подключить ЭДО СБИС к Озон: полная инструкция для продавцов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-требования-к-подключению-эдо-между-сбис-и-ozon">1. Требования к подключению ЭДО между СБИС и Ozon</a></li><li><a href="#2-регистрация-в-сбис-и-получение-доступа-к-эдо">2. Регистрация в СБИС и получение доступа к ЭДО</a></li><li><a href="#3-настройка-эдо-в-личном-кабинете-ozon-seller">3. Настройка ЭДО в Личном кабинете Ozon Seller</a></li><li><a href="#4-тестирование-обмена-документами">4. Тестирование обмена документами</a></li><li><a href="#5-автоматизация-обмена-интеграция-с-1с-и-другими-системами">5. Автоматизация обмена: интеграция с 1С и другими системами</a></li><li><a href="#6-типичные-проблемы-и-их-решения">6. Типичные проблемы и их решения</a></li><li><a href="#7-обновление-реквизитов-и-переподключение-эдо">7. Обновление реквизитов и переподключение ЭДО</a></li><li><a href="#faq-частые-вопросы-о-подключении-сбис-к-ozon">FAQ: Частые вопросы о подключении СБИС к Ozon</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body"><p>Электронный документооборот (ЭДО) между <em>СБИС</em> и <strong>маркетплейсом Ozon</strong> — обязательное условие для продавцов, работающих по схеме <code>FBS</code> или <code>FBO</code> с 2023 года. Без корректной настройки обмена документами вы не сможете оформлять возврат НДС, подтверждать отгрузки и получать оплату за товары. В этой статье разберём весь процесс подключения — от регистрации в <em>СБИС</em> до тестирования обмена с <em>Ozon</em>, а также типичные ошибки и способы их устранения.</p>
+
+<p>Важно понимать: <mark>с 1 июля 2026 года Ozon блокирует выплаты продавцам без действующего ЭДО с оператором, аккредитованным ФНС</mark>. <em>СБИС</em> — один из самых популярных операторов среди продавцов на маркетплейсе благодаря интеграции с <code>1С</code>, <code>МойСклад</code> и другими системами учёта. Если вы ещё не подключили ЭДО или получаете ошибки при обмене, эта инструкция поможет решить проблему за 1–2 часа.</p>
+
+<h2 id="1-требования-к-подключению-эдо-между-сбис-и-ozon">1. Требования к подключению ЭДО между СБИС и Ozon</h2>
+
+<p>Прежде чем приступать к настройке, проверьте, соответствуете ли вы ключевым требованиям:</p>
+
+<ul>
+  <li>📌 <strong>Юридический статус</strong>: ЭДО доступен только для ИП и ООО. Физлица и самозанятые не могут подключаться.</li>
+  <li>🔑 <strong>Договор с Ozon</strong>: Должен быть заключён действующий договор на продажу по модели <code>FBS</code> или <code>FBO</code>.</li>
+  <li>💻 <strong>Доступ к Личному кабинету</strong>: Права администратора в <em>СБИС</em> и на портале <em>Ozon Seller</em>.</li>
+  <li>📄 <strong>ЭЦП</strong>: Квалифицированная электронная подпись (КЭП) для подписания документов. Подойдёт подпись от <em>Тинькофф</em>, <em>Сбербанка</em> или любого аккредитованного УЦ.</li>
+</ul>
+
+<p>Если хотя бы одно из условий не выполнено, подключение будет невозможно. Например, <strong>без КЭП</strong> вы сможете только просматривать входящие документы, но не подписывать их. Также обратите внимание: <em>Ozon</em> работает только с операторами ЭДО, включёнными в <a href="https://www.nalog.ru/rn77/program/5961269/" target="_blank">реестр ФНС</a>. На момент 2026 года <em>СБИС</em> в этом списке значится под номером <code>РОО-005</code>.</p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если вы ранее подключали ЭДО через другого оператора (например, <em>Такском</em> или <em>Контур.Диадок</em>), перед переходом на <em>СБИС</em> необходимо <strong>отключить старый оператор в Личном кабинете Ozon</strong>. Одновременная работа с несколькими операторами запрещена.</blockquote>
+
+<h2 id="2-регистрация-в-сбис-и-получение-доступа-к-эдо">2. Регистрация в СБИС и получение доступа к ЭДО</h2>
+
+<p>Если у вас ещё нет аккаунта в <em>СБИС</em>, зарегистрируйтесь на официальном сайте <a href="https://sbis.ru/" target="_blank">sbis.ru</a>. Для продавцов <em>Ozon</em> подойдёт тариф <strong>"ЭДО Старт"</strong> (бесплатно для новых пользователей на 3 месяца) или <strong>"ЭДО Профи"</strong> (от 1 200 ₽/мес). При регистрации укажите:</p>
+
+<ul>
+  <li>📝 <strong>ИНН</strong> вашей компании (должен совпадать с ИНН в договоре с <em>Ozon</em>).</li>
+  <li>🏢 <strong>Название организации</strong> или ФИО ИП (точно как в ЕГРЮЛ/ЕГРИП).</li>
+  <li>📧 <strong>Корпоративную почту</strong> (не mail.ru или gmail — лучше использовать домен вашей компании).</li>
+</ul>
+
+<p>После регистрации подтвердите почту и дождитесь SMS с кодом активации. Затем:</p>
+
+<ol>
+  <li>Авторизуйтесь в <em>СБИС</em> и перейдите в раздел <code>ЭДО → Настройки обмена</code>.</li>
+  <li>Нажмите <code>"Подключить нового партнёра"</code> и выберите <strong>Ozon</strong> из списка маркетплейсов.</li>
+  <li>Заполните форму с данными из Личного кабинета <em>Ozon Seller</em>:
+    <ul>
+      <li><code>Идентификатор продавца</code> (найдёте в <code>Профиль → Реквизиты</code>).</li>
+      <li><code>Номер договора</code> (указан в соглашении с <em>Ozon</em>).</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Система сгенерирует <strong>уникальный идентификатор обмена</strong> (пригодится на следующем этапе). Сохраните его или скопируйте в буфер обмена.</p>
+
+<div class="pb-poll" id="poll-40e5a337"><div class="pb-poll-question">📊 Какой оператор ЭДО вы используете для работы с Ozon?</div><div class="pb-poll-option" data-poll="40e5a337" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">СБИС</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40e5a337" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Контур.Диадок</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40e5a337" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Такском</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40e5a337" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Другой</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="40e5a337" data-idx="4" onclick="pbPollVote(this)"><span class="pb-poll-label">Ещё не подключал</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-настройка-эдо-в-личном-кабинете-ozon-seller">3. Настройка ЭДО в Личном кабинете Ozon Seller</h2>
+
+<p>Теперь перейдите в <em>Ozon Seller</em> и выполните следующие шаги:</p>
+
+<ol>
+  <li>Откройте раздел <code>Финансы → Электронный документооборот</code>.</li>
+  <li>Нажмите <code>"Подключить ЭДО"</code> и выберите оператора <strong>СБИС</strong>.</li>
+  <li>Введите данные из <em>СБИС</em>:
+    <ul>
+      <li><code>Идентификатор обмена</code> (скопированный ранее).</li>
+      <li><code>Название организации</code> (точно как в <em>СБИС</em>).</li>
+      <li><code>ИНН/КПП</code>.</li>
+    </ol>
+  </li>
+  <li>Подтвердите подключение кнопкой <code>"Сохранить"</code>.</li>
+</ul>
+
+<p>Система отправит запрос на подтверждение в <em>СБИС</em>. Вернитесь туда и в разделе <code>ЭДО → Входящие</code> найдите уведомление от <em>Ozon</em>. Подпишите его своей <strong>КЭП</strong> и дождитесь статуса <code>"Подключено"</code> (может занять до 24 часов).</p>
+
+
+<p>Идентификатор обмена в СБИС и Ozon совпадает|ЭЦП загружена и активна в СБИС|В Личном кабинете Ozon статус подключения — "Ожидает подтверждения"|Все реквизиты в СБИС и Ozon идентичны--></p>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если в течение суток статус не изменился, проверьте:
+  <ul>
+    <li>Корректность введённого <code>ИНН/КПП</code> (частая ошибка — опечатка в одном символе).</li>
+    <li>Наличие действующей <strong>КЭП</strong> (просроченная подпись блокирует обмен).</li>
+    <li>Отсутствие дублирующих подключений к другим операторам ЭДО.</li>
+  </ul>
+<p>При проблемах обратитесь в поддержку <em>СБИС</em> по телефону <code>8 800 700-72-72</code> (звонок бесплатный).</p>
+</blockquote>
+
+<h2 id="4-тестирование-обмена-документами">4. Тестирование обмена документами</h2>
+
+<p>После успешного подключения необходимо проверить, что документы корректно передаются между системами. Для этого:</p>
+
+<ol>
+  <li>В <em>Ozon Seller</em> создайте <strong>тестовый заказ</strong> (раздел <code>Товары → Тестовые заказы</code>).</li>
+  <li>Оформите <code>УПД (универсальный передаточный документ)</code> на любой товар.</li>
+  <li>В <em>СБИС</em> проверьте раздел <code>ЭДО → Входящие</code>. Документ должен появиться в течение 5–10 минут.</li>
+  <li>Подпишите УПД своей <strong>КЭП</strong> и отправьте обратно в <em>Ozon</em>.</li>
+</ol>
+
+<p>Если документ успешно вернулся в <em>Ozon Seller</em> со статусом <code>"Подписан"</code>, обмен настроен верно. В противном случае изучите ошибки в журнале обмена (<code>ЭДО → Журнал</code> в <em>СБИС</em>).</p>
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ошибка подписи (403)</code></td>
+      <td>Недействительная или просроченная КЭП</td>
+      <td>Обновите сертификат ЭЦП в <em>СБИС</em> или перевыпустите подпись</td>
+    </tr>
+    <tr>
+      <td><code>Не найден контрагент (404)</code></td>
+      <td>Несовпадение ИНН/названия в <em>Ozon</em> и <em>СБИС</em></td>
+      <td>Проверьте реквизиты в обоих системах и приведите к единому виду</td>
+    </tr>
+    <tr>
+      <td><code>Timeout (504)</code></td>
+      <td>Проблемы с соединением между серверами</td>
+      <td>Повторите отправку через 10–15 минут или обратитесь в поддержку</td>
+    </tr>
+    <tr>
+      <td><code>Документ не соответствует схеме (1001)</code></td>
+      <td>Неправильный формат УПД или ТОРГ-12</td>
+      <td>Скачайте шаблон документа в <em>Ozon Seller</em> и загрузите его в <em>СБИС</em></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если тестовый документ не приходит в СБИС дольше часа, проверьте настройки антивируса или фаервола — они могут блокировать исходящие соединения на порты 443 и 80.</p></aside>
+
+<h2 id="5-автоматизация-обмена-интеграция-с-1с-и-другими-системами">5. Автоматизация обмена: интеграция с 1С и другими системами</h2>
+
+<p>Ручное создание и подписание документов занимает много времени, особенно при большом количестве заказов. Чтобы автоматизировать процесс, настройте интеграцию <em>СБИС</em> с вашей учётной системой (например, <code>1С:Управление торговлей</code> или <code>МойСклад</code>).</p>
+
+<p>Для <code>1С</code>:</p>
+<ol>
+  <li>Скачайте обработку <code>"Обмен с СБИС"</code> с сайта <a href="https://releases.1c.ru/" target="_blank">1C</a>.</li>
+  <li>Установите её в вашу конфигурацию через <code>Файл → Открыть</code>.</li>
+  <li>В настройках обработки укажите:
+    <ul>
+      <li>Логин/пароль от <em>СБИС</em>.</li>
+      <li>Идентификатор обмена с <em>Ozon</em>.</li>
+      <li>Путь к сертификату <strong>КЭП</strong>.</li>
+    </ol>
+  </li>
+  <li>Настройте расписание автоматической выгрузки документов (рекомендуем каждые 2 часа).</li>
+</ul>
+
+<p>Для <code>МойСклад</code>:</p>
+<ul>
+  <li>Перейдите в <code>Настройки → Интеграции → СБИС</code>.</li>
+  <li>Авторизуйтесь через <em>СБИС</em> и выберите тип документов для обмена (УПД, ТОРГ-12, акты).</li>
+  <li>Активируйте опцию <code>"Автоподписание"</code> (если доверяете системе).</li>
+</ul>
+
+<p>После настройки проверьте синхронизацию, создав тестовый заказ в учётной системе. Документ должен автоматически уйти в <em>СБИС</em>, а оттуда — в <em>Ozon</em>.</p>
+
+<details class="pb-accordion"><summary>Как проверить лог интеграции в 1С?</summary><div class="pb-accordion-body"><p>
+<p>Откройте <code>Администрирование → Журнал регистрации</code>. Отфильтруйте записи по типу <code>"Обмен с СБИС"</code>. Ошибки будут отмечены красным цветом с кодом (например, <code>Ошибка 205: Не найден контрагент</code>).</p></div></details></p>
+
+<h2 id="6-типичные-проблемы-и-их-решения">6. Типичные проблемы и их решения</h2>
+
+<p>Даже после успешного подключения продавцы сталкиваются с ошибками. Рассмотрим самые частые:</p>
+
+<h3>🔴 Документы не приходят в СБИС</h3>
+<p>Проверьте:</p>
+<ul>
+  <li>🔌 <strong>Статус подключения</strong> в <em>Ozon Seller</em> (должен быть <code>"Активно"</code>).</li>
+  <li>📡 <strong>Настройки фаервола</strong> (разрешите исходящие соединения на <code>edo.sbis.ru</code>).</li>
+  <li>⏳ <strong>Задержку синхронизации</strong> (иногда документы приходят с задержкой до 1 часа).</li>
+</ul>
+
+<h3>🔴 Ошибка подписи документа</h3>
+<p>Причины:</p>
+<ul>
+  <li>🗝️ <strong>Просроченная КЭП</strong> (проверьте срок действия в <code>Сертификаты → Мои сертификаты</code> в <em>СБИС</em>).</li>
+  <li>🖥️ <strong>Несовместимый браузер</strong> (используйте <em>Google Chrome</em> или <em>Яндекс.Браузер</em> последней версии).</li>
+  <li>📱 <strong>Отсутствие криптопровайдера</strong> (установите <em>КриптоПро CSP</em> или <em>ViPNet CSP</em>).</li>
+</ul>
+
+<h3>🔴 Ozon не принимает документы</h3>
+<p>Чаще всего это связано с:</p>
+<ul>
+  <li>📄 <strong>Неправильным форматом</strong> (скачайте актуальный шаблон УПД в <em>Ozon Seller</em>).</li>
+  <li>🔢 <strong>Несовпадением сумм</strong> (проверьте итоговую стоимость в документе и заказе).</li>
+  <li>📅 <strong>Устаревшей версией документа</strong> (обновите шаблоны в <em>СБИС</em>).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание</strong>: Если в документе указан <code>НДС 20%</code>, а в карточке товара на <em>Ozon</code> — <code>НДС 10%</code>, система отклонит УПД. Всегда сверяйте ставки НДС перед отправкой!</blockquote>
+
+<h2 id="7-обновление-реквизитов-и-переподключение-эдо">7. Обновление реквизитов и переподключение ЭДО</h2>
+
+<p>Если вы поменяли реквизиты (ИНН, название организации, банковские счета), необходимо обновить их в обеих системах:</p>
+
+<ol>
+  <li>В <em>Ozon Seller</em> перейдите в <code>Профиль → Реквизиты</code> и внесите изменения.</li>
+  <li>В <em>СБИС</em> обновите данные в <code>Настройки → Моя организация</code>.</li>
+  <li>Отключите текущее подключение ЭДО в <em>Ozon</em> (<code>Финансы → ЭДО → Отключить</code>).</li>
+  <li>Повторите процедуру подключения заново (см. <a href="#3">раздел 3</a>).</li>
+</ol>
+
+<p>После смены реквизитов <em>Ozon</em> может запросить повторную верификацию вашей компании. Для этого прикрепите в <code>Профиль → Документы</code>:</p>
+<ul>
+  <li>📄 Скан нового свидетельства ОГРН/ОГРНИП.</li>
+  <li>🏦 Выписку из банка с новым расчётным счётом.</li>
+</ul>
+
+<p>Верификация занимает до 3 рабочих дней. В этот период обмен документами будет приостановлен.</p>
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>При смене реквизитов всегда сначала обновляйте данные в Ozon Seller, а затем — в СБИС. Обратный порядок может привести к рассинхронизации и блокировке выплат.</p></aside>
+
+<h2 id="faq-частые-вопросы-о-подключении-сбис-к-ozon">FAQ: Частые вопросы о подключении СБИС к Ozon</h2>
+
+<details>
+  <summary>🔹 Нужно ли платить за ЭДО в СБИС, если я работаю только с Ozon?</summary>
+  <p>Да, <em>СБИС</em> предоставляет бесплатный тариф только на 3 месяца. После истечения пробного периода придётся оплачивать абонентскую плату (от 1 200 ₽/мес для тарифа "ЭДО Профи"). Однако эти затраты окупятся за счёт ускорения документооборота и отсутствия штрафов от <em>Ozon</em> за несвоевременную сдачу отчётности.</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли подключить СБИС к Ozon без электронной подписи?</summary>
+  <p>Нет, <strong>КЭП обязательна</strong> для подписания документов. Без неё вы сможете только просматривать входящие УПД, но не отправлять их обратно. Если у вас ещё нет ЭЦП, оформите её в любом аккредитованном удостоверяющем центре (например, <em>Тинькофф</em>, <em>Сбербанк</em> или <em>Калуга Астрал</em>). Стоимость — от 1 500 ₽/год для ИП.</p>
+</details>
+
+<details>
+  <summary>🔹 Сколько времени занимает подключение ЭДО?</summary>
+  <p>При корректном заполнении данных процесс занимает от 1 до 24 часов. Основные этапы:
+    <ul>
+      <li>Регистрация в <em>СБИС</em> — 10 минут.</li>
+      <li>Настройка обмена в <em>Ozon Seller</em> — 5 минут.</li>
+      <li>Подтверждение со стороны <em>Ozon</em> — до 24 часов (обычно 1–2 часа).</li>
+    </ul>
+<p>Ускорить процесс можно, если заранее подготовить все реквизиты и действующую КЭП.</p></p>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если Ozon не видит подписанные документы?</summary>
+  <p>Проверьте следующие моменты:
+    <ol>
+      <li>Статус документа в <em>СБИС</em> — должен быть <code>"Отправлен и подписан"</code>.</li>
+      <li>Журнал обмена в <em>Ozon Seller</em> (<code>Финансы → ЭДО → Журнал</code>) на наличие ошибок.</li>
+      <li>Настройки антивируса — иногда они блокируют исходящие соединения с <em>СБИС</em>.</li>
+    </ol>
+<p>Если проблема сохраняется, обратитесь в поддержку <em>Ozon</em> с указанием номера документа и ошибки.</p></p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли подключить несколько операторов ЭДО к одному аккаунту Ozon?</summary>
+  <p>Нет, <em>Ozon</em> разрешает работать только с одним оператором ЭДО одновременно. Если вы пытаетесь подключить <em>СБИС</em>, но ранее использовали <em>Контур.Диадок</em>, сначала отключите старое подключение в <code>Финансы → ЭДО</code>.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/g/gd/gde-najti-spravku-seller-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Где найти справку селлер на Озон: пошаговая инструкция</span>
+                <span class="pb-related-desc">Узнайте, где найти справку селлер на Озон. Пошаговый алгоритм получения документа в личном кабинете </span>
+            </a><a href="/articles/f/fs/fss-sertifikat-chto-takoe-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">ФСС сертификат на Озоне: что это, как получить и зачем нужен</span>
+                <span class="pb-related-desc">Разбираемся, что такое ФСС сертификат на Ozon, для каких товаров он обязателен, как его оформить и к</span>
+            </a><a href="/articles/k/ka/kak-stat-menedzherom-na-ozone.html" class="pb-related-card">
+                <span class="pb-related-title">Как стать менеджером на Ozon в 2026: пошаговая инструкция</span>
+                <span class="pb-related-desc">Хотите работать менеджером на Ozon? Узнайте, какие навыки нужны, как устроиться официально или удалё</span>
+            </a><a href="/articles/k/ka/kak-podklyuchitsya-k-ozon-ekspress.html" class="pb-related-card">
+                <span class="pb-related-title">Как подключиться к Ozon Express: пошаговая инструкция</span>
+                <span class="pb-related-desc">Полный гайд по подключению к Ozon Express. Требования к складу, условия сотрудничества, пошаговая на</span>
+            </a><a href="/articles/o/oz/ozon-product-id-chto-eto.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Product ID: что это, где найти и как использовать</span>
+                <span class="pb-related-desc">Полный гид по идентификатору товара на Озон. Узнайте, чем отличается Product ID от артикула, где его</span>
+            </a><a href="/articles/k/ka/kak-prodat-svoj-tovar-na-ozon-ru.html" class="pb-related-card">
+                <span class="pb-related-title">Как продать товар на Ozon в 2026: пошаговая инструкция для новичков</span>
+                <span class="pb-related-desc">Полное руководство по регистрации, загрузке товаров, тарифам и продвижению на Ozon. Узнайте, как быс</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

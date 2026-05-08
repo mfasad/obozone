@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как изменяются цены на Ozon: от чего зависит и как ловить скидки — Об Озоне</title>
+    <meta name="description" content="Узнайте, как меняются цены на Ozon. Разбор алгоритмов ценообразования, динамического ценообразования и советы, как покупать товары дешевле.">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/k/ka/kak-izmenyayutsya-tseny-na-ozon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как изменяются цены на Ozon: от чего зависит и как ловить скидки">
+    <meta property="og:description" content="Узнайте, как меняются цены на Ozon. Разбор алгоритмов ценообразования, динамического ценообразования и советы, как покупать товары дешевле.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/" class="pb-nav-active">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/pokupki-i-oplata/">Покупки и Оплата</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Как изменяются цены на Ozon: от чего зависит и как ловить скидки</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#динамическое-ценообразование-как-это-работает">Динамическое ценообразование: как это работает</a></li><li><a href="#влияние-спроса-и-предложения-на-стоимость">Влияние спроса и предложения на стоимость</a></li><li><a href="#персонализированные-цены-и-работа-алгоритмов">Персонализированные цены и работа алгоритмов</a></li><li><a href="#роль-акций-распродаж-и-баллов-ozon">Роль акций, распродаж и баллов Ozon</a></li><li><a href="#скрытые-факторы-доставка-и-статус-продавца">Скрытые факторы: доставка и статус продавца</a></li><li><a href="#стратегии-экономии-как-покупать-выгоднее">Стратегии экономии: как покупать выгоднее</a></li><li><a href="#технические-аспекты-и-кэширование-данных">Технические аспекты и кэширование данных</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-udalit-onlajn-kartu-ozon.html">Как удалить онлайн-карту Озон: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kakie-karty-prinimaet-ozon-dlya-oplaty.html">Какие карты принимает Ozon для оплаты в 2026 году: полный список</a></li><li><a href="/articles/o/oz/ozon-fresh-produkty-otkuda.html">Ozon Fresh: откуда берутся продукты и как проверяют качество</a></li><li><a href="/articles/k/ka/kak-uznat-prishel-zakaz-na-ozon-ili-net.html">Как проверить заказ на Озон: 7 способов отследить статус</a></li><li><a href="/articles/k/ka/kak-oplatit-bonusami-yumani-na-ozon.html">Как оплатить бонусами ЮMoney на Ozon: полная инструкция</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Как изменяются цены на Ozon: секреты алгоритмов</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#динамическое-ценообразование-как-это-работает">Динамическое ценообразование: как это работает</a></li><li><a href="#влияние-спроса-и-предложения-на-стоимость">Влияние спроса и предложения на стоимость</a></li><li><a href="#персонализированные-цены-и-работа-алгоритмов">Персонализированные цены и работа алгоритмов</a></li><li><a href="#роль-акций-распродаж-и-баллов-ozon">Роль акций, распродаж и баллов Ozon</a></li><li><a href="#скрытые-факторы-доставка-и-статус-продавца">Скрытые факторы: доставка и статус продавца</a></li><li><a href="#стратегии-экономии-как-покупать-выгоднее">Стратегии экономии: как покупать выгоднее</a></li><li><a href="#технические-аспекты-и-кэширование-данных">Технические аспекты и кэширование данных</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Каждый пользователь популярного маркетплейса замечал, что стоимость товаров может меняться буквально на глазах. Вы могли положить смартфон в корзину вечером, а утром обнаружить, что он подорожал на тысячу рублей. Или наоборот, желаемая вещь вдруг стала доступнее без видимых причин. Это не случайность и не сбой системы, а результат работы сложнейших математических моделей.</p>
+
+<p>Понимание того, <strong>как изменяются цены на Ozon</strong>, дает покупателю реальное преимущество. Зная механику работы алгоритмов, можно существенно экономить семейный бюджет и совершать покупки в наиболее выгодные моменты. В этой статье мы разберем внутренние процессы ценообразования, влияние спроса и предложение, а также раскроем стратегии умного шопинга.</p>
+
+<h2 id="динамическое-ценообразование-как-это-работает">Динамическое ценообразование: как это работает</h2>
+<p>В основе системы лежит технология <em>Dynamic Pricing</em>. Это алгоритм, который автоматически корректирует стоимость товаров в реальном времени. Он анализирует миллионы параметров каждую секунду, учитывая действия конкурентов, текущий спрос, сезонность и даже поведение конкретного пользователя. Именно поэтому цена на одну и ту же модель наушников у разных людей может отличаться.</p>
+
+<p>Система стремится найти баланс между желанием продавца заработать и готовностью покупателя совершить сделку. Если товар пользуется высоким спросом, но его осталось мало на складе, алгоритм поднимет цену. В периоды низкого спроса или при затоваривании склада стоимость, наоборот, будет снижаться для стимуляции продаж.</p>
+
+<p>Важно понимать, что изменения могут происходить несколько раз в день. <strong>Динамическое ценообразование</strong> — это непрерывный процесс, который не останавливается ни на минуту. Покупатель видит лишь конечный результат этой работы, но за кулисами идет постоянная борьба за лучшую позицию в выдаче и привлечение внимания клиента.</p>
+
+<ul>
+<li>📈 <strong>Анализ спроса:</strong> при резком росте поисковых запросов стоимость может вырасти.</li>
+<li>📉 <strong>Конкуренция:</strong> если другие продавцы снизили цену, алгоритм предложит сделать то же самое.</li>
+<li>🛒 <strong>Поведение пользователя:</strong> частые просмотры товара могут сигнализировать о высоком интересе.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Изменение цены в корзине не всегда означает ошибку. Это штатная работа системы обновления данных в реальном времени. Если вы видите резкий скачок, подождите несколько минут или проверьте товар через другой аккаунт.</p>
+</blockquote>
+
+<h2 id="влияние-спроса-и-предложения-на-стоимость">Влияние спроса и предложения на стоимость</h2>
+<p>Фундаментальный закон экономики действует и в цифровой среде. Когда товар становится популярным, например, перед праздниками или во время выхода новой модели гаджета, его цена растет. Продавцы и сам маркетплейс видят, что люди готовы платить больше, и корректируют ценники. Особенно это заметно на <em>сезонных товарах</em>.</p>
+
+<p>Однако есть и обратная сторона медали. Если поставщик завез слишком много продукции, а спрос упал, начинаются распродажи. Алгоритмы Ozon стремятся избежать затоваривания складов, так как хранение товара стоит денег. Поэтому <strong>избыток предложения</strong> часто ведет к агрессивному снижению цен, чтобы освободить место для новых поступлений.</p>
+
+<p>Также стоит учитывать внешние факторы. Курсы валют, логистические проблемы или изменения в законодательстве могут мгновенно отразиться на конечной стоимости. Продавцы закладывают риски в цену, и при ухудшении экономической ситуации первыми реагируют именно они, поднимая ценники.</p>
+
+<div class="pb-table-wrap"><table>
+<thead>
+<tr>
+<th>Фактор влияния</th>
+<th>Реакция цены</th>
+<th>Частота изменений</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Высокий спрос</td>
+<td>Рост</td>
+<td>Ежечасно</td>
+</tr>
+<tr>
+<td>Низкий остаток на складе</td>
+<td>Рост</td>
+<td>Ежедневно</td>
+</tr>
+<tr>
+<td>Сезонное падение спроса</td>
+<td>Снижение</td>
+<td>Еженедельно</td>
+</tr>
+<tr>
+<td>Конкурентное давление</td>
+<td>Корректировка</td>
+<p>td>Мгновенно</td></p>
+</tr>
+</tbody>
+</table></div>
+
+<p>Покупателю полезно отслеживать эти циклы. Покупать зимнюю одежду лучше в конце сезона, а электронику — сразу после выхода новинок, когда старые модели начинают дешеветь. Понимание рыночных циклов помогает покупать вещи с максимальной выгодой.</p>
+
+<div class="pb-poll" id="poll-c6a3f367"><div class="pb-poll-question">📊 Как часто вы замечаете изменение цены на товар в корзине?</div><div class="pb-poll-option" data-poll="c6a3f367" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Цена всегда меняется</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6a3f367" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Только перед оплатой</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6a3f367" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Редко замечаю</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="c6a3f367" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Никогда не слежу</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="персонализированные-цены-и-работа-алгоритмов">Персонализированные цены и работа алгоритмов</h2>
+<p>Многие пользователи сталкивались с ситуацией, когда друг видел товар дешевле, чем вы. Это явление называется персонализированное ценообразование. Алгоритмы анализируют историю покупок, частоту посещений приложения и даже модель устройства. На основе этих данных формируется <strong>индивидуальное предложение</strong>.</p>
+
+<p>Если система видит, что вы лояльный клиент с Ozon Картой и часто покупаете определенные категории товаров, она может показать вам более низкую цену, чтобы стимулировать покупку. Новым пользователям или тем, кто давно не заходил на сайт, могут предложить <em>приветственные скидки</em> или, наоборот, стандартную розничную цену.</p>
+
+<p>Также играет роль геолокация. В разных регионах стоимость доставки и наличие товаров на локальных складах отличаются, что напрямую влияет на итоговую сумму в чеке. Поэтому <strong>географический фактор</strong> нельзя сбрасывать со счетов при сравнении цен.</p>
+
+
+
+<h2 id="роль-акций-распродаж-и-баллов-ozon">Роль акций, распродаж и баллов Ozon</h2>
+<p>Огромное влияние на финальную стоимость оказывают маркетинговые активности. Во время крупных распродаж, таких как "Хиты", "Черная пятница" или "Дни распродаж", базовая цена товара может снижаться производителем, а дополнительная скидка предоставляется за счет баллов Ozon. Это создает эффект двойной выгоды.</p>
+
+<p>Важно различать реальное снижение цены и маркетинговые уловки. Иногда перед акцией стоимость искусственно завышают, чтобы потом показать "скидку 90%". Однако на Ozon действует система контроля, которая отслеживает <strong>историю изменения цены</strong>. Если продавец резко поднял ценник перед акцией, маркетплейс может не пустить товар в промо-активность или даже оштрафовать селлера.</p>
+
+<p>Использование баллов Ozon — это отдельный механизм снижения стоимости. Баллы начисляются за покупки, отзывы и участие в играх. Оплата до 99% стоимости товара баллами позволяет фактически получать вещи бесплатно или с огромной скидкой, что особенно актуально для товаров с высокой маржинальностью.</p>
+
+<ul>
+<li>🔥 <strong>Flash-распродажи:</strong> кратковременные снижения цен на ограниченный тираж.</li>
+<li>🎁 <strong>Подарочные наборы:</strong> специальная цена при покупке комплектом.</li>
+<li>💳 <strong>Оплата баллами:</strong> возможность снизить цену до 99%.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Условия акций могут меняться в любой момент. Количество товаров по спеццене часто ограничено, и алгоритм автоматически возвращает обычную цену, как только лимит исчерпан.</p>
+</blockquote>
+
+<div class="pb-steps"><h4 class="pb-steps-title">☑️ Как поймать лучшую цену</h4><label class="check-item"><input type="checkbox"><span>Добавить товар в избранное</span></label><label class="check-item"><input type="checkbox"><span>Настроить уведомление о снижении</span></label><label class="check-item"><input type="checkbox"><span>Проверить цену с разных устройств</span></label><label class="check-item"><input type="checkbox"><span>Дождаться начала крупной акции</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="скрытые-факторы-доставка-и-статус-продавца">Скрытые факторы: доставка и статус продавца</h2>
+<p>Цена на витрине — это еще не все. Итоговая сумма в чеке зависит от условий доставки. Товары со склада Ozon (FBO) часто стоят дешевле в пересчете на доставку, так как они участвуют в подписке Ozon Premium. Бесплатная доставка для подписчиков может компенсировать более высокую стоимость самого товара.</p>
+
+<p>Статус продавца также влияет на ценообразование. Крупные брендовые магазины могут позволить себе меньшую маржу за счет огромных оборотов. Маленькие продавцы вынуждены держать цену выше, чтобы окупить комиссию маркетплейса и логистику. Выбирая между <strong>разными продавцами</strong>, всегда смотрите на итоговую сумму с доставкой.</p>
+
+<p>Кроме того, существуют скрытые комиссии. Если товар требует особой упаковки или относится к категории крупногабаритных, стоимость доставки может вырасти, что сделает изначально дешевое предложение менее выгодным. Всегда проверяйте условия <em>доставки и возврата</em> перед оплатой.</p>
+
+<p>Интересный факт: иногда добавление товара в корзину и ожидание в течение 24 часов может спровоцировать систему выдать персональное предложение со скидкой, чтобы "дожать" нерешительного покупателя. Алгоритмы фиксируют брошенные корзины и могут реагировать на них снижением цены.</p>
+
+<h2 id="стратегии-экономии-как-покупать-выгоднее">Стратегии экономии: как покупать выгоднее</h2>
+<p>Зная, как работает система, можно выработать эффективную стратегию покупок. Первое правило — не покупать в момент высокого ажиотажа. Если товар не срочный, лучше подождать окончания сезона или праздника. Второе правило — использовать инструменты отслеживания.</p>
+
+<p>Существуют сервисы и расширения для браузеров, которые показывают историю изменения цены. Они позволяют увидеть реальный график колебаний стоимости за последние месяцы. Это помогает понять, является ли текущая скидка реальной или это маркетинговый трюк. <strong>Анализ истории</strong> — мощнейший инструмент экономного покупателя.</p>
+
+<p>Также стоит комбинировать различные способы оплаты. Использование Ozon Карты дает дополнительную скидку (обычно от 5% до 30%), которая суммируется с акционной ценой. В некоторых случаях разница между оплатой обычной картой и картой Ozon может достигать тысяч рублей на крупных покупках.</p>
+
+
+
+<h2 id="технические-аспекты-и-кэширование-данных">Технические аспекты и кэширование данных</h2>
+<p>Иногда пользователи видят разные цены из-за кэширования данных в приложении или браузере. Страница может отображать старую информацию, пока не произойдет обновление. Если вы видите подозрительно низкую цену, попробуйте обновить страницу или выйти из аккаунта и проверить товар снова.</p>
+
+<p>Кроме того, существуют технические ошибки, когда цена отображается некорректно (например, 1 рубль за телевизор). В таких случаях маркетплейс оставляет за собой право отменить заказ, если будет доказана техническая ошибка. Однако часто такие "баги" становятся реальными сделками, если продавец не успел среагировать.</p>
+
+<p>Для продавцов существуют специальные инструменты в личном кабинете, позволяющие настраивать автоценообразование. Они могут задать правила, по которым цена будет меняться в зависимости от курса доллара или цен конкурентов. Это делает рынок еще более динамичным и зависимым от <em>автоматизированных систем</em>.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы увидели цену, которая кажется нереально низкой, не спешите с оплатой. Проверьте наличие товара у других продавцов и убедитесь, что это не ошибка отображения или условие предзаказа.</p>
+</blockquote>
+
+
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Почему цена в корзине изменилась после добавления товара?</summary>
+<p>Это происходит из-за динамического ценообразования. Пока вы выбирали товар, мог измениться спрос, курс валют или закончилась акционная квота. Система обновляет данные в реальном времени.</p>
+</details>
+
+<details>
+<summary>Можно ли зафиксировать цену на Ozon?</summary>
+<p>Формально зафиксировать цену нельзя. Однако, если вы оформили заказ и оплатили его, цена считается зафиксированной. Изменения после оплаты невозможны ни в большую, ни в меньшую сторону.</p>
+</details>
+
+<details>
+<summary>Влияет ли очистка кэша браузера на отображение цены?</summary>
+<p>Да, очистка кэша и cookies может помочь увидеть актуальную цену, если браузер отображал старую, закэшированную версию страницы. Также это может сбросить персонализированные настройки.</p>
+</details>
+
+<details>
+<summary>Правда ли, что с нового аккаунта цены ниже?</summary>
+<p>Часто это действительно так. Маркетплейс заинтересован в привлечении новых клиентов и может показывать им более выгодные предложения или давать доступ к специальным купонам для новичков.</p>
+</details>
+
+<details>
+<summary>Как часто меняются цены на популярные товары?</summary>
+<p>На популярные товары цены могут меняться несколько раз в день. Алгоритмы реагируют на каждое действие: покупку, добавление в корзину, изменение остатков на складе конкурентов.</p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-udalit-onlajn-kartu-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как удалить онлайн-карту Озон: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как правильно удалить привязанную карту с Озон: через приложение, сайт или службу поддержки</span>
+            </a><a href="/articles/k/ka/kakie-karty-prinimaet-ozon-dlya-oplaty.html" class="pb-related-card">
+                <span class="pb-related-title">Какие карты принимает Ozon для оплаты в 2026 году: полный список</span>
+                <span class="pb-related-desc">Актуальный перечень банковских карт для оплаты на Ozon: Visa, Mastercard, МИР, UnionPay и другие. Ус</span>
+            </a><a href="/articles/o/oz/ozon-fresh-produkty-otkuda.html" class="pb-related-card">
+                <span class="pb-related-title">Ozon Fresh: откуда берутся продукты и как проверяют качество</span>
+                <span class="pb-related-desc">Разбираемся, как Ozon Fresh отбирает поставщиков, контролирует свежесть и логистику продуктов. Где х</span>
+            </a><a href="/articles/k/ka/kak-uznat-prishel-zakaz-na-ozon-ili-net.html" class="pb-related-card">
+                <span class="pb-related-title">Как проверить заказ на Озон: 7 способов отследить статус</span>
+                <span class="pb-related-desc">Узнайте, пришел ли заказ на Озон: через приложение, сайт, email, SMS и другие каналы. Пошаговые инст</span>
+            </a><a href="/articles/k/ka/kak-oplatit-bonusami-yumani-na-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как оплатить бонусами ЮMoney на Ozon: полная инструкция</span>
+                <span class="pb-related-desc">Узнайте, как использовать бонусы ЮMoney для оплаты заказов на Ozon. Пошаговая инструкция, лимиты, ко</span>
+            </a><a href="/articles/k/ka/kak-potratit-mili-na-ozone-na-pokupku.html" class="pb-related-card">
+                <span class="pb-related-title">Как потратить мили на Ozon: инструкция и способы 2026</span>
+                <span class="pb-related-desc">Подробный гид: как потратить мили на Ozon в 2026 году. Инструкция по оплате, сроки сгорания и способ</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

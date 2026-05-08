@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Ozon Rocket: как работает система доставки за 2 часа (2026) — Об Озоне</title>
+    <meta name="description" content="Разбираем механизм работы Ozon Rocket: от логистики до тарифов. Как продавцу подключиться, а покупателю получить заказ за 2 часа?">
+    <link rel="canonical" href="https://obozone.vercel.app/articles/o/oz/ozon-rocket-kak-rabotaet.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Ozon Rocket: как работает система доставки за 2 часа (2026)">
+    <meta property="og:description" content="Разбираем механизм работы Ozon Rocket: от логистики до тарифов. Как продавцу подключиться, а покупателю получить заказ за 2 часа?">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778274409">
+    
+</head>
+<body class="pb-body">
+    
+    <div class="pb-topbar"></div>
+    <header class="pb-header">
+        <div class="pb-container pb-header-inner">
+            <a href="/" class="pb-logo">
+                <span class="pb-logo-icon">🛍️</span>
+                <span class="pb-logo-text">Об Озоне</span>
+            </a>
+            <button class="pb-menu-btn" aria-label="Меню" id="pbMenuBtn">☰</button>
+            <nav class="pb-nav" id="pbMainNav">
+                <a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-nav-active">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a>
+<div class="pb-nav-dropdown">
+            <button class="pb-dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="pb-dropdown-menu"><a href="/category/pokupki-i-oplata/" class="pb-dropdown-item">💳 Покупки и Оплата</a>
+<a href="/category/dostavka-i-pvz/" class="pb-dropdown-item">🚚 Доставка и ПВЗ</a>
+<a href="/category/start-dlya-sellera/" class="pb-dropdown-item">🚀 Старт для Селлера</a>
+<a href="/category/zagruzka-tovarov/" class="pb-dropdown-item">📦 Загрузка Товаров</a>
+<a href="/category/skhemy-fbs-i-fbo/" class="pb-dropdown-item">🏭 Схемы FBS и FBO</a>
+<a href="/category/vozvraty-i-obmen/" class="pb-dropdown-item">🔄 Возвраты и Обмен</a>
+<a href="/category/ozon-bank/" class="pb-dropdown-item">🏦 Ozon Банк</a>
+<a href="/category/aktsii-i-skidki/" class="pb-dropdown-item">🏷️ Акции и Скидки</a>
+<a href="/category/podderzhka-i-shtrafy/" class="pb-dropdown-item">🆘 Поддержка и Штрафы</a>
+<a href="/category/pvz-i-franshiza/" class="pb-dropdown-item">🏪 ПВЗ и Франшиза</a>
+<a href="/category/bezopasnost/" class="pb-dropdown-item">🛡️ Безопасность</a>
+<a href="/category/drugoe/" class="pb-dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="pb-breadcrumbs" aria-label="Навигация">
+        <div class="pb-container"><a href="/">Главная</a><span class="pb-bc-sep">/</span><a href="/category/dostavka-i-pvz/">Доставка и ПВЗ</a><span class="pb-bc-sep">/</span><span class="pb-bc-current">Ozon Rocket: как работает система доставки за 2 часа (2026)</span></div>
+    </nav>
+
+    <main class="pb-main">
+        <div class="pb-container">
+            <div class="pb-article-layout">
+                <aside class="pb-sidebar">
+                    
+                    <nav class="pb-sidebar-search"><div class="pb-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav>
+                    <nav class="pb-sidebar-toc"><h3>📋 Содержание</h3><ul><li><a href="#1-как-работает-логистика-ozon-rocket-от-склада-до-двери">1. Как работает логистика Ozon Rocket: от склада до двери</a></li><li><a href="#2-требования-к-продавцам-кто-может-подключиться-к-rocket">2. Требования к продавцам: кто может подключиться к Rocket</a></li><li><a href="#3-ограничения-и-подводные-камни-для-покупателей">3. Ограничения и «подводные камни» для покупателей</a></li><li><a href="#4-техническая-сторона-как-алгоритмы-выбирают-товары-для-rocket">4. Техническая сторона: как алгоритмы выбирают товары для Rocket</a></li><li><a href="#5-стоимость-доставки-сколько-на-самом-деле-стоит-скорость">5. Стоимость доставки: сколько на самом деле стоит скорость</a></li><li><a href="#6-как-продавцу-увеличить-продажи-через-rocket-лайфхаки">6. Как продавцу увеличить продажи через Rocket: лайфхаки</a></li><li><a href="#7-альтернативы-rocket-сравнение-с-другими-сервисами">7. Альтернативы Rocket: сравнение с другими сервисами</a></li><li><a href="#8-будущее-rocket-что-ждать-в-20242025-годах">8. Будущее Rocket: что ждать в 2024–2025 годах</a></li><li><a href="#частые-вопросы-о-ozon-rocket">Частые вопросы о Ozon Rocket</a></li></ul></nav>
+                    
+                    <nav class="pb-sidebar-related"><h3>📰 Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otsledit-posylku-ozon-iz-za-rubezha.html">Как отследить посылку Ozon из-за рубежа: пошаговый гайд 2026</a></li><li><a href="/articles/k/ka/kak-na-ozone-podtverdit-poluchenie-zakaza.html">Как на Озоне подтвердить получение заказа: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kakie-tovary-mozhno-poluchit-cherez-postamat-ozon.html">Какие товары можно получить через постаматы Ozon в 2026 году</a></li><li><a href="/articles/c/ch/chto-takoe-postamat-ozon-i-kak-zabirat.html">Что такое постамат Ozon и как забрать заказ: инструкция</a></li><li><a href="/articles/k/ka/kak-najti-kurera-ozon.html">Как найти курьера Ozon: поиск, отслеживание и связь</a></li></ul></nav>
+                    
+                </aside>
+                <article class="pb-article">
+                    <h1>Ozon Rocket: как устроена сверхбыстрая доставка за 2 часа</h1>
+                    <nav class="pb-mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-как-работает-логистика-ozon-rocket-от-склада-до-двери">1. Как работает логистика Ozon Rocket: от склада до двери</a></li><li><a href="#2-требования-к-продавцам-кто-может-подключиться-к-rocket">2. Требования к продавцам: кто может подключиться к Rocket</a></li><li><a href="#3-ограничения-и-подводные-камни-для-покупателей">3. Ограничения и «подводные камни» для покупателей</a></li><li><a href="#4-техническая-сторона-как-алгоритмы-выбирают-товары-для-rocket">4. Техническая сторона: как алгоритмы выбирают товары для Rocket</a></li><li><a href="#5-стоимость-доставки-сколько-на-самом-деле-стоит-скорость">5. Стоимость доставки: сколько на самом деле стоит скорость</a></li><li><a href="#6-как-продавцу-увеличить-продажи-через-rocket-лайфхаки">6. Как продавцу увеличить продажи через Rocket: лайфхаки</a></li><li><a href="#7-альтернативы-rocket-сравнение-с-другими-сервисами">7. Альтернативы Rocket: сравнение с другими сервисами</a></li><li><a href="#8-будущее-rocket-что-ждать-в-20242025-годах">8. Будущее Rocket: что ждать в 2024–2025 годах</a></li><li><a href="#частые-вопросы-о-ozon-rocket">Частые вопросы о Ozon Rocket</a></li></ul></details></nav>
+                    
+                    <div class="pb-article-body">
+
+<p>Сервис <strong>Ozon Rocket</strong> — это флагманское решение маркетплейса для молниеносной доставки товаров покупателям. Запущенный в 2021 году, он стал ответом на растущий спрос на мгновенные покупки: по данным <em>Ozon</em>, 68% пользователей готовы переплатить за доставку в день заказа. Но как технически реализована эта система? И почему не все товары доступны в формате <mark>«2 часа»</mark>?</p>
+
+<p>Для продавцов <em>Rocket</em> — это не просто логистический инструмент, а способ выделиться на фоне конкурентов. Покупатели же получают товар быстрее, чем успевает остыть кофе. Однако за этой скоростью стоят сложные алгоритмы, строгие требования к продавцам и ограничения по географии. Давайте разберёмся, как это работает изнутри — от момента нажатия кнопки «Купить» до звонка курьера в дверь.</p>
+
+<p>Сервис доступен только в крупных городах (Москва, Санкт-Петербург, Екатеринбург и др.), а ассортимент ограничен 30+ категориями — от электроники до продуктов. При этом <strong>92% заказов</strong> через <em>Rocket</em> доставляются точно в срок, что стало возможным благодаря уникальной инфраструктуре <em>Ozon</em>.
+
+<h2 id="1-как-работает-логистика-ozon-rocket-от-склада-до-двери">1. Как работает логистика Ozon Rocket: от склада до двери</h2>
+
+<p>Основной секрет скорости кроется в <strong>многоуровневой системе складов</strong>. Товары для <em>Rocket</em> хранятся не на удалённых хабах, а в так называемых <em>«микро-фулфилмент центрах»</em> (МФЦ) — небольших складах, расположенных в черте города. Это позволяет сократить путь курьера до покупателя до 5–15 км.
+
+<p>Процесс доставки разбивается на этапы:
+<ol>
+  <li><strong>Приём заказа</strong> — система автоматически проверяет наличие товара на ближайшем МФЦ.</li>
+  <li><strong>Комплектация</strong> — сотрудники собирают заказ за 10–15 минут (против 1–2 часов на обычных складах).</li>
+  <li><strong>Маршрутизация</strong> — алгоритмы <em>Ozon</em> оптимизируют путь курьера с учётом пробок и загруженности.</li>
+  <li><strong>Доставка</strong> — курьер использует электротранспорт (самокаты, велосипеды) для манёвренности в городе.</li>
+</ol>
+
+<p>Ключевая особенность: <em>Ozon</em> не полагается на сторонние службы доставки. Все курьеры — штатные сотрудники с фиксированными маршрутами и KPI по скорости. Например, в Москве среднее время от комплектации до вручения — <strong>1 час 47 минут</strong>.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Если товар доступен в <em>Rocket</em>, но срок доставки suddenly увеличился до 4+ часов, проверьте погоду: при сильном дожде или снегопаде <em>Ozon</em> автоматически переводит часть заказов на стандартную доставку из-за безопасности курьеров.</p></aside>
+
+<h2 id="2-требования-к-продавцам-кто-может-подключиться-к-rocket">2. Требования к продавцам: кто может подключиться к Rocket</h2>
+
+<p>Не каждый продавец на <em>Ozon</em> может предложить товары в формате <em>Rocket</em>. Маркетплейс выдвигает жёсткие условия:
+
+<ul>
+  <li>📦 <strong>Наличие товара на МФЦ</strong> — товар должен физически храниться на микро-складе в городе доставки.</li>
+  <li>⭐ <strong>Рейтинг 4.7+</strong> — продавцы с низкими оценками автоматически исключаются из программы.</li>
+  <li>📊 <strong>Высокий оборот</strong> — минимальный ежемесячный объём продаж (от 500 заказов для новых участников).</li>
+  <li>🔄 <strong>Низкий % возвратов</strong> — не более 5% от общего числа заказов.</li>
+</ul>
+
+<p>Кроме того, <em>Ozon</em> взимает дополнительную комиссию за участие в <em>Rocket</em>:
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr><th>Категория товара</th><th>Стандартная комиссия</th><th>Доп. комиссия Rocket</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Электроника</td><td>10%</td><td>+3%</td></tr>
+    <tr><td>Красота и здоровье</td><td>15%</td><td>+2.5%</td></tr>
+    <tr><td>Продукты питания</td><td>8%</td><td>+4%</td></tr>
+    <tr><td>Детские товары</td><td>12%</td><td>+3.5%</td></tr>
+  </tbody>
+</table></div>
+
+<p>Для подключения продавцу нужно:
+<ol>
+  <li>Заполнить анкету в личном кабинете (<code>Логистика → Ozon Rocket → Заявка</code>).</li>
+  <li>Пройти аудит складов (проверка на соответствие стандартам хранения).</li>
+  <li>Подписать дополнительное соглашение о комиссиях.</li>
+</ol>
+
+<div class="pb-poll" id="poll-66aec7ae"><div class="pb-poll-question">📊 Вы продавец на Ozon? Подключены ли вы к Rocket?</div><div class="pb-poll-option" data-poll="66aec7ae" data-idx="0" onclick="pbPollVote(this)"><span class="pb-poll-label">Да, подключён и активно использую</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="66aec7ae" data-idx="1" onclick="pbPollVote(this)"><span class="pb-poll-label">Нет, но планирую подключиться</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="66aec7ae" data-idx="2" onclick="pbPollVote(this)"><span class="pb-poll-label">Нет, не соответствую требованиям</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div><div class="pb-poll-option" data-poll="66aec7ae" data-idx="3" onclick="pbPollVote(this)"><span class="pb-poll-label">Не знаю, что это такое</span><span class="pb-poll-bar"></span><span class="pb-poll-pct"></span></div></div>
+
+<h2 id="3-ограничения-и-подводные-камни-для-покупателей">3. Ограничения и «подводные камни» для покупателей</h2>
+
+<p>Несмотря на очевидные плюсы, у <em>Rocket</em> есть нюансы, о которых покупатели часто не знают:
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если в корзине есть товары <em>с Rocket</em> и <em>без Rocket</em>, система автоматически разбивает заказ на два. Доставка не-Rocket товаров может затянуться до 3–5 дней.</blockquote>
+
+<p>Другие ограничения:
+<ul>
+  <li>🏙️ <strong>География</strong> — работает только в 12 городах России (полный список: <code>Москва, СПб, Екатеринбург, Новосибирск, Казань, Нижний Новгород, Самара, Ростов-на-Дону, Уфа, Красноярск, Пермь, Воронеж</code>).</li>
+  <li>🕒 <strong>Время заказа</strong> — после 20:00 доставка переносится на следующий день (даже если на сайте указано «2 часа»).</li>
+  <li>💳 <strong>Оплата</strong> — не работает при оплате наличными или «Купить в кредит».</li>
+  <li>📦 <strong>Вес и габариты</strong> — максимальный вес заказа 5 кг, габариты не более 60×40×30 см.</li>
+</ul>
+
+<p>Интересный факт: <em>Ozon</em> использует <strong>динамическое ценообразование</strong> для <em>Rocket</em>. В пиковые часы (18:00–21:00) стоимость доставки может вырасти на 30–50% — это сделано для распределения нагрузки на курьеров.
+
+<details class="pb-accordion"><summary>Почему иногда Rocket недоступен даже в поддерживаемых городах?</summary><div class="pb-accordion-body"><p>Это происходит из-за перегрузки МФЦ. Например, перед Новым годом <em>Ozon</em> временно отключает Rocket для категорий «Ёлки» и «Игрушки», чтобы избежать сбоев в доставке.</p></div></details>
+
+<h2 id="4-техническая-сторона-как-алгоритмы-выбирают-товары-для-rocket">4. Техническая сторона: как алгоритмы выбирают товары для Rocket</h2>
+
+<p>Система отбора товаров для <em>Rocket</em> работает на базе <strong>машинного обучения</strong>. Алгоритм анализирует более 20 параметров, включая:
+
+<ul>
+  <li>📈 <strong>Спрос</strong> — товары с высокой конверсией в «2 часа» получают приоритет.</li>
+  <li>📍 <strong>Локализация</strong> — чем ближе товар к покупателю, тем выше шанс попадания в Rocket.</li>
+  <li>🔄 <strong>Оборачиваемость</strong> — медленно продающиеся товары исключаются из программы.</li>
+  <li>💰 <strong>Маржинальность</strong> — <em>Ozon</em> отдаёт предпочтение товарам с комиссией выше 12%.</li>
+</ul>
+
+<p>Пример работы алгоритма:
+<pre><code>IF (товар_на_MФЦ = TRUE) AND (рейтинг_продавца ≥ 4.7) AND (вес ≤ 5 кг) THEN
+<p>приоритет_Rocket = (спрос_за_неделю × 0.4) + (близость_к_покупателю × 0.3) + (оборачиваемость × 0.3)</p>
+<p>ELSE</p>
+<p>приоритет_Rocket = 0</code></pre></p>
+
+<p>Интересно, что <em>Ozon</em> тестирует <strong>предсказательную аналитику</strong>: алгоритм заранее перемещает популярные товары на МФЦ в районах с прогнозируемым спросом. Например, перед дождём в Москве автоматически увеличивается запас зонтов и дождевиков на ближайших складах.
+
+<h2 id="5-стоимость-доставки-сколько-на-самом-деле-стоит-скорость">5. Стоимость доставки: сколько на самом деле стоит скорость</h2>
+
+<p>Цена <em>Rocket</em> варьируется в зависимости от города, веса и категории товара. Вот актуальные тарифы на 2026 год:
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr><th>Город</th><th>Вес до 1 кг</th><th>Вес 1–3 кг</th><th>Вес 3–5 кг</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Москва (ЦАО)</td><td>199 ₽</td><td>249 ₽</td><td>299 ₽</td></tr>
+    <tr><td>Санкт-Петербург</td><td>229 ₽</td><td>279 ₽</td><td>329 ₽</td></tr>
+    <tr><td>Екатеринбург</td><td>249 ₽</td><td>299 ₽</td><td>349 ₽</td></tr>
+    <tr><td>Казань</td><td>219 ₽</td><td>269 ₽</td><td>319 ₽</td></tr>
+  </tbody>
+</table></div>
+
+<p>Скрытые расходы:
+<ul>
+  <li>🛒 <strong>Минимальная сумма заказа</strong> — 500 ₽ (иначе Rocket недоступен).</li>
+  <li>📦 <strong>Упаковка</strong> — для Rocket используется специальная эко-упаковка (+10–15 ₽ к стоимости).</li>
+  <li>🔙 <strong>Возврат</strong> — если покупатель возвращает товар, доставленный через Rocket, комиссия за обратную логистику выше на 40%.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При заказе через Rocket <em>Ozon</em> блокирует возможность изменения адреса доставки после оплаты. Это связано с жёсткой привязкой заказа к конкретному МФЦ.</blockquote>
+
+<h2 id="6-как-продавцу-увеличить-продажи-через-rocket-лайфхаки">6. Как продавцу увеличить продажи через Rocket: лайфхаки</h2>
+
+<p>Продавцы, которые эффективно используют <em>Rocket</em>, увеличивают конверсию на 30–40%. Вот проверенные стратегии:
+
+
+<p>Указать в названии "Доставка за 2 часа"|Добавить фото с логотипом Rocket|Установить цену на 5–10% ниже конкурентов|Включить опцию "Подходит для подарка" (увеличивает спрос на 15%)--></p>
+
+<p>Дополнительные фишки:
+<ul>
+  <li>📊 <strong>Аналитика</strong> — в личном кабинете (<code>Аналитика → Rocket</code>) можно увидеть, какие товары чаще заказывают с ускоренной доставкой.</li>
+  <li>🎁 <strong>Бандлы</strong> — комплекты из 2–3 товаров (например, «Зарядка + чехол») увеличивают средний чек.</li>
+  <li>⏱️ <strong>Лайв-таймеры</strong> — указание точного времени доставки («Закажите до 14:30, получите до 16:30») повышает срочность покупки.</li>
+</ul>
+
+<p>Пример успешного кейса: продавец <em>«ЭкоЛайф»</em> увеличил продажи органических продуктов на 120% после подключения к <em>Rocket</em> и добавления в карточки товара фразы <strong>«Свежесть гарантирована — доставка за 2 часа»</strong>.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>Товары с Rocket имеют на 27% выше шанс попасть в «Рекомендуемые» на главной странице Ozon благодаря внутренним алгоритмам продвижения.</p></aside>
+
+<h2 id="7-альтернативы-rocket-сравнение-с-другими-сервисами">7. Альтернативы Rocket: сравнение с другими сервисами</h2>
+
+<p><em>Ozon Rocket</em> — не единственный игрок на рынке сверхбыстрой доставки. Сравним его с аналогами:
+
+<div class="pb-table-wrap"><table>
+  <thead>
+    <tr><th>Сервис</th><th>Срок доставки</th><th>География</th><th>Макс. вес</th><th>Стоимость</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ozon Rocket</td><td>2 часа</td><td>12 городов</td><td>5 кг</td><td>от 199 ₽</td></tr>
+    <tr><td>Яндекс Лавка</td><td>15–30 мин</td><td>Москва, СПб</td><td>3 кг</td><td>от 99 ₽</td></tr>
+    <tr><td>СберМаркет Экспресс</td><td>1 час</td><td>7 городов</td><td>4 кг</td><td>от 249 ₽</td></tr>
+    <tr><td>5ка (Пятёрочка)</td><td>30–60 мин</td><td>Москва, МО</td><td>2 кг</td><td>от 149 ₽</td></tr>
+  </tbody>
+</table></div>
+
+<p>Главное преимущество <em>Rocket</em> — <strong>широкий ассортимент</strong> (не только продукты, как у конкурентов). Однако по скорости он проигрывает <em>Яндекс Лавке</em>, которая доставляет некоторые товары за 15 минут благодаря сети «тёмных магазинов» (складов, расположенных в жилых кварталах).
+
+<p>Для продавцов же <em>Rocket</em> выгоднее, чем аналоги, из-за:
+<ul>
+  <li>📈 Более высокой маржинальности (комиссия ниже, чем у <em>СберМаркета</em>).</li>
+  <li>🛒 Интеграции с основным маркетплейсом (не нужно создавать отдельный каталог, как для <em>Яндекс Лавки</em>).</li>
+  <li>📦 Возможности доставлять непищевые товары (конкуренты фокусируются на продуктах).</li>
+</ul>
+
+<h2 id="8-будущее-rocket-что-ждать-в-20262026-годах">8. Будущее Rocket: что ждать в 2026–2026 годах</h2>
+
+<p>По данным отчёта <em>Ozon</em> за 2023 год, объём заказов через <em>Rocket</em> вырос на 180% по сравнению с 2022-м. В планах компании:
+<ul>
+  <li>🌍 <strong>Расширение географии</strong> — запуск в 5 новых городах (включая Краснодар и Сочи).</li>
+  <li>⏱️ <strong>Ускорение</strong> — тестирование доставки за <strong>1 час</strong> для премиальных покупателей (<em>Ozon Premium</em>).</li>
+  <li>🤖 <strong>Автоматизация</strong> — внедрение роботов на МФЦ для комплектации заказов (пилотный проект стартует в Москве в 2026-м).</li>
+  <li>📱 <strong>AR-примерка</strong> — интеграция с приложением для виртуальной примерки одежды перед заказом.</li>
+</ul>
+
+<p>Также <em>Ozon</em> планирует запустить <strong>«Rocket для бизнеса»</strong> — экспресс-доставку канцтоваров и оргтехники для офисов. Пилотный проект начнётся в Москве во втором квартале 2026 года.
+
+<p>Эксперты отмечают, что главная проблема <em>Rocket</em> — <strong>рентабельность</strong>. По данным <em>RBK</em>, <em>Ozon</em> теряет до 50 ₽ на каждом заказе через Rocket из-за высоких логистических затрат. Однако компания рассматривает это как инвестицию в лояльность покупателей.
+
+<aside class="pb-callout pb-callout-note"><span class="pb-callout-icon">💡</span><p>К 2026 году <em>Ozon</em> планирует довести долю заказов через Rocket до 15% от общего объёма — сегодня этот показатель составляет 7%.</p></aside>
+
+<h2 id="частые-вопросы-о-ozon-rocket">Частые вопросы о Ozon Rocket</h2>
+
+<details>
+  <summary>Можно ли заказать через Rocket, если товар есть на обычном складе, но нет на МФЦ?</summary>
+  <p>Нет. Система автоматически скрывает опцию «2 часа» для товаров, которые физически отсутствуют на микро-фулфилмент центре в вашем городе. Даже если товар есть на центральном складе <em>Ozon</em> в Подмосковье, но нет на МФЦ в Москве, Rocket будет недоступен.</p>
+</details>
+
+<details>
+  <summary>Почему иногда Rocket пропадает из доступных опций доставки?</summary>
+  <p>Это происходит по трём причинам:
+  <ol>
+    <li>Временная перегрузка МФЦ (например, в «чёрную пятницу»).</li>
+    <li>Технические работы на складе.</li>
+    <li>Погодные условия (при температуре ниже -15°C <em>Ozon</em> приостанавливает работу курьеров на электротранспорте).</li>
+  </ol>
+  </p>
+</details>
+
+<details>
+  <summary>Можно ли вернуть товар, доставленный через Rocket, в обычный ПВЗ?</summary>
+  <p>Да, но с нюансами:
+  <ul>
+    <li>Вернуть товар в ПВЗ можно только если он не относится к категории «Продукты питания» или «Косметика».</li>
+    <li>Срок возврата сокращён до 7 дней (против стандартных 14).</li>
+    <li>При возврате удерживается комиссия за обратную логистику (150–300 ₽ в зависимости от веса).</li>
+  </ul>
+  </p>
+</details>
+
+<details>
+  <summary>Как продавцу отследить, сколько заказов пришло через Rocket?</summary>
+  <p>В личном кабинете перейдите в раздел <code>Аналитика → Отчёты → Источники трафика</code>. Там будет отдельный фильтр «Ozon Rocket». Также можно экспортировать данные в Excel через <code>Выгрузки → Заказы по типу доставки</code>.</p>
+</details>
+
+<details>
+  <summary>Правда ли, что Rocket работает только для premium-покупателей?</summary>
+  <p>Нет, это миф. <em>Ozon Rocket</em> доступен всем пользователям, независимо от статуса. Однако владельцы <em>Ozon Premium</em> получают два бонуса:
+  <ul>
+    <li>Бесплатная доставка при заказе от 2 000 ₽ (вместо стандартных 3 000 ₽).</li>
+    <li>Приоритетная обработка заказа (среднее время доставки сокращается на 10–15 минут).</li>
+  </ul>
+  </p>
+</details></div>
+                    
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <section class="pb-related-bottom">
+        <div class="pb-container">
+            <h2 class="pb-related-heading">📖 Читайте также</h2>
+            <div class="pb-related-list"><a href="/articles/k/ka/kak-otsledit-posylku-ozon-iz-za-rubezha.html" class="pb-related-card">
+                <span class="pb-related-title">Как отследить посылку Ozon из-за рубежа: пошаговый гайд 2026</span>
+                <span class="pb-related-desc">Узнайте, как быстро найти международную посылку Ozon по трек-номеру, какие сервисы использовать и чт</span>
+            </a><a href="/articles/k/ka/kak-na-ozone-podtverdit-poluchenie-zakaza.html" class="pb-related-card">
+                <span class="pb-related-title">Как на Озоне подтвердить получение заказа: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Подробное руководство: как подтвердить получение заказа на Озоне через приложение, сайт или СМС. Раз</span>
+            </a><a href="/articles/k/ka/kakie-tovary-mozhno-poluchit-cherez-postamat-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Какие товары можно получить через постаматы Ozon в 2026 году</span>
+                <span class="pb-related-desc">Полный список категорий товаров, доступных для выдачи через постаматы Озон: от электроники до продук</span>
+            </a><a href="/articles/c/ch/chto-takoe-postamat-ozon-i-kak-zabirat.html" class="pb-related-card">
+                <span class="pb-related-title">Что такое постамат Ozon и как забрать заказ: инструкция</span>
+                <span class="pb-related-desc">Полное руководство: как пользоваться постаматом Озон. Сроки хранения, пошаговая инструкция получения</span>
+            </a><a href="/articles/k/ka/kak-najti-kurera-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как найти курьера Ozon: поиск, отслеживание и связь</span>
+                <span class="pb-related-desc">Узнайте, как быстро найти курьера Ozon на карте. Инструкция по отслеживанию через приложение, связь </span>
+            </a><a href="/articles/k/ka/kak-zabrat-iz-pochtomata-ozon.html" class="pb-related-card">
+                <span class="pb-related-title">Как забрать из почтомата Ozon: пошаговая инструкция 2026</span>
+                <span class="pb-related-desc">Узнайте, как забрать из почтомата Ozon заказ. Коды, QR-коды, сроки хранения и действия при проблемах</span>
+            </a></div>
+        </div>
+    </section>
+
+    <footer class="pb-footer">
+        <div class="pb-container">
+            <div class="pb-footer-top">
+                <div class="pb-footer-brand">🛍️ Об Озоне</div>
+                <p class="pb-footer-desc"></p>
+            </div>
+            <div class="pb-footer-links">
+                <div class="pb-footer-cats"><a href="/category/pokupki-i-oplata/">💳 Покупки и Оплата</a> · <a href="/category/dostavka-i-pvz/">🚚 Доставка и ПВЗ</a> · <a href="/category/start-dlya-sellera/">🚀 Старт для Селлера</a> · <a href="/category/zagruzka-tovarov/">📦 Загрузка Товаров</a> · <a href="/category/skhemy-fbs-i-fbo/">🏭 Схемы FBS и FBO</a> · <a href="/category/vozvraty-i-obmen/">🔄 Возвраты и Обмен</a></div>
+                <div class="pb-footer-info">
+                    <a href="/">Главная</a> · 
+                    <a href="/about.html">О проекте</a> · 
+                    <a href="/contact.html">Контакты</a> · 
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </div>
+            </div>
+            <div class="pb-footer-bottom">
+                <p>© Об Озоне. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="pb-cookie">
+        <div class="pb-cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="pb-cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    document.getElementById('pbMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('pbMainNav')?.classList.toggle('pb-nav-open');
+    });
+    // Dropdown menu toggle (click for touch devices)
+    document.querySelectorAll('.pb-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            btn.closest('.pb-nav-dropdown').classList.toggle('pb-dd-open');
+        });
+    });
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.pb-nav-dropdown.pb-dd-open').forEach(d => d.classList.remove('pb-dd-open'));
+    });
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            setTimeout(() => popup.classList.add('pb-cookie-visible'), 1500);
+            btn.onclick = () => { localStorage.setItem('cookie-accepted','true'); popup.classList.remove('pb-cookie-visible'); };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.pb-poll');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.pb-poll-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.pb-poll-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.pb-poll-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>
