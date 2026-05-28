@@ -19,7 +19,8 @@
     function insertOzonDisclaimer() {
         var path = window.location.pathname;
         if (path === '/' || path === '/index.html') {
-            insertAfter(document.querySelector('.pb-hp-hero h1'));
+            insertAfter(document.querySelector('.pb-hp-hero-desc') || document.querySelector('.pb-hp-hero h1'));
+            document.querySelector('.pb-official-disclaimer')?.classList.add('pb-official-disclaimer-home');
             return;
         }
 
